@@ -1,0 +1,460 @@
+??0AMSGPrinter@lib@idgn@@IEAA@XZ -> protected: __cdecl idgn::lib::AMSGPrinter::AMSGPrinter(void) __ptr64
+??0AMSGPrinter@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::AMSGPrinter::AMSGPrinter(class idgn::lib::AMSGPrinter const & __ptr64) __ptr64
+??0CProfileReporter@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::CProfileReporter::CProfileReporter(class idgn::lib::CProfileReporter const & __ptr64) __ptr64
+??0CProfileReporter@lib@idgn@@QEAA@PEAVFProfilePrinterAdaptor@12@H@Z -> public: __cdecl idgn::lib::CProfileReporter::CProfileReporter(class idgn::lib::FProfilePrinterAdaptor * __ptr64,int) __ptr64
+??0CProfileReporter@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::CProfileReporter::CProfileReporter(void) __ptr64
+??0CSimpleMemMgr@idgn@@QEAA@HJ@Z -> public: __cdecl idgn::CSimpleMemMgr::CSimpleMemMgr(int,long) __ptr64
+??0FCallStackDumpper@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FCallStackDumpper::FCallStackDumpper(class idgn::lib::FCallStackDumpper const & __ptr64) __ptr64
+??0FCallStackDumpper@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FCallStackDumpper::FCallStackDumpper(void) __ptr64
+??0FColor@lib@idgn@@QEAA@KE@Z -> public: __cdecl idgn::lib::FColor::FColor(unsigned long,unsigned char) __ptr64
+??0FColor@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FColor::FColor(void) __ptr64
+??0FColorGenerator@idgn@@QEAA@AEBV01@@Z -> public: __cdecl idgn::FColorGenerator::FColorGenerator(class idgn::FColorGenerator const & __ptr64) __ptr64
+??0FColorGenerator@idgn@@QEAA@XZ -> public: __cdecl idgn::FColorGenerator::FColorGenerator(void) __ptr64
+??0FConvertString@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FConvertString::FConvertString(class idgn::lib::FConvertString const & __ptr64) __ptr64
+??0FConvertString@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FConvertString::FConvertString(void) __ptr64
+??0FFileCtrl@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FFileCtrl::FFileCtrl(class idgn::lib::FFileCtrl const & __ptr64) __ptr64
+??0FFileCtrl@lib@idgn@@QEAA@PEB_W@Z -> public: __cdecl idgn::lib::FFileCtrl::FFileCtrl(wchar_t const * __ptr64) __ptr64
+??0FFileCtrl@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FFileCtrl::FFileCtrl(void) __ptr64
+??0FFixedSizeMemMgr@idgn@@QEAA@HJ@Z -> public: __cdecl idgn::FFixedSizeMemMgr::FFixedSizeMemMgr(int,long) __ptr64
+??0FInputMemoryFile@@QEAA@PEB_W@Z -> public: __cdecl FInputMemoryFile::FInputMemoryFile(wchar_t const * __ptr64) __ptr64
+??0FLocaleLib@idgn@@QEAA@AEBV01@@Z -> public: __cdecl idgn::FLocaleLib::FLocaleLib(class idgn::FLocaleLib const & __ptr64) __ptr64
+??0FLocaleLib@idgn@@QEAA@XZ -> public: __cdecl idgn::FLocaleLib::FLocaleLib(void) __ptr64
+??0FMSGFunction@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FMSGFunction::FMSGFunction(class idgn::lib::FMSGFunction const & __ptr64) __ptr64
+??0FMSGFunction@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FMSGFunction::FMSGFunction(void) __ptr64
+??0FMSGParser@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FMSGParser::FMSGParser(class idgn::lib::FMSGParser const & __ptr64) __ptr64
+??0FMSGParser@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FMSGParser::FMSGParser(void) __ptr64
+??0FMbcsTextFileWithBuffer@@QEAA@H@Z -> public: __cdecl FMbcsTextFileWithBuffer::FMbcsTextFileWithBuffer(int) __ptr64
+??0FMemoryFile@@QEAA@PEB_WW4e_open_mode@0@@Z -> public: __cdecl FMemoryFile::FMemoryFile(wchar_t const * __ptr64,enum FMemoryFile::e_open_mode) __ptr64
+??0FObserver@lib@idgn@@QEAA@PEAVAObserver@idgn_interface@@@Z -> public: __cdecl idgn::lib::FObserver::FObserver(class idgn_interface::AObserver * __ptr64) __ptr64
+??0FProcessCommunicator@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FProcessCommunicator::FProcessCommunicator(void) __ptr64
+??0FProcessMgr@lib@idgn@@IEAA@XZ -> protected: __cdecl idgn::lib::FProcessMgr::FProcessMgr(void) __ptr64
+??0FProduct@idgn@@QEAA@AEBV01@@Z -> public: __cdecl idgn::FProduct::FProduct(class idgn::FProduct const & __ptr64) __ptr64
+??0FProduct@idgn@@QEAA@XZ -> public: __cdecl idgn::FProduct::FProduct(void) __ptr64
+??0FProfileMgr@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FProfileMgr::FProfileMgr(void) __ptr64
+??0FProfilePrinterAdaptor@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FProfilePrinterAdaptor::FProfilePrinterAdaptor(class idgn::lib::FProfilePrinterAdaptor const & __ptr64) __ptr64
+??0FProfilePrinterAdaptor@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FProfilePrinterAdaptor::FProfilePrinterAdaptor(void) __ptr64
+??0FProfileStart@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FProfileStart::FProfileStart(class idgn::lib::FProfileStart const & __ptr64) __ptr64
+??0FProfileStart@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FProfileStart::FProfileStart(void) __ptr64
+??0FProfileWrite@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FProfileWrite::FProfileWrite(class idgn::lib::FProfileWrite const & __ptr64) __ptr64
+??0FProfileWrite@lib@idgn@@QEAA@PEAD@Z -> public: __cdecl idgn::lib::FProfileWrite::FProfileWrite(char * __ptr64) __ptr64
+??0FProfiler2@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FProfiler2::FProfiler2(void) __ptr64
+??0FProfiler@lib@idgn@@QEAA@PEB_WH0@Z -> public: __cdecl idgn::lib::FProfiler::FProfiler(wchar_t const * __ptr64,int,wchar_t const * __ptr64) __ptr64
+??0FRegistry@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FRegistry::FRegistry(class idgn::lib::FRegistry const & __ptr64) __ptr64
+??0FRegistry@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FRegistry::FRegistry(void) __ptr64
+??0FSpecialChar@lib@idgn@@IEAA@XZ -> protected: __cdecl idgn::lib::FSpecialChar::FSpecialChar(void) __ptr64
+??0FSpecialChar@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FSpecialChar::FSpecialChar(class idgn::lib::FSpecialChar const & __ptr64) __ptr64
+??0FStringToken@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FStringToken::FStringToken(class idgn::lib::FStringToken const & __ptr64) __ptr64
+??0FStringToken@lib@idgn@@QEAA@PEB_W0@Z -> public: __cdecl idgn::lib::FStringToken::FStringToken(wchar_t const * __ptr64,wchar_t const * __ptr64) __ptr64
+??0FSubject@lib@idgn@@QEAA@PEAVASubject@idgn_interface@@@Z -> public: __cdecl idgn::lib::FSubject::FSubject(class idgn_interface::ASubject * __ptr64) __ptr64
+??0FTestEnvMgr@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FTestEnvMgr::FTestEnvMgr(void) __ptr64
+??0FTextFileBase@@QEAA@PEAU_iobuf@@@Z -> public: __cdecl FTextFileBase::FTextFileBase(struct _iobuf * __ptr64) __ptr64
+??0FTextFileBase@@QEAA@XZ -> public: __cdecl FTextFileBase::FTextFileBase(void) __ptr64
+??0FTextFileWithBuffer@@QEAA@AEBV0@@Z -> public: __cdecl FTextFileWithBuffer::FTextFileWithBuffer(class FTextFileWithBuffer const & __ptr64) __ptr64
+??0FTextFileWithBuffer@@QEAA@H@Z -> public: __cdecl FTextFileWithBuffer::FTextFileWithBuffer(int) __ptr64
+??0FUnicodeTextFileWithBuffer@@QEAA@H@Z -> public: __cdecl FUnicodeTextFileWithBuffer::FUnicodeTextFileWithBuffer(int) __ptr64
+??0FUnicodeTextFileWithBuffer@@QEAA@PEAU_iobuf@@IH@Z -> public: __cdecl FUnicodeTextFileWithBuffer::FUnicodeTextFileWithBuffer(struct _iobuf * __ptr64,unsigned int,int) __ptr64
+??0FUnitCtrl@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FUnitCtrl::FUnitCtrl(class idgn::lib::FUnitCtrl const & __ptr64) __ptr64
+??0FUnitCtrl@lib@idgn@@QEAA@PEAVCDocument@@@Z -> public: __cdecl idgn::lib::FUnitCtrl::FUnitCtrl(class CDocument * __ptr64) __ptr64
+??0FWebUtil@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::FWebUtil::FWebUtil(class idgn::lib::FWebUtil const & __ptr64) __ptr64
+??0FWebUtil@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FWebUtil::FWebUtil(void) __ptr64
+??1AMSGPrinter@lib@idgn@@MEAA@XZ -> protected: virtual __cdecl idgn::lib::AMSGPrinter::~AMSGPrinter(void) __ptr64
+??1CProfileReporter@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::CProfileReporter::~CProfileReporter(void) __ptr64
+??1CSimpleMemMgr@idgn@@QEAA@XZ -> public: __cdecl idgn::CSimpleMemMgr::~CSimpleMemMgr(void) __ptr64
+??1FCallStackDumpper@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FCallStackDumpper::~FCallStackDumpper(void) __ptr64
+??1FColorGenerator@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::FColorGenerator::~FColorGenerator(void) __ptr64
+??1FConvertString@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FConvertString::~FConvertString(void) __ptr64
+??1FFileCtrl@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FFileCtrl::~FFileCtrl(void) __ptr64
+??1FFixedSizeMemMgr@idgn@@QEAA@XZ -> public: __cdecl idgn::FFixedSizeMemMgr::~FFixedSizeMemMgr(void) __ptr64
+??1FInputMemoryFile@@QEAA@XZ -> public: __cdecl FInputMemoryFile::~FInputMemoryFile(void) __ptr64
+??1FLocaleLib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::FLocaleLib::~FLocaleLib(void) __ptr64
+??1FMSGFunction@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FMSGFunction::~FMSGFunction(void) __ptr64
+??1FMSGParser@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FMSGParser::~FMSGParser(void) __ptr64
+??1FMbcsTextFileWithBuffer@@UEAA@XZ -> public: virtual __cdecl FMbcsTextFileWithBuffer::~FMbcsTextFileWithBuffer(void) __ptr64
+??1FMemoryFile@@QEAA@XZ -> public: __cdecl FMemoryFile::~FMemoryFile(void) __ptr64
+??1FObserver@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FObserver::~FObserver(void) __ptr64
+??1FProcessCommunicator@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FProcessCommunicator::~FProcessCommunicator(void) __ptr64
+??1FProcessMgr@lib@idgn@@IEAA@XZ -> protected: __cdecl idgn::lib::FProcessMgr::~FProcessMgr(void) __ptr64
+??1FProduct@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::FProduct::~FProduct(void) __ptr64
+??1FProfileMgr@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FProfileMgr::~FProfileMgr(void) __ptr64
+??1FProfilePrinterAdaptor@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FProfilePrinterAdaptor::~FProfilePrinterAdaptor(void) __ptr64
+??1FProfileStart@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FProfileStart::~FProfileStart(void) __ptr64
+??1FProfileWrite@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FProfileWrite::~FProfileWrite(void) __ptr64
+??1FProfiler2@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FProfiler2::~FProfiler2(void) __ptr64
+??1FProfiler@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FProfiler::~FProfiler(void) __ptr64
+??1FRegistry@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FRegistry::~FRegistry(void) __ptr64
+??1FSpecialChar@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FSpecialChar::~FSpecialChar(void) __ptr64
+??1FStringToken@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::FStringToken::~FStringToken(void) __ptr64
+??1FSubject@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FSubject::~FSubject(void) __ptr64
+??1FTestEnvMgr@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FTestEnvMgr::~FTestEnvMgr(void) __ptr64
+??1FTextFileBase@@UEAA@XZ -> public: virtual __cdecl FTextFileBase::~FTextFileBase(void) __ptr64
+??1FTextFileWithBuffer@@UEAA@XZ -> public: virtual __cdecl FTextFileWithBuffer::~FTextFileWithBuffer(void) __ptr64
+??1FUnicodeTextFileWithBuffer@@UEAA@XZ -> public: virtual __cdecl FUnicodeTextFileWithBuffer::~FUnicodeTextFileWithBuffer(void) __ptr64
+??1FUnitCtrl@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FUnitCtrl::~FUnitCtrl(void) __ptr64
+??1FWebUtil@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::FWebUtil::~FWebUtil(void) __ptr64
+??4AMSGPrinter@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::AMSGPrinter & __ptr64 __cdecl idgn::lib::AMSGPrinter::operator=(class idgn::lib::AMSGPrinter const & __ptr64) __ptr64
+??4CProfileReporter@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::CProfileReporter & __ptr64 __cdecl idgn::lib::CProfileReporter::operator=(class idgn::lib::CProfileReporter const & __ptr64) __ptr64
+??4CSimpleMemMgr@idgn@@QEAAAEAV01@AEBV01@@Z -> public: class idgn::CSimpleMemMgr & __ptr64 __cdecl idgn::CSimpleMemMgr::operator=(class idgn::CSimpleMemMgr const & __ptr64) __ptr64
+??4FCallStackDumpper@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FCallStackDumpper & __ptr64 __cdecl idgn::lib::FCallStackDumpper::operator=(class idgn::lib::FCallStackDumpper const & __ptr64) __ptr64
+??4FColor@lib@idgn@@QEAAAEAV012@$$QEAV012@@Z -> public: class idgn::lib::FColor & __ptr64 __cdecl idgn::lib::FColor::operator=(class idgn::lib::FColor && __ptr64) __ptr64
+??4FColor@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FColor & __ptr64 __cdecl idgn::lib::FColor::operator=(class idgn::lib::FColor const & __ptr64) __ptr64
+??4FColorGenerator@idgn@@QEAAAEAV01@AEBV01@@Z -> public: class idgn::FColorGenerator & __ptr64 __cdecl idgn::FColorGenerator::operator=(class idgn::FColorGenerator const & __ptr64) __ptr64
+??4FConvertString@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FConvertString & __ptr64 __cdecl idgn::lib::FConvertString::operator=(class idgn::lib::FConvertString const & __ptr64) __ptr64
+??4FFileCtrl@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FFileCtrl & __ptr64 __cdecl idgn::lib::FFileCtrl::operator=(class idgn::lib::FFileCtrl const & __ptr64) __ptr64
+??4FFixedSizeMemMgr@idgn@@QEAAAEAV01@AEBV01@@Z -> public: class idgn::FFixedSizeMemMgr & __ptr64 __cdecl idgn::FFixedSizeMemMgr::operator=(class idgn::FFixedSizeMemMgr const & __ptr64) __ptr64
+??4FInputMemoryFile@@QEAAAEAV0@AEBV0@@Z -> public: class FInputMemoryFile & __ptr64 __cdecl FInputMemoryFile::operator=(class FInputMemoryFile const & __ptr64) __ptr64
+??4FLocaleLib@idgn@@QEAAAEAV01@AEBV01@@Z -> public: class idgn::FLocaleLib & __ptr64 __cdecl idgn::FLocaleLib::operator=(class idgn::FLocaleLib const & __ptr64) __ptr64
+??4FMSGFunction@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FMSGFunction & __ptr64 __cdecl idgn::lib::FMSGFunction::operator=(class idgn::lib::FMSGFunction const & __ptr64) __ptr64
+??4FMSGParser@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FMSGParser & __ptr64 __cdecl idgn::lib::FMSGParser::operator=(class idgn::lib::FMSGParser const & __ptr64) __ptr64
+??4FMemoryFile@@QEAAAEAV0@AEBV0@@Z -> public: class FMemoryFile & __ptr64 __cdecl FMemoryFile::operator=(class FMemoryFile const & __ptr64) __ptr64
+??4FProcessMgr@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FProcessMgr & __ptr64 __cdecl idgn::lib::FProcessMgr::operator=(class idgn::lib::FProcessMgr const & __ptr64) __ptr64
+??4FProduct@idgn@@QEAAAEAV01@AEBV01@@Z -> public: class idgn::FProduct & __ptr64 __cdecl idgn::FProduct::operator=(class idgn::FProduct const & __ptr64) __ptr64
+??4FProfilePrinterAdaptor@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FProfilePrinterAdaptor & __ptr64 __cdecl idgn::lib::FProfilePrinterAdaptor::operator=(class idgn::lib::FProfilePrinterAdaptor const & __ptr64) __ptr64
+??4FProfileStart@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FProfileStart & __ptr64 __cdecl idgn::lib::FProfileStart::operator=(class idgn::lib::FProfileStart const & __ptr64) __ptr64
+??4FProfileWrite@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FProfileWrite & __ptr64 __cdecl idgn::lib::FProfileWrite::operator=(class idgn::lib::FProfileWrite const & __ptr64) __ptr64
+??4FProfiler@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FProfiler & __ptr64 __cdecl idgn::lib::FProfiler::operator=(class idgn::lib::FProfiler const & __ptr64) __ptr64
+??4FRegistry@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FRegistry & __ptr64 __cdecl idgn::lib::FRegistry::operator=(class idgn::lib::FRegistry const & __ptr64) __ptr64
+??4FSpecialChar@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FSpecialChar & __ptr64 __cdecl idgn::lib::FSpecialChar::operator=(class idgn::lib::FSpecialChar const & __ptr64) __ptr64
+??4FStringToken@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FStringToken & __ptr64 __cdecl idgn::lib::FStringToken::operator=(class idgn::lib::FStringToken const & __ptr64) __ptr64
+??4FTextFileWithBuffer@@QEAAAEAV0@AEBV0@@Z -> public: class FTextFileWithBuffer & __ptr64 __cdecl FTextFileWithBuffer::operator=(class FTextFileWithBuffer const & __ptr64) __ptr64
+??4FUnitCtrl@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FUnitCtrl & __ptr64 __cdecl idgn::lib::FUnitCtrl::operator=(class idgn::lib::FUnitCtrl const & __ptr64) __ptr64
+??4FWebUtil@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::FWebUtil & __ptr64 __cdecl idgn::lib::FWebUtil::operator=(class idgn::lib::FWebUtil const & __ptr64) __ptr64
+??BFColor@lib@idgn@@QEBAKXZ -> public: __cdecl idgn::lib::FColor::operator unsigned long(void)const __ptr64
+??_7AMSGPrinter@lib@idgn@@6B@ -> const idgn::lib::AMSGPrinter::`vftable'
+??_7CProfileReporter@lib@idgn@@6B@ -> const idgn::lib::CProfileReporter::`vftable'
+??_7FColorGenerator@idgn@@6B@ -> const idgn::FColorGenerator::`vftable'
+??_7FConvertString@lib@idgn@@6B@ -> const idgn::lib::FConvertString::`vftable'
+??_7FFileCtrl@lib@idgn@@6B@ -> const idgn::lib::FFileCtrl::`vftable'
+??_7FLocaleLib@idgn@@6B@ -> const idgn::FLocaleLib::`vftable'
+??_7FMSGFunction@lib@idgn@@6B@ -> const idgn::lib::FMSGFunction::`vftable'
+??_7FMSGParser@lib@idgn@@6B@ -> const idgn::lib::FMSGParser::`vftable'
+??_7FMbcsTextFileWithBuffer@@6B@ -> const FMbcsTextFileWithBuffer::`vftable'
+??_7FObserver@lib@idgn@@6B@ -> const idgn::lib::FObserver::`vftable'
+??_7FProcessCommunicator@lib@idgn@@6B@ -> const idgn::lib::FProcessCommunicator::`vftable'
+??_7FProduct@idgn@@6B@ -> const idgn::FProduct::`vftable'
+??_7FProfilePrinterAdaptor@lib@idgn@@6B@ -> const idgn::lib::FProfilePrinterAdaptor::`vftable'
+??_7FProfileStart@lib@idgn@@6B@ -> const idgn::lib::FProfileStart::`vftable'
+??_7FProfileWrite@lib@idgn@@6B@ -> const idgn::lib::FProfileWrite::`vftable'
+??_7FProfiler2@lib@idgn@@6B@ -> const idgn::lib::FProfiler2::`vftable'
+??_7FRegistry@lib@idgn@@6B@ -> const idgn::lib::FRegistry::`vftable'
+??_7FSubject@lib@idgn@@6B@ -> const idgn::lib::FSubject::`vftable'
+??_7FTestEnvMgr@lib@idgn@@6B@ -> const idgn::lib::FTestEnvMgr::`vftable'
+??_7FTextFileBase@@6B@ -> const FTextFileBase::`vftable'
+??_7FTextFileWithBuffer@@6B@ -> const FTextFileWithBuffer::`vftable'
+??_7FUnicodeTextFileWithBuffer@@6B@ -> const FUnicodeTextFileWithBuffer::`vftable'
+??_7FUnitCtrl@lib@idgn@@6B@ -> const idgn::lib::FUnitCtrl::`vftable'
+??_7FWebUtil@lib@idgn@@6B@ -> const idgn::lib::FWebUtil::`vftable'
+??_FFMbcsTextFileWithBuffer@@QEAAXXZ -> public: void __cdecl FMbcsTextFileWithBuffer::`default constructor closure'(void) __ptr64
+??_FFTextFileWithBuffer@@QEAAXXZ -> public: void __cdecl FTextFileWithBuffer::`default constructor closure'(void) __ptr64
+??_FFUnicodeTextFileWithBuffer@@QEAAXXZ -> public: void __cdecl FUnicodeTextFileWithBuffer::`default constructor closure'(void) __ptr64
+?A@FColor@lib@idgn@@QEBAEXZ -> public: unsigned char __cdecl idgn::lib::FColor::A(void)const __ptr64
+?AddFile@FMSGFunction@lib@idgn@@SAXPEB_W@Z -> public: static void __cdecl idgn::lib::FMSGFunction::AddFile(wchar_t const * __ptr64)
+?AddPath@FMSGParser@lib@idgn@@IEAAXPEB_W@Z -> protected: void __cdecl idgn::lib::FMSGParser::AddPath(wchar_t const * __ptr64) __ptr64
+?AddProfileST@FProfileStart@lib@idgn@@SAXH@Z -> public: static void __cdecl idgn::lib::FProfileStart::AddProfileST(int)
+?AfterPrint@FProfilePrinterAdaptor@lib@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::lib::FProfilePrinterAdaptor::AfterPrint(void) __ptr64
+?Alloc@CSimpleMemMgr@idgn@@QEAAPEAXXZ -> public: void * __ptr64 __cdecl idgn::CSimpleMemMgr::Alloc(void) __ptr64
+?Alloc@FFixedSizeMemMgr@idgn@@QEAAPEAXXZ -> public: void * __ptr64 __cdecl idgn::FFixedSizeMemMgr::Alloc(void) __ptr64
+?AllowMACAddress@FWebUtil@lib@idgn@@2V?$vector@UFMACAddr@lib@idgn@@V?$allocator@UFMACAddr@lib@idgn@@@std@@@std@@A -> public: static class std::vector<struct idgn::lib::FMACAddr,class std::allocator<struct idgn::lib::FMACAddr> > idgn::lib::FWebUtil::AllowMACAddress
+?AttachObserver@FSubject@lib@idgn@@QEAAHPEAVAObserver@idgn_interface@@@Z -> public: int __cdecl idgn::lib::FSubject::AttachObserver(class idgn_interface::AObserver * __ptr64) __ptr64
+?AttachToSubject@FObserver@lib@idgn@@QEAAHPEAVASubject@idgn_interface@@@Z -> public: int __cdecl idgn::lib::FObserver::AttachToSubject(class idgn_interface::ASubject * __ptr64) __ptr64
+?B@FColor@lib@idgn@@QEBAEXZ -> public: unsigned char __cdecl idgn::lib::FColor::B(void)const __ptr64
+?BeforePrint@FProfilePrinterAdaptor@lib@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::lib::FProfilePrinterAdaptor::BeforePrint(void) __ptr64
+?CalledST@FProfileMgr@lib@idgn@@KAXPEB_WH0_J@Z -> protected: static void __cdecl idgn::lib::FProfileMgr::CalledST(wchar_t const * __ptr64,int,wchar_t const * __ptr64,__int64)
+?Clear@FMSGParser@lib@idgn@@IEAAXXZ -> protected: void __cdecl idgn::lib::FMSGParser::Clear(void) __ptr64
+?ClearFile@FCallStackDumpper@lib@idgn@@QEAAXXZ -> public: void __cdecl idgn::lib::FCallStackDumpper::ClearFile(void) __ptr64
+?ClearProfileDataST@FProfileMgr@lib@idgn@@SAXPEAHH@Z -> public: static void __cdecl idgn::lib::FProfileMgr::ClearProfileDataST(int * __ptr64,int)
+?ClearProfileDataST@FProfileMgr@lib@idgn@@SAXXZ -> public: static void __cdecl idgn::lib::FProfileMgr::ClearProfileDataST(void)
+?Close@FMbcsTextFileWithBuffer@@UEAAXXZ -> public: virtual void __cdecl FMbcsTextFileWithBuffer::Close(void) __ptr64
+?Close@FTextFileWithBuffer@@QEAAXXZ -> public: void __cdecl FTextFileWithBuffer::Close(void) __ptr64
+?Close@FUnicodeTextFileWithBuffer@@UEAAXXZ -> public: virtual void __cdecl FUnicodeTextFileWithBuffer::Close(void) __ptr64
+?CompareProfileDataST@FProfileMgr@lib@idgn@@KAHPEBX0@Z -> protected: static int __cdecl idgn::lib::FProfileMgr::CompareProfileDataST(void const * __ptr64,void const * __ptr64)
+?Conv2DianaString@FSpecialChar@lib@idgn@@QEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl idgn::lib::FSpecialChar::Conv2DianaString(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?ConvValueTgtUnit2CurUnit@FUnitCtrl@lib@idgn@@UEAANHHHN@Z -> public: virtual double __cdecl idgn::lib::FUnitCtrl::ConvValueTgtUnit2CurUnit(int,int,int,double) __ptr64
+?ConvertCurUnitData2TgtUnit@FUnitCtrl@lib@idgn@@QEAANHHHN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertCurUnitData2TgtUnit(int,int,int,double) __ptr64
+?ConvertMassToWeight@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertMassToWeight(double) __ptr64
+?ConvertSrcUnitData2TgtUnit@FUnitCtrl@lib@idgn@@QEAANHHHHHN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertSrcUnitData2TgtUnit(int,int,int,int,int,double) __ptr64
+?ConvertTgtUnitData2CurUnit@FUnitCtrl@lib@idgn@@QEAANHHHHHHN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertTgtUnitData2CurUnit(int,int,int,int,int,int,double) __ptr64
+?ConvertTgtUnitData2CurUnit@FUnitCtrl@lib@idgn@@QEAANHHHN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertTgtUnitData2CurUnit(int,int,int,double) __ptr64
+?ConvertTgtUnitData2CurUnitArray@FUnitCtrl@lib@idgn@@QEAAXHHHAEAV?$FArray@N@3@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::ConvertTgtUnitData2CurUnitArray(int,int,int,class idgn::FArray<double> & __ptr64) __ptr64
+?ConvertToHSV@FColor@lib@idgn@@SAXMMMPEAM00@Z -> public: static void __cdecl idgn::lib::FColor::ConvertToHSV(float,float,float,float * __ptr64,float * __ptr64,float * __ptr64)
+?ConvertToRGB@FColor@lib@idgn@@SAXMMMPEAM00@Z -> public: static void __cdecl idgn::lib::FColor::ConvertToRGB(float,float,float,float * __ptr64,float * __ptr64,float * __ptr64)
+?ConvertUnitDataIn@FUnitCtrl@lib@idgn@@QEAANHN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitDataIn(int,double) __ptr64
+?ConvertUnitDataOut@FUnitCtrl@lib@idgn@@QEAANHN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitDataOut(int,double) __ptr64
+?ConvertUnitDataPrevious@FUnitCtrl@lib@idgn@@QEAANHN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitDataPrevious(int,double) __ptr64
+?ConvertUnitEnergyIn@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitEnergyIn(double) __ptr64
+?ConvertUnitEnergyOut@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitEnergyOut(double) __ptr64
+?ConvertUnitEnergyPrevious@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitEnergyPrevious(double) __ptr64
+?ConvertUnitForceIn@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitForceIn(double) __ptr64
+?ConvertUnitForceOut@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitForceOut(double) __ptr64
+?ConvertUnitForcePrevious@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitForcePrevious(double) __ptr64
+?ConvertUnitLengthIn@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitLengthIn(double) __ptr64
+?ConvertUnitLengthOut@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitLengthOut(double) __ptr64
+?ConvertUnitLengthPrevious@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitLengthPrevious(double) __ptr64
+?ConvertUnitTimeIn@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitTimeIn(double) __ptr64
+?ConvertUnitTimeOut@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitTimeOut(double) __ptr64
+?ConvertUnitTimePrevious@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertUnitTimePrevious(double) __ptr64
+?ConvertUnitVectorIn@FUnitCtrl@lib@idgn@@QEAAXAEAU?$FVector@N$02@3@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::ConvertUnitVectorIn(struct idgn::FVector<double,3> & __ptr64) __ptr64
+?ConvertUnitVectorOut@FUnitCtrl@lib@idgn@@QEAAXAEAU?$FVector@N$02@3@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::ConvertUnitVectorOut(struct idgn::FVector<double,3> & __ptr64) __ptr64
+?ConvertUnitVectorPrevious@FUnitCtrl@lib@idgn@@QEAAXAEAU?$FVector@N$02@3@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::ConvertUnitVectorPrevious(struct idgn::FVector<double,3> & __ptr64) __ptr64
+?ConvertWeightToMass@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::ConvertWeightToMass(double) __ptr64
+?CopyFileW@FFileCtrl@lib@idgn@@SAHPEB_W0@Z -> public: static int __cdecl idgn::lib::FFileCtrl::CopyFileW(wchar_t const * __ptr64,wchar_t const * __ptr64)
+?CreateShortcut@FFileCtrl@lib@idgn@@SAHPEB_W0000HGH@Z -> public: static int __cdecl idgn::lib::FFileCtrl::CreateShortcut(wchar_t const * __ptr64,wchar_t const * __ptr64,wchar_t const * __ptr64,wchar_t const * __ptr64,wchar_t const * __ptr64,int,unsigned short,int)
+?DeleteRegKey@FRegistry@lib@idgn@@SAHPEB_W00@Z -> public: static int __cdecl idgn::lib::FRegistry::DeleteRegKey(wchar_t const * __ptr64,wchar_t const * __ptr64,wchar_t const * __ptr64)
+?DestroyInstance@FProfiler2@lib@idgn@@SAXXZ -> public: static void __cdecl idgn::lib::FProfiler2::DestroyInstance(void)
+?DetachFromSubject@FObserver@lib@idgn@@QEAAHPEAVASubject@idgn_interface@@@Z -> public: int __cdecl idgn::lib::FObserver::DetachFromSubject(class idgn_interface::ASubject * __ptr64) __ptr64
+?DetachObserver@FSubject@lib@idgn@@QEAAHPEAVAObserver@idgn_interface@@@Z -> public: int __cdecl idgn::lib::FSubject::DetachObserver(class idgn_interface::AObserver * __ptr64) __ptr64
+?DgnActiveMessageWnd@@YAXPEAVCDocument@@@Z -> void __cdecl DgnActiveMessageWnd(class CDocument * __ptr64)
+?DgnActiveSessionWnd@@YAXPEAVCDocument@@@Z -> void __cdecl DgnActiveSessionWnd(class CDocument * __ptr64)
+?DgnMsgClear@@YAXPEAVCDocument@@@Z -> void __cdecl DgnMsgClear(class CDocument * __ptr64)
+?DgnMsgOut@@YAXPEAVCDocument@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOut(class CDocument * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOut@@YAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOut(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutD@@YAXPEAVCDocument@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutD(class CDocument * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutD@@YAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutD(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutError@@YAXPEAVCDocument@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutError(class CDocument * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutError@@YAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutError(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutFormat@@YAXPEAVCDocument@@PEB_WZZ -> void __cdecl DgnMsgOutFormat(class CDocument * __ptr64,wchar_t const * __ptr64,...)
+?DgnMsgOutFormat@@YAXPEB_WZZ -> void __cdecl DgnMsgOutFormat(wchar_t const * __ptr64,...)
+?DgnMsgOutFormatD@@YAXPEAVCDocument@@PEB_WZZ -> void __cdecl DgnMsgOutFormatD(class CDocument * __ptr64,wchar_t const * __ptr64,...)
+?DgnMsgOutFormatD@@YAXPEB_WZZ -> void __cdecl DgnMsgOutFormatD(wchar_t const * __ptr64,...)
+?DgnMsgOutFormatError@@YAXPEAVCDocument@@PEB_WZZ -> void __cdecl DgnMsgOutFormatError(class CDocument * __ptr64,wchar_t const * __ptr64,...)
+?DgnMsgOutFormatError@@YAXPEB_WZZ -> void __cdecl DgnMsgOutFormatError(wchar_t const * __ptr64,...)
+?DgnMsgOutFormatWarning@@YAXPEAVCDocument@@PEB_WZZ -> void __cdecl DgnMsgOutFormatWarning(class CDocument * __ptr64,wchar_t const * __ptr64,...)
+?DgnMsgOutFormatWarning@@YAXPEB_WZZ -> void __cdecl DgnMsgOutFormatWarning(wchar_t const * __ptr64,...)
+?DgnMsgOutSamePosFormat@@YAXPEAVCDocument@@PEB_WZZ -> void __cdecl DgnMsgOutSamePosFormat(class CDocument * __ptr64,wchar_t const * __ptr64,...)
+?DgnMsgOutSamePosFormat@@YAXPEB_WZZ -> void __cdecl DgnMsgOutSamePosFormat(wchar_t const * __ptr64,...)
+?DgnMsgOutSamePosFormatD@@YAXPEAVCDocument@@PEB_WZZ -> void __cdecl DgnMsgOutSamePosFormatD(class CDocument * __ptr64,wchar_t const * __ptr64,...)
+?DgnMsgOutSamePosFormatD@@YAXPEB_WZZ -> void __cdecl DgnMsgOutSamePosFormatD(wchar_t const * __ptr64,...)
+?DgnMsgOutSamePosFormatError@@YAXPEAVCDocument@@PEB_WZZ -> void __cdecl DgnMsgOutSamePosFormatError(class CDocument * __ptr64,wchar_t const * __ptr64,...)
+?DgnMsgOutSamePosFormatError@@YAXPEB_WZZ -> void __cdecl DgnMsgOutSamePosFormatError(wchar_t const * __ptr64,...)
+?DgnMsgOutSamePosFormatWarning@@YAXPEAVCDocument@@PEB_WZZ -> void __cdecl DgnMsgOutSamePosFormatWarning(class CDocument * __ptr64,wchar_t const * __ptr64,...)
+?DgnMsgOutSamePosFormatWarning@@YAXPEB_WZZ -> void __cdecl DgnMsgOutSamePosFormatWarning(wchar_t const * __ptr64,...)
+?DgnMsgOutSampPos@@YAXPEAVCDocument@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutSampPos(class CDocument * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutSampPos@@YAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutSampPos(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutSampPosD@@YAXPEAVCDocument@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutSampPosD(class CDocument * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutSampPosD@@YAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutSampPosD(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutSampPosError@@YAXPEAVCDocument@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutSampPosError(class CDocument * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutSampPosError@@YAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutSampPosError(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutSampPosWarning@@YAXPEAVCDocument@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutSampPosWarning(class CDocument * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutSampPosWarning@@YAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutSampPosWarning(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutWarning@@YAXPEAVCDocument@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutWarning(class CDocument * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?DgnMsgOutWarning@@YAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl DgnMsgOutWarning(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?EnableProfilingST@FProfileMgr@lib@idgn@@SAXH@Z -> public: static void __cdecl idgn::lib::FProfileMgr::EnableProfilingST(int)
+?FNVMultiple@FProfiler2@lib@idgn@@0_KB -> private: static unsigned __int64 const idgn::lib::FProfiler2::FNVMultiple
+?FileExists@FFileCtrl@lib@idgn@@QEAAHXZ -> public: int __cdecl idgn::lib::FFileCtrl::FileExists(void) __ptr64
+?FileExists@FFileCtrl@lib@idgn@@SAHPEB_W@Z -> public: static int __cdecl idgn::lib::FFileCtrl::FileExists(wchar_t const * __ptr64)
+?FillWindowChar@FSpecialChar@lib@idgn@@QEAAHPEAVCWnd@@HAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@1@Z -> public: int __cdecl idgn::lib::FSpecialChar::FillWindowChar(class CWnd * __ptr64,int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+?FillWindowChar@FSpecialChar@lib@idgn@@QEAAHPEAVCWnd@@HAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl idgn::lib::FSpecialChar::FillWindowChar(class CWnd * __ptr64,int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+?FindFolder@FFileCtrl@lib@idgn@@SAHAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV?$FArray@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@3@@Z -> public: static int __cdecl idgn::lib::FFileCtrl::FindFolder(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,class idgn::FArray<class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > > & __ptr64)
+?Free@CSimpleMemMgr@idgn@@QEAAXPEAX@Z -> public: void __cdecl idgn::CSimpleMemMgr::Free(void * __ptr64) __ptr64
+?Free@FFixedSizeMemMgr@idgn@@QEAAXPEAX@Z -> public: void __cdecl idgn::FFixedSizeMemMgr::Free(void * __ptr64) __ptr64
+?FreeAllMem@CSimpleMemMgr@idgn@@QEAAXXZ -> public: void __cdecl idgn::CSimpleMemMgr::FreeAllMem(void) __ptr64
+?FreeAllMem@FFixedSizeMemMgr@idgn@@QEAAXXZ -> public: void __cdecl idgn::FFixedSizeMemMgr::FreeAllMem(void) __ptr64
+?G@FColor@lib@idgn@@QEBAEXZ -> public: unsigned char __cdecl idgn::lib::FColor::G(void)const __ptr64
+?GErrorBox@@YAHPEB_WZZ -> int __cdecl GErrorBox(wchar_t const * __ptr64,...)
+?Get@FStringToken@lib@idgn@@QEAAPEB_WH@Z -> public: wchar_t const * __ptr64 __cdecl idgn::lib::FStringToken::Get(int) __ptr64
+?GetAbbPathNameExt@FFileCtrl@lib@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FFileCtrl::GetAbbPathNameExt(int) __ptr64
+?GetAbbPathNameExt@FFileCtrl@lib@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAVCDC@@PEAUtagRECT@@@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FFileCtrl::GetAbbPathNameExt(class CDC * __ptr64,struct tagRECT * __ptr64) __ptr64
+?GetAbsoluteToRelativePath@FFileCtrl@lib@idgn@@SAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@0AEAV45@@Z -> public: static int __cdecl idgn::lib::FFileCtrl::GetAbsoluteToRelativePath(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64)
+?GetAllSubKey@FRegistry@lib@idgn@@SAHPEB_WAEAVCStringArray@@AEAV?$CArray@KK@@@Z -> public: static int __cdecl idgn::lib::FRegistry::GetAllSubKey(wchar_t const * __ptr64,class CStringArray & __ptr64,class CArray<unsigned long,unsigned long> & __ptr64)
+?GetColorByFloat@FColor@lib@idgn@@QEAAXQEAM@Z -> public: void __cdecl idgn::lib::FColor::GetColorByFloat(float * __ptr64 const) __ptr64
+?GetConvertFactorCurrent@FUnitCtrl@lib@idgn@@UEAANH@Z -> public: virtual double __cdecl idgn::lib::FUnitCtrl::GetConvertFactorCurrent(int) __ptr64
+?GetConvertFactorPrevious@FUnitCtrl@lib@idgn@@UEAANH@Z -> public: virtual double __cdecl idgn::lib::FUnitCtrl::GetConvertFactorPrevious(int) __ptr64
+?GetConvertFactorTgtUnit@FUnitCtrl@lib@idgn@@QEAANHHHHHH@Z -> public: double __cdecl idgn::lib::FUnitCtrl::GetConvertFactorTgtUnit(int,int,int,int,int,int) __ptr64
+?GetCstring@FStringToken@lib@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FStringToken::GetCstring(int) __ptr64
+?GetDoc@FUnitCtrl@lib@idgn@@QEAAPEAVCDocument@@XZ -> public: class CDocument * __ptr64 __cdecl idgn::lib::FUnitCtrl::GetDoc(void) __ptr64
+?GetFileExt@FFileCtrl@lib@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FFileCtrl::GetFileExt(void) __ptr64
+?GetFileName@FFileCtrl@lib@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FFileCtrl::GetFileName(void) __ptr64
+?GetFileNameExt@FFileCtrl@lib@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FFileCtrl::GetFileNameExt(void) __ptr64
+?GetFilePath@FFileCtrl@lib@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FFileCtrl::GetFilePath(void) __ptr64
+?GetFilePathName@FFileCtrl@lib@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FFileCtrl::GetFilePathName(void) __ptr64
+?GetFilePathNameExt@FFileCtrl@lib@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FFileCtrl::GetFilePathNameExt(void) __ptr64
+?GetFileStatus@FFileCtrl@lib@idgn@@QEAAHAEAUCFileStatus@@@Z -> public: int __cdecl idgn::lib::FFileCtrl::GetFileStatus(struct CFileStatus & __ptr64) __ptr64
+?GetFont@FMSGFunction@lib@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FMSGFunction::GetFont(void)
+?GetFont@FMSGParser@lib@idgn@@IEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> protected: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FMSGParser::GetFont(void) __ptr64
+?GetFontSize@FMSGFunction@lib@idgn@@SAHXZ -> public: static int __cdecl idgn::lib::FMSGFunction::GetFontSize(void)
+?GetFontSize@FMSGParser@lib@idgn@@IEAAHXZ -> protected: int __cdecl idgn::lib::FMSGParser::GetFontSize(void) __ptr64
+?GetIEVersion@FWebUtil@lib@idgn@@SAIXZ -> public: static unsigned int __cdecl idgn::lib::FWebUtil::GetIEVersion(void)
+?GetInstance@FCallStackDumpper@lib@idgn@@SAPEAV123@XZ -> public: static class idgn::lib::FCallStackDumpper * __ptr64 __cdecl idgn::lib::FCallStackDumpper::GetInstance(void)
+?GetInstance@FProfiler2@lib@idgn@@SAAEAV123@XZ -> public: static class idgn::lib::FProfiler2 & __ptr64 __cdecl idgn::lib::FProfiler2::GetInstance(void)
+?GetLastPathItem@FFileCtrl@lib@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEBV45@@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FFileCtrl::GetLastPathItem(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64)
+?GetLengthConvertFactorForNeutralUnit@FUnitCtrl@lib@idgn@@QEAANH@Z -> public: double __cdecl idgn::lib::FUnitCtrl::GetLengthConvertFactorForNeutralUnit(int) __ptr64
+?GetLine@FMSGParser@lib@idgn@@IEAAAEAV?$basic_ifstream@_WU?$char_traits@_W@std@@@std@@AEAV45@AEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> protected: class std::basic_ifstream<wchar_t,struct std::char_traits<wchar_t> > & __ptr64 __cdecl idgn::lib::FMSGParser::GetLine(class std::basic_ifstream<wchar_t,struct std::char_traits<wchar_t> > & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetMassWeightFactor@FUnitCtrl@lib@idgn@@QEAANXZ -> public: double __cdecl idgn::lib::FUnitCtrl::GetMassWeightFactor(void) __ptr64
+?GetNeutralUnit@FUnitCtrl@lib@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::lib::FUnitCtrl::GetNeutralUnit(void) __ptr64
+?GetNextColor@FColorGenerator@idgn@@QEAAKXZ -> public: unsigned long __cdecl idgn::FColorGenerator::GetNextColor(void) __ptr64
+?GetNumberOfFileLines@FFileCtrl@lib@idgn@@SA_KPEB_W@Z -> public: static unsigned __int64 __cdecl idgn::lib::FFileCtrl::GetNumberOfFileLines(wchar_t const * __ptr64)
+?GetProfileIntW@FRegistry@lib@idgn@@SAHPEB_W0AEAH@Z -> public: static int __cdecl idgn::lib::FRegistry::GetProfileIntW(wchar_t const * __ptr64,wchar_t const * __ptr64,int & __ptr64)
+?GetProfileStringW@FRegistry@lib@idgn@@SAHPEB_W0AEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static int __cdecl idgn::lib::FRegistry::GetProfileStringW(wchar_t const * __ptr64,wchar_t const * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64)
+?GetProgramPath@FProduct@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::FProduct::GetProgramPath(void)
+?GetRegistryKey@FRegistry@lib@idgn@@SAPEAUHKEY__@@PEB_WH@Z -> public: static struct HKEY__ * __ptr64 __cdecl idgn::lib::FRegistry::GetRegistryKey(wchar_t const * __ptr64,int)
+?GetRelativeToAbsolutePath@FFileCtrl@lib@idgn@@SAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@0AEAV45@@Z -> public: static int __cdecl idgn::lib::FFileCtrl::GetRelativeToAbsolutePath(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64)
+?GetStdwstring@FStringToken@lib@idgn@@QEAA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@H@Z -> public: class std::basic_string<wchar_t,struct std::char_traits<wchar_t>,class std::allocator<wchar_t> > __cdecl idgn::lib::FStringToken::GetStdwstring(int) __ptr64
+?GetSystemLocale@FLocaleLib@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::FLocaleLib::GetSystemLocale(void)
+?GetTestEnv@FTestEnvMgr@lib@idgn@@IEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_W@Z -> protected: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FTestEnvMgr::GetTestEnv(wchar_t const * __ptr64) __ptr64
+?GetTestEnvST@FTestEnvMgr@lib@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_W@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FTestEnvMgr::GetTestEnvST(wchar_t const * __ptr64)
+?GetTestEnvValue@FProduct@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_W@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::FProduct::GetTestEnvValue(wchar_t const * __ptr64)
+?GetTextFileEncodingInfo@FFileCtrl@lib@idgn@@SAHPEB_WAEAW4TEXT_ENCODING@@@Z -> public: static int __cdecl idgn::lib::FFileCtrl::GetTextFileEncodingInfo(wchar_t const * __ptr64,enum TEXT_ENCODING & __ptr64)
+?GetUILanguage@FLocaleLib@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::FLocaleLib::GetUILanguage(void)
+?GetUnitIndexCurrent@FUnitCtrl@lib@idgn@@QEAAXAEAUT_UNIT_INDEX@23@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::GetUnitIndexCurrent(struct idgn::lib::T_UNIT_INDEX & __ptr64) __ptr64
+?GetUnitIndexDefault@FUnitCtrl@lib@idgn@@QEAAXAEAUT_UNIT_INDEX@23@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::GetUnitIndexDefault(struct idgn::lib::T_UNIT_INDEX & __ptr64) __ptr64
+?GetUnitNameCurrent@FUnitCtrl@lib@idgn@@QEAAXAEAUT_UNIT_NAMEFACT@23@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::GetUnitNameCurrent(struct idgn::lib::T_UNIT_NAMEFACT & __ptr64) __ptr64
+?GetUnitNameDefault@FUnitCtrl@lib@idgn@@QEAAXAEAUT_UNIT_NAMEFACT@23@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::GetUnitNameDefault(struct idgn::lib::T_UNIT_NAMEFACT & __ptr64) __ptr64
+?GetUnitNameForce@FUnitCtrl@lib@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FUnitCtrl::GetUnitNameForce(int) __ptr64
+?GetUnitNameLength@FUnitCtrl@lib@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FUnitCtrl::GetUnitNameLength(int) __ptr64
+?GetUnitNameUnitLength@FUnitCtrl@lib@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FUnitCtrl::GetUnitNameUnitLength(int) __ptr64
+?GetUnitSystem4Legend@FUnitCtrl@lib@idgn@@QEAAHHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl idgn::lib::FUnitCtrl::GetUnitSystem4Legend(int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetUnitSystem@FUnitCtrl@lib@idgn@@QEAAHHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl idgn::lib::FUnitCtrl::GetUnitSystem(int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetUnitSystemCtrl@FUnitCtrl@lib@idgn@@QEAAXHQEAHAEAUT_UNIT_SYSTEM@23@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::GetUnitSystemCtrl(int,int * __ptr64 const,struct idgn::lib::T_UNIT_SYSTEM & __ptr64) __ptr64
+?GetUnitSystemForce@FUnitCtrl@lib@idgn@@QEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::GetUnitSystemForce(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetUnitSystemHeat@FUnitCtrl@lib@idgn@@QEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::GetUnitSystemHeat(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetUnitSystemLength@FUnitCtrl@lib@idgn@@QEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::GetUnitSystemLength(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetUnitSystemTime@FUnitCtrl@lib@idgn@@QEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl idgn::lib::FUnitCtrl::GetUnitSystemTime(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetUnitSystemType@FUnitCtrl@lib@idgn@@QEAAHXZ -> public: int __cdecl idgn::lib::FUnitCtrl::GetUnitSystemType(void) __ptr64
+?GetUserDefaultUILanguage@FLocaleLib@idgn@@SAGXZ -> public: static unsigned short __cdecl idgn::FLocaleLib::GetUserDefaultUILanguage(void)
+?GetUserValue@FProduct@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_W@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::FProduct::GetUserValue(wchar_t const * __ptr64)
+?GetValidFileName@FFileCtrl@lib@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_W@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FFileCtrl::GetValidFileName(wchar_t const * __ptr64)
+?GetValue@FMSGFunction@lib@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_W@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FMSGFunction::GetValue(wchar_t const * __ptr64)
+?GetValue@FMSGParser@lib@idgn@@IEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEBV45@@Z -> protected: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FMSGParser::GetValue(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+?HSVRatio@FColor@lib@idgn@@SAXMMMMMMPEAM00@Z -> public: static void __cdecl idgn::lib::FColor::HSVRatio(float,float,float,float,float,float,float * __ptr64,float * __ptr64,float * __ptr64)
+?Indent@FMbcsTextFileWithBuffer@@IEAAXXZ -> protected: void __cdecl FMbcsTextFileWithBuffer::Indent(void) __ptr64
+?Indent@FUnicodeTextFileWithBuffer@@IEAAXXZ -> protected: void __cdecl FUnicodeTextFileWithBuffer::Indent(void) __ptr64
+?InitSpecialChar@FSpecialChar@lib@idgn@@IEAAHXZ -> protected: int __cdecl idgn::lib::FSpecialChar::InitSpecialChar(void) __ptr64
+?InitValue@FUnitCtrl@lib@idgn@@QEAAXXZ -> public: void __cdecl idgn::lib::FUnitCtrl::InitValue(void) __ptr64
+?InitialFNV@FProfiler2@lib@idgn@@0_KB -> private: static unsigned __int64 const idgn::lib::FProfiler2::InitialFNV
+?Initialize@FProduct@idgn@@KAHXZ -> protected: static int __cdecl idgn::FProduct::Initialize(void)
+?Initialize@FUnitCtrl@lib@idgn@@QEAAXH@Z -> public: void __cdecl idgn::lib::FUnitCtrl::Initialize(int) __ptr64
+?Initialize@FUnitCtrl@lib@idgn@@QEAAXHHHH@Z -> public: void __cdecl idgn::lib::FUnitCtrl::Initialize(int,int,int,int) __ptr64
+?Instance@FProcessMgr@lib@idgn@@SAPEAV123@XZ -> public: static class idgn::lib::FProcessMgr * __ptr64 __cdecl idgn::lib::FProcessMgr::Instance(void)
+?Instance@FSpecialChar@lib@idgn@@SAAEAV123@XZ -> public: static class idgn::lib::FSpecialChar & __ptr64 __cdecl idgn::lib::FSpecialChar::Instance(void)
+?Is64Windows@FProduct@idgn@@SAHXZ -> public: static int __cdecl idgn::FProduct::Is64Windows(void)
+?IsAlive@FProcessCommunicator@lib@idgn@@QEAAHXZ -> public: int __cdecl idgn::lib::FProcessCommunicator::IsAlive(void) __ptr64
+?IsAllowMacAddress@FWebUtil@lib@idgn@@SAHQEAE@Z -> public: static int __cdecl idgn::lib::FWebUtil::IsAllowMacAddress(unsigned char * __ptr64 const)
+?IsChinese@FLocaleLib@idgn@@SAHXZ -> public: static int __cdecl idgn::FLocaleLib::IsChinese(void)
+?IsEnglish@FLocaleLib@idgn@@SAHXZ -> public: static int __cdecl idgn::FLocaleLib::IsEnglish(void)
+?IsInternetConnected@FWebUtil@lib@idgn@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static int __cdecl idgn::lib::FWebUtil::IsInternetConnected(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64)
+?IsInternetConnectedCheckOnly@FWebUtil@lib@idgn@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static int __cdecl idgn::lib::FWebUtil::IsInternetConnectedCheckOnly(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64)
+?IsJapanese@FLocaleLib@idgn@@SAHXZ -> public: static int __cdecl idgn::FLocaleLib::IsJapanese(void)
+?IsKorean@FLocaleLib@idgn@@SAHXZ -> public: static int __cdecl idgn::FLocaleLib::IsKorean(void)
+?IsOpen@FMbcsTextFileWithBuffer@@UEAAHXZ -> public: virtual int __cdecl FMbcsTextFileWithBuffer::IsOpen(void) __ptr64
+?IsOpen@FTextFileWithBuffer@@QEAAHXZ -> public: int __cdecl FTextFileWithBuffer::IsOpen(void) __ptr64
+?IsOpen@FUnicodeTextFileWithBuffer@@UEAAHXZ -> public: virtual int __cdecl FUnicodeTextFileWithBuffer::IsOpen(void) __ptr64
+?IsProcess64Bit@FProduct@idgn@@SAHXZ -> public: static int __cdecl idgn::FProduct::IsProcess64Bit(void)
+?IsProcessWow64@FProduct@idgn@@SAHXZ -> public: static int __cdecl idgn::FProduct::IsProcessWow64(void)
+?IsProfilingStoppedST@FProfileMgr@lib@idgn@@SAHXZ -> public: static int __cdecl idgn::lib::FProfileMgr::IsProfilingStoppedST(void)
+?IsReadOnlyFile@FFileCtrl@lib@idgn@@SAHPEB_W@Z -> public: static int __cdecl idgn::lib::FFileCtrl::IsReadOnlyFile(wchar_t const * __ptr64)
+?IsSelfDelete@FProcessCommunicator@lib@idgn@@IEAAHXZ -> protected: int __cdecl idgn::lib::FProcessCommunicator::IsSelfDelete(void) __ptr64
+?IsTestEnv@FTestEnvMgr@lib@idgn@@IEAAHPEB_W0@Z -> protected: int __cdecl idgn::lib::FTestEnvMgr::IsTestEnv(wchar_t const * __ptr64,wchar_t const * __ptr64) __ptr64
+?IsTestEnvST@FTestEnvMgr@lib@idgn@@SAHPEB_W0@Z -> public: static int __cdecl idgn::lib::FTestEnvMgr::IsTestEnvST(wchar_t const * __ptr64,wchar_t const * __ptr64)
+?IsUnicodeFile@FFileCtrl@lib@idgn@@SAHPEB_W@Z -> public: static int __cdecl idgn::lib::FFileCtrl::IsUnicodeFile(wchar_t const * __ptr64)
+?IsUnicodeFile@FTextFileWithBuffer@@SAHPEB_W@Z -> public: static int __cdecl FTextFileWithBuffer::IsUnicodeFile(wchar_t const * __ptr64)
+?Load@FMSGParser@lib@idgn@@IEAA_NH@Z -> protected: bool __cdecl idgn::lib::FMSGParser::Load(int) __ptr64
+?LoadAddedFile@FMSGFunction@lib@idgn@@SA_NXZ -> public: static bool __cdecl idgn::lib::FMSGFunction::LoadAddedFile(void)
+?LoadFile@FMSGFunction@lib@idgn@@SA_NXZ -> public: static bool __cdecl idgn::lib::FMSGFunction::LoadFile(void)
+?LoadFont@FMSGParser@lib@idgn@@IEAA_NXZ -> protected: bool __cdecl idgn::lib::FMSGParser::LoadFont(void) __ptr64
+?MakeDirectory@FFileCtrl@lib@idgn@@SAHPEB_W@Z -> public: static int __cdecl idgn::lib::FFileCtrl::MakeDirectory(wchar_t const * __ptr64)
+?MakeNewChunk@FFixedSizeMemMgr@idgn@@IEAAXXZ -> protected: void __cdecl idgn::FFixedSizeMemMgr::MakeNewChunk(void) __ptr64
+?MultiToWide@FConvertString@lib@idgn@@SA?AV?$basic_string@_WU?$char_traits@_W@std@@V?$allocator@_W@2@@std@@PEBDHI@Z -> public: static class std::basic_string<wchar_t,struct std::char_traits<wchar_t>,class std::allocator<wchar_t> > __cdecl idgn::lib::FConvertString::MultiToWide(char const * __ptr64,int,unsigned int)
+?MultiToWideCSting@FConvertString@lib@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEBDHI@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FConvertString::MultiToWideCSting(char const * __ptr64,int,unsigned int)
+?Notify@FSubject@lib@idgn@@QEAAHI_K_J@Z -> public: int __cdecl idgn::lib::FSubject::Notify(unsigned int,unsigned __int64,__int64) __ptr64
+?OnCloseDocument@FProcessMgr@lib@idgn@@QEAAXPEAVCDocument@@@Z -> public: void __cdecl idgn::lib::FProcessMgr::OnCloseDocument(class CDocument * __ptr64) __ptr64
+?OnDestroySubject@FObserver@lib@idgn@@QEAAHPEAVASubject@idgn_interface@@@Z -> public: int __cdecl idgn::lib::FObserver::OnDestroySubject(class idgn_interface::ASubject * __ptr64) __ptr64
+?OnTimer@FProcessMgr@lib@idgn@@IEAAXPEAUHWND__@@I_KK@Z -> protected: void __cdecl idgn::lib::FProcessMgr::OnTimer(struct HWND__ * __ptr64,unsigned int,unsigned __int64,unsigned long) __ptr64
+?Open@FMbcsTextFileWithBuffer@@UEAAHPEB_WI@Z -> public: virtual int __cdecl FMbcsTextFileWithBuffer::Open(wchar_t const * __ptr64,unsigned int) __ptr64
+?Open@FTextFileWithBuffer@@QEAAHPEB_WIH@Z -> public: int __cdecl FTextFileWithBuffer::Open(wchar_t const * __ptr64,unsigned int,int) __ptr64
+?Open@FUnicodeTextFileWithBuffer@@UEAAHPEB_WI@Z -> public: virtual int __cdecl FUnicodeTextFileWithBuffer::Open(wchar_t const * __ptr64,unsigned int) __ptr64
+?Overlay@FColor@lib@idgn@@SAEEE@Z -> public: static unsigned char __cdecl idgn::lib::FColor::Overlay(unsigned char,unsigned char)
+?Overlay@FColor@lib@idgn@@SAKKK@Z -> public: static unsigned long __cdecl idgn::lib::FColor::Overlay(unsigned long,unsigned long)
+?Overlay@FColor@lib@idgn@@SANNN@Z -> public: static double __cdecl idgn::lib::FColor::Overlay(double,double)
+?Print@FProfileMgr@lib@idgn@@IEAAXPEAVFProfilePrinterAdaptor@23@@Z -> protected: void __cdecl idgn::lib::FProfileMgr::Print(class idgn::lib::FProfilePrinterAdaptor * __ptr64) __ptr64
+?Print@FProfileMgr@lib@idgn@@IEAAXPEAVFProfilePrinterAdaptor@23@AEAV?$CArray@UT_PROFILE_D@lib@idgn@@AEAU123@@@@Z -> protected: void __cdecl idgn::lib::FProfileMgr::Print(class idgn::lib::FProfilePrinterAdaptor * __ptr64,class CArray<struct idgn::lib::T_PROFILE_D,struct idgn::lib::T_PROFILE_D & __ptr64> & __ptr64) __ptr64
+?Print@FProfileMgr@lib@idgn@@IEAAXPEAVFProfilePrinterAdaptor@23@PEAHH@Z -> protected: void __cdecl idgn::lib::FProfileMgr::Print(class idgn::lib::FProfilePrinterAdaptor * __ptr64,int * __ptr64,int) __ptr64
+?PrintCallStack@FCallStackDumpper@lib@idgn@@QEAAXPEADH00@Z -> public: void __cdecl idgn::lib::FCallStackDumpper::PrintCallStack(char * __ptr64,int,char * __ptr64,char * __ptr64) __ptr64
+?PrintCallStack@FCallStackDumpper@lib@idgn@@QEAAXPEADH0@Z -> public: void __cdecl idgn::lib::FCallStackDumpper::PrintCallStack(char * __ptr64,int,char * __ptr64) __ptr64
+?PrintCallStackRemakeFile@FCallStackDumpper@lib@idgn@@QEAAXPEADH00@Z -> public: void __cdecl idgn::lib::FCallStackDumpper::PrintCallStackRemakeFile(char * __ptr64,int,char * __ptr64,char * __ptr64) __ptr64
+?PrintCallStackRemakeFile@FCallStackDumpper@lib@idgn@@QEAAXPEADH0@Z -> public: void __cdecl idgn::lib::FCallStackDumpper::PrintCallStackRemakeFile(char * __ptr64,int,char * __ptr64) __ptr64
+?PrintResult@FProfiler2@lib@idgn@@QEAAXXZ -> public: void __cdecl idgn::lib::FProfiler2::PrintResult(void) __ptr64
+?PrintST@FProfileMgr@lib@idgn@@SAXPEAVFProfilePrinterAdaptor@23@@Z -> public: static void __cdecl idgn::lib::FProfileMgr::PrintST(class idgn::lib::FProfilePrinterAdaptor * __ptr64)
+?PrintST@FProfileMgr@lib@idgn@@SAXPEAVFProfilePrinterAdaptor@23@PEAHH@Z -> public: static void __cdecl idgn::lib::FProfileMgr::PrintST(class idgn::lib::FProfilePrinterAdaptor * __ptr64,int * __ptr64,int)
+?R@FColor@lib@idgn@@QEBAEXZ -> public: unsigned char __cdecl idgn::lib::FColor::R(void)const __ptr64
+?ReadLine@FMbcsTextFileWithBuffer@@IEAAHPEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEA_WH@Z -> protected: int __cdecl FMbcsTextFileWithBuffer::ReadLine(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > * __ptr64,wchar_t * __ptr64,int) __ptr64
+?ReadLine@FMbcsTextFileWithBuffer@@UEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: virtual int __cdecl FMbcsTextFileWithBuffer::ReadLine(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?ReadLine@FTextFileWithBuffer@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl FTextFileWithBuffer::ReadLine(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?ReadLine@FUnicodeTextFileWithBuffer@@IEAAHPEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEA_WH@Z -> protected: int __cdecl FUnicodeTextFileWithBuffer::ReadLine(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > * __ptr64,wchar_t * __ptr64,int) __ptr64
+?ReadLine@FUnicodeTextFileWithBuffer@@UEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: virtual int __cdecl FUnicodeTextFileWithBuffer::ReadLine(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?ReadString@FMbcsTextFileWithBuffer@@UEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: virtual int __cdecl FMbcsTextFileWithBuffer::ReadString(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?ReadString@FMbcsTextFileWithBuffer@@UEAAPEA_WPEA_WH@Z -> public: virtual wchar_t * __ptr64 __cdecl FMbcsTextFileWithBuffer::ReadString(wchar_t * __ptr64,int) __ptr64
+?ReadString@FTextFileWithBuffer@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl FTextFileWithBuffer::ReadString(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?ReadString@FTextFileWithBuffer@@QEAAPEA_WPEA_WH@Z -> public: wchar_t * __ptr64 __cdecl FTextFileWithBuffer::ReadString(wchar_t * __ptr64,int) __ptr64
+?ReadString@FUnicodeTextFileWithBuffer@@UEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: virtual int __cdecl FUnicodeTextFileWithBuffer::ReadString(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?ReadString@FUnicodeTextFileWithBuffer@@UEAAPEA_WPEA_WH@Z -> public: virtual wchar_t * __ptr64 __cdecl FUnicodeTextFileWithBuffer::ReadString(wchar_t * __ptr64,int) __ptr64
+?RemoveGlobalChar@FSpecialChar@lib@idgn@@QEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@_W@Z -> public: void __cdecl idgn::lib::FSpecialChar::RemoveGlobalChar(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,wchar_t) __ptr64
+?RemoveQuote@FMSGFunction@lib@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_W@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::lib::FMSGFunction::RemoveQuote(wchar_t const * __ptr64)
+?Reset@FMSGFunction@lib@idgn@@SAXXZ -> public: static void __cdecl idgn::lib::FMSGFunction::Reset(void)
+?RestoreUnitChangeFactor@FUnitCtrl@lib@idgn@@QEAAXXZ -> public: void __cdecl idgn::lib::FUnitCtrl::RestoreUnitChangeFactor(void) __ptr64
+?Run@FProcessMgr@lib@idgn@@QEAAHPEB_W00HIPEAVFProcessCommunicator@23@HHPEAVCDocument@@@Z -> public: int __cdecl idgn::lib::FProcessMgr::Run(wchar_t const * __ptr64,wchar_t const * __ptr64,wchar_t const * __ptr64,int,unsigned int,class idgn::lib::FProcessCommunicator * __ptr64,int,int,class CDocument * __ptr64) __ptr64
+?SaveUnitChangeFactor@FUnitCtrl@lib@idgn@@QEAAXXZ -> public: void __cdecl idgn::lib::FUnitCtrl::SaveUnitChangeFactor(void) __ptr64
+?SendMsg@FProcessCommunicator@lib@idgn@@QEAAHPEB_W@Z -> public: int __cdecl idgn::lib::FProcessCommunicator::SendMsg(wchar_t const * __ptr64) __ptr64
+?SetAlpha@FColor@lib@idgn@@QEAAXE@Z -> public: void __cdecl idgn::lib::FColor::SetAlpha(unsigned char) __ptr64
+?SetFilePathNameExt@FFileCtrl@lib@idgn@@QEAAXPEB_W@Z -> public: void __cdecl idgn::lib::FFileCtrl::SetFilePathNameExt(wchar_t const * __ptr64) __ptr64
+?SetFontPath@FMSGFunction@lib@idgn@@SAXPEB_W@Z -> public: static void __cdecl idgn::lib::FMSGFunction::SetFontPath(wchar_t const * __ptr64)
+?SetFontPath@FMSGParser@lib@idgn@@IEAAXPEB_W@Z -> protected: void __cdecl idgn::lib::FMSGParser::SetFontPath(wchar_t const * __ptr64) __ptr64
+?SetNeutralUnit@FUnitCtrl@lib@idgn@@UEAAXH@Z -> public: virtual void __cdecl idgn::lib::FUnitCtrl::SetNeutralUnit(int) __ptr64
+?SetProcessObj@FProcessCommunicator@lib@idgn@@IEAAXPEAVMProcessObj@23@0@Z -> protected: void __cdecl idgn::lib::FProcessCommunicator::SetProcessObj(class idgn::lib::MProcessObj * __ptr64,class idgn::lib::MProcessObj * __ptr64) __ptr64
+?SetSelfDelete@FProcessCommunicator@lib@idgn@@QEAAXH@Z -> public: void __cdecl idgn::lib::FProcessCommunicator::SetSelfDelete(int) __ptr64
+?SetUnitIndexCurrent@FUnitCtrl@lib@idgn@@QEAAXAEAUT_UNIT_INDEX@23@H@Z -> public: void __cdecl idgn::lib::FUnitCtrl::SetUnitIndexCurrent(struct idgn::lib::T_UNIT_INDEX & __ptr64,int) __ptr64
+?SetUnitSystemType@FUnitCtrl@lib@idgn@@QEAAXHH@Z -> public: void __cdecl idgn::lib::FUnitCtrl::SetUnitSystemType(int,int) __ptr64
+?SetUnitSystemType@FUnitCtrl@lib@idgn@@QEAAXHHHHH@Z -> public: void __cdecl idgn::lib::FUnitCtrl::SetUnitSystemType(int,int,int,int,int) __ptr64
+?SetUnitSystemTypeLF@FUnitCtrl@lib@idgn@@QEAAXHHH@Z -> public: void __cdecl idgn::lib::FUnitCtrl::SetUnitSystemTypeLF(int,int,int) __ptr64
+?Size@FStringToken@lib@idgn@@QEAAHXZ -> public: int __cdecl idgn::lib::FStringToken::Size(void) __ptr64
+?Smooth@FColor@lib@idgn@@SAKKM@Z -> public: static unsigned long __cdecl idgn::lib::FColor::Smooth(unsigned long,float)
+?Smooth@FColor@lib@idgn@@SAXMMMMPEAM00@Z -> public: static void __cdecl idgn::lib::FColor::Smooth(float,float,float,float,float * __ptr64,float * __ptr64,float * __ptr64)
+?Smooth@FColor@lib@idgn@@SAXQEAMM@Z -> public: static void __cdecl idgn::lib::FColor::Smooth(float * __ptr64 const,float)
+?StackPop@FProfiler2@lib@idgn@@QEAAXXZ -> public: void __cdecl idgn::lib::FProfiler2::StackPop(void) __ptr64
+?StackPush@FProfiler2@lib@idgn@@QEAAXPEAD@Z -> public: void __cdecl idgn::lib::FProfiler2::StackPush(char * __ptr64) __ptr64
+?StartProfilingST@FProfileMgr@lib@idgn@@SAXXZ -> public: static void __cdecl idgn::lib::FProfileMgr::StartProfilingST(void)
+?StopProfilingST@FProfileMgr@lib@idgn@@SAXXZ -> public: static void __cdecl idgn::lib::FProfileMgr::StopProfilingST(void)
+?TimerProc@FProcessMgr@lib@idgn@@KAXPEAUHWND__@@I_KK@Z -> protected: static void __cdecl idgn::lib::FProcessMgr::TimerProc(struct HWND__ * __ptr64,unsigned int,unsigned __int64,unsigned long)
+?UnIndent@FMbcsTextFileWithBuffer@@IEAAXXZ -> protected: void __cdecl FMbcsTextFileWithBuffer::UnIndent(void) __ptr64
+?UnIndent@FUnicodeTextFileWithBuffer@@IEAAXXZ -> protected: void __cdecl FUnicodeTextFileWithBuffer::UnIndent(void) __ptr64
+?UnfoldNewton@FUnitCtrl@lib@idgn@@QEAANN@Z -> public: double __cdecl idgn::lib::FUnitCtrl::UnfoldNewton(double) __ptr64
+?UseWebLock@FWebUtil@lib@idgn@@SAHXZ -> public: static int __cdecl idgn::lib::FWebUtil::UseWebLock(void)
+?ValidateFileName@FFileCtrl@lib@idgn@@SAHPEB_W@Z -> public: static int __cdecl idgn::lib::FFileCtrl::ValidateFileName(wchar_t const * __ptr64)
+?WideToMulti@FConvertString@lib@idgn@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEB_WHI@Z -> public: static class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __cdecl idgn::lib::FConvertString::WideToMulti(wchar_t const * __ptr64,int,unsigned int)
+?Write@FMbcsTextFileWithBuffer@@UEAAHPEB_W@Z -> public: virtual int __cdecl FMbcsTextFileWithBuffer::Write(wchar_t const * __ptr64) __ptr64
+?Write@FTextFileWithBuffer@@QEAAHPEB_W@Z -> public: int __cdecl FTextFileWithBuffer::Write(wchar_t const * __ptr64) __ptr64
+?Write@FUnicodeTextFileWithBuffer@@UEAAHPEB_W@Z -> public: virtual int __cdecl FUnicodeTextFileWithBuffer::Write(wchar_t const * __ptr64) __ptr64
+?WriteData@FMbcsTextFileWithBuffer@@UEAAHPEB_WZZ -> public: virtual int __cdecl FMbcsTextFileWithBuffer::WriteData(wchar_t const * __ptr64,...) __ptr64
+?WriteData@FTextFileWithBuffer@@QEAAHPEB_WZZ -> public: int __cdecl FTextFileWithBuffer::WriteData(wchar_t const * __ptr64,...) __ptr64
+?WriteData@FUnicodeTextFileWithBuffer@@UEAAHPEB_WZZ -> public: virtual int __cdecl FUnicodeTextFileWithBuffer::WriteData(wchar_t const * __ptr64,...) __ptr64
+?WriteFmt@FMbcsTextFileWithBuffer@@UEAAHPEB_WZZ -> public: virtual int __cdecl FMbcsTextFileWithBuffer::WriteFmt(wchar_t const * __ptr64,...) __ptr64
+?WriteFmt@FTextFileWithBuffer@@QEAAHPEB_WZZ -> public: int __cdecl FTextFileWithBuffer::WriteFmt(wchar_t const * __ptr64,...) __ptr64
+?WriteFmt@FUnicodeTextFileWithBuffer@@UEAAHPEB_WZZ -> public: virtual int __cdecl FUnicodeTextFileWithBuffer::WriteFmt(wchar_t const * __ptr64,...) __ptr64
+?WriteProfileInt@FRegistry@lib@idgn@@SAHPEB_W0H@Z -> public: static int __cdecl idgn::lib::FRegistry::WriteProfileInt(wchar_t const * __ptr64,wchar_t const * __ptr64,int)
+?WriteProfileStringW@FRegistry@lib@idgn@@SAHPEB_W00@Z -> public: static int __cdecl idgn::lib::FRegistry::WriteProfileStringW(wchar_t const * __ptr64,wchar_t const * __ptr64,wchar_t const * __ptr64)
+?WriteTagClose@FMbcsTextFileWithBuffer@@UEAAHPEB_W@Z -> public: virtual int __cdecl FMbcsTextFileWithBuffer::WriteTagClose(wchar_t const * __ptr64) __ptr64
+?WriteTagClose@FTextFileWithBuffer@@QEAAHPEB_W@Z -> public: int __cdecl FTextFileWithBuffer::WriteTagClose(wchar_t const * __ptr64) __ptr64
+?WriteTagClose@FUnicodeTextFileWithBuffer@@UEAAHPEB_W@Z -> public: virtual int __cdecl FUnicodeTextFileWithBuffer::WriteTagClose(wchar_t const * __ptr64) __ptr64
+?WriteTagOpen@FMbcsTextFileWithBuffer@@UEAAHPEB_W@Z -> public: virtual int __cdecl FMbcsTextFileWithBuffer::WriteTagOpen(wchar_t const * __ptr64) __ptr64
+?WriteTagOpen@FTextFileWithBuffer@@QEAAHPEB_W@Z -> public: int __cdecl FTextFileWithBuffer::WriteTagOpen(wchar_t const * __ptr64) __ptr64
+?WriteTagOpen@FUnicodeTextFileWithBuffer@@UEAAHPEB_W@Z -> public: virtual int __cdecl FUnicodeTextFileWithBuffer::WriteTagOpen(wchar_t const * __ptr64) __ptr64
+?atof@FConvertString@lib@idgn@@SANAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static double __cdecl idgn::lib::FConvertString::atof(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64)
+?atoi@FConvertString@lib@idgn@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static int __cdecl idgn::lib::FConvertString::atoi(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64)
+?bKorean@FLocaleLib@idgn@@2HA -> public: static int idgn::FLocaleLib::bKorean
+?bKoreanUILanguage@FLocaleLib@idgn@@2HA -> public: static int idgn::FLocaleLib::bKoreanUILanguage
+?capacity@FMemoryFile@@QEBA_KXZ -> public: unsigned __int64 __cdecl FMemoryFile::capacity(void)const __ptr64
+?csLocale@FLocaleLib@idgn@@2V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@A -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > idgn::FLocaleLib::csLocale
+?data@FInputMemoryFile@@QEBAPEBDXZ -> public: char const * __ptr64 __cdecl FInputMemoryFile::data(void)const __ptr64
+?data@FMemoryFile@@QEAAPEADXZ -> public: char * __ptr64 __cdecl FMemoryFile::data(void) __ptr64
+?flush@FMemoryFile@@QEAA_NXZ -> public: bool __cdecl FMemoryFile::flush(void) __ptr64
+?m_anProfileID@FProfileStart@lib@idgn@@1PAHA -> protected: static int * idgn::lib::FProfileStart::m_anProfileID
+?m_bEnableProfile@FProfileMgr@lib@idgn@@1HA -> protected: static int idgn::lib::FProfileMgr::m_bEnableProfile
+?m_bInit@FProduct@idgn@@1HA -> protected: static int idgn::FProduct::m_bInit
+?m_bStopProfile@FProfileMgr@lib@idgn@@1HA -> protected: static int idgn::lib::FProfileMgr::m_bStopProfile
+?m_nCurIndexOfProfileID@FProfileStart@lib@idgn@@1HA -> protected: static int idgn::lib::FProfileStart::m_nCurIndexOfProfileID
+?m_pCurStart@FProfileStart@lib@idgn@@1PEAV123@EA -> protected: static class idgn::lib::FProfileStart * __ptr64 __ptr64 idgn::lib::FProfileStart::m_pCurStart
+?m_pInstance@AMSGPrinter@lib@idgn@@2PEAV123@EA -> public: static class idgn::lib::AMSGPrinter * __ptr64 __ptr64 idgn::lib::AMSGPrinter::m_pInstance
+?myhash@FProfiler2@lib@idgn@@AEAA_KAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z -> private: unsigned __int64 __cdecl idgn::lib::FProfiler2::myhash(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const & __ptr64) __ptr64
+?reserve@FMemoryFile@@QEAAX_K@Z -> public: void __cdecl FMemoryFile::reserve(unsigned __int64) __ptr64
+?resize@FMemoryFile@@QEAAX_K@Z -> public: void __cdecl FMemoryFile::resize(unsigned __int64) __ptr64
+?size@FInputMemoryFile@@QEBA_KXZ -> public: unsigned __int64 __cdecl FInputMemoryFile::size(void)const __ptr64
+?size@FMemoryFile@@QEBA_KXZ -> public: unsigned __int64 __cdecl FMemoryFile::size(void)const __ptr64
+Init_IDGN_libdll -> Init_IDGN_libdll

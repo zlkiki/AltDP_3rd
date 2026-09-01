@@ -1,0 +1,505 @@
+??0CMSOffice@@QEAA@AEBV0@@Z -> public: __cdecl CMSOffice::CMSOffice(class CMSOffice const & __ptr64) __ptr64
+??0CSRCCodeCheck@@QEAA@AEBV0@@Z -> public: __cdecl CSRCCodeCheck::CSRCCodeCheck(class CSRCCodeCheck const & __ptr64) __ptr64
+??0CSRCCodeCheck@@QEAA@XZ -> public: __cdecl CSRCCodeCheck::CSRCCodeCheck(void) __ptr64
+??0CSRCCompBeamMListDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CSRCCompBeamMListDlg::CSRCCompBeamMListDlg(class CWnd * __ptr64) __ptr64
+??0CSRCCompBeamPModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CSRCCompBeamPModeDlg::CSRCCompBeamPModeDlg(class CWnd * __ptr64) __ptr64
+??0CSRCCompBeamSModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CSRCCompBeamSModeDlg::CSRCCompBeamSModeDlg(class CWnd * __ptr64) __ptr64
+??0CSRCDataBase@@QEAA@XZ -> public: __cdecl CSRCDataBase::CSRCDataBase(void) __ptr64
+??0CUCCOMListDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUCCOMListDlg::CUCCOMListDlg(class CWnd * __ptr64) __ptr64
+??0CUCCOPModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUCCOPModeDlg::CUCCOPModeDlg(class CWnd * __ptr64) __ptr64
+??0CUCCOSModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUCCOSModeDlg::CUCCOSModeDlg(class CWnd * __ptr64) __ptr64
+??0CUCFTMListDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUCFTMListDlg::CUCFTMListDlg(class CWnd * __ptr64) __ptr64
+??0CUCFTPModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUCFTPModeDlg::CUCFTPModeDlg(class CWnd * __ptr64) __ptr64
+??0CUCFTSModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUCFTSModeDlg::CUCFTSModeDlg(class CWnd * __ptr64) __ptr64
+??0IDPLUS_SRCDataBase@@QEAA@AEBV0@@Z -> public: __cdecl IDPLUS_SRCDataBase::IDPLUS_SRCDataBase(class IDPLUS_SRCDataBase const & __ptr64) __ptr64
+??0IDPLUS_SRCDataBase@@QEAA@XZ -> public: __cdecl IDPLUS_SRCDataBase::IDPLUS_SRCDataBase(void) __ptr64
+??1CSRCCodeCheck@@UEAA@XZ -> public: virtual __cdecl CSRCCodeCheck::~CSRCCodeCheck(void) __ptr64
+??1CSRCCompBeamMListDlg@@UEAA@XZ -> public: virtual __cdecl CSRCCompBeamMListDlg::~CSRCCompBeamMListDlg(void) __ptr64
+??1CSRCCompBeamPModeDlg@@UEAA@XZ -> public: virtual __cdecl CSRCCompBeamPModeDlg::~CSRCCompBeamPModeDlg(void) __ptr64
+??1CSRCCompBeamSModeDlg@@UEAA@XZ -> public: virtual __cdecl CSRCCompBeamSModeDlg::~CSRCCompBeamSModeDlg(void) __ptr64
+??1CSRCDataBase@@UEAA@XZ -> public: virtual __cdecl CSRCDataBase::~CSRCDataBase(void) __ptr64
+??1CUCCOMListDlg@@UEAA@XZ -> public: virtual __cdecl CUCCOMListDlg::~CUCCOMListDlg(void) __ptr64
+??1CUCCOPModeDlg@@UEAA@XZ -> public: virtual __cdecl CUCCOPModeDlg::~CUCCOPModeDlg(void) __ptr64
+??1CUCCOSModeDlg@@UEAA@XZ -> public: virtual __cdecl CUCCOSModeDlg::~CUCCOSModeDlg(void) __ptr64
+??1CUCFTMListDlg@@UEAA@XZ -> public: virtual __cdecl CUCFTMListDlg::~CUCFTMListDlg(void) __ptr64
+??1CUCFTPModeDlg@@UEAA@XZ -> public: virtual __cdecl CUCFTPModeDlg::~CUCFTPModeDlg(void) __ptr64
+??1CUCFTSModeDlg@@UEAA@XZ -> public: virtual __cdecl CUCFTSModeDlg::~CUCFTSModeDlg(void) __ptr64
+??1IDPLUS_SRCDataBase@@UEAA@XZ -> public: virtual __cdecl IDPLUS_SRCDataBase::~IDPLUS_SRCDataBase(void) __ptr64
+??4CMSOffice@@QEAAAEAV0@AEBV0@@Z -> public: class CMSOffice & __ptr64 __cdecl CMSOffice::operator=(class CMSOffice const & __ptr64) __ptr64
+??4CSRCCodeCheck@@QEAAAEAV0@AEBV0@@Z -> public: class CSRCCodeCheck & __ptr64 __cdecl CSRCCodeCheck::operator=(class CSRCCodeCheck const & __ptr64) __ptr64
+??4IDPLUS_SRCDataBase@@QEAAAEAV0@AEBV0@@Z -> public: class IDPLUS_SRCDataBase & __ptr64 __cdecl IDPLUS_SRCDataBase::operator=(class IDPLUS_SRCDataBase const & __ptr64) __ptr64
+??_7CMSOffice@@6B@ -> const CMSOffice::`vftable'
+??_7CSRCCodeCheck@@6B@ -> const CSRCCodeCheck::`vftable'
+??_7CSRCCompBeamMListDlg@@6BCDBUpdateConnector@@@ -> const CSRCCompBeamMListDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CSRCCompBeamMListDlg@@6BCDGN_FormViewInDlg@@@ -> const CSRCCompBeamMListDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CSRCCompBeamPModeDlg@@6BCDBUpdateConnector@@@ -> const CSRCCompBeamPModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CSRCCompBeamPModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CSRCCompBeamPModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CSRCCompBeamPModeDlg@@6BCSRCBarTool@@@ -> const CSRCCompBeamPModeDlg::`vftable'{for `CSRCBarTool'}
+??_7CSRCCompBeamPModeDlg@@6BCSRCSteelTool@@@ -> const CSRCCompBeamPModeDlg::`vftable'{for `CSRCSteelTool'}
+??_7CSRCCompBeamSModeDlg@@6BCDBUpdateConnector@@@ -> const CSRCCompBeamSModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CSRCCompBeamSModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CSRCCompBeamSModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CSRCCompBeamSModeDlg@@6BCSRCBarTool@@@ -> const CSRCCompBeamSModeDlg::`vftable'{for `CSRCBarTool'}
+??_7CSRCCompBeamSModeDlg@@6BCSRCSteelTool@@@ -> const CSRCCompBeamSModeDlg::`vftable'{for `CSRCSteelTool'}
+??_7CSRCDataBase@@6BCDBUpdateConnector@@@ -> const CSRCDataBase::`vftable'{for `CDBUpdateConnector'}
+??_7CSRCDataBase@@6BCDGN_DataBase@@@ -> const CSRCDataBase::`vftable'{for `CDGN_DataBase'}
+??_7CUCCOMListDlg@@6BCDBUpdateConnector@@@ -> const CUCCOMListDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUCCOMListDlg@@6BCDGN_FormViewInDlg@@@ -> const CUCCOMListDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUCCOPModeDlg@@6BCDBUpdateConnector@@@ -> const CUCCOPModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUCCOPModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CUCCOPModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUCCOPModeDlg@@6BCSRCBarTool@@@ -> const CUCCOPModeDlg::`vftable'{for `CSRCBarTool'}
+??_7CUCCOPModeDlg@@6BCSRCSteelTool@@@ -> const CUCCOPModeDlg::`vftable'{for `CSRCSteelTool'}
+??_7CUCCOSModeDlg@@6BCDBUpdateConnector@@@ -> const CUCCOSModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUCCOSModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CUCCOSModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUCCOSModeDlg@@6BCSRCBarTool@@@ -> const CUCCOSModeDlg::`vftable'{for `CSRCBarTool'}
+??_7CUCCOSModeDlg@@6BCSRCSteelTool@@@ -> const CUCCOSModeDlg::`vftable'{for `CSRCSteelTool'}
+??_7CUCFTMListDlg@@6BCDBUpdateConnector@@@ -> const CUCFTMListDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUCFTMListDlg@@6BCDGN_FormViewInDlg@@@ -> const CUCFTMListDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUCFTPModeDlg@@6BCDBUpdateConnector@@@ -> const CUCFTPModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUCFTPModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CUCFTPModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUCFTPModeDlg@@6BCSRCBarTool@@@ -> const CUCFTPModeDlg::`vftable'{for `CSRCBarTool'}
+??_7CUCFTPModeDlg@@6BCSRCSteelTool@@@ -> const CUCFTPModeDlg::`vftable'{for `CSRCSteelTool'}
+??_7CUCFTSModeDlg@@6BCDBUpdateConnector@@@ -> const CUCFTSModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUCFTSModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CUCFTSModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUCFTSModeDlg@@6BCSRCBarTool@@@ -> const CUCFTSModeDlg::`vftable'{for `CSRCBarTool'}
+??_7CUCFTSModeDlg@@6BCSRCSteelTool@@@ -> const CUCFTSModeDlg::`vftable'{for `CSRCSteelTool'}
+??_7IDPLUS_SRCDataBase@@6B@ -> const IDPLUS_SRCDataBase::`vftable'
+??_FCSRCCompBeamMListDlg@@QEAAXXZ -> public: void __cdecl CSRCCompBeamMListDlg::`default constructor closure'(void) __ptr64
+??_FCSRCCompBeamPModeDlg@@QEAAXXZ -> public: void __cdecl CSRCCompBeamPModeDlg::`default constructor closure'(void) __ptr64
+??_FCSRCCompBeamSModeDlg@@QEAAXXZ -> public: void __cdecl CSRCCompBeamSModeDlg::`default constructor closure'(void) __ptr64
+??_FCUCCOMListDlg@@QEAAXXZ -> public: void __cdecl CUCCOMListDlg::`default constructor closure'(void) __ptr64
+??_FCUCCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUCCOPModeDlg::`default constructor closure'(void) __ptr64
+??_FCUCCOSModeDlg@@QEAAXXZ -> public: void __cdecl CUCCOSModeDlg::`default constructor closure'(void) __ptr64
+??_FCUCFTMListDlg@@QEAAXXZ -> public: void __cdecl CUCFTMListDlg::`default constructor closure'(void) __ptr64
+??_FCUCFTPModeDlg@@QEAAXXZ -> public: void __cdecl CUCFTPModeDlg::`default constructor closure'(void) __ptr64
+??_FCUCFTSModeDlg@@QEAAXXZ -> public: void __cdecl CUCFTSModeDlg::`default constructor closure'(void) __ptr64
+?CHK_UCCB@CSRCCodeCheck@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CSRCCodeCheck::CHK_UCCB(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?CHK_UCCB@CSRCCodeCheck@@QEAA_NI@Z -> public: bool __cdecl CSRCCodeCheck::CHK_UCCB(unsigned int) __ptr64
+?CHK_UCCO@CSRCCodeCheck@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CSRCCodeCheck::CHK_UCCO(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?CHK_UCCO@CSRCCodeCheck@@QEAA_NI@Z -> public: bool __cdecl CSRCCodeCheck::CHK_UCCO(unsigned int) __ptr64
+?CHK_UCFT@CSRCCodeCheck@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CSRCCodeCheck::CHK_UCFT(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?CHK_UCFT@CSRCCodeCheck@@QEAA_NI@Z -> public: bool __cdecl CSRCCodeCheck::CHK_UCFT(unsigned int) __ptr64
+?ChangeCurrentKey@CSRCCompBeamMListDlg@@EEAAXI@Z -> private: virtual void __cdecl CSRCCompBeamMListDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CSRCCompBeamPModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CSRCCompBeamPModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CSRCCompBeamSModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CSRCCompBeamSModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUCCOMListDlg@@EEAAXI@Z -> private: virtual void __cdecl CUCCOMListDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUCCOPModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CUCCOPModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUCCOSModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CUCCOSModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUCFTMListDlg@@EEAAXI@Z -> private: virtual void __cdecl CUCFTMListDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUCFTPModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CUCFTPModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUCFTSModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CUCFTSModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeUnit@CSRCCompBeamMListDlg@@QEAAXXZ -> public: void __cdecl CSRCCompBeamMListDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CSRCCompBeamPModeDlg@@QEAAXXZ -> public: void __cdecl CSRCCompBeamPModeDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CSRCCompBeamSModeDlg@@QEAAXXZ -> public: void __cdecl CSRCCompBeamSModeDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUCCOMListDlg@@QEAAXXZ -> public: void __cdecl CUCCOMListDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUCCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUCCOPModeDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUCCOSModeDlg@@QEAAXXZ -> public: void __cdecl CUCCOSModeDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUCFTMListDlg@@QEAAXXZ -> public: void __cdecl CUCFTMListDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUCFTPModeDlg@@QEAAXXZ -> public: void __cdecl CUCFTPModeDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUCFTSModeDlg@@QEAAXXZ -> public: void __cdecl CUCFTSModeDlg::ChangeUnit(void) __ptr64
+?ClearPMCv@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::ClearPMCv(void) __ptr64
+?ClearResult@CSRCCompBeamPModeDlg@@QEAAXXZ -> public: void __cdecl CSRCCompBeamPModeDlg::ClearResult(void) __ptr64
+?ClearResultData@CUCCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUCCOPModeDlg::ClearResultData(void) __ptr64
+?ClearResultData@CUCFTPModeDlg@@QEAAXXZ -> public: void __cdecl CUCFTPModeDlg::ClearResultData(void) __ptr64
+?ConvertUnitPMCurveData@CUCCOPModeDlg@@AEAAXAEAUDGNRCS_PMCURVE@@@Z -> private: void __cdecl CUCCOPModeDlg::ConvertUnitPMCurveData(struct DGNRCS_PMCURVE & __ptr64) __ptr64
+?DGN_UCCB@CSRCCodeCheck@@QEAA_NAEAV?$CArray@II@@AEAV?$CArray@UT_GUCCB_D@@AEAU1@@@@Z -> public: bool __cdecl CSRCCodeCheck::DGN_UCCB(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<struct T_GUCCB_D,struct T_GUCCB_D & __ptr64> & __ptr64) __ptr64
+?DGN_UCCB@CSRCCodeCheck@@QEAA_NIAEAUT_GUCCB_D@@@Z -> public: bool __cdecl CSRCCodeCheck::DGN_UCCB(unsigned int,struct T_GUCCB_D & __ptr64) __ptr64
+?DGN_UCCO@CSRCCodeCheck@@QEAA_NAEAV?$CArray@II@@AEAV?$CArray@UT_GUCCO_D@@AEAU1@@@@Z -> public: bool __cdecl CSRCCodeCheck::DGN_UCCO(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<struct T_GUCCO_D,struct T_GUCCO_D & __ptr64> & __ptr64) __ptr64
+?DGN_UCCO@CSRCCodeCheck@@QEAA_NIAEAUT_GUCCO_D@@@Z -> public: bool __cdecl CSRCCodeCheck::DGN_UCCO(unsigned int,struct T_GUCCO_D & __ptr64) __ptr64
+?DGN_UCFT@CSRCCodeCheck@@QEAA_NAEAV?$CArray@II@@AEAV?$CArray@UT_GUCFT_D@@AEAU1@@@@Z -> public: bool __cdecl CSRCCodeCheck::DGN_UCFT(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<struct T_GUCFT_D,struct T_GUCFT_D & __ptr64> & __ptr64) __ptr64
+?DGN_UCFT@CSRCCodeCheck@@QEAA_NIAEAUT_GUCFT_D@@@Z -> public: bool __cdecl CSRCCodeCheck::DGN_UCFT(unsigned int,struct T_GUCFT_D & __ptr64) __ptr64
+?Data2Dlg@CSRCCompBeamMListDlg@@QEAA_NXZ -> public: bool __cdecl CSRCCompBeamMListDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CSRCCompBeamPModeDlg@@AEAA_NXZ -> private: bool __cdecl CSRCCompBeamPModeDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CSRCCompBeamSModeDlg@@QEAA_N_N@Z -> public: bool __cdecl CSRCCompBeamSModeDlg::Data2Dlg(bool) __ptr64
+?Data2Dlg@CUCCOMListDlg@@QEAA_NXZ -> public: bool __cdecl CUCCOMListDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CUCCOPModeDlg@@AEAA_NXZ -> private: bool __cdecl CUCCOPModeDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CUCCOSModeDlg@@QEAA_N_N@Z -> public: bool __cdecl CUCCOSModeDlg::Data2Dlg(bool) __ptr64
+?Data2Dlg@CUCFTMListDlg@@QEAA_NXZ -> public: bool __cdecl CUCFTMListDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CUCFTPModeDlg@@AEAA_NXZ -> private: bool __cdecl CUCFTPModeDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CUCFTSModeDlg@@QEAA_N_N@Z -> public: bool __cdecl CUCFTSModeDlg::Data2Dlg(bool) __ptr64
+?DeleteResultDataUCCB@CSRCDataBase@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CSRCDataBase::DeleteResultDataUCCB(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?DeleteResultDataUCCB@CSRCDataBase@@QEAA_NI@Z -> public: bool __cdecl CSRCDataBase::DeleteResultDataUCCB(unsigned int) __ptr64
+?DeleteResultDataUCCO@CSRCDataBase@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CSRCDataBase::DeleteResultDataUCCO(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?DeleteResultDataUCCO@CSRCDataBase@@QEAA_NI@Z -> public: bool __cdecl CSRCDataBase::DeleteResultDataUCCO(unsigned int) __ptr64
+?DeleteResultDataUCFT@CSRCDataBase@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CSRCDataBase::DeleteResultDataUCFT(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?DeleteResultDataUCFT@CSRCDataBase@@QEAA_NI@Z -> public: bool __cdecl CSRCDataBase::DeleteResultDataUCFT(unsigned int) __ptr64
+?Destroy@CSRCCodeCheck@@SAXXZ -> public: static void __cdecl CSRCCodeCheck::Destroy(void)
+?Destroy@CSRCDataBase@@SAXXZ -> public: static void __cdecl CSRCDataBase::Destroy(void)
+?DestroyDataBase@IDPLUS_SRCDataBase@@SAXXZ -> public: static void __cdecl IDPLUS_SRCDataBase::DestroyDataBase(void)
+?Dlg2Data@CSRCCompBeamMListDlg@@QEAA_NXZ -> public: bool __cdecl CSRCCompBeamMListDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CSRCCompBeamPModeDlg@@AEAA_NXZ -> private: bool __cdecl CSRCCompBeamPModeDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CSRCCompBeamSModeDlg@@QEAA_NXZ -> public: bool __cdecl CSRCCompBeamSModeDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUCCOMListDlg@@QEAA_NXZ -> public: bool __cdecl CUCCOMListDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUCCOPModeDlg@@AEAA_NXZ -> private: bool __cdecl CUCCOPModeDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUCCOSModeDlg@@QEAA_NXZ -> public: bool __cdecl CUCCOSModeDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUCFTMListDlg@@QEAA_NXZ -> public: bool __cdecl CUCFTMListDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUCFTPModeDlg@@AEAA_NXZ -> private: bool __cdecl CUCFTPModeDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUCFTSModeDlg@@QEAA_NXZ -> public: bool __cdecl CUCFTSModeDlg::Dlg2Data(void) __ptr64
+?DoDataExchange@CSRCCompBeamMListDlg@@EEAAXPEAVCDataExchange@@@Z -> private: virtual void __cdecl CSRCCompBeamMListDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CSRCCompBeamPModeDlg@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CSRCCompBeamPModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CSRCCompBeamSModeDlg@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CSRCCompBeamSModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUCCOMListDlg@@EEAAXPEAVCDataExchange@@@Z -> private: virtual void __cdecl CUCCOMListDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUCCOPModeDlg@@UEAAXPEAVCDataExchange@@@Z -> public: virtual void __cdecl CUCCOPModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUCCOSModeDlg@@UEAAXPEAVCDataExchange@@@Z -> public: virtual void __cdecl CUCCOSModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUCFTMListDlg@@EEAAXPEAVCDataExchange@@@Z -> private: virtual void __cdecl CUCFTMListDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUCFTPModeDlg@@UEAAXPEAVCDataExchange@@@Z -> public: virtual void __cdecl CUCFTPModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUCFTSModeDlg@@UEAAXPEAVCDataExchange@@@Z -> public: virtual void __cdecl CUCFTSModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?GetCheckResultUCCB@CSRCDataBase@@QEAA_NIAEAUDGNKR_UCCB_RES@@@Z -> public: bool __cdecl CSRCDataBase::GetCheckResultUCCB(unsigned int,struct DGNKR_UCCB_RES & __ptr64) __ptr64
+?GetCheckResultUCCB@CSRCDataBase@@QEAA_NIAEAUDGNUS_UCCB_RES@@@Z -> public: bool __cdecl CSRCDataBase::GetCheckResultUCCB(unsigned int,struct DGNUS_UCCB_RES & __ptr64) __ptr64
+?GetCheckResultUCCO@CSRCDataBase@@QEAA_NIAEAUDGNKR_UCCO_RES@@@Z -> public: bool __cdecl CSRCDataBase::GetCheckResultUCCO(unsigned int,struct DGNKR_UCCO_RES & __ptr64) __ptr64
+?GetCheckResultUCCO@CSRCDataBase@@QEAA_NIAEAUDGNUS_UCCO_RES@@@Z -> public: bool __cdecl CSRCDataBase::GetCheckResultUCCO(unsigned int,struct DGNUS_UCCO_RES & __ptr64) __ptr64
+?GetCheckResultUCFT@CSRCDataBase@@QEAA_NIAEAUDGNKR_UCFT_RES@@@Z -> public: bool __cdecl CSRCDataBase::GetCheckResultUCFT(unsigned int,struct DGNKR_UCFT_RES & __ptr64) __ptr64
+?GetCheckResultUCFT@CSRCDataBase@@QEAA_NIAEAUDGNUS_UCFT_RES@@@Z -> public: bool __cdecl CSRCDataBase::GetCheckResultUCFT(unsigned int,struct DGNUS_UCFT_RES & __ptr64) __ptr64
+?GetCodeCheck@IDPLUS_SRCDataBase@@SAPEAXW4MEMBType@@@Z -> public: static void * __ptr64 __cdecl IDPLUS_SRCDataBase::GetCodeCheck(enum MEMBType)
+?GetDrawType@CUCCOPModeDlg@@AEAAJXZ -> private: long __cdecl CUCCOPModeDlg::GetDrawType(void) __ptr64
+?GetMbarArrangeInfo@CUCCOPModeDlg@@AEAAXAEA_N0@Z -> private: void __cdecl CUCCOPModeDlg::GetMbarArrangeInfo(bool & __ptr64,bool & __ptr64) __ptr64
+?GetMessageMap@CSRCCompBeamMListDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CSRCCompBeamMListDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CSRCCompBeamPModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CSRCCompBeamPModeDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CSRCCompBeamSModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CSRCCompBeamSModeDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUCCOMListDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUCCOMListDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUCCOPModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUCCOPModeDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUCCOSModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUCCOSModeDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUCFTMListDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUCFTMListDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUCFTPModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUCFTPModeDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUCFTSModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUCFTSModeDlg::GetMessageMap(void)const __ptr64
+?GetPMCvDrawType@CUCCOPModeDlg@@AEAA?AW4PMCvDrawType@@XZ -> private: enum PMCvDrawType __cdecl CUCCOPModeDlg::GetPMCvDrawType(void) __ptr64
+?GetResultDB_CCB_RES_AISC@CSRCDataBase@@QEAA_NIAEAUDGNUS_UCCB_RES@@@Z -> public: bool __cdecl CSRCDataBase::GetResultDB_CCB_RES_AISC(unsigned int,struct DGNUS_UCCB_RES & __ptr64) __ptr64
+?GetResultDB_CCB_RES_KSSC@CSRCDataBase@@QEAA_NIAEAUDGNKR_UCCB_RES@@@Z -> public: bool __cdecl CSRCDataBase::GetResultDB_CCB_RES_KSSC(unsigned int,struct DGNKR_UCCB_RES & __ptr64) __ptr64
+?GetResultDB_CCB_UMD_AISC@CSRCDataBase@@QEAA_NIAEAUT_GUCCB_D@@@Z -> public: bool __cdecl CSRCDataBase::GetResultDB_CCB_UMD_AISC(unsigned int,struct T_GUCCB_D & __ptr64) __ptr64
+?GetResultDB_CCB_UMD_KSSC@CSRCDataBase@@QEAA_NIAEAUT_GUCCB_D@@@Z -> public: bool __cdecl CSRCDataBase::GetResultDB_CCB_UMD_KSSC(unsigned int,struct T_GUCCB_D & __ptr64) __ptr64
+?GetResultDB_CCO_RES_AISC@CSRCDataBase@@QEAA_NIAEAUDGNUS_UCCO_RES@@@Z -> public: bool __cdecl CSRCDataBase::GetResultDB_CCO_RES_AISC(unsigned int,struct DGNUS_UCCO_RES & __ptr64) __ptr64
+?GetResultDB_CCO_RES_KSSC@CSRCDataBase@@QEAA_NIAEAUDGNKR_UCCO_RES@@@Z -> public: bool __cdecl CSRCDataBase::GetResultDB_CCO_RES_KSSC(unsigned int,struct DGNKR_UCCO_RES & __ptr64) __ptr64
+?GetResultDB_CCO_UMD_AISC@CSRCDataBase@@QEAA_NIAEAUT_GUCCO_D@@@Z -> public: bool __cdecl CSRCDataBase::GetResultDB_CCO_UMD_AISC(unsigned int,struct T_GUCCO_D & __ptr64) __ptr64
+?GetResultDB_CCO_UMD_KSSC@CSRCDataBase@@QEAA_NIAEAUT_GUCCO_D@@@Z -> public: bool __cdecl CSRCDataBase::GetResultDB_CCO_UMD_KSSC(unsigned int,struct T_GUCCO_D & __ptr64) __ptr64
+?GetResultDB_CFT_RES_AISC@CSRCDataBase@@QEAA_NIAEAUDGNUS_UCFT_RES@@@Z -> public: bool __cdecl CSRCDataBase::GetResultDB_CFT_RES_AISC(unsigned int,struct DGNUS_UCFT_RES & __ptr64) __ptr64
+?GetResultDB_CFT_RES_KSSC@CSRCDataBase@@QEAA_NIAEAUDGNKR_UCFT_RES@@@Z -> public: bool __cdecl CSRCDataBase::GetResultDB_CFT_RES_KSSC(unsigned int,struct DGNKR_UCFT_RES & __ptr64) __ptr64
+?GetResultDB_CFT_UMD_AISC@CSRCDataBase@@QEAA_NIAEAUT_GUCFT_D@@@Z -> public: bool __cdecl CSRCDataBase::GetResultDB_CFT_UMD_AISC(unsigned int,struct T_GUCFT_D & __ptr64) __ptr64
+?GetResultDB_CFT_UMD_KSSC@CSRCDataBase@@QEAA_NIAEAUT_GUCFT_D@@@Z -> public: bool __cdecl CSRCDataBase::GetResultDB_CFT_UMD_KSSC(unsigned int,struct T_GUCFT_D & __ptr64) __ptr64
+?GetSpliceType@CUCCOPModeDlg@@AEAAHXZ -> private: int __cdecl CUCCOPModeDlg::GetSpliceType(void) __ptr64
+?GetThisMessageMap@CSRCCompBeamMListDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CSRCCompBeamMListDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CSRCCompBeamPModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CSRCCompBeamPModeDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CSRCCompBeamSModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CSRCCompBeamSModeDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUCCOMListDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUCCOMListDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUCCOPModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUCCOPModeDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUCCOSModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUCCOSModeDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUCFTMListDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUCFTMListDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUCFTPModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUCFTPModeDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUCFTSModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUCFTSModeDlg::GetThisMessageMap(void)
+?GridToSpreadSheet@CSRCCompBeamMListDlg@@AEAAXJ@Z -> private: void __cdecl CSRCCompBeamMListDlg::GridToSpreadSheet(long) __ptr64
+?GridToSpreadSheet@CUCCOMListDlg@@AEAAXJ@Z -> private: void __cdecl CUCCOMListDlg::GridToSpreadSheet(long) __ptr64
+?GridToSpreadSheet@CUCFTMListDlg@@AEAAXJ@Z -> private: void __cdecl CUCFTMListDlg::GridToSpreadSheet(long) __ptr64
+?HideCtrlPMCv3D@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::HideCtrlPMCv3D(void) __ptr64
+?InitChildDlg@CSRCCompBeamPModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamPModeDlg::InitChildDlg(void) __ptr64
+?InitChildDlg@CSRCCompBeamSModeDlg@@QEAAXXZ -> public: void __cdecl CSRCCompBeamSModeDlg::InitChildDlg(void) __ptr64
+?InitComboBox@CSRCCompBeamPModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamPModeDlg::InitComboBox(void) __ptr64
+?InitComboBox@CSRCCompBeamSModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamSModeDlg::InitComboBox(void) __ptr64
+?InitComboBox@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::InitComboBox(void) __ptr64
+?InitComboBox@CUCCOSModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOSModeDlg::InitComboBox(void) __ptr64
+?InitComboBox@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::InitComboBox(void) __ptr64
+?InitComboBox@CUCFTSModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTSModeDlg::InitComboBox(void) __ptr64
+?InitEditSpin@CSRCCompBeamPModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamPModeDlg::InitEditSpin(void) __ptr64
+?InitEditSpin@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::InitEditSpin(void) __ptr64
+?InitEditSpin@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::InitEditSpin(void) __ptr64
+?InitGrid@CSRCCompBeamPModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamPModeDlg::InitGrid(void) __ptr64
+?InitGrid@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::InitGrid(void) __ptr64
+?InitGrid@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::InitGrid(void) __ptr64
+?InitPreview@CSRCCompBeamPModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamPModeDlg::InitPreview(void) __ptr64
+?InitPreview@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::InitPreview(void) __ptr64
+?InitPreview@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::InitPreview(void) __ptr64
+?InitReportView@CSRCCompBeamSModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamSModeDlg::InitReportView(void) __ptr64
+?Instance@CSRCCodeCheck@@SAPEAV1@XZ -> public: static class CSRCCodeCheck * __ptr64 __cdecl CSRCCodeCheck::Instance(void)
+?Instance@CSRCDataBase@@SAPEAV1@XZ -> public: static class CSRCDataBase * __ptr64 __cdecl CSRCDataBase::Instance(void)
+?IsCheckingREQ@CSRCCodeCheck@@AEAA_NW4MEMBType@@I@Z -> private: bool __cdecl CSRCCodeCheck::IsCheckingREQ(enum MEMBType,unsigned int) __ptr64
+?IsExistResultData@CSRCDataBase@@QEAA_NW4MEMBType@@H@Z -> public: bool __cdecl CSRCDataBase::IsExistResultData(enum MEMBType,int) __ptr64
+?IsExistResultDataUCCB@CSRCDataBase@@AEAA_NI@Z -> private: bool __cdecl CSRCDataBase::IsExistResultDataUCCB(unsigned int) __ptr64
+?IsExistResultDataUCCO@CSRCDataBase@@AEAA_NI@Z -> private: bool __cdecl CSRCDataBase::IsExistResultDataUCCO(unsigned int) __ptr64
+?IsExistResultDataUCFT@CSRCDataBase@@AEAA_NI@Z -> private: bool __cdecl CSRCDataBase::IsExistResultDataUCFT(unsigned int) __ptr64
+?IsSameData@CSRCDataBase@@QEAA_NAEAUT_GUCCB_D@@0@Z -> public: bool __cdecl CSRCDataBase::IsSameData(struct T_GUCCB_D & __ptr64,struct T_GUCCB_D & __ptr64) __ptr64
+?IsSameData@CSRCDataBase@@QEAA_NAEAUT_GUCCO_D@@0@Z -> public: bool __cdecl CSRCDataBase::IsSameData(struct T_GUCCO_D & __ptr64,struct T_GUCCO_D & __ptr64) __ptr64
+?IsSameData@CSRCDataBase@@QEAA_NAEAUT_GUCFT_D@@0@Z -> public: bool __cdecl CSRCDataBase::IsSameData(struct T_GUCFT_D & __ptr64,struct T_GUCFT_D & __ptr64) __ptr64
+?LayoutChildDlg@CUCCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUCCOPModeDlg::LayoutChildDlg(void) __ptr64
+?LayoutChildDlg@CUCCOSModeDlg@@QEAAXXZ -> public: void __cdecl CUCCOSModeDlg::LayoutChildDlg(void) __ptr64
+?LayoutChildDlg@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::LayoutChildDlg(void) __ptr64
+?LayoutChildDlg@CUCFTSModeDlg@@QEAAXXZ -> public: void __cdecl CUCFTSModeDlg::LayoutChildDlg(void) __ptr64
+?MakeReport@CSRCCompBeamMListDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CSRCCompBeamMListDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUCCOMListDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUCCOMListDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUCCOPModeDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUCCOPModeDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUCCOSModeDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUCCOSModeDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUCFTMListDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUCFTMListDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUCFTPModeDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUCFTPModeDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUCFTSModeDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUCFTSModeDlg::MakeReport(enum ReportContent) __ptr64
+?ModifyDBData@CSRCCompBeamPModeDlg@@AEAA_NXZ -> private: bool __cdecl CSRCCompBeamPModeDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CSRCCompBeamSModeDlg@@AEAA_NXZ -> private: bool __cdecl CSRCCompBeamSModeDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CUCCOPModeDlg@@AEAA_NXZ -> private: bool __cdecl CUCCOPModeDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CUCCOSModeDlg@@AEAA_NXZ -> private: bool __cdecl CUCCOSModeDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CUCFTPModeDlg@@AEAA_NXZ -> private: bool __cdecl CUCFTPModeDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CUCFTSModeDlg@@AEAA_NXZ -> private: bool __cdecl CUCFTSModeDlg::ModifyDBData(void) __ptr64
+?ModifyRebarLayout@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::ModifyRebarLayout(void) __ptr64
+?ModifyRebarLayoutLayer@CUCCOPModeDlg@@AEAAXK@Z -> private: void __cdecl CUCCOPModeDlg::ModifyRebarLayoutLayer(unsigned long) __ptr64
+?MoveFocusToReportView@CSRCCompBeamSModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamSModeDlg::MoveFocusToReportView(void) __ptr64
+?MoveFocusToReportView@CUCCOSModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOSModeDlg::MoveFocusToReportView(void) __ptr64
+?MoveFocusToReportView@CUCFTSModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTSModeDlg::MoveFocusToReportView(void) __ptr64
+?OnBtnPMCv3D@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnBtnPMCv3D(void) __ptr64
+?OnButtonApply@CSRCCompBeamMListDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamMListDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CSRCCompBeamPModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamPModeDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUCCOMListDlg@@IEAAXXZ -> protected: void __cdecl CUCCOMListDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUCFTSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCFTSModeDlg::OnButtonApply(void) __ptr64
+?OnButtonCheck@CSRCCompBeamMListDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamMListDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CSRCCompBeamPModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamPModeDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUCCOMListDlg@@IEAAXXZ -> protected: void __cdecl CUCCOMListDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUCFTSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCFTSModeDlg::OnButtonCheck(void) __ptr64
+?OnButtonDesign@CSRCCompBeamMListDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamMListDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CSRCCompBeamPModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamPModeDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUCCOMListDlg@@IEAAXXZ -> protected: void __cdecl CUCCOMListDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUCFTSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCFTSModeDlg::OnButtonDesign(void) __ptr64
+?OnButtonExcel@CSRCCompBeamMListDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamMListDlg::OnButtonExcel(void) __ptr64
+?OnButtonExcel@CUCCOMListDlg@@IEAAXXZ -> protected: void __cdecl CUCCOMListDlg::OnButtonExcel(void) __ptr64
+?OnButtonExcel@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::OnButtonExcel(void) __ptr64
+?OnButtonLibXL@CSRCCompBeamMListDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamMListDlg::OnButtonLibXL(void) __ptr64
+?OnButtonLibXL@CUCCOMListDlg@@IEAAXXZ -> protected: void __cdecl CUCCOMListDlg::OnButtonLibXL(void) __ptr64
+?OnButtonLibXL@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::OnButtonLibXL(void) __ptr64
+?OnButtonPrint@CUCFTSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCFTSModeDlg::OnButtonPrint(void) __ptr64
+?OnButtonReport@CSRCCompBeamPModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamPModeDlg::OnButtonReport(void) __ptr64
+?OnButtonReport@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnButtonReport(void) __ptr64
+?OnButtonReport@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::OnButtonReport(void) __ptr64
+?OnButtonReport@CUCFTSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCFTSModeDlg::OnButtonReport(void) __ptr64
+?OnButtonResizeCol@CSRCCompBeamMListDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamMListDlg::OnButtonResizeCol(void) __ptr64
+?OnButtonResizeCol@CUCCOMListDlg@@IEAAXXZ -> protected: void __cdecl CUCCOMListDlg::OnButtonResizeCol(void) __ptr64
+?OnButtonResizeCol@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::OnButtonResizeCol(void) __ptr64
+?OnButtonSave@CUCFTSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCFTSModeDlg::OnButtonSave(void) __ptr64
+?OnButtonSelectAll@CSRCCompBeamMListDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamMListDlg::OnButtonSelectAll(void) __ptr64
+?OnButtonSelectAll@CUCCOMListDlg@@IEAAXXZ -> protected: void __cdecl CUCCOMListDlg::OnButtonSelectAll(void) __ptr64
+?OnButtonSelectAll@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::OnButtonSelectAll(void) __ptr64
+?OnButtonSelectInv@CSRCCompBeamMListDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamMListDlg::OnButtonSelectInv(void) __ptr64
+?OnButtonSelectInv@CUCCOMListDlg@@IEAAXXZ -> protected: void __cdecl CUCCOMListDlg::OnButtonSelectInv(void) __ptr64
+?OnButtonSelectInv@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::OnButtonSelectInv(void) __ptr64
+?OnButtonSelectNon@CSRCCompBeamMListDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamMListDlg::OnButtonSelectNon(void) __ptr64
+?OnButtonSelectNon@CUCCOMListDlg@@IEAAXXZ -> protected: void __cdecl CUCCOMListDlg::OnButtonSelectNon(void) __ptr64
+?OnButtonSelectNon@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::OnButtonSelectNon(void) __ptr64
+?OnChangeDrawType@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnChangeDrawType(void) __ptr64
+?OnChangeInputData@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnChangeInputData(void) __ptr64
+?OnChangeMainBarSpace@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnChangeMainBarSpace(void) __ptr64
+?OnChangeRebarArr@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnChangeRebarArr(void) __ptr64
+?OnChangeSpliceType@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnChangeSpliceType(void) __ptr64
+?OnContextMenu@CSRCCompBeamMListDlg@@AEAAXPEAVCWnd@@VCPoint@@@Z -> private: void __cdecl CSRCCompBeamMListDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CSRCCompBeamPModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CSRCCompBeamPModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CSRCCompBeamSModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CSRCCompBeamSModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUCCOMListDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CUCCOMListDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUCCOPModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CUCCOPModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUCCOSModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CUCCOSModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUCFTMListDlg@@AEAAXPEAVCWnd@@VCPoint@@@Z -> private: void __cdecl CUCFTMListDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUCFTPModeDlg@@AEAAXPEAVCWnd@@VCPoint@@@Z -> private: void __cdecl CUCFTPModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUCFTSModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CUCFTSModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnDoubleClickPMCurve@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnDoubleClickPMCurve(void) __ptr64
+?OnDoubleClickPreview@CSRCCompBeamPModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamPModeDlg::OnDoubleClickPreview(void) __ptr64
+?OnDoubleClickPreview@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnDoubleClickPreview(void) __ptr64
+?OnDoubleClickPreview@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::OnDoubleClickPreview(void) __ptr64
+?OnDoubleClickVibrChart@CSRCCompBeamPModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamPModeDlg::OnDoubleClickVibrChart(void) __ptr64
+?OnGUccbPrintBtn@CSRCCompBeamSModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamSModeDlg::OnGUccbPrintBtn(void) __ptr64
+?OnGUccbSaveBtn@CSRCCompBeamSModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamSModeDlg::OnGUccbSaveBtn(void) __ptr64
+?OnGUccbViewZoom@CSRCCompBeamSModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamSModeDlg::OnGUccbViewZoom(void) __ptr64
+?OnGUccoButtonApply@CUCCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOSModeDlg::OnGUccoButtonApply(void) __ptr64
+?OnGUccoButtonCheck@CUCCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOSModeDlg::OnGUccoButtonCheck(void) __ptr64
+?OnGUccoButtonDesign@CUCCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOSModeDlg::OnGUccoButtonDesign(void) __ptr64
+?OnGUccoButtonReport@CUCCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOSModeDlg::OnGUccoButtonReport(void) __ptr64
+?OnGUccoPrintBtn@CUCCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOSModeDlg::OnGUccoPrintBtn(void) __ptr64
+?OnGUccoSaveBtn@CUCCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOSModeDlg::OnGUccoSaveBtn(void) __ptr64
+?OnGUccoViewZoom@CUCCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOSModeDlg::OnGUccoViewZoom(void) __ptr64
+?OnGuccbButtonApply@CSRCCompBeamSModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamSModeDlg::OnGuccbButtonApply(void) __ptr64
+?OnGuccbButtonCheck@CSRCCompBeamSModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamSModeDlg::OnGuccbButtonCheck(void) __ptr64
+?OnGuccbButtonDesign@CSRCCompBeamSModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamSModeDlg::OnGuccbButtonDesign(void) __ptr64
+?OnGuccbButtonReport@CSRCCompBeamSModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamSModeDlg::OnGuccbButtonReport(void) __ptr64
+?OnInitDialog@CSRCCompBeamMListDlg@@EEAAHXZ -> private: virtual int __cdecl CSRCCompBeamMListDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CSRCCompBeamPModeDlg@@UEAAHXZ -> public: virtual int __cdecl CSRCCompBeamPModeDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CSRCCompBeamSModeDlg@@UEAAHXZ -> public: virtual int __cdecl CSRCCompBeamSModeDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUCCOMListDlg@@EEAAHXZ -> private: virtual int __cdecl CUCCOMListDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUCCOPModeDlg@@UEAAHXZ -> public: virtual int __cdecl CUCCOPModeDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUCCOSModeDlg@@UEAAHXZ -> public: virtual int __cdecl CUCCOSModeDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUCFTMListDlg@@EEAAHXZ -> private: virtual int __cdecl CUCFTMListDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUCFTPModeDlg@@UEAAHXZ -> public: virtual int __cdecl CUCFTPModeDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUCFTSModeDlg@@UEAAHXZ -> public: virtual int __cdecl CUCFTSModeDlg::OnInitDialog(void) __ptr64
+?OnMouseWheel@CSRCCompBeamSModeDlg@@IEAAHIFVCPoint@@@Z -> protected: int __cdecl CSRCCompBeamSModeDlg::OnMouseWheel(unsigned int,short,class CPoint) __ptr64
+?OnMouseWheel@CUCCOSModeDlg@@IEAAHIFVCPoint@@@Z -> protected: int __cdecl CUCCOSModeDlg::OnMouseWheel(unsigned int,short,class CPoint) __ptr64
+?OnMouseWheel@CUCFTSModeDlg@@IEAAHIFVCPoint@@@Z -> protected: int __cdecl CUCFTSModeDlg::OnMouseWheel(unsigned int,short,class CPoint) __ptr64
+?OnReportDetail@CSRCCompBeamMListDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamMListDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CSRCCompBeamPModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamPModeDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CSRCCompBeamSModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamSModeDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUCCOMListDlg@@IEAAXXZ -> protected: void __cdecl CUCCOMListDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUCCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOSModeDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUCFTSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCFTSModeDlg::OnReportDetail(void) __ptr64
+?OnReportInputList@CSRCCompBeamMListDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamMListDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CSRCCompBeamPModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamPModeDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CSRCCompBeamSModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamSModeDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUCCOMListDlg@@IEAAXXZ -> protected: void __cdecl CUCCOMListDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUCCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOSModeDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUCFTSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCFTSModeDlg::OnReportInputList(void) __ptr64
+?OnReportSummary@CSRCCompBeamMListDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamMListDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CSRCCompBeamPModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamPModeDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CSRCCompBeamSModeDlg@@IEAAXXZ -> protected: void __cdecl CSRCCompBeamSModeDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUCCOMListDlg@@IEAAXXZ -> protected: void __cdecl CUCCOMListDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUCCOPModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOPModeDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUCCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCCOSModeDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUCFTSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCFTSModeDlg::OnReportSummary(void) __ptr64
+?OnSelChangeTab@CSRCCompBeamPModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CSRCCompBeamPModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangeTab@CSRCCompBeamSModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CSRCCompBeamSModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangeTab@CUCCOPModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUCCOPModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangeTab@CUCCOSModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUCCOSModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangeTab@CUCFTPModeDlg@@AEAAXPEAUtagNMHDR@@PEA_J@Z -> private: void __cdecl CUCFTPModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangeTab@CUCFTSModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUCFTSModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CSRCCompBeamPModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CSRCCompBeamPModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CSRCCompBeamSModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CSRCCompBeamSModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CUCCOPModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUCCOPModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CUCCOSModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUCCOSModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CUCFTPModeDlg@@AEAAXPEAUtagNMHDR@@PEA_J@Z -> private: void __cdecl CUCFTPModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CUCFTSModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUCFTSModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSetFocus@CSRCCompBeamMListDlg@@EEAAXPEAVCWnd@@@Z -> private: virtual void __cdecl CSRCCompBeamMListDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CSRCCompBeamPModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CSRCCompBeamPModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CSRCCompBeamSModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CSRCCompBeamSModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUCCOMListDlg@@EEAAXPEAVCWnd@@@Z -> private: virtual void __cdecl CUCCOMListDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUCCOPModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CUCCOPModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUCCOSModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CUCCOSModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUCFTMListDlg@@EEAAXPEAVCWnd@@@Z -> private: virtual void __cdecl CUCFTMListDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUCFTPModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CUCFTPModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUCFTSModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CUCFTSModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnUpdate@CSRCCompBeamMListDlg@@EEAAXPEAVCView@@_JPEAVCObject@@@Z -> private: virtual void __cdecl CSRCCompBeamMListDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CSRCCompBeamPModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CSRCCompBeamPModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CSRCCompBeamSModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CSRCCompBeamSModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CSRCDataBase@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CSRCDataBase::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUCCOMListDlg@@EEAAXPEAVCView@@_JPEAVCObject@@@Z -> private: virtual void __cdecl CUCCOMListDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUCCOPModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CUCCOPModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUCCOSModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CUCCOSModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUCFTMListDlg@@EEAAXPEAVCView@@_JPEAVCObject@@@Z -> private: virtual void __cdecl CUCFTMListDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUCFTPModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CUCFTPModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUCFTSModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CUCFTSModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnViewZoom@CUCFTSModeDlg@@IEAAXXZ -> protected: void __cdecl CUCFTSModeDlg::OnViewZoom(void) __ptr64
+?PostNcDestroy@CSRCCompBeamMListDlg@@EEAAXXZ -> private: virtual void __cdecl CSRCCompBeamMListDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CSRCCompBeamPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CSRCCompBeamPModeDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CSRCCompBeamSModeDlg@@UEAAXXZ -> public: virtual void __cdecl CSRCCompBeamSModeDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUCCOMListDlg@@EEAAXXZ -> private: virtual void __cdecl CUCCOMListDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUCCOPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUCCOPModeDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUCCOSModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUCCOSModeDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUCFTMListDlg@@EEAAXXZ -> private: virtual void __cdecl CUCFTMListDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUCFTPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUCFTPModeDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUCFTSModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUCFTSModeDlg::PostNcDestroy(void) __ptr64
+?PreTranslateMessage@CSRCCompBeamMListDlg@@EEAAHPEAUtagMSG@@@Z -> private: virtual int __cdecl CSRCCompBeamMListDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CSRCCompBeamPModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CSRCCompBeamPModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CSRCCompBeamSModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CSRCCompBeamSModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUCCOMListDlg@@EEAAHPEAUtagMSG@@@Z -> private: virtual int __cdecl CUCCOMListDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUCCOPModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CUCCOPModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUCCOSModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CUCCOSModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUCFTMListDlg@@EEAAHPEAUtagMSG@@@Z -> private: virtual int __cdecl CUCFTMListDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUCFTPModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CUCFTPModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUCFTSModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CUCFTSModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?RedrawPMCv@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::RedrawPMCv(void) __ptr64
+?RedrawPreview@CSRCCompBeamPModeDlg@@QEAAXXZ -> public: void __cdecl CSRCCompBeamPModeDlg::RedrawPreview(void) __ptr64
+?RedrawPreview@CUCCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUCCOPModeDlg::RedrawPreview(void) __ptr64
+?RedrawPreview@CUCFTPModeDlg@@QEAAXXZ -> public: void __cdecl CUCFTPModeDlg::RedrawPreview(void) __ptr64
+?RedrawSectShape@CSRCCompBeamPModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamPModeDlg::RedrawSectShape(void) __ptr64
+?RedrawVibration@CSRCCompBeamPModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamPModeDlg::RedrawVibration(void) __ptr64
+?RemoveAllResultDB@CSRCDataBase@@QEAAXXZ -> public: void __cdecl CSRCDataBase::RemoveAllResultDB(void) __ptr64
+?RemoveAllResultDB_AISC@CSRCDataBase@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CSRCDataBase::RemoveAllResultDB_AISC(enum MEMBType) __ptr64
+?RemoveAllResultDB_KSSC@CSRCDataBase@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CSRCDataBase::RemoveAllResultDB_KSSC(enum MEMBType) __ptr64
+?RemoveResultDB@CSRCCodeCheck@@AEAAXW4MEMBType@@@Z -> private: void __cdecl CSRCCodeCheck::RemoveResultDB(enum MEMBType) __ptr64
+?RemoveResultDB_AISC@CSRCCodeCheck@@AEAAXW4MEMBType@@@Z -> private: void __cdecl CSRCCodeCheck::RemoveResultDB_AISC(enum MEMBType) __ptr64
+?RemoveResultDB_CCB_AISC@CSRCDataBase@@QEAAXI@Z -> public: void __cdecl CSRCDataBase::RemoveResultDB_CCB_AISC(unsigned int) __ptr64
+?RemoveResultDB_CCB_KSSC@CSRCDataBase@@QEAAXI@Z -> public: void __cdecl CSRCDataBase::RemoveResultDB_CCB_KSSC(unsigned int) __ptr64
+?RemoveResultDB_CCO_AISC@CSRCDataBase@@QEAAXI@Z -> public: void __cdecl CSRCDataBase::RemoveResultDB_CCO_AISC(unsigned int) __ptr64
+?RemoveResultDB_CCO_KSSC@CSRCDataBase@@QEAAXI@Z -> public: void __cdecl CSRCDataBase::RemoveResultDB_CCO_KSSC(unsigned int) __ptr64
+?RemoveResultDB_CFT_AISC@CSRCDataBase@@QEAAXI@Z -> public: void __cdecl CSRCDataBase::RemoveResultDB_CFT_AISC(unsigned int) __ptr64
+?RemoveResultDB_CFT_KSSC@CSRCDataBase@@QEAAXI@Z -> public: void __cdecl CSRCDataBase::RemoveResultDB_CFT_KSSC(unsigned int) __ptr64
+?RemoveResultDB_KSSC@CSRCCodeCheck@@AEAAXW4MEMBType@@@Z -> private: void __cdecl CSRCCodeCheck::RemoveResultDB_KSSC(enum MEMBType) __ptr64
+?ReplaceForceByMaxLComb@CSRCCodeCheck@@AEAAXAEBUDGNKR_UCCO_RES_LCOMB@@AEAUT_GUCCO_D@@@Z -> private: void __cdecl CSRCCodeCheck::ReplaceForceByMaxLComb(struct DGNKR_UCCO_RES_LCOMB const & __ptr64,struct T_GUCCO_D & __ptr64) __ptr64
+?ReplaceForceByMaxLComb@CSRCCodeCheck@@AEAAXAEBUDGNKR_UCFT_RES_LCOMB@@AEAUT_GUCFT_D@@@Z -> private: void __cdecl CSRCCodeCheck::ReplaceForceByMaxLComb(struct DGNKR_UCFT_RES_LCOMB const & __ptr64,struct T_GUCFT_D & __ptr64) __ptr64
+?ReplaceForceByMaxLComb@CSRCCodeCheck@@AEAAXAEBUDGNUS_UCCO_RES_LCOMB@@AEAUT_GUCCO_D@@@Z -> private: void __cdecl CSRCCodeCheck::ReplaceForceByMaxLComb(struct DGNUS_UCCO_RES_LCOMB const & __ptr64,struct T_GUCCO_D & __ptr64) __ptr64
+?ReplaceForceByMaxLComb@CSRCCodeCheck@@AEAAXAEBUDGNUS_UCFT_RES_LCOMB@@AEAUT_GUCFT_D@@@Z -> private: void __cdecl CSRCCodeCheck::ReplaceForceByMaxLComb(struct DGNUS_UCFT_RES_LCOMB const & __ptr64,struct T_GUCFT_D & __ptr64) __ptr64
+?ResetGridMBar@CUCCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUCCOPModeDlg::ResetGridMBar(void) __ptr64
+?ResizeDialog@CSRCCompBeamMListDlg@@EEAAXHH@Z -> private: virtual void __cdecl CSRCCompBeamMListDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CSRCCompBeamPModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CSRCCompBeamPModeDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CSRCCompBeamSModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CSRCCompBeamSModeDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUCCOMListDlg@@EEAAXHH@Z -> private: virtual void __cdecl CUCCOMListDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUCCOPModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CUCCOPModeDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUCCOSModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CUCCOSModeDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUCFTMListDlg@@EEAAXHH@Z -> private: virtual void __cdecl CUCFTMListDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUCFTPModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CUCFTPModeDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUCFTSModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CUCFTSModeDlg::ResizeDialog(int,int) __ptr64
+?RunShortcutCommand@CSRCCompBeamMListDlg@@EEAAXH@Z -> private: virtual void __cdecl CSRCCompBeamMListDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CSRCCompBeamPModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CSRCCompBeamPModeDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CSRCCompBeamSModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CSRCCompBeamSModeDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUCCOMListDlg@@EEAAXH@Z -> private: virtual void __cdecl CUCCOMListDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUCCOPModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CUCCOPModeDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUCCOSModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CUCCOSModeDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUCFTMListDlg@@EEAAXH@Z -> private: virtual void __cdecl CUCFTMListDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUCFTPModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CUCFTPModeDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUCFTSModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CUCFTSModeDlg::RunShortcutCommand(int) __ptr64
+?SetControlForm@CSRCCompBeamMListDlg@@QEAAX_N@Z -> public: void __cdecl CSRCCompBeamMListDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CSRCCompBeamPModeDlg@@AEAAX_N@Z -> private: void __cdecl CSRCCompBeamPModeDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CSRCCompBeamSModeDlg@@AEAAX_N@Z -> private: void __cdecl CSRCCompBeamSModeDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUCCOMListDlg@@QEAAX_N@Z -> public: void __cdecl CUCCOMListDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUCCOPModeDlg@@AEAAX_N@Z -> private: void __cdecl CUCCOPModeDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUCCOSModeDlg@@AEAAX_N@Z -> private: void __cdecl CUCCOSModeDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUCFTMListDlg@@QEAAX_N@Z -> public: void __cdecl CUCFTMListDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUCFTPModeDlg@@AEAAX_N@Z -> private: void __cdecl CUCFTPModeDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUCFTSModeDlg@@AEAAX_N@Z -> private: void __cdecl CUCFTSModeDlg::SetControlForm(bool) __ptr64
+?SetControlText@CSRCCompBeamPModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamPModeDlg::SetControlText(void) __ptr64
+?SetControlText@CSRCCompBeamSModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamSModeDlg::SetControlText(void) __ptr64
+?SetControlText@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::SetControlText(void) __ptr64
+?SetControlText@CUCCOSModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOSModeDlg::SetControlText(void) __ptr64
+?SetControlText@CUCFTMListDlg@@AEAAXXZ -> private: void __cdecl CUCFTMListDlg::SetControlText(void) __ptr64
+?SetControlText@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::SetControlText(void) __ptr64
+?SetControlText@CUCFTSModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTSModeDlg::SetControlText(void) __ptr64
+?SetDgnCodeBasicInfo@CSRCCodeCheck@@QEAA_NXZ -> public: bool __cdecl CSRCCodeCheck::SetDgnCodeBasicInfo(void) __ptr64
+?SetInitUnit@CSRCCompBeamPModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamPModeDlg::SetInitUnit(void) __ptr64
+?SetInitUnit@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::SetInitUnit(void) __ptr64
+?SetInitUnit@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::SetInitUnit(void) __ptr64
+?SetMinMax@CSRCCompBeamPModeDlg@@AEAAXXZ -> private: void __cdecl CSRCCompBeamPModeDlg::SetMinMax(void) __ptr64
+?SetMinMax@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::SetMinMax(void) __ptr64
+?SetMinMax@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::SetMinMax(void) __ptr64
+?SetPointer@CSRCCodeCheck@@QEAAXPEAVCSRCDataBase@@PEAVCDBDoc@@@Z -> public: void __cdecl CSRCCodeCheck::SetPointer(class CSRCDataBase * __ptr64,class CDBDoc * __ptr64) __ptr64
+?SetResultDB_CCB_AISC@CSRCDataBase@@QEAAXIAEAUT_GUCCB_D@@AEAUDGNUS_UCCB_RES@@@Z -> public: void __cdecl CSRCDataBase::SetResultDB_CCB_AISC(unsigned int,struct T_GUCCB_D & __ptr64,struct DGNUS_UCCB_RES & __ptr64) __ptr64
+?SetResultDB_CCB_KSSC@CSRCDataBase@@QEAAXIAEAUT_GUCCB_D@@AEAUDGNKR_UCCB_RES@@@Z -> public: void __cdecl CSRCDataBase::SetResultDB_CCB_KSSC(unsigned int,struct T_GUCCB_D & __ptr64,struct DGNKR_UCCB_RES & __ptr64) __ptr64
+?SetResultDB_CCO_AISC@CSRCDataBase@@QEAAXIAEAUT_GUCCO_D@@AEAUDGNUS_UCCO_RES@@@Z -> public: void __cdecl CSRCDataBase::SetResultDB_CCO_AISC(unsigned int,struct T_GUCCO_D & __ptr64,struct DGNUS_UCCO_RES & __ptr64) __ptr64
+?SetResultDB_CCO_KSSC@CSRCDataBase@@QEAAXIAEAUT_GUCCO_D@@AEAUDGNKR_UCCO_RES@@@Z -> public: void __cdecl CSRCDataBase::SetResultDB_CCO_KSSC(unsigned int,struct T_GUCCO_D & __ptr64,struct DGNKR_UCCO_RES & __ptr64) __ptr64
+?SetResultDB_CFT_AISC@CSRCDataBase@@QEAAXIAEAUT_GUCFT_D@@AEAUDGNUS_UCFT_RES@@@Z -> public: void __cdecl CSRCDataBase::SetResultDB_CFT_AISC(unsigned int,struct T_GUCFT_D & __ptr64,struct DGNUS_UCFT_RES & __ptr64) __ptr64
+?SetResultDB_CFT_KSSC@CSRCDataBase@@QEAAXIAEAUT_GUCFT_D@@AEAUDGNKR_UCFT_RES@@@Z -> public: void __cdecl CSRCDataBase::SetResultDB_CFT_KSSC(unsigned int,struct T_GUCFT_D & __ptr64,struct DGNKR_UCFT_RES & __ptr64) __ptr64
+?SetSpliceType@CUCCOPModeDlg@@AEAAXH@Z -> private: void __cdecl CUCCOPModeDlg::SetSpliceType(int) __ptr64
+?SetToolTip@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::SetToolTip(void) __ptr64
+?SetToolTip@CUCFTPModeDlg@@AEAAXXZ -> private: void __cdecl CUCFTPModeDlg::SetToolTip(void) __ptr64
+?ShowHideDrawCtrl@CUCCOPModeDlg@@AEAAXJ@Z -> private: void __cdecl CUCCOPModeDlg::ShowHideDrawCtrl(long) __ptr64
+?UpdateBuffer@CSRCCompBeamMListDlg@@EEAAXXZ -> private: virtual void __cdecl CSRCCompBeamMListDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CSRCCompBeamPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CSRCCompBeamPModeDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CSRCCompBeamSModeDlg@@UEAAXXZ -> public: virtual void __cdecl CSRCCompBeamSModeDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUCCOMListDlg@@EEAAXXZ -> private: virtual void __cdecl CUCCOMListDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUCCOPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUCCOPModeDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUCCOSModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUCCOSModeDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUCFTMListDlg@@EEAAXXZ -> private: virtual void __cdecl CUCFTMListDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUCFTPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUCFTPModeDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUCFTSModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUCFTSModeDlg::UpdateBuffer(void) __ptr64
+?UpdatePMCv@CUCCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUCCOPModeDlg::UpdatePMCv(void) __ptr64
+?UpdateResult@CSRCCompBeamPModeDlg@@QEAAXXZ -> public: void __cdecl CSRCCompBeamPModeDlg::UpdateResult(void) __ptr64
+?UpdateResultData@CSRCCompBeamMListDlg@@QEAAXXZ -> public: void __cdecl CSRCCompBeamMListDlg::UpdateResultData(void) __ptr64
+?UpdateResultData@CUCCOMListDlg@@QEAAXXZ -> public: void __cdecl CUCCOMListDlg::UpdateResultData(void) __ptr64
+?UpdateResultData@CUCCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUCCOPModeDlg::UpdateResultData(void) __ptr64
+?UpdateResultData@CUCFTMListDlg@@QEAAXXZ -> public: void __cdecl CUCFTMListDlg::UpdateResultData(void) __ptr64
+?UpdateResultData@CUCFTPModeDlg@@QEAAXXZ -> public: void __cdecl CUCFTPModeDlg::UpdateResultData(void) __ptr64
+?WriteReport@CSRCCompBeamPModeDlg@@QEAAXW4ReportContent@@@Z -> public: void __cdecl CSRCCompBeamPModeDlg::WriteReport(enum ReportContent) __ptr64
+?WriteReport@CSRCCompBeamSModeDlg@@QEAAXW4ReportContent@@@Z -> public: void __cdecl CSRCCompBeamSModeDlg::WriteReport(enum ReportContent) __ptr64
+?m_nDrawType@CUCCOPModeDlg@@0JA -> private: static long CUCCOPModeDlg::m_nDrawType
+?m_pInstance@CSRCCodeCheck@@2PEAV1@EA -> public: static class CSRCCodeCheck * __ptr64 __ptr64 CSRCCodeCheck::m_pInstance
+?m_pInstance@CSRCDataBase@@2PEAV1@EA -> public: static class CSRCDataBase * __ptr64 __ptr64 CSRCDataBase::m_pInstance
+Init_DPLUS_SRCdll -> Init_DPLUS_SRCdll

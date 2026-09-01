@@ -1,0 +1,529 @@
+??0CMSOffice@@QEAA@AEBV0@@Z -> public: __cdecl CMSOffice::CMSOffice(class CMSOffice const & __ptr64) __ptr64
+??0CRFMCodeCheck@@QEAA@AEBV0@@Z -> public: __cdecl CRFMCodeCheck::CRFMCodeCheck(class CRFMCodeCheck const & __ptr64) __ptr64
+??0CRFMCodeCheck@@QEAA@XZ -> public: __cdecl CRFMCodeCheck::CRFMCodeCheck(void) __ptr64
+??0CRFMDataBase@@QEAA@XZ -> public: __cdecl CRFMDataBase::CRFMDataBase(void) __ptr64
+??0CUFBEListDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUFBEListDlg::CUFBEListDlg(class CWnd * __ptr64) __ptr64
+??0CUFBEPModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUFBEPModeDlg::CUFBEPModeDlg(class CWnd * __ptr64) __ptr64
+??0CUFBESModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUFBESModeDlg::CUFBESModeDlg(class CWnd * __ptr64) __ptr64
+??0CUFCOListDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUFCOListDlg::CUFCOListDlg(class CWnd * __ptr64) __ptr64
+??0CUFCOPModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUFCOPModeDlg::CUFCOPModeDlg(class CWnd * __ptr64) __ptr64
+??0CUFCOSModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUFCOSModeDlg::CUFCOSModeDlg(class CWnd * __ptr64) __ptr64
+??0CUFSLListDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUFSLListDlg::CUFSLListDlg(class CWnd * __ptr64) __ptr64
+??0CUFSLPModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUFSLPModeDlg::CUFSLPModeDlg(class CWnd * __ptr64) __ptr64
+??0CUFSLSModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CUFSLSModeDlg::CUFSLSModeDlg(class CWnd * __ptr64) __ptr64
+??0IDPLUS_RFMDataBase@@QEAA@AEBV0@@Z -> public: __cdecl IDPLUS_RFMDataBase::IDPLUS_RFMDataBase(class IDPLUS_RFMDataBase const & __ptr64) __ptr64
+??0IDPLUS_RFMDataBase@@QEAA@XZ -> public: __cdecl IDPLUS_RFMDataBase::IDPLUS_RFMDataBase(void) __ptr64
+??1CRFMCodeCheck@@UEAA@XZ -> public: virtual __cdecl CRFMCodeCheck::~CRFMCodeCheck(void) __ptr64
+??1CRFMDataBase@@UEAA@XZ -> public: virtual __cdecl CRFMDataBase::~CRFMDataBase(void) __ptr64
+??1CUFBEListDlg@@UEAA@XZ -> public: virtual __cdecl CUFBEListDlg::~CUFBEListDlg(void) __ptr64
+??1CUFBEPModeDlg@@UEAA@XZ -> public: virtual __cdecl CUFBEPModeDlg::~CUFBEPModeDlg(void) __ptr64
+??1CUFBESModeDlg@@UEAA@XZ -> public: virtual __cdecl CUFBESModeDlg::~CUFBESModeDlg(void) __ptr64
+??1CUFCOListDlg@@UEAA@XZ -> public: virtual __cdecl CUFCOListDlg::~CUFCOListDlg(void) __ptr64
+??1CUFCOPModeDlg@@UEAA@XZ -> public: virtual __cdecl CUFCOPModeDlg::~CUFCOPModeDlg(void) __ptr64
+??1CUFCOSModeDlg@@UEAA@XZ -> public: virtual __cdecl CUFCOSModeDlg::~CUFCOSModeDlg(void) __ptr64
+??1CUFSLListDlg@@UEAA@XZ -> public: virtual __cdecl CUFSLListDlg::~CUFSLListDlg(void) __ptr64
+??1CUFSLPModeDlg@@UEAA@XZ -> public: virtual __cdecl CUFSLPModeDlg::~CUFSLPModeDlg(void) __ptr64
+??1CUFSLSModeDlg@@UEAA@XZ -> public: virtual __cdecl CUFSLSModeDlg::~CUFSLSModeDlg(void) __ptr64
+??1IDPLUS_RFMDataBase@@UEAA@XZ -> public: virtual __cdecl IDPLUS_RFMDataBase::~IDPLUS_RFMDataBase(void) __ptr64
+??4CMSOffice@@QEAAAEAV0@AEBV0@@Z -> public: class CMSOffice & __ptr64 __cdecl CMSOffice::operator=(class CMSOffice const & __ptr64) __ptr64
+??4CRFMCodeCheck@@QEAAAEAV0@AEBV0@@Z -> public: class CRFMCodeCheck & __ptr64 __cdecl CRFMCodeCheck::operator=(class CRFMCodeCheck const & __ptr64) __ptr64
+??4IDPLUS_RFMDataBase@@QEAAAEAV0@AEBV0@@Z -> public: class IDPLUS_RFMDataBase & __ptr64 __cdecl IDPLUS_RFMDataBase::operator=(class IDPLUS_RFMDataBase const & __ptr64) __ptr64
+??_7CMSOffice@@6B@ -> const CMSOffice::`vftable'
+??_7CRFMCodeCheck@@6B@ -> const CRFMCodeCheck::`vftable'
+??_7CRFMDataBase@@6BCDBUpdateConnector@@@ -> const CRFMDataBase::`vftable'{for `CDBUpdateConnector'}
+??_7CRFMDataBase@@6BCDGN_DataBase@@@ -> const CRFMDataBase::`vftable'{for `CDGN_DataBase'}
+??_7CUFBEListDlg@@6BCDBUpdateConnector@@@ -> const CUFBEListDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUFBEListDlg@@6BCDGN_FormViewInDlg@@@ -> const CUFBEListDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUFBEPModeDlg@@6BCDBUpdateConnector@@@ -> const CUFBEPModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUFBEPModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CUFBEPModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUFBEPModeDlg@@6BCRFMRCTool@@@ -> const CUFBEPModeDlg::`vftable'{for `CRFMRCTool'}
+??_7CUFBESModeDlg@@6BCDBUpdateConnector@@@ -> const CUFBESModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUFBESModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CUFBESModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUFBESModeDlg@@6BCRFMRCTool@@@ -> const CUFBESModeDlg::`vftable'{for `CRFMRCTool'}
+??_7CUFCOListDlg@@6BCDBUpdateConnector@@@ -> const CUFCOListDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUFCOListDlg@@6BCDGN_FormViewInDlg@@@ -> const CUFCOListDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUFCOPModeDlg@@6BCDBUpdateConnector@@@ -> const CUFCOPModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUFCOPModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CUFCOPModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUFCOPModeDlg@@6BCRFMRCTool@@@ -> const CUFCOPModeDlg::`vftable'{for `CRFMRCTool'}
+??_7CUFCOSModeDlg@@6BCDBUpdateConnector@@@ -> const CUFCOSModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUFCOSModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CUFCOSModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUFCOSModeDlg@@6BCRFMRCTool@@@ -> const CUFCOSModeDlg::`vftable'{for `CRFMRCTool'}
+??_7CUFSLListDlg@@6BCDBUpdateConnector@@@ -> const CUFSLListDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUFSLListDlg@@6BCDGN_FormViewInDlg@@@ -> const CUFSLListDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUFSLPModeDlg@@6BCDBUpdateConnector@@@ -> const CUFSLPModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUFSLPModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CUFSLPModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUFSLPModeDlg@@6BCRFMRCTool@@@ -> const CUFSLPModeDlg::`vftable'{for `CRFMRCTool'}
+??_7CUFSLSModeDlg@@6BCDBUpdateConnector@@@ -> const CUFSLSModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CUFSLSModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CUFSLSModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CUFSLSModeDlg@@6BCRFMRCTool@@@ -> const CUFSLSModeDlg::`vftable'{for `CRFMRCTool'}
+??_7IDPLUS_RFMDataBase@@6B@ -> const IDPLUS_RFMDataBase::`vftable'
+??_FCUFBEListDlg@@QEAAXXZ -> public: void __cdecl CUFBEListDlg::`default constructor closure'(void) __ptr64
+??_FCUFBEPModeDlg@@QEAAXXZ -> public: void __cdecl CUFBEPModeDlg::`default constructor closure'(void) __ptr64
+??_FCUFBESModeDlg@@QEAAXXZ -> public: void __cdecl CUFBESModeDlg::`default constructor closure'(void) __ptr64
+??_FCUFCOListDlg@@QEAAXXZ -> public: void __cdecl CUFCOListDlg::`default constructor closure'(void) __ptr64
+??_FCUFCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUFCOPModeDlg::`default constructor closure'(void) __ptr64
+??_FCUFCOSModeDlg@@QEAAXXZ -> public: void __cdecl CUFCOSModeDlg::`default constructor closure'(void) __ptr64
+??_FCUFSLListDlg@@QEAAXXZ -> public: void __cdecl CUFSLListDlg::`default constructor closure'(void) __ptr64
+??_FCUFSLPModeDlg@@QEAAXXZ -> public: void __cdecl CUFSLPModeDlg::`default constructor closure'(void) __ptr64
+??_FCUFSLSModeDlg@@QEAAXXZ -> public: void __cdecl CUFSLSModeDlg::`default constructor closure'(void) __ptr64
+?CHK_UFBE@CRFMCodeCheck@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CRFMCodeCheck::CHK_UFBE(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?CHK_UFBE@CRFMCodeCheck@@QEAA_NI@Z -> public: bool __cdecl CRFMCodeCheck::CHK_UFBE(unsigned int) __ptr64
+?CHK_UFCO@CRFMCodeCheck@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CRFMCodeCheck::CHK_UFCO(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?CHK_UFCO@CRFMCodeCheck@@QEAA_NI@Z -> public: bool __cdecl CRFMCodeCheck::CHK_UFCO(unsigned int) __ptr64
+?CHK_UFSL@CRFMCodeCheck@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CRFMCodeCheck::CHK_UFSL(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?CHK_UFSL@CRFMCodeCheck@@QEAA_NI@Z -> public: bool __cdecl CRFMCodeCheck::CHK_UFSL(unsigned int) __ptr64
+?ChangeCurrentKey@CUFBEListDlg@@EEAAXI@Z -> private: virtual void __cdecl CUFBEListDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUFBEPModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CUFBEPModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUFBESModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CUFBESModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUFCOListDlg@@EEAAXI@Z -> private: virtual void __cdecl CUFCOListDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUFCOPModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CUFCOPModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUFCOSModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CUFCOSModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUFSLListDlg@@EEAAXI@Z -> private: virtual void __cdecl CUFSLListDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUFSLPModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CUFSLPModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CUFSLSModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CUFSLSModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeUnit@CUFBEListDlg@@QEAAXXZ -> public: void __cdecl CUFBEListDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUFBEPModeDlg@@QEAAXXZ -> public: void __cdecl CUFBEPModeDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUFBESModeDlg@@QEAAXXZ -> public: void __cdecl CUFBESModeDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUFCOListDlg@@QEAAXXZ -> public: void __cdecl CUFCOListDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUFCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUFCOPModeDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUFCOSModeDlg@@QEAAXXZ -> public: void __cdecl CUFCOSModeDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUFSLListDlg@@QEAAXXZ -> public: void __cdecl CUFSLListDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUFSLPModeDlg@@QEAAXXZ -> public: void __cdecl CUFSLPModeDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CUFSLSModeDlg@@QEAAXXZ -> public: void __cdecl CUFSLSModeDlg::ChangeUnit(void) __ptr64
+?ClearResultData@CUFBEPModeDlg@@QEAAXXZ -> public: void __cdecl CUFBEPModeDlg::ClearResultData(void) __ptr64
+?ClearResultData@CUFBESModeDlg@@QEAAXXZ -> public: void __cdecl CUFBESModeDlg::ClearResultData(void) __ptr64
+?ClearResultData@CUFCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUFCOPModeDlg::ClearResultData(void) __ptr64
+?ClearResultData@CUFCOSModeDlg@@QEAAXXZ -> public: void __cdecl CUFCOSModeDlg::ClearResultData(void) __ptr64
+?ClearResultData@CUFSLPModeDlg@@QEAAXXZ -> public: void __cdecl CUFSLPModeDlg::ClearResultData(void) __ptr64
+?ClearResultData@CUFSLSModeDlg@@QEAAXXZ -> public: void __cdecl CUFSLSModeDlg::ClearResultData(void) __ptr64
+?ConvertUnitPMCurveData@CUFCOPModeDlg@@AEAAXAEAUDGNRCS_PMCURVE@@@Z -> private: void __cdecl CUFCOPModeDlg::ConvertUnitPMCurveData(struct DGNRCS_PMCURVE & __ptr64) __ptr64
+?DGN_UFBE@CRFMCodeCheck@@QEAA_NAEAV?$CArray@II@@AEAV?$CArray@UT_GUFBE_D@@AEAU1@@@@Z -> public: bool __cdecl CRFMCodeCheck::DGN_UFBE(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<struct T_GUFBE_D,struct T_GUFBE_D & __ptr64> & __ptr64) __ptr64
+?DGN_UFBE@CRFMCodeCheck@@QEAA_NIAEAUT_GUFBE_D@@@Z -> public: bool __cdecl CRFMCodeCheck::DGN_UFBE(unsigned int,struct T_GUFBE_D & __ptr64) __ptr64
+?DGN_UFCO@CRFMCodeCheck@@QEAA_NAEAV?$CArray@II@@AEAV?$CArray@UT_GUFCO_D@@AEAU1@@@@Z -> public: bool __cdecl CRFMCodeCheck::DGN_UFCO(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<struct T_GUFCO_D,struct T_GUFCO_D & __ptr64> & __ptr64) __ptr64
+?DGN_UFCO@CRFMCodeCheck@@QEAA_NIAEAUT_GUFCO_D@@@Z -> public: bool __cdecl CRFMCodeCheck::DGN_UFCO(unsigned int,struct T_GUFCO_D & __ptr64) __ptr64
+?DGN_UFSL@CRFMCodeCheck@@QEAA_NAEAV?$CArray@II@@AEAV?$CArray@UT_GUFSL_D@@AEAU1@@@@Z -> public: bool __cdecl CRFMCodeCheck::DGN_UFSL(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<struct T_GUFSL_D,struct T_GUFSL_D & __ptr64> & __ptr64) __ptr64
+?DGN_UFSL@CRFMCodeCheck@@QEAA_NIAEAUT_GUFSL_D@@@Z -> public: bool __cdecl CRFMCodeCheck::DGN_UFSL(unsigned int,struct T_GUFSL_D & __ptr64) __ptr64
+?Data2Dlg@CUFBEListDlg@@QEAA_NXZ -> public: bool __cdecl CUFBEListDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CUFBEPModeDlg@@QEAAH_N@Z -> public: int __cdecl CUFBEPModeDlg::Data2Dlg(bool) __ptr64
+?Data2Dlg@CUFBESModeDlg@@QEAAHH@Z -> public: int __cdecl CUFBESModeDlg::Data2Dlg(int) __ptr64
+?Data2Dlg@CUFCOListDlg@@QEAA_NXZ -> public: bool __cdecl CUFCOListDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CUFCOPModeDlg@@QEAAH_N@Z -> public: int __cdecl CUFCOPModeDlg::Data2Dlg(bool) __ptr64
+?Data2Dlg@CUFCOSModeDlg@@QEAAHH@Z -> public: int __cdecl CUFCOSModeDlg::Data2Dlg(int) __ptr64
+?Data2Dlg@CUFSLListDlg@@QEAA_NXZ -> public: bool __cdecl CUFSLListDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CUFSLPModeDlg@@QEAA_N_N@Z -> public: bool __cdecl CUFSLPModeDlg::Data2Dlg(bool) __ptr64
+?Data2Dlg@CUFSLSModeDlg@@QEAA_N_N@Z -> public: bool __cdecl CUFSLSModeDlg::Data2Dlg(bool) __ptr64
+?DeleteResultDataUFBE@CRFMDataBase@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CRFMDataBase::DeleteResultDataUFBE(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?DeleteResultDataUFBE@CRFMDataBase@@QEAA_NI@Z -> public: bool __cdecl CRFMDataBase::DeleteResultDataUFBE(unsigned int) __ptr64
+?DeleteResultDataUFCO@CRFMDataBase@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CRFMDataBase::DeleteResultDataUFCO(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?DeleteResultDataUFCO@CRFMDataBase@@QEAA_NI@Z -> public: bool __cdecl CRFMDataBase::DeleteResultDataUFCO(unsigned int) __ptr64
+?DeleteResultDataUFSL@CRFMDataBase@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CRFMDataBase::DeleteResultDataUFSL(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?DeleteResultDataUFSL@CRFMDataBase@@QEAA_NI@Z -> public: bool __cdecl CRFMDataBase::DeleteResultDataUFSL(unsigned int) __ptr64
+?Destroy@CRFMCodeCheck@@SAXXZ -> public: static void __cdecl CRFMCodeCheck::Destroy(void)
+?Destroy@CRFMDataBase@@SAXXZ -> public: static void __cdecl CRFMDataBase::Destroy(void)
+?DestroyDataBase@IDPLUS_RFMDataBase@@SAXXZ -> public: static void __cdecl IDPLUS_RFMDataBase::DestroyDataBase(void)
+?Dlg2Data@CUFBEListDlg@@QEAA_NXZ -> public: bool __cdecl CUFBEListDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUFBEPModeDlg@@QEAAHXZ -> public: int __cdecl CUFBEPModeDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUFBESModeDlg@@QEAAHXZ -> public: int __cdecl CUFBESModeDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUFCOListDlg@@QEAA_NXZ -> public: bool __cdecl CUFCOListDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUFCOPModeDlg@@QEAAHXZ -> public: int __cdecl CUFCOPModeDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUFCOSModeDlg@@QEAAHXZ -> public: int __cdecl CUFCOSModeDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUFSLListDlg@@QEAA_NXZ -> public: bool __cdecl CUFSLListDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUFSLPModeDlg@@QEAA_NXZ -> public: bool __cdecl CUFSLPModeDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CUFSLSModeDlg@@QEAA_NXZ -> public: bool __cdecl CUFSLSModeDlg::Dlg2Data(void) __ptr64
+?DoDataExchange@CUFBEListDlg@@EEAAXPEAVCDataExchange@@@Z -> private: virtual void __cdecl CUFBEListDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUFBEPModeDlg@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CUFBEPModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUFBESModeDlg@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CUFBESModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUFCOListDlg@@EEAAXPEAVCDataExchange@@@Z -> private: virtual void __cdecl CUFCOListDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUFCOPModeDlg@@UEAAXPEAVCDataExchange@@@Z -> public: virtual void __cdecl CUFCOPModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUFCOSModeDlg@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CUFCOSModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUFSLListDlg@@EEAAXPEAVCDataExchange@@@Z -> private: virtual void __cdecl CUFSLListDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUFSLPModeDlg@@UEAAXPEAVCDataExchange@@@Z -> public: virtual void __cdecl CUFSLPModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CUFSLSModeDlg@@UEAAXPEAVCDataExchange@@@Z -> public: virtual void __cdecl CUFSLSModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?EnableCtrlMMCv@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::EnableCtrlMMCv(void) __ptr64
+?GetCheckResult_UFBE_ACI@CRFMDataBase@@QEAA_NIAEAUDGNUS_UFBE_RES@@@Z -> public: bool __cdecl CRFMDataBase::GetCheckResult_UFBE_ACI(unsigned int,struct DGNUS_UFBE_RES & __ptr64) __ptr64
+?GetCheckResult_UFBE_KCI@CRFMDataBase@@QEAA_NIAEAUDGNKR_UFBE_RES@@@Z -> public: bool __cdecl CRFMDataBase::GetCheckResult_UFBE_KCI(unsigned int,struct DGNKR_UFBE_RES & __ptr64) __ptr64
+?GetCheckResult_UFCO_ACI@CRFMDataBase@@QEAA_NIAEAUDGNUS_UFCO_RES@@@Z -> public: bool __cdecl CRFMDataBase::GetCheckResult_UFCO_ACI(unsigned int,struct DGNUS_UFCO_RES & __ptr64) __ptr64
+?GetCheckResult_UFCO_KCI@CRFMDataBase@@QEAA_NIAEAUDGNKR_UFCO_RES@@@Z -> public: bool __cdecl CRFMDataBase::GetCheckResult_UFCO_KCI(unsigned int,struct DGNKR_UFCO_RES & __ptr64) __ptr64
+?GetCheckResult_UFSL_ACI@CRFMDataBase@@QEAA_NIAEAUDGNUS_UFBE_RES@@@Z -> public: bool __cdecl CRFMDataBase::GetCheckResult_UFSL_ACI(unsigned int,struct DGNUS_UFBE_RES & __ptr64) __ptr64
+?GetCheckResult_UFSL_KCI@CRFMDataBase@@QEAA_NIAEAUDGNKR_UFBE_RES@@@Z -> public: bool __cdecl CRFMDataBase::GetCheckResult_UFSL_KCI(unsigned int,struct DGNKR_UFBE_RES & __ptr64) __ptr64
+?GetCodeCheck@IDPLUS_RFMDataBase@@SAPEAXW4MEMBType@@@Z -> public: static void * __ptr64 __cdecl IDPLUS_RFMDataBase::GetCodeCheck(enum MEMBType)
+?GetDataForDlg@CUFBEPModeDlg@@AEAAH_N@Z -> private: int __cdecl CUFBEPModeDlg::GetDataForDlg(bool) __ptr64
+?GetDataForDlg@CUFCOPModeDlg@@AEAAH_N@Z -> private: int __cdecl CUFCOPModeDlg::GetDataForDlg(bool) __ptr64
+?GetDataForDlg@CUFSLPModeDlg@@AEAA_N_N@Z -> private: bool __cdecl CUFSLPModeDlg::GetDataForDlg(bool) __ptr64
+?GetMessageMap@CUFBEListDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUFBEListDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUFBEPModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUFBEPModeDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUFBESModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUFBESModeDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUFCOListDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUFCOListDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUFCOPModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUFCOPModeDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUFCOSModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUFCOSModeDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUFSLListDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUFSLListDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUFSLPModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUFSLPModeDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CUFSLSModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUFSLSModeDlg::GetMessageMap(void)const __ptr64
+?GetPMDrawType@CUFCOPModeDlg@@AEAA?AW4PMCvDrawType@@XZ -> private: enum PMCvDrawType __cdecl CUFCOPModeDlg::GetPMDrawType(void) __ptr64
+?GetResultDB_UFBE_RES_ACI@CRFMDataBase@@QEAA_NIAEAUDGNUS_UFBE_RES@@@Z -> public: bool __cdecl CRFMDataBase::GetResultDB_UFBE_RES_ACI(unsigned int,struct DGNUS_UFBE_RES & __ptr64) __ptr64
+?GetResultDB_UFBE_RES_KCI@CRFMDataBase@@QEAA_NIAEAUDGNKR_UFBE_RES@@@Z -> public: bool __cdecl CRFMDataBase::GetResultDB_UFBE_RES_KCI(unsigned int,struct DGNKR_UFBE_RES & __ptr64) __ptr64
+?GetResultDB_UFBE_UMD_ACI@CRFMDataBase@@QEAA_NIAEAUT_GUFBE_D@@@Z -> public: bool __cdecl CRFMDataBase::GetResultDB_UFBE_UMD_ACI(unsigned int,struct T_GUFBE_D & __ptr64) __ptr64
+?GetResultDB_UFBE_UMD_KCI@CRFMDataBase@@QEAA_NIAEAUT_GUFBE_D@@@Z -> public: bool __cdecl CRFMDataBase::GetResultDB_UFBE_UMD_KCI(unsigned int,struct T_GUFBE_D & __ptr64) __ptr64
+?GetResultDB_UFCO_RES_ACI@CRFMDataBase@@QEAA_NIAEAUDGNUS_UFCO_RES@@@Z -> public: bool __cdecl CRFMDataBase::GetResultDB_UFCO_RES_ACI(unsigned int,struct DGNUS_UFCO_RES & __ptr64) __ptr64
+?GetResultDB_UFCO_RES_KCI@CRFMDataBase@@QEAA_NIAEAUDGNKR_UFCO_RES@@@Z -> public: bool __cdecl CRFMDataBase::GetResultDB_UFCO_RES_KCI(unsigned int,struct DGNKR_UFCO_RES & __ptr64) __ptr64
+?GetResultDB_UFCO_UMD_ACI@CRFMDataBase@@QEAA_NIAEAUT_GUFCO_D@@@Z -> public: bool __cdecl CRFMDataBase::GetResultDB_UFCO_UMD_ACI(unsigned int,struct T_GUFCO_D & __ptr64) __ptr64
+?GetResultDB_UFCO_UMD_KCI@CRFMDataBase@@QEAA_NIAEAUT_GUFCO_D@@@Z -> public: bool __cdecl CRFMDataBase::GetResultDB_UFCO_UMD_KCI(unsigned int,struct T_GUFCO_D & __ptr64) __ptr64
+?GetResultDB_UFSL_RES_ACI@CRFMDataBase@@QEAA_NIAEAUDGNUS_UFBE_RES@@@Z -> public: bool __cdecl CRFMDataBase::GetResultDB_UFSL_RES_ACI(unsigned int,struct DGNUS_UFBE_RES & __ptr64) __ptr64
+?GetResultDB_UFSL_RES_KCI@CRFMDataBase@@QEAA_NIAEAUDGNKR_UFBE_RES@@@Z -> public: bool __cdecl CRFMDataBase::GetResultDB_UFSL_RES_KCI(unsigned int,struct DGNKR_UFBE_RES & __ptr64) __ptr64
+?GetResultDB_UFSL_UMD_ACI@CRFMDataBase@@QEAA_NIAEAUT_GUFSL_D@@@Z -> public: bool __cdecl CRFMDataBase::GetResultDB_UFSL_UMD_ACI(unsigned int,struct T_GUFSL_D & __ptr64) __ptr64
+?GetResultDB_UFSL_UMD_KCI@CRFMDataBase@@QEAA_NIAEAUT_GUFSL_D@@@Z -> public: bool __cdecl CRFMDataBase::GetResultDB_UFSL_UMD_KCI(unsigned int,struct T_GUFSL_D & __ptr64) __ptr64
+?GetThisMessageMap@CUFBEListDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUFBEListDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUFBEPModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUFBEPModeDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUFBESModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUFBESModeDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUFCOListDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUFCOListDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUFCOPModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUFCOPModeDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUFCOSModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUFCOSModeDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUFSLListDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUFSLListDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUFSLPModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUFSLPModeDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CUFSLSModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUFSLSModeDlg::GetThisMessageMap(void)
+?GetViewItem@CUFCOPModeDlg@@AEAAIXZ -> private: unsigned int __cdecl CUFCOPModeDlg::GetViewItem(void) __ptr64
+?GridToSpreadSheet@CUFBEListDlg@@AEAAXJ@Z -> private: void __cdecl CUFBEListDlg::GridToSpreadSheet(long) __ptr64
+?GridToSpreadSheet@CUFCOListDlg@@AEAAXJ@Z -> private: void __cdecl CUFCOListDlg::GridToSpreadSheet(long) __ptr64
+?GridToSpreadSheet@CUFSLListDlg@@AEAAXJ@Z -> private: void __cdecl CUFSLListDlg::GridToSpreadSheet(long) __ptr64
+?HideCtrlPMCv3D@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::HideCtrlPMCv3D(void) __ptr64
+?InitComboBox@CUFBEPModeDlg@@AEAAXXZ -> private: void __cdecl CUFBEPModeDlg::InitComboBox(void) __ptr64
+?InitComboBox@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::InitComboBox(void) __ptr64
+?InitComboBox@CUFSLPModeDlg@@AEAAXXZ -> private: void __cdecl CUFSLPModeDlg::InitComboBox(void) __ptr64
+?InitComboBox@CUFSLSModeDlg@@AEAAXXZ -> private: void __cdecl CUFSLSModeDlg::InitComboBox(void) __ptr64
+?InitEditSpin@CUFBEPModeDlg@@AEAAXXZ -> private: void __cdecl CUFBEPModeDlg::InitEditSpin(void) __ptr64
+?InitEditSpin@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::InitEditSpin(void) __ptr64
+?InitEditSpin@CUFSLPModeDlg@@AEAAXXZ -> private: void __cdecl CUFSLPModeDlg::InitEditSpin(void) __ptr64
+?InitGrid@CUFBEPModeDlg@@AEAAXXZ -> private: void __cdecl CUFBEPModeDlg::InitGrid(void) __ptr64
+?InitGrid@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::InitGrid(void) __ptr64
+?InitGrid@CUFSLPModeDlg@@AEAAXXZ -> private: void __cdecl CUFSLPModeDlg::InitGrid(void) __ptr64
+?InitMatlDlg@CUFBEPModeDlg@@AEAAXXZ -> private: void __cdecl CUFBEPModeDlg::InitMatlDlg(void) __ptr64
+?InitMatlDlg@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::InitMatlDlg(void) __ptr64
+?InitMatlDlg@CUFSLPModeDlg@@AEAAXXZ -> private: void __cdecl CUFSLPModeDlg::InitMatlDlg(void) __ptr64
+?InitPreview@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::InitPreview(void) __ptr64
+?InitializeComboBox@CUFBESModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBESModeDlg::InitializeComboBox(void) __ptr64
+?InitializeComboBox@CUFCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFCOSModeDlg::InitializeComboBox(void) __ptr64
+?Instance@CRFMCodeCheck@@SAPEAV1@XZ -> public: static class CRFMCodeCheck * __ptr64 __cdecl CRFMCodeCheck::Instance(void)
+?Instance@CRFMDataBase@@SAPEAV1@XZ -> public: static class CRFMDataBase * __ptr64 __cdecl CRFMDataBase::Instance(void)
+?IsCheckingREQ@CRFMCodeCheck@@AEAA_NW4MEMBType@@I@Z -> private: bool __cdecl CRFMCodeCheck::IsCheckingREQ(enum MEMBType,unsigned int) __ptr64
+?IsExistResultData@CRFMDataBase@@QEAA_NW4MEMBType@@H@Z -> public: bool __cdecl CRFMDataBase::IsExistResultData(enum MEMBType,int) __ptr64
+?IsExistResultDataUFBE@CRFMDataBase@@QEAA_NI@Z -> public: bool __cdecl CRFMDataBase::IsExistResultDataUFBE(unsigned int) __ptr64
+?IsExistResultDataUFCO@CRFMDataBase@@QEAA_NI@Z -> public: bool __cdecl CRFMDataBase::IsExistResultDataUFCO(unsigned int) __ptr64
+?IsExistResultDataUFSL@CRFMDataBase@@QEAA_NI@Z -> public: bool __cdecl CRFMDataBase::IsExistResultDataUFSL(unsigned int) __ptr64
+?IsSameData@CRFMDataBase@@QEAA_NAEBUT_GUFBE_D@@0@Z -> public: bool __cdecl CRFMDataBase::IsSameData(struct T_GUFBE_D const & __ptr64,struct T_GUFBE_D const & __ptr64) __ptr64
+?IsSameData@CRFMDataBase@@QEAA_NAEBUT_GUFCO_D@@0@Z -> public: bool __cdecl CRFMDataBase::IsSameData(struct T_GUFCO_D const & __ptr64,struct T_GUFCO_D const & __ptr64) __ptr64
+?IsSameData@CRFMDataBase@@QEAA_NAEBUT_GUFSL_D@@0@Z -> public: bool __cdecl CRFMDataBase::IsSameData(struct T_GUFSL_D const & __ptr64,struct T_GUFSL_D const & __ptr64) __ptr64
+?LayoutChildDlg@CUFBEPModeDlg@@QEAAXXZ -> public: void __cdecl CUFBEPModeDlg::LayoutChildDlg(void) __ptr64
+?LayoutChildDlg@CUFBESModeDlg@@QEAAXXZ -> public: void __cdecl CUFBESModeDlg::LayoutChildDlg(void) __ptr64
+?LayoutChildDlg@CUFCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUFCOPModeDlg::LayoutChildDlg(void) __ptr64
+?LayoutChildDlg@CUFCOSModeDlg@@QEAAXXZ -> public: void __cdecl CUFCOSModeDlg::LayoutChildDlg(void) __ptr64
+?LayoutChildDlg@CUFSLPModeDlg@@QEAAXXZ -> public: void __cdecl CUFSLPModeDlg::LayoutChildDlg(void) __ptr64
+?LayoutChildDlg@CUFSLSModeDlg@@QEAAXXZ -> public: void __cdecl CUFSLSModeDlg::LayoutChildDlg(void) __ptr64
+?MakeReport@CUFBEListDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUFBEListDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUFBEPModeDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUFBEPModeDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUFBESModeDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUFBESModeDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUFCOListDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUFCOListDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUFCOPModeDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUFCOPModeDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUFCOSModeDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUFCOSModeDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUFSLListDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUFSLListDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUFSLPModeDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUFSLPModeDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CUFSLSModeDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CUFSLSModeDlg::MakeReport(enum ReportContent) __ptr64
+?ModifyDBData@CUFBEPModeDlg@@AEAAHXZ -> private: int __cdecl CUFBEPModeDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CUFBESModeDlg@@AEAAHXZ -> private: int __cdecl CUFBESModeDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CUFCOPModeDlg@@AEAAHXZ -> private: int __cdecl CUFCOPModeDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CUFCOSModeDlg@@AEAAHXZ -> private: int __cdecl CUFCOSModeDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CUFSLPModeDlg@@AEAA_NXZ -> private: bool __cdecl CUFSLPModeDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CUFSLSModeDlg@@AEAA_NXZ -> private: bool __cdecl CUFSLSModeDlg::ModifyDBData(void) __ptr64
+?MoveFocusToReportView@CUFBESModeDlg@@AEAAXXZ -> private: void __cdecl CUFBESModeDlg::MoveFocusToReportView(void) __ptr64
+?MoveFocusToReportView@CUFCOSModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOSModeDlg::MoveFocusToReportView(void) __ptr64
+?MoveFocusToReportView@CUFSLSModeDlg@@AEAAXXZ -> private: void __cdecl CUFSLSModeDlg::MoveFocusToReportView(void) __ptr64
+?OnBtnGetDataFromURCO@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnBtnGetDataFromURCO(void) __ptr64
+?OnBtnGetDataFromURCO@CUFCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFCOSModeDlg::OnBtnGetDataFromURCO(void) __ptr64
+?OnBtnPMCv3D@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnBtnPMCv3D(void) __ptr64
+?OnButtonApply@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUFBESModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBESModeDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUFCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFCOSModeDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUFSLListDlg@@IEAAXXZ -> protected: void __cdecl CUFSLListDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CUFSLSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLSModeDlg::OnButtonApply(void) __ptr64
+?OnButtonCheck@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUFBESModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBESModeDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUFCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFCOSModeDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUFSLListDlg@@IEAAXXZ -> protected: void __cdecl CUFSLListDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CUFSLSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLSModeDlg::OnButtonCheck(void) __ptr64
+?OnButtonDesign@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUFBESModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBESModeDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUFCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFCOSModeDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUFSLListDlg@@IEAAXXZ -> protected: void __cdecl CUFSLListDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CUFSLSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLSModeDlg::OnButtonDesign(void) __ptr64
+?OnButtonExcel@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnButtonExcel(void) __ptr64
+?OnButtonExcel@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::OnButtonExcel(void) __ptr64
+?OnButtonExcel@CUFSLListDlg@@IEAAXXZ -> protected: void __cdecl CUFSLListDlg::OnButtonExcel(void) __ptr64
+?OnButtonLibXL@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnButtonLibXL(void) __ptr64
+?OnButtonLibXL@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::OnButtonLibXL(void) __ptr64
+?OnButtonLibXL@CUFSLListDlg@@IEAAXXZ -> protected: void __cdecl CUFSLListDlg::OnButtonLibXL(void) __ptr64
+?OnButtonPrint@CUFBESModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBESModeDlg::OnButtonPrint(void) __ptr64
+?OnButtonPrint@CUFCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFCOSModeDlg::OnButtonPrint(void) __ptr64
+?OnButtonPrint@CUFSLSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLSModeDlg::OnButtonPrint(void) __ptr64
+?OnButtonReport@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnButtonReport(void) __ptr64
+?OnButtonReport@CUFBESModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBESModeDlg::OnButtonReport(void) __ptr64
+?OnButtonReport@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnButtonReport(void) __ptr64
+?OnButtonReport@CUFCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFCOSModeDlg::OnButtonReport(void) __ptr64
+?OnButtonReport@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnButtonReport(void) __ptr64
+?OnButtonReport@CUFSLSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLSModeDlg::OnButtonReport(void) __ptr64
+?OnButtonResizeCol@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnButtonResizeCol(void) __ptr64
+?OnButtonResizeCol@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::OnButtonResizeCol(void) __ptr64
+?OnButtonResizeCol@CUFSLListDlg@@IEAAXXZ -> protected: void __cdecl CUFSLListDlg::OnButtonResizeCol(void) __ptr64
+?OnButtonSave@CUFBESModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBESModeDlg::OnButtonSave(void) __ptr64
+?OnButtonSave@CUFCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFCOSModeDlg::OnButtonSave(void) __ptr64
+?OnButtonSave@CUFSLSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLSModeDlg::OnButtonSave(void) __ptr64
+?OnButtonSelectAll@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnButtonSelectAll(void) __ptr64
+?OnButtonSelectAll@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::OnButtonSelectAll(void) __ptr64
+?OnButtonSelectAll@CUFSLListDlg@@IEAAXXZ -> protected: void __cdecl CUFSLListDlg::OnButtonSelectAll(void) __ptr64
+?OnButtonSelectInv@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnButtonSelectInv(void) __ptr64
+?OnButtonSelectInv@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::OnButtonSelectInv(void) __ptr64
+?OnButtonSelectInv@CUFSLListDlg@@IEAAXXZ -> protected: void __cdecl CUFSLListDlg::OnButtonSelectInv(void) __ptr64
+?OnButtonSelectNon@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnButtonSelectNon(void) __ptr64
+?OnButtonSelectNon@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::OnButtonSelectNon(void) __ptr64
+?OnButtonSelectNon@CUFSLListDlg@@IEAAXXZ -> protected: void __cdecl CUFSLListDlg::OnButtonSelectNon(void) __ptr64
+?OnChangeBotPiece@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnChangeBotPiece(void) __ptr64
+?OnChangeBotReinf@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnChangeBotReinf(void) __ptr64
+?OnChangeExpoCond@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnChangeExpoCond(void) __ptr64
+?OnChangeExpoCond@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnChangeExpoCond(void) __ptr64
+?OnChangeExpoCond@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnChangeExpoCond(void) __ptr64
+?OnChangeInputData@CUFBEPModeDlg@@AEAAXH@Z -> private: void __cdecl CUFBEPModeDlg::OnChangeInputData(int) __ptr64
+?OnChangeInputData@CUFCOPModeDlg@@AEAAXH@Z -> private: void __cdecl CUFCOPModeDlg::OnChangeInputData(int) __ptr64
+?OnChangeInputData@CUFCOSModeDlg@@AEAAXH@Z -> private: void __cdecl CUFCOSModeDlg::OnChangeInputData(int) __ptr64
+?OnChangeInputData@CUFSLPModeDlg@@AEAAX_N@Z -> private: void __cdecl CUFSLPModeDlg::OnChangeInputData(bool) __ptr64
+?OnChangeMatlInfo@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnChangeMatlInfo(void) __ptr64
+?OnChangeMatlInfo@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnChangeMatlInfo(void) __ptr64
+?OnChangeMatlInfo@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnChangeMatlInfo(void) __ptr64
+?OnChangeMatlType@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnChangeMatlType(void) __ptr64
+?OnChangeMatlType@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnChangeMatlType(void) __ptr64
+?OnChangeMatlType@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnChangeMatlType(void) __ptr64
+?OnChangeReinData@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnChangeReinData(void) __ptr64
+?OnChangeReinNumV@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnChangeReinNumV(void) __ptr64
+?OnChangeReinNumb@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnChangeReinNumb(void) __ptr64
+?OnChangeResultType@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnChangeResultType(void) __ptr64
+?OnChangeResultType@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnChangeResultType(void) __ptr64
+?OnChangeResultType@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnChangeResultType(void) __ptr64
+?OnChangeSeismicData@CUFCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUFCOPModeDlg::OnChangeSeismicData(void) __ptr64
+?OnChangeShearRein@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnChangeShearRein(void) __ptr64
+?OnChangeTopPiece@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnChangeTopPiece(void) __ptr64
+?OnChangeTopReinf@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnChangeTopReinf(void) __ptr64
+?OnChangeViewType@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnChangeViewType(void) __ptr64
+?OnChangeWrapType@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnChangeWrapType(void) __ptr64
+?OnChangeWrapType@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnChangeWrapType(void) __ptr64
+?OnChangeZoomScale@CUFBESModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBESModeDlg::OnChangeZoomScale(void) __ptr64
+?OnChangeZoomScale@CUFCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFCOSModeDlg::OnChangeZoomScale(void) __ptr64
+?OnChangeZoomScale@CUFSLSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLSModeDlg::OnChangeZoomScale(void) __ptr64
+?OnCheckShowRebarDetail@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnCheckShowRebarDetail(void) __ptr64
+?OnContextMenu@CUFBEListDlg@@AEAAXPEAVCWnd@@VCPoint@@@Z -> private: void __cdecl CUFBEListDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUFBEPModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CUFBEPModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUFBESModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CUFBESModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUFCOListDlg@@AEAAXPEAVCWnd@@VCPoint@@@Z -> private: void __cdecl CUFCOListDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUFCOPModeDlg@@AEAAXPEAVCWnd@@VCPoint@@@Z -> private: void __cdecl CUFCOPModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUFCOSModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CUFCOSModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUFSLListDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CUFSLListDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUFSLPModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CUFSLPModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CUFSLSModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CUFSLSModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnDoubleClickPMCurve@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnDoubleClickPMCurve(void) __ptr64
+?OnDoubleClickPreview@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnDoubleClickPreview(void) __ptr64
+?OnDoubleClickPreview@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnDoubleClickPreview(void) __ptr64
+?OnDoubleClickPreview@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnDoubleClickPreview(void) __ptr64
+?OnInitDialog@CUFBEListDlg@@EEAAHXZ -> private: virtual int __cdecl CUFBEListDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUFBEPModeDlg@@UEAAHXZ -> public: virtual int __cdecl CUFBEPModeDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUFBESModeDlg@@UEAAHXZ -> public: virtual int __cdecl CUFBESModeDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUFCOListDlg@@EEAAHXZ -> private: virtual int __cdecl CUFCOListDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUFCOPModeDlg@@UEAAHXZ -> public: virtual int __cdecl CUFCOPModeDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUFCOSModeDlg@@UEAAHXZ -> public: virtual int __cdecl CUFCOSModeDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUFSLListDlg@@EEAAHXZ -> private: virtual int __cdecl CUFSLListDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUFSLPModeDlg@@UEAAHXZ -> public: virtual int __cdecl CUFSLPModeDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CUFSLSModeDlg@@UEAAHXZ -> public: virtual int __cdecl CUFSLSModeDlg::OnInitDialog(void) __ptr64
+?OnMouseWheel@CUFBESModeDlg@@IEAAHIFVCPoint@@@Z -> protected: int __cdecl CUFBESModeDlg::OnMouseWheel(unsigned int,short,class CPoint) __ptr64
+?OnMouseWheel@CUFCOSModeDlg@@IEAAHIFVCPoint@@@Z -> protected: int __cdecl CUFCOSModeDlg::OnMouseWheel(unsigned int,short,class CPoint) __ptr64
+?OnMouseWheel@CUFSLSModeDlg@@IEAAHIFVCPoint@@@Z -> protected: int __cdecl CUFSLSModeDlg::OnMouseWheel(unsigned int,short,class CPoint) __ptr64
+?OnReportDetail@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUFBESModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBESModeDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUFCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFCOSModeDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUFSLListDlg@@IEAAXXZ -> protected: void __cdecl CUFSLListDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CUFSLSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLSModeDlg::OnReportDetail(void) __ptr64
+?OnReportInputList@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUFBESModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBESModeDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUFCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFCOSModeDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUFSLListDlg@@IEAAXXZ -> protected: void __cdecl CUFSLListDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CUFSLSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLSModeDlg::OnReportInputList(void) __ptr64
+?OnReportSummary@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUFBEPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBEPModeDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUFBESModeDlg@@IEAAXXZ -> protected: void __cdecl CUFBESModeDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUFCOSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFCOSModeDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUFSLListDlg@@IEAAXXZ -> protected: void __cdecl CUFSLListDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUFSLPModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLPModeDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CUFSLSModeDlg@@IEAAXXZ -> protected: void __cdecl CUFSLSModeDlg::OnReportSummary(void) __ptr64
+?OnSelChangeTab@CUFBEPModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUFBEPModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangeTab@CUFBESModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUFBESModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangeTab@CUFCOPModeDlg@@AEAAXPEAUtagNMHDR@@PEA_J@Z -> private: void __cdecl CUFCOPModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangeTab@CUFCOSModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUFCOSModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangeTab@CUFSLPModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUFSLPModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangeTab@CUFSLSModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUFSLSModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CUFBEPModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUFBEPModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CUFBESModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUFBESModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CUFCOPModeDlg@@AEAAXPEAUtagNMHDR@@PEA_J@Z -> private: void __cdecl CUFCOPModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CUFCOSModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUFCOSModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CUFSLPModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUFSLPModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CUFSLSModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CUFSLSModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSetFocus@CUFBEListDlg@@EEAAXPEAVCWnd@@@Z -> private: virtual void __cdecl CUFBEListDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUFBEPModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CUFBEPModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUFBESModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CUFBESModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUFCOListDlg@@EEAAXPEAVCWnd@@@Z -> private: virtual void __cdecl CUFCOListDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUFCOPModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CUFCOPModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUFCOSModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CUFCOSModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUFSLListDlg@@EEAAXPEAVCWnd@@@Z -> private: virtual void __cdecl CUFSLListDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUFSLPModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CUFSLPModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CUFSLSModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CUFSLSModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnUpdate@CRFMDataBase@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CRFMDataBase::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUFBEListDlg@@EEAAXPEAVCView@@_JPEAVCObject@@@Z -> private: virtual void __cdecl CUFBEListDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUFBEPModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CUFBEPModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUFBESModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CUFBESModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUFCOListDlg@@EEAAXPEAVCView@@_JPEAVCObject@@@Z -> private: virtual void __cdecl CUFCOListDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUFCOPModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CUFCOPModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUFCOSModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CUFCOSModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUFSLListDlg@@EEAAXPEAVCView@@_JPEAVCObject@@@Z -> private: virtual void __cdecl CUFSLListDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUFSLPModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CUFSLPModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CUFSLSModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CUFSLSModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?PostNcDestroy@CUFBEListDlg@@EEAAXXZ -> private: virtual void __cdecl CUFBEListDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUFBEPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUFBEPModeDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUFBESModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUFBESModeDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUFCOListDlg@@EEAAXXZ -> private: virtual void __cdecl CUFCOListDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUFCOPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUFCOPModeDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUFCOSModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUFCOSModeDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUFSLListDlg@@EEAAXXZ -> private: virtual void __cdecl CUFSLListDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUFSLPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUFSLPModeDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CUFSLSModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUFSLSModeDlg::PostNcDestroy(void) __ptr64
+?PreTranslateMessage@CUFBEListDlg@@EEAAHPEAUtagMSG@@@Z -> private: virtual int __cdecl CUFBEListDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUFBEPModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CUFBEPModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUFBESModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CUFBESModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUFCOListDlg@@EEAAHPEAUtagMSG@@@Z -> private: virtual int __cdecl CUFCOListDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUFCOPModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CUFCOPModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUFCOSModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CUFCOSModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUFSLListDlg@@EEAAHPEAUtagMSG@@@Z -> private: virtual int __cdecl CUFSLListDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUFSLPModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CUFSLPModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CUFSLSModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CUFSLSModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?RedrawPreview@CUFBEPModeDlg@@QEAAXXZ -> public: void __cdecl CUFBEPModeDlg::RedrawPreview(void) __ptr64
+?RedrawPreview@CUFBESModeDlg@@QEAAXXZ -> public: void __cdecl CUFBESModeDlg::RedrawPreview(void) __ptr64
+?RedrawPreview@CUFCOPModeDlg@@QEAAXXZ -> public: void __cdecl CUFCOPModeDlg::RedrawPreview(void) __ptr64
+?RedrawPreview@CUFCOSModeDlg@@QEAAXXZ -> public: void __cdecl CUFCOSModeDlg::RedrawPreview(void) __ptr64
+?RedrawPreview@CUFSLPModeDlg@@QEAAXXZ -> public: void __cdecl CUFSLPModeDlg::RedrawPreview(void) __ptr64
+?RedrawPreview@CUFSLSModeDlg@@QEAAXXZ -> public: void __cdecl CUFSLSModeDlg::RedrawPreview(void) __ptr64
+?RemoveAllResultDB@CRFMDataBase@@QEAAXXZ -> public: void __cdecl CRFMDataBase::RemoveAllResultDB(void) __ptr64
+?RemoveAllResultDB_ACI@CRFMDataBase@@QEAAXAEBW4MEMBType@@@Z -> public: void __cdecl CRFMDataBase::RemoveAllResultDB_ACI(enum MEMBType const & __ptr64) __ptr64
+?RemoveAllResultDB_KCI@CRFMDataBase@@QEAAXAEBW4MEMBType@@@Z -> public: void __cdecl CRFMDataBase::RemoveAllResultDB_KCI(enum MEMBType const & __ptr64) __ptr64
+?RemoveResultDB@CRFMCodeCheck@@AEAAXW4MEMBType@@@Z -> private: void __cdecl CRFMCodeCheck::RemoveResultDB(enum MEMBType) __ptr64
+?RemoveResultDB_UFBE@CRFMDataBase@@QEAA_NI@Z -> public: bool __cdecl CRFMDataBase::RemoveResultDB_UFBE(unsigned int) __ptr64
+?RemoveResultDB_UFCO@CRFMDataBase@@QEAA_NI@Z -> public: bool __cdecl CRFMDataBase::RemoveResultDB_UFCO(unsigned int) __ptr64
+?RemoveResultDB_UFSL@CRFMDataBase@@QEAA_NI@Z -> public: bool __cdecl CRFMDataBase::RemoveResultDB_UFSL(unsigned int) __ptr64
+?ReplaceForceByMaxLComb@CRFMCodeCheck@@AEAAXAEAUT_GUFBE_D@@AEBUDGNKR_UFBE_RES@@@Z -> private: void __cdecl CRFMCodeCheck::ReplaceForceByMaxLComb(struct T_GUFBE_D & __ptr64,struct DGNKR_UFBE_RES const & __ptr64) __ptr64
+?ReplaceForceByMaxLComb@CRFMCodeCheck@@AEAAXAEAUT_GUFBE_D@@AEBUDGNUS_UFBE_RES@@@Z -> private: void __cdecl CRFMCodeCheck::ReplaceForceByMaxLComb(struct T_GUFBE_D & __ptr64,struct DGNUS_UFBE_RES const & __ptr64) __ptr64
+?ReplaceForceByMaxLComb@CRFMCodeCheck@@AEAAXAEAUT_GUFCO_D@@AEBUDGNKR_UFCO_RES@@@Z -> private: void __cdecl CRFMCodeCheck::ReplaceForceByMaxLComb(struct T_GUFCO_D & __ptr64,struct DGNKR_UFCO_RES const & __ptr64) __ptr64
+?ReplaceForceByMaxLComb@CRFMCodeCheck@@AEAAXAEAUT_GUFCO_D@@AEBUDGNUS_UFCO_RES@@@Z -> private: void __cdecl CRFMCodeCheck::ReplaceForceByMaxLComb(struct T_GUFCO_D & __ptr64,struct DGNUS_UFCO_RES const & __ptr64) __ptr64
+?ReplaceForceByMaxLComb@CRFMCodeCheck@@AEAAXAEAUT_GUFSL_D@@AEBUDGNKR_UFBE_RES@@@Z -> private: void __cdecl CRFMCodeCheck::ReplaceForceByMaxLComb(struct T_GUFSL_D & __ptr64,struct DGNKR_UFBE_RES const & __ptr64) __ptr64
+?ReplaceForceByMaxLComb@CRFMCodeCheck@@AEAAXAEAUT_GUFSL_D@@AEBUDGNUS_UFBE_RES@@@Z -> private: void __cdecl CRFMCodeCheck::ReplaceForceByMaxLComb(struct T_GUFSL_D & __ptr64,struct DGNUS_UFBE_RES const & __ptr64) __ptr64
+?ResizeDialog@CUFBEListDlg@@EEAAXHH@Z -> private: virtual void __cdecl CUFBEListDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUFBEPModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CUFBEPModeDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUFBESModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CUFBESModeDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUFCOListDlg@@EEAAXHH@Z -> private: virtual void __cdecl CUFCOListDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUFCOPModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CUFCOPModeDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUFCOSModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CUFCOSModeDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUFSLListDlg@@EEAAXHH@Z -> private: virtual void __cdecl CUFSLListDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUFSLPModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CUFSLPModeDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CUFSLSModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CUFSLSModeDlg::ResizeDialog(int,int) __ptr64
+?RunShortcutCommand@CUFBEListDlg@@EEAAXH@Z -> private: virtual void __cdecl CUFBEListDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUFBEPModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CUFBEPModeDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUFBESModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CUFBESModeDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUFCOListDlg@@EEAAXH@Z -> private: virtual void __cdecl CUFCOListDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUFCOPModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CUFCOPModeDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUFCOSModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CUFCOSModeDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUFSLListDlg@@EEAAXH@Z -> private: virtual void __cdecl CUFSLListDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUFSLPModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CUFSLPModeDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CUFSLSModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CUFSLSModeDlg::RunShortcutCommand(int) __ptr64
+?SetControlForm@CUFBEListDlg@@QEAAX_N@Z -> public: void __cdecl CUFBEListDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUFBEPModeDlg@@AEAAX_N@Z -> private: void __cdecl CUFBEPModeDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUFBESModeDlg@@IEAAX_N@Z -> protected: void __cdecl CUFBESModeDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUFCOListDlg@@QEAAX_N@Z -> public: void __cdecl CUFCOListDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUFCOPModeDlg@@AEAAX_N@Z -> private: void __cdecl CUFCOPModeDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUFCOSModeDlg@@IEAAX_N@Z -> protected: void __cdecl CUFCOSModeDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUFSLListDlg@@QEAAX_N@Z -> public: void __cdecl CUFSLListDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUFSLPModeDlg@@AEAAX_N@Z -> private: void __cdecl CUFSLPModeDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CUFSLSModeDlg@@AEAAX_N@Z -> private: void __cdecl CUFSLSModeDlg::SetControlForm(bool) __ptr64
+?SetControlText@CUFBEListDlg@@AEAAXXZ -> private: void __cdecl CUFBEListDlg::SetControlText(void) __ptr64
+?SetControlText@CUFBEPModeDlg@@AEAAXXZ -> private: void __cdecl CUFBEPModeDlg::SetControlText(void) __ptr64
+?SetControlText@CUFBESModeDlg@@AEAAXXZ -> private: void __cdecl CUFBESModeDlg::SetControlText(void) __ptr64
+?SetControlText@CUFCOListDlg@@AEAAXXZ -> private: void __cdecl CUFCOListDlg::SetControlText(void) __ptr64
+?SetControlText@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::SetControlText(void) __ptr64
+?SetControlText@CUFCOSModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOSModeDlg::SetControlText(void) __ptr64
+?SetControlText@CUFSLListDlg@@AEAAXXZ -> private: void __cdecl CUFSLListDlg::SetControlText(void) __ptr64
+?SetControlText@CUFSLPModeDlg@@AEAAXXZ -> private: void __cdecl CUFSLPModeDlg::SetControlText(void) __ptr64
+?SetControlText@CUFSLSModeDlg@@AEAAXXZ -> private: void __cdecl CUFSLSModeDlg::SetControlText(void) __ptr64
+?SetDgnCodeBasicInfo@CRFMCodeCheck@@QEAA_NXZ -> public: bool __cdecl CRFMCodeCheck::SetDgnCodeBasicInfo(void) __ptr64
+?SetEnableFRPWrapType@CUFBEPModeDlg@@QEAAXXZ -> public: void __cdecl CUFBEPModeDlg::SetEnableFRPWrapType(void) __ptr64
+?SetEnableReinforce@CUFSLPModeDlg@@AEAAX_N0@Z -> private: void __cdecl CUFSLPModeDlg::SetEnableReinforce(bool,bool) __ptr64
+?SetEnableShearCtrl@CUFCOPModeDlg@@QEAAXH@Z -> public: void __cdecl CUFCOPModeDlg::SetEnableShearCtrl(int) __ptr64
+?SetInitUnit@CUFBEPModeDlg@@AEAAXXZ -> private: void __cdecl CUFBEPModeDlg::SetInitUnit(void) __ptr64
+?SetInitUnit@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::SetInitUnit(void) __ptr64
+?SetInitUnit@CUFSLPModeDlg@@AEAAXXZ -> private: void __cdecl CUFSLPModeDlg::SetInitUnit(void) __ptr64
+?SetMinMax@CUFBEPModeDlg@@AEAAXXZ -> private: void __cdecl CUFBEPModeDlg::SetMinMax(void) __ptr64
+?SetMinMax@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::SetMinMax(void) __ptr64
+?SetMinMax@CUFSLPModeDlg@@AEAAXXZ -> private: void __cdecl CUFSLPModeDlg::SetMinMax(void) __ptr64
+?SetPointer@CRFMCodeCheck@@QEAAXPEAVCRFMDataBase@@PEAVCDBDoc@@@Z -> public: void __cdecl CRFMCodeCheck::SetPointer(class CRFMDataBase * __ptr64,class CDBDoc * __ptr64) __ptr64
+?SetResultDB_UFBE_ACI@CRFMDataBase@@QEAA_NIAEAUT_GUFBE_D@@AEAUDGNUS_UFBE_RES@@@Z -> public: bool __cdecl CRFMDataBase::SetResultDB_UFBE_ACI(unsigned int,struct T_GUFBE_D & __ptr64,struct DGNUS_UFBE_RES & __ptr64) __ptr64
+?SetResultDB_UFBE_KCI@CRFMDataBase@@QEAA_NIAEAUT_GUFBE_D@@AEAUDGNKR_UFBE_RES@@@Z -> public: bool __cdecl CRFMDataBase::SetResultDB_UFBE_KCI(unsigned int,struct T_GUFBE_D & __ptr64,struct DGNKR_UFBE_RES & __ptr64) __ptr64
+?SetResultDB_UFCO_ACI@CRFMDataBase@@QEAA_NIAEAUT_GUFCO_D@@AEAUDGNUS_UFCO_RES@@@Z -> public: bool __cdecl CRFMDataBase::SetResultDB_UFCO_ACI(unsigned int,struct T_GUFCO_D & __ptr64,struct DGNUS_UFCO_RES & __ptr64) __ptr64
+?SetResultDB_UFCO_KCI@CRFMDataBase@@QEAA_NIAEAUT_GUFCO_D@@AEAUDGNKR_UFCO_RES@@@Z -> public: bool __cdecl CRFMDataBase::SetResultDB_UFCO_KCI(unsigned int,struct T_GUFCO_D & __ptr64,struct DGNKR_UFCO_RES & __ptr64) __ptr64
+?SetResultDB_UFSL_ACI@CRFMDataBase@@QEAA_NIAEAUT_GUFSL_D@@AEAUDGNUS_UFBE_RES@@@Z -> public: bool __cdecl CRFMDataBase::SetResultDB_UFSL_ACI(unsigned int,struct T_GUFSL_D & __ptr64,struct DGNUS_UFBE_RES & __ptr64) __ptr64
+?SetResultDB_UFSL_KCI@CRFMDataBase@@QEAA_NIAEAUT_GUFSL_D@@AEAUDGNKR_UFBE_RES@@@Z -> public: bool __cdecl CRFMDataBase::SetResultDB_UFSL_KCI(unsigned int,struct T_GUFSL_D & __ptr64,struct DGNKR_UFBE_RES & __ptr64) __ptr64
+?SetToolTip@CUFBEPModeDlg@@AEAAXXZ -> private: void __cdecl CUFBEPModeDlg::SetToolTip(void) __ptr64
+?SetToolTip@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::SetToolTip(void) __ptr64
+?SetToolTip@CUFSLPModeDlg@@AEAAXXZ -> private: void __cdecl CUFSLPModeDlg::SetToolTip(void) __ptr64
+?SetViewItem@CUFCOPModeDlg@@AEAAXI@Z -> private: void __cdecl CUFCOPModeDlg::SetViewItem(unsigned int) __ptr64
+?UpdateBuffer@CUFBEListDlg@@EEAAXXZ -> private: virtual void __cdecl CUFBEListDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUFBEPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUFBEPModeDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUFBESModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUFBESModeDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUFCOListDlg@@EEAAXXZ -> private: virtual void __cdecl CUFCOListDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUFCOPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUFCOPModeDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUFCOSModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUFCOSModeDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUFSLListDlg@@EEAAXXZ -> private: virtual void __cdecl CUFSLListDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUFSLPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUFSLPModeDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CUFSLSModeDlg@@UEAAXXZ -> public: virtual void __cdecl CUFSLSModeDlg::UpdateBuffer(void) __ptr64
+?UpdateResult@CUFCOPModeDlg@@AEAAXXZ -> private: void __cdecl CUFCOPModeDlg::UpdateResult(void) __ptr64
+?UpdateResultData@CUFBEListDlg@@QEAAXXZ -> public: void __cdecl CUFBEListDlg::UpdateResultData(void) __ptr64
+?UpdateResultData@CUFBEPModeDlg@@AEAAXXZ -> private: void __cdecl CUFBEPModeDlg::UpdateResultData(void) __ptr64
+?UpdateResultData@CUFCOListDlg@@QEAAXXZ -> public: void __cdecl CUFCOListDlg::UpdateResultData(void) __ptr64
+?UpdateResultData@CUFSLListDlg@@QEAAXXZ -> public: void __cdecl CUFSLListDlg::UpdateResultData(void) __ptr64
+?UpdateResultData@CUFSLPModeDlg@@AEAAXXZ -> private: void __cdecl CUFSLPModeDlg::UpdateResultData(void) __ptr64
+?m_nResultType@CUFBEPModeDlg@@0IA -> private: static unsigned int CUFBEPModeDlg::m_nResultType
+?m_nResultType@CUFCOPModeDlg@@0IA -> private: static unsigned int CUFCOPModeDlg::m_nResultType
+?m_nResultType@CUFSLPModeDlg@@0IA -> private: static unsigned int CUFSLPModeDlg::m_nResultType
+?m_nViewItem@CUFCOPModeDlg@@0IA -> private: static unsigned int CUFCOPModeDlg::m_nViewItem
+?m_pInstance@CRFMCodeCheck@@2PEAV1@EA -> public: static class CRFMCodeCheck * __ptr64 __ptr64 CRFMCodeCheck::m_pInstance
+?m_pInstance@CRFMDataBase@@2PEAV1@EA -> public: static class CRFMDataBase * __ptr64 __ptr64 CRFMDataBase::m_pInstance
+Init_DPLUS_RFMdll -> Init_DPLUS_RFMdll

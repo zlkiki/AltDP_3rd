@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<CADProperties fileversion="1.0">
+  <CADProperties>
+    <Osnap OsnapMode="1" ApparentInt="0" Tangent="0" Quadrant="0" NodePoint="0" Intersection="1" Nearest="0" Perpendicular="0" Insertion="0" CenPoint="1" MidPoint="0" EndPoint="1" />
+  </CADProperties>
+</CADProperties>

@@ -1,0 +1,601 @@
+??0?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAA@XZ -> public: __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::duration<__int64,struct std::ratio<1,1000000000> >(void) __ptr64
+??0?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@QEAA@AEBV?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@12@@Z -> public: __cdecl std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >(class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > const & __ptr64) __ptr64
+??0?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@QEAA@XZ -> public: __cdecl std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >(void) __ptr64
+??0CAboutDlg@@QEAA@XZ -> public: __cdecl CAboutDlg::CAboutDlg(void) __ptr64
+??0CAppMain@@QEAA@XZ -> public: __cdecl CAppMain::CAppMain(void) __ptr64
+??0CChildFrame@@QEAA@XZ -> public: __cdecl CChildFrame::CChildFrame(void) __ptr64
+??0CDPLUSDoc@@IEAA@XZ -> protected: __cdecl CDPLUSDoc::CDPLUSDoc(void) __ptr64
+??0CISRCSCodeCheck@@QEAA@AEBV0@@Z -> public: __cdecl CISRCSCodeCheck::CISRCSCodeCheck(class CISRCSCodeCheck const & __ptr64) __ptr64
+??0CMODSHelper@@QEAA@XZ -> public: __cdecl CMODSHelper::CMODSHelper(void) __ptr64
+??0CMainFormViewDraw@@IEAA@XZ -> protected: __cdecl CMainFormViewDraw::CMainFormViewDraw(void) __ptr64
+??0CMainFormViewList@@IEAA@XZ -> protected: __cdecl CMainFormViewList::CMainFormViewList(void) __ptr64
+??0CMainFormViewMemb@@IEAA@XZ -> protected: __cdecl CMainFormViewMemb::CMainFormViewMemb(void) __ptr64
+??0CMainFormViewQntt@@IEAA@XZ -> protected: __cdecl CMainFormViewQntt::CMainFormViewQntt(void) __ptr64
+??0CMainFrame@@QEAA@XZ -> public: __cdecl CMainFrame::CMainFrame(void) __ptr64
+??0CStartDocument@@IEAA@XZ -> protected: __cdecl CStartDocument::CStartDocument(void) __ptr64
+??0CStartPageView@@IEAA@XZ -> protected: __cdecl CStartPageView::CStartPageView(void) __ptr64
+??0CStartPageViewNew@@IEAA@XZ -> protected: __cdecl CStartPageViewNew::CStartPageViewNew(void) __ptr64
+??0IDPLUS_ISRCSDataBase@@QEAA@AEBV0@@Z -> public: __cdecl IDPLUS_ISRCSDataBase::IDPLUS_ISRCSDataBase(class IDPLUS_ISRCSDataBase const & __ptr64) __ptr64
+??0IGXISDialog@@QEAA@AEBV0@@Z -> public: __cdecl IGXISDialog::IGXISDialog(class IGXISDialog const & __ptr64) __ptr64
+??1CAboutDlg@@UEAA@XZ -> public: virtual __cdecl CAboutDlg::~CAboutDlg(void) __ptr64
+??1CAppMain@@UEAA@XZ -> public: virtual __cdecl CAppMain::~CAppMain(void) __ptr64
+??1CChildFrame@@UEAA@XZ -> public: virtual __cdecl CChildFrame::~CChildFrame(void) __ptr64
+??1CDPLUSDoc@@UEAA@XZ -> public: virtual __cdecl CDPLUSDoc::~CDPLUSDoc(void) __ptr64
+??1CMainFormViewDraw@@MEAA@XZ -> protected: virtual __cdecl CMainFormViewDraw::~CMainFormViewDraw(void) __ptr64
+??1CMainFormViewList@@MEAA@XZ -> protected: virtual __cdecl CMainFormViewList::~CMainFormViewList(void) __ptr64
+??1CMainFormViewMemb@@MEAA@XZ -> protected: virtual __cdecl CMainFormViewMemb::~CMainFormViewMemb(void) __ptr64
+??1CMainFormViewQntt@@MEAA@XZ -> protected: virtual __cdecl CMainFormViewQntt::~CMainFormViewQntt(void) __ptr64
+??1CMainFrame@@UEAA@XZ -> public: virtual __cdecl CMainFrame::~CMainFrame(void) __ptr64
+??1CStartDocument@@MEAA@XZ -> protected: virtual __cdecl CStartDocument::~CStartDocument(void) __ptr64
+??1CStartPageView@@UEAA@XZ -> public: virtual __cdecl CStartPageView::~CStartPageView(void) __ptr64
+??1CStartPageViewNew@@UEAA@XZ -> public: virtual __cdecl CStartPageViewNew::~CStartPageViewNew(void) __ptr64
+??4?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAAAEAV012@$$QEAV012@@Z -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > & __ptr64 __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator=(class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > && __ptr64) __ptr64
+??4?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAAAEAV012@AEBV012@@Z -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > & __ptr64 __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator=(class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > const & __ptr64) __ptr64
+??4?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@QEAAAEAV012@$$QEAV012@@Z -> public: class std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > > & __ptr64 __cdecl std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >::operator=(class std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > > && __ptr64) __ptr64
+??4?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@QEAAAEAV012@AEBV012@@Z -> public: class std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > > & __ptr64 __cdecl std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >::operator=(class std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > > const & __ptr64) __ptr64
+??4CISRCSCodeCheck@@QEAAAEAV0@AEBV0@@Z -> public: class CISRCSCodeCheck & __ptr64 __cdecl CISRCSCodeCheck::operator=(class CISRCSCodeCheck const & __ptr64) __ptr64
+??4CMODSHelper@@QEAAAEAV0@$$QEAV0@@Z -> public: class CMODSHelper & __ptr64 __cdecl CMODSHelper::operator=(class CMODSHelper && __ptr64) __ptr64
+??4CMODSHelper@@QEAAAEAV0@AEBV0@@Z -> public: class CMODSHelper & __ptr64 __cdecl CMODSHelper::operator=(class CMODSHelper const & __ptr64) __ptr64
+??4IDPLUS_ISRCSDataBase@@QEAAAEAV0@AEBV0@@Z -> public: class IDPLUS_ISRCSDataBase & __ptr64 __cdecl IDPLUS_ISRCSDataBase::operator=(class IDPLUS_ISRCSDataBase const & __ptr64) __ptr64
+??4IGXISDialog@@QEAAAEAV0@AEBV0@@Z -> public: class IGXISDialog & __ptr64 __cdecl IGXISDialog::operator=(class IGXISDialog const & __ptr64) __ptr64
+??E?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAA?AV012@H@Z -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator++(int) __ptr64
+??E?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAAAEAV012@XZ -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > & __ptr64 __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator++(void) __ptr64
+??F?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAA?AV012@H@Z -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator--(int) __ptr64
+??F?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAAAEAV012@XZ -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > & __ptr64 __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator--(void) __ptr64
+??G?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEBA?AV012@XZ -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator-(void)const __ptr64
+??H?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEBA?AV012@XZ -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator+(void)const __ptr64
+??X?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAAAEAV012@AEB_J@Z -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > & __ptr64 __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator*=(__int64 const & __ptr64) __ptr64
+??Y?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAAAEAV012@AEBV012@@Z -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > & __ptr64 __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator+=(class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > const & __ptr64) __ptr64
+??Y?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@QEAAAEAV012@AEBV?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@12@@Z -> public: class std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > > & __ptr64 __cdecl std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >::operator+=(class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > const & __ptr64) __ptr64
+??Z?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAAAEAV012@AEBV012@@Z -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > & __ptr64 __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator-=(class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > const & __ptr64) __ptr64
+??Z?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@QEAAAEAV012@AEBV?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@12@@Z -> public: class std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > > & __ptr64 __cdecl std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >::operator-=(class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > const & __ptr64) __ptr64
+??_0?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAAAEAV012@AEB_J@Z -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > & __ptr64 __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator/=(__int64 const & __ptr64) __ptr64
+??_1?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAAAEAV012@AEBV012@@Z -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > & __ptr64 __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator%=(class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > const & __ptr64) __ptr64
+??_1?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEAAAEAV012@AEB_J@Z -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > & __ptr64 __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::operator%=(__int64 const & __ptr64) __ptr64
+??_7CAboutDlg@@6B@ -> const CAboutDlg::`vftable'
+??_7CAppMain@@6BCAppBase@@@ -> const CAppMain::`vftable'{for `CAppBase'}
+??_7CAppMain@@6BCBCGPWorkspace@@@ -> const CAppMain::`vftable'{for `CBCGPWorkspace'}
+??_7CChildFrame@@6B@ -> const CChildFrame::`vftable'
+??_7CDPLUSDoc@@6B@ -> const CDPLUSDoc::`vftable'
+??_7CISRCSCodeCheck@@6B@ -> const CISRCSCodeCheck::`vftable'
+??_7CMainFormViewDraw@@6B@ -> const CMainFormViewDraw::`vftable'
+??_7CMainFormViewList@@6B@ -> const CMainFormViewList::`vftable'
+??_7CMainFormViewMemb@@6B@ -> const CMainFormViewMemb::`vftable'
+??_7CMainFormViewQntt@@6B@ -> const CMainFormViewQntt::`vftable'
+??_7CMainFrame@@6B@ -> const CMainFrame::`vftable'
+??_7CStartDocument@@6B@ -> const CStartDocument::`vftable'
+??_7CStartPageView@@6B@ -> const CStartPageView::`vftable'
+??_7CStartPageViewNew@@6B@ -> const CStartPageViewNew::`vftable'
+??_7IDPLUS_ISRCSDataBase@@6B@ -> const IDPLUS_ISRCSDataBase::`vftable'
+??_7IGXISDialog@@6B@ -> const IGXISDialog::`vftable'
+??_FCIRBBMListDlg@@QEAAXXZ -> public: void __cdecl CIRBBMListDlg::`default constructor closure'(void) __ptr64
+??_FCIRBBMembDlg@@QEAAXXZ -> public: void __cdecl CIRBBMembDlg::`default constructor closure'(void) __ptr64
+??_FCIRBBPModeDlg@@QEAAXXZ -> public: void __cdecl CIRBBPModeDlg::`default constructor closure'(void) __ptr64
+??_FCIRBCMListDlg@@QEAAXXZ -> public: void __cdecl CIRBCMListDlg::`default constructor closure'(void) __ptr64
+??_FCIRBCMembDlg@@QEAAXXZ -> public: void __cdecl CIRBCMembDlg::`default constructor closure'(void) __ptr64
+??_FCIRBCPModeDlg@@QEAAXXZ -> public: void __cdecl CIRBCPModeDlg::`default constructor closure'(void) __ptr64
+??_FCIRBEMListDlg@@QEAAXXZ -> public: void __cdecl CIRBEMListDlg::`default constructor closure'(void) __ptr64
+??_FCIRBEPModeDlg@@QEAAXXZ -> public: void __cdecl CIRBEPModeDlg::`default constructor closure'(void) __ptr64
+??_FCIRBESModeDlg@@QEAAXXZ -> public: void __cdecl CIRBESModeDlg::`default constructor closure'(void) __ptr64
+??_FCIRBWMListDlg@@QEAAXXZ -> public: void __cdecl CIRBWMListDlg::`default constructor closure'(void) __ptr64
+??_FCIRBWPModeDlg@@QEAAXXZ -> public: void __cdecl CIRBWPModeDlg::`default constructor closure'(void) __ptr64
+??_FCIRBWSModeDlg@@QEAAXXZ -> public: void __cdecl CIRBWSModeDlg::`default constructor closure'(void) __ptr64
+??_FCIRCFMListDlg@@QEAAXXZ -> public: void __cdecl CIRCFMListDlg::`default constructor closure'(void) __ptr64
+??_FCIRCFPModeDlg@@QEAAXXZ -> public: void __cdecl CIRCFPModeDlg::`default constructor closure'(void) __ptr64
+??_FCIRCFSModeDlg@@QEAAXXZ -> public: void __cdecl CIRCFSModeDlg::`default constructor closure'(void) __ptr64
+??_FCIRGCMListDlg@@QEAAXXZ -> public: void __cdecl CIRGCMListDlg::`default constructor closure'(void) __ptr64
+??_FCIRGCPModeDlg@@QEAAXXZ -> public: void __cdecl CIRGCPModeDlg::`default constructor closure'(void) __ptr64
+??_FCIRGCSModeDlg@@QEAAXXZ -> public: void __cdecl CIRGCSModeDlg::`default constructor closure'(void) __ptr64
+??_FCIRGWMListDlg@@QEAAXXZ -> public: void __cdecl CIRGWMListDlg::`default constructor closure'(void) __ptr64
+??_FCIRGWPModeDlg@@QEAAXXZ -> public: void __cdecl CIRGWPModeDlg::`default constructor closure'(void) __ptr64
+??_FCIRGWWallDlg@@QEAAXXZ -> public: void __cdecl CIRGWWallDlg::`default constructor closure'(void) __ptr64
+??_FCISFootMListDlg@@QEAAXXZ -> public: void __cdecl CISFootMListDlg::`default constructor closure'(void) __ptr64
+??_FCISFootPModeDlg@@QEAAXXZ -> public: void __cdecl CISFootPModeDlg::`default constructor closure'(void) __ptr64
+??_FCISFootSModeDlg@@QEAAXXZ -> public: void __cdecl CISFootSModeDlg::`default constructor closure'(void) __ptr64
+??_FCISRcsColumnMListDlg@@QEAAXXZ -> public: void __cdecl CISRcsColumnMListDlg::`default constructor closure'(void) __ptr64
+??_FCISRcsColumnPModeDlg@@QEAAXXZ -> public: void __cdecl CISRcsColumnPModeDlg::`default constructor closure'(void) __ptr64
+??_FCISRcsColumnSModeDlg@@QEAAXXZ -> public: void __cdecl CISRcsColumnSModeDlg::`default constructor closure'(void) __ptr64
+??_FCISShearWallMListDlg@@QEAAXXZ -> public: void __cdecl CISShearWallMListDlg::`default constructor closure'(void) __ptr64
+??_FCISShearWallPModeDlg@@QEAAXXZ -> public: void __cdecl CISShearWallPModeDlg::`default constructor closure'(void) __ptr64
+??_FCISShearWallSModeDlg@@QEAAXXZ -> public: void __cdecl CISShearWallSModeDlg::`default constructor closure'(void) __ptr64
+??_FCSlabMListDlg_IS@@QEAAXXZ -> public: void __cdecl CSlabMListDlg_IS::`default constructor closure'(void) __ptr64
+??_FCSlabPModeDlg_IS@@QEAAXXZ -> public: void __cdecl CSlabPModeDlg_IS::`default constructor closure'(void) __ptr64
+??_FCSlabSModeDlg_IS@@QEAAXXZ -> public: void __cdecl CSlabSModeDlg_IS::`default constructor closure'(void) __ptr64
+?ActivateFrame@CChildFrame@@UEAAXH@Z -> public: virtual void __cdecl CChildFrame::ActivateFrame(int) __ptr64
+?AddFileAndImage@CStartPageViewNew@@IEAAXPEB_W000@Z -> protected: void __cdecl CStartPageViewNew::AddFileAndImage(wchar_t const * __ptr64,wchar_t const * __ptr64,wchar_t const * __ptr64,wchar_t const * __ptr64) __ptr64
+?AdjustInitialFramePos@CChildFrame@@SAXPEAVCFrameWnd@@@Z -> public: static void __cdecl CChildFrame::AdjustInitialFramePos(class CFrameWnd * __ptr64)
+?CancelDragging@CMainFrame@@QEAA_NXZ -> public: bool __cdecl CMainFrame::CancelDragging(void) __ptr64
+?ChangeComboBoxMatl@CMainFormViewDraw@@QEAAXW4MATLType@@@Z -> public: void __cdecl CMainFormViewDraw::ChangeComboBoxMatl(enum MATLType) __ptr64
+?ChangeComboBoxMatl@CMainFormViewQntt@@QEAAXW4MATLType@@@Z -> public: void __cdecl CMainFormViewQntt::ChangeComboBoxMatl(enum MATLType) __ptr64
+?ChangeComboBoxMemb@CMainFormViewDraw@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CMainFormViewDraw::ChangeComboBoxMemb(enum MEMBType) __ptr64
+?ChangeComboBoxMemb@CMainFormViewQntt@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CMainFormViewQntt::ChangeComboBoxMemb(enum MEMBType) __ptr64
+?ChangeDwgPreviewCaption@CMainFrame@@QEAAXAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CMainFrame::ChangeDwgPreviewCaption(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+?ChangeGUIMode@CDPLUSDoc@@AEAAXXZ -> private: void __cdecl CDPLUSDoc::ChangeGUIMode(void) __ptr64
+?ChangeLinkImageForRibbon@CMainFrame@@AEAAXW4LinkPRGM@@@Z -> private: void __cdecl CMainFrame::ChangeLinkImageForRibbon(enum LinkPRGM) __ptr64
+?ChangeLinkToolbarImage@CMainFrame@@QEAAXW4LinkPRGM@@@Z -> public: void __cdecl CMainFrame::ChangeLinkToolbarImage(enum LinkPRGM) __ptr64
+?ChangeMainFrameTopMost@CMainFrame@@QEAAXH@Z -> public: void __cdecl CMainFrame::ChangeMainFrameTopMost(int) __ptr64
+?ChangeRibbonText@CMainFrame@@AEAAXXZ -> private: void __cdecl CMainFrame::ChangeRibbonText(void) __ptr64
+?CheckDuplicate@CStartPageViewNew@@IEAAHAEAVCStringArray@@PEB_WAEAH@Z -> protected: int __cdecl CStartPageViewNew::CheckDuplicate(class CStringArray & __ptr64,wchar_t const * __ptr64,int & __ptr64) __ptr64
+?CheckMembInfoTable@CMainFrame@@QEAA_NW4MEMBType@@AEBV?$CArray@II@@_N@Z -> public: bool __cdecl CMainFrame::CheckMembInfoTable(enum MEMBType,class CArray<unsigned int,unsigned int> const & __ptr64,bool) __ptr64
+?ClearRecentFileList@CStartPageViewNew@@IEAAXXZ -> protected: void __cdecl CStartPageViewNew::ClearRecentFileList(void) __ptr64
+?ClearTempImageFiles@CStartPageViewNew@@IEAAXXZ -> protected: void __cdecl CStartPageViewNew::ClearTempImageFiles(void) __ptr64
+?CloseStartPageST@CStartPageView@@SAXXZ -> public: static void __cdecl CStartPageView::CloseStartPageST(void)
+?CloseStartPageST@CStartPageViewNew@@SAXXZ -> public: static void __cdecl CStartPageViewNew::CloseStartPageST(void)
+?CreateDocumentWindow@CMainFrame@@MEAAPEAVCBCGPMDIChildWnd@@PEB_WPEAVCObject@@@Z -> protected: virtual class CBCGPMDIChildWnd * __ptr64 __cdecl CMainFrame::CreateDocumentWindow(wchar_t const * __ptr64,class CObject * __ptr64) __ptr64
+?CreateDwgPreview@CMainFrame@@QEAA_NXZ -> public: bool __cdecl CMainFrame::CreateDwgPreview(void) __ptr64
+?CreateMemberInfo@CMainFrame@@QEAA_NXZ -> public: bool __cdecl CMainFrame::CreateMemberInfo(void) __ptr64
+?CreateMemberListFormView@CDPLUSDoc@@QEAAX_NIW4MEMBType@@@Z -> public: void __cdecl CDPLUSDoc::CreateMemberListFormView(bool,unsigned int,enum MEMBType) __ptr64
+?CreateObject@CChildFrame@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CChildFrame::CreateObject(void)
+?CreateObject@CDPLUSDoc@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CDPLUSDoc::CreateObject(void)
+?CreateObject@CMainFormViewDraw@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CMainFormViewDraw::CreateObject(void)
+?CreateObject@CMainFormViewList@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CMainFormViewList::CreateObject(void)
+?CreateObject@CMainFormViewMemb@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CMainFormViewMemb::CreateObject(void)
+?CreateObject@CMainFormViewQntt@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CMainFormViewQntt::CreateObject(void)
+?CreateObject@CStartDocument@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CStartDocument::CreateObject(void)
+?CreateObject@CStartPageView@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CStartPageView::CreateObject(void)
+?CreateObject@CStartPageViewNew@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CStartPageViewNew::CreateObject(void)
+?CreateOutputBar@CMainFrame@@QEAA_NXZ -> public: bool __cdecl CMainFrame::CreateOutputBar(void) __ptr64
+?CreateReportView@CMainFrame@@QEAA_NXZ -> public: bool __cdecl CMainFrame::CreateReportView(void) __ptr64
+?CreateRibbonBar@CMainFrame@@AEAA_N_N@Z -> private: bool __cdecl CMainFrame::CreateRibbonBar(bool) __ptr64
+?CreateRibbonMenu@CMainFrame@@QEAA_NXZ -> public: bool __cdecl CMainFrame::CreateRibbonMenu(void) __ptr64
+?CreateStatusBar@CMainFrame@@QEAA_NXZ -> public: bool __cdecl CMainFrame::CreateStatusBar(void) __ptr64
+?CreateWorkTree@CMainFrame@@QEAA_NXZ -> public: bool __cdecl CMainFrame::CreateWorkTree(void) __ptr64
+?DeleteDlgData@CMainFormViewMemb@@AEAAXPEAVCDGN_FormViewInDlg@@AEAH@Z -> private: void __cdecl CMainFormViewMemb::DeleteDlgData(class CDGN_FormViewInDlg * __ptr64,int & __ptr64) __ptr64
+?DeleteDlgDataPModeEC@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::DeleteDlgDataPModeEC(void) __ptr64
+?DeleteDlgDataPModeIS@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::DeleteDlgDataPModeIS(void) __ptr64
+?DeleteDlgDataPModeKR@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::DeleteDlgDataPModeKR(void) __ptr64
+?DeleteDlgDataSModeEC@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::DeleteDlgDataSModeEC(void) __ptr64
+?DeleteDlgDataSModeIS@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::DeleteDlgDataSModeIS(void) __ptr64
+?DeleteDlgDataSModeKR@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::DeleteDlgDataSModeKR(void) __ptr64
+?DeleteListReg@CStartPageViewNew@@IEAAXPEB_W@Z -> protected: void __cdecl CStartPageViewNew::DeleteListReg(wchar_t const * __ptr64) __ptr64
+?DestroyAllView@CDPLUSDoc@@AEAAXXZ -> private: void __cdecl CDPLUSDoc::DestroyAllView(void) __ptr64
+?DestroyWindow@CMainFrame@@UEAAHXZ -> public: virtual int __cdecl CMainFrame::DestroyWindow(void) __ptr64
+?DoCommand@CStartPageViewNew@@IEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> protected: int __cdecl CStartPageViewNew::DoCommand(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?DoDataExchange@CAboutDlg@@EEAAXPEAVCDataExchange@@@Z -> private: virtual void __cdecl CAboutDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CMainFormViewDraw@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CMainFormViewDraw::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CMainFormViewList@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CMainFormViewList::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CMainFormViewMemb@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CMainFormViewMemb::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CMainFormViewQntt@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CMainFormViewQntt::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoOpenWebPage@CStartPageViewNew@@IEAAXPEB_W@Z -> protected: void __cdecl CStartPageViewNew::DoOpenWebPage(wchar_t const * __ptr64) __ptr64
+?DockingBar@CMainFrame@@QEAA_NXZ -> public: bool __cdecl CMainFrame::DockingBar(void) __ptr64
+?ExecuteSmartUpdateAndWebNoticeManager@CMainFrame@@QEAA_NXZ -> public: bool __cdecl CMainFrame::ExecuteSmartUpdateAndWebNoticeManager(void) __ptr64
+?ExpandWorksTree@CMainFrame@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CMainFrame::ExpandWorksTree(enum MEMBType) __ptr64
+?ExpandWorksTreeALU@CMainFrame@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CMainFrame::ExpandWorksTreeALU(enum MEMBType) __ptr64
+?ExpandWorksTreeRCS@CMainFrame@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CMainFrame::ExpandWorksTreeRCS(enum MEMBType) __ptr64
+?ExpandWorksTreeRFM@CMainFrame@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CMainFrame::ExpandWorksTreeRFM(enum MEMBType) __ptr64
+?ExpandWorksTreeSRC@CMainFrame@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CMainFrame::ExpandWorksTreeSRC(enum MEMBType) __ptr64
+?ExpandWorksTreeSTL@CMainFrame@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CMainFrame::ExpandWorksTreeSTL(enum MEMBType) __ptr64
+?FitMainDwgPreviewSize@CMainFrame@@QEAAXXZ -> public: void __cdecl CMainFrame::FitMainDwgPreviewSize(void) __ptr64
+?GetBBgrK@CIRBBPModeDlg@@QEAAIXZ -> public: unsigned int __cdecl CIRBBPModeDlg::GetBBgrK(void) __ptr64
+?GetBWwmK@CIRGWPModeDlg@@QEAAIXZ -> public: unsigned int __cdecl CIRGWPModeDlg::GetBWwmK(void) __ptr64
+?GetBasePlateMListDlg@CMainFormViewList@@QEAAPEAVCDGN_FormViewInDlg@@XZ -> public: class CDGN_FormViewInDlg * __ptr64 __cdecl CMainFormViewList::GetBasePlateMListDlg(void) __ptr64
+?GetBuildTime@CAboutDlg@@AEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> private: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CAboutDlg::GetBuildTime(void) __ptr64
+?GetCmdParam@CStartPageViewNew@@IEAAHPEB_WAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@11@Z -> protected: int __cdecl CStartPageViewNew::GetCmdParam(wchar_t const * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetCommandIDbyMembType@CDPLUSDoc@@QEAAIW4MEMBType@@@Z -> public: unsigned int __cdecl CDPLUSDoc::GetCommandIDbyMembType(enum MEMBType) __ptr64
+?GetCurrentDataKey@CDPLUSDoc@@QEAAIXZ -> public: unsigned int __cdecl CDPLUSDoc::GetCurrentDataKey(void) __ptr64
+?GetCurrentDataKey@CMainFrame@@QEAAIXZ -> public: unsigned int __cdecl CMainFrame::GetCurrentDataKey(void) __ptr64
+?GetCurrentDlgInfo@CDPLUSDoc@@QEAA_NAEAW4MEMBType@@AEAI@Z -> public: bool __cdecl CDPLUSDoc::GetCurrentDlgInfo(enum MEMBType & __ptr64,unsigned int & __ptr64) __ptr64
+?GetCurrentDlgInfo@CMainFrame@@QEAA_NAEAW4MEMBType@@AEAI@Z -> public: bool __cdecl CMainFrame::GetCurrentDlgInfo(enum MEMBType & __ptr64,unsigned int & __ptr64) __ptr64
+?GetCurrentKey@CMainFormViewMemb@@QEAAXW4MEMBType@@AEAI@Z -> public: void __cdecl CMainFormViewMemb::GetCurrentKey(enum MEMBType,unsigned int & __ptr64) __ptr64
+?GetCurrentMatlMembTypeFromWorktreeCombo@CMainFrame@@QEAAXAEAW4MATLType@@AEAW4MEMBType@@@Z -> public: void __cdecl CMainFrame::GetCurrentMatlMembTypeFromWorktreeCombo(enum MATLType & __ptr64,enum MEMBType & __ptr64) __ptr64
+?GetCurrentMembType@CDPLUSDoc@@QEAA?AW4MEMBType@@XZ -> public: enum MEMBType __cdecl CDPLUSDoc::GetCurrentMembType(void) __ptr64
+?GetDefaultSize@CMainFormViewMemb@@QEAA?AVCSize@@XZ -> public: class CSize __cdecl CMainFormViewMemb::GetDefaultSize(void) __ptr64
+?GetDialogID@CMainFormViewList@@AEAAHW4MEMBType@@@Z -> private: int __cdecl CMainFormViewList::GetDialogID(enum MEMBType) __ptr64
+?GetDialogID@CMainFormViewMemb@@AEAAHW4MEMBType@@_N@Z -> private: int __cdecl CMainFormViewMemb::GetDialogID(enum MEMBType,bool) __ptr64
+?GetDlgByMembType@CMainFormViewList@@AEAAPEAVCDGN_FormViewInDlg@@W4MEMBType@@@Z -> private: class CDGN_FormViewInDlg * __ptr64 __cdecl CMainFormViewList::GetDlgByMembType(enum MEMBType) __ptr64
+?GetDlgByMembType@CMainFormViewMemb@@AEAAPEAVCDGN_FormViewInDlg@@W4MEMBType@@_N@Z -> private: class CDGN_FormViewInDlg * __ptr64 __cdecl CMainFormViewMemb::GetDlgByMembType(enum MEMBType,bool) __ptr64
+?GetDockingBarWidth@CMainFrame@@AEAAHAEBVCBCGPDockingControlBar@@@Z -> private: int __cdecl CMainFrame::GetDockingBarWidth(class CBCGPDockingControlBar const & __ptr64) __ptr64
+?GetDocument@CStartPageView@@QEAAPEAVCStartDocument@@XZ -> public: class CStartDocument * __ptr64 __cdecl CStartPageView::GetDocument(void) __ptr64
+?GetDocument@CStartPageViewNew@@QEAAPEAVCStartDocument@@XZ -> public: class CStartDocument * __ptr64 __cdecl CStartPageViewNew::GetDocument(void) __ptr64
+?GetFilePath@CMainFrame@@AEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_WPEAVCDocument@@@Z -> private: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CMainFrame::GetFilePath(wchar_t const * __ptr64,class CDocument * __ptr64) __ptr64
+?GetFixFileList@CStartPageViewNew@@IEAAXAEAVCStringArray@@000@Z -> protected: void __cdecl CStartPageViewNew::GetFixFileList(class CStringArray & __ptr64,class CStringArray & __ptr64,class CStringArray & __ptr64,class CStringArray & __ptr64) __ptr64
+?GetICgrK@CIRBCPModeDlg@@QEAAIXZ -> public: unsigned int __cdecl CIRBCPModeDlg::GetICgrK(void) __ptr64
+?GetInitSize@CMainFormViewMemb@@QEAA?AVCSize@@XZ -> public: class CSize __cdecl CMainFormViewMemb::GetInitSize(void) __ptr64
+?GetLicenseTypeStr@CMainFrame@@AEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> private: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CMainFrame::GetLicenseTypeStr(void) __ptr64
+?GetLinkData@CMainFrame@@AEAA_NAEAUT_GLINK_D@@@Z -> private: bool __cdecl CMainFrame::GetLinkData(struct T_GLINK_D & __ptr64) __ptr64
+?GetLinkTimeString@CAboutDlg@@AEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> private: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CAboutDlg::GetLinkTimeString(void) __ptr64
+?GetMainDrawDlg@CMainFormViewDraw@@QEAAPEAVCMainDrawDlg@@XZ -> public: class CMainDrawDlg * __ptr64 __cdecl CMainFormViewDraw::GetMainDrawDlg(void) __ptr64
+?GetMainWndHandle@CDPLUSDoc@@AEAAPEAUHWND__@@XZ -> private: struct HWND__ * __ptr64 __cdecl CDPLUSDoc::GetMainWndHandle(void) __ptr64
+?GetMainWndHandle@CMainFrame@@AEAAPEAUHWND__@@XZ -> private: struct HWND__ * __ptr64 __cdecl CMainFrame::GetMainWndHandle(void) __ptr64
+?GetMembDlg@CMainFormViewMemb@@AEAAPEAVCDGN_FormViewInDlg@@XZ -> private: class CDGN_FormViewInDlg * __ptr64 __cdecl CMainFormViewMemb::GetMembDlg(void) __ptr64
+?GetMembListDlg@CMainFormViewList@@AEAAPEAVCDGN_FormViewInDlg@@XZ -> private: class CDGN_FormViewInDlg * __ptr64 __cdecl CMainFormViewList::GetMembListDlg(void) __ptr64
+?GetMenuInputDlg@CMainFormViewMemb@@QEAAPEAVCMainMenuDlg@@XZ -> public: class CMainMenuDlg * __ptr64 __cdecl CMainFormViewMemb::GetMenuInputDlg(void) __ptr64
+?GetMessageMap@CAboutDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CAboutDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CAppMain@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CAppMain::GetMessageMap(void)const __ptr64
+?GetMessageMap@CChildFrame@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CChildFrame::GetMessageMap(void)const __ptr64
+?GetMessageMap@CDPLUSDoc@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CDPLUSDoc::GetMessageMap(void)const __ptr64
+?GetMessageMap@CMainFormViewDraw@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CMainFormViewDraw::GetMessageMap(void)const __ptr64
+?GetMessageMap@CMainFormViewList@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CMainFormViewList::GetMessageMap(void)const __ptr64
+?GetMessageMap@CMainFormViewMemb@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CMainFormViewMemb::GetMessageMap(void)const __ptr64
+?GetMessageMap@CMainFormViewQntt@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CMainFormViewQntt::GetMessageMap(void)const __ptr64
+?GetMessageMap@CMainFrame@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CMainFrame::GetMessageMap(void)const __ptr64
+?GetMessageMap@CStartDocument@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CStartDocument::GetMessageMap(void)const __ptr64
+?GetMessageMap@CStartPageView@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CStartPageView::GetMessageMap(void)const __ptr64
+?GetMessageMap@CStartPageViewNew@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CStartPageViewNew::GetMessageMap(void)const __ptr64
+?GetProductInfo@CMainFrame@@AEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAVCDocument@@@Z -> private: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CMainFrame::GetProductInfo(class CDocument * __ptr64) __ptr64
+?GetProductVerStr@CMainFrame@@AEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> private: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CMainFrame::GetProductVerStr(void) __ptr64
+?GetProgramName@CAboutDlg@@AEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> private: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CAboutDlg::GetProgramName(void) __ptr64
+?GetQuantityFormDlg@CMainFormViewQntt@@QEAAPEAVCDgnQuantityFormDlg@@XZ -> public: class CDgnQuantityFormDlg * __ptr64 __cdecl CMainFormViewQntt::GetQuantityFormDlg(void) __ptr64
+?GetRecentFileList@CStartPageViewNew@@IEAAXAEAVCStringArray@@000@Z -> protected: void __cdecl CStartPageViewNew::GetRecentFileList(class CStringArray & __ptr64,class CStringArray & __ptr64,class CStringArray & __ptr64,class CStringArray & __ptr64) __ptr64
+?GetRegTestFileName@CAppMain@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CAppMain::GetRegTestFileName(void) __ptr64
+?GetRegTestFileName@CMainFrame@@AEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> private: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CMainFrame::GetRegTestFileName(void) __ptr64
+?GetReleaseNo@CAboutDlg@@AEAAIXZ -> private: unsigned int __cdecl CAboutDlg::GetReleaseNo(void) __ptr64
+?GetReleaseNo@CMainFrame@@AEAAIXZ -> private: unsigned int __cdecl CMainFrame::GetReleaseNo(void) __ptr64
+?GetRuntimeClass@CChildFrame@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CChildFrame::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CDPLUSDoc@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CDPLUSDoc::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CMainFormViewDraw@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CMainFormViewDraw::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CMainFormViewList@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CMainFormViewList::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CMainFormViewMemb@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CMainFormViewMemb::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CMainFormViewQntt@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CMainFormViewQntt::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CMainFrame@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CMainFrame::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CStartDocument@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CStartDocument::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CStartPageView@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CStartPageView::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CStartPageViewNew@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CStartPageViewNew::GetRuntimeClass(void)const __ptr64
+?GetSelectedTreeItem@CMainFrame@@QEAA_NAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: bool __cdecl CMainFrame::GetSelectedTreeItem(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetStatusBar@CMainFrame@@UEAAPEAVCBCGPStatusBar@@XZ -> public: virtual class CBCGPStatusBar * __ptr64 __cdecl CMainFrame::GetStatusBar(void) __ptr64
+?GetTestUrlAddress@CStartPageView@@AEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> private: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CStartPageView::GetTestUrlAddress(void) __ptr64
+?GetTestUrlAddress@CStartPageViewNew@@AEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> private: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CStartPageViewNew::GetTestUrlAddress(void) __ptr64
+?GetThisClass@CChildFrame@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CChildFrame::GetThisClass(void)
+?GetThisClass@CDPLUSDoc@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CDPLUSDoc::GetThisClass(void)
+?GetThisClass@CMainFormViewDraw@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CMainFormViewDraw::GetThisClass(void)
+?GetThisClass@CMainFormViewList@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CMainFormViewList::GetThisClass(void)
+?GetThisClass@CMainFormViewMemb@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CMainFormViewMemb::GetThisClass(void)
+?GetThisClass@CMainFormViewQntt@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CMainFormViewQntt::GetThisClass(void)
+?GetThisClass@CMainFrame@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CMainFrame::GetThisClass(void)
+?GetThisClass@CStartDocument@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CStartDocument::GetThisClass(void)
+?GetThisClass@CStartPageView@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CStartPageView::GetThisClass(void)
+?GetThisClass@CStartPageViewNew@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CStartPageViewNew::GetThisClass(void)
+?GetThisMessageMap@CAboutDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CAboutDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CAppMain@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CAppMain::GetThisMessageMap(void)
+?GetThisMessageMap@CChildFrame@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CChildFrame::GetThisMessageMap(void)
+?GetThisMessageMap@CDPLUSDoc@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CDPLUSDoc::GetThisMessageMap(void)
+?GetThisMessageMap@CMainFormViewDraw@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CMainFormViewDraw::GetThisMessageMap(void)
+?GetThisMessageMap@CMainFormViewList@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CMainFormViewList::GetThisMessageMap(void)
+?GetThisMessageMap@CMainFormViewMemb@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CMainFormViewMemb::GetThisMessageMap(void)
+?GetThisMessageMap@CMainFormViewQntt@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CMainFormViewQntt::GetThisMessageMap(void)
+?GetThisMessageMap@CMainFrame@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CMainFrame::GetThisMessageMap(void)
+?GetThisMessageMap@CStartDocument@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CStartDocument::GetThisMessageMap(void)
+?GetThisMessageMap@CStartPageView@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CStartPageView::GetThisMessageMap(void)
+?GetThisMessageMap@CStartPageViewNew@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CStartPageViewNew::GetThisMessageMap(void)
+?GetUndoCtrl@CDPLUSDoc@@AEAAPEAVCUndoCtrl@@XZ -> private: class CUndoCtrl * __ptr64 __cdecl CDPLUSDoc::GetUndoCtrl(void) __ptr64
+?GetUndoRedoListPos@CMainFrame@@QEAAXAEAVCPoint@@0@Z -> public: void __cdecl CMainFrame::GetUndoRedoListPos(class CPoint & __ptr64,class CPoint & __ptr64) __ptr64
+?GetUrlAddress@CStartPageView@@AEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> private: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CStartPageView::GetUrlAddress(void) __ptr64
+?GetUrlAddress@CStartPageViewNew@@AEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> private: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CStartPageViewNew::GetUrlAddress(void) __ptr64
+?GetWorkBarInfo_CurrentTab@CMainFrame@@QEAAHXZ -> public: int __cdecl CMainFrame::GetWorkBarInfo_CurrentTab(void) __ptr64
+?GetWorkBarInfo_CurrentTabString@CMainFrame@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CMainFrame::GetWorkBarInfo_CurrentTabString(void) __ptr64
+?InitBatchDesignData@CDPLUSDoc@@AEAAXXZ -> private: void __cdecl CDPLUSDoc::InitBatchDesignData(void) __ptr64
+?InitDataEC@CMainFormViewList@@AEAAXXZ -> private: void __cdecl CMainFormViewList::InitDataEC(void) __ptr64
+?InitDataIS@CMainFormViewList@@AEAAXXZ -> private: void __cdecl CMainFormViewList::InitDataIS(void) __ptr64
+?InitDataKR@CMainFormViewList@@AEAAXXZ -> private: void __cdecl CMainFormViewList::InitDataKR(void) __ptr64
+?InitDataPModeEC@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::InitDataPModeEC(void) __ptr64
+?InitDataPModeIS@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::InitDataPModeIS(void) __ptr64
+?InitDataPModeKR@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::InitDataPModeKR(void) __ptr64
+?InitDataSModeEC@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::InitDataSModeEC(void) __ptr64
+?InitDataSModeIS@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::InitDataSModeIS(void) __ptr64
+?InitDataSModeKR@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::InitDataSModeKR(void) __ptr64
+?InitStoryMapForBatchDgn@CDPLUSDoc@@AEAAXXZ -> private: void __cdecl CDPLUSDoc::InitStoryMapForBatchDgn(void) __ptr64
+?Initialize@CMainFormViewList@@AEAAXXZ -> private: void __cdecl CMainFormViewList::Initialize(void) __ptr64
+?Initialize@CMainFormViewMemb@@AEAAXXZ -> private: void __cdecl CMainFormViewMemb::Initialize(void) __ptr64
+?InitializeView@CStartPageViewNew@@QEAAXXZ -> public: void __cdecl CStartPageViewNew::InitializeView(void) __ptr64
+?IsDragging@CMainFrame@@QEAA_NXZ -> public: bool __cdecl CMainFrame::IsDragging(void) __ptr64
+?IsDwgPreviewDockBarReq@CMainFrame@@AEAA_NXZ -> private: bool __cdecl CMainFrame::IsDwgPreviewDockBarReq(void) __ptr64
+?IsEmptyDlg@CMainFormViewList@@AEAAHPEAVCDGN_FormViewInDlg@@H@Z -> private: int __cdecl CMainFormViewList::IsEmptyDlg(class CDGN_FormViewInDlg * __ptr64,int) __ptr64
+?IsEmptyDlg@CMainFormViewMemb@@AEAA_NPEAVCDGN_FormViewInDlg@@H@Z -> private: bool __cdecl CMainFormViewMemb::IsEmptyDlg(class CDGN_FormViewInDlg * __ptr64,int) __ptr64
+?IsInternetConnected@CStartPageViewNew@@IEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> protected: int __cdecl CStartPageViewNew::IsInternetConnected(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?IsMemberInfoDockBarReq@CMainFrame@@AEAA_NXZ -> private: bool __cdecl CMainFrame::IsMemberInfoDockBarReq(void) __ptr64
+?IsSafeActiveDlg@CMainFormViewMemb@@AEAA_NPEAVCDGN_FormViewInDlg@@H@Z -> private: bool __cdecl CMainFormViewMemb::IsSafeActiveDlg(class CDGN_FormViewInDlg * __ptr64,int) __ptr64
+?IsSafeDlg@CMainFormViewList@@AEAAHPEAVCDGN_FormViewInDlg@@H@Z -> private: int __cdecl CMainFormViewList::IsSafeDlg(class CDGN_FormViewInDlg * __ptr64,int) __ptr64
+?IsSafeDlg@CMainFormViewMemb@@AEAA_NPEAVCDGN_FormViewInDlg@@H@Z -> private: bool __cdecl CMainFormViewMemb::IsSafeDlg(class CDGN_FormViewInDlg * __ptr64,int) __ptr64
+?IsStartedFromMAS@CMODSHelper@@SAHXZ -> public: static int __cdecl CMODSHelper::IsStartedFromMAS(void)
+?IsStartedFromMODS@CMODSHelper@@SAHXZ -> public: static int __cdecl CMODSHelper::IsStartedFromMODS(void)
+?LayoutChildDlg@CMainFormViewDraw@@IEAAXXZ -> protected: void __cdecl CMainFormViewDraw::LayoutChildDlg(void) __ptr64
+?LayoutChildDlg@CMainFormViewList@@QEAAXXZ -> public: void __cdecl CMainFormViewList::LayoutChildDlg(void) __ptr64
+?LayoutChildDlg@CMainFormViewMemb@@QEAAXXZ -> public: void __cdecl CMainFormViewMemb::LayoutChildDlg(void) __ptr64
+?LayoutChildDlg@CMainFormViewQntt@@IEAAXXZ -> protected: void __cdecl CMainFormViewQntt::LayoutChildDlg(void) __ptr64
+?LayoutChildDlgALU@CMainFormViewList@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewList::LayoutChildDlgALU(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutChildDlgECRCS@CMainFormViewList@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewList::LayoutChildDlgECRCS(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutChildDlgECSRC@CMainFormViewList@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewList::LayoutChildDlgECSRC(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutChildDlgECSTL@CMainFormViewList@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewList::LayoutChildDlgECSTL(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutChildDlgISRCS@CMainFormViewList@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewList::LayoutChildDlgISRCS(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutChildDlgRCS@CMainFormViewList@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewList::LayoutChildDlgRCS(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutChildDlgRFM@CMainFormViewList@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewList::LayoutChildDlgRFM(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutChildDlgSRC@CMainFormViewList@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewList::LayoutChildDlgSRC(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutChildDlgSTL@CMainFormViewList@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewList::LayoutChildDlgSTL(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgCommon@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgCommon(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgPMode@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgPMode(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgPModeALU@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgPModeALU(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgPModeECRCS@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgPModeECRCS(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgPModeECSRC@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgPModeECSRC(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgPModeECSTL@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgPModeECSTL(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgPModeISRCS@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgPModeISRCS(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgPModeRCS@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgPModeRCS(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgPModeRFM@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgPModeRFM(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgPModeSRC@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgPModeSRC(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgPModeSTL@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgPModeSTL(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgSMode@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgSMode(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgSModeALU@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgSModeALU(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgSModeECRCS@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgSModeECRCS(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgSModeECSRC@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgSModeECSRC(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgSModeECSTL@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgSModeECSTL(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgSModeISRCS@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgSModeISRCS(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgSModeRCS@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgSModeRCS(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgSModeRFM@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgSModeRFM(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgSModeSRC@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgSModeSRC(struct T_GUOPT_D const & __ptr64) __ptr64
+?LayoutDlgSModeSTL@CMainFormViewMemb@@AEAAXAEBUT_GUOPT_D@@@Z -> private: void __cdecl CMainFormViewMemb::LayoutDlgSModeSTL(struct T_GUOPT_D const & __ptr64) __ptr64
+?MYUpdateFrameTitleForDocument@CMainFrame@@QEAAXPEB_WPEAVCDocument@@@Z -> public: void __cdecl CMainFrame::MYUpdateFrameTitleForDocument(wchar_t const * __ptr64,class CDocument * __ptr64) __ptr64
+?MakeFormView@CDPLUSDoc@@AEAAXXZ -> private: void __cdecl CDPLUSDoc::MakeFormView(void) __ptr64
+?MakeFormViewByPost@CDPLUSDoc@@AEAAXW4GUIMode@@@Z -> private: void __cdecl CDPLUSDoc::MakeFormViewByPost(enum GUIMode) __ptr64
+?MakeFormViewBySend@CDPLUSDoc@@AEAAXW4GUIMode@@@Z -> private: void __cdecl CDPLUSDoc::MakeFormViewBySend(enum GUIMode) __ptr64
+?ModeChange@CDPLUSDoc@@AEAA_NW4GUIMode@@@Z -> private: bool __cdecl CDPLUSDoc::ModeChange(enum GUIMode) __ptr64
+?ModifyProductName@CMainFrame@@AEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> private: void __cdecl CMainFrame::ModifyProductName(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?MsgClear@CMainFrame@@QEAAXH@Z -> public: void __cdecl CMainFrame::MsgClear(int) __ptr64
+?MsgOut@CMainFrame@@QEAAXHHPEB_W@Z -> public: void __cdecl CMainFrame::MsgOut(int,int,wchar_t const * __ptr64) __ptr64
+?MsgOutFmt@CMainFrame@@QEAAXHHPEB_WZZ -> public: void __cdecl CMainFrame::MsgOutFmt(int,int,wchar_t const * __ptr64,...) __ptr64
+?OnAddRecentFiles@CStartPageViewNew@@QEAA_J_K_J@Z -> public: __int64 __cdecl CStartPageViewNew::OnAddRecentFiles(unsigned __int64,__int64) __ptr64
+?OnAppLook@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnAppLook(unsigned int) __ptr64
+?OnBeforeNavigate2@CStartPageViewNew@@UEAAXPEB_WK0AEAVCByteArray@@0PEAH@Z -> public: virtual void __cdecl CStartPageViewNew::OnBeforeNavigate2(wchar_t const * __ptr64,unsigned long,wchar_t const * __ptr64,class CByteArray & __ptr64,wchar_t const * __ptr64,int * __ptr64) __ptr64
+?OnChangeDataBase@CDPLUSDoc@@QEAA_NXZ -> public: bool __cdecl CDPLUSDoc::OnChangeDataBase(void) __ptr64
+?OnChangeLanguage@CDPLUSDoc@@QEAA_NXZ -> public: bool __cdecl CDPLUSDoc::OnChangeLanguage(void) __ptr64
+?OnChildActivate@CChildFrame@@IEAAXXZ -> protected: void __cdecl CChildFrame::OnChildActivate(void) __ptr64
+?OnCloseDocument@CDPLUSDoc@@UEAAXXZ -> public: virtual void __cdecl CDPLUSDoc::OnCloseDocument(void) __ptr64
+?OnCommandALU@CDPLUSDoc@@IEAAXI@Z -> protected: void __cdecl CDPLUSDoc::OnCommandALU(unsigned int) __ptr64
+?OnCommandDGN@CDPLUSDoc@@IEAAXI@Z -> protected: void __cdecl CDPLUSDoc::OnCommandDGN(unsigned int) __ptr64
+?OnCommandImport@CDPLUSDoc@@IEAAXXZ -> protected: void __cdecl CDPLUSDoc::OnCommandImport(void) __ptr64
+?OnCommandLink@CDPLUSDoc@@IEAAXXZ -> protected: void __cdecl CDPLUSDoc::OnCommandLink(void) __ptr64
+?OnCommandLinkDataBase@CDPLUSDoc@@IEAAXXZ -> protected: void __cdecl CDPLUSDoc::OnCommandLinkDataBase(void) __ptr64
+?OnCommandLinkOption@CDPLUSDoc@@IEAAXXZ -> protected: void __cdecl CDPLUSDoc::OnCommandLinkOption(void) __ptr64
+?OnCommandLoad@CDPLUSDoc@@IEAAXI@Z -> protected: void __cdecl CDPLUSDoc::OnCommandLoad(unsigned int) __ptr64
+?OnCommandRCS@CDPLUSDoc@@IEAAXI@Z -> protected: void __cdecl CDPLUSDoc::OnCommandRCS(unsigned int) __ptr64
+?OnCommandRFM@CDPLUSDoc@@IEAAXI@Z -> protected: void __cdecl CDPLUSDoc::OnCommandRFM(unsigned int) __ptr64
+?OnCommandReorder@CDPLUSDoc@@IEAAXI@Z -> protected: void __cdecl CDPLUSDoc::OnCommandReorder(unsigned int) __ptr64
+?OnCommandSRC@CDPLUSDoc@@IEAAXI@Z -> protected: void __cdecl CDPLUSDoc::OnCommandSRC(unsigned int) __ptr64
+?OnCommandSTL@CDPLUSDoc@@IEAAXI@Z -> protected: void __cdecl CDPLUSDoc::OnCommandSTL(unsigned int) __ptr64
+?OnCommandTool@CDPLUSDoc@@IEAAXI@Z -> protected: void __cdecl CDPLUSDoc::OnCommandTool(unsigned int) __ptr64
+?OnCommandView@CDPLUSDoc@@IEAAXI@Z -> protected: void __cdecl CDPLUSDoc::OnCommandView(unsigned int) __ptr64
+?OnCommand_ALU@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnCommand_ALU(unsigned int) __ptr64
+?OnCommand_Dgn@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnCommand_Dgn(unsigned int) __ptr64
+?OnCommand_Import@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnCommand_Import(void) __ptr64
+?OnCommand_Link@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnCommand_Link(void) __ptr64
+?OnCommand_LinkDataBase@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnCommand_LinkDataBase(void) __ptr64
+?OnCommand_LinkOption@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnCommand_LinkOption(void) __ptr64
+?OnCommand_Load@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnCommand_Load(unsigned int) __ptr64
+?OnCommand_RC@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnCommand_RC(unsigned int) __ptr64
+?OnCommand_RFM@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnCommand_RFM(unsigned int) __ptr64
+?OnCommand_SRC@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnCommand_SRC(unsigned int) __ptr64
+?OnCommand_STL@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnCommand_STL(unsigned int) __ptr64
+?OnCommand_Tool@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnCommand_Tool(unsigned int) __ptr64
+?OnCommand_View@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnCommand_View(unsigned int) __ptr64
+?OnCreate@CChildFrame@@IEAAHPEAUtagCREATESTRUCTW@@@Z -> protected: int __cdecl CChildFrame::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnCreate@CMainFrame@@IEAAHPEAUtagCREATESTRUCTW@@@Z -> protected: int __cdecl CMainFrame::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnCreate@CStartPageViewNew@@QEAAHPEAUtagCREATESTRUCTW@@@Z -> public: int __cdecl CStartPageViewNew::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnDeleteMainReportData@CMainFrame@@IEAA_J_K_J@Z -> protected: __int64 __cdecl CMainFrame::OnDeleteMainReportData(unsigned __int64,__int64) __ptr64
+?OnDesignCommandMsgUmd@CMainFrame@@IEAA_J_K_J@Z -> protected: __int64 __cdecl CMainFrame::OnDesignCommandMsgUmd(unsigned __int64,__int64) __ptr64
+?OnDestroy@CMainFormViewMemb@@IEAAXXZ -> protected: void __cdecl CMainFormViewMemb::OnDestroy(void) __ptr64
+?OnDestroy@CStartPageView@@IEAAXXZ -> protected: void __cdecl CStartPageView::OnDestroy(void) __ptr64
+?OnDestroy@CStartPageViewNew@@IEAAXXZ -> protected: void __cdecl CStartPageViewNew::OnDestroy(void) __ptr64
+?OnDraw@CStartPageView@@UEAAXPEAVCDC@@@Z -> public: virtual void __cdecl CStartPageView::OnDraw(class CDC * __ptr64) __ptr64
+?OnDraw@CStartPageViewNew@@UEAAXPEAVCDC@@@Z -> public: virtual void __cdecl CStartPageViewNew::OnDraw(class CDC * __ptr64) __ptr64
+?OnEditUndoRedo@CDPLUSDoc@@IEAAXI@Z -> protected: void __cdecl CDPLUSDoc::OnEditUndoRedo(unsigned int) __ptr64
+?OnFileSave@CDPLUSDoc@@QEAAXXZ -> public: void __cdecl CDPLUSDoc::OnFileSave(void) __ptr64
+?OnFileSave@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnFileSave(void) __ptr64
+?OnFileSaveAs@CDPLUSDoc@@QEAAXXZ -> public: void __cdecl CDPLUSDoc::OnFileSaveAs(void) __ptr64
+?OnFileSaveAs@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnFileSaveAs(void) __ptr64
+?OnFitMainReportSize@CMainFrame@@IEAA_J_K_J@Z -> protected: __int64 __cdecl CMainFrame::OnFitMainReportSize(unsigned __int64,__int64) __ptr64
+?OnHScroll@CMainFormViewMemb@@IEAAXIIPEAVCScrollBar@@@Z -> protected: void __cdecl CMainFormViewMemb::OnHScroll(unsigned int,unsigned int,class CScrollBar * __ptr64) __ptr64
+?OnHelpBugFixList@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnHelpBugFixList(void) __ptr64
+?OnHelpFAQ@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnHelpFAQ(void) __ptr64
+?OnHelpFinder@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnHelpFinder(void) __ptr64
+?OnHelpMidasQNA@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnHelpMidasQNA(void) __ptr64
+?OnHelpMidasREQ@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnHelpMidasREQ(void) __ptr64
+?OnHelpMidashome@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnHelpMidashome(void) __ptr64
+?OnHelpRegisterID@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnHelpRegisterID(void) __ptr64
+?OnHelpRegisterKey@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnHelpRegisterKey(void) __ptr64
+?OnHtmlBeforeNavigate2@CStartPageViewNew@@QEAA_J_K_J@Z -> public: __int64 __cdecl CStartPageViewNew::OnHtmlBeforeNavigate2(unsigned __int64,__int64) __ptr64
+?OnInitDialog@CAboutDlg@@EEAAHXZ -> private: virtual int __cdecl CAboutDlg::OnInitDialog(void) __ptr64
+?OnInitialUpdate@CMainFormViewDraw@@UEAAXXZ -> public: virtual void __cdecl CMainFormViewDraw::OnInitialUpdate(void) __ptr64
+?OnInitialUpdate@CMainFormViewList@@UEAAXXZ -> public: virtual void __cdecl CMainFormViewList::OnInitialUpdate(void) __ptr64
+?OnInitialUpdate@CMainFormViewMemb@@UEAAXXZ -> public: virtual void __cdecl CMainFormViewMemb::OnInitialUpdate(void) __ptr64
+?OnInitialUpdate@CMainFormViewQntt@@UEAAXXZ -> public: virtual void __cdecl CMainFormViewQntt::OnInitialUpdate(void) __ptr64
+?OnInitialUpdate@CStartPageView@@MEAAXXZ -> protected: virtual void __cdecl CStartPageView::OnInitialUpdate(void) __ptr64
+?OnInitialUpdate@CStartPageViewNew@@MEAAXXZ -> protected: virtual void __cdecl CStartPageViewNew::OnInitialUpdate(void) __ptr64
+?OnLicenseConf@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnLicenseConf(void) __ptr64
+?OnModeCheck@CDPLUSDoc@@QEAAXI@Z -> public: void __cdecl CDPLUSDoc::OnModeCheck(unsigned int) __ptr64
+?OnModeCheck@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnModeCheck(unsigned int) __ptr64
+?OnModeProject@CDPLUSDoc@@QEAAXI@Z -> public: void __cdecl CDPLUSDoc::OnModeProject(unsigned int) __ptr64
+?OnModeProject@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnModeProject(unsigned int) __ptr64
+?OnModeSimple@CDPLUSDoc@@QEAAXI@Z -> public: void __cdecl CDPLUSDoc::OnModeSimple(unsigned int) __ptr64
+?OnModeSimple@CMainFrame@@IEAAXI@Z -> protected: void __cdecl CMainFrame::OnModeSimple(unsigned int) __ptr64
+?OnNavigateComplete2@CStartPageViewNew@@UEAAXPEB_W@Z -> public: virtual void __cdecl CStartPageViewNew::OnNavigateComplete2(wchar_t const * __ptr64) __ptr64
+?OnNewDocument@CDPLUSDoc@@UEAAHXZ -> public: virtual int __cdecl CDPLUSDoc::OnNewDocument(void) __ptr64
+?OnNewDocument@CStartDocument@@MEAAHXZ -> protected: virtual int __cdecl CStartDocument::OnNewDocument(void) __ptr64
+?OnNotifyNotifyUpdate@CMainFrame@@IEAA_J_K_J@Z -> protected: __int64 __cdecl CMainFrame::OnNotifyNotifyUpdate(unsigned __int64,__int64) __ptr64
+?OnOpenDocument@CDPLUSDoc@@UEAAHPEB_W@Z -> public: virtual int __cdecl CDPLUSDoc::OnOpenDocument(wchar_t const * __ptr64) __ptr64
+?OnRegressionTest@CDPLUSDoc@@QEAAXXZ -> public: void __cdecl CDPLUSDoc::OnRegressionTest(void) __ptr64
+?OnRegressionTest@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnRegressionTest(void) __ptr64
+?OnResetRecentFiles@CStartPageViewNew@@QEAA_J_K_J@Z -> public: __int64 __cdecl CStartPageViewNew::OnResetRecentFiles(unsigned __int64,__int64) __ptr64
+?OnSetFocus@CMainFormViewList@@IEAAXPEAVCWnd@@@Z -> protected: void __cdecl CMainFormViewList::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CMainFormViewMemb@@IEAAXPEAVCWnd@@@Z -> protected: void __cdecl CMainFormViewMemb::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetMainReportData@CMainFrame@@IEAA_J_K_J@Z -> protected: __int64 __cdecl CMainFrame::OnSetMainReportData(unsigned __int64,__int64) __ptr64
+?OnShellCmdRegressionTest@CMainFrame@@IEAA_J_K_J@Z -> protected: __int64 __cdecl CMainFrame::OnShellCmdRegressionTest(unsigned __int64,__int64) __ptr64
+?OnShowReportOptionDLG@CMainFrame@@IEAA_J_K_J@Z -> protected: __int64 __cdecl CMainFrame::OnShowReportOptionDLG(unsigned __int64,__int64) __ptr64
+?OnSize@CMainFormViewDraw@@IEAAXIHH@Z -> protected: void __cdecl CMainFormViewDraw::OnSize(unsigned int,int,int) __ptr64
+?OnSize@CMainFormViewList@@IEAAXIHH@Z -> protected: void __cdecl CMainFormViewList::OnSize(unsigned int,int,int) __ptr64
+?OnSize@CMainFormViewMemb@@IEAAXIHH@Z -> protected: void __cdecl CMainFormViewMemb::OnSize(unsigned int,int,int) __ptr64
+?OnSize@CMainFormViewQntt@@IEAAXIHH@Z -> protected: void __cdecl CMainFormViewQntt::OnSize(unsigned int,int,int) __ptr64
+?OnTimer@CMainFrame@@IEAAX_K@Z -> protected: void __cdecl CMainFrame::OnTimer(unsigned __int64) __ptr64
+?OnTopCommand@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnTopCommand(void) __ptr64
+?OnUpdateALUCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateALUCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateAppLook@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateAppLook(class CCmdUI * __ptr64) __ptr64
+?OnUpdateCommandUI@CDPLUSDoc@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CDPLUSDoc::OnUpdateCommandUI(class CCmdUI * __ptr64) __ptr64
+?OnUpdateCommandUI@CStartPageView@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CStartPageView::OnUpdateCommandUI(class CCmdUI * __ptr64) __ptr64
+?OnUpdateCommandUI@CStartPageViewNew@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CStartPageViewNew::OnUpdateCommandUI(class CCmdUI * __ptr64) __ptr64
+?OnUpdateDataBase@CMainFrame@@IEAA_J_K_J@Z -> protected: __int64 __cdecl CMainFrame::OnUpdateDataBase(unsigned __int64,__int64) __ptr64
+?OnUpdateDgnCode@CMainFrame@@IEAA_J_K_J@Z -> protected: __int64 __cdecl CMainFrame::OnUpdateDgnCode(unsigned __int64,__int64) __ptr64
+?OnUpdateDgnCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateDgnCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateEditCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateEditCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateEditRedo@CDPLUSDoc@@AEAAXPEAVCCmdUI@@@Z -> private: void __cdecl CDPLUSDoc::OnUpdateEditRedo(class CCmdUI * __ptr64) __ptr64
+?OnUpdateEditUndo@CDPLUSDoc@@AEAAXPEAVCCmdUI@@@Z -> private: void __cdecl CDPLUSDoc::OnUpdateEditUndo(class CCmdUI * __ptr64) __ptr64
+?OnUpdateFileCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateFileCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateFrameTitle@CChildFrame@@UEAAXH@Z -> public: virtual void __cdecl CChildFrame::OnUpdateFrameTitle(int) __ptr64
+?OnUpdateFrameTitle@CMainFrame@@UEAAXH@Z -> public: virtual void __cdecl CMainFrame::OnUpdateFrameTitle(int) __ptr64
+?OnUpdateHelpCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateHelpCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateHelpRegisterKey@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateHelpRegisterKey(class CCmdUI * __ptr64) __ptr64
+?OnUpdateIndexFinder@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateIndexFinder(class CCmdUI * __ptr64) __ptr64
+?OnUpdateLicenseConf@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateLicenseConf(class CCmdUI * __ptr64) __ptr64
+?OnUpdateLinkCommand@CDPLUSDoc@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CDPLUSDoc::OnUpdateLinkCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateLinkCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateLinkCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateLoadCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateLoadCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateModeCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateModeCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateRCCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateRCCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateRFMCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateRFMCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateRedoList@CDPLUSDoc@@AEAAXPEAVCCmdUI@@@Z -> private: void __cdecl CDPLUSDoc::OnUpdateRedoList(class CCmdUI * __ptr64) __ptr64
+?OnUpdateRibbonMenuGroup@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateRibbonMenuGroup(class CCmdUI * __ptr64) __ptr64
+?OnUpdateSRCCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateSRCCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateSTLCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateSTLCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateToolCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateToolCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateTopCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateTopCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateUndoList@CDPLUSDoc@@AEAAXPEAVCCmdUI@@@Z -> private: void __cdecl CDPLUSDoc::OnUpdateUndoList(class CCmdUI * __ptr64) __ptr64
+?OnUpdateViewCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateViewCommand(class CCmdUI * __ptr64) __ptr64
+?OnUpdateWndwCommand@CMainFrame@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CMainFrame::OnUpdateWndwCommand(class CCmdUI * __ptr64) __ptr64
+?OnVScroll@CMainFormViewMemb@@IEAAXIIPEAVCScrollBar@@@Z -> protected: void __cdecl CMainFormViewMemb::OnVScroll(unsigned int,unsigned int,class CScrollBar * __ptr64) __ptr64
+?OnViewCustomize@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnViewCustomize(void) __ptr64
+?OnWindowManager@CMainFrame@@IEAAXXZ -> protected: void __cdecl CMainFrame::OnWindowManager(void) __ptr64
+?OnWindowNormal@CChildFrame@@IEAAXXZ -> protected: void __cdecl CChildFrame::OnWindowNormal(void) __ptr64
+?OpenHistroyFile@CStartPageViewNew@@IEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> protected: int __cdecl CStartPageViewNew::OpenHistroyFile(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?PostOpenFileMessage@CStartPageViewNew@@IEAAXPEB_W@Z -> protected: void __cdecl CStartPageViewNew::PostOpenFileMessage(wchar_t const * __ptr64) __ptr64
+?PreCreateWindow@CChildFrame@@UEAAHAEAUtagCREATESTRUCTW@@@Z -> public: virtual int __cdecl CChildFrame::PreCreateWindow(struct tagCREATESTRUCTW & __ptr64) __ptr64
+?PreCreateWindow@CMainFrame@@UEAAHAEAUtagCREATESTRUCTW@@@Z -> public: virtual int __cdecl CMainFrame::PreCreateWindow(struct tagCREATESTRUCTW & __ptr64) __ptr64
+?PreCreateWindow@CStartPageView@@UEAAHAEAUtagCREATESTRUCTW@@@Z -> public: virtual int __cdecl CStartPageView::PreCreateWindow(struct tagCREATESTRUCTW & __ptr64) __ptr64
+?PreCreateWindow@CStartPageViewNew@@UEAAHAEAUtagCREATESTRUCTW@@@Z -> public: virtual int __cdecl CStartPageViewNew::PreCreateWindow(struct tagCREATESTRUCTW & __ptr64) __ptr64
+?PreTranslateMessage@CMainFrame@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CMainFrame::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CStartPageViewNew@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CStartPageViewNew::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?RefreshStartPage@CStartPageView@@IEAAXXZ -> protected: void __cdecl CStartPageView::RefreshStartPage(void) __ptr64
+?RefreshStartPage@CStartPageViewNew@@IEAAXXZ -> protected: void __cdecl CStartPageViewNew::RefreshStartPage(void) __ptr64
+?RefreshStartPageST@CStartPageView@@SAXXZ -> public: static void __cdecl CStartPageView::RefreshStartPageST(void)
+?RefreshStartPageST@CStartPageViewNew@@SAXXZ -> public: static void __cdecl CStartPageViewNew::RefreshStartPageST(void)
+?ResizeDialog@CMainFormViewDraw@@QEAAXHH@Z -> public: void __cdecl CMainFormViewDraw::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CMainFormViewDraw@@QEAAXXZ -> public: void __cdecl CMainFormViewDraw::ResizeDialog(void) __ptr64
+?ResizeDialog@CMainFormViewList@@QEAAXHH@Z -> public: void __cdecl CMainFormViewList::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CMainFormViewList@@QEAAXXZ -> public: void __cdecl CMainFormViewList::ResizeDialog(void) __ptr64
+?ResizeDialog@CMainFormViewMemb@@QEAAXHH@Z -> public: void __cdecl CMainFormViewMemb::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CMainFormViewMemb@@QEAAXXZ -> public: void __cdecl CMainFormViewMemb::ResizeDialog(void) __ptr64
+?ResizeDialog@CMainFormViewQntt@@QEAAXHH@Z -> public: void __cdecl CMainFormViewQntt::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CMainFormViewQntt@@QEAAXXZ -> public: void __cdecl CMainFormViewQntt::ResizeDialog(void) __ptr64
+?ResizeDockingBar@CMainFrame@@AEAA_JPEAVCDockingDlgBarBase@@@Z -> private: __int64 __cdecl CMainFrame::ResizeDockingBar(class CDockingDlgBarBase * __ptr64) __ptr64
+?RestoreSelectedTreeItem@CDPLUSDoc@@AEAAXXZ -> private: void __cdecl CDPLUSDoc::RestoreSelectedTreeItem(void) __ptr64
+?RunBatchBeamSmartDgnAll@CMainFormViewMemb@@QEAAXW4DGNNation@@@Z -> public: void __cdecl CMainFormViewMemb::RunBatchBeamSmartDgnAll(enum DGNNation) __ptr64
+?RunBatchColmSmartDgnAll@CMainFormViewMemb@@QEAAXW4DGNNation@@@Z -> public: void __cdecl CMainFormViewMemb::RunBatchColmSmartDgnAll(enum DGNNation) __ptr64
+?RunBatchWallSmartDgnAll@CMainFormViewMemb@@QEAAXW4DGNNation@@@Z -> public: void __cdecl CMainFormViewMemb::RunBatchWallSmartDgnAll(enum DGNNation) __ptr64
+?RunRedo@CDPLUSDoc@@AEAAXXZ -> private: void __cdecl CDPLUSDoc::RunRedo(void) __ptr64
+?RunShortCutCmd@CMainFormViewList@@AEAAXH@Z -> private: void __cdecl CMainFormViewList::RunShortCutCmd(int) __ptr64
+?RunShortCutCmd@CMainFormViewList@@QEAAXPEAUtagMSG@@@Z -> public: void __cdecl CMainFormViewList::RunShortCutCmd(struct tagMSG * __ptr64) __ptr64
+?RunShortCutCmd@CMainFormViewMemb@@AEAAXH@Z -> private: void __cdecl CMainFormViewMemb::RunShortCutCmd(int) __ptr64
+?RunShortCutCmd@CMainFormViewMemb@@QEAAXPEAUtagMSG@@@Z -> public: void __cdecl CMainFormViewMemb::RunShortCutCmd(struct tagMSG * __ptr64) __ptr64
+?RunSmartUpdateClient@CMainFrame@@QEAA_NAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: bool __cdecl CMainFrame::RunSmartUpdateClient(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?RunUndo@CDPLUSDoc@@AEAAXXZ -> private: void __cdecl CDPLUSDoc::RunUndo(void) __ptr64
+?SaveSelectedTreeItem@CDPLUSDoc@@AEAAXXZ -> private: void __cdecl CDPLUSDoc::SaveSelectedTreeItem(void) __ptr64
+?Serialize@CDPLUSDoc@@UEAAXAEAVCArchive@@@Z -> public: virtual void __cdecl CDPLUSDoc::Serialize(class CArchive & __ptr64) __ptr64
+?Serialize@CStartDocument@@UEAAXAEAVCArchive@@@Z -> public: virtual void __cdecl CStartDocument::Serialize(class CArchive & __ptr64) __ptr64
+?SetCaption@CAboutDlg@@AEAAXXZ -> private: void __cdecl CAboutDlg::SetCaption(void) __ptr64
+?SetComboMatl@CMainFrame@@QEAAXW4MATLType@@@Z -> public: void __cdecl CMainFrame::SetComboMatl(enum MATLType) __ptr64
+?SetComboMemb@CMainFrame@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CMainFrame::SetComboMemb(enum MEMBType) __ptr64
+?SetControlText@CMainFormViewDraw@@QEAAXXZ -> public: void __cdecl CMainFormViewDraw::SetControlText(void) __ptr64
+?SetControlText@CMainFormViewQntt@@QEAAXXZ -> public: void __cdecl CMainFormViewQntt::SetControlText(void) __ptr64
+?SetControlText@CMainFrame@@QEAAXXZ -> public: void __cdecl CMainFrame::SetControlText(void) __ptr64
+?SetControlWorkTree@CMainFrame@@QEAAX_N@Z -> public: void __cdecl CMainFrame::SetControlWorkTree(bool) __ptr64
+?SetCopyright@CAboutDlg@@AEAAXXZ -> private: void __cdecl CAboutDlg::SetCopyright(void) __ptr64
+?SetCtrlText@CAboutDlg@@AEAAXIAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> private: void __cdecl CAboutDlg::SetCtrlText(unsigned int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+?SetDefaultMenuHandle@CMainFrame@@QEAAXPEAUHMENU__@@@Z -> public: void __cdecl CMainFrame::SetDefaultMenuHandle(struct HMENU__ * __ptr64) __ptr64
+?SetFixListReg@CStartPageViewNew@@IEAAXPEB_W@Z -> protected: void __cdecl CStartPageViewNew::SetFixListReg(wchar_t const * __ptr64) __ptr64
+?SetLinkTimer@CMainFrame@@QEAAXHI@Z -> public: void __cdecl CMainFrame::SetLinkTimer(int,unsigned int) __ptr64
+?SetLogProductInfo@CDPLUSDoc@@AEAAXQEB_W@Z -> private: void __cdecl CDPLUSDoc::SetLogProductInfo(wchar_t const * __ptr64 const) __ptr64
+?SetMail@CAboutDlg@@AEAAXXZ -> private: void __cdecl CAboutDlg::SetMail(void) __ptr64
+?SetMaxSize@CStartPageViewNew@@QEAAXH@Z -> public: void __cdecl CStartPageViewNew::SetMaxSize(int) __ptr64
+?SetMembTypeForMembInfo@CMainFrame@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CMainFrame::SetMembTypeForMembInfo(enum MEMBType) __ptr64
+?SetMenuText@CDPLUSDoc@@AEAAXPEAVCCmdUI@@@Z -> private: void __cdecl CDPLUSDoc::SetMenuText(class CCmdUI * __ptr64) __ptr64
+?SetMenuText@CMainFrame@@AEAAXPEAVCCmdUI@@@Z -> private: void __cdecl CMainFrame::SetMenuText(class CCmdUI * __ptr64) __ptr64
+?SetMenuText@CStartPageView@@IEAAXPEAVCCmdUI@@@Z -> protected: void __cdecl CStartPageView::SetMenuText(class CCmdUI * __ptr64) __ptr64
+?SetRegTestFileName@CAppMain@@QEAAXAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CAppMain::SetRegTestFileName(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+?SetSelectedTreeItem@CMainFrame@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CMainFrame::SetSelectedTreeItem(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetShowHideTreeItem@CMainFrame@@QEAAXXZ -> public: void __cdecl CMainFrame::SetShowHideTreeItem(void) __ptr64
+?SetTitleText@CStartPageView@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: void __cdecl CStartPageView::SetTitleText(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int) __ptr64
+?SetTitleText@CStartPageViewNew@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: void __cdecl CStartPageViewNew::SetTitleText(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int) __ptr64
+?SetToolBarImage@CMainFrame@@AEAAXAEAVCBCGPToolBarImages@@@Z -> private: void __cdecl CMainFrame::SetToolBarImage(class CBCGPToolBarImages & __ptr64) __ptr64
+?SetURL@CAboutDlg@@AEAAXXZ -> private: void __cdecl CAboutDlg::SetURL(void) __ptr64
+?SetUndoRedoStr@CDPLUSDoc@@AEAAXXZ -> private: void __cdecl CDPLUSDoc::SetUndoRedoStr(void) __ptr64
+?SetUser@CAboutDlg@@AEAAXXZ -> private: void __cdecl CAboutDlg::SetUser(void) __ptr64
+?SetVersion@CAboutDlg@@AEAAXXZ -> private: void __cdecl CAboutDlg::SetVersion(void) __ptr64
+?SetWindowTitle@CChildFrame@@QEAAXPEB_W@Z -> public: void __cdecl CChildFrame::SetWindowTitle(wchar_t const * __ptr64) __ptr64
+?ShowDialog@CMainFormViewList@@QEAAHW4MEMBType@@PEAX@Z -> public: int __cdecl CMainFormViewList::ShowDialog(enum MEMBType,void * __ptr64) __ptr64
+?ShowDialog@CMainFormViewMemb@@AEAAXW4MEMBType@@PEAXAEA_N@Z -> private: void __cdecl CMainFormViewMemb::ShowDialog(enum MEMBType,void * __ptr64,bool & __ptr64) __ptr64
+?ShowDialog@CMainFormViewMemb@@QEAA_NW4MEMBType@@PEAX@Z -> public: bool __cdecl CMainFormViewMemb::ShowDialog(enum MEMBType,void * __ptr64) __ptr64
+?ShowDialogByMembType@CMainFormViewList@@AEAAHW4MEMBType@@PEAX@Z -> private: int __cdecl CMainFormViewList::ShowDialogByMembType(enum MEMBType,void * __ptr64) __ptr64
+?ShowDialogByMembType@CMainFormViewMemb@@AEAA_NW4MEMBType@@PEAX@Z -> private: bool __cdecl CMainFormViewMemb::ShowDialogByMembType(enum MEMBType,void * __ptr64) __ptr64
+?ShowDlgBarMode@CMainFormViewDraw@@QEAAHHPEAX@Z -> public: int __cdecl CMainFormViewDraw::ShowDlgBarMode(int,void * __ptr64) __ptr64
+?ShowDlgBarMode@CMainFormViewQntt@@QEAAHW4MEMBType@@PEAX@Z -> public: int __cdecl CMainFormViewQntt::ShowDlgBarMode(enum MEMBType,void * __ptr64) __ptr64
+?ShowHelp@CMainFrame@@AEAAXKI@Z -> private: void __cdecl CMainFrame::ShowHelp(unsigned long,unsigned int) __ptr64
+?ShowHideDockingBar@CDPLUSDoc@@AEAAXW4GUIMode@@W4MEMBType@@@Z -> private: void __cdecl CDPLUSDoc::ShowHideDockingBar(enum GUIMode,enum MEMBType) __ptr64
+?ShowHideDockingBar@CMainFrame@@QEAAXW4GUIMode@@W4MEMBType@@@Z -> public: void __cdecl CMainFrame::ShowHideDockingBar(enum GUIMode,enum MEMBType) __ptr64
+?ShowHideDwgPreview@CMainFrame@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CMainFrame::ShowHideDwgPreview(enum MEMBType) __ptr64
+?ShowHideMemberInfo@CMainFrame@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CMainFrame::ShowHideMemberInfo(enum MEMBType) __ptr64
+?ShowHideReportView@CMainFrame@@QEAAXW4GUIMode@@W4MEMBType@@@Z -> public: void __cdecl CMainFrame::ShowHideReportView(enum GUIMode,enum MEMBType) __ptr64
+?ShowRedoList@CDPLUSDoc@@QEAAXXZ -> public: void __cdecl CDPLUSDoc::ShowRedoList(void) __ptr64
+?ShowUndoList@CDPLUSDoc@@QEAAXXZ -> public: void __cdecl CDPLUSDoc::ShowUndoList(void) __ptr64
+?SplitNameValue@CStartPageViewNew@@IEAAHPEB_WAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@1@Z -> protected: int __cdecl CStartPageViewNew::SplitNameValue(wchar_t const * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?StartFromMODS@CMODSHelper@@SAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@0PEB_WH@Z -> public: static void __cdecl CMODSHelper::StartFromMODS(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,wchar_t const * __ptr64,int)
+?StartUpdate@CMainFrame@@MEAAXXZ -> protected: virtual void __cdecl CMainFrame::StartUpdate(void) __ptr64
+?SyncWithDialog@CMainFormViewMemb@@QEAA_NW4MEMBType@@I@Z -> public: bool __cdecl CMainFormViewMemb::SyncWithDialog(enum MEMBType,unsigned int) __ptr64
+?SyncWithDialog@CMainFrame@@QEAA_NW4MEMBType@@I@Z -> public: bool __cdecl CMainFrame::SyncWithDialog(enum MEMBType,unsigned int) __ptr64
+?UM_HTML_BEFORE_NAVAIAGE2@CStartPageViewNew@@2IA -> public: static unsigned int CStartPageViewNew::UM_HTML_BEFORE_NAVAIAGE2
+?UM_RESET_RECENT_FILES@CStartPageViewNew@@2IA -> public: static unsigned int CStartPageViewNew::UM_RESET_RECENT_FILES
+?UpdateCloseButtonState@CChildFrame@@QEAAXXZ -> public: void __cdecl CChildFrame::UpdateCloseButtonState(void) __ptr64
+?UpdateFormView@CMainFrame@@AEAA_NXZ -> private: bool __cdecl CMainFrame::UpdateFormView(void) __ptr64
+?UpdateResultBatchDgn@CMainFormViewMemb@@QEAA_NW4MEMBType@@@Z -> public: bool __cdecl CMainFormViewMemb::UpdateResultBatchDgn(enum MEMBType) __ptr64
+?UpdateResultBatchDgn@CMainFrame@@QEAA_NW4MEMBType@@@Z -> public: bool __cdecl CMainFrame::UpdateResultBatchDgn(enum MEMBType) __ptr64
+?UpdateUndoRedoList@CDPLUSDoc@@AEAAXPEAVCCmdUI@@@Z -> private: void __cdecl CDPLUSDoc::UpdateUndoRedoList(class CCmdUI * __ptr64) __ptr64
+?WM_SHELLCMD_REGRESSION_TEST@CAppMain@@2IA -> public: static unsigned int CAppMain::WM_SHELLCMD_REGRESSION_TEST
+?WinHelpW@CMainFrame@@UEAAXKI@Z -> public: virtual void __cdecl CMainFrame::WinHelpW(unsigned long,unsigned int) __ptr64
+?WindowProc@CMainFrame@@MEAA_JI_K_J@Z -> protected: virtual __int64 __cdecl CMainFrame::WindowProc(unsigned int,unsigned __int64,__int64) __ptr64
+?WriteInt@CAppMain@@QEAA_NPEB_WH@Z -> public: bool __cdecl CAppMain::WriteInt(wchar_t const * __ptr64,int) __ptr64
+?_GetBaseClass@CChildFrame@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CChildFrame::_GetBaseClass(void)
+?_GetBaseClass@CDPLUSDoc@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CDPLUSDoc::_GetBaseClass(void)
+?_GetBaseClass@CMainFormViewDraw@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CMainFormViewDraw::_GetBaseClass(void)
+?_GetBaseClass@CMainFormViewList@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CMainFormViewList::_GetBaseClass(void)
+?_GetBaseClass@CMainFormViewMemb@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CMainFormViewMemb::_GetBaseClass(void)
+?_GetBaseClass@CMainFormViewQntt@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CMainFormViewQntt::_GetBaseClass(void)
+?_GetBaseClass@CMainFrame@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CMainFrame::_GetBaseClass(void)
+?_GetBaseClass@CStartDocument@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CStartDocument::_GetBaseClass(void)
+?_GetBaseClass@CStartPageView@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CStartPageView::_GetBaseClass(void)
+?_GetBaseClass@CStartPageViewNew@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CStartPageViewNew::_GetBaseClass(void)
+?classCChildFrame@CChildFrame@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CChildFrame::classCChildFrame
+?classCDPLUSDoc@CDPLUSDoc@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CDPLUSDoc::classCDPLUSDoc
+?classCMainFormViewDraw@CMainFormViewDraw@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CMainFormViewDraw::classCMainFormViewDraw
+?classCMainFormViewList@CMainFormViewList@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CMainFormViewList::classCMainFormViewList
+?classCMainFormViewMemb@CMainFormViewMemb@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CMainFormViewMemb::classCMainFormViewMemb
+?classCMainFormViewQntt@CMainFormViewQntt@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CMainFormViewQntt::classCMainFormViewQntt
+?classCMainFrame@CMainFrame@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CMainFrame::classCMainFrame
+?classCStartDocument@CStartDocument@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CStartDocument::classCStartDocument
+?classCStartPageView@CStartPageView@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CStartPageView::classCStartPageView
+?classCStartPageViewNew@CStartPageViewNew@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CStartPageViewNew::classCStartPageViewNew
+?count@?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@QEBA_JXZ -> public: __int64 __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::count(void)const __ptr64
+?m_bStartFromMAS@CMODSHelper@@1HA -> protected: static int CMODSHelper::m_bStartFromMAS
+?m_bStartFromMODS@CMODSHelper@@1HA -> protected: static int CMODSHelper::m_bStartFromMODS
+?m_cntMainView@CMainFormViewMemb@@0HA -> private: static int CMainFormViewMemb::m_cntMainView
+?m_cx@CChildFrame@@0JA -> private: static long CChildFrame::m_cx
+?m_cy@CChildFrame@@0JA -> private: static long CChildFrame::m_cy
+?m_nChildFrameCount@CChildFrame@@0HA -> private: static int CChildFrame::m_nChildFrameCount
+?m_nMaxRecentUsedSize@CStartPageViewNew@@2HA -> public: static int CStartPageViewNew::m_nMaxRecentUsedSize
+?m_pFrameWnd@CChildFrame@@0PEAVCFrameWnd@@EA -> private: static class CFrameWnd * __ptr64 __ptr64 CChildFrame::m_pFrameWnd
+?m_pStartPageView@CStartPageView@@2PEAV1@EA -> public: static class CStartPageView * __ptr64 __ptr64 CStartPageView::m_pStartPageView
+?m_pStartPageView@CStartPageViewNew@@2PEAV1@EA -> public: static class CStartPageViewNew * __ptr64 __ptr64 CStartPageViewNew::m_pStartPageView
+?m_strRedoAcc@CDPLUSDoc@@0V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@A -> private: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > CDPLUSDoc::m_strRedoAcc
+?m_strUndoAcc@CDPLUSDoc@@0V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@A -> private: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > CDPLUSDoc::m_strUndoAcc
+?m_x@CChildFrame@@0JA -> private: static long CChildFrame::m_x
+?m_y@CChildFrame@@0JA -> private: static long CChildFrame::m_y
+?max@?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@SA?AV123@XZ -> public: static class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::max(void)
+?max@?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@SA?AV123@XZ -> public: static class std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > > __cdecl std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >::max(void)
+?min@?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@SA?AV123@XZ -> public: static class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::min(void)
+?min@?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@SA?AV123@XZ -> public: static class std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > > __cdecl std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >::min(void)
+?time_since_epoch@?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@QEBA?AV?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@XZ -> public: class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > __cdecl std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >::time_since_epoch(void)const __ptr64
+?zero@?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@chrono@std@@SA?AV123@XZ -> public: static class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > __cdecl std::chrono::duration<__int64,struct std::ratio<1,1000000000> >::zero(void)
+Init_DPLUS_Maindll -> Init_DPLUS_Maindll

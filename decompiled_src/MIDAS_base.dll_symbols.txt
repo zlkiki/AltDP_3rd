@@ -1,0 +1,1401 @@
+??0CAngleViewDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CAngleViewDlg::CAngleViewDlg(class CWnd * __ptr64) __ptr64
+??0CAppBase@@QEAA@XZ -> public: __cdecl CAppBase::CAppBase(void) __ptr64
+??0CBCGPMiniFrameWnd_NotFloat@@QEAA@XZ -> public: __cdecl CBCGPMiniFrameWnd_NotFloat::CBCGPMiniFrameWnd_NotFloat(void) __ptr64
+??0CCheckBoxProp@@QEAA@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@HPEB_WK@Z -> public: __cdecl CCheckBoxProp::CCheckBoxProp(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,int,wchar_t const * __ptr64,unsigned long) __ptr64
+??0CChildFrameBase@@QEAA@XZ -> public: __cdecl CChildFrameBase::CChildFrameBase(void) __ptr64
+??0CComboBoxExProp@@QEAA@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@0PEB_WKPEAVCImageList@@@Z -> public: __cdecl CComboBoxExProp::CComboBoxExProp(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,wchar_t const * __ptr64,unsigned long,class CImageList * __ptr64) __ptr64
+??0CDlgNode@@QEAA@XZ -> public: __cdecl CDlgNode::CDlgNode(void) __ptr64
+??0CDocBase@@IEAA@XZ -> protected: __cdecl CDocBase::CDocBase(void) __ptr64
+??0CDockDlgBarBase@@QEAA@XZ -> public: __cdecl CDockDlgBarBase::CDockDlgBarBase(void) __ptr64
+??0CDockViewBase@@QEAA@XZ -> public: __cdecl CDockViewBase::CDockViewBase(void) __ptr64
+??0CDockingDlgBarBase@@QEAA@XZ -> public: __cdecl CDockingDlgBarBase::CDockingDlgBarBase(void) __ptr64
+??0CDockingDlgBarSample@@QEAA@XZ -> public: __cdecl CDockingDlgBarSample::CDockingDlgBarSample(void) __ptr64
+??0CDockingTabDlgBarSample@@QEAA@XZ -> public: __cdecl CDockingTabDlgBarSample::CDockingTabDlgBarSample(void) __ptr64
+??0CDurationProp@@QEAA@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEBVCOleDateTimeSpan@2@PEB_WK@Z -> public: __cdecl CDurationProp::CDurationProp(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,class ATL::COleDateTimeSpan const & __ptr64,wchar_t const * __ptr64,unsigned long) __ptr64
+??0CFormulaCobx@@QEAA@XZ -> public: __cdecl CFormulaCobx::CFormulaCobx(void) __ptr64
+??0CFormulaEdit@@QEAA@XZ -> public: __cdecl CFormulaEdit::CFormulaEdit(void) __ptr64
+??0CGLViewBase@@IEAA@XZ -> protected: __cdecl CGLViewBase::CGLViewBase(void) __ptr64
+??0CGlRGB@@QEAA@AEBV0@@Z -> public: __cdecl CGlRGB::CGlRGB(class CGlRGB const & __ptr64) __ptr64
+??0CGlRGB@@QEAA@HHH@Z -> public: __cdecl CGlRGB::CGlRGB(int,int,int) __ptr64
+??0CGlRGB@@QEAA@MMM@Z -> public: __cdecl CGlRGB::CGlRGB(float,float,float) __ptr64
+??0CGlRGB@@QEAA@XZ -> public: __cdecl CGlRGB::CGlRGB(void) __ptr64
+??0CGlobalModeless@@QEAA@IPEAVCWnd@@@Z -> public: __cdecl CGlobalModeless::CGlobalModeless(unsigned int,class CWnd * __ptr64) __ptr64
+??0CGwPreviewView@@IEAA@XZ -> protected: __cdecl CGwPreviewView::CGwPreviewView(void) __ptr64
+??0CGwPrintHandler@@QEAA@AEBV0@@Z -> public: __cdecl CGwPrintHandler::CGwPrintHandler(class CGwPrintHandler const & __ptr64) __ptr64
+??0CGwPrintHandler@@QEAA@XZ -> public: __cdecl CGwPrintHandler::CGwPrintHandler(void) __ptr64
+??0CIconCombo@@QEAA@AEAVCBCGPToolBarImages@@AEAVCStringList@@@Z -> public: __cdecl CIconCombo::CIconCombo(class CBCGPToolBarImages & __ptr64,class CStringList & __ptr64) __ptr64
+??0CIconListProp@@QEAA@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEBVCImageList@@HPEAVCStringList@@PEB_WK@Z -> public: __cdecl CIconListProp::CIconListProp(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,class CImageList const & __ptr64,int,class CStringList * __ptr64,wchar_t const * __ptr64,unsigned long) __ptr64
+??0CLabelEdit@@QEAA@XZ -> public: __cdecl CLabelEdit::CLabelEdit(void) __ptr64
+??0CLogFileEx@@QEAA@AEBV0@@Z -> public: __cdecl CLogFileEx::CLogFileEx(class CLogFileEx const & __ptr64) __ptr64
+??0CLogFileEx@@QEAA@PEB_W@Z -> public: __cdecl CLogFileEx::CLogFileEx(wchar_t const * __ptr64) __ptr64
+??0CMainFrameBase@@IEAA@XZ -> protected: __cdecl CMainFrameBase::CMainFrameBase(void) __ptr64
+??0CMenuBtnEx@@QEAA@XZ -> public: __cdecl CMenuBtnEx::CMenuBtnEx(void) __ptr64
+??0CMouseEdit@@QEAA@XZ -> public: __cdecl CMouseEdit::CMouseEdit(void) __ptr64
+??0CMyMultiDocTemplate@@QEAA@IPEAUCRuntimeClass@@00@Z -> public: __cdecl CMyMultiDocTemplate::CMyMultiDocTemplate(unsigned int,struct CRuntimeClass * __ptr64,struct CRuntimeClass * __ptr64,struct CRuntimeClass * __ptr64) __ptr64
+??0CMyTabWndBase@@QEAA@XZ -> public: __cdecl CMyTabWndBase::CMyTabWndBase(void) __ptr64
+??0CParseEdit@@QEAA@XZ -> public: __cdecl CParseEdit::CParseEdit(void) __ptr64
+??0CPasswordProp@@QEAA@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@0PEB_WK@Z -> public: __cdecl CPasswordProp::CPasswordProp(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,wchar_t const * __ptr64,unsigned long) __ptr64
+??0CPicture@@QEAA@AEBV0@@Z -> public: __cdecl CPicture::CPicture(class CPicture const & __ptr64) __ptr64
+??0CPicture@@QEAA@XZ -> public: __cdecl CPicture::CPicture(void) __ptr64
+??0CPropSliderCtrl@@QEAA@PEAVCSliderProp@@K@Z -> public: __cdecl CPropSliderCtrl::CPropSliderCtrl(class CSliderProp * __ptr64,unsigned long) __ptr64
+??0CRprtViewBase@@QEAA@XZ -> public: __cdecl CRprtViewBase::CRprtViewBase(void) __ptr64
+??0CSliderProp@@QEAA@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@JPEB_WIIK@Z -> public: __cdecl CSliderProp::CSliderProp(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,long,wchar_t const * __ptr64,unsigned int,unsigned int,unsigned long) __ptr64
+??0CSpinBtnExCtrl@@QEAA@XZ -> public: __cdecl CSpinBtnExCtrl::CSpinBtnExCtrl(void) __ptr64
+??0CStatusBarBase@@QEAA@XZ -> public: __cdecl CStatusBarBase::CStatusBarBase(void) __ptr64
+??0CTMDlgBase@@QEAA@I@Z -> public: __cdecl CTMDlgBase::CTMDlgBase(unsigned int) __ptr64
+??0CTMDlgBase@@QEAA@PEB_W@Z -> public: __cdecl CTMDlgBase::CTMDlgBase(wchar_t const * __ptr64) __ptr64
+??0CTMTabWnd@@QEAA@XZ -> public: __cdecl CTMTabWnd::CTMTabWnd(void) __ptr64
+??0CTestDlgTabPage@@IEAA@XZ -> protected: __cdecl CTestDlgTabPage::CTestDlgTabPage(void) __ptr64
+??0CTreeData@@QEAA@XZ -> public: __cdecl CTreeData::CTreeData(void) __ptr64
+??0CTreeItem@@QEAA@XZ -> public: __cdecl CTreeItem::CTreeItem(void) __ptr64
+??0CViewBase@@IEAA@XZ -> protected: __cdecl CViewBase::CViewBase(void) __ptr64
+??0GGRViewEventMgr@@IEAA@XZ -> protected: __cdecl GGRViewEventMgr::GGRViewEventMgr(void) __ptr64
+??0GMyToolTipCtrl@@QEAA@XZ -> public: __cdecl GMyToolTipCtrl::GMyToolTipCtrl(void) __ptr64
+??0I_GGRViewEventObserver@@QEAA@AEBV0@@Z -> public: __cdecl I_GGRViewEventObserver::I_GGRViewEventObserver(class I_GGRViewEventObserver const & __ptr64) __ptr64
+??0I_GGRViewEventObserver@@QEAA@XZ -> public: __cdecl I_GGRViewEventObserver::I_GGRViewEventObserver(void) __ptr64
+??0I_GPSModelBase@@QEAA@AEBV0@@Z -> public: __cdecl I_GPSModelBase::I_GPSModelBase(class I_GPSModelBase const & __ptr64) __ptr64
+??0I_GPSModelBase@@QEAA@XZ -> public: __cdecl I_GPSModelBase::I_GPSModelBase(void) __ptr64
+??0I_GViewWndMan@@QEAA@AEBV0@@Z -> public: __cdecl I_GViewWndMan::I_GViewWndMan(class I_GViewWndMan const & __ptr64) __ptr64
+??0I_GViewWndMan@@QEAA@XZ -> public: __cdecl I_GViewWndMan::I_GViewWndMan(void) __ptr64
+??0I_MainFrameBase@@QEAA@AEBV0@@Z -> public: __cdecl I_MainFrameBase::I_MainFrameBase(class I_MainFrameBase const & __ptr64) __ptr64
+??0I_MainFrameBase@@QEAA@XZ -> public: __cdecl I_MainFrameBase::I_MainFrameBase(void) __ptr64
+??0I_ModelBase@@QEAA@AEBV0@@Z -> public: __cdecl I_ModelBase::I_ModelBase(class I_ModelBase const & __ptr64) __ptr64
+??0I_ModelBase@@QEAA@XZ -> public: __cdecl I_ModelBase::I_ModelBase(void) __ptr64
+??0I_PolyMaker@@IEAA@XZ -> protected: __cdecl I_PolyMaker::I_PolyMaker(void) __ptr64
+??0I_PolyMaker@@QEAA@AEBV0@@Z -> public: __cdecl I_PolyMaker::I_PolyMaker(class I_PolyMaker const & __ptr64) __ptr64
+??0I_PolyMakerFactory@@QEAA@AEBV0@@Z -> public: __cdecl I_PolyMakerFactory::I_PolyMakerFactory(class I_PolyMakerFactory const & __ptr64) __ptr64
+??0I_PolyMakerFactory@@QEAA@XZ -> public: __cdecl I_PolyMakerFactory::I_PolyMakerFactory(void) __ptr64
+??0I_WidgetObserver@@QEAA@AEBV0@@Z -> public: __cdecl I_WidgetObserver::I_WidgetObserver(class I_WidgetObserver const & __ptr64) __ptr64
+??0I_WidgetObserver@@QEAA@XZ -> public: __cdecl I_WidgetObserver::I_WidgetObserver(void) __ptr64
+??0XGL_3dp@@QEAA@AEAV0@@Z -> public: __cdecl XGL_3dp::XGL_3dp(class XGL_3dp & __ptr64) __ptr64
+??0XGL_3dp@@QEAA@XZ -> public: __cdecl XGL_3dp::XGL_3dp(void) __ptr64
+??0XGL_Line3d@@QEAA@AEAV0@@Z -> public: __cdecl XGL_Line3d::XGL_Line3d(class XGL_Line3d & __ptr64) __ptr64
+??0XGL_Line3d@@QEAA@XZ -> public: __cdecl XGL_Line3d::XGL_Line3d(void) __ptr64
+??1CAngleViewDlg@@UEAA@XZ -> public: virtual __cdecl CAngleViewDlg::~CAngleViewDlg(void) __ptr64
+??1CAppBase@@UEAA@XZ -> public: virtual __cdecl CAppBase::~CAppBase(void) __ptr64
+??1CBCGPMiniFrameWnd_NotFloat@@UEAA@XZ -> public: virtual __cdecl CBCGPMiniFrameWnd_NotFloat::~CBCGPMiniFrameWnd_NotFloat(void) __ptr64
+??1CCheckBoxProp@@UEAA@XZ -> public: virtual __cdecl CCheckBoxProp::~CCheckBoxProp(void) __ptr64
+??1CChildFrameBase@@UEAA@XZ -> public: virtual __cdecl CChildFrameBase::~CChildFrameBase(void) __ptr64
+??1CComboBoxExProp@@UEAA@XZ -> public: virtual __cdecl CComboBoxExProp::~CComboBoxExProp(void) __ptr64
+??1CDocBase@@UEAA@XZ -> public: virtual __cdecl CDocBase::~CDocBase(void) __ptr64
+??1CDockDlgBarBase@@UEAA@XZ -> public: virtual __cdecl CDockDlgBarBase::~CDockDlgBarBase(void) __ptr64
+??1CDockViewBase@@UEAA@XZ -> public: virtual __cdecl CDockViewBase::~CDockViewBase(void) __ptr64
+??1CDockingDlgBarBase@@UEAA@XZ -> public: virtual __cdecl CDockingDlgBarBase::~CDockingDlgBarBase(void) __ptr64
+??1CDockingDlgBarSample@@UEAA@XZ -> public: virtual __cdecl CDockingDlgBarSample::~CDockingDlgBarSample(void) __ptr64
+??1CDockingTabDlgBarSample@@UEAA@XZ -> public: virtual __cdecl CDockingTabDlgBarSample::~CDockingTabDlgBarSample(void) __ptr64
+??1CDurationProp@@UEAA@XZ -> public: virtual __cdecl CDurationProp::~CDurationProp(void) __ptr64
+??1CFormulaCobx@@UEAA@XZ -> public: virtual __cdecl CFormulaCobx::~CFormulaCobx(void) __ptr64
+??1CFormulaEdit@@UEAA@XZ -> public: virtual __cdecl CFormulaEdit::~CFormulaEdit(void) __ptr64
+??1CGLViewBase@@MEAA@XZ -> protected: virtual __cdecl CGLViewBase::~CGLViewBase(void) __ptr64
+??1CGlRGB@@UEAA@XZ -> public: virtual __cdecl CGlRGB::~CGlRGB(void) __ptr64
+??1CGlobalModeless@@UEAA@XZ -> public: virtual __cdecl CGlobalModeless::~CGlobalModeless(void) __ptr64
+??1CGwPreviewView@@MEAA@XZ -> protected: virtual __cdecl CGwPreviewView::~CGwPreviewView(void) __ptr64
+??1CGwPrintHandler@@UEAA@XZ -> public: virtual __cdecl CGwPrintHandler::~CGwPrintHandler(void) __ptr64
+??1CIconCombo@@UEAA@XZ -> public: virtual __cdecl CIconCombo::~CIconCombo(void) __ptr64
+??1CIconListProp@@UEAA@XZ -> public: virtual __cdecl CIconListProp::~CIconListProp(void) __ptr64
+??1CLabelEdit@@UEAA@XZ -> public: virtual __cdecl CLabelEdit::~CLabelEdit(void) __ptr64
+??1CLogFileEx@@QEAA@XZ -> public: __cdecl CLogFileEx::~CLogFileEx(void) __ptr64
+??1CMainFrameBase@@MEAA@XZ -> protected: virtual __cdecl CMainFrameBase::~CMainFrameBase(void) __ptr64
+??1CMenuBtnEx@@UEAA@XZ -> public: virtual __cdecl CMenuBtnEx::~CMenuBtnEx(void) __ptr64
+??1CMouseEdit@@UEAA@XZ -> public: virtual __cdecl CMouseEdit::~CMouseEdit(void) __ptr64
+??1CMyMultiDocTemplate@@UEAA@XZ -> public: virtual __cdecl CMyMultiDocTemplate::~CMyMultiDocTemplate(void) __ptr64
+??1CMyTabWndBase@@UEAA@XZ -> public: virtual __cdecl CMyTabWndBase::~CMyTabWndBase(void) __ptr64
+??1CParseEdit@@UEAA@XZ -> public: virtual __cdecl CParseEdit::~CParseEdit(void) __ptr64
+??1CPasswordProp@@UEAA@XZ -> public: virtual __cdecl CPasswordProp::~CPasswordProp(void) __ptr64
+??1CPicture@@UEAA@XZ -> public: virtual __cdecl CPicture::~CPicture(void) __ptr64
+??1CPropSliderCtrl@@UEAA@XZ -> public: virtual __cdecl CPropSliderCtrl::~CPropSliderCtrl(void) __ptr64
+??1CRprtViewBase@@MEAA@XZ -> protected: virtual __cdecl CRprtViewBase::~CRprtViewBase(void) __ptr64
+??1CSliderProp@@UEAA@XZ -> public: virtual __cdecl CSliderProp::~CSliderProp(void) __ptr64
+??1CSpinBtnExCtrl@@UEAA@XZ -> public: virtual __cdecl CSpinBtnExCtrl::~CSpinBtnExCtrl(void) __ptr64
+??1CStatusBarBase@@UEAA@XZ -> public: virtual __cdecl CStatusBarBase::~CStatusBarBase(void) __ptr64
+??1CTMDlgBase@@MEAA@XZ -> protected: virtual __cdecl CTMDlgBase::~CTMDlgBase(void) __ptr64
+??1CTMTabWnd@@UEAA@XZ -> public: virtual __cdecl CTMTabWnd::~CTMTabWnd(void) __ptr64
+??1CTestDlgTabPage@@MEAA@XZ -> protected: virtual __cdecl CTestDlgTabPage::~CTestDlgTabPage(void) __ptr64
+??1CTreeData@@UEAA@XZ -> public: virtual __cdecl CTreeData::~CTreeData(void) __ptr64
+??1CTreeItem@@UEAA@XZ -> public: virtual __cdecl CTreeItem::~CTreeItem(void) __ptr64
+??1CViewBase@@UEAA@XZ -> public: virtual __cdecl CViewBase::~CViewBase(void) __ptr64
+??1GGRViewEventMgr@@UEAA@XZ -> public: virtual __cdecl GGRViewEventMgr::~GGRViewEventMgr(void) __ptr64
+??1GMyToolTipCtrl@@UEAA@XZ -> public: virtual __cdecl GMyToolTipCtrl::~GMyToolTipCtrl(void) __ptr64
+??1I_GGRViewEventObserver@@UEAA@XZ -> public: virtual __cdecl I_GGRViewEventObserver::~I_GGRViewEventObserver(void) __ptr64
+??1I_GPSModelBase@@UEAA@XZ -> public: virtual __cdecl I_GPSModelBase::~I_GPSModelBase(void) __ptr64
+??1I_GViewWndMan@@UEAA@XZ -> public: virtual __cdecl I_GViewWndMan::~I_GViewWndMan(void) __ptr64
+??1I_MainFrameBase@@UEAA@XZ -> public: virtual __cdecl I_MainFrameBase::~I_MainFrameBase(void) __ptr64
+??1I_ModelBase@@UEAA@XZ -> public: virtual __cdecl I_ModelBase::~I_ModelBase(void) __ptr64
+??1I_PolyMaker@@MEAA@XZ -> protected: virtual __cdecl I_PolyMaker::~I_PolyMaker(void) __ptr64
+??1I_PolyMakerFactory@@QEAA@XZ -> public: __cdecl I_PolyMakerFactory::~I_PolyMakerFactory(void) __ptr64
+??1I_WidgetObserver@@UEAA@XZ -> public: virtual __cdecl I_WidgetObserver::~I_WidgetObserver(void) __ptr64
+??1XGL_3dp@@QEAA@XZ -> public: __cdecl XGL_3dp::~XGL_3dp(void) __ptr64
+??1XGL_Line3d@@QEAA@XZ -> public: __cdecl XGL_Line3d::~XGL_Line3d(void) __ptr64
+??4CAngleViewMsg@@QEAAAEAV0@$$QEAV0@@Z -> public: class CAngleViewMsg & __ptr64 __cdecl CAngleViewMsg::operator=(class CAngleViewMsg && __ptr64) __ptr64
+??4CAngleViewMsg@@QEAAAEAV0@AEBV0@@Z -> public: class CAngleViewMsg & __ptr64 __cdecl CAngleViewMsg::operator=(class CAngleViewMsg const & __ptr64) __ptr64
+??4CDlgBarMode@@QEAAAEAV0@$$QEAV0@@Z -> public: class CDlgBarMode & __ptr64 __cdecl CDlgBarMode::operator=(class CDlgBarMode && __ptr64) __ptr64
+??4CDlgBarMode@@QEAAAEAV0@AEBV0@@Z -> public: class CDlgBarMode & __ptr64 __cdecl CDlgBarMode::operator=(class CDlgBarMode const & __ptr64) __ptr64
+??4CDlgNode@@QEAAAEAV0@$$QEAV0@@Z -> public: class CDlgNode & __ptr64 __cdecl CDlgNode::operator=(class CDlgNode && __ptr64) __ptr64
+??4CDlgNode@@QEAAAEAV0@AEBV0@@Z -> public: class CDlgNode & __ptr64 __cdecl CDlgNode::operator=(class CDlgNode const & __ptr64) __ptr64
+??4CGlRGB@@QEAAAEAV0@AEBV0@@Z -> public: class CGlRGB & __ptr64 __cdecl CGlRGB::operator=(class CGlRGB const & __ptr64) __ptr64
+??4CGwPrintHandler@@QEAAAEAV0@AEBV0@@Z -> public: class CGwPrintHandler & __ptr64 __cdecl CGwPrintHandler::operator=(class CGwPrintHandler const & __ptr64) __ptr64
+??4CLogFileEx@@QEAAAEAV0@AEBV0@@Z -> public: class CLogFileEx & __ptr64 __cdecl CLogFileEx::operator=(class CLogFileEx const & __ptr64) __ptr64
+??4CPicture@@QEAAAEAV0@AEBV0@@Z -> public: class CPicture & __ptr64 __cdecl CPicture::operator=(class CPicture const & __ptr64) __ptr64
+??4CStringParser@@QEAAAEAV0@$$QEAV0@@Z -> public: class CStringParser & __ptr64 __cdecl CStringParser::operator=(class CStringParser && __ptr64) __ptr64
+??4CStringParser@@QEAAAEAV0@AEBV0@@Z -> public: class CStringParser & __ptr64 __cdecl CStringParser::operator=(class CStringParser const & __ptr64) __ptr64
+??4I_GGRViewEventObserver@@QEAAAEAV0@AEBV0@@Z -> public: class I_GGRViewEventObserver & __ptr64 __cdecl I_GGRViewEventObserver::operator=(class I_GGRViewEventObserver const & __ptr64) __ptr64
+??4I_GPSModelBase@@QEAAAEAV0@AEBV0@@Z -> public: class I_GPSModelBase & __ptr64 __cdecl I_GPSModelBase::operator=(class I_GPSModelBase const & __ptr64) __ptr64
+??4I_GViewWndMan@@QEAAAEAV0@AEBV0@@Z -> public: class I_GViewWndMan & __ptr64 __cdecl I_GViewWndMan::operator=(class I_GViewWndMan const & __ptr64) __ptr64
+??4I_MainFrameBase@@QEAAAEAV0@AEBV0@@Z -> public: class I_MainFrameBase & __ptr64 __cdecl I_MainFrameBase::operator=(class I_MainFrameBase const & __ptr64) __ptr64
+??4I_ModelBase@@QEAAAEAV0@AEBV0@@Z -> public: class I_ModelBase & __ptr64 __cdecl I_ModelBase::operator=(class I_ModelBase const & __ptr64) __ptr64
+??4I_PolyMaker@@QEAAAEAV0@AEBV0@@Z -> public: class I_PolyMaker & __ptr64 __cdecl I_PolyMaker::operator=(class I_PolyMaker const & __ptr64) __ptr64
+??4I_PolyMakerFactory@@QEAAAEAV0@AEBV0@@Z -> public: class I_PolyMakerFactory & __ptr64 __cdecl I_PolyMakerFactory::operator=(class I_PolyMakerFactory const & __ptr64) __ptr64
+??4I_WidgetObserver@@QEAAAEAV0@AEBV0@@Z -> public: class I_WidgetObserver & __ptr64 __cdecl I_WidgetObserver::operator=(class I_WidgetObserver const & __ptr64) __ptr64
+??4ShadeExport@@QEAAAEAV0@$$QEAV0@@Z -> public: class ShadeExport & __ptr64 __cdecl ShadeExport::operator=(class ShadeExport && __ptr64) __ptr64
+??4ShadeExport@@QEAAAEAV0@AEBV0@@Z -> public: class ShadeExport & __ptr64 __cdecl ShadeExport::operator=(class ShadeExport const & __ptr64) __ptr64
+??4XGL_3dp@@QEAAAEAV0@AEBV0@@Z -> public: class XGL_3dp & __ptr64 __cdecl XGL_3dp::operator=(class XGL_3dp const & __ptr64) __ptr64
+??4XGL_Line3d@@QEAAAEAV0@AEBV0@@Z -> public: class XGL_Line3d & __ptr64 __cdecl XGL_Line3d::operator=(class XGL_Line3d const & __ptr64) __ptr64
+??BXGL_3dp@@QEAAPEANXZ -> public: __cdecl XGL_3dp::operator double * __ptr64(void) __ptr64
+??BXGL_3dp@@QEAAPEAXXZ -> public: __cdecl XGL_3dp::operator void * __ptr64(void) __ptr64
+??_7CAngleViewDlg@@6B@ -> const CAngleViewDlg::`vftable'
+??_7CAppBase@@6B@ -> const CAppBase::`vftable'
+??_7CBCGPMiniFrameWnd_NotFloat@@6B@ -> const CBCGPMiniFrameWnd_NotFloat::`vftable'
+??_7CCheckBoxProp@@6B@ -> const CCheckBoxProp::`vftable'
+??_7CChildFrameBase@@6B@ -> const CChildFrameBase::`vftable'
+??_7CComboBoxExProp@@6B@ -> const CComboBoxExProp::`vftable'
+??_7CDocBase@@6B@ -> const CDocBase::`vftable'
+??_7CDockDlgBarBase@@6BCBCGPGestureBase@@@ -> const CDockDlgBarBase::`vftable'{for `CBCGPGestureBase'}
+??_7CDockDlgBarBase@@6BCWnd@@@ -> const CDockDlgBarBase::`vftable'{for `CWnd'}
+??_7CDockViewBase@@6BCBCGPGestureBase@@@ -> const CDockViewBase::`vftable'{for `CBCGPGestureBase'}
+??_7CDockViewBase@@6BCWnd@@@ -> const CDockViewBase::`vftable'{for `CWnd'}
+??_7CDockingDlgBarBase@@6BCBCGPGestureBase@@@ -> const CDockingDlgBarBase::`vftable'{for `CBCGPGestureBase'}
+??_7CDockingDlgBarBase@@6BCWnd@@@ -> const CDockingDlgBarBase::`vftable'{for `CWnd'}
+??_7CDockingDlgBarSample@@6BCBCGPGestureBase@@@ -> const CDockingDlgBarSample::`vftable'{for `CBCGPGestureBase'}
+??_7CDockingDlgBarSample@@6BCWnd@@@ -> const CDockingDlgBarSample::`vftable'{for `CWnd'}
+??_7CDockingTabDlgBarSample@@6BCBCGPGestureBase@@@ -> const CDockingTabDlgBarSample::`vftable'{for `CBCGPGestureBase'}
+??_7CDockingTabDlgBarSample@@6BCWnd@@@ -> const CDockingTabDlgBarSample::`vftable'{for `CWnd'}
+??_7CDurationProp@@6B@ -> const CDurationProp::`vftable'
+??_7CFormulaCobx@@6B@ -> const CFormulaCobx::`vftable'
+??_7CFormulaEdit@@6B@ -> const CFormulaEdit::`vftable'
+??_7CGLViewBase@@6B@ -> const CGLViewBase::`vftable'
+??_7CGlRGB@@6B@ -> const CGlRGB::`vftable'
+??_7CGlobalModeless@@6B@ -> const CGlobalModeless::`vftable'
+??_7CGwPreviewView@@6B@ -> const CGwPreviewView::`vftable'
+??_7CGwPrintHandler@@6B@ -> const CGwPrintHandler::`vftable'
+??_7CIconCombo@@6B@ -> const CIconCombo::`vftable'
+??_7CIconListProp@@6B@ -> const CIconListProp::`vftable'
+??_7CLabelEdit@@6B@ -> const CLabelEdit::`vftable'
+??_7CMainFrameBase@@6B@ -> const CMainFrameBase::`vftable'
+??_7CMenuBtnEx@@6B@ -> const CMenuBtnEx::`vftable'
+??_7CMouseEdit@@6B@ -> const CMouseEdit::`vftable'
+??_7CMyMultiDocTemplate@@6B@ -> const CMyMultiDocTemplate::`vftable'
+??_7CMyTabWndBase@@6BCBCGPAnimationManager@@@ -> const CMyTabWndBase::`vftable'{for `CBCGPAnimationManager'}
+??_7CMyTabWndBase@@6BCBCGPBaseTabWnd@@@ -> const CMyTabWndBase::`vftable'{for `CBCGPBaseTabWnd'}
+??_7CMyTabWndBase@@6BCBCGPCtrlPlaceHolderHelper@@@ -> const CMyTabWndBase::`vftable'{for `CBCGPCtrlPlaceHolderHelper'}
+??_7CMyTabWndBase@@6BCBCGPGestureBase@@@ -> const CMyTabWndBase::`vftable'{for `CBCGPGestureBase'}
+??_7CMyTabWndBase@@6BCWnd@@@ -> const CMyTabWndBase::`vftable'{for `CWnd'}
+??_7CParseEdit@@6B@ -> const CParseEdit::`vftable'
+??_7CPasswordProp@@6B@ -> const CPasswordProp::`vftable'
+??_7CPicture@@6B@ -> const CPicture::`vftable'
+??_7CPropSliderCtrl@@6B@ -> const CPropSliderCtrl::`vftable'
+??_7CRprtViewBase@@6B@ -> const CRprtViewBase::`vftable'
+??_7CSliderProp@@6B@ -> const CSliderProp::`vftable'
+??_7CSpinBtnExCtrl@@6B@ -> const CSpinBtnExCtrl::`vftable'
+??_7CStatusBarBase@@6BCBCGPGestureBase@@@ -> const CStatusBarBase::`vftable'{for `CBCGPGestureBase'}
+??_7CStatusBarBase@@6BCWnd@@@ -> const CStatusBarBase::`vftable'{for `CWnd'}
+??_7CTMDlgBase@@6BCChangePHPage@@@ -> const CTMDlgBase::`vftable'{for `CChangePHPage'}
+??_7CTMDlgBase@@6BCFormViewInBar@@@ -> const CTMDlgBase::`vftable'{for `CFormViewInBar'}
+??_7CTMTabWnd@@6BCBCGPAnimationManager@@@ -> const CTMTabWnd::`vftable'{for `CBCGPAnimationManager'}
+??_7CTMTabWnd@@6BCBCGPBaseTabWnd@@@ -> const CTMTabWnd::`vftable'{for `CBCGPBaseTabWnd'}
+??_7CTMTabWnd@@6BCBCGPCtrlPlaceHolderHelper@@@ -> const CTMTabWnd::`vftable'{for `CBCGPCtrlPlaceHolderHelper'}
+??_7CTMTabWnd@@6BCBCGPGestureBase@@@ -> const CTMTabWnd::`vftable'{for `CBCGPGestureBase'}
+??_7CTMTabWnd@@6BCWnd@@@ -> const CTMTabWnd::`vftable'{for `CWnd'}
+??_7CTestDlgTabPage@@6B@ -> const CTestDlgTabPage::`vftable'
+??_7CTreeData@@6B@ -> const CTreeData::`vftable'
+??_7CTreeItem@@6B@ -> const CTreeItem::`vftable'
+??_7CViewBase@@6B@ -> const CViewBase::`vftable'
+??_7GGRViewEventMgr@@6B@ -> const GGRViewEventMgr::`vftable'
+??_7GMyToolTipCtrl@@6B@ -> const GMyToolTipCtrl::`vftable'
+??_7I_GGRViewEventObserver@@6B@ -> const I_GGRViewEventObserver::`vftable'
+??_7I_GPSModelBase@@6B@ -> const I_GPSModelBase::`vftable'
+??_7I_GViewWndMan@@6B@ -> const I_GViewWndMan::`vftable'
+??_7I_MainFrameBase@@6B@ -> const I_MainFrameBase::`vftable'
+??_7I_ModelBase@@6B@ -> const I_ModelBase::`vftable'
+??_7I_PolyMaker@@6B@ -> const I_PolyMaker::`vftable'
+??_7I_PolyMakerFactory@@6B@ -> const I_PolyMakerFactory::`vftable'
+??_7I_WidgetObserver@@6B@ -> const I_WidgetObserver::`vftable'
+??_FCAngleViewDlg@@QEAAXXZ -> public: void __cdecl CAngleViewDlg::`default constructor closure'(void) __ptr64
+?AccelPreTranslateMessage@CGlobalModeless@@QEAAHPEAUtagMSG@@@Z -> public: int __cdecl CGlobalModeless::AccelPreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?ActivateDlgBar@CDockDlgBarBase@@SAHH@Z -> public: static int __cdecl CDockDlgBarBase::ActivateDlgBar(int)
+?ActivateTab@CMyTabWndBase@@UEAAXAEAPEAVCWnd@@H@Z -> public: virtual void __cdecl CMyTabWndBase::ActivateTab(class CWnd * __ptr64 & __ptr64,int) __ptr64
+?ActivateTab@CMyTabWndBase@@UEAAXH@Z -> public: virtual void __cdecl CMyTabWndBase::ActivateTab(int) __ptr64
+?ActivateTab@CTMTabWnd@@UEAAXH@Z -> public: virtual void __cdecl CTMTabWnd::ActivateTab(int) __ptr64
+?ActivateTab@CTMTabWnd@@UEAAXPEAVCWnd@@H@Z -> public: virtual void __cdecl CTMTabWnd::ActivateTab(class CWnd * __ptr64,int) __ptr64
+?ActiveAll@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::ActiveAll(void) __ptr64
+?ActiveOnTheCurUCSPlane@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::ActiveOnTheCurUCSPlane(void) __ptr64
+?ActiveThisObjects@I_ModelBase@@UEAAXAEAV?$CArray@II@@0H@Z -> public: virtual void __cdecl I_ModelBase::ActiveThisObjects(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<unsigned int,unsigned int> & __ptr64,int) __ptr64
+?ActiveThisSDSObjects@I_ModelBase@@UEAAXPEAV?$CArray@II@@00H@Z -> public: virtual void __cdecl I_ModelBase::ActiveThisSDSObjects(class CArray<unsigned int,unsigned int> * __ptr64,class CArray<unsigned int,unsigned int> * __ptr64,class CArray<unsigned int,unsigned int> * __ptr64,int) __ptr64
+?AddCommandLineObserver@GGRViewEventMgr@@QEAAXPEAVI_GGRViewEventObserver@@@Z -> public: void __cdecl GGRViewEventMgr::AddCommandLineObserver(class I_GGRViewEventObserver * __ptr64) __ptr64
+?AddCuttingPoly@I_PolyMaker@@UEAAXAEAV?$CArray@VXGL_3dp@@AEAV1@@@@Z -> public: virtual void __cdecl I_PolyMaker::AddCuttingPoly(class CArray<class XGL_3dp,class XGL_3dp & __ptr64> & __ptr64) __ptr64
+?AddElemKey@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::AddElemKey(int) __ptr64
+?AddElemKeyST@CMouseEdit@@SAXH@Z -> public: static void __cdecl CMouseEdit::AddElemKeyST(int)
+?AddGPSElemKeyST@CMouseEdit@@SAXH@Z -> public: static void __cdecl CMouseEdit::AddGPSElemKeyST(int)
+?AddGPSNodeKeyST@CMouseEdit@@SAXH@Z -> public: static void __cdecl CMouseEdit::AddGPSNodeKeyST(int)
+?AddItem@CMenuBtnEx@@QEAAHPEB_WI@Z -> public: int __cdecl CMenuBtnEx::AddItem(wchar_t const * __ptr64,unsigned int) __ptr64
+?AddItem@CTreeData@@QEAAHPEB_WIPEAVCObject@@H@Z -> public: int __cdecl CTreeData::AddItem(wchar_t const * __ptr64,unsigned int,class CObject * __ptr64,int) __ptr64
+?AddMessageWindow@CMouseEdit@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: void __cdecl CMouseEdit::AddMessageWindow(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int) __ptr64
+?AddNodeKey@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::AddNodeKey(int) __ptr64
+?AddNodeKeyST@CMouseEdit@@SAXH@Z -> public: static void __cdecl CMouseEdit::AddNodeKeyST(int)
+?AddObjectKey@CMouseEdit@@QEAAXIH@Z -> public: void __cdecl CMouseEdit::AddObjectKey(unsigned int,int) __ptr64
+?AddObjectKeyST@CMouseEdit@@SAXHIH@Z -> public: static void __cdecl CMouseEdit::AddObjectKeyST(int,unsigned int,int)
+?AddObserver@GGRViewEventMgr@@QEAAXPEAVI_GGRViewEventObserver@@@Z -> public: void __cdecl GGRViewEventMgr::AddObserver(class I_GGRViewEventObserver * __ptr64) __ptr64
+?AddOption@CComboBoxExProp@@QEAAHPEB_WHH@Z -> public: int __cdecl CComboBoxExProp::AddOption(wchar_t const * __ptr64,int,int) __ptr64
+?AddSubItem@CTreeItem@@QEAAHPEAV1@@Z -> public: int __cdecl CTreeItem::AddSubItem(class CTreeItem * __ptr64) __ptr64
+?AddTab@CMyTabWndBase@@QEAAPEAVCWnd@@PEAUCRuntimeClass@@PEB_WPEAUCCreateContext@@I@Z -> public: class CWnd * __ptr64 __cdecl CMyTabWndBase::AddTab(struct CRuntimeClass * __ptr64,wchar_t const * __ptr64,struct CCreateContext * __ptr64,unsigned int) __ptr64
+?AddTab@CMyTabWndBase@@UEAAXPEAVCWnd@@PEB_WIH@Z -> public: virtual void __cdecl CMyTabWndBase::AddTab(class CWnd * __ptr64,wchar_t const * __ptr64,unsigned int,int) __ptr64
+?AddTitleAllST@CGlobalModeless@@SAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static int __cdecl CGlobalModeless::AddTitleAllST(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?AddTitleST@CGlobalModeless@@SAHIV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static int __cdecl CGlobalModeless::AddTitleST(unsigned int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?AddToList@CViewBase@@IEAAXXZ -> protected: void __cdecl CViewBase::AddToList(void) __ptr64
+?AddToolTipStringFirst@I_ModelBase@@UEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: virtual void __cdecl I_ModelBase::AddToolTipStringFirst(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?AddToolTipStringNext@I_ModelBase@@UEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: virtual void __cdecl I_ModelBase::AddToolTipStringNext(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?AddToolTipStringWithNL@I_ModelBase@@UEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: virtual void __cdecl I_ModelBase::AddToolTipStringWithNL(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?AddToolTipStrings@CMouseEdit@@QEAAXAEAVCStringArray@@@Z -> public: void __cdecl CMouseEdit::AddToolTipStrings(class CStringArray & __ptr64) __ptr64
+?AddToolTipStrings@CParseEdit@@QEAAXAEAVCStringArray@@@Z -> public: void __cdecl CParseEdit::AddToolTipStrings(class CStringArray & __ptr64) __ptr64
+?AddToolTipStrings@I_ModelBase@@UEAAXVCStringArray@@@Z -> public: virtual void __cdecl I_ModelBase::AddToolTipStrings(class CStringArray) __ptr64
+?AddUnknownID@CMouseEdit@@QEAAXHH@Z -> public: void __cdecl CMouseEdit::AddUnknownID(int,int) __ptr64
+?AddUnknownIDST@CMouseEdit@@SAXHHH@Z -> public: static void __cdecl CMouseEdit::AddUnknownIDST(int,int,int)
+?AddWidgetObserver@GGRViewEventMgr@@QEAAXPEAVI_WidgetObserver@@@Z -> public: void __cdecl GGRViewEventMgr::AddWidgetObserver(class I_WidgetObserver * __ptr64) __ptr64
+?AddWidgetToolTipFirst@GGRViewEventMgr@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl GGRViewEventMgr::AddWidgetToolTipFirst(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?AddWidgetToolTipFirst@I_GGRViewEventObserver@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl I_GGRViewEventObserver::AddWidgetToolTipFirst(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?AddWidgetToolTipFirst@I_WidgetObserver@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl I_WidgetObserver::AddWidgetToolTipFirst(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?AddWidgetToolTipNext@GGRViewEventMgr@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl GGRViewEventMgr::AddWidgetToolTipNext(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?AddWidgetToolTipNext@I_GGRViewEventObserver@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl I_GGRViewEventObserver::AddWidgetToolTipNext(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?AddWidgetToolTipNext@I_WidgetObserver@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl I_WidgetObserver::AddWidgetToolTipNext(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?AdjustRatioToH@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::AdjustRatioToH(void) __ptr64
+?AdjustRatioToW@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::AdjustRatioToW(void) __ptr64
+?AdjustTipPos@GMyToolTipCtrl@@QEAAXAEAVCPoint@@HH@Z -> public: void __cdecl GMyToolTipCtrl::AdjustTipPos(class CPoint & __ptr64,int,int) __ptr64
+?AdjustTipPosForParent@GMyToolTipCtrl@@QEAAXAEAVCPoint@@VCRect@@HH@Z -> public: void __cdecl GMyToolTipCtrl::AdjustTipPosForParent(class CPoint & __ptr64,class CRect,int,int) __ptr64
+?AdjustWHRatio@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::AdjustWHRatio(void) __ptr64
+?AfterStatePop@I_ModelBase@@QEAAXH@Z -> public: void __cdecl I_ModelBase::AfterStatePop(int) __ptr64
+?AfterViewChange@CViewBase@@UEAAXXZ -> public: virtual void __cdecl CViewBase::AfterViewChange(void) __ptr64
+?AfxAddTipFirst@@YAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl AfxAddTipFirst(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?AfxAddTipNext@@YAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl AfxAddTipNext(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?AfxIsEmptyTip@@YAHXZ -> int __cdecl AfxIsEmptyTip(void)
+?AfxRemoveTip@@YAXXZ -> void __cdecl AfxRemoveTip(void)
+?AfxSetTipText@@YAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> void __cdecl AfxSetTipText(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?AlignPicture@CGwPreviewView@@IEAAXHH@Z -> protected: void __cdecl CGwPreviewView::AlignPicture(int,int) __ptr64
+?BeforeStatePush@I_ModelBase@@QEAAXH@Z -> public: void __cdecl I_ModelBase::BeforeStatePush(int) __ptr64
+?BeforeViewChange@CViewBase@@UEAAXXZ -> public: virtual void __cdecl CViewBase::BeforeViewChange(void) __ptr64
+?CalculateAngle@CAngleViewDlg@@QEAAXXZ -> public: void __cdecl CAngleViewDlg::CalculateAngle(void) __ptr64
+?CallDlgBarMode@CDockDlgBarBase@@SAHW4DLGBAR_MODE@CDlgBarMode@@PEAX@Z -> public: static int __cdecl CDockDlgBarBase::CallDlgBarMode(enum CDlgBarMode::DLGBAR_MODE,void * __ptr64)
+?CallMakeList@CGLViewBase@@UEAAXXZ -> public: virtual void __cdecl CGLViewBase::CallMakeList(void) __ptr64
+?CanIDoingEventHandler@GMyToolTipCtrl@@QEAAHPEAVCWnd@@AEAVCPoint@@1H@Z -> public: int __cdecl GMyToolTipCtrl::CanIDoingEventHandler(class CWnd * __ptr64,class CPoint & __ptr64,class CPoint & __ptr64,int) __ptr64
+?CanIDoingEventHandlerByCliPos@GMyToolTipCtrl@@QEAAHPEAVCWnd@@VCPoint@@AEAV3@H@Z -> public: int __cdecl GMyToolTipCtrl::CanIDoingEventHandlerByCliPos(class CWnd * __ptr64,class CPoint,class CPoint & __ptr64,int) __ptr64
+?CanIDoingEventHandlerByCliPosForMED@GMyToolTipCtrl@@QEAAHPEAVCWnd@@VCPoint@@AEAV3@H@Z -> public: int __cdecl GMyToolTipCtrl::CanIDoingEventHandlerByCliPosForMED(class CWnd * __ptr64,class CPoint,class CPoint & __ptr64,int) __ptr64
+?CanISetSelUnselMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::CanISetSelUnselMode(void) __ptr64
+?CancelAllModelingOpST@I_ModelBase@@SAXXZ -> public: static void __cdecl I_ModelBase::CancelAllModelingOpST(void)
+?CancelAllObjectSelectionST@I_ModelBase@@SAXXZ -> public: static void __cdecl I_ModelBase::CancelAllObjectSelectionST(void)
+?CleanAllState@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::CleanAllState(void) __ptr64
+?Clear@CDlgNode@@QEAAXXZ -> public: void __cdecl CDlgNode::Clear(void) __ptr64
+?Clear@CLogFileEx@@QEAAHXZ -> public: int __cdecl CLogFileEx::Clear(void) __ptr64
+?Clear@CTreeData@@QEAAHXZ -> public: int __cdecl CTreeData::Clear(void) __ptr64
+?ClearContents@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::ClearContents(void) __ptr64
+?ClearElemKeyList@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::ClearElemKeyList(void) __ptr64
+?ClearIDList@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::ClearIDList(void) __ptr64
+?ClearMetafile@CGwPrintHandler@@SAXXZ -> public: static void __cdecl CGwPrintHandler::ClearMetafile(void)
+?ClearNodeKeyList@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::ClearNodeKeyList(void) __ptr64
+?ClearObjectKeyList@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::ClearObjectKeyList(void) __ptr64
+?ClearSavedBuffer@GMyToolTipCtrl@@QEAAXXZ -> public: void __cdecl GMyToolTipCtrl::ClearSavedBuffer(void) __ptr64
+?Close@CLogFileEx@@QEAAHXZ -> public: int __cdecl CLogFileEx::Close(void) __ptr64
+?CloseDlgBar@CDockDlgBarBase@@SAHXZ -> public: static int __cdecl CDockDlgBarBase::CloseDlgBar(void)
+?CloseDockView@CDockViewBase@@SAHI@Z -> public: static int __cdecl CDockViewBase::CloseDockView(unsigned int)
+?CloseDockViewAll@CDockViewBase@@SAHXZ -> public: static int __cdecl CDockViewBase::CloseDockViewAll(void)
+?CloseDocument@CAppBase@@QEAAHXZ -> public: int __cdecl CAppBase::CloseDocument(void) __ptr64
+?ConvAngleByPrecisionST@I_ModelBase@@SANN@Z -> public: static double __cdecl I_ModelBase::ConvAngleByPrecisionST(double)
+?ConvLengthByPrecisionST@I_ModelBase@@SANN@Z -> public: static double __cdecl I_ModelBase::ConvLengthByPrecisionST(double)
+?ConvPositionByPrecisionST@I_ModelBase@@SAXNNNAEAN00@Z -> public: static void __cdecl I_ModelBase::ConvPositionByPrecisionST(double,double,double,double & __ptr64,double & __ptr64,double & __ptr64)
+?ConvertUnitForcePrevious@CDocBase@@UEAANN@Z -> public: virtual double __cdecl CDocBase::ConvertUnitForcePrevious(double) __ptr64
+?ConvertUnitLengthPrevious@CDocBase@@UEAANN@Z -> public: virtual double __cdecl CDocBase::ConvertUnitLengthPrevious(double) __ptr64
+?ConvertUnitLengthPrevious@CMouseEdit@@SANN@Z -> public: static double __cdecl CMouseEdit::ConvertUnitLengthPrevious(double)
+?ConvtDistArr2DistStr@CStringParser@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV?$CArray@NN@@@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CStringParser::ConvtDistArr2DistStr(class CArray<double,double> & __ptr64)
+?CountScrollLine@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::CountScrollLine(void) __ptr64
+?Create@CMyTabWndBase@@QEAAHPEAVCWnd@@KI@Z -> public: int __cdecl CMyTabWndBase::Create(class CWnd * __ptr64,unsigned long,unsigned int) __ptr64
+?Create@CMyTabWndBase@@QEAAHW4Style@CBCGPTabWnd@@AEBUtagRECT@@PEAVCWnd@@IW4Location@CBCGPBaseTabWnd@@H@Z -> public: int __cdecl CMyTabWndBase::Create(enum CBCGPTabWnd::Style,struct tagRECT const & __ptr64,class CWnd * __ptr64,unsigned int,enum CBCGPBaseTabWnd::Location,int) __ptr64
+?Create@GMyToolTipCtrl@@QEAAHPEAVCWnd@@VCRect@@@Z -> public: int __cdecl GMyToolTipCtrl::Create(class CWnd * __ptr64,class CRect) __ptr64
+?CreateCombo@CComboBoxExProp@@MEAAPEAVCComboBox@@PEAVCWnd@@VCRect@@@Z -> protected: virtual class CComboBox * __ptr64 __cdecl CComboBoxExProp::CreateCombo(class CWnd * __ptr64,class CRect) __ptr64
+?CreateCombo@CIconListProp@@MEAAPEAVCComboBox@@PEAVCWnd@@VCRect@@@Z -> protected: virtual class CComboBox * __ptr64 __cdecl CIconListProp::CreateCombo(class CWnd * __ptr64,class CRect) __ptr64
+?CreateDefaultMiniframe@CDockDlgBarBase@@UEAAPEAVCBCGPMiniFrameWnd@@VCRect@@@Z -> public: virtual class CBCGPMiniFrameWnd * __ptr64 __cdecl CDockDlgBarBase::CreateDefaultMiniframe(class CRect) __ptr64
+?CreateInPlaceEdit@CDurationProp@@UEAAPEAVCWnd@@VCRect@@AEAH@Z -> public: virtual class CWnd * __ptr64 __cdecl CDurationProp::CreateInPlaceEdit(class CRect,int & __ptr64) __ptr64
+?CreateInPlaceEdit@CIconListProp@@MEAAPEAVCWnd@@VCRect@@AEAH@Z -> protected: virtual class CWnd * __ptr64 __cdecl CIconListProp::CreateInPlaceEdit(class CRect,int & __ptr64) __ptr64
+?CreateInPlaceEdit@CPasswordProp@@MEAAPEAVCWnd@@VCRect@@AEAH@Z -> protected: virtual class CWnd * __ptr64 __cdecl CPasswordProp::CreateInPlaceEdit(class CRect,int & __ptr64) __ptr64
+?CreateInPlaceEdit@CSliderProp@@MEAAPEAVCWnd@@VCRect@@AEAH@Z -> protected: virtual class CWnd * __ptr64 __cdecl CSliderProp::CreateInPlaceEdit(class CRect,int & __ptr64) __ptr64
+?CreateInit@CGlobalModeless@@QEAAHPEAVCWnd@@@Z -> public: int __cdecl CGlobalModeless::CreateInit(class CWnd * __ptr64) __ptr64
+?CreateMyFont@GMyToolTipCtrl@@QEAAHXZ -> public: int __cdecl GMyToolTipCtrl::CreateMyFont(void) __ptr64
+?CreateObject@CBCGPMiniFrameWnd_NotFloat@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CBCGPMiniFrameWnd_NotFloat::CreateObject(void)
+?CreateObject@CChildFrameBase@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CChildFrameBase::CreateObject(void)
+?CreateObject@CDocBase@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CDocBase::CreateObject(void)
+?CreateObject@CGLViewBase@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CGLViewBase::CreateObject(void)
+?CreateObject@CGwPreviewView@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CGwPreviewView::CreateObject(void)
+?CreateObject@CMainFrameBase@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CMainFrameBase::CreateObject(void)
+?CreateObject@CRprtViewBase@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CRprtViewBase::CreateObject(void)
+?CreateObject@CTestDlgTabPage@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CTestDlgTabPage::CreateObject(void)
+?CreateObject@CViewBase@@SAPEAVCObject@@XZ -> public: static class CObject * __ptr64 __cdecl CViewBase::CreateObject(void)
+?CreateOrActivateFrame@CAppBase@@QEAAPEAVCMDIChildWnd@@PEAUCRuntimeClass@@PEAVCDocument@@@Z -> public: class CMDIChildWnd * __ptr64 __cdecl CAppBase::CreateOrActivateFrame(struct CRuntimeClass * __ptr64,class CDocument * __ptr64) __ptr64
+?CreateRegisterST@CGlobalModeless@@SAHIPEAV1@PEAVCWnd@@1@Z -> public: static int __cdecl CGlobalModeless::CreateRegisterST(unsigned int,class CGlobalModeless * __ptr64,class CWnd * __ptr64,class CWnd * __ptr64)
+?CreateSelfRegisterST@CGlobalModeless@@SAHPEAV1@PEAVCWnd@@1@Z -> public: static int __cdecl CGlobalModeless::CreateSelfRegisterST(class CGlobalModeless * __ptr64,class CWnd * __ptr64,class CWnd * __ptr64)
+?CreateView@CDockingDlgBarBase@@UEAAPEAVCWnd@@PEAUCRuntimeClass@@PEAUCCreateContext@@I@Z -> public: virtual class CWnd * __ptr64 __cdecl CDockingDlgBarBase::CreateView(struct CRuntimeClass * __ptr64,struct CCreateContext * __ptr64,unsigned int) __ptr64
+?CreateView@CMyTabWndBase@@IEAAPEAVCWnd@@PEAUCRuntimeClass@@PEAUCCreateContext@@I@Z -> protected: class CWnd * __ptr64 __cdecl CMyTabWndBase::CreateView(struct CRuntimeClass * __ptr64,struct CCreateContext * __ptr64,unsigned int) __ptr64
+?CtlColor@CMouseEdit@@IEAAPEAUHBRUSH__@@PEAVCDC@@I@Z -> protected: struct HBRUSH__ * __ptr64 __cdecl CMouseEdit::CtlColor(class CDC * __ptr64,unsigned int) __ptr64
+?CtlColor@CPropSliderCtrl@@IEAAPEAUHBRUSH__@@PEAVCDC@@I@Z -> protected: struct HBRUSH__ * __ptr64 __cdecl CPropSliderCtrl::CtlColor(class CDC * __ptr64,unsigned int) __ptr64
+?CtrlEnableDisable@CGlobalModeless@@QEAAXAEAV?$CArray@II@@H@Z -> public: void __cdecl CGlobalModeless::CtrlEnableDisable(class CArray<unsigned int,unsigned int> & __ptr64,int) __ptr64
+?CtrlShowHide@CGlobalModeless@@QEAAXAEAV?$CArray@II@@H@Z -> public: void __cdecl CGlobalModeless::CtrlShowHide(class CArray<unsigned int,unsigned int> & __ptr64,int) __ptr64
+?CtrlShowMove@CGlobalModeless@@QEAAXAEAV?$CArray@II@@0II@Z -> public: void __cdecl CGlobalModeless::CtrlShowMove(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<unsigned int,unsigned int> & __ptr64,unsigned int,unsigned int) __ptr64
+?CurStateClean@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::CurStateClean(void) __ptr64
+?CurStateRestore@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::CurStateRestore(void) __ptr64
+?CurStateSave@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::CurStateSave(void) __ptr64
+?CustomDataSetting@CTMDlgBase@@UEAAHHPEAX@Z -> public: virtual int __cdecl CTMDlgBase::CustomDataSetting(int,void * __ptr64) __ptr64
+?DDBToDIB@CPicture@@QEAAPEAXAEAVCBitmap@@KPEAVCPalette@@@Z -> public: void * __ptr64 __cdecl CPicture::DDBToDIB(class CBitmap & __ptr64,unsigned long,class CPalette * __ptr64) __ptr64
+?DecRefCountAllRegisteredDlg@CViewBase@@IEAAXXZ -> protected: void __cdecl CViewBase::DecRefCountAllRegisteredDlg(void) __ptr64
+?DecRefCountST@CGlobalModeless@@SAHI@Z -> public: static int __cdecl CGlobalModeless::DecRefCountST(unsigned int)
+?DelObserver@GGRViewEventMgr@@QEAAXPEAVI_GGRViewEventObserver@@@Z -> public: void __cdecl GGRViewEventMgr::DelObserver(class I_GGRViewEventObserver * __ptr64) __ptr64
+?DelWidgetObserver@GGRViewEventMgr@@QEAAXPEAVI_WidgetObserver@@@Z -> public: void __cdecl GGRViewEventMgr::DelWidgetObserver(class I_WidgetObserver * __ptr64) __ptr64
+?DeleLine@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::DeleLine(int) __ptr64
+?DeleteDlgForceST@CGlobalModeless@@SAHI@Z -> public: static int __cdecl CGlobalModeless::DeleteDlgForceST(unsigned int)
+?DeleteDlgST@CGlobalModeless@@SAHI@Z -> public: static int __cdecl CGlobalModeless::DeleteDlgST(unsigned int)
+?DeleteLabelObjectList@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::DeleteLabelObjectList(void) __ptr64
+?DestroyWindow@CGwPreviewView@@UEAAHXZ -> public: virtual int __cdecl CGwPreviewView::DestroyWindow(void) __ptr64
+?DisConnectAssocWindowST@CMouseEdit@@SAXXZ -> public: static void __cdecl CMouseEdit::DisConnectAssocWindowST(void)
+?DisableOnMDIActivateOperation@CChildFrameBase@@SAXXZ -> public: static void __cdecl CChildFrameBase::DisableOnMDIActivateOperation(void)
+?DisplayString@CStatusBarBase@@QEAAXIAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CStatusBarBase::DisplayString(unsigned int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?DoDataExchange@CAngleViewDlg@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CAngleViewDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CGlobalModeless@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CGlobalModeless::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CTestDlgTabPage@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CTestDlgTabPage::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoModal@CGlobalModeless@@UEAA_JXZ -> public: virtual __int64 __cdecl CGlobalModeless::DoModal(void) __ptr64
+?DoPrintPreview@CGwPrintHandler@@SAHPEAVCView@@@Z -> public: static int __cdecl CGwPrintHandler::DoPrintPreview(class CView * __ptr64)
+?DoPromptFileName@CAppBase@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@IKHPEAVCDocTemplate@@@Z -> public: int __cdecl CAppBase::DoPromptFileName(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,unsigned int,unsigned long,int,class CDocTemplate * __ptr64) __ptr64
+?DoSomething@CGlobalModeless@@UEAAHPEAX@Z -> public: virtual int __cdecl CGlobalModeless::DoSomething(void * __ptr64) __ptr64
+?DoSomething@CGlobalModeless@@UEAAHXZ -> public: virtual int __cdecl CGlobalModeless::DoSomething(void) __ptr64
+?DoSomethingAllST@CGlobalModeless@@SAXXZ -> public: static void __cdecl CGlobalModeless::DoSomethingAllST(void)
+?DoSomethingST@CGlobalModeless@@SAHIPEAX@Z -> public: static int __cdecl CGlobalModeless::DoSomethingST(unsigned int,void * __ptr64)
+?DoUnitChange@CGlobalModeless@@UEAAHPEAX@Z -> public: virtual int __cdecl CGlobalModeless::DoUnitChange(void * __ptr64) __ptr64
+?DoUnitChange@CGlobalModeless@@UEAAHXZ -> public: virtual int __cdecl CGlobalModeless::DoUnitChange(void) __ptr64
+?DoUnitChange@CMouseEdit@@SAXPEAVCDocBase@@@Z -> public: static void __cdecl CMouseEdit::DoUnitChange(class CDocBase * __ptr64)
+?DoUnitChangeAllST@CGlobalModeless@@SAXXZ -> public: static void __cdecl CGlobalModeless::DoUnitChangeAllST(void)
+?DoUnitChangeST@CGlobalModeless@@SAHIPEAX@Z -> public: static int __cdecl CGlobalModeless::DoUnitChangeST(unsigned int,void * __ptr64)
+?Draw@CRprtViewBase@@EEAAXXZ -> private: virtual void __cdecl CRprtViewBase::Draw(void) __ptr64
+?DrawContents@GMyToolTipCtrl@@QEAAXPEAVCDC@@VCPoint@@@Z -> public: void __cdecl GMyToolTipCtrl::DrawContents(class CDC * __ptr64,class CPoint) __ptr64
+?DrawItem@CStatusBarBase@@MEAAXPEAUtagDRAWITEMSTRUCT@@@Z -> protected: virtual void __cdecl CStatusBarBase::DrawItem(struct tagDRAWITEMSTRUCT * __ptr64) __ptr64
+?DrawNotice@CRprtViewBase@@EEAAXXZ -> private: virtual void __cdecl CRprtViewBase::DrawNotice(void) __ptr64
+?DrawRubberBanding@I_GGRViewEventObserver@@UEAAXAEAV?$CArray@NN@@@Z -> public: virtual void __cdecl I_GGRViewEventObserver::DrawRubberBanding(class CArray<double,double> & __ptr64) __ptr64
+?DrawTrialMarkCliMemDC@I_ModelBase@@UEAAXPEAVCDC@@0PEAVCView@@@Z -> public: virtual void __cdecl I_ModelBase::DrawTrialMarkCliMemDC(class CDC * __ptr64,class CDC * __ptr64,class CView * __ptr64) __ptr64
+?EnableOnMDIActivateOperation@CChildFrameBase@@SAXXZ -> public: static void __cdecl CChildFrameBase::EnableOnMDIActivateOperation(void)
+?End@CGlobalModeless@@QEAAXXZ -> public: void __cdecl CGlobalModeless::End(void) __ptr64
+?End@I_GGRViewEventObserver@@QEAAXXZ -> public: void __cdecl I_GGRViewEventObserver::End(void) __ptr64
+?End@I_WidgetObserver@@QEAAXXZ -> public: void __cdecl I_WidgetObserver::End(void) __ptr64
+?EndCommandLine@I_GGRViewEventObserver@@QEAAXXZ -> public: void __cdecl I_GGRViewEventObserver::EndCommandLine(void) __ptr64
+?EndForceAllST@CGlobalModeless@@SAHXZ -> public: static int __cdecl CGlobalModeless::EndForceAllST(void)
+?EndForceST@CGlobalModeless@@SAHI@Z -> public: static int __cdecl CGlobalModeless::EndForceST(unsigned int)
+?EndST@CGlobalModeless@@SAHI@Z -> public: static int __cdecl CGlobalModeless::EndST(unsigned int)
+?EnterKeyPressed@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::EnterKeyPressed(void) __ptr64
+?EnterPressOP@CParseEdit@@QEAAHXZ -> public: int __cdecl CParseEdit::EnterPressOP(void) __ptr64
+?EscKeyPressed@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::EscKeyPressed(void) __ptr64
+?EventHandler@GMyToolTipCtrl@@QEAAHPEAVCWnd@@@Z -> public: int __cdecl GMyToolTipCtrl::EventHandler(class CWnd * __ptr64) __ptr64
+?FindByUseModeST@CMouseEdit@@SAPEAV1@H@Z -> public: static class CMouseEdit * __ptr64 __cdecl CMouseEdit::FindByUseModeST(int)
+?FindDlgIDFromDlgST@CGlobalModeless@@SAIPEAVCDialog@@@Z -> public: static unsigned int __cdecl CGlobalModeless::FindDlgIDFromDlgST(class CDialog * __ptr64)
+?FindDlgST@CGlobalModeless@@SAPEAVCDlgNode@@I@Z -> public: static class CDlgNode * __ptr64 __cdecl CGlobalModeless::FindDlgST(unsigned int)
+?FindOrCreationST@CGlobalModeless@@SAPEAVCDlgNode@@I@Z -> public: static class CDlgNode * __ptr64 __cdecl CGlobalModeless::FindOrCreationST(unsigned int)
+?FindTab@CMyTabWndBase@@QEBAHQEBVCWnd@@AEAH@Z -> public: int __cdecl CMyTabWndBase::FindTab(class CWnd const * __ptr64 const,int & __ptr64)const __ptr64
+?FireChangeActiveTab@CTMTabWnd@@UEAAXH@Z -> public: virtual void __cdecl CTMTabWnd::FireChangeActiveTab(int) __ptr64
+?FitPanesToContent@CStatusBarBase@@UEAAXXZ -> public: virtual void __cdecl CStatusBarBase::FitPanesToContent(void) __ptr64
+?ForceHideToolTip@GMyToolTipCtrl@@QEAAHXZ -> public: int __cdecl GMyToolTipCtrl::ForceHideToolTip(void) __ptr64
+?FormatProperty@CPasswordProp@@MEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> protected: virtual class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CPasswordProp::FormatProperty(void) __ptr64
+?FrameActivate@CViewBase@@UEAAXXZ -> public: virtual void __cdecl CViewBase::FrameActivate(void) __ptr64
+?FrameDeActivate@CViewBase@@UEAAXXZ -> public: virtual void __cdecl CViewBase::FrameDeActivate(void) __ptr64
+?FreePictureData@CPicture@@QEAAXXZ -> public: void __cdecl CPicture::FreePictureData(void) __ptr64
+?GSaveHistoryFormatNF@@YAXPEBDZZ -> void __cdecl GSaveHistoryFormatNF(char const * __ptr64,...)
+?GSaveHistoryNF@@YAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@KPEAVCWnd@@@Z -> void __cdecl GSaveHistoryNF(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,unsigned long,class CWnd * __ptr64)
+?Get2FloatNumber@CGlobalModeless@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN1@Z -> public: int __cdecl CGlobalModeless::Get2FloatNumber(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?Get2FloatNumber@CMouseEdit@@QEAAHAEAN0@Z -> public: int __cdecl CMouseEdit::Get2FloatNumber(double & __ptr64,double & __ptr64) __ptr64
+?Get2FloatNumber@CStringParser@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN1@Z -> public: static int __cdecl CStringParser::Get2FloatNumber(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64,double & __ptr64)
+?Get@XGL_3dp@@QEAAXAEAN00@Z -> public: void __cdecl XGL_3dp::Get(double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?Get@XGL_3dp@@QEAAXQEAN@Z -> public: void __cdecl XGL_3dp::Get(double * __ptr64 const) __ptr64
+?GetActiveLineCnt@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::GetActiveLineCnt(void) __ptr64
+?GetActiveModeWnd@CDockDlgBarBase@@SAPEAVCWnd@@AEAH@Z -> public: static class CWnd * __ptr64 __cdecl CDockDlgBarBase::GetActiveModeWnd(int & __ptr64)
+?GetActiveTab@CMyTabWndBase@@QEAAHAEAH@Z -> public: int __cdecl CMyTabWndBase::GetActiveTab(int & __ptr64) __ptr64
+?GetActiveTab@CMyTabWndBase@@QEAAHAEAPEAVCWnd@@@Z -> public: int __cdecl CMyTabWndBase::GetActiveTab(class CWnd * __ptr64 & __ptr64) __ptr64
+?GetAngleStringST@I_ModelBase@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@N@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl I_ModelBase::GetAngleStringST(double)
+?GetAssocWindow@CGlobalModeless@@QEAAPEAVCWnd@@XZ -> public: class CWnd * __ptr64 __cdecl CGlobalModeless::GetAssocWindow(void) __ptr64
+?GetAssocWindowST@CGlobalModeless@@SAPEAVCWnd@@I@Z -> public: static class CWnd * __ptr64 __cdecl CGlobalModeless::GetAssocWindowST(unsigned int)
+?GetBarName@CStatusBarBase@@QEAAAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64 __cdecl CStatusBarBase::GetBarName(void) __ptr64
+?GetBorderSize@GMyToolTipCtrl@@QEAA?AVCSize@@XZ -> public: class CSize __cdecl GMyToolTipCtrl::GetBorderSize(void) __ptr64
+?GetCR@CGlRGB@@QEAAKXZ -> public: unsigned long __cdecl CGlRGB::GetCR(void) __ptr64
+?GetCaretPosition@CMouseEdit@@QEAAXAEAH0@Z -> public: void __cdecl CMouseEdit::GetCaretPosition(int & __ptr64,int & __ptr64) __ptr64
+?GetClassNameW@CViewBase@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CViewBase::GetClassNameW(void) __ptr64
+?GetCodeName@CRprtViewBase@@IEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> protected: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CRprtViewBase::GetCodeName(void) __ptr64
+?GetCommand@CMouseEdit@@QEAAIXZ -> public: unsigned int __cdecl CMouseEdit::GetCommand(void) __ptr64
+?GetCoordData@CMouseEdit@@QEAAHPEAN00@Z -> public: int __cdecl CMouseEdit::GetCoordData(double * __ptr64,double * __ptr64,double * __ptr64) __ptr64
+?GetCurMouseEditST@CMouseEdit@@SAPEAV1@XZ -> public: static class CMouseEdit * __ptr64 __cdecl CMouseEdit::GetCurMouseEditST(void)
+?GetCurMousePosDist@CMouseEdit@@QEAAHAEAN00000@Z -> public: int __cdecl CMouseEdit::GetCurMousePosDist(double & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?GetCurMousePosDistVal@CMouseEdit@@QEAAHAEAN@Z -> public: int __cdecl CMouseEdit::GetCurMousePosDistVal(double & __ptr64) __ptr64
+?GetCurMousePosReal@CMouseEdit@@QEAAXAEAN00000@Z -> public: void __cdecl CMouseEdit::GetCurMousePosReal(double & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?GetCurMySelfST@I_ModelBase@@SAPEAV1@XZ -> public: static class I_ModelBase * __ptr64 __cdecl I_ModelBase::GetCurMySelfST(void)
+?GetCurPickedGPSObjectDataST@CMouseEdit@@SAHAEAH0@Z -> public: static int __cdecl CMouseEdit::GetCurPickedGPSObjectDataST(int & __ptr64,int & __ptr64)
+?GetCurString@CMouseEdit@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CMouseEdit::GetCurString(void)
+?GetDDScale@CGwPrintHandler@@SAHPEAUHDC__@@HH@Z -> public: static int __cdecl CGwPrintHandler::GetDDScale(struct HDC__ * __ptr64,int,int)
+?GetDDScale@CGwPrintHandler@@SAHPEAUHDC__@@NH@Z -> public: static int __cdecl CGwPrintHandler::GetDDScale(struct HDC__ * __ptr64,double,int)
+?GetDDScaled@CGwPrintHandler@@SANPEAUHDC__@@HH@Z -> public: static double __cdecl CGwPrintHandler::GetDDScaled(struct HDC__ * __ptr64,int,int)
+?GetDDScaled@CGwPrintHandler@@SANPEAUHDC__@@NH@Z -> public: static double __cdecl CGwPrintHandler::GetDDScaled(struct HDC__ * __ptr64,double,int)
+?GetDIScale@CGwPrintHandler@@SAHPEAUHDC__@@HH@Z -> public: static int __cdecl CGwPrintHandler::GetDIScale(struct HDC__ * __ptr64,int,int)
+?GetDIScale@CGwPrintHandler@@SAHPEAUHDC__@@NH@Z -> public: static int __cdecl CGwPrintHandler::GetDIScale(struct HDC__ * __ptr64,double,int)
+?GetDIScaled@CGwPrintHandler@@SANPEAUHDC__@@HH@Z -> public: static double __cdecl CGwPrintHandler::GetDIScaled(struct HDC__ * __ptr64,int,int)
+?GetDIScaled@CGwPrintHandler@@SANPEAUHDC__@@NH@Z -> public: static double __cdecl CGwPrintHandler::GetDIScaled(struct HDC__ * __ptr64,double,int)
+?GetDefaultAccelerator@CGlobalModeless@@QEAAPEAUHACCEL__@@XZ -> public: struct HACCEL__ * __ptr64 __cdecl CGlobalModeless::GetDefaultAccelerator(void) __ptr64
+?GetDesignCode@CRprtViewBase@@QEAA?AW4DGNCode@@XZ -> public: enum DGNCode __cdecl CRprtViewBase::GetDesignCode(void) __ptr64
+?GetDeviceCapsHorzRes@CGwPrintHandler@@SAHPEAUHDC__@@@Z -> public: static int __cdecl CGwPrintHandler::GetDeviceCapsHorzRes(struct HDC__ * __ptr64)
+?GetDeviceCapsHorzSize@CGwPrintHandler@@SAHPEAUHDC__@@@Z -> public: static int __cdecl CGwPrintHandler::GetDeviceCapsHorzSize(struct HDC__ * __ptr64)
+?GetDeviceCapsLogPixelsX@CGwPrintHandler@@SAHPEAUHDC__@@@Z -> public: static int __cdecl CGwPrintHandler::GetDeviceCapsLogPixelsX(struct HDC__ * __ptr64)
+?GetDeviceCapsLogPixelsY@CGwPrintHandler@@SAHPEAUHDC__@@@Z -> public: static int __cdecl CGwPrintHandler::GetDeviceCapsLogPixelsY(struct HDC__ * __ptr64)
+?GetDeviceCapsPhysicalOffsetX@CGwPrintHandler@@SAHPEAUHDC__@@@Z -> public: static int __cdecl CGwPrintHandler::GetDeviceCapsPhysicalOffsetX(struct HDC__ * __ptr64)
+?GetDeviceCapsPhysicalOffsetY@CGwPrintHandler@@SAHPEAUHDC__@@@Z -> public: static int __cdecl CGwPrintHandler::GetDeviceCapsPhysicalOffsetY(struct HDC__ * __ptr64)
+?GetDeviceCapsVertRes@CGwPrintHandler@@SAHPEAUHDC__@@@Z -> public: static int __cdecl CGwPrintHandler::GetDeviceCapsVertRes(struct HDC__ * __ptr64)
+?GetDeviceCapsVertSize@CGwPrintHandler@@SAHPEAUHDC__@@@Z -> public: static int __cdecl CGwPrintHandler::GetDeviceCapsVertSize(struct HDC__ * __ptr64)
+?GetDirectionVector@CGlobalModeless@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN11@Z -> public: int __cdecl CGlobalModeless::GetDirectionVector(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?GetDirectionVector@CMouseEdit@@QEAAHAEAN00@Z -> public: int __cdecl CMouseEdit::GetDirectionVector(double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?GetDirectionVector@CStringParser@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN11@Z -> public: static int __cdecl CStringParser::GetDirectionVector(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64)
+?GetDisplaySettingDataB@I_ModelBase@@UEAAPEAXXZ -> public: virtual void * __ptr64 __cdecl I_ModelBase::GetDisplaySettingDataB(void) __ptr64
+?GetDlgBarMode@CDockDlgBarBase@@SA?AW4DLGBAR_MODE@CDlgBarMode@@XZ -> public: static enum CDlgBarMode::DLGBAR_MODE __cdecl CDockDlgBarBase::GetDlgBarMode(void)
+?GetDocClass@CMyMultiDocTemplate@@QEAAPEAUCRuntimeClass@@XZ -> public: struct CRuntimeClass * __ptr64 __cdecl CMyMultiDocTemplate::GetDocClass(void) __ptr64
+?GetDocTemplate@CAppBase@@QEAAPEAVCMyMultiDocTemplate@@PEAUCRuntimeClass@@@Z -> public: class CMyMultiDocTemplate * __ptr64 __cdecl CAppBase::GetDocTemplate(struct CRuntimeClass * __ptr64) __ptr64
+?GetDocTemplate@CAppBase@@QEAAPEAVCMyMultiDocTemplate@@PEAVCView@@@Z -> public: class CMyMultiDocTemplate * __ptr64 __cdecl CAppBase::GetDocTemplate(class CView * __ptr64) __ptr64
+?GetDockViewFromID@CDockViewBase@@SAPEAV1@I@Z -> public: static class CDockViewBase * __ptr64 __cdecl CDockViewBase::GetDockViewFromID(unsigned int)
+?GetDocument@CAppBase@@QEAAPEAVCDocument@@XZ -> public: class CDocument * __ptr64 __cdecl CAppBase::GetDocument(void) __ptr64
+?GetDocument@CViewBase@@QEAAPEAVCDocBase@@XZ -> public: class CDocBase * __ptr64 __cdecl CViewBase::GetDocument(void) __ptr64
+?GetDuration@CDurationProp@@QEBA?AVCOleDateTimeSpan@ATL@@XZ -> public: class ATL::COleDateTimeSpan __cdecl CDurationProp::GetDuration(void)const __ptr64
+?GetEQDistance@CGlobalModeless@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN11@Z -> public: int __cdecl CGlobalModeless::GetEQDistance(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?GetEQDistance@CMouseEdit@@QEAAHAEAN00@Z -> public: int __cdecl CMouseEdit::GetEQDistance(double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?GetEQDistance@CStringParser@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN11@Z -> public: static int __cdecl CStringParser::GetEQDistance(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64)
+?GetEditValue@CFormulaCobx@@QEAAHAEAH@Z -> public: int __cdecl CFormulaCobx::GetEditValue(int & __ptr64) __ptr64
+?GetEditValue@CFormulaCobx@@QEAAHAEAN@Z -> public: int __cdecl CFormulaCobx::GetEditValue(double & __ptr64) __ptr64
+?GetEditValue@CFormulaEdit@@QEAAHAEAH@Z -> public: int __cdecl CFormulaEdit::GetEditValue(int & __ptr64) __ptr64
+?GetEditValue@CFormulaEdit@@QEAAHAEAN@Z -> public: int __cdecl CFormulaEdit::GetEditValue(double & __ptr64) __ptr64
+?GetEditValue@CFormulaEdit@@SAHPEAVCWnd@@AEAH@Z -> public: static int __cdecl CFormulaEdit::GetEditValue(class CWnd * __ptr64,int & __ptr64)
+?GetEditValue@CFormulaEdit@@SAHPEAVCWnd@@AEAN@Z -> public: static int __cdecl CFormulaEdit::GetEditValue(class CWnd * __ptr64,double & __ptr64)
+?GetExtraParamST@CMouseEdit@@SAXAEAK@Z -> public: static void __cdecl CMouseEdit::GetExtraParamST(unsigned long & __ptr64)
+?GetFloatNumber@CGlobalModeless@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN@Z -> public: int __cdecl CGlobalModeless::GetFloatNumber(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64) __ptr64
+?GetFloatNumber@CMouseEdit@@QEAAHAEAN@Z -> public: int __cdecl CMouseEdit::GetFloatNumber(double & __ptr64) __ptr64
+?GetFloatNumber@CStringParser@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN@Z -> public: static int __cdecl CStringParser::GetFloatNumber(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64)
+?GetFormulaValue@CFormulaEdit@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAH@Z -> public: static int __cdecl CFormulaEdit::GetFormulaValue(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,int & __ptr64)
+?GetFormulaValue@CFormulaEdit@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN@Z -> public: static int __cdecl CFormulaEdit::GetFormulaValue(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64)
+?GetHeadItem@CTreeData@@QEAAPEAVCTreeItem@@XZ -> public: class CTreeItem * __ptr64 __cdecl CTreeData::GetHeadItem(void) __ptr64
+?GetHeightFromFontNew@CMouseEdit@@QEAA_JXZ -> public: __int64 __cdecl CMouseEdit::GetHeightFromFontNew(void) __ptr64
+?GetIGM@CViewBase@@UEAAPEAVI_ModelBase@@XZ -> public: virtual class I_ModelBase * __ptr64 __cdecl CViewBase::GetIGM(void) __ptr64
+?GetINumber@CGlobalModeless@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAH@Z -> public: int __cdecl CGlobalModeless::GetINumber(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,int & __ptr64) __ptr64
+?GetINumber@CMouseEdit@@QEAAHAEAH@Z -> public: int __cdecl CMouseEdit::GetINumber(int & __ptr64) __ptr64
+?GetINumber@CStringParser@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAH@Z -> public: static int __cdecl CStringParser::GetINumber(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,int & __ptr64)
+?GetI_GENModelST@CMouseEdit@@SAPEAVI_ModelBase@@XZ -> public: static class I_ModelBase * __ptr64 __cdecl CMouseEdit::GetI_GENModelST(void)
+?GetInnerPoly@I_PolyMaker@@UEAAXHAEAV?$CArray@VXGL_3dp@@AEAV1@@@@Z -> public: virtual void __cdecl I_PolyMaker::GetInnerPoly(int,class CArray<class XGL_3dp,class XGL_3dp & __ptr64> & __ptr64) __ptr64
+?GetInnerPolyCount@I_PolyMaker@@UEAAHXZ -> public: virtual int __cdecl I_PolyMaker::GetInnerPolyCount(void) __ptr64
+?GetInstance@I_GViewWndMan@@SAPEAV1@XZ -> public: static class I_GViewWndMan * __ptr64 __cdecl I_GViewWndMan::GetInstance(void)
+?GetInstance@I_PolyMakerFactory@@SAPEAV1@XZ -> public: static class I_PolyMakerFactory * __ptr64 __cdecl I_PolyMakerFactory::GetInstance(void)
+?GetItemData@CTreeItem@@QEAAPEAVCObject@@XZ -> public: class CObject * __ptr64 __cdecl CTreeItem::GetItemData(void) __ptr64
+?GetItemID@CTreeItem@@QEAAIXZ -> public: unsigned int __cdecl CTreeItem::GetItemID(void) __ptr64
+?GetItemNameID@CTreeItem@@QEAAIXZ -> public: unsigned int __cdecl CTreeItem::GetItemNameID(void) __ptr64
+?GetLengthStringST@I_ModelBase@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@N@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl I_ModelBase::GetLengthStringST(double)
+?GetLinkedMEdit@CParseEdit@@QEAAPEAVCMouseEdit@@XZ -> public: class CMouseEdit * __ptr64 __cdecl CParseEdit::GetLinkedMEdit(void) __ptr64
+?GetMemDC@CRprtViewBase@@IEAAPEAVCDC@@XZ -> protected: class CDC * __ptr64 __cdecl CRprtViewBase::GetMemDC(void) __ptr64
+?GetMembType@CRprtViewBase@@QEAA?AW4MEMBType@@XZ -> public: enum MEMBType __cdecl CRprtViewBase::GetMembType(void) __ptr64
+?GetMessageMap@CAngleViewDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CAngleViewDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CAppBase@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CAppBase::GetMessageMap(void)const __ptr64
+?GetMessageMap@CBCGPMiniFrameWnd_NotFloat@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CBCGPMiniFrameWnd_NotFloat::GetMessageMap(void)const __ptr64
+?GetMessageMap@CChildFrameBase@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CChildFrameBase::GetMessageMap(void)const __ptr64
+?GetMessageMap@CDocBase@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CDocBase::GetMessageMap(void)const __ptr64
+?GetMessageMap@CDockDlgBarBase@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CDockDlgBarBase::GetMessageMap(void)const __ptr64
+?GetMessageMap@CDockViewBase@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CDockViewBase::GetMessageMap(void)const __ptr64
+?GetMessageMap@CDockingDlgBarBase@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CDockingDlgBarBase::GetMessageMap(void)const __ptr64
+?GetMessageMap@CDockingDlgBarSample@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CDockingDlgBarSample::GetMessageMap(void)const __ptr64
+?GetMessageMap@CDockingTabDlgBarSample@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CDockingTabDlgBarSample::GetMessageMap(void)const __ptr64
+?GetMessageMap@CFormulaCobx@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CFormulaCobx::GetMessageMap(void)const __ptr64
+?GetMessageMap@CFormulaEdit@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CFormulaEdit::GetMessageMap(void)const __ptr64
+?GetMessageMap@CGLViewBase@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CGLViewBase::GetMessageMap(void)const __ptr64
+?GetMessageMap@CGlobalModeless@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CGlobalModeless::GetMessageMap(void)const __ptr64
+?GetMessageMap@CGwPreviewView@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CGwPreviewView::GetMessageMap(void)const __ptr64
+?GetMessageMap@CIconCombo@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CIconCombo::GetMessageMap(void)const __ptr64
+?GetMessageMap@CLabelEdit@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CLabelEdit::GetMessageMap(void)const __ptr64
+?GetMessageMap@CMainFrameBase@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CMainFrameBase::GetMessageMap(void)const __ptr64
+?GetMessageMap@CMenuBtnEx@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CMenuBtnEx::GetMessageMap(void)const __ptr64
+?GetMessageMap@CMouseEdit@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CMouseEdit::GetMessageMap(void)const __ptr64
+?GetMessageMap@CParseEdit@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CParseEdit::GetMessageMap(void)const __ptr64
+?GetMessageMap@CPropSliderCtrl@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CPropSliderCtrl::GetMessageMap(void)const __ptr64
+?GetMessageMap@CRprtViewBase@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CRprtViewBase::GetMessageMap(void)const __ptr64
+?GetMessageMap@CSpinBtnExCtrl@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CSpinBtnExCtrl::GetMessageMap(void)const __ptr64
+?GetMessageMap@CStatusBarBase@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CStatusBarBase::GetMessageMap(void)const __ptr64
+?GetMessageMap@CTMTabWnd@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CTMTabWnd::GetMessageMap(void)const __ptr64
+?GetMessageMap@CTestDlgTabPage@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CTestDlgTabPage::GetMessageMap(void)const __ptr64
+?GetMessageMap@CViewBase@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CViewBase::GetMessageMap(void)const __ptr64
+?GetMessageMap@GMyToolTipCtrl@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl GMyToolTipCtrl::GetMessageMap(void)const __ptr64
+?GetModeToUse@CMouseEdit@@QEAAHXZ -> public: int __cdecl CMouseEdit::GetModeToUse(void) __ptr64
+?GetModelingMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::GetModelingMode(void) __ptr64
+?GetModelingModeST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::GetModelingModeST(void)
+?GetMySelf@CDockDlgBarBase@@SAPEAV1@XZ -> public: static class CDockDlgBarBase * __ptr64 __cdecl CDockDlgBarBase::GetMySelf(void)
+?GetMySelf@I_MainFrameBase@@SAPEAV1@XZ -> public: static class I_MainFrameBase * __ptr64 __cdecl I_MainFrameBase::GetMySelf(void)
+?GetMySelfCountST@I_ModelBase@@SA_JXZ -> public: static __int64 __cdecl I_ModelBase::GetMySelfCountST(void)
+?GetMySelfST@CGlobalModeless@@SAPEAVCDialog@@I@Z -> public: static class CDialog * __ptr64 __cdecl CGlobalModeless::GetMySelfST(unsigned int)
+?GetNameByNameID@CTreeData@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@I@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTreeData::GetNameByNameID(unsigned int) __ptr64
+?GetNodeList@CGlobalModeless@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV?$CArray@HH@@@Z -> public: int __cdecl CGlobalModeless::GetNodeList(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class CArray<int,int> & __ptr64) __ptr64
+?GetNodeList@CGlobalModeless@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV?$CArray@II@@@Z -> public: int __cdecl CGlobalModeless::GetNodeList(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?GetNodeList@CMouseEdit@@QEAAHAEAV?$CArray@HH@@@Z -> public: int __cdecl CMouseEdit::GetNodeList(class CArray<int,int> & __ptr64) __ptr64
+?GetNodeList@CMouseEdit@@QEAAHAEAV?$CArray@II@@@Z -> public: int __cdecl CMouseEdit::GetNodeList(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?GetNodeList@CStringParser@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV?$CArray@HH@@@Z -> public: static int __cdecl CStringParser::GetNodeList(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class CArray<int,int> & __ptr64)
+?GetNodeList@CStringParser@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV?$CArray@II@@@Z -> public: static int __cdecl CStringParser::GetNodeList(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class CArray<unsigned int,unsigned int> & __ptr64)
+?GetNumberOfTimes@CGlobalModeless@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAH@Z -> public: int __cdecl CGlobalModeless::GetNumberOfTimes(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,int & __ptr64) __ptr64
+?GetNumberOfTimes@CMouseEdit@@QEAAHAEAH@Z -> public: int __cdecl CMouseEdit::GetNumberOfTimes(int & __ptr64) __ptr64
+?GetNumberOfTimes@CStringParser@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAH@Z -> public: static int __cdecl CStringParser::GetNumberOfTimes(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,int & __ptr64)
+?GetObjectKList@CMouseEdit@@QEAAHAEAV?$CArray@HH@@@Z -> public: int __cdecl CMouseEdit::GetObjectKList(class CArray<int,int> & __ptr64) __ptr64
+?GetObjectKList@CMouseEdit@@QEAAHAEAV?$CArray@II@@@Z -> public: int __cdecl CMouseEdit::GetObjectKList(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?GetObjectSelectionMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::GetObjectSelectionMode(void) __ptr64
+?GetObjectSelectionModeST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::GetObjectSelectionModeST(void)
+?GetOldMouseEdit@CMouseEdit@@SAPEAV1@XZ -> public: static class CMouseEdit * __ptr64 __cdecl CMouseEdit::GetOldMouseEdit(void)
+?GetOutterPoly@I_PolyMaker@@UEAAXAEAV?$CArray@VXGL_3dp@@AEAV1@@@@Z -> public: virtual void __cdecl I_PolyMaker::GetOutterPoly(class CArray<class XGL_3dp,class XGL_3dp & __ptr64> & __ptr64) __ptr64
+?GetPaneCount@CStatusBarBase@@QEAAHXZ -> public: int __cdecl CStatusBarBase::GetPaneCount(void) __ptr64
+?GetParent@CTreeItem@@QEAAPEAV1@XZ -> public: class CTreeItem * __ptr64 __cdecl CTreeItem::GetParent(void) __ptr64
+?GetPosition@CFormulaEdit@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN11@Z -> public: static int __cdecl CFormulaEdit::GetPosition(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64)
+?GetPosition@CFormulaEdit@@SAHPEAVCWnd@@AEAN11@Z -> public: static int __cdecl CFormulaEdit::GetPosition(class CWnd * __ptr64,double & __ptr64,double & __ptr64,double & __ptr64)
+?GetPosition@CGlobalModeless@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN11@Z -> public: int __cdecl CGlobalModeless::GetPosition(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?GetPosition@CMouseEdit@@QEAAHAEAN00@Z -> public: int __cdecl CMouseEdit::GetPosition(double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?GetPosition@CStringParser@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN11@Z -> public: static int __cdecl CStringParser::GetPosition(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64)
+?GetPositionStringST@I_ModelBase@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@NNN@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl I_ModelBase::GetPositionStringST(double,double,double)
+?GetRecentPaneRect@CStatusBarBase@@QEAAXAEAVCRect@@@Z -> public: void __cdecl CStatusBarBase::GetRecentPaneRect(class CRect & __ptr64) __ptr64
+?GetReportCtrlData@CRprtViewBase@@MEAAXAEAUDGN_REPORT_CTRL_D@@@Z -> protected: virtual void __cdecl CRprtViewBase::GetReportCtrlData(struct DGN_REPORT_CTRL_D & __ptr64) __ptr64
+?GetRuntimeClass@CBCGPMiniFrameWnd_NotFloat@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CBCGPMiniFrameWnd_NotFloat::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CChildFrameBase@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CChildFrameBase::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CDocBase@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CDocBase::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CDockDlgBarBase@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CDockDlgBarBase::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CDockViewBase@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CDockViewBase::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CGLViewBase@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CGLViewBase::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CGwPreviewView@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CGwPreviewView::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CMainFrameBase@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CMainFrameBase::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CMyTabWndBase@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CMyTabWndBase::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CRprtViewBase@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CRprtViewBase::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CTMDlgBase@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CTMDlgBase::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CTMTabWnd@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CTMTabWnd::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CTestDlgTabPage@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CTestDlgTabPage::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CViewBase@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CViewBase::GetRuntimeClass(void)const __ptr64
+?GetSelItem@CMenuBtnEx@@QEAAIXZ -> public: unsigned int __cdecl CMenuBtnEx::GetSelItem(void) __ptr64
+?GetSelMenuID@CMenuBtnEx@@QEAAIXZ -> public: unsigned int __cdecl CMenuBtnEx::GetSelMenuID(void) __ptr64
+?GetSelectedElemKeyListForDgn@I_ModelBase@@UEAAHAEAV?$CArray@II@@H@Z -> public: virtual int __cdecl I_ModelBase::GetSelectedElemKeyListForDgn(class CArray<unsigned int,unsigned int> & __ptr64,int) __ptr64
+?GetSelectedNodeKeyListForDgn@I_ModelBase@@UEAAHAEAV?$CArray@II@@H@Z -> public: virtual int __cdecl I_ModelBase::GetSelectedNodeKeyListForDgn(class CArray<unsigned int,unsigned int> & __ptr64,int) __ptr64
+?GetSnappedObjectKey@GGRViewEventMgr@@QEAAXAEADAEAI@Z -> public: void __cdecl GGRViewEventMgr::GetSnappedObjectKey(char & __ptr64,unsigned int & __ptr64) __ptr64
+?GetSnappedObjectKey@I_GGRViewEventObserver@@QEAAXAEADAEAI@Z -> public: void __cdecl I_GGRViewEventObserver::GetSnappedObjectKey(char & __ptr64,unsigned int & __ptr64) __ptr64
+?GetStateLevel@I_ModelBase@@SAHH@Z -> public: static int __cdecl I_ModelBase::GetStateLevel(int)
+?GetStatusBar@CViewBase@@QEAAPEAVCStatusBarBase@@XZ -> public: class CStatusBarBase * __ptr64 __cdecl CViewBase::GetStatusBar(void) __ptr64
+?GetSubItem@CTreeItem@@QEAAPEAV1@H@Z -> public: class CTreeItem * __ptr64 __cdecl CTreeItem::GetSubItem(int) __ptr64
+?GetSubItemByNameID@CTreeItem@@QEAAPEAV1@I@Z -> public: class CTreeItem * __ptr64 __cdecl CTreeItem::GetSubItemByNameID(unsigned int) __ptr64
+?GetSubItemCount@CTreeItem@@QEAA_JXZ -> public: __int64 __cdecl CTreeItem::GetSubItemCount(void) __ptr64
+?GetTabCount@CMyTabWndBase@@QEAAHXZ -> public: int __cdecl CMyTabWndBase::GetTabCount(void) __ptr64
+?GetTextLength@CMouseEdit@@QEAAJXZ -> public: long __cdecl CMouseEdit::GetTextLength(void) __ptr64
+?GetThisClass@CBCGPMiniFrameWnd_NotFloat@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CBCGPMiniFrameWnd_NotFloat::GetThisClass(void)
+?GetThisClass@CChildFrameBase@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CChildFrameBase::GetThisClass(void)
+?GetThisClass@CDocBase@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CDocBase::GetThisClass(void)
+?GetThisClass@CDockDlgBarBase@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CDockDlgBarBase::GetThisClass(void)
+?GetThisClass@CDockViewBase@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CDockViewBase::GetThisClass(void)
+?GetThisClass@CGLViewBase@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CGLViewBase::GetThisClass(void)
+?GetThisClass@CGwPreviewView@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CGwPreviewView::GetThisClass(void)
+?GetThisClass@CMainFrameBase@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CMainFrameBase::GetThisClass(void)
+?GetThisClass@CMyTabWndBase@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CMyTabWndBase::GetThisClass(void)
+?GetThisClass@CRprtViewBase@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CRprtViewBase::GetThisClass(void)
+?GetThisClass@CTMDlgBase@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CTMDlgBase::GetThisClass(void)
+?GetThisClass@CTMTabWnd@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CTMTabWnd::GetThisClass(void)
+?GetThisClass@CTestDlgTabPage@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CTestDlgTabPage::GetThisClass(void)
+?GetThisClass@CViewBase@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CViewBase::GetThisClass(void)
+?GetThisMessageMap@CAngleViewDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CAngleViewDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CAppBase@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CAppBase::GetThisMessageMap(void)
+?GetThisMessageMap@CBCGPMiniFrameWnd_NotFloat@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CBCGPMiniFrameWnd_NotFloat::GetThisMessageMap(void)
+?GetThisMessageMap@CChildFrameBase@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CChildFrameBase::GetThisMessageMap(void)
+?GetThisMessageMap@CDocBase@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CDocBase::GetThisMessageMap(void)
+?GetThisMessageMap@CDockDlgBarBase@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CDockDlgBarBase::GetThisMessageMap(void)
+?GetThisMessageMap@CDockViewBase@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CDockViewBase::GetThisMessageMap(void)
+?GetThisMessageMap@CDockingDlgBarBase@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CDockingDlgBarBase::GetThisMessageMap(void)
+?GetThisMessageMap@CDockingDlgBarSample@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CDockingDlgBarSample::GetThisMessageMap(void)
+?GetThisMessageMap@CDockingTabDlgBarSample@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CDockingTabDlgBarSample::GetThisMessageMap(void)
+?GetThisMessageMap@CFormulaCobx@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CFormulaCobx::GetThisMessageMap(void)
+?GetThisMessageMap@CFormulaEdit@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CFormulaEdit::GetThisMessageMap(void)
+?GetThisMessageMap@CGLViewBase@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CGLViewBase::GetThisMessageMap(void)
+?GetThisMessageMap@CGlobalModeless@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CGlobalModeless::GetThisMessageMap(void)
+?GetThisMessageMap@CGwPreviewView@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CGwPreviewView::GetThisMessageMap(void)
+?GetThisMessageMap@CIconCombo@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CIconCombo::GetThisMessageMap(void)
+?GetThisMessageMap@CLabelEdit@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CLabelEdit::GetThisMessageMap(void)
+?GetThisMessageMap@CMainFrameBase@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CMainFrameBase::GetThisMessageMap(void)
+?GetThisMessageMap@CMenuBtnEx@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CMenuBtnEx::GetThisMessageMap(void)
+?GetThisMessageMap@CMouseEdit@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CMouseEdit::GetThisMessageMap(void)
+?GetThisMessageMap@CParseEdit@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CParseEdit::GetThisMessageMap(void)
+?GetThisMessageMap@CPropSliderCtrl@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CPropSliderCtrl::GetThisMessageMap(void)
+?GetThisMessageMap@CRprtViewBase@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CRprtViewBase::GetThisMessageMap(void)
+?GetThisMessageMap@CSpinBtnExCtrl@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CSpinBtnExCtrl::GetThisMessageMap(void)
+?GetThisMessageMap@CStatusBarBase@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CStatusBarBase::GetThisMessageMap(void)
+?GetThisMessageMap@CTMTabWnd@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CTMTabWnd::GetThisMessageMap(void)
+?GetThisMessageMap@CTestDlgTabPage@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CTestDlgTabPage::GetThisMessageMap(void)
+?GetThisMessageMap@CViewBase@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CViewBase::GetThisMessageMap(void)
+?GetThisMessageMap@GMyToolTipCtrl@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl GMyToolTipCtrl::GetThisMessageMap(void)
+?GetToolBarItems@CGwPreviewView@@IEAAHXZ -> protected: int __cdecl CGwPreviewView::GetToolBarItems(void) __ptr64
+?GetTreeItemByID@CTreeData@@QEAAPEAVCTreeItem@@I@Z -> public: class CTreeItem * __ptr64 __cdecl CTreeData::GetTreeItemByID(unsigned int) __ptr64
+?GetUEDistance@CGlobalModeless@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV?$CArray@NN@@@Z -> public: int __cdecl CGlobalModeless::GetUEDistance(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class CArray<double,double> & __ptr64) __ptr64
+?GetUEDistance@CMouseEdit@@QEAAHAEAV?$CArray@NN@@@Z -> public: int __cdecl CMouseEdit::GetUEDistance(class CArray<double,double> & __ptr64) __ptr64
+?GetUEDistance@CStringParser@@SAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV?$CArray@NN@@@Z -> public: static int __cdecl CStringParser::GetUEDistance(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class CArray<double,double> & __ptr64)
+?GetUEDistanceABS@CMouseEdit@@QEAAHAEAV?$CArray@NN@@@Z -> public: int __cdecl CMouseEdit::GetUEDistanceABS(class CArray<double,double> & __ptr64) __ptr64
+?GetUcsGcsMousePos@GGRViewEventMgr@@QEAAXAEAN00000@Z -> public: void __cdecl GGRViewEventMgr::GetUcsGcsMousePos(double & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?GetUcsGcsMousePos@I_GGRViewEventObserver@@QEAAXAEAN00000@Z -> public: void __cdecl I_GGRViewEventObserver::GetUcsGcsMousePos(double & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?GetUcsPos@CMouseEdit@@QEAAHNNNAEAN00@Z -> public: int __cdecl CMouseEdit::GetUcsPos(double,double,double,double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?GetValidDlgST@CGlobalModeless@@SAPEAVCDlgNode@@IAEA_J@Z -> public: static class CDlgNode * __ptr64 __cdecl CGlobalModeless::GetValidDlgST(unsigned int,__int64 & __ptr64)
+?GetView@CAppBase@@QEAAPEAVCView@@PEAUCRuntimeClass@@@Z -> public: class CView * __ptr64 __cdecl CAppBase::GetView(struct CRuntimeClass * __ptr64) __ptr64
+?GetViewBaseList@CAppBase@@QEAAXPEAUCRuntimeClass@@AEAV?$CArray@PEAVCViewBase@@PEAV1@@@@Z -> public: void __cdecl CAppBase::GetViewBaseList(struct CRuntimeClass * __ptr64,class CArray<class CViewBase * __ptr64,class CViewBase * __ptr64> & __ptr64) __ptr64
+?GetViewClass@CMyMultiDocTemplate@@QEAAPEAUCRuntimeClass@@XZ -> public: struct CRuntimeClass * __ptr64 __cdecl CMyMultiDocTemplate::GetViewClass(void) __ptr64
+?GetViewCount@CViewBase@@IEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> protected: int __cdecl CViewBase::GetViewCount(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?GetViewList@CAppBase@@QEAAXPEAUCRuntimeClass@@AEAV?$CArray@PEAVCView@@PEAV1@@@@Z -> public: void __cdecl CAppBase::GetViewList(struct CRuntimeClass * __ptr64,class CArray<class CView * __ptr64,class CView * __ptr64> & __ptr64) __ptr64
+?GetWcsPos@CMouseEdit@@QEAAHNNNAEAN00@Z -> public: int __cdecl CMouseEdit::GetWcsPos(double,double,double,double & __ptr64,double & __ptr64,double & __ptr64) __ptr64
+?GetWidgetToolTips@GGRViewEventMgr@@QEAAAEAVCStringArray@@XZ -> public: class CStringArray & __ptr64 __cdecl GGRViewEventMgr::GetWidgetToolTips(void) __ptr64
+?GetWindowTitle@CViewBase@@IEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> protected: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CViewBase::GetWindowTitle(void) __ptr64
+?GetWindowTitleName@CViewBase@@UEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: virtual class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CViewBase::GetWindowTitleName(void) __ptr64
+?GetWndSize@GMyToolTipCtrl@@QEAA?AVCSize@@XZ -> public: class CSize __cdecl GMyToolTipCtrl::GetWndSize(void) __ptr64
+?GetWorkSpaceBar@I_MainFrameBase@@SAPEAVCWnd@@XZ -> public: static class CWnd * __ptr64 __cdecl I_MainFrameBase::GetWorkSpaceBar(void)
+?GetZoomFactor@CRprtViewBase@@QEAANXZ -> public: double __cdecl CRprtViewBase::GetZoomFactor(void) __ptr64
+?Get_IO_Angle_FormatST@I_ModelBase@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl I_ModelBase::Get_IO_Angle_FormatST(void)
+?Get_IO_Length_FormatST@I_ModelBase@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl I_ModelBase::Get_IO_Length_FormatST(void)
+?Get_IO_Position_FormatST@I_ModelBase@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl I_ModelBase::Get_IO_Position_FormatST(void)
+?GwResetPrintView@CGwPreviewView@@QEAAXXZ -> public: void __cdecl CGwPreviewView::GwResetPrintView(void) __ptr64
+?HScroll@CPropSliderCtrl@@IEAAXII@Z -> protected: void __cdecl CPropSliderCtrl::HScroll(unsigned int,unsigned int) __ptr64
+?HasButton@CCheckBoxProp@@MEBAHXZ -> protected: virtual int __cdecl CCheckBoxProp::HasButton(void)const __ptr64
+?HideAllRegisteredDlg@CViewBase@@QEAAXXZ -> public: void __cdecl CViewBase::HideAllRegisteredDlg(void) __ptr64
+?HideAllST@CGlobalModeless@@SAHXZ -> public: static int __cdecl CGlobalModeless::HideAllST(void)
+?HideDlgST@CGlobalModeless@@SAXI@Z -> public: static void __cdecl CGlobalModeless::HideDlgST(unsigned int)
+?HideTipOnly@GMyToolTipCtrl@@QEAAXXZ -> public: void __cdecl GMyToolTipCtrl::HideTipOnly(void) __ptr64
+?HideTipOnlyForMED@GMyToolTipCtrl@@QEAAXXZ -> public: void __cdecl GMyToolTipCtrl::HideTipOnlyForMED(void) __ptr64
+?HideTipWindow@GMyToolTipCtrl@@QEAAXXZ -> public: void __cdecl GMyToolTipCtrl::HideTipWindow(void) __ptr64
+?HideToolTip@CMouseEdit@@IEAAXXZ -> protected: void __cdecl CMouseEdit::HideToolTip(void) __ptr64
+?HideToolTip@CParseEdit@@IEAAXXZ -> protected: void __cdecl CParseEdit::HideToolTip(void) __ptr64
+?HideWndTab@CMainFrameBase@@QEAAXXZ -> public: void __cdecl CMainFrameBase::HideWndTab(void) __ptr64
+?ImAssocWindowST@CMouseEdit@@SAXXZ -> public: static void __cdecl CMouseEdit::ImAssocWindowST(void)
+?ImNotAssocWindowAllForceST@CMouseEdit@@SAXXZ -> public: static void __cdecl CMouseEdit::ImNotAssocWindowAllForceST(void)
+?ImNotAssocWindowForceST@CMouseEdit@@SAXXZ -> public: static void __cdecl CMouseEdit::ImNotAssocWindowForceST(void)
+?ImNotAssocWindowST@CMouseEdit@@SAXXZ -> public: static void __cdecl CMouseEdit::ImNotAssocWindowST(void)
+?ImNotAssocWindowSTbyKeyIn@CMouseEdit@@SAXXZ -> public: static void __cdecl CMouseEdit::ImNotAssocWindowSTbyKeyIn(void)
+?InActiveThisObjects@I_ModelBase@@UEAAXAEAV?$CArray@II@@0@Z -> public: virtual void __cdecl I_ModelBase::InActiveThisObjects(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?InActiveThisSDSObjects@I_ModelBase@@UEAAXPEAV?$CArray@II@@00H@Z -> public: virtual void __cdecl I_ModelBase::InActiveThisSDSObjects(class CArray<unsigned int,unsigned int> * __ptr64,class CArray<unsigned int,unsigned int> * __ptr64,class CArray<unsigned int,unsigned int> * __ptr64,int) __ptr64
+?IncRefCountAllRegisteredDlg@CViewBase@@IEAAXXZ -> protected: void __cdecl CViewBase::IncRefCountAllRegisteredDlg(void) __ptr64
+?IncRefCountST@CGlobalModeless@@SAHI@Z -> public: static int __cdecl CGlobalModeless::IncRefCountST(unsigned int)
+?InitData@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::InitData(void) __ptr64
+?InitEngineParam@CGLViewBase@@UEAAXXZ -> public: virtual void __cdecl CGLViewBase::InitEngineParam(void) __ptr64
+?InitForModeToUseChange@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::InitForModeToUseChange(void) __ptr64
+?InitInstance@CAppBase@@UEAAHXZ -> public: virtual int __cdecl CAppBase::InitInstance(void) __ptr64
+?InitModelingMode@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::InitModelingMode(void) __ptr64
+?InitPaperCombo@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::InitPaperCombo(void) __ptr64
+?InitPrintParam@CGwPrintHandler@@SAXPEAVCView@@@Z -> public: static void __cdecl CGwPrintHandler::InitPrintParam(class CView * __ptr64)
+?InitSceneParams@CGLViewBase@@UEAAXXZ -> public: virtual void __cdecl CGLViewBase::InitSceneParams(void) __ptr64
+?InitToolBar@CGwPreviewView@@IEAAHXZ -> protected: int __cdecl CGwPreviewView::InitToolBar(void) __ptr64
+?Initial@CRprtViewBase@@QEAAHPEAVCWnd@@@Z -> public: int __cdecl CRprtViewBase::Initial(class CWnd * __ptr64) __ptr64
+?Instance@GGRViewEventMgr@@SAPEAV1@XZ -> public: static class GGRViewEventMgr * __ptr64 __cdecl GGRViewEventMgr::Instance(void)
+?IsADS3DViewMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsADS3DViewMode(void) __ptr64
+?IsAttUcsPos@CMouseEdit@@QEAAHXZ -> public: int __cdecl CMouseEdit::IsAttUcsPos(void) __ptr64
+?IsCreated@CDockingDlgBarBase@@UEAAHXZ -> public: virtual int __cdecl CDockingDlgBarBase::IsCreated(void) __ptr64
+?IsCreated@GMyToolTipCtrl@@QEAAHXZ -> public: int __cdecl GMyToolTipCtrl::IsCreated(void) __ptr64
+?IsCurStateEditing@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsCurStateEditing(void) __ptr64
+?IsCurStateLevel1@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsCurStateLevel1(void) __ptr64
+?IsCurStateLevel2@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsCurStateLevel2(void) __ptr64
+?IsCurStateLevel3@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsCurStateLevel3(void) __ptr64
+?IsCurStateLevel4@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsCurStateLevel4(void) __ptr64
+?IsCurStateModeling@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsCurStateModeling(void) __ptr64
+?IsCurStateSelUnsel@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsCurStateSelUnsel(void) __ptr64
+?IsCurStateUcsSetting@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsCurStateUcsSetting(void) __ptr64
+?IsCurStateViewing@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsCurStateViewing(void) __ptr64
+?IsCursorShapeChanged@I_ModelBase@@QEAAHH@Z -> public: int __cdecl I_ModelBase::IsCursorShapeChanged(int) __ptr64
+?IsDynamicViewModeST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::IsDynamicViewModeST(void)
+?IsExistCommandLineObserver@GGRViewEventMgr@@QEAA_NXZ -> public: bool __cdecl GGRViewEventMgr::IsExistCommandLineObserver(void) __ptr64
+?IsExistMySelfST@I_ModelBase@@SAHPEAV1@@Z -> public: static int __cdecl I_ModelBase::IsExistMySelfST(class I_ModelBase * __ptr64)
+?IsExistObserver@GGRViewEventMgr@@QEAA_NPEAVI_GGRViewEventObserver@@@Z -> public: bool __cdecl GGRViewEventMgr::IsExistObserver(class I_GGRViewEventObserver * __ptr64) __ptr64
+?IsExistSnappedObject@GGRViewEventMgr@@QEAA_NXZ -> public: bool __cdecl GGRViewEventMgr::IsExistSnappedObject(void) __ptr64
+?IsExistSnappedObject@I_GGRViewEventObserver@@QEAA_NXZ -> public: bool __cdecl I_GGRViewEventObserver::IsExistSnappedObject(void) __ptr64
+?IsExistWegetObserver@GGRViewEventMgr@@QEAA_NPEAVI_WidgetObserver@@@Z -> public: bool __cdecl GGRViewEventMgr::IsExistWegetObserver(class I_WidgetObserver * __ptr64) __ptr64
+?IsExistWidgetToolTips@GGRViewEventMgr@@QEAA_NXZ -> public: bool __cdecl GGRViewEventMgr::IsExistWidgetToolTips(void) __ptr64
+?IsFDSPlaneViewMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsFDSPlaneViewMode(void) __ptr64
+?IsFDSStoryViewMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsFDSStoryViewMode(void) __ptr64
+?IsFDSViewMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsFDSViewMode(void) __ptr64
+?IsGPSElemPickingState@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsGPSElemPickingState(void) __ptr64
+?IsGPSElemPickingStateST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::IsGPSElemPickingStateST(void)
+?IsGPSNodePickingState@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsGPSNodePickingState(void) __ptr64
+?IsGPSNodePickingStateST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::IsGPSNodePickingStateST(void)
+?IsGPSViewMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsGPSViewMode(void) __ptr64
+?IsGPSViewModeST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::IsGPSViewModeST(void)
+?IsGrayScaledPrinter@CGwPrintHandler@@SAHXZ -> public: static int __cdecl CGwPrintHandler::IsGrayScaledPrinter(void)
+?IsKeyPressed@CMouseEdit@@QEAAHXZ -> public: int __cdecl CMouseEdit::IsKeyPressed(void) __ptr64
+?IsModelingViewMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsModelingViewMode(void) __ptr64
+?IsOpen@CLogFileEx@@QEAAHXZ -> public: int __cdecl CLogFileEx::IsOpen(void) __ptr64
+?IsPickingMarkDisplayST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::IsPickingMarkDisplayST(void)
+?IsPlaVolSelect@CMouseEdit@@QEAAHXZ -> public: int __cdecl CMouseEdit::IsPlaVolSelect(void) __ptr64
+?IsPlaVolUnselect@CMouseEdit@@QEAAHXZ -> public: int __cdecl CMouseEdit::IsPlaVolUnselect(void) __ptr64
+?IsSameStatusBar@CStatusBarBase@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl CStatusBarBase::IsSameStatusBar(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?IsSelectMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsSelectMode(void) __ptr64
+?IsSelectModeST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::IsSelectModeST(void)
+?IsSelectOrUnselectModeThis@I_ModelBase@@QEAAHH@Z -> public: int __cdecl I_ModelBase::IsSelectOrUnselectModeThis(int) __ptr64
+?IsSelectPlaneMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsSelectPlaneMode(void) __ptr64
+?IsSelectPlaneModeST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::IsSelectPlaneModeST(void)
+?IsSelectVolumeMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsSelectVolumeMode(void) __ptr64
+?IsSelectVolumeModeST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::IsSelectVolumeModeST(void)
+?IsSelectionMode@I_GGRViewEventObserver@@UEAAHXZ -> public: virtual int __cdecl I_GGRViewEventObserver::IsSelectionMode(void) __ptr64
+?IsShowState@CDockViewBase@@SAHI@Z -> public: static int __cdecl CDockViewBase::IsShowState(unsigned int)
+?IsShowed@GMyToolTipCtrl@@QEAAHXZ -> public: int __cdecl GMyToolTipCtrl::IsShowed(void) __ptr64
+?IsStateEditing@I_ModelBase@@QEAAHH@Z -> public: int __cdecl I_ModelBase::IsStateEditing(int) __ptr64
+?IsStateLevel1@I_ModelBase@@SAHH@Z -> public: static int __cdecl I_ModelBase::IsStateLevel1(int)
+?IsStateLevel2@I_ModelBase@@SAHH@Z -> public: static int __cdecl I_ModelBase::IsStateLevel2(int)
+?IsStateLevel3@I_ModelBase@@SAHH@Z -> public: static int __cdecl I_ModelBase::IsStateLevel3(int)
+?IsStateLevel4@I_ModelBase@@SAHH@Z -> public: static int __cdecl I_ModelBase::IsStateLevel4(int)
+?IsStateModeling@I_ModelBase@@QEAAHH@Z -> public: int __cdecl I_ModelBase::IsStateModeling(int) __ptr64
+?IsStateSelUnsel@I_ModelBase@@QEAAHH@Z -> public: int __cdecl I_ModelBase::IsStateSelUnsel(int) __ptr64
+?IsStateUcsSetting@I_ModelBase@@QEAAHH@Z -> public: int __cdecl I_ModelBase::IsStateUcsSetting(int) __ptr64
+?IsStateUcsSettingST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::IsStateUcsSettingST(void)
+?IsStateViewing@I_ModelBase@@QEAAHH@Z -> public: int __cdecl I_ModelBase::IsStateViewing(int) __ptr64
+?IsToolbarButtonChecked@I_MainFrameBase@@SAHI@Z -> public: static int __cdecl I_MainFrameBase::IsToolbarButtonChecked(unsigned int)
+?IsUnselectMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsUnselectMode(void) __ptr64
+?IsUnselectModeST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::IsUnselectModeST(void)
+?IsUnselectPlaneMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsUnselectPlaneMode(void) __ptr64
+?IsUnselectPlaneModeST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::IsUnselectPlaneModeST(void)
+?IsUnselectVolumeMode@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::IsUnselectVolumeMode(void) __ptr64
+?IsUnselectVolumeModeST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::IsUnselectVolumeModeST(void)
+?IsValidDlgST@CGlobalModeless@@SAHPEAVCDlgNode@@@Z -> public: static int __cdecl CGlobalModeless::IsValidDlgST(class CDlgNode * __ptr64)
+?IsValidReportContent@CRprtViewBase@@AEAA_NW4ReportContent@@@Z -> private: bool __cdecl CRprtViewBase::IsValidReportContent(enum ReportContent) __ptr64
+?LinkMEditToControl@CParseEdit@@QEAAXPEAVCMouseEdit@@@Z -> public: void __cdecl CParseEdit::LinkMEditToControl(class CMouseEdit * __ptr64) __ptr64
+?Load@CPicture@@QEAAHIPEA_W@Z -> public: int __cdecl CPicture::Load(unsigned int,wchar_t * __ptr64) __ptr64
+?Load@CPicture@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl CPicture::Load(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?LoadPictureData@CPicture@@QEAAHPEAEH@Z -> public: int __cdecl CPicture::LoadPictureData(unsigned char * __ptr64,int) __ptr64
+?MakeCurrent@CGLViewBase@@UEAAXXZ -> public: virtual void __cdecl CGLViewBase::MakeCurrent(void) __ptr64
+?MakeCuttingResult_Extract@I_PolyMaker@@UEAAHXZ -> public: virtual int __cdecl I_PolyMaker::MakeCuttingResult_Extract(void) __ptr64
+?MakeCuttingResult_Intersect@I_PolyMaker@@UEAAHXZ -> public: virtual int __cdecl I_PolyMaker::MakeCuttingResult_Intersect(void) __ptr64
+?MakeCuttingResult_Merge@I_PolyMaker@@UEAAHXZ -> public: virtual int __cdecl I_PolyMaker::MakeCuttingResult_Merge(void) __ptr64
+?MakeDrawData@CRprtViewBase@@MEAAXXZ -> protected: virtual void __cdecl CRprtViewBase::MakeDrawData(void) __ptr64
+?MakeHeadItem@CTreeData@@IEAAPEAVCTreeItem@@XZ -> protected: class CTreeItem * __ptr64 __cdecl CTreeData::MakeHeadItem(void) __ptr64
+?MakeMenu@CMenuBtnEx@@QEAAHXZ -> public: int __cdecl CMenuBtnEx::MakeMenu(void) __ptr64
+?MakeSlicedPolygons2@I_PolyMaker@@UEAAHXZ -> public: virtual int __cdecl I_PolyMaker::MakeSlicedPolygons2(void) __ptr64
+?MakeSlicedPolygons@I_PolyMaker@@UEAAHXZ -> public: virtual int __cdecl I_PolyMaker::MakeSlicedPolygons(void) __ptr64
+?MakeUniqueName@CStringParser@@SAHAEAV?$CArray@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV12@@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV34@@Z -> public: static int __cdecl CStringParser::MakeUniqueName(class CArray<class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64> & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64)
+?MakeUniqueName@CStringParser@@SAHAEAVCStringArray@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV34@@Z -> public: static int __cdecl CStringParser::MakeUniqueName(class CStringArray & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64)
+?ManagementObject_ActOrInAct@I_ModelBase@@UEAAXAEAV?$CArray@II@@0HH@Z -> public: virtual void __cdecl I_ModelBase::ManagementObject_ActOrInAct(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<unsigned int,unsigned int> & __ptr64,int,int) __ptr64
+?ManagementSDSObject_ActOrInAct@I_ModelBase@@UEAAXPEAV?$CArray@II@@00HH@Z -> public: virtual void __cdecl I_ModelBase::ManagementSDSObject_ActOrInAct(class CArray<unsigned int,unsigned int> * __ptr64,class CArray<unsigned int,unsigned int> * __ptr64,class CArray<unsigned int,unsigned int> * __ptr64,int,int) __ptr64
+?Member_GetCurSelectedKeys@I_GGRViewEventObserver@@UEAAHAEAV?$CArray@II@@@Z -> public: virtual int __cdecl I_GGRViewEventObserver::Member_GetCurSelectedKeys(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?MoveObserverToTop@GGRViewEventMgr@@QEAA_NPEAVI_GGRViewEventObserver@@@Z -> public: bool __cdecl GGRViewEventMgr::MoveObserverToTop(class I_GGRViewEventObserver * __ptr64) __ptr64
+?MoveTipWindow@GMyToolTipCtrl@@QEAAXVCPoint@@VCSize@@@Z -> public: void __cdecl GMyToolTipCtrl::MoveTipWindow(class CPoint,class CSize) __ptr64
+?MustBeCalledOnCDBDocEditConstructor@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::MustBeCalledOnCDBDocEditConstructor(void) __ptr64
+?NotUseCommandLine@CViewBase@@IEAAXXZ -> protected: void __cdecl CViewBase::NotUseCommandLine(void) __ptr64
+?OnActivate@CMouseEdit@@IEAAXIPEAVCWnd@@H@Z -> protected: void __cdecl CMouseEdit::OnActivate(unsigned int,class CWnd * __ptr64,int) __ptr64
+?OnActivateFrame@CViewBase@@MEAAXIPEAVCFrameWnd@@@Z -> protected: virtual void __cdecl CViewBase::OnActivateFrame(unsigned int,class CFrameWnd * __ptr64) __ptr64
+?OnActivateView@CGwPreviewView@@MEAAXHPEAVCView@@0@Z -> protected: virtual void __cdecl CGwPreviewView::OnActivateView(int,class CView * __ptr64,class CView * __ptr64) __ptr64
+?OnActivateView@CTestDlgTabPage@@MEAAXHPEAVCView@@0@Z -> protected: virtual void __cdecl CTestDlgTabPage::OnActivateView(int,class CView * __ptr64,class CView * __ptr64) __ptr64
+?OnActivateView@CViewBase@@MEAAXHPEAVCView@@0@Z -> protected: virtual void __cdecl CViewBase::OnActivateView(int,class CView * __ptr64,class CView * __ptr64) __ptr64
+?OnActiveAssociatedView@CGlobalModeless@@UEAAHPEAVCWnd@@@Z -> public: virtual int __cdecl CGlobalModeless::OnActiveAssociatedView(class CWnd * __ptr64) __ptr64
+?OnActiveAssociatedViewAllST@CGlobalModeless@@SAHPEAVCWnd@@@Z -> public: static int __cdecl CGlobalModeless::OnActiveAssociatedViewAllST(class CWnd * __ptr64)
+?OnBeforeSetModePostAfterAnalysis@CMainFrameBase@@UEAAXXZ -> public: virtual void __cdecl CMainFrameBase::OnBeforeSetModePostAfterAnalysis(void) __ptr64
+?OnBeginPrinting@CViewBase@@MEAAXPEAVCDC@@PEAUCPrintInfo@@@Z -> protected: virtual void __cdecl CViewBase::OnBeginPrinting(class CDC * __ptr64,struct CPrintInfo * __ptr64) __ptr64
+?OnButtonApply@CAngleViewDlg@@IEAAXXZ -> protected: void __cdecl CAngleViewDlg::OnButtonApply(void) __ptr64
+?OnButtonBottom@CAngleViewDlg@@IEAAXXZ -> protected: void __cdecl CAngleViewDlg::OnButtonBottom(void) __ptr64
+?OnButtonFront@CAngleViewDlg@@IEAAXXZ -> protected: void __cdecl CAngleViewDlg::OnButtonFront(void) __ptr64
+?OnButtonIso@CAngleViewDlg@@IEAAXXZ -> protected: void __cdecl CAngleViewDlg::OnButtonIso(void) __ptr64
+?OnButtonLeft@CAngleViewDlg@@IEAAXXZ -> protected: void __cdecl CAngleViewDlg::OnButtonLeft(void) __ptr64
+?OnButtonRear@CAngleViewDlg@@IEAAXXZ -> protected: void __cdecl CAngleViewDlg::OnButtonRear(void) __ptr64
+?OnButtonRight@CAngleViewDlg@@IEAAXXZ -> protected: void __cdecl CAngleViewDlg::OnButtonRight(void) __ptr64
+?OnButtonTop@CAngleViewDlg@@IEAAXXZ -> protected: void __cdecl CAngleViewDlg::OnButtonTop(void) __ptr64
+?OnCDBDocGetElemKey@CMouseEdit@@UEAAXIH@Z -> public: virtual void __cdecl CMouseEdit::OnCDBDocGetElemKey(unsigned int,int) __ptr64
+?OnCancel@CGlobalModeless@@MEAAXXZ -> protected: virtual void __cdecl CGlobalModeless::OnCancel(void) __ptr64
+?OnClickName@CCheckBoxProp@@MEAAXVCPoint@@@Z -> protected: virtual void __cdecl CCheckBoxProp::OnClickName(class CPoint) __ptr64
+?OnClose@CDockingDlgBarSample@@IEAAXXZ -> protected: void __cdecl CDockingDlgBarSample::OnClose(void) __ptr64
+?OnClose@CGlobalModeless@@IEAAXXZ -> protected: void __cdecl CGlobalModeless::OnClose(void) __ptr64
+?OnCommand@CGlobalModeless@@MEAAH_K_J@Z -> protected: virtual int __cdecl CGlobalModeless::OnCommand(unsigned __int64,__int64) __ptr64
+?OnCommandCapture@CPicture@@QEAAXPEAVCDC@@UtagRECT@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CPicture::OnCommandCapture(class CDC * __ptr64,struct tagRECT,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?OnCreate@CDockingDlgBarBase@@IEAAHPEAUtagCREATESTRUCTW@@@Z -> protected: int __cdecl CDockingDlgBarBase::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnCreate@CDockingDlgBarSample@@IEAAHPEAUtagCREATESTRUCTW@@@Z -> protected: int __cdecl CDockingDlgBarSample::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnCreate@CDockingTabDlgBarSample@@IEAAHPEAUtagCREATESTRUCTW@@@Z -> protected: int __cdecl CDockingTabDlgBarSample::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnCreate@CGlobalModeless@@IEAAHPEAUtagCREATESTRUCTW@@@Z -> protected: int __cdecl CGlobalModeless::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnCreate@CGwPreviewView@@IEAAHPEAUtagCREATESTRUCTW@@@Z -> protected: int __cdecl CGwPreviewView::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnCreate@CMouseEdit@@IEAAHPEAUtagCREATESTRUCTW@@@Z -> protected: int __cdecl CMouseEdit::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnCreate@CStatusBarBase@@IEAAHPEAUtagCREATESTRUCTW@@@Z -> protected: int __cdecl CStatusBarBase::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnCreate@CTMTabWnd@@QEAAHPEAUtagCREATESTRUCTW@@@Z -> public: int __cdecl CTMTabWnd::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnCreate@CTestDlgTabPage@@IEAAHPEAUtagCREATESTRUCTW@@@Z -> protected: int __cdecl CTestDlgTabPage::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnCreate@CViewBase@@IEAAHPEAUtagCREATESTRUCTW@@@Z -> protected: int __cdecl CViewBase::OnCreate(struct tagCREATESTRUCTW * __ptr64) __ptr64
+?OnDblClick@CCheckBoxProp@@MEAAHVCPoint@@@Z -> protected: virtual int __cdecl CCheckBoxProp::OnDblClick(class CPoint) __ptr64
+?OnDeactiveIDLE@CViewBase@@UEAAHXZ -> public: virtual int __cdecl CViewBase::OnDeactiveIDLE(void) __ptr64
+?OnDeltapos@CSpinBtnExCtrl@@IEAAHPEAUtagNMHDR@@PEA_J@Z -> protected: int __cdecl CSpinBtnExCtrl::OnDeltapos(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnDestroy@CAngleViewDlg@@IEAAXXZ -> protected: void __cdecl CAngleViewDlg::OnDestroy(void) __ptr64
+?OnDestroy@CMouseEdit@@IEAAXXZ -> protected: void __cdecl CMouseEdit::OnDestroy(void) __ptr64
+?OnDestroy@CViewBase@@IEAAXXZ -> protected: void __cdecl CViewBase::OnDestroy(void) __ptr64
+?OnDisableModal@GMyToolTipCtrl@@IEAA_J_K_J@Z -> protected: __int64 __cdecl GMyToolTipCtrl::OnDisableModal(unsigned __int64,__int64) __ptr64
+?OnDispOptSetBackgroundBlackST@I_ModelBase@@SAXXZ -> public: static void __cdecl I_ModelBase::OnDispOptSetBackgroundBlackST(void)
+?OnDispOptSetBackgroundWhiteST@I_ModelBase@@SAXXZ -> public: static void __cdecl I_ModelBase::OnDispOptSetBackgroundWhiteST(void)
+?OnDraw@CGLViewBase@@MEAAXPEAVCDC@@@Z -> protected: virtual void __cdecl CGLViewBase::OnDraw(class CDC * __ptr64) __ptr64
+?OnDraw@CGwPreviewView@@MEAAXPEAVCDC@@@Z -> protected: virtual void __cdecl CGwPreviewView::OnDraw(class CDC * __ptr64) __ptr64
+?OnDraw@CRprtViewBase@@MEAAXPEAVCDC@@@Z -> protected: virtual void __cdecl CRprtViewBase::OnDraw(class CDC * __ptr64) __ptr64
+?OnDraw@CViewBase@@UEAAXPEAVCDC@@@Z -> public: virtual void __cdecl CViewBase::OnDraw(class CDC * __ptr64) __ptr64
+?OnDrawButton@CCheckBoxProp@@MEAAXPEAVCDC@@VCRect@@@Z -> protected: virtual void __cdecl CCheckBoxProp::OnDrawButton(class CDC * __ptr64,class CRect) __ptr64
+?OnDrawCheckBox@CCheckBoxProp@@MEAAXPEAVCDC@@VCRect@@H@Z -> protected: virtual void __cdecl CCheckBoxProp::OnDrawCheckBox(class CDC * __ptr64,class CRect,int) __ptr64
+?OnDrawItem@CIconCombo@@IEAAXHPEAUtagDRAWITEMSTRUCT@@@Z -> protected: void __cdecl CIconCombo::OnDrawItem(int,struct tagDRAWITEMSTRUCT * __ptr64) __ptr64
+?OnDrawName@CCheckBoxProp@@MEAAXPEAVCDC@@VCRect@@@Z -> protected: virtual void __cdecl CCheckBoxProp::OnDrawName(class CDC * __ptr64,class CRect) __ptr64
+?OnDrawValue@CCheckBoxProp@@MEAAXPEAVCDC@@VCRect@@@Z -> protected: virtual void __cdecl CCheckBoxProp::OnDrawValue(class CDC * __ptr64,class CRect) __ptr64
+?OnDrawValue@CDurationProp@@UEAAXPEAVCDC@@VCRect@@@Z -> public: virtual void __cdecl CDurationProp::OnDrawValue(class CDC * __ptr64,class CRect) __ptr64
+?OnDrawValue@CIconListProp@@MEAAXPEAVCDC@@VCRect@@@Z -> protected: virtual void __cdecl CIconListProp::OnDrawValue(class CDC * __ptr64,class CRect) __ptr64
+?OnEdit@CCheckBoxProp@@MEAAHPEAUtagPOINT@@@Z -> protected: virtual int __cdecl CCheckBoxProp::OnEdit(struct tagPOINT * __ptr64) __ptr64
+?OnEdit@CComboBoxExProp@@MEAAHPEAUtagPOINT@@@Z -> protected: virtual int __cdecl CComboBoxExProp::OnEdit(struct tagPOINT * __ptr64) __ptr64
+?OnEnable@CMouseEdit@@IEAAXH@Z -> protected: void __cdecl CMouseEdit::OnEnable(int) __ptr64
+?OnEnable@GMyToolTipCtrl@@IEAAXH@Z -> protected: void __cdecl GMyToolTipCtrl::OnEnable(int) __ptr64
+?OnEndPrintPreview@CViewBase@@MEAAXPEAVCDC@@PEAUCPrintInfo@@UtagPOINT@@PEAVCPreviewView@@@Z -> protected: virtual void __cdecl CViewBase::OnEndPrintPreview(class CDC * __ptr64,struct CPrintInfo * __ptr64,struct tagPOINT,class CPreviewView * __ptr64) __ptr64
+?OnEndPrinting@CViewBase@@MEAAXPEAVCDC@@PEAUCPrintInfo@@@Z -> protected: virtual void __cdecl CViewBase::OnEndPrinting(class CDC * __ptr64,struct CPrintInfo * __ptr64) __ptr64
+?OnEraseBkgnd@CStatusBarBase@@IEAAHPEAVCDC@@@Z -> protected: int __cdecl CStatusBarBase::OnEraseBkgnd(class CDC * __ptr64) __ptr64
+?OnFileNew@CAppBase@@QEAAXXZ -> public: void __cdecl CAppBase::OnFileNew(void) __ptr64
+?OnFileOpen@CAppBase@@QEAAXXZ -> public: void __cdecl CAppBase::OnFileOpen(void) __ptr64
+?OnFilePrintPreview@CViewBase@@IEAAXXZ -> protected: void __cdecl CViewBase::OnFilePrintPreview(void) __ptr64
+?OnIDLE@CGlobalModeless@@UEAAHXZ -> public: virtual int __cdecl CGlobalModeless::OnIDLE(void) __ptr64
+?OnIDLE@CViewBase@@UEAAHXZ -> public: virtual int __cdecl CViewBase::OnIDLE(void) __ptr64
+?OnIdle@CAppBase@@UEAAHJ@Z -> public: virtual int __cdecl CAppBase::OnIdle(long) __ptr64
+?OnInitDialog@CAngleViewDlg@@MEAAHXZ -> protected: virtual int __cdecl CAngleViewDlg::OnInitDialog(void) __ptr64
+?OnInitialUpdate@CRprtViewBase@@MEAAXXZ -> protected: virtual void __cdecl CRprtViewBase::OnInitialUpdate(void) __ptr64
+?OnInitialUpdate@CTestDlgTabPage@@UEAAXXZ -> public: virtual void __cdecl CTestDlgTabPage::OnInitialUpdate(void) __ptr64
+?OnInitialUpdate@CViewBase@@UEAAXXZ -> public: virtual void __cdecl CViewBase::OnInitialUpdate(void) __ptr64
+?OnKillFocus@CMouseEdit@@IEAAXPEAVCWnd@@@Z -> protected: void __cdecl CMouseEdit::OnKillFocus(class CWnd * __ptr64) __ptr64
+?OnKillFocus@CParseEdit@@IEAAXPEAVCWnd@@@Z -> protected: void __cdecl CParseEdit::OnKillFocus(class CWnd * __ptr64) __ptr64
+?OnKillFocus@CViewBase@@IEAAXPEAVCWnd@@@Z -> protected: void __cdecl CViewBase::OnKillFocus(class CWnd * __ptr64) __ptr64
+?OnKillSelection@CDurationProp@@UEAAXPEAVCBCGPProp@@@Z -> public: virtual void __cdecl CDurationProp::OnKillSelection(class CBCGPProp * __ptr64) __ptr64
+?OnLButtonDblClk@CDockDlgBarBase@@IEAAXIVCPoint@@@Z -> protected: void __cdecl CDockDlgBarBase::OnLButtonDblClk(unsigned int,class CPoint) __ptr64
+?OnLButtonDblClk@CStatusBarBase@@IEAAXIVCPoint@@@Z -> protected: void __cdecl CStatusBarBase::OnLButtonDblClk(unsigned int,class CPoint) __ptr64
+?OnLButtonDown@CGwPreviewView@@IEAAXIVCPoint@@@Z -> protected: void __cdecl CGwPreviewView::OnLButtonDown(unsigned int,class CPoint) __ptr64
+?OnLButtonDown@CMouseEdit@@IEAAXIVCPoint@@@Z -> protected: void __cdecl CMouseEdit::OnLButtonDown(unsigned int,class CPoint) __ptr64
+?OnLButtonDown@CRprtViewBase@@IEAAXIVCPoint@@@Z -> protected: void __cdecl CRprtViewBase::OnLButtonDown(unsigned int,class CPoint) __ptr64
+?OnLButtonDown@CStatusBarBase@@IEAAXIVCPoint@@@Z -> protected: void __cdecl CStatusBarBase::OnLButtonDown(unsigned int,class CPoint) __ptr64
+?OnLButtonUp@CBCGPMiniFrameWnd_NotFloat@@IEAAXIVCPoint@@@Z -> protected: void __cdecl CBCGPMiniFrameWnd_NotFloat::OnLButtonUp(unsigned int,class CPoint) __ptr64
+?OnLButtonUp@CStatusBarBase@@IEAAXIVCPoint@@@Z -> protected: void __cdecl CStatusBarBase::OnLButtonUp(unsigned int,class CPoint) __ptr64
+?OnMeasureItem@CIconCombo@@IEAAXHPEAUtagMEASUREITEMSTRUCT@@@Z -> protected: void __cdecl CIconCombo::OnMeasureItem(int,struct tagMEASUREITEMSTRUCT * __ptr64) __ptr64
+?OnMenuBarTabOrItemChangeST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::OnMenuBarTabOrItemChangeST(void)
+?OnMouseMoveHandle@GMyToolTipCtrl@@QEAAHIVCPoint@@@Z -> public: int __cdecl GMyToolTipCtrl::OnMouseMoveHandle(unsigned int,class CPoint) __ptr64
+?OnMove@CStatusBarBase@@IEAAXHH@Z -> protected: void __cdecl CStatusBarBase::OnMove(int,int) __ptr64
+?OnNcDestroy@CGlobalModeless@@IEAAXXZ -> protected: void __cdecl CGlobalModeless::OnNcDestroy(void) __ptr64
+?OnNcHitTest@CGlobalModeless@@IEAA_JVCPoint@@@Z -> protected: __int64 __cdecl CGlobalModeless::OnNcHitTest(class CPoint) __ptr64
+?OnNewDocument@CDocBase@@MEAAHXZ -> protected: virtual int __cdecl CDocBase::OnNewDocument(void) __ptr64
+?OnOK@CGlobalModeless@@MEAAXXZ -> protected: virtual void __cdecl CGlobalModeless::OnOK(void) __ptr64
+?OnPaint@CAngleViewDlg@@IEAAXXZ -> protected: void __cdecl CAngleViewDlg::OnPaint(void) __ptr64
+?OnPaint@GMyToolTipCtrl@@IEAAXXZ -> protected: void __cdecl GMyToolTipCtrl::OnPaint(void) __ptr64
+?OnPosSizeChanged@CDurationProp@@UEAAXVCRect@@@Z -> public: virtual void __cdecl CDurationProp::OnPosSizeChanged(class CRect) __ptr64
+?OnPreparePrinting@CRprtViewBase@@UEAAHPEAUCPrintInfo@@@Z -> public: virtual int __cdecl CRprtViewBase::OnPreparePrinting(struct CPrintInfo * __ptr64) __ptr64
+?OnPreparePrinting@CViewBase@@MEAAHPEAUCPrintInfo@@@Z -> protected: virtual int __cdecl CViewBase::OnPreparePrinting(struct CPrintInfo * __ptr64) __ptr64
+?OnPressCloseButton@CDockViewBase@@UEAAXXZ -> public: virtual void __cdecl CDockViewBase::OnPressCloseButton(void) __ptr64
+?OnPreviewOrientation@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPreviewOrientation(void) __ptr64
+?OnPrintDrawBorder@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintDrawBorder(void) __ptr64
+?OnPrintEdHeight@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintEdHeight(void) __ptr64
+?OnPrintEdLMargin@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintEdLMargin(void) __ptr64
+?OnPrintEdUMargin@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintEdUMargin(void) __ptr64
+?OnPrintEdWidth@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintEdWidth(void) __ptr64
+?OnPrintFitPaper@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintFitPaper(void) __ptr64
+?OnPrintHAlignC@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintHAlignC(void) __ptr64
+?OnPrintHAlignL@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintHAlignL(void) __ptr64
+?OnPrintHAlignR@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintHAlignR(void) __ptr64
+?OnPrintKeepRatio@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintKeepRatio(void) __ptr64
+?OnPrintVAlignB@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintVAlignB(void) __ptr64
+?OnPrintVAlignC@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintVAlignC(void) __ptr64
+?OnPrintVAlignT@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnPrintVAlignT(void) __ptr64
+?OnSelchangePrintPaper@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::OnSelchangePrintPaper(void) __ptr64
+?OnSetCursor@CGlobalModeless@@IEAAHPEAVCWnd@@II@Z -> protected: int __cdecl CGlobalModeless::OnSetCursor(class CWnd * __ptr64,unsigned int,unsigned int) __ptr64
+?OnSetCursor@CGwPreviewView@@IEAAHPEAVCWnd@@II@Z -> protected: int __cdecl CGwPreviewView::OnSetCursor(class CWnd * __ptr64,unsigned int,unsigned int) __ptr64
+?OnSetCursor@CSliderProp@@MEBAHXZ -> protected: virtual int __cdecl CSliderProp::OnSetCursor(void)const __ptr64
+?OnSetFocus@CMouseEdit@@IEAAXPEAVCWnd@@@Z -> protected: void __cdecl CMouseEdit::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CParseEdit@@IEAAXPEAVCWnd@@@Z -> protected: void __cdecl CParseEdit::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CViewBase@@IEAAXPEAVCWnd@@@Z -> protected: void __cdecl CViewBase::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetSelection@CDurationProp@@UEAAXPEAVCBCGPProp@@@Z -> public: virtual void __cdecl CDurationProp::OnSetSelection(class CBCGPProp * __ptr64) __ptr64
+?OnShowWindow@CMouseEdit@@IEAAXHI@Z -> protected: void __cdecl CMouseEdit::OnShowWindow(int,unsigned int) __ptr64
+?OnSize@CDockingDlgBarBase@@IEAAXIHH@Z -> protected: void __cdecl CDockingDlgBarBase::OnSize(unsigned int,int,int) __ptr64
+?OnSize@CDockingDlgBarSample@@IEAAXIHH@Z -> protected: void __cdecl CDockingDlgBarSample::OnSize(unsigned int,int,int) __ptr64
+?OnSize@CDockingTabDlgBarSample@@IEAAXIHH@Z -> protected: void __cdecl CDockingTabDlgBarSample::OnSize(unsigned int,int,int) __ptr64
+?OnSize@CStatusBarBase@@IEAAXIHH@Z -> protected: void __cdecl CStatusBarBase::OnSize(unsigned int,int,int) __ptr64
+?OnSysCommand@CChildFrameBase@@IEAAXI_J@Z -> protected: void __cdecl CChildFrameBase::OnSysCommand(unsigned int,__int64) __ptr64
+?OnSysCommand@CGlobalModeless@@IEAAXI_J@Z -> protected: void __cdecl CGlobalModeless::OnSysCommand(unsigned int,__int64) __ptr64
+?OnUpdate@CLabelEdit@@IEAAHXZ -> protected: int __cdecl CLabelEdit::OnUpdate(void) __ptr64
+?OnUpdate@CMouseEdit@@IEAAXXZ -> protected: void __cdecl CMouseEdit::OnUpdate(void) __ptr64
+?OnUpdateEditHorizon@CAngleViewDlg@@IEAAXXZ -> protected: void __cdecl CAngleViewDlg::OnUpdateEditHorizon(void) __ptr64
+?OnUpdateEditVertical@CAngleViewDlg@@IEAAXXZ -> protected: void __cdecl CAngleViewDlg::OnUpdateEditVertical(void) __ptr64
+?OnUpdateValue@CDurationProp@@UEAAHXZ -> public: virtual int __cdecl CDurationProp::OnUpdateValue(void) __ptr64
+?OnUpdateValue@CSliderProp@@UEAAHXZ -> public: virtual int __cdecl CSliderProp::OnUpdateValue(void) __ptr64
+?OnView_KeyDown@GGRViewEventMgr@@QEAAXIII@Z -> public: void __cdecl GGRViewEventMgr::OnView_KeyDown(unsigned int,unsigned int,unsigned int) __ptr64
+?OnView_KeyDown@I_GGRViewEventObserver@@UEAAXIII@Z -> public: virtual void __cdecl I_GGRViewEventObserver::OnView_KeyDown(unsigned int,unsigned int,unsigned int) __ptr64
+?OnView_KeyDown@I_WidgetObserver@@UEAAXIII@Z -> public: virtual void __cdecl I_WidgetObserver::OnView_KeyDown(unsigned int,unsigned int,unsigned int) __ptr64
+?OnView_KeyDown_CommandLine@GGRViewEventMgr@@QEAAXIII@Z -> public: void __cdecl GGRViewEventMgr::OnView_KeyDown_CommandLine(unsigned int,unsigned int,unsigned int) __ptr64
+?OnView_KeyUp@GGRViewEventMgr@@QEAAXIII@Z -> public: void __cdecl GGRViewEventMgr::OnView_KeyUp(unsigned int,unsigned int,unsigned int) __ptr64
+?OnView_KeyUp@I_GGRViewEventObserver@@UEAAXIII@Z -> public: virtual void __cdecl I_GGRViewEventObserver::OnView_KeyUp(unsigned int,unsigned int,unsigned int) __ptr64
+?OnView_KeyUp@I_WidgetObserver@@UEAAXIII@Z -> public: virtual void __cdecl I_WidgetObserver::OnView_KeyUp(unsigned int,unsigned int,unsigned int) __ptr64
+?OnView_KeyUp_CommandLine@GGRViewEventMgr@@QEAAXIII@Z -> public: void __cdecl GGRViewEventMgr::OnView_KeyUp_CommandLine(unsigned int,unsigned int,unsigned int) __ptr64
+?OnView_LButtonDblClk@GGRViewEventMgr@@QEAAXIVCPoint@@@Z -> public: void __cdecl GGRViewEventMgr::OnView_LButtonDblClk(unsigned int,class CPoint) __ptr64
+?OnView_LButtonDown@GGRViewEventMgr@@QEAAXIVCPoint@@@Z -> public: void __cdecl GGRViewEventMgr::OnView_LButtonDown(unsigned int,class CPoint) __ptr64
+?OnView_MouseMove@GGRViewEventMgr@@QEAAXIVCPoint@@@Z -> public: void __cdecl GGRViewEventMgr::OnView_MouseMove(unsigned int,class CPoint) __ptr64
+?OnView_MouseWheel@GGRViewEventMgr@@QEAAXIFVCPoint@@@Z -> public: void __cdecl GGRViewEventMgr::OnView_MouseWheel(unsigned int,short,class CPoint) __ptr64
+?OnView_NotifyGeneral@GGRViewEventMgr@@QEAAXIII@Z -> public: void __cdecl GGRViewEventMgr::OnView_NotifyGeneral(unsigned int,unsigned int,unsigned int) __ptr64
+?OnView_NotifyGeneral@I_GGRViewEventObserver@@UEAAXIII@Z -> public: virtual void __cdecl I_GGRViewEventObserver::OnView_NotifyGeneral(unsigned int,unsigned int,unsigned int) __ptr64
+?OnView_NotifyGeneral@I_WidgetObserver@@UEAAXIII@Z -> public: virtual void __cdecl I_WidgetObserver::OnView_NotifyGeneral(unsigned int,unsigned int,unsigned int) __ptr64
+?On_ViewLButtonDblClk@I_WidgetObserver@@UEAAXIVCPoint@@@Z -> public: virtual void __cdecl I_WidgetObserver::On_ViewLButtonDblClk(unsigned int,class CPoint) __ptr64
+?On_ViewLButtonDown@I_WidgetObserver@@UEAAXIVCPoint@@@Z -> public: virtual void __cdecl I_WidgetObserver::On_ViewLButtonDown(unsigned int,class CPoint) __ptr64
+?On_ViewMouseMove@I_WidgetObserver@@UEAAXIVCPoint@@@Z -> public: virtual void __cdecl I_WidgetObserver::On_ViewMouseMove(unsigned int,class CPoint) __ptr64
+?On_ViewMouseWheel@I_GGRViewEventObserver@@UEAAXIFVCPoint@@@Z -> public: virtual void __cdecl I_GGRViewEventObserver::On_ViewMouseWheel(unsigned int,short,class CPoint) __ptr64
+?On_ViewMouseWheel@I_WidgetObserver@@UEAAXIFVCPoint@@@Z -> public: virtual void __cdecl I_WidgetObserver::On_ViewMouseWheel(unsigned int,short,class CPoint) __ptr64
+?Open@CLogFileEx@@QEAAHXZ -> public: int __cdecl CLogFileEx::Open(void) __ptr64
+?OpenDocumentFile@CAppBase@@UEAAPEAVCDocument@@PEB_W@Z -> public: virtual class CDocument * __ptr64 __cdecl CAppBase::OpenDocumentFile(wchar_t const * __ptr64) __ptr64
+?PV_DrawAllToMemDC@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_DrawAllToMemDC(void) __ptr64
+?PV_OnActiveDeActiveChange@I_GPSModelBase@@UEAAXPEAV?$CArray@II@@0@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnActiveDeActiveChange(class CArray<unsigned int,unsigned int> * __ptr64,class CArray<unsigned int,unsigned int> * __ptr64) __ptr64
+?PV_OnActiveDeActiveChangeByFlag@I_GPSModelBase@@UEAAXPEAV?$CArray@II@@000@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnActiveDeActiveChangeByFlag(class CArray<unsigned int,unsigned int> * __ptr64,class CArray<unsigned int,unsigned int> * __ptr64,class CArray<unsigned int,unsigned int> * __ptr64,class CArray<unsigned int,unsigned int> * __ptr64) __ptr64
+?PV_OnBeginPrinting@I_GPSModelBase@@UEAAXPEAVCDC@@PEAUCPrintInfo@@@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnBeginPrinting(class CDC * __ptr64,struct CPrintInfo * __ptr64) __ptr64
+?PV_OnDisplayChanged@I_GPSModelBase@@UEAAXPEAX@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnDisplayChanged(void * __ptr64) __ptr64
+?PV_OnDisplayOptionChange@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnDisplayOptionChange(void) __ptr64
+?PV_OnDisplayOptionChangeOnly@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnDisplayOptionChangeOnly(void) __ptr64
+?PV_OnDraw@I_GPSModelBase@@UEAAXPEAVCDC@@@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnDraw(class CDC * __ptr64) __ptr64
+?PV_OnDrawAfter@I_GPSModelBase@@UEAAXPEAVCDC@@@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnDrawAfter(class CDC * __ptr64) __ptr64
+?PV_OnDrawForPrinting@I_GPSModelBase@@UEAAXPEAVCDC@@@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnDrawForPrinting(class CDC * __ptr64) __ptr64
+?PV_OnDynViewPreDraw@I_GPSModelBase@@UEAAHPEAVCDC@@@Z -> public: virtual int __cdecl I_GPSModelBase::PV_OnDynViewPreDraw(class CDC * __ptr64) __ptr64
+?PV_OnEndPrinting@I_GPSModelBase@@UEAAXPEAVCDC@@PEAUCPrintInfo@@@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnEndPrinting(class CDC * __ptr64,struct CPrintInfo * __ptr64) __ptr64
+?PV_OnExportBMP@I_GPSModelBase@@UEAAXPEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnExportBMP(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > * __ptr64) __ptr64
+?PV_OnExportWindowsMetaFile@I_GPSModelBase@@UEAAXPEAVCMetaFileDC@@@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnExportWindowsMetaFile(class CMetaFileDC * __ptr64) __ptr64
+?PV_OnModeChange@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnModeChange(void) __ptr64
+?PV_OnModeReturn@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnModeReturn(void) __ptr64
+?PV_OnObjectSelectEnd@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnObjectSelectEnd(void) __ptr64
+?PV_OnObjectSelectStart@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnObjectSelectStart(void) __ptr64
+?PV_OnObjectUnselectEnd@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnObjectUnselectEnd(void) __ptr64
+?PV_OnObjectUnselectStart@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnObjectUnselectStart(void) __ptr64
+?PV_OnPickingObject@I_GPSModelBase@@UEAAXHH@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnPickingObject(int,int) __ptr64
+?PV_OnPreparePrinting@I_GPSModelBase@@UEAAHPEAUCPrintInfo@@@Z -> public: virtual int __cdecl I_GPSModelBase::PV_OnPreparePrinting(struct CPrintInfo * __ptr64) __ptr64
+?PV_OnPrint@I_GPSModelBase@@UEAAXPEAVCDC@@PEAUCPrintInfo@@@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnPrint(class CDC * __ptr64,struct CPrintInfo * __ptr64) __ptr64
+?PV_OnRButtonDown@I_GPSModelBase@@UEAAXIVCPoint@@@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnRButtonDown(unsigned int,class CPoint) __ptr64
+?PV_OnRebuildCuttingLineData@I_GPSModelBase@@UEAAHXZ -> public: virtual int __cdecl I_GPSModelBase::PV_OnRebuildCuttingLineData(void) __ptr64
+?PV_OnRebuildQTree@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnRebuildQTree(void) __ptr64
+?PV_OnRedraw@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnRedraw(void) __ptr64
+?PV_OnRedrawOnly@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnRedrawOnly(void) __ptr64
+?PV_OnRenderViewUpdate@CGLViewBase@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CGLViewBase::PV_OnRenderViewUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?PV_OnSetCursor@I_GPSModelBase@@UEAAXPEAVCWnd@@II@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnSetCursor(class CWnd * __ptr64,unsigned int,unsigned int) __ptr64
+?PV_OnShadeOptionChanged@I_GPSModelBase@@UEAAX_K_J@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnShadeOptionChanged(unsigned __int64,__int64) __ptr64
+?PV_OnToolTip@I_GPSModelBase@@UEAAXIIAEAVCStringArray@@@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnToolTip(unsigned int,unsigned int,class CStringArray & __ptr64) __ptr64
+?PV_OnUnitChange@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnUnitChange(void) __ptr64
+?PV_OnUpdate@I_GPSModelBase@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl I_GPSModelBase::PV_OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?PV_OnViewPointChange@I_GPSModelBase@@UEAAXXZ -> public: virtual void __cdecl I_GPSModelBase::PV_OnViewPointChange(void) __ptr64
+?ParsingCommandLine@CStringParser@@SAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static int __cdecl CStringParser::ParsingCommandLine(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?ParsingListByTo@CStringParser@@SAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV?$CArray@HH@@@Z -> public: static int __cdecl CStringParser::ParsingListByTo(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class CArray<int,int> & __ptr64)
+?ParsingPositionNOp@CStringParser@@SAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAN11AEAIH@Z -> public: static int __cdecl CStringParser::ParsingPositionNOp(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,double & __ptr64,double & __ptr64,double & __ptr64,unsigned int & __ptr64,int)
+?ParsingPositionXYZList@CStringParser@@SAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV?$CArray@NN@@@Z -> public: static int __cdecl CStringParser::ParsingPositionXYZList(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class CArray<double,double> & __ptr64)
+?PauseNextFocus@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::PauseNextFocus(void) __ptr64
+?Point_GetCurSelectedKeys@I_GGRViewEventObserver@@UEAAHAEAV?$CArray@II@@@Z -> public: virtual int __cdecl I_GGRViewEventObserver::Point_GetCurSelectedKeys(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?PolygonShrink@I_PolyMaker@@UEAAHAEAV?$CArray@VXGL_3dp@@AEAV1@@@0NH@Z -> public: virtual int __cdecl I_PolyMaker::PolygonShrink(class CArray<class XGL_3dp,class XGL_3dp & __ptr64> & __ptr64,class CArray<class XGL_3dp,class XGL_3dp & __ptr64> & __ptr64,double,int) __ptr64
+?PostMessageToAssocWnd@CGlobalModeless@@QEAAXI@Z -> public: void __cdecl CGlobalModeless::PostMessageToAssocWnd(unsigned int) __ptr64
+?PostNcDestroy@CGlobalModeless@@MEAAXXZ -> protected: virtual void __cdecl CGlobalModeless::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CViewBase@@UEAAXXZ -> public: virtual void __cdecl CViewBase::PostNcDestroy(void) __ptr64
+?PreCreateWindow@CGwPreviewView@@MEAAHAEAUtagCREATESTRUCTW@@@Z -> protected: virtual int __cdecl CGwPreviewView::PreCreateWindow(struct tagCREATESTRUCTW & __ptr64) __ptr64
+?PreCreateWindow@CViewBase@@UEAAHAEAUtagCREATESTRUCTW@@@Z -> public: virtual int __cdecl CViewBase::PreCreateWindow(struct tagCREATESTRUCTW & __ptr64) __ptr64
+?PreOnDraw@CViewBase@@UEAAXPEAVCDC@@@Z -> public: virtual void __cdecl CViewBase::PreOnDraw(class CDC * __ptr64) __ptr64
+?PreSubclassWindow@CMouseEdit@@MEAAXXZ -> protected: virtual void __cdecl CMouseEdit::PreSubclassWindow(void) __ptr64
+?PreSubclassWindow@CParseEdit@@MEAAXXZ -> protected: virtual void __cdecl CParseEdit::PreSubclassWindow(void) __ptr64
+?PreTranslateMessage@CGlobalModeless@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CGlobalModeless::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CLabelEdit@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CLabelEdit::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CMouseEdit@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CMouseEdit::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CParseEdit@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CParseEdit::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PrepareMetafile@CGwPrintHandler@@SAHPEAVCView@@AEAVCDC@@AEAVCRect@@@Z -> public: static int __cdecl CGwPrintHandler::PrepareMetafile(class CView * __ptr64,class CDC & __ptr64,class CRect & __ptr64)
+?PreparePrintDC@CGwPrintHandler@@SAHPEAUCPrintInfo@@@Z -> public: static int __cdecl CGwPrintHandler::PreparePrintDC(struct CPrintInfo * __ptr64)
+?PrintFiles@CRprtViewBase@@UEAAXXZ -> public: virtual void __cdecl CRprtViewBase::PrintFiles(void) __ptr64
+?ProcessLButtonDown@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::ProcessLButtonDown(void) __ptr64
+?ProcessLButtonDownST@CMouseEdit@@SAXXZ -> public: static void __cdecl CMouseEdit::ProcessLButtonDownST(void)
+?ProcessMViewCancelNotify@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::ProcessMViewCancelNotify(void) __ptr64
+?ProcessMViewCancelNotifyST@CMouseEdit@@SAXXZ -> public: static void __cdecl CMouseEdit::ProcessMViewCancelNotifyST(void)
+?ProcessMouseMove@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::ProcessMouseMove(void) __ptr64
+?ProcessMouseMoveST@CMouseEdit@@SAXXZ -> public: static void __cdecl CMouseEdit::ProcessMouseMoveST(void)
+?PushChar@CCheckBoxProp@@MEAAHI@Z -> protected: virtual int __cdecl CCheckBoxProp::PushChar(unsigned int) __ptr64
+?PushChar@CDurationProp@@UEAAHI@Z -> public: virtual int __cdecl CDurationProp::PushChar(unsigned int) __ptr64
+?RE_GetElemCenter@I_GPSModelBase@@UEAAHHIPEAX@Z -> public: virtual int __cdecl I_GPSModelBase::RE_GetElemCenter(int,unsigned int,void * __ptr64) __ptr64
+?RE_GetElemDispData@I_GPSModelBase@@UEAAXIPEAX@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetElemDispData(unsigned int,void * __ptr64) __ptr64
+?RE_GetGPSNodePos@I_GPSModelBase@@UEAAXHIPEAX@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetGPSNodePos(int,unsigned int,void * __ptr64) __ptr64
+?RE_GetGPSShapeElement@I_GPSModelBase@@UEAAXHIPEAX0@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetGPSShapeElement(int,unsigned int,void * __ptr64,void * __ptr64) __ptr64
+?RE_GetGPSShapeElementForSelUnsel@I_GPSModelBase@@UEAAXHIPEAX0HHHN@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetGPSShapeElementForSelUnsel(int,unsigned int,void * __ptr64,void * __ptr64,int,int,int,double) __ptr64
+?RE_GetGPSShapeFrameElement@I_GPSModelBase@@UEAAXHIPEAX@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetGPSShapeFrameElement(int,unsigned int,void * __ptr64) __ptr64
+?RE_GetGPSShapeFrameElementForSelUnsel@I_GPSModelBase@@UEAAXHIPEAXHHHN@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetGPSShapeFrameElementForSelUnsel(int,unsigned int,void * __ptr64,int,int,int,double) __ptr64
+?RE_GetLabelPosElem@I_GPSModelBase@@UEAAHHIPEAX@Z -> public: virtual int __cdecl I_GPSModelBase::RE_GetLabelPosElem(int,unsigned int,void * __ptr64) __ptr64
+?RE_GetLabelPosElemByKey@I_GPSModelBase@@UEAAHIPEAX@Z -> public: virtual int __cdecl I_GPSModelBase::RE_GetLabelPosElemByKey(unsigned int,void * __ptr64) __ptr64
+?RE_GetLabelPosNode@I_GPSModelBase@@UEAAHHIPEAX@Z -> public: virtual int __cdecl I_GPSModelBase::RE_GetLabelPosNode(int,unsigned int,void * __ptr64) __ptr64
+?RE_GetLabelPosNodeByKey@I_GPSModelBase@@UEAAHIPEAX@Z -> public: virtual int __cdecl I_GPSModelBase::RE_GetLabelPosNodeByKey(unsigned int,void * __ptr64) __ptr64
+?RE_GetLoadCombination@I_GPSModelBase@@UEAAHPEAX@Z -> public: virtual int __cdecl I_GPSModelBase::RE_GetLoadCombination(void * __ptr64) __ptr64
+?RE_GetMyName@CGLViewBase@@UEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: virtual class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CGLViewBase::RE_GetMyName(void) __ptr64
+?RE_GetNodeDispData@I_GPSModelBase@@UEAAXIPEAX@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetNodeDispData(unsigned int,void * __ptr64) __ptr64
+?RE_GetNode_ElemTypeByCDBDocSelection@I_GPSModelBase@@UEAAXAEAH0@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetNode_ElemTypeByCDBDocSelection(int & __ptr64,int & __ptr64) __ptr64
+?RE_GetNormalSumTol@I_GPSModelBase@@UEAANXZ -> public: virtual double __cdecl I_GPSModelBase::RE_GetNormalSumTol(void) __ptr64
+?RE_GetPlateNomalSumData@I_GPSModelBase@@UEAAHAEAV?$CArray@II@@AEAV?$CArray@HH@@00QEAY02NPEAX@Z -> public: virtual int __cdecl I_GPSModelBase::RE_GetPlateNomalSumData(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<int,int> & __ptr64,class CArray<unsigned int,unsigned int> & __ptr64,class CArray<unsigned int,unsigned int> & __ptr64,double (* __ptr64 const)[3],void * __ptr64) __ptr64
+?RE_GetRangeElement@I_GPSModelBase@@UEAAXHIPEAX0@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetRangeElement(int,unsigned int,void * __ptr64,void * __ptr64) __ptr64
+?RE_GetRangeModel@I_GPSModelBase@@UEAAXAEAV?$CArray@HH@@PEAX1@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetRangeModel(class CArray<int,int> & __ptr64,void * __ptr64,void * __ptr64) __ptr64
+?RE_GetRangeModel@I_GPSModelBase@@UEAAXHPEAX00@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetRangeModel(int,void * __ptr64,void * __ptr64,void * __ptr64) __ptr64
+?RE_GetRangeModel@I_GPSModelBase@@UEAAXPEAX0@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetRangeModel(void * __ptr64,void * __ptr64) __ptr64
+?RE_GetSolidNomalSumData@I_GPSModelBase@@UEAAHAEAV?$CArray@II@@AEAV?$CArray@HH@@00QEAY02NPEAX@Z -> public: virtual int __cdecl I_GPSModelBase::RE_GetSolidNomalSumData(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<int,int> & __ptr64,class CArray<unsigned int,unsigned int> & __ptr64,class CArray<unsigned int,unsigned int> & __ptr64,double (* __ptr64 const)[3],void * __ptr64) __ptr64
+?RE_GetSubPolyList@I_GPSModelBase@@UEAAXHIPEAX@Z -> public: virtual void __cdecl I_GPSModelBase::RE_GetSubPolyList(int,unsigned int,void * __ptr64) __ptr64
+?RE_GetSuperElemInfo@I_GPSModelBase@@UEAAHIPEAX0@Z -> public: virtual int __cdecl I_GPSModelBase::RE_GetSuperElemInfo(unsigned int,void * __ptr64,void * __ptr64) __ptr64
+?RE_GetSuperNodeInfo@I_GPSModelBase@@UEAAHIPEAX0@Z -> public: virtual int __cdecl I_GPSModelBase::RE_GetSuperNodeInfo(unsigned int,void * __ptr64,void * __ptr64) __ptr64
+?RE_SaveAsBmpFile@I_GPSModelBase@@UEAAHPEAVCDC@@PEAVCBitmap@@PEAD@Z -> public: virtual int __cdecl I_GPSModelBase::RE_SaveAsBmpFile(class CDC * __ptr64,class CBitmap * __ptr64,char * __ptr64) __ptr64
+?RE_XGR_GetGPSShapeElement@I_GPSModelBase@@UEAAXHIPEAXHHHN@Z -> public: virtual void __cdecl I_GPSModelBase::RE_XGR_GetGPSShapeElement(int,unsigned int,void * __ptr64,int,int,int,double) __ptr64
+?ReadyCurState@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::ReadyCurState(void) __ptr64
+?RegisterGlobalModelessDialog@CViewBase@@IEAAXI@Z -> protected: void __cdecl CViewBase::RegisterGlobalModelessDialog(unsigned int) __ptr64
+?RegisterWndToPane@CStatusBarBase@@QEAAXHPEAVCWnd@@H@Z -> public: void __cdecl CStatusBarBase::RegisterWndToPane(int,class CWnd * __ptr64,int) __ptr64
+?ReleaseCurrent@CGLViewBase@@UEAAXXZ -> public: virtual void __cdecl CGLViewBase::ReleaseCurrent(void) __ptr64
+?RemoveAllCutPolys@I_PolyMaker@@UEAAXXZ -> public: virtual void __cdecl I_PolyMaker::RemoveAllCutPolys(void) __ptr64
+?RemoveAllInnerPolys@I_PolyMaker@@UEAAXXZ -> public: virtual void __cdecl I_PolyMaker::RemoveAllInnerPolys(void) __ptr64
+?RemoveAllObserver@GGRViewEventMgr@@QEAAXXZ -> public: void __cdecl GGRViewEventMgr::RemoveAllObserver(void) __ptr64
+?RemoveAllOutterPoly@I_PolyMaker@@UEAAXXZ -> public: virtual void __cdecl I_PolyMaker::RemoveAllOutterPoly(void) __ptr64
+?RemoveAllWidgetObserver@GGRViewEventMgr@@QEAAXXZ -> public: void __cdecl GGRViewEventMgr::RemoveAllWidgetObserver(void) __ptr64
+?RemoveCommandLineObserver@GGRViewEventMgr@@QEAAXXZ -> public: void __cdecl GGRViewEventMgr::RemoveCommandLineObserver(void) __ptr64
+?RemoveFromList@CViewBase@@IEAAXXZ -> protected: void __cdecl CViewBase::RemoveFromList(void) __ptr64
+?RemoveTab@CMyTabWndBase@@QEAAXPEAVCWnd@@@Z -> public: void __cdecl CMyTabWndBase::RemoveTab(class CWnd * __ptr64) __ptr64
+?RemoveTab@CMyTabWndBase@@UEAAHHH@Z -> public: virtual int __cdecl CMyTabWndBase::RemoveTab(int,int) __ptr64
+?RemoveTempLabelingData@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::RemoveTempLabelingData(void) __ptr64
+?RenameTab@CMyTabWndBase@@QEAAXHPEB_W@Z -> public: void __cdecl CMyTabWndBase::RenameTab(int,wchar_t const * __ptr64) __ptr64
+?RenderOnDraw@CViewBase@@UEAAXPEAVCDC@@@Z -> public: virtual void __cdecl CViewBase::RenderOnDraw(class CDC * __ptr64) __ptr64
+?ResetAll@I_PolyMaker@@UEAAXXZ -> public: virtual void __cdecl I_PolyMaker::ResetAll(void) __ptr64
+?ResetContent@CMenuBtnEx@@QEAAXXZ -> public: void __cdecl CMenuBtnEx::ResetContent(void) __ptr64
+?ResetCurMouseEditPointFromStateStackST@I_ModelBase@@SAXPEAVCMouseEdit@@@Z -> public: static void __cdecl I_ModelBase::ResetCurMouseEditPointFromStateStackST(class CMouseEdit * __ptr64)
+?ResetCursorModeAllST@I_ModelBase@@SAXXZ -> public: static void __cdecl I_ModelBase::ResetCursorModeAllST(void)
+?ResetPrintDC@CGwPrintHandler@@SAXPEAVCDC@@@Z -> public: static void __cdecl CGwPrintHandler::ResetPrintDC(class CDC * __ptr64)
+?ResetPrintParam@CGwPrintHandler@@SAXXZ -> public: static void __cdecl CGwPrintHandler::ResetPrintParam(void)
+?ResetQueriedObjectKey@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::ResetQueriedObjectKey(void) __ptr64
+?ResetRubberBandingArrowMode@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::ResetRubberBandingArrowMode(void) __ptr64
+?ResetRubberBandingNonPolyLineMode@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::ResetRubberBandingNonPolyLineMode(void) __ptr64
+?ResetSelFaceEdgeAll@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::ResetSelFaceEdgeAll(void) __ptr64
+?ResetSelectionMode@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::ResetSelectionMode(void) __ptr64
+?ResetSnappedObjectKey@GGRViewEventMgr@@QEAAXXZ -> public: void __cdecl GGRViewEventMgr::ResetSnappedObjectKey(void) __ptr64
+?ResetTempElemAll@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::ResetTempElemAll(void) __ptr64
+?ResetTempFLoadAll@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::ResetTempFLoadAll(void) __ptr64
+?ResetTempObjectAll@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::ResetTempObjectAll(void) __ptr64
+?ResetViewToolTip@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::ResetViewToolTip(void) __ptr64
+?ResetWidgetToolTips@GGRViewEventMgr@@QEAAXXZ -> public: void __cdecl GGRViewEventMgr::ResetWidgetToolTips(void) __ptr64
+?ResetWidgetToolTips@I_GGRViewEventObserver@@QEAAXXZ -> public: void __cdecl I_GGRViewEventObserver::ResetWidgetToolTips(void) __ptr64
+?ResetWidgetToolTips@I_WidgetObserver@@QEAAXXZ -> public: void __cdecl I_WidgetObserver::ResetWidgetToolTips(void) __ptr64
+?Reset_SnapPreset@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::Reset_SnapPreset(void) __ptr64
+?RestartNextFocus@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::RestartNextFocus(void) __ptr64
+?RestoreBackground@GMyToolTipCtrl@@IEAAXPEAVCWnd@@@Z -> protected: void __cdecl GMyToolTipCtrl::RestoreBackground(class CWnd * __ptr64) __ptr64
+?RestoreCurCursorModeAllST@I_ModelBase@@SAXXZ -> public: static void __cdecl I_ModelBase::RestoreCurCursorModeAllST(void)
+?RestoreDefWindowTitleName@CViewBase@@QEAAXXZ -> public: void __cdecl CViewBase::RestoreDefWindowTitleName(void) __ptr64
+?RoundUp_d@CGwPrintHandler@@SANN@Z -> public: static double __cdecl CGwPrintHandler::RoundUp_d(double)
+?RoundUp_i@CGwPrintHandler@@SAHN@Z -> public: static int __cdecl CGwPrintHandler::RoundUp_i(double)
+?SaveAlignment@CDockingDlgBarBase@@AEAAXXZ -> private: void __cdecl CDockingDlgBarBase::SaveAlignment(void) __ptr64
+?SaveAsBitmap@CPicture@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl CPicture::SaveAsBitmap(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SaveAutoHide@CDockingDlgBarBase@@AEAAXXZ -> private: void __cdecl CDockingDlgBarBase::SaveAutoHide(void) __ptr64
+?SaveBackground@GMyToolTipCtrl@@IEAAXPEAVCWnd@@AEBVCRect@@@Z -> protected: void __cdecl GMyToolTipCtrl::SaveBackground(class CWnd * __ptr64,class CRect const & __ptr64) __ptr64
+?SaveCurCursorModeAllST@I_ModelBase@@SAXXZ -> public: static void __cdecl I_ModelBase::SaveCurCursorModeAllST(void)
+?SaveFiles@CRprtViewBase@@UEAAXXZ -> public: virtual void __cdecl CRprtViewBase::SaveFiles(void) __ptr64
+?SaveFloatingRect@CDockingDlgBarBase@@AEAAXXZ -> private: void __cdecl CDockingDlgBarBase::SaveFloatingRect(void) __ptr64
+?SaveImageBMP@CRprtViewBase@@AEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> private: void __cdecl CRprtViewBase::SaveImageBMP(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?SaveImageEMF@CRprtViewBase@@AEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> private: void __cdecl CRprtViewBase::SaveImageEMF(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?SaveInitialText@CLabelEdit@@QEAAXXZ -> public: void __cdecl CLabelEdit::SaveInitialText(void) __ptr64
+?ScrollToTab@CMyTabWndBase@@QEAAXH@Z -> public: void __cdecl CMyTabWndBase::ScrollToTab(int) __ptr64
+?SelFaceEdgeRestoreAll@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::SelFaceEdgeRestoreAll(void) __ptr64
+?SelFaceEdgeSaveAndResetAll@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::SelFaceEdgeSaveAndResetAll(void) __ptr64
+?SendCommandToActiveView@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SendCommandToActiveView(void) __ptr64
+?SendLButtonDownNotify@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SendLButtonDownNotify(void) __ptr64
+?SendMViewCancelNotify@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SendMViewCancelNotify(void) __ptr64
+?SendMessageToAssocWnd@CGlobalModeless@@QEAAXI@Z -> public: void __cdecl CGlobalModeless::SendMessageToAssocWnd(unsigned int) __ptr64
+?SendMouseMoveNotify@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SendMouseMoveNotify(void) __ptr64
+?SendRegisteredMessage@CGlobalModeless@@QEAAX_J@Z -> public: void __cdecl CGlobalModeless::SendRegisteredMessage(__int64) __ptr64
+?SendRegisteredMessage@CGlobalModeless@@QEAAX_K_J@Z -> public: void __cdecl CGlobalModeless::SendRegisteredMessage(unsigned __int64,__int64) __ptr64
+?SeparatePathAndName@CTreeData@@IEAAHPEB_WAEAVCStringArray@@@Z -> protected: int __cdecl CTreeData::SeparatePathAndName(wchar_t const * __ptr64,class CStringArray & __ptr64) __ptr64
+?Serialize@CDocBase@@UEAAXAEAVCArchive@@@Z -> public: virtual void __cdecl CDocBase::Serialize(class CArchive & __ptr64) __ptr64
+?Set2PRectCursorMode@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::Set2PRectCursorMode(void) __ptr64
+?Set3d@XGL_3dp@@QEAAXQEAN@Z -> public: void __cdecl XGL_3dp::Set3d(double * __ptr64 const) __ptr64
+?Set@CGlRGB@@QEAAXHHH@Z -> public: void __cdecl CGlRGB::Set(int,int,int) __ptr64
+?Set@CGlRGB@@QEAAXK@Z -> public: void __cdecl CGlRGB::Set(unsigned long) __ptr64
+?Set@CGlRGB@@QEAAXMMM@Z -> public: void __cdecl CGlRGB::Set(float,float,float) __ptr64
+?Set@XGL_3dp@@QEAAXNNN@Z -> public: void __cdecl XGL_3dp::Set(double,double,double) __ptr64
+?SetActiveTab@CTMTabWnd@@UEAAHH@Z -> public: virtual int __cdecl CTMTabWnd::SetActiveTab(int) __ptr64
+?SetAngle@CAngleViewDlg@@QEAAXHH@Z -> public: void __cdecl CAngleViewDlg::SetAngle(int,int) __ptr64
+?SetAreaCreat@CParseEdit@@QEAAXXZ -> public: void __cdecl CParseEdit::SetAreaCreat(void) __ptr64
+?SetAssocWindowAllRegisteredDlg@CViewBase@@IEAAXXZ -> protected: void __cdecl CViewBase::SetAssocWindowAllRegisteredDlg(void) __ptr64
+?SetAssocWindowAllST@CGlobalModeless@@SAHPEAVCWnd@@@Z -> public: static int __cdecl CGlobalModeless::SetAssocWindowAllST(class CWnd * __ptr64)
+?SetAssocWindowST@CGlobalModeless@@SAHIPEAVCWnd@@@Z -> public: static int __cdecl CGlobalModeless::SetAssocWindowST(unsigned int,class CWnd * __ptr64)
+?SetAttAll@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetAttAll(void) __ptr64
+?SetAttElemList@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetAttElemList(void) __ptr64
+?SetAttNodeList@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetAttNodeList(void) __ptr64
+?SetAttNothing@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetAttNothing(void) __ptr64
+?SetAttObjectKeyList@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetAttObjectKeyList(void) __ptr64
+?SetAttUcsDistance@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetAttUcsDistance(void) __ptr64
+?SetAttUcsPos@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetAttUcsPos(void) __ptr64
+?SetAttWcsDistance@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetAttWcsDistance(void) __ptr64
+?SetAttWcsPos@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetAttWcsPos(void) __ptr64
+?SetBarName@CStatusBarBase@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CStatusBarBase::SetBarName(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetBeQueriedAreaKey@I_ModelBase@@UEAAXI@Z -> public: virtual void __cdecl I_ModelBase::SetBeQueriedAreaKey(unsigned int) __ptr64
+?SetBeQueriedElemKey@I_ModelBase@@UEAAXI@Z -> public: virtual void __cdecl I_ModelBase::SetBeQueriedElemKey(unsigned int) __ptr64
+?SetBeQueriedLineKey@I_ModelBase@@UEAAXI@Z -> public: virtual void __cdecl I_ModelBase::SetBeQueriedLineKey(unsigned int) __ptr64
+?SetBeQueriedNodeKey@I_ModelBase@@UEAAXI@Z -> public: virtual void __cdecl I_ModelBase::SetBeQueriedNodeKey(unsigned int) __ptr64
+?SetBeQueriedPointKey@I_ModelBase@@UEAAXI@Z -> public: virtual void __cdecl I_ModelBase::SetBeQueriedPointKey(unsigned int) __ptr64
+?SetCDBDocElemKey@CMouseEdit@@QEAAXHH@Z -> public: void __cdecl CMouseEdit::SetCDBDocElemKey(int,int) __ptr64
+?SetCDBDocElemKeyST@CMouseEdit@@SAXHH@Z -> public: static void __cdecl CMouseEdit::SetCDBDocElemKeyST(int,int)
+?SetCheckToolbarButton@I_MainFrameBase@@SAXIH@Z -> public: static void __cdecl I_MainFrameBase::SetCheckToolbarButton(unsigned int,int)
+?SetCircleCursorMode@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetCircleCursorMode(void) __ptr64
+?SetCircleCursorModeOrtho@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetCircleCursorModeOrtho(void) __ptr64
+?SetClickMeNotifyWindow@CMouseEdit@@QEAAXPEAVCWnd@@@Z -> public: void __cdecl CMouseEdit::SetClickMeNotifyWindow(class CWnd * __ptr64) __ptr64
+?SetCommand@CMouseEdit@@QEAAXI@Z -> public: void __cdecl CMouseEdit::SetCommand(unsigned int) __ptr64
+?SetCommandTable@CStatusBarBase@@QEAAXPEAI@Z -> public: void __cdecl CStatusBarBase::SetCommandTable(unsigned int * __ptr64) __ptr64
+?SetCurItem@CMenuBtnEx@@QEAAHI@Z -> public: int __cdecl CMenuBtnEx::SetCurItem(unsigned int) __ptr64
+?SetCurMouseEditPointToStateStackST@I_ModelBase@@SAXPEAVCMouseEdit@@@Z -> public: static void __cdecl I_ModelBase::SetCurMouseEditPointToStateStackST(class CMouseEdit * __ptr64)
+?SetCurMouseEditST@CMouseEdit@@SAXH@Z -> public: static void __cdecl CMouseEdit::SetCurMouseEditST(int)
+?SetCurMouseEditST@CMouseEdit@@SAXPEAV1@@Z -> public: static void __cdecl CMouseEdit::SetCurMouseEditST(class CMouseEdit * __ptr64)
+?SetCurMousePosST@CMouseEdit@@SAXNNNNNN@Z -> public: static void __cdecl CMouseEdit::SetCurMousePosST(double,double,double,double,double,double)
+?SetCurMousePosStringST@CMouseEdit@@SAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@0PEAV23@1@Z -> public: static void __cdecl CMouseEdit::SetCurMousePosStringST(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > * __ptr64)
+?SetCurMultiLineMouseEditNewLineST@CMouseEdit@@SAXXZ -> public: static void __cdecl CMouseEdit::SetCurMultiLineMouseEditNewLineST(void)
+?SetCurMySelfST@I_ModelBase@@SAXPEAV1@@Z -> public: static void __cdecl I_ModelBase::SetCurMySelfST(class I_ModelBase * __ptr64)
+?SetCurPickedGPSObjectDataST@CMouseEdit@@SAXHH@Z -> public: static void __cdecl CMouseEdit::SetCurPickedGPSObjectDataST(int,int)
+?SetCursorByCurStateAllST@I_ModelBase@@SAXXZ -> public: static void __cdecl I_ModelBase::SetCursorByCurStateAllST(void)
+?SetData@CRprtViewBase@@QEAAXIW4ReportContent@@@Z -> public: void __cdecl CRprtViewBase::SetData(unsigned int,enum ReportContent) __ptr64
+?SetDefUCSCoord@CMouseEdit@@QEAAXNNN@Z -> public: void __cdecl CMouseEdit::SetDefUCSCoord(double,double,double) __ptr64
+?SetDefWCSCoord@CMouseEdit@@QEAAXNNN@Z -> public: void __cdecl CMouseEdit::SetDefWCSCoord(double,double,double) __ptr64
+?SetDefWindowTitleName@CViewBase@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CViewBase::SetDefWindowTitleName(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetDefaultElemKeyNum@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetDefaultElemKeyNum(void) __ptr64
+?SetDefaultIDListNum@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetDefaultIDListNum(void) __ptr64
+?SetDefaultNodeKeyNum@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetDefaultNodeKeyNum(void) __ptr64
+?SetDefaultObjectKeyNum@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetDefaultObjectKeyNum(void) __ptr64
+?SetDesignCode@CRprtViewBase@@QEAAXAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CRprtViewBase::SetDesignCode(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+?SetDesignCode@CRprtViewBase@@QEAAXW4DGNCode@@@Z -> public: void __cdecl CRprtViewBase::SetDesignCode(enum DGNCode) __ptr64
+?SetDistValueMode@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::SetDistValueMode(int) __ptr64
+?SetDlgBarMode@CDockDlgBarBase@@SAXW4DLGBAR_MODE@CDlgBarMode@@@Z -> public: static void __cdecl CDockDlgBarBase::SetDlgBarMode(enum CDlgBarMode::DLGBAR_MODE)
+?SetDlgID@CGlobalModeless@@QEAAXI@Z -> public: void __cdecl CGlobalModeless::SetDlgID(unsigned int) __ptr64
+?SetDockViewWithID@CDockViewBase@@SAHIPEAV1@@Z -> public: static int __cdecl CDockViewBase::SetDockViewWithID(unsigned int,class CDockViewBase * __ptr64)
+?SetDrawNotice@CRprtViewBase@@QEAAX_N@Z -> public: void __cdecl CRprtViewBase::SetDrawNotice(bool) __ptr64
+?SetDuration@CDurationProp@@QEAAXVCOleDateTimeSpan@ATL@@@Z -> public: void __cdecl CDurationProp::SetDuration(class ATL::COleDateTimeSpan) __ptr64
+?SetElemCreate@CParseEdit@@QEAAXXZ -> public: void __cdecl CParseEdit::SetElemCreate(void) __ptr64
+?SetEnterNotifyWindow@CMouseEdit@@QEAAXPEAVCWnd@@@Z -> public: void __cdecl CMouseEdit::SetEnterNotifyWindow(class CWnd * __ptr64) __ptr64
+?SetEscNotifyWindow@CMouseEdit@@QEAAXPEAVCWnd@@@Z -> public: void __cdecl CMouseEdit::SetEscNotifyWindow(class CWnd * __ptr64) __ptr64
+?SetExtraParamST@CMouseEdit@@SAXK@Z -> public: static void __cdecl CMouseEdit::SetExtraParamST(unsigned long)
+?SetFDSPlaneViewMode@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::SetFDSPlaneViewMode(void) __ptr64
+?SetFDSStoryViewMode@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::SetFDSStoryViewMode(void) __ptr64
+?SetFloatSpinValue@CStringParser@@SAXPEAVCDialog@@IV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@1NPEAUtagNMHDR@@PEA_J@Z -> public: static void __cdecl CStringParser::SetFloatSpinValue(class CDialog * __ptr64,unsigned int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,double,struct tagNMHDR * __ptr64,__int64 * __ptr64)
+?SetFocusByUseModeST@CMouseEdit@@SAXH@Z -> public: static void __cdecl CMouseEdit::SetFocusByUseModeST(int)
+?SetFreeCursorMode@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetFreeCursorMode(void) __ptr64
+?SetGPSView@CGLViewBase@@UEAAXPEAVCView@@@Z -> public: virtual void __cdecl CGLViewBase::SetGPSView(class CView * __ptr64) __ptr64
+?SetGPSViewMode@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::SetGPSViewMode(void) __ptr64
+?SetIGpsModelPoint@CGLViewBase@@UEAAXXZ -> public: virtual void __cdecl CGLViewBase::SetIGpsModelPoint(void) __ptr64
+?SetI_GENModelST@CMouseEdit@@SAXPEAVI_ModelBase@@@Z -> public: static void __cdecl CMouseEdit::SetI_GENModelST(class I_ModelBase * __ptr64)
+?SetIndicators@CStatusBarBase@@QEAAHPEBIH@Z -> public: int __cdecl CStatusBarBase::SetIndicators(unsigned int const * __ptr64,int) __ptr64
+?SetInfoRichEdit@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetInfoRichEdit(void) __ptr64
+?SetItem@CTreeItem@@QEAAHPEAV1@IIPEAVCObject@@H@Z -> public: int __cdecl CTreeItem::SetItem(class CTreeItem * __ptr64,unsigned int,unsigned int,class CObject * __ptr64,int) __ptr64
+?SetItemData@CTreeItem@@QEAAHPEAVCObject@@H@Z -> public: int __cdecl CTreeItem::SetItemData(class CObject * __ptr64,int) __ptr64
+?SetKeyPressedFlag@CMouseEdit@@QEAAHH@Z -> public: int __cdecl CMouseEdit::SetKeyPressedFlag(int) __ptr64
+?SetLButtonDownNotifyWindow@CMouseEdit@@QEAAXPEAVCWnd@@@Z -> public: void __cdecl CMouseEdit::SetLButtonDownNotifyWindow(class CWnd * __ptr64) __ptr64
+?SetLineCreate@CParseEdit@@QEAAXXZ -> public: void __cdecl CParseEdit::SetLineCreate(void) __ptr64
+?SetLoadCaseInfoToPostDisplay@I_GPSModelBase@@UEAAXII@Z -> public: virtual void __cdecl I_GPSModelBase::SetLoadCaseInfoToPostDisplay(unsigned int,unsigned int) __ptr64
+?SetMViewCancelNotifyWindow@CMouseEdit@@QEAAXPEAVCWnd@@@Z -> public: void __cdecl CMouseEdit::SetMViewCancelNotifyWindow(class CWnd * __ptr64) __ptr64
+?SetMaxElemKeyNum@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::SetMaxElemKeyNum(int) __ptr64
+?SetMaxIDListNum@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::SetMaxIDListNum(int) __ptr64
+?SetMaxLineNum@CMouseEdit@@QEAAXHH@Z -> public: void __cdecl CMouseEdit::SetMaxLineNum(int,int) __ptr64
+?SetMaxNodeKeyNum@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::SetMaxNodeKeyNum(int) __ptr64
+?SetMaxObjectKeyNum@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::SetMaxObjectKeyNum(int) __ptr64
+?SetMembType@CRprtViewBase@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CRprtViewBase::SetMembType(enum MEMBType) __ptr64
+?SetModeToUse@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::SetModeToUse(int) __ptr64
+?SetModelingMode@I_ModelBase@@QEAAXH@Z -> public: void __cdecl I_ModelBase::SetModelingMode(int) __ptr64
+?SetModelingModeST@I_ModelBase@@SAXH@Z -> public: static void __cdecl I_ModelBase::SetModelingModeST(int)
+?SetModelingViewMode@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::SetModelingViewMode(void) __ptr64
+?SetMouseMoveNotifyWindow@CMouseEdit@@QEAAXPEAVCWnd@@@Z -> public: void __cdecl CMouseEdit::SetMouseMoveNotifyWindow(class CWnd * __ptr64) __ptr64
+?SetMultiLineEdit@CGlobalModeless@@QEAAXH@Z -> public: void __cdecl CGlobalModeless::SetMultiLineEdit(int) __ptr64
+?SetMultiLineMode@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::SetMultiLineMode(int) __ptr64
+?SetNextFocusWindow@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::SetNextFocusWindow(int) __ptr64
+?SetNextLink@CMouseEdit@@QEAAXPEAV1@@Z -> public: void __cdecl CMouseEdit::SetNextLink(class CMouseEdit * __ptr64) __ptr64
+?SetNodeCreate@CParseEdit@@QEAAXXZ -> public: void __cdecl CParseEdit::SetNodeCreate(void) __ptr64
+?SetObjectSelectionMode@I_ModelBase@@QEAAXH@Z -> public: void __cdecl I_ModelBase::SetObjectSelectionMode(int) __ptr64
+?SetObjectSelectionModeST@I_ModelBase@@SAXH@Z -> public: static void __cdecl I_ModelBase::SetObjectSelectionModeST(int)
+?SetOldMySelfST@I_ModelBase@@SAXPEAV1@@Z -> public: static void __cdecl I_ModelBase::SetOldMySelfST(class I_ModelBase * __ptr64)
+?SetPaneState@CStatusBarBase@@QEAAXIH@Z -> public: void __cdecl CStatusBarBase::SetPaneState(unsigned int,int) __ptr64
+?SetPause@GMyToolTipCtrl@@QEAAXH@Z -> public: void __cdecl GMyToolTipCtrl::SetPause(int) __ptr64
+?SetPlaVolSelect@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetPlaVolSelect(void) __ptr64
+?SetPlaVolSelectAllST@CMouseEdit@@SAXXZ -> public: static void __cdecl CMouseEdit::SetPlaVolSelectAllST(void)
+?SetPlaVolUnselect@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetPlaVolUnselect(void) __ptr64
+?SetPlaVolUnselectAllST@CMouseEdit@@SAXXZ -> public: static void __cdecl CMouseEdit::SetPlaVolUnselectAllST(void)
+?SetPointCreate@CParseEdit@@QEAAXXZ -> public: void __cdecl CParseEdit::SetPointCreate(void) __ptr64
+?SetPosition@CAngleViewDlg@@QEAAXQEAY02N@Z -> public: void __cdecl CAngleViewDlg::SetPosition(double (* __ptr64 const)[3]) __ptr64
+?SetPreParsingMode@CParseEdit@@QEAAXH@Z -> public: void __cdecl CParseEdit::SetPreParsingMode(int) __ptr64
+?SetPrintDC@CGwPrintHandler@@SAHPEAVCView@@PEAVCDC@@PEAUCPrintInfo@@@Z -> public: static int __cdecl CGwPrintHandler::SetPrintDC(class CView * __ptr64,class CDC * __ptr64,struct CPrintInfo * __ptr64)
+?SetRedrawFlag@CGLViewBase@@UEAAXH@Z -> public: virtual void __cdecl CGLViewBase::SetRedrawFlag(int) __ptr64
+?SetReverseDir@CSpinBtnExCtrl@@QEAAHH@Z -> public: int __cdecl CSpinBtnExCtrl::SetReverseDir(int) __ptr64
+?SetRubberBandingArrowMode@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::SetRubberBandingArrowMode(void) __ptr64
+?SetRubberBandingNonPolyLineMode@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::SetRubberBandingNonPolyLineMode(void) __ptr64
+?SetSelectModeOff@I_MainFrameBase@@SAXXZ -> public: static void __cdecl I_MainFrameBase::SetSelectModeOff(void)
+?SetSelectRectCursorAllST@I_ModelBase@@SAXXZ -> public: static void __cdecl I_ModelBase::SetSelectRectCursorAllST(void)
+?SetSlicingLines@I_PolyMaker@@UEAAXAEAV?$CArray@VXGL_Line3d@@AEAV1@@@@Z -> public: virtual void __cdecl I_PolyMaker::SetSlicingLines(class CArray<class XGL_Line3d,class XGL_Line3d & __ptr64> & __ptr64) __ptr64
+?SetSnappedObjectKey@GGRViewEventMgr@@QEAAXDI@Z -> public: void __cdecl GGRViewEventMgr::SetSnappedObjectKey(char,unsigned int) __ptr64
+?SetSpinValue@CStringParser@@SAXPEAVCDialog@@IHHPEAUtagNMHDR@@PEA_J@Z -> public: static void __cdecl CStringParser::SetSpinValue(class CDialog * __ptr64,unsigned int,int,int,struct tagNMHDR * __ptr64,__int64 * __ptr64)
+?SetStayInCurrent@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::SetStayInCurrent(int) __ptr64
+?SetString@CMouseEdit@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CMouseEdit::SetString(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetStringEnd@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetStringEnd(void) __ptr64
+?SetStringST@CMouseEdit@@SAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static void __cdecl CMouseEdit::SetStringST(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?SetStringSamePos@CMouseEdit@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CMouseEdit::SetStringSamePos(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetText@CRprtViewBase@@QEAAXXZ -> public: void __cdecl CRprtViewBase::SetText(void) __ptr64
+?SetTitleST@CGlobalModeless@@SAHIV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static int __cdecl CGlobalModeless::SetTitleST(unsigned int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?SetUcsGcsMousePos@GGRViewEventMgr@@QEAAXNNNNNN@Z -> public: void __cdecl GGRViewEventMgr::SetUcsGcsMousePos(double,double,double,double,double,double) __ptr64
+?SetUcsNCurLGrid@I_ModelBase@@UEAAXNNNNNNV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: virtual void __cdecl I_ModelBase::SetUcsNCurLGrid(double,double,double,double,double,double,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int) __ptr64
+?SetUnitVectorMode@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::SetUnitVectorMode(int) __ptr64
+?SetUntitleCount@CMyMultiDocTemplate@@QEAAXI@Z -> public: void __cdecl CMyMultiDocTemplate::SetUntitleCount(unsigned int) __ptr64
+?SetValues@CAngleViewDlg@@QEAAXHH@Z -> public: void __cdecl CAngleViewDlg::SetValues(int,int) __ptr64
+?SetViewRect@CRprtViewBase@@QEAAXAEAVCRect@@@Z -> public: void __cdecl CRprtViewBase::SetViewRect(class CRect & __ptr64) __ptr64
+?SetViewSize@CRprtViewBase@@UEAAXXZ -> public: virtual void __cdecl CRprtViewBase::SetViewSize(void) __ptr64
+?SetVirtualBmpDimension@CGwPrintHandler@@SAHPEAUHDC__@@H@Z -> public: static int __cdecl CGwPrintHandler::SetVirtualBmpDimension(struct HDC__ * __ptr64,int)
+?SetWhiteReadOnly@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::SetWhiteReadOnly(int) __ptr64
+?SetWindowTitle@CViewBase@@IEAAXXZ -> protected: void __cdecl CViewBase::SetWindowTitle(void) __ptr64
+?SetWindowTitleName@CViewBase@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CViewBase::SetWindowTitleName(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetXOrthoCursorMode@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetXOrthoCursorMode(void) __ptr64
+?SetXYOnlyMode@CMouseEdit@@QEAAXH@Z -> public: void __cdecl CMouseEdit::SetXYOnlyMode(int) __ptr64
+?SetYOrthoCursorMode@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::SetYOrthoCursorMode(void) __ptr64
+?SetZoomFactor@CRprtViewBase@@QEAAXN@Z -> public: void __cdecl CRprtViewBase::SetZoomFactor(double) __ptr64
+?Set_IO_PrecisionDefaultST@I_ModelBase@@SAXXZ -> public: static void __cdecl I_ModelBase::Set_IO_PrecisionDefaultST(void)
+?Set_IO_PrecisionST@I_ModelBase@@SAXHH@Z -> public: static void __cdecl I_ModelBase::Set_IO_PrecisionST(int,int)
+?Set_Snap_DummyLineSnapOther@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::Set_Snap_DummyLineSnapOther(void) __ptr64
+?Set_Snap_DummyLine_Preset@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::Set_Snap_DummyLine_Preset(void) __ptr64
+?Set_Snap_ElementCenter_Preset@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::Set_Snap_ElementCenter_Preset(void) __ptr64
+?Set_Snap_LineGrid_Preset@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::Set_Snap_LineGrid_Preset(void) __ptr64
+?Set_Snap_Member_Preset@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::Set_Snap_Member_Preset(void) __ptr64
+?Set_Snap_Node_Preset@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::Set_Snap_Node_Preset(void) __ptr64
+?Set_Snap_PointGrid_Preset@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::Set_Snap_PointGrid_Preset(void) __ptr64
+?Set_Snap_Point_Preset@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::Set_Snap_Point_Preset(void) __ptr64
+?Set_m_bAutoDelete@CDocBase@@QEAAXH@Z -> public: void __cdecl CDocBase::Set_m_bAutoDelete(int) __ptr64
+?Show@CPicture@@QEAAHPEAVCDC@@VCPoint@@1HH@Z -> public: int __cdecl CPicture::Show(class CDC * __ptr64,class CPoint,class CPoint,int,int) __ptr64
+?Show@CPicture@@QEAAHPEAVCDC@@VCRect@@@Z -> public: int __cdecl CPicture::Show(class CDC * __ptr64,class CRect) __ptr64
+?ShowAllRegisteredDlg@CViewBase@@QEAAXXZ -> public: void __cdecl CViewBase::ShowAllRegisteredDlg(void) __ptr64
+?ShowAllST@CGlobalModeless@@SAHXZ -> public: static int __cdecl CGlobalModeless::ShowAllST(void)
+?ShowAngleView@@YAXPEAVCWnd@@HH@Z -> void __cdecl ShowAngleView(class CWnd * __ptr64,int,int)
+?ShowAngleView@@YAXPEAVCWnd@@QEAY02N@Z -> void __cdecl ShowAngleView(class CWnd * __ptr64,double (* __ptr64 const)[3])
+?ShowBitmapResource@CPicture@@QEAAHPEAVCDC@@HVCPoint@@@Z -> public: int __cdecl CPicture::ShowBitmapResource(class CDC * __ptr64,int,class CPoint) __ptr64
+?ShowDlgBarMode@CDockDlgBarBase@@SAHW4DLGBAR_MODE@CDlgBarMode@@PEAX@Z -> public: static int __cdecl CDockDlgBarBase::ShowDlgBarMode(enum CDlgBarMode::DLGBAR_MODE,void * __ptr64)
+?ShowDlgST@CGlobalModeless@@SAXI@Z -> public: static void __cdecl CGlobalModeless::ShowDlgST(unsigned int)
+?ShowDockView@CDockViewBase@@SAHI@Z -> public: static int __cdecl CDockViewBase::ShowDockView(unsigned int)
+?ShowHideDockBar@CDockingDlgBarBase@@QEAAX_N@Z -> public: void __cdecl CDockingDlgBarBase::ShowHideDockBar(bool) __ptr64
+?ShowHideDockView@CDockViewBase@@SAHI@Z -> public: static int __cdecl CDockViewBase::ShowHideDockView(unsigned int)
+?ShowLightDlg@@YAXPEAVCWnd@@AEAUT_LIGHT_D@@@Z -> void __cdecl ShowLightDlg(class CWnd * __ptr64,struct T_LIGHT_D & __ptr64)
+?ShowTipOnly@GMyToolTipCtrl@@QEAAHPEAVCWnd@@VCPoint@@@Z -> public: int __cdecl GMyToolTipCtrl::ShowTipOnly(class CWnd * __ptr64,class CPoint) __ptr64
+?ShowTipOnlyForMED@GMyToolTipCtrl@@QEAAHPEAVCWnd@@VCPoint@@@Z -> public: int __cdecl GMyToolTipCtrl::ShowTipOnlyForMED(class CWnd * __ptr64,class CPoint) __ptr64
+?ShowTipWindow@GMyToolTipCtrl@@QEAAXPEAVCWnd@@VCPoint@@VCSize@@@Z -> public: void __cdecl GMyToolTipCtrl::ShowTipWindow(class CWnd * __ptr64,class CPoint,class CSize) __ptr64
+?ShowToolTip@CMouseEdit@@IEAAXXZ -> protected: void __cdecl CMouseEdit::ShowToolTip(void) __ptr64
+?ShowToolTip@CParseEdit@@IEAAXXZ -> protected: void __cdecl CParseEdit::ShowToolTip(void) __ptr64
+?ShowWndTab@CMainFrameBase@@QEAAXXZ -> public: void __cdecl CMainFrameBase::ShowWndTab(void) __ptr64
+?Start@I_GGRViewEventObserver@@QEAAXXZ -> public: void __cdecl I_GGRViewEventObserver::Start(void) __ptr64
+?Start@I_WidgetObserver@@QEAAXXZ -> public: void __cdecl I_WidgetObserver::Start(void) __ptr64
+?StartCommandLine@I_GGRViewEventObserver@@QEAAXXZ -> public: void __cdecl I_GGRViewEventObserver::StartCommandLine(void) __ptr64
+?StartRubberBanding@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::StartRubberBanding(void) __ptr64
+?StateExchange@I_ModelBase@@QEAAXH@Z -> public: void __cdecl I_ModelBase::StateExchange(int) __ptr64
+?StatePop@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::StatePop(void) __ptr64
+?StatePush@I_ModelBase@@QEAAXH@Z -> public: void __cdecl I_ModelBase::StatePush(int) __ptr64
+?StateStackEmpty@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::StateStackEmpty(void) __ptr64
+?StateStackIsEmpty@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::StateStackIsEmpty(void) __ptr64
+?StateTop@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::StateTop(void) __ptr64
+?StopRubberBanding@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::StopRubberBanding(void) __ptr64
+?SysCloseMenuDisable@CChildFrameBase@@QEAAXXZ -> public: void __cdecl CChildFrameBase::SysCloseMenuDisable(void) __ptr64
+?TempElemRestoreAll@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::TempElemRestoreAll(void) __ptr64
+?TempElemSaveAndResetAll@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::TempElemSaveAndResetAll(void) __ptr64
+?TempFLoadRestoreAll@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::TempFLoadRestoreAll(void) __ptr64
+?TempFLoadSaveAndResetAll@I_ModelBase@@UEAAXXZ -> public: virtual void __cdecl I_ModelBase::TempFLoadSaveAndResetAll(void) __ptr64
+?TempObjectRestoreAll@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::TempObjectRestoreAll(void) __ptr64
+?TempObjectSaveAndResetAll@I_ModelBase@@QEAAXXZ -> public: void __cdecl I_ModelBase::TempObjectSaveAndResetAll(void) __ptr64
+?TextChanged@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::TextChanged(void) __ptr64
+?TotalLineCount@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::TotalLineCount(void) __ptr64
+?TracingLine_GetCurSelectedKeys@I_GGRViewEventObserver@@UEAAHAEAV?$CArray@II@@@Z -> public: virtual int __cdecl I_GGRViewEventObserver::TracingLine_GetCurSelectedKeys(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?TracingLine_IsExistSelection@I_GGRViewEventObserver@@UEAAHXZ -> public: virtual int __cdecl I_GGRViewEventObserver::TracingLine_IsExistSelection(void) __ptr64
+?TracingLine_IsSelectMode@I_GGRViewEventObserver@@UEAAHXZ -> public: virtual int __cdecl I_GGRViewEventObserver::TracingLine_IsSelectMode(void) __ptr64
+?TracingLine_ResetSelectMode@I_GGRViewEventObserver@@UEAAXXZ -> public: virtual void __cdecl I_GGRViewEventObserver::TracingLine_ResetSelectMode(void) __ptr64
+?TracingLine_SetSelectMode@I_GGRViewEventObserver@@UEAAXHHH@Z -> public: virtual void __cdecl I_GGRViewEventObserver::TracingLine_SetSelectMode(int,int,int) __ptr64
+?UTIL_ShowStatusBar@I_ModelBase@@UEAAHXZ -> public: virtual int __cdecl I_ModelBase::UTIL_ShowStatusBar(void) __ptr64
+?UTIL_ShowStatusBarST@I_ModelBase@@SAHXZ -> public: static int __cdecl I_ModelBase::UTIL_ShowStatusBarST(void)
+?UpdateAllTempElemST@I_ModelBase@@SAXPEAV1@@Z -> public: static void __cdecl I_ModelBase::UpdateAllTempElemST(class I_ModelBase * __ptr64)
+?UpdateAllViewTitle@CViewBase@@KAXXZ -> protected: static void __cdecl CViewBase::UpdateAllViewTitle(void)
+?UpdateCamera@CGLViewBase@@UEAAXXZ -> public: virtual void __cdecl CGLViewBase::UpdateCamera(void) __ptr64
+?UpdateCurMousePos@CParseEdit@@QEAAXNNNNNN@Z -> public: void __cdecl CParseEdit::UpdateCurMousePos(double,double,double,double,double,double) __ptr64
+?UpdateCurMousePosST@CParseEdit@@SAXNNNNNN@Z -> public: static void __cdecl CParseEdit::UpdateCurMousePosST(double,double,double,double,double,double)
+?UpdateDisplayOptions@CGLViewBase@@UEAAXH@Z -> public: virtual void __cdecl CGLViewBase::UpdateDisplayOptions(int) __ptr64
+?UpdatePaneSize@CStatusBarBase@@QEAAXXZ -> public: void __cdecl CStatusBarBase::UpdatePaneSize(void) __ptr64
+?UpdatePrintDC@CGwPreviewView@@IEAAXXZ -> protected: void __cdecl CGwPreviewView::UpdatePrintDC(void) __ptr64
+?UpdateSizeOnDC@CPicture@@QEAAHPEAVCDC@@@Z -> public: int __cdecl CPicture::UpdateSizeOnDC(class CDC * __ptr64) __ptr64
+?UpdateTitleAllRegisteredDlg@CViewBase@@QEAAXXZ -> public: void __cdecl CViewBase::UpdateTitleAllRegisteredDlg(void) __ptr64
+?UpdateToolBar@CGwPreviewView@@QEAAXXZ -> public: void __cdecl CGwPreviewView::UpdateToolBar(void) __ptr64
+?UseCommandLine@CViewBase@@IEAAXXZ -> protected: void __cdecl CViewBase::UseCommandLine(void) __ptr64
+?ValidationCheck@CDlgNode@@QEAAHXZ -> public: int __cdecl CDlgNode::ValidationCheck(void) __ptr64
+?WM_CANCEL_FROM_MVIEW@CMouseEdit@@2IA -> public: static unsigned int CMouseEdit::WM_CANCEL_FROM_MVIEW
+?WM_CLICKME@CMouseEdit@@2IA -> public: static unsigned int CMouseEdit::WM_CLICKME
+?WM_GLANGLE_CHANGE@CAngleViewMsg@@2IA -> public: static unsigned int CAngleViewMsg::WM_GLANGLE_CHANGE
+?WM_LBUTTONDOWN_FROM_MVIEW@CMouseEdit@@2IA -> public: static unsigned int CMouseEdit::WM_LBUTTONDOWN_FROM_MVIEW
+?WM_LIGHT_CHANGE@ShadeExport@@2IA -> public: static unsigned int ShadeExport::WM_LIGHT_CHANGE
+?WM_MOUSEEDITENTER@CMouseEdit@@2IA -> public: static unsigned int CMouseEdit::WM_MOUSEEDITENTER
+?WM_MOUSEEDITESCAPE@CMouseEdit@@2IA -> public: static unsigned int CMouseEdit::WM_MOUSEEDITESCAPE
+?WM_MOUSEEDIT_TEXT_CHANGED@CMouseEdit@@2IA -> public: static unsigned int CMouseEdit::WM_MOUSEEDIT_TEXT_CHANGED
+?WM_MOUSEMOVE_FROM_MVIEW@CMouseEdit@@2IA -> public: static unsigned int CMouseEdit::WM_MOUSEMOVE_FROM_MVIEW
+?WM_PLUGIN_OPERATION_END@CMouseEdit@@2IA -> public: static unsigned int CMouseEdit::WM_PLUGIN_OPERATION_END
+?WhatKindOfCurStateGroup@I_ModelBase@@QEAAHXZ -> public: int __cdecl I_ModelBase::WhatKindOfCurStateGroup(void) __ptr64
+?WhatKindOfStateGroup@I_ModelBase@@QEAAHH@Z -> public: int __cdecl I_ModelBase::WhatKindOfStateGroup(int) __ptr64
+?WhenChanceToChangeAssocWindow@CParseEdit@@QEAAHXZ -> public: int __cdecl CParseEdit::WhenChanceToChangeAssocWindow(void) __ptr64
+?WhenViewActivate@CViewBase@@MEAAXXZ -> protected: virtual void __cdecl CViewBase::WhenViewActivate(void) __ptr64
+?WhenViewClose@CViewBase@@MEAAXXZ -> protected: virtual void __cdecl CViewBase::WhenViewClose(void) __ptr64
+?WhenViewCreation@CViewBase@@MEAAXXZ -> protected: virtual void __cdecl CViewBase::WhenViewCreation(void) __ptr64
+?WhenViewDeactivate@CViewBase@@MEAAXXZ -> protected: virtual void __cdecl CViewBase::WhenViewDeactivate(void) __ptr64
+?WindowProc@CViewBase@@MEAA_JI_K_J@Z -> protected: virtual __int64 __cdecl CViewBase::WindowProc(unsigned int,unsigned __int64,__int64) __ptr64
+?Write@CLogFileEx@@QEAAHPEB_WZZ -> public: int __cdecl CLogFileEx::Write(wchar_t const * __ptr64,...) __ptr64
+?WriteDIB@CPicture@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAX@Z -> public: int __cdecl CPicture::WriteDIB(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,void * __ptr64) __ptr64
+?XGL_RE_GetWcsVcsMBRL@I_GPSModelBase@@UEAAHHIQEAN00@Z -> public: virtual int __cdecl I_GPSModelBase::XGL_RE_GetWcsVcsMBRL(int,unsigned int,double * __ptr64 const,double * __ptr64 const,double * __ptr64 const) __ptr64
+?_EndST@CGlobalModeless@@SAHIH@Z -> public: static int __cdecl CGlobalModeless::_EndST(unsigned int,int)
+?_FindDlgST@CGlobalModeless@@SAPEAVCDlgNode@@IAEA_J@Z -> public: static class CDlgNode * __ptr64 __cdecl CGlobalModeless::_FindDlgST(unsigned int,__int64 & __ptr64)
+?_GetBaseClass@CBCGPMiniFrameWnd_NotFloat@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CBCGPMiniFrameWnd_NotFloat::_GetBaseClass(void)
+?_GetBaseClass@CChildFrameBase@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CChildFrameBase::_GetBaseClass(void)
+?_GetBaseClass@CDocBase@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CDocBase::_GetBaseClass(void)
+?_GetBaseClass@CDockDlgBarBase@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CDockDlgBarBase::_GetBaseClass(void)
+?_GetBaseClass@CDockViewBase@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CDockViewBase::_GetBaseClass(void)
+?_GetBaseClass@CGLViewBase@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CGLViewBase::_GetBaseClass(void)
+?_GetBaseClass@CGwPreviewView@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CGwPreviewView::_GetBaseClass(void)
+?_GetBaseClass@CMainFrameBase@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CMainFrameBase::_GetBaseClass(void)
+?_GetBaseClass@CMyTabWndBase@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CMyTabWndBase::_GetBaseClass(void)
+?_GetBaseClass@CRprtViewBase@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CRprtViewBase::_GetBaseClass(void)
+?_GetBaseClass@CTMDlgBase@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CTMDlgBase::_GetBaseClass(void)
+?_GetBaseClass@CTMTabWnd@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CTMTabWnd::_GetBaseClass(void)
+?_GetBaseClass@CTestDlgTabPage@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CTestDlgTabPage::_GetBaseClass(void)
+?_GetBaseClass@CViewBase@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CViewBase::_GetBaseClass(void)
+?_SetCurMousePos@CMouseEdit@@QEAAXNNNNNN@Z -> public: void __cdecl CMouseEdit::_SetCurMousePos(double,double,double,double,double,double) __ptr64
+?_SetCurMousePosString@CMouseEdit@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@0@Z -> public: void __cdecl CMouseEdit::_SetCurMousePosString(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?_SetString@CMouseEdit@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CMouseEdit::_SetString(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?_SetXOrYOrZPosStringOnly@CMouseEdit@@QEAAHXZ -> public: int __cdecl CMouseEdit::_SetXOrYOrZPosStringOnly(void) __ptr64
+?__ProcessOnSetFocus@CMouseEdit@@IEAAXXZ -> protected: void __cdecl CMouseEdit::__ProcessOnSetFocus(void) __ptr64
+?___SetMousePosString@CMouseEdit@@QEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@0@Z -> public: void __cdecl CMouseEdit::___SetMousePosString(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?___SetMousePosStringInner@CMouseEdit@@QEAAXXZ -> public: void __cdecl CMouseEdit::___SetMousePosStringInner(void) __ptr64
+?_m_bAutoDelete@CDocBase@@QEAAHXZ -> public: int __cdecl CDocBase::_m_bAutoDelete(void) __ptr64
+?classCBCGPMiniFrameWnd_NotFloat@CBCGPMiniFrameWnd_NotFloat@@2UCRuntimeClass@@A -> public: static struct CRuntimeClass CBCGPMiniFrameWnd_NotFloat::classCBCGPMiniFrameWnd_NotFloat
+?classCChildFrameBase@CChildFrameBase@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CChildFrameBase::classCChildFrameBase
+?classCDocBase@CDocBase@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CDocBase::classCDocBase
+?classCDockDlgBarBase@CDockDlgBarBase@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CDockDlgBarBase::classCDockDlgBarBase
+?classCDockViewBase@CDockViewBase@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CDockViewBase::classCDockViewBase
+?classCGLViewBase@CGLViewBase@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CGLViewBase::classCGLViewBase
+?classCGwPreviewView@CGwPreviewView@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CGwPreviewView::classCGwPreviewView
+?classCMainFrameBase@CMainFrameBase@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CMainFrameBase::classCMainFrameBase
+?classCMyTabWndBase@CMyTabWndBase@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CMyTabWndBase::classCMyTabWndBase
+?classCRprtViewBase@CRprtViewBase@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CRprtViewBase::classCRprtViewBase
+?classCTMDlgBase@CTMDlgBase@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CTMDlgBase::classCTMDlgBase
+?classCTMTabWnd@CTMTabWnd@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CTMTabWnd::classCTMTabWnd
+?classCTestDlgTabPage@CTestDlgTabPage@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CTestDlgTabPage::classCTestDlgTabPage
+?classCViewBase@CViewBase@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CViewBase::classCViewBase
+?m_AnglePrec@I_ModelBase@@2_JA -> public: static __int64 I_ModelBase::m_AnglePrec
+?m_CurPickedGPSObjectKey@CMouseEdit@@2HA -> public: static int CMouseEdit::m_CurPickedGPSObjectKey
+?m_CurPickedGPSObjectType@CMouseEdit@@2HA -> public: static int CMouseEdit::m_CurPickedGPSObjectType
+?m_CurString@CMouseEdit@@2V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@A -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > CMouseEdit::m_CurString
+?m_DcSave@CGwPrintHandler@@2HA -> public: static int CGwPrintHandler::m_DcSave
+?m_DlgList@CGlobalModeless@@2V?$CArray@VCDlgNode@@AEAV1@@@A -> public: static class CArray<class CDlgNode,class CDlgNode & __ptr64> CGlobalModeless::m_DlgList
+?m_ExtraParamST@CMouseEdit@@2KA -> public: static unsigned long CMouseEdit::m_ExtraParamST
+?m_IsGrayPrinter@CGwPrintHandler@@1HA -> protected: static int CGwPrintHandler::m_IsGrayPrinter
+?m_LengthPrec@I_ModelBase@@2_JA -> public: static __int64 I_ModelBase::m_LengthPrec
+?m_MySelfArray@CMouseEdit@@2V?$CArray@PEAVCMouseEdit@@PEAV1@@@A -> public: static class CArray<class CMouseEdit * __ptr64,class CMouseEdit * __ptr64> CMouseEdit::m_MySelfArray
+?m_MySelfList@I_ModelBase@@2V?$CArray@PEAVI_ModelBase@@PEAV1@@@A -> public: static class CArray<class I_ModelBase * __ptr64,class I_ModelBase * __ptr64> I_ModelBase::m_MySelfList
+?m_PrintParam@CGwPrintHandler@@2UGW_PRINTPARAM@@A -> public: static struct GW_PRINTPARAM CGwPrintHandler::m_PrintParam
+?m_RectTracker@CGwPrintHandler@@2VCRect@@A -> public: static class CRect CGwPrintHandler::m_RectTracker
+?m_StStack@I_ModelBase@@2VStatusStack2@@A -> public: static class StatusStack2 I_ModelBase::m_StStack
+?m_StateStack@I_ModelBase@@2VStatusStack@@A -> public: static class StatusStack I_ModelBase::m_StateStack
+?m_aInstances@CViewBase@@1V?$CArray@PEAVCViewBase@@PEAV1@@@A -> protected: static class CArray<class CViewBase * __ptr64,class CViewBase * __ptr64> CViewBase::m_aInstances
+?m_arI_PolyMakerST@I_PolyMakerFactory@@1V?$CArray@PEAVI_PolyMaker@@PEAV1@@@A -> protected: static class CArray<class I_PolyMaker * __ptr64,class I_PolyMaker * __ptr64> I_PolyMakerFactory::m_arI_PolyMakerST
+?m_bDrawRect@CGwPrintHandler@@2HA -> public: static int CGwPrintHandler::m_bDrawRect
+?m_bIsAssocWindow@CMouseEdit@@2HA -> public: static int CMouseEdit::m_bIsAssocWindow
+?m_bIsDisableOnMDIActivateOperation@CChildFrameBase@@1HA -> protected: static int CChildFrameBase::m_bIsDisableOnMDIActivateOperation
+?m_bPView@CGwPrintHandler@@2HA -> public: static int CGwPrintHandler::m_bPView
+?m_bPrintParamSet@CGwPrintHandler@@2HA -> public: static int CGwPrintHandler::m_bPrintParamSet
+?m_mViewID@CDockViewBase@@1V?$CMap@IIPEAVCDockViewBase@@PEAV1@@@A -> protected: static class CMap<unsigned int,unsigned int,class CDockViewBase * __ptr64,class CDockViewBase * __ptr64> CDockViewBase::m_mViewID
+?m_pCurMouseEdit@CMouseEdit@@2PEAV1@EA -> public: static class CMouseEdit * __ptr64 __ptr64 CMouseEdit::m_pCurMouseEdit
+?m_pCurMySelf@CParseEdit@@1PEAV1@EA -> protected: static class CParseEdit * __ptr64 __ptr64 CParseEdit::m_pCurMySelf
+?m_pCurMyself@I_ModelBase@@2PEAV1@EA -> public: static class I_ModelBase * __ptr64 __ptr64 I_ModelBase::m_pCurMyself
+?m_pI_ADSModel@CMouseEdit@@2PEAVI_ModelBase@@EA -> public: static class I_ModelBase * __ptr64 __ptr64 CMouseEdit::m_pI_ADSModel
+?m_pInstance@I_GViewWndMan@@1PEAV1@EA -> protected: static class I_GViewWndMan * __ptr64 __ptr64 I_GViewWndMan::m_pInstance
+?m_pMetafileInfo@CGwPrintHandler@@2PEAUCPrintInfo@@EA -> public: static struct CPrintInfo * __ptr64 __ptr64 CGwPrintHandler::m_pMetafileInfo
+?m_pMySelf@CDockDlgBarBase@@1PEAV1@EA -> protected: static class CDockDlgBarBase * __ptr64 __ptr64 CDockDlgBarBase::m_pMySelf
+?m_pMySelf@I_MainFrameBase@@1PEAV1@EA -> protected: static class I_MainFrameBase * __ptr64 __ptr64 I_MainFrameBase::m_pMySelf
+?m_pMySelfST@I_PolyMakerFactory@@1PEAV1@EA -> protected: static class I_PolyMakerFactory * __ptr64 __ptr64 I_PolyMakerFactory::m_pMySelfST
+?m_pOldMouseEdit@CMouseEdit@@2PEAV1@EA -> public: static class CMouseEdit * __ptr64 __ptr64 CMouseEdit::m_pOldMouseEdit
+?m_pOldMyself@I_ModelBase@@2PEAV1@EA -> public: static class I_ModelBase * __ptr64 __ptr64 I_ModelBase::m_pOldMyself
+?m_pPreviewView@CGwPrintHandler@@1PEAVCGwPreviewView@@EA -> protected: static class CGwPreviewView * __ptr64 __ptr64 CGwPrintHandler::m_pPreviewView
+?x@XGL_3dp@@QEAANXZ -> public: double __cdecl XGL_3dp::x(void) __ptr64
+?y@XGL_3dp@@QEAANXZ -> public: double __cdecl XGL_3dp::y(void) __ptr64
+?z@XGL_3dp@@QEAANXZ -> public: double __cdecl XGL_3dp::z(void) __ptr64
+Init_MIDAS_basedll -> Init_MIDAS_basedll

@@ -1,0 +1,11 @@
+??0CDrawFormViewInDlg@@QEAA@IPEAVCWnd@@@Z -> public: __cdecl CDrawFormViewInDlg::CDrawFormViewInDlg(unsigned int,class CWnd * __ptr64) __ptr64
+??0CDrawFormViewInDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CDrawFormViewInDlg::CDrawFormViewInDlg(class CWnd * __ptr64) __ptr64
+??1CDrawFormViewInDlg@@UEAA@XZ -> public: virtual __cdecl CDrawFormViewInDlg::~CDrawFormViewInDlg(void) __ptr64
+??_7CDrawFormViewInDlg@@6B@ -> const CDrawFormViewInDlg::`vftable'
+??_FCDrawFormViewInDlg@@QEAAXXZ -> public: void __cdecl CDrawFormViewInDlg::`default constructor closure'(void) __ptr64
+?GetInitSize@CDrawFormViewInDlg@@QEAA?AVCSize@@XZ -> public: class CSize __cdecl CDrawFormViewInDlg::GetInitSize(void) __ptr64
+?GetMessageMap@CDrawFormViewInDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CDrawFormViewInDlg::GetMessageMap(void)const __ptr64
+?GetThisMessageMap@CDrawFormViewInDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CDrawFormViewInDlg::GetThisMessageMap(void)
+?OnInitDialog@CDrawFormViewInDlg@@UEAAHXZ -> public: virtual int __cdecl CDrawFormViewInDlg::OnInitDialog(void) __ptr64
+?SetInitSize@CDrawFormViewInDlg@@QEAAXVCSize@@@Z -> public: void __cdecl CDrawFormViewInDlg::SetInitSize(class CSize) __ptr64
+Init_DPLUS_DWGdll -> Init_DPLUS_DWGdll

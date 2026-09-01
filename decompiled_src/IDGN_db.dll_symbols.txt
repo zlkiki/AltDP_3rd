@@ -1,0 +1,107 @@
+??0AAppDB@db@idgn@@IEAA@XZ -> protected: __cdecl idgn::db::AAppDB::AAppDB(void) __ptr64
+??0AAppDB@db@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::db::AAppDB::AAppDB(class idgn::db::AAppDB const & __ptr64) __ptr64
+??0AAppDBListener@lib@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::lib::AAppDBListener::AAppDBListener(class idgn::lib::AAppDBListener const & __ptr64) __ptr64
+??0AAppDBListener@lib@idgn@@QEAA@XZ -> public: __cdecl idgn::lib::AAppDBListener::AAppDBListener(void) __ptr64
+??0FDBSession@db@idgn@@QEAA@PEAVADBSession@idgn_interface@@@Z -> public: __cdecl idgn::db::FDBSession::FDBSession(class idgn_interface::ADBSession * __ptr64) __ptr64
+??0FDBSessionManager@db@idgn@@QEAA@XZ -> public: __cdecl idgn::db::FDBSessionManager::FDBSessionManager(void) __ptr64
+??0FPartialSession@db@idgn@@QEAA@PEAVADBSession@idgn_interface@@@Z -> public: __cdecl idgn::db::FPartialSession::FPartialSession(class idgn_interface::ADBSession * __ptr64) __ptr64
+??0FPrevDBSession@db@idgn@@QEAA@PEAVADBSession@idgn_interface@@@Z -> public: __cdecl idgn::db::FPrevDBSession::FPrevDBSession(class idgn_interface::ADBSession * __ptr64) __ptr64
+??1AAppDB@db@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::db::AAppDB::~AAppDB(void) __ptr64
+??1AAppDBListener@lib@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::lib::AAppDBListener::~AAppDBListener(void) __ptr64
+??1FDBSession@db@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::db::FDBSession::~FDBSession(void) __ptr64
+??1FDBSessionManager@db@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::db::FDBSessionManager::~FDBSessionManager(void) __ptr64
+??1FPartialSession@db@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::db::FPartialSession::~FPartialSession(void) __ptr64
+??1FPrevDBSession@db@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::db::FPrevDBSession::~FPrevDBSession(void) __ptr64
+??4AAppDB@db@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::db::AAppDB & __ptr64 __cdecl idgn::db::AAppDB::operator=(class idgn::db::AAppDB const & __ptr64) __ptr64
+??4AAppDBListener@lib@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::lib::AAppDBListener & __ptr64 __cdecl idgn::lib::AAppDBListener::operator=(class idgn::lib::AAppDBListener const & __ptr64) __ptr64
+??_7AAppDB@db@idgn@@6B@ -> const idgn::db::AAppDB::`vftable'
+??_7AAppDBListener@lib@idgn@@6B@ -> const idgn::lib::AAppDBListener::`vftable'
+??_7FDBSession@db@idgn@@6BADBSession@idgn_interface@@@ -> const idgn::db::FDBSession::`vftable'{for `idgn_interface::ADBSession'}
+??_7FDBSession@db@idgn@@6BASubject@idgn_interface@@@ -> const idgn::db::FDBSession::`vftable'{for `idgn_interface::ASubject'}
+??_7FDBSessionManager@db@idgn@@6B@ -> const idgn::db::FDBSessionManager::`vftable'
+??_7FPartialSession@db@idgn@@6BADBSession@idgn_interface@@@ -> const idgn::db::FPartialSession::`vftable'{for `idgn_interface::ADBSession'}
+??_7FPartialSession@db@idgn@@6BASubject@idgn_interface@@@ -> const idgn::db::FPartialSession::`vftable'{for `idgn_interface::ASubject'}
+??_7FPrevDBSession@db@idgn@@6BADBSession@idgn_interface@@@ -> const idgn::db::FPrevDBSession::`vftable'{for `idgn_interface::ADBSession'}
+??_7FPrevDBSession@db@idgn@@6BASubject@idgn_interface@@@ -> const idgn::db::FPrevDBSession::`vftable'{for `idgn_interface::ASubject'}
+?AddDelayedRedoEvent@FDBSessionManager@db@idgn@@UEAAHPEAVATransactionEvent@idgn_interface@@@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::AddDelayedRedoEvent(class idgn_interface::ATransactionEvent * __ptr64) __ptr64
+?AddDelayedUndoEvent@FDBSessionManager@db@idgn@@UEAAHPEAVATransactionEvent@idgn_interface@@@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::AddDelayedUndoEvent(class idgn_interface::ATransactionEvent * __ptr64) __ptr64
+?AddTransactionEventObj@FDBSessionManager@db@idgn@@UEAAJPEAVATransactionEvent@idgn_interface@@@Z -> public: virtual long __cdecl idgn::db::FDBSessionManager::AddTransactionEventObj(class idgn_interface::ATransactionEvent * __ptr64) __ptr64
+?BeginTR@FDBSessionManager@db@idgn@@UEAAHPEB_WPEAVADBSession@idgn_interface@@PEAVATransactionEvent@5@H@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::BeginTR(wchar_t const * __ptr64,class idgn_interface::ADBSession * __ptr64,class idgn_interface::ATransactionEvent * __ptr64,int) __ptr64
+?Commit@FDBSessionManager@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::Commit(class idgn_interface::ADBSession * __ptr64) __ptr64
+?CommitOrRollback@FDBSessionManager@db@idgn@@IEAAHPEAVADBSession@idgn_interface@@@Z -> protected: int __cdecl idgn::db::FDBSessionManager::CommitOrRollback(class idgn_interface::ADBSession * __ptr64) __ptr64
+?CommitPre@AAppDBListener@lib@idgn@@SAXPEBVCDocument@@@Z -> public: static void __cdecl idgn::lib::AAppDBListener::CommitPre(class CDocument const * __ptr64)
+?ConvertShapeToWireBody@AAppDB@db@idgn@@UEAAHPEAVCDocument@@_KAEAH@Z -> public: virtual int __cdecl idgn::db::AAppDB::ConvertShapeToWireBody(class CDocument * __ptr64,unsigned __int64,int & __ptr64) __ptr64
+?CopySKeyAttributeByTracking@AAppDB@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@AEAV?$FArray@_K@3@1@Z -> public: virtual int __cdecl idgn::db::AAppDB::CopySKeyAttributeByTracking(class idgn_interface::ADBSession * __ptr64,class idgn::FArray<unsigned __int64> & __ptr64,class idgn::FArray<unsigned __int64> & __ptr64) __ptr64
+?CreateProjectSession@FDBSessionManager@db@idgn@@UEAAPEAVADBSession@idgn_interface@@XZ -> public: virtual class idgn_interface::ADBSession * __ptr64 __cdecl idgn::db::FDBSessionManager::CreateProjectSession(void) __ptr64
+?DeleteDelayedRedoEvent@FDBSessionManager@db@idgn@@UEAAHPEAVATransactionEvent@idgn_interface@@@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::DeleteDelayedRedoEvent(class idgn_interface::ATransactionEvent * __ptr64) __ptr64
+?DeleteDelayedUndoEvent@FDBSessionManager@db@idgn@@UEAAHPEAVATransactionEvent@idgn_interface@@@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::DeleteDelayedUndoEvent(class idgn_interface::ATransactionEvent * __ptr64) __ptr64
+?DestroyEvent@FDBSessionManager@db@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::db::FDBSessionManager::DestroyEvent(void) __ptr64
+?DestroyProjectSession@FDBSessionManager@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::DestroyProjectSession(class idgn_interface::ADBSession * __ptr64) __ptr64
+?DoOpeningProcess@AAppDB@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@AEBV?$FMatrix@N$03@3@AEBV?$FArray@_K@3@HAEBV?$FArray@H@3@H@Z -> public: virtual int __cdecl idgn::db::AAppDB::DoOpeningProcess(class idgn_interface::ADBSession * __ptr64,class idgn::FMatrix<double,4> const & __ptr64,class idgn::FArray<unsigned __int64> const & __ptr64,int,class idgn::FArray<int> const & __ptr64,int) __ptr64
+?DoShapeCheck@AAppDB@db@idgn@@UEAAHPEAVCDocument@@@Z -> public: virtual int __cdecl idgn::db::AAppDB::DoShapeCheck(class CDocument * __ptr64) __ptr64
+?DoShapeClear@AAppDB@db@idgn@@UEAAHPEAVCDocument@@@Z -> public: virtual int __cdecl idgn::db::AAppDB::DoShapeClear(class CDocument * __ptr64) __ptr64
+?DoShapeCommit@AAppDB@db@idgn@@UEAAHPEAVCDocument@@@Z -> public: virtual int __cdecl idgn::db::AAppDB::DoShapeCommit(class CDocument * __ptr64) __ptr64
+?DoShapePost@AAppDB@db@idgn@@UEAAHPEAVCDocument@@@Z -> public: virtual int __cdecl idgn::db::AAppDB::DoShapePost(class CDocument * __ptr64) __ptr64
+?FindRoot@FDBSessionManager@db@idgn@@UEAAPEAVADBSession@idgn_interface@@PEAV45@@Z -> public: virtual class idgn_interface::ADBSession * __ptr64 __cdecl idgn::db::FDBSessionManager::FindRoot(class idgn_interface::ADBSession * __ptr64) __ptr64
+?FindSPointSKeyAtPosition@AAppDB@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@QEANAEA_K@Z -> public: virtual int __cdecl idgn::db::AAppDB::FindSPointSKeyAtPosition(class idgn_interface::ADBSession * __ptr64,double * __ptr64 const,unsigned __int64 & __ptr64) __ptr64
+?GetChildDBSession@FDBSessionManager@db@idgn@@UEAAJPEAVADBSession@idgn_interface@@AEAV?$FList@PEAVADBSession@idgn_interface@@@3@@Z -> public: virtual long __cdecl idgn::db::FDBSessionManager::GetChildDBSession(class idgn_interface::ADBSession * __ptr64,class idgn::FList<class idgn_interface::ADBSession * __ptr64> & __ptr64) __ptr64
+?GetCurrentMode@AAppDB@db@idgn@@UEAAJPEAVCDocument@@@Z -> public: virtual long __cdecl idgn::db::AAppDB::GetCurrentMode(class CDocument * __ptr64) __ptr64
+?GetCurrentOpnMode@AAppDB@db@idgn@@UEAAJPEAVCDocument@@@Z -> public: virtual long __cdecl idgn::db::AAppDB::GetCurrentOpnMode(class CDocument * __ptr64) __ptr64
+?GetCurrentPMode@AAppDB@db@idgn@@UEAAJPEAVCDocument@@@Z -> public: virtual long __cdecl idgn::db::AAppDB::GetCurrentPMode(class CDocument * __ptr64) __ptr64
+?GetElemPropType@AAppDB@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@AEB_KAEAJ@Z -> public: virtual int __cdecl idgn::db::AAppDB::GetElemPropType(class idgn_interface::ADBSession * __ptr64,unsigned __int64 const & __ptr64,long & __ptr64) __ptr64
+?GetIterator@FDBSessionManager@db@idgn@@IEAA?AV?$_Tree_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEAVADBSession@idgn_interface@@PEAV12@@std@@@std@@@std@@@std@@PEAVADBSession@idgn_interface@@@Z -> protected: class std::_Tree_iterator<class std::_Tree_val<struct std::_Tree_simple_types<struct std::pair<class idgn_interface::ADBSession * __ptr64 const,class idgn_interface::ADBSession * __ptr64> > > > __cdecl idgn::db::FDBSessionManager::GetIterator(class idgn_interface::ADBSession * __ptr64) __ptr64
+?GetMembByStoryView@AAppDB@db@idgn@@UEAAJPEAVCDocument@@_KAEAV?$FArray@_K@3@@Z -> public: virtual long __cdecl idgn::db::AAppDB::GetMembByStoryView(class CDocument * __ptr64,unsigned __int64,class idgn::FArray<unsigned __int64> & __ptr64) __ptr64
+?GetMemberItrByGKey@AAppDB@db@idgn@@UEAA_KPEAVADBSession@idgn_interface@@_K@Z -> public: virtual unsigned __int64 __cdecl idgn::db::AAppDB::GetMemberItrByGKey(class idgn_interface::ADBSession * __ptr64,unsigned __int64) __ptr64
+?GetMemberItrBySKey@AAppDB@db@idgn@@UEAA_KPEAVADBSession@idgn_interface@@_K@Z -> public: virtual unsigned __int64 __cdecl idgn::db::AAppDB::GetMemberItrBySKey(class idgn_interface::ADBSession * __ptr64,unsigned __int64) __ptr64
+?GetMemberItrByUKey@AAppDB@db@idgn@@UEAA_KPEAVADBSession@idgn_interface@@_K@Z -> public: virtual unsigned __int64 __cdecl idgn::db::AAppDB::GetMemberItrByUKey(class idgn_interface::ADBSession * __ptr64,unsigned __int64) __ptr64
+?GetMemberName@AAppDB@db@idgn@@UEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAVADBSession@idgn_interface@@_K@Z -> public: virtual class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::db::AAppDB::GetMemberName(class idgn_interface::ADBSession * __ptr64,unsigned __int64) __ptr64
+?GetMemberTargetItemType@AAppDB@db@idgn@@UEAAIPEAVADBSession@idgn_interface@@_K@Z -> public: virtual unsigned int __cdecl idgn::db::AAppDB::GetMemberTargetItemType(class idgn_interface::ADBSession * __ptr64,unsigned __int64) __ptr64
+?GetMode@FDBSession@db@idgn@@QEAAJXZ -> public: long __cdecl idgn::db::FDBSession::GetMode(void) __ptr64
+?GetParent@FDBSessionManager@db@idgn@@IEAAPEAVADBSession@idgn_interface@@PEAV45@@Z -> protected: class idgn_interface::ADBSession * __ptr64 __cdecl idgn::db::FDBSessionManager::GetParent(class idgn_interface::ADBSession * __ptr64) __ptr64
+?GetPlaneModePos@AAppDB@db@idgn@@UEAAXPEAVCView@@HHAEAU?$FVector@N$02@3@@Z -> public: virtual void __cdecl idgn::db::AAppDB::GetPlaneModePos(class CView * __ptr64,int,int,struct idgn::FVector<double,3> & __ptr64) __ptr64
+?GetSKeyListByAddedMember@AAppDB@db@idgn@@UEAAJPEAVADBSession@idgn_interface@@AEAV?$FArray@_K@3@@Z -> public: virtual long __cdecl idgn::db::AAppDB::GetSKeyListByAddedMember(class idgn_interface::ADBSession * __ptr64,class idgn::FArray<unsigned __int64> & __ptr64) __ptr64
+?GetUKeyItrByMember@AAppDB@db@idgn@@UEAAJPEAVADBSession@idgn_interface@@AEBV?$FArray@_K@3@AEAV63@@Z -> public: virtual long __cdecl idgn::db::AAppDB::GetUKeyItrByMember(class idgn_interface::ADBSession * __ptr64,class idgn::FArray<unsigned __int64> const & __ptr64,class idgn::FArray<unsigned __int64> & __ptr64) __ptr64
+?GetUKeyItrByMember@AAppDB@db@idgn@@UEAA_KPEAVADBSession@idgn_interface@@_K@Z -> public: virtual unsigned __int64 __cdecl idgn::db::AAppDB::GetUKeyItrByMember(class idgn_interface::ADBSession * __ptr64,unsigned __int64) __ptr64
+?GetVecoInfoBySPoint@AAppDB@db@idgn@@UEAAHPEAVCDocument@@_KAEAJAEA_K@Z -> public: virtual int __cdecl idgn::db::AAppDB::GetVecoInfoBySPoint(class CDocument * __ptr64,unsigned __int64,long & __ptr64,unsigned __int64 & __ptr64) __ptr64
+?GetVecoTypeBySKey@AAppDB@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@_KAEAJ@Z -> public: virtual int __cdecl idgn::db::AAppDB::GetVecoTypeBySKey(class idgn_interface::ADBSession * __ptr64,unsigned __int64,long & __ptr64) __ptr64
+?GetWrkPlData@AAppDB@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@_KAEAU?$FPlane@N@3@@Z -> public: virtual int __cdecl idgn::db::AAppDB::GetWrkPlData(class idgn_interface::ADBSession * __ptr64,unsigned __int64,struct idgn::FPlane<double> & __ptr64) __ptr64
+?GetWrkPlData@AAppDB@db@idgn@@UEAAJPEAVADBSession@idgn_interface@@AEAV?$FArray@U?$FPlane@N@idgn@@@3@@Z -> public: virtual long __cdecl idgn::db::AAppDB::GetWrkPlData(class idgn_interface::ADBSession * __ptr64,class idgn::FArray<struct idgn::FPlane<double> > & __ptr64) __ptr64
+?HideModeFrameUI@AAppDB@db@idgn@@UEAAXPEAVCDocument@@H@Z -> public: virtual void __cdecl idgn::db::AAppDB::HideModeFrameUI(class CDocument * __ptr64,int) __ptr64
+?ImportFileRegister@FDBSession@db@idgn@@UEAAHH@Z -> public: virtual int __cdecl idgn::db::FDBSession::ImportFileRegister(int) __ptr64
+?InitRegister@FDBSession@db@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::db::FDBSession::InitRegister(void) __ptr64
+?Instance@AAppDB@db@idgn@@SAPEAV123@XZ -> public: static class idgn::db::AAppDB * __ptr64 __cdecl idgn::db::AAppDB::Instance(void)
+?IsCommitByRollback@FDBSessionManager@db@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::db::FDBSessionManager::IsCommitByRollback(void) __ptr64
+?IsOpenCommit@FDBSessionManager@db@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::db::FDBSessionManager::IsOpenCommit(void) __ptr64
+?IsPrevDBSession@FPrevDBSession@db@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::db::FPrevDBSession::IsPrevDBSession(void) __ptr64
+?IsSubEdgeInOpening@AAppDB@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@_K@Z -> public: virtual int __cdecl idgn::db::AAppDB::IsSubEdgeInOpening(class idgn_interface::ADBSession * __ptr64,unsigned __int64) __ptr64
+?IsTransaction@FDBSessionManager@db@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::db::FDBSessionManager::IsTransaction(void) __ptr64
+?OnDelayedRedoEvent@FDBSessionManager@db@idgn@@MEAAHXZ -> protected: virtual int __cdecl idgn::db::FDBSessionManager::OnDelayedRedoEvent(void) __ptr64
+?OnDelayedUndoEvent@FDBSessionManager@db@idgn@@MEAAHXZ -> protected: virtual int __cdecl idgn::db::FDBSessionManager::OnDelayedUndoEvent(void) __ptr64
+?ProcessNewGKeyInfo@AAppDB@db@idgn@@UEAAXPEAVADBSession@idgn_interface@@AEAV?$FArray@_K@3@1@Z -> public: virtual void __cdecl idgn::db::AAppDB::ProcessNewGKeyInfo(class idgn_interface::ADBSession * __ptr64,class idgn::FArray<unsigned __int64> & __ptr64,class idgn::FArray<unsigned __int64> & __ptr64) __ptr64
+?Redo@FDBSessionManager@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::Redo(class idgn_interface::ADBSession * __ptr64) __ptr64
+?Register@FDBSessionManager@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@0@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::Register(class idgn_interface::ADBSession * __ptr64,class idgn_interface::ADBSession * __ptr64) __ptr64
+?RegisterRoot@FDBSessionManager@db@idgn@@IEAAXPEAVADBSession@idgn_interface@@0@Z -> protected: void __cdecl idgn::db::FDBSessionManager::RegisterRoot(class idgn_interface::ADBSession * __ptr64,class idgn_interface::ADBSession * __ptr64) __ptr64
+?ResetPartInfo@AAppDB@db@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::db::AAppDB::ResetPartInfo(void) __ptr64
+?ResetPid@FPartialSession@db@idgn@@QEAAXXZ -> public: void __cdecl idgn::db::FPartialSession::ResetPid(void) __ptr64
+?Rollback@FDBSessionManager@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::Rollback(class idgn_interface::ADBSession * __ptr64) __ptr64
+?SLineSKeyProcess@AAppDB@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@_KJ@Z -> public: virtual int __cdecl idgn::db::AAppDB::SLineSKeyProcess(class idgn_interface::ADBSession * __ptr64,unsigned __int64,long) __ptr64
+?SPointSKeyProcess@AAppDB@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@_KJ@Z -> public: virtual int __cdecl idgn::db::AAppDB::SPointSKeyProcess(class idgn_interface::ADBSession * __ptr64,unsigned __int64,long) __ptr64
+?SaveBackUp@AAppDB@db@idgn@@UEAAHPEAVCDocument@@PEB_W@Z -> public: virtual int __cdecl idgn::db::AAppDB::SaveBackUp(class CDocument * __ptr64,wchar_t const * __ptr64) __ptr64
+?SetDPool@FPartialSession@db@idgn@@QEAAXPEAVADataPool@idgn_interface@@@Z -> public: void __cdecl idgn::db::FPartialSession::SetDPool(class idgn_interface::ADataPool * __ptr64) __ptr64
+?SetLBCTransfer@AAppDB@db@idgn@@UEAAXH@Z -> public: virtual void __cdecl idgn::db::AAppDB::SetLBCTransfer(int) __ptr64
+?SetMode@FDBSession@db@idgn@@QEAAXJ@Z -> public: void __cdecl idgn::db::FDBSession::SetMode(long) __ptr64
+?SetModified@FDBSession@db@idgn@@UEAAXH@Z -> public: virtual void __cdecl idgn::db::FDBSession::SetModified(int) __ptr64
+?SetModified@FDBSession@db@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::db::FDBSession::SetModified(void) __ptr64
+?SetOpenCommit@FDBSessionManager@db@idgn@@UEAAXH@Z -> public: virtual void __cdecl idgn::db::FDBSessionManager::SetOpenCommit(int) __ptr64
+?SetPerspective@AAppDB@db@idgn@@UEAAXPEAVCDocument@@HH@Z -> public: virtual void __cdecl idgn::db::AAppDB::SetPerspective(class CDocument * __ptr64,int,int) __ptr64
+?SetShowHideViewCube@AAppDB@db@idgn@@UEAAXPEAVCDocument@@H@Z -> public: virtual void __cdecl idgn::db::AAppDB::SetShowHideViewCube(class CDocument * __ptr64,int) __ptr64
+?SetViewDir@AAppDB@db@idgn@@UEAAXPEAVCDocument@@HHH@Z -> public: virtual void __cdecl idgn::db::AAppDB::SetViewDir(class CDocument * __ptr64,int,int,int) __ptr64
+?SuperBeginTR@FDBSessionManager@db@idgn@@UEAAHPEB_WPEAVADBSession@idgn_interface@@PEAVATransactionEvent@5@H@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::SuperBeginTR(wchar_t const * __ptr64,class idgn_interface::ADBSession * __ptr64,class idgn_interface::ATransactionEvent * __ptr64,int) __ptr64
+?SuperCommit@FDBSessionManager@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::SuperCommit(class idgn_interface::ADBSession * __ptr64) __ptr64
+?SuperRollback@FDBSessionManager@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::SuperRollback(class idgn_interface::ADBSession * __ptr64) __ptr64
+?Undo@FDBSessionManager@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::Undo(class idgn_interface::ADBSession * __ptr64) __ptr64
+?Unregister@FDBSessionManager@db@idgn@@UEAAHPEAVADBSession@idgn_interface@@@Z -> public: virtual int __cdecl idgn::db::FDBSessionManager::Unregister(class idgn_interface::ADBSession * __ptr64) __ptr64
+?UnregisterRoot@FDBSessionManager@db@idgn@@IEAAHPEAVADBSession@idgn_interface@@@Z -> protected: int __cdecl idgn::db::FDBSessionManager::UnregisterRoot(class idgn_interface::ADBSession * __ptr64) __ptr64
+?m_lInstance@AAppDBListener@lib@idgn@@1V?$list@PEAVAAppDBListener@lib@idgn@@V?$allocator@PEAVAAppDBListener@lib@idgn@@@std@@@std@@A -> protected: static class std::list<class idgn::lib::AAppDBListener * __ptr64,class std::allocator<class idgn::lib::AAppDBListener * __ptr64> > idgn::lib::AAppDBListener::m_lInstance
+?m_pInstance@AAppDB@db@idgn@@1PEAV123@EA -> protected: static class idgn::db::AAppDB * __ptr64 __ptr64 idgn::db::AAppDB::m_pInstance
+Init_IDGN_dbdll -> Init_IDGN_dbdll

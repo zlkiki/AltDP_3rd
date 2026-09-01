@@ -1,0 +1,404 @@
+??0FBulkBlock@core@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::core::FBulkBlock::FBulkBlock(class idgn::core::FBulkBlock const & __ptr64) __ptr64
+??0FBulkBlock@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FBulkBlock::FBulkBlock(void) __ptr64
+??0FBulkGuid@core@idgn@@QEAA@AEBU_GUID@@@Z -> public: __cdecl idgn::core::FBulkGuid::FBulkGuid(struct _GUID const & __ptr64) __ptr64
+??0FBulkGuid@core@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::core::FBulkGuid::FBulkGuid(class idgn::core::FBulkGuid const & __ptr64) __ptr64
+??0FBulkGuid@core@idgn@@QEAA@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: __cdecl idgn::core::FBulkGuid::FBulkGuid(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+??0FBulkGuid@core@idgn@@QEAA@PEA_W@Z -> public: __cdecl idgn::core::FBulkGuid::FBulkGuid(wchar_t * __ptr64) __ptr64
+??0FBulkGuid@core@idgn@@QEAA@PEB_W@Z -> public: __cdecl idgn::core::FBulkGuid::FBulkGuid(wchar_t const * __ptr64) __ptr64
+??0FBulkGuid@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FBulkGuid::FBulkGuid(void) __ptr64
+??0FBulkHandler@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FBulkHandler::FBulkHandler(void) __ptr64
+??0FBulkProp@core@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::core::FBulkProp::FBulkProp(class idgn::core::FBulkProp const & __ptr64) __ptr64
+??0FBulkProp@core@idgn@@QEAA@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: __cdecl idgn::core::FBulkProp::FBulkProp(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+??0FBulkProp@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FBulkProp::FBulkProp(void) __ptr64
+??0FDBCheck@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FDBCheck::FDBCheck(void) __ptr64
+??0FDBSessionBase@core@idgn@@QEAA@H@Z -> public: __cdecl idgn::core::FDBSessionBase::FDBSessionBase(int) __ptr64
+??0FDataContainer@core@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::core::FDataContainer::FDataContainer(class idgn::core::FDataContainer const & __ptr64) __ptr64
+??0FDataContainer@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FDataContainer::FDataContainer(void) __ptr64
+??0FDataPoolBase@core@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::core::FDataPoolBase::FDataPoolBase(class idgn::core::FDataPoolBase const & __ptr64) __ptr64
+??0FDataPoolBase@core@idgn@@QEAA@GPEAVADBSession@idgn_interface@@@Z -> public: __cdecl idgn::core::FDataPoolBase::FDataPoolBase(unsigned short,class idgn_interface::ADBSession * __ptr64) __ptr64
+??0FHashContainer@core@idgn@@QEAA@AEBV012@@Z -> public: __cdecl idgn::core::FHashContainer::FHashContainer(class idgn::core::FHashContainer const & __ptr64) __ptr64
+??0FHashContainer@core@idgn@@QEAA@J@Z -> public: __cdecl idgn::core::FHashContainer::FHashContainer(long) __ptr64
+??0FHashContainer@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FHashContainer::FHashContainer(void) __ptr64
+??0FSuperTransaction@core@idgn@@QEAA@PEAVADBSession@idgn_interface@@H@Z -> public: __cdecl idgn::core::FSuperTransaction::FSuperTransaction(class idgn_interface::ADBSession * __ptr64,int) __ptr64
+??0FTransaction@core@idgn@@QEAA@PEAVADBSession@idgn_interface@@H@Z -> public: __cdecl idgn::core::FTransaction::FTransaction(class idgn_interface::ADBSession * __ptr64,int) __ptr64
+??0FTransactionCmdData@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FTransactionCmdData::FTransactionCmdData(void) __ptr64
+??0FTransactionFileBufMgr@core@idgn@@QEAA@JPEB_W0@Z -> public: __cdecl idgn::core::FTransactionFileBufMgr::FTransactionFileBufMgr(long,wchar_t const * __ptr64,wchar_t const * __ptr64) __ptr64
+??0FTransactionInFile@core@idgn@@QEAA@PEAVCFile@@@Z -> public: __cdecl idgn::core::FTransactionInFile::FTransactionInFile(class CFile * __ptr64) __ptr64
+??0FTransactionMgr@core@idgn@@QEAA@PEAVADBSession@idgn_interface@@JPEB_W1@Z -> public: __cdecl idgn::core::FTransactionMgr::FTransactionMgr(class idgn_interface::ADBSession * __ptr64,long,wchar_t const * __ptr64,wchar_t const * __ptr64) __ptr64
+??1FBulkBlock@core@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::core::FBulkBlock::~FBulkBlock(void) __ptr64
+??1FBulkGuid@core@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::core::FBulkGuid::~FBulkGuid(void) __ptr64
+??1FBulkHandler@core@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::core::FBulkHandler::~FBulkHandler(void) __ptr64
+??1FBulkProp@core@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::core::FBulkProp::~FBulkProp(void) __ptr64
+??1FDBCheck@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FDBCheck::~FDBCheck(void) __ptr64
+??1FDBSessionBase@core@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::core::FDBSessionBase::~FDBSessionBase(void) __ptr64
+??1FDataContainer@core@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::core::FDataContainer::~FDataContainer(void) __ptr64
+??1FDataPoolBase@core@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::core::FDataPoolBase::~FDataPoolBase(void) __ptr64
+??1FHashContainer@core@idgn@@UEAA@XZ -> public: virtual __cdecl idgn::core::FHashContainer::~FHashContainer(void) __ptr64
+??1FSuperTransaction@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FSuperTransaction::~FSuperTransaction(void) __ptr64
+??1FTransaction@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FTransaction::~FTransaction(void) __ptr64
+??1FTransactionCmdData@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FTransactionCmdData::~FTransactionCmdData(void) __ptr64
+??1FTransactionFileBufMgr@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FTransactionFileBufMgr::~FTransactionFileBufMgr(void) __ptr64
+??1FTransactionInFile@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FTransactionInFile::~FTransactionInFile(void) __ptr64
+??1FTransactionMgr@core@idgn@@QEAA@XZ -> public: __cdecl idgn::core::FTransactionMgr::~FTransactionMgr(void) __ptr64
+??4FBulkBlock@core@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::core::FBulkBlock & __ptr64 __cdecl idgn::core::FBulkBlock::operator=(class idgn::core::FBulkBlock const & __ptr64) __ptr64
+??4FBulkGuid@core@idgn@@QEAAAEAV012@AEBU_GUID@@@Z -> public: class idgn::core::FBulkGuid & __ptr64 __cdecl idgn::core::FBulkGuid::operator=(struct _GUID const & __ptr64) __ptr64
+??4FBulkGuid@core@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::core::FBulkGuid & __ptr64 __cdecl idgn::core::FBulkGuid::operator=(class idgn::core::FBulkGuid const & __ptr64) __ptr64
+??4FBulkGuid@core@idgn@@QEAAAEAV012@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: class idgn::core::FBulkGuid & __ptr64 __cdecl idgn::core::FBulkGuid::operator=(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+??4FBulkGuid@core@idgn@@QEAAAEAV012@AEBVCComBSTR@ATL@@@Z -> public: class idgn::core::FBulkGuid & __ptr64 __cdecl idgn::core::FBulkGuid::operator=(class ATL::CComBSTR const & __ptr64) __ptr64
+??4FBulkGuid@core@idgn@@QEAAAEAV012@PEA_W@Z -> public: class idgn::core::FBulkGuid & __ptr64 __cdecl idgn::core::FBulkGuid::operator=(wchar_t * __ptr64) __ptr64
+??4FBulkGuid@core@idgn@@QEAAAEAV012@PEB_W@Z -> public: class idgn::core::FBulkGuid & __ptr64 __cdecl idgn::core::FBulkGuid::operator=(wchar_t const * __ptr64) __ptr64
+??4FBulkProp@core@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::core::FBulkProp & __ptr64 __cdecl idgn::core::FBulkProp::operator=(class idgn::core::FBulkProp const & __ptr64) __ptr64
+??4FDBCheck@core@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::core::FDBCheck & __ptr64 __cdecl idgn::core::FDBCheck::operator=(class idgn::core::FDBCheck const & __ptr64) __ptr64
+??4FDataContainer@core@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::core::FDataContainer & __ptr64 __cdecl idgn::core::FDataContainer::operator=(class idgn::core::FDataContainer const & __ptr64) __ptr64
+??4FDataPoolBase@core@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::core::FDataPoolBase & __ptr64 __cdecl idgn::core::FDataPoolBase::operator=(class idgn::core::FDataPoolBase const & __ptr64) __ptr64
+??4FHashContainer@core@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::core::FHashContainer & __ptr64 __cdecl idgn::core::FHashContainer::operator=(class idgn::core::FHashContainer const & __ptr64) __ptr64
+??4FSuperTransaction@core@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::core::FSuperTransaction & __ptr64 __cdecl idgn::core::FSuperTransaction::operator=(class idgn::core::FSuperTransaction const & __ptr64) __ptr64
+??4FTransaction@core@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::core::FTransaction & __ptr64 __cdecl idgn::core::FTransaction::operator=(class idgn::core::FTransaction const & __ptr64) __ptr64
+??4FTransactionCmdData@core@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::core::FTransactionCmdData & __ptr64 __cdecl idgn::core::FTransactionCmdData::operator=(class idgn::core::FTransactionCmdData const & __ptr64) __ptr64
+??4FTransactionInFile@core@idgn@@QEAAAEAV012@AEBV012@@Z -> public: class idgn::core::FTransactionInFile & __ptr64 __cdecl idgn::core::FTransactionInFile::operator=(class idgn::core::FTransactionInFile const & __ptr64) __ptr64
+??8FBulkGuid@core@idgn@@QEAA_NAEBU_GUID@@@Z -> public: bool __cdecl idgn::core::FBulkGuid::operator==(struct _GUID const & __ptr64) __ptr64
+??8FBulkGuid@core@idgn@@QEAA_NAEBV012@@Z -> public: bool __cdecl idgn::core::FBulkGuid::operator==(class idgn::core::FBulkGuid const & __ptr64) __ptr64
+??9FBulkGuid@core@idgn@@QEAA_NAEBU_GUID@@@Z -> public: bool __cdecl idgn::core::FBulkGuid::operator!=(struct _GUID const & __ptr64) __ptr64
+??9FBulkGuid@core@idgn@@QEAA_NAEBV012@@Z -> public: bool __cdecl idgn::core::FBulkGuid::operator!=(class idgn::core::FBulkGuid const & __ptr64) __ptr64
+??BFBulkGuid@core@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: __cdecl idgn::core::FBulkGuid::operator class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >(void) __ptr64
+??BFBulkGuid@core@idgn@@QEAA?AVCComBSTR@ATL@@XZ -> public: __cdecl idgn::core::FBulkGuid::operator class ATL::CComBSTR(void) __ptr64
+??BFBulkGuid@core@idgn@@QEAAAEAU_GUID@@XZ -> public: __cdecl idgn::core::FBulkGuid::operator struct _GUID & __ptr64(void) __ptr64
+??BFBulkGuid@core@idgn@@QEAAPEAU_GUID@@XZ -> public: __cdecl idgn::core::FBulkGuid::operator struct _GUID * __ptr64(void) __ptr64
+??MFBulkGuid@core@idgn@@QEBA_NAEBV012@@Z -> public: bool __cdecl idgn::core::FBulkGuid::operator<(class idgn::core::FBulkGuid const & __ptr64)const __ptr64
+??OFBulkGuid@core@idgn@@QEBA_NAEBV012@@Z -> public: bool __cdecl idgn::core::FBulkGuid::operator>(class idgn::core::FBulkGuid const & __ptr64)const __ptr64
+??_7FBulkBlock@core@idgn@@6B@ -> const idgn::core::FBulkBlock::`vftable'
+??_7FBulkGuid@core@idgn@@6B@ -> const idgn::core::FBulkGuid::`vftable'
+??_7FBulkHandler@core@idgn@@6B@ -> const idgn::core::FBulkHandler::`vftable'
+??_7FBulkProp@core@idgn@@6B@ -> const idgn::core::FBulkProp::`vftable'
+??_7FDBSessionBase@core@idgn@@6BADBSession@idgn_interface@@@ -> const idgn::core::FDBSessionBase::`vftable'{for `idgn_interface::ADBSession'}
+??_7FDBSessionBase@core@idgn@@6BASubject@idgn_interface@@@ -> const idgn::core::FDBSessionBase::`vftable'{for `idgn_interface::ASubject'}
+??_7FDataContainer@core@idgn@@6B@ -> const idgn::core::FDataContainer::`vftable'
+??_7FDataPoolBase@core@idgn@@6B@ -> const idgn::core::FDataPoolBase::`vftable'
+??_7FHashContainer@core@idgn@@6B@ -> const idgn::core::FHashContainer::`vftable'
+??_FFDBSessionBase@core@idgn@@QEAAXXZ -> public: void __cdecl idgn::core::FDBSessionBase::`default constructor closure'(void) __ptr64
+?AddDefault@FDataPoolBase@core@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::core::FDataPoolBase::AddDefault(void) __ptr64
+?AddFile@FBulkHandler@core@idgn@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: int __cdecl idgn::core::FBulkHandler::AddFile(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int) __ptr64
+?AddFileUntilID@FBulkHandler@core@idgn@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@0@Z -> public: int __cdecl idgn::core::FBulkHandler::AddFileUntilID(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?AddTransactionCmdData@FTransactionMgr@core@idgn@@QEAAXAEAUFTRNotify@3@@Z -> public: void __cdecl idgn::core::FTransactionMgr::AddTransactionCmdData(struct idgn::FTRNotify & __ptr64) __ptr64
+?AdjustCmdType@FTransactionMgr@core@idgn@@IEAAXAEAUFTRNotify@3@@Z -> protected: void __cdecl idgn::core::FTransactionMgr::AdjustCmdType(struct idgn::FTRNotify & __ptr64) __ptr64
+?AllDataStatusInit@FDataPoolBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDataPoolBase::AllDataStatusInit(void) __ptr64
+?AllocBuffer@FTransactionInFile@core@idgn@@IEAAXJ@Z -> protected: void __cdecl idgn::core::FTransactionInFile::AllocBuffer(long) __ptr64
+?AllocFreeBuffer@FTransactionFileBufMgr@core@idgn@@QEAAPEADJ@Z -> public: char * __ptr64 __cdecl idgn::core::FTransactionFileBufMgr::AllocFreeBuffer(long) __ptr64
+?AttachObserver@FDBSessionBase@core@idgn@@UEAAHPEAVAObserver@idgn_interface@@@Z -> public: virtual int __cdecl idgn::core::FDBSessionBase::AttachObserver(class idgn_interface::AObserver * __ptr64) __ptr64
+?Begin@FSuperTransaction@core@idgn@@QEAAHPEB_WPEAVATransactionEvent@idgn_interface@@@Z -> public: int __cdecl idgn::core::FSuperTransaction::Begin(wchar_t const * __ptr64,class idgn_interface::ATransactionEvent * __ptr64) __ptr64
+?Begin@FTransaction@core@idgn@@QEAAHPEB_WPEAVATransactionEvent@idgn_interface@@@Z -> public: int __cdecl idgn::core::FTransaction::Begin(wchar_t const * __ptr64,class idgn_interface::ATransactionEvent * __ptr64) __ptr64
+?BeginTR@FDBSessionBase@core@idgn@@MEAAHPEB_WPEAVATransactionEvent@idgn_interface@@H@Z -> protected: virtual int __cdecl idgn::core::FDBSessionBase::BeginTR(wchar_t const * __ptr64,class idgn_interface::ATransactionEvent * __ptr64,int) __ptr64
+?BeginTransaction@FTransactionMgr@core@idgn@@QEAAHPEB_WPEAVATransactionEvent@idgn_interface@@H@Z -> public: int __cdecl idgn::core::FTransactionMgr::BeginTransaction(wchar_t const * __ptr64,class idgn_interface::ATransactionEvent * __ptr64,int) __ptr64
+?CancelAllocFreeBuffer@FTransactionFileBufMgr@core@idgn@@QEAAXJ@Z -> public: void __cdecl idgn::core::FTransactionFileBufMgr::CancelAllocFreeBuffer(long) __ptr64
+?CheckData@FDataPoolBase@core@idgn@@UEAAHPEAVAData@idgn_interface@@@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::CheckData(class idgn_interface::AData * __ptr64) __ptr64
+?CheckFile@FBulkHandler@core@idgn@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAH@Z -> public: int __cdecl idgn::core::FBulkHandler::CheckFile(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int & __ptr64) __ptr64
+?Clear@FBulkBlock@core@idgn@@QEAAXXZ -> public: void __cdecl idgn::core::FBulkBlock::Clear(void) __ptr64
+?Clear@FBulkHandler@core@idgn@@QEAAXXZ -> public: void __cdecl idgn::core::FBulkHandler::Clear(void) __ptr64
+?Clear@FBulkProp@core@idgn@@QEAAXXZ -> public: void __cdecl idgn::core::FBulkProp::Clear(void) __ptr64
+?ClearDataPool@FDBSessionBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDBSessionBase::ClearDataPool(void) __ptr64
+?ClearModOrgDataMap@FTransactionMgr@core@idgn@@QEAAXXZ -> public: void __cdecl idgn::core::FTransactionMgr::ClearModOrgDataMap(void) __ptr64
+?ClearRedo@FDBSessionBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDBSessionBase::ClearRedo(void) __ptr64
+?ClearRedo@FTransactionMgr@core@idgn@@QEAAXXZ -> public: void __cdecl idgn::core::FTransactionMgr::ClearRedo(void) __ptr64
+?ClearUndo@FDBSessionBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDBSessionBase::ClearUndo(void) __ptr64
+?ClearUndo@FTransactionMgr@core@idgn@@QEAAXXZ -> public: void __cdecl idgn::core::FTransactionMgr::ClearUndo(void) __ptr64
+?Commit@FSuperTransaction@core@idgn@@QEAAHXZ -> public: int __cdecl idgn::core::FSuperTransaction::Commit(void) __ptr64
+?Commit@FTransaction@core@idgn@@QEAAHXZ -> public: int __cdecl idgn::core::FTransaction::Commit(void) __ptr64
+?CommitPost@FDBSessionBase@core@idgn@@MEAAHXZ -> protected: virtual int __cdecl idgn::core::FDBSessionBase::CommitPost(void) __ptr64
+?CommitPre@FDBSessionBase@core@idgn@@MEAAHXZ -> protected: virtual int __cdecl idgn::core::FDBSessionBase::CommitPre(void) __ptr64
+?CommitSuccess@FDBSessionBase@core@idgn@@MEAAXXZ -> protected: virtual void __cdecl idgn::core::FDBSessionBase::CommitSuccess(void) __ptr64
+?CommitTransaction@FTransactionMgr@core@idgn@@QEAAXXZ -> public: void __cdecl idgn::core::FTransactionMgr::CommitTransaction(void) __ptr64
+?Composite@FBulkProp@core@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::core::FBulkProp::Composite(void) __ptr64
+?Convert@FBulkGuid@core@idgn@@SA_NAEAU_GUID@@AEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static bool __cdecl idgn::core::FBulkGuid::Convert(struct _GUID & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64)
+?Convert@FBulkGuid@core@idgn@@SA_NAEAU_GUID@@AEAVCComBSTR@ATL@@@Z -> public: static bool __cdecl idgn::core::FBulkGuid::Convert(struct _GUID & __ptr64,class ATL::CComBSTR & __ptr64)
+?Convert@FBulkGuid@core@idgn@@SA_NAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAU_GUID@@@Z -> public: static bool __cdecl idgn::core::FBulkGuid::Convert(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,struct _GUID & __ptr64)
+?Convert@FBulkGuid@core@idgn@@SA_NAEBVCComBSTR@ATL@@AEAU_GUID@@@Z -> public: static bool __cdecl idgn::core::FBulkGuid::Convert(class ATL::CComBSTR const & __ptr64,struct _GUID & __ptr64)
+?Convert@FBulkGuid@core@idgn@@SA_NPEA_WAEAU_GUID@@@Z -> public: static bool __cdecl idgn::core::FBulkGuid::Convert(wchar_t * __ptr64,struct _GUID & __ptr64)
+?Convert@FBulkGuid@core@idgn@@SA_NPEB_WAEAU_GUID@@@Z -> public: static bool __cdecl idgn::core::FBulkGuid::Convert(wchar_t const * __ptr64,struct _GUID & __ptr64)
+?ConvertItrToKeyStruct@@YAHPEADPEBUDGN_IO_VAR@core@idgn@@@Z -> int __cdecl ConvertItrToKeyStruct(char * __ptr64,struct idgn::core::DGN_IO_VAR const * __ptr64)
+?ConvertKeyToItrStruct@@YAHPEAVADBSession@idgn_interface@@PEADPEBUDGN_IO_VAR@core@idgn@@@Z -> int __cdecl ConvertKeyToItrStruct(class idgn_interface::ADBSession * __ptr64,char * __ptr64,struct idgn::core::DGN_IO_VAR const * __ptr64)
+?CopyItem@FDataContainer@core@idgn@@SA_K_K@Z -> public: static unsigned __int64 __cdecl idgn::core::FDataContainer::CopyItem(unsigned __int64)
+?Create@FBulkGuid@core@idgn@@SA_NAEAU_GUID@@@Z -> public: static bool __cdecl idgn::core::FBulkGuid::Create(struct _GUID & __ptr64)
+?Create@FBulkGuid@core@idgn@@SA_NAEAVCComBSTR@ATL@@@Z -> public: static bool __cdecl idgn::core::FBulkGuid::Create(class ATL::CComBSTR & __ptr64)
+?DPoolFlagInit@FDBSessionBase@core@idgn@@IEAAXXZ -> protected: void __cdecl idgn::core::FDBSessionBase::DPoolFlagInit(void) __ptr64
+?Data2StreamStruct@@YAHPEAD0PEBUDGN_IO_VAR@core@idgn@@_KI@Z -> int __cdecl Data2StreamStruct(char * __ptr64,char * __ptr64,struct idgn::core::DGN_IO_VAR const * __ptr64,unsigned __int64,unsigned int)
+?DataPoolValidCheck@FDBCheck@core@idgn@@SAXPEAVADBSession@idgn_interface@@@Z -> public: static void __cdecl idgn::core::FDBCheck::DataPoolValidCheck(class idgn_interface::ADBSession * __ptr64)
+?DeAlloc@FDataContainer@core@idgn@@UEAAX_K@Z -> public: virtual void __cdecl idgn::core::FDataContainer::DeAlloc(unsigned __int64) __ptr64
+?DeAlloc@FDataPoolBase@core@idgn@@UEAAX_K@Z -> public: virtual void __cdecl idgn::core::FDataPoolBase::DeAlloc(unsigned __int64) __ptr64
+?DecreseEditCount@FDBSessionBase@core@idgn@@IEAAXXZ -> protected: void __cdecl idgn::core::FDBSessionBase::DecreseEditCount(void) __ptr64
+?DelayedDelete@FDBSessionBase@core@idgn@@IEAAXXZ -> protected: void __cdecl idgn::core::FDBSessionBase::DelayedDelete(void) __ptr64
+?DeleteDataPool@FDBSessionBase@core@idgn@@UEAAXG@Z -> public: virtual void __cdecl idgn::core::FDBSessionBase::DeleteDataPool(unsigned short) __ptr64
+?DetachObserver@FDBSessionBase@core@idgn@@UEAAHPEAVAObserver@idgn_interface@@@Z -> public: virtual int __cdecl idgn::core::FDBSessionBase::DetachObserver(class idgn_interface::AObserver * __ptr64) __ptr64
+?DoUndoRedo@FTransactionMgr@core@idgn@@IEAAHJJH@Z -> protected: int __cdecl idgn::core::FTransactionMgr::DoUndoRedo(long,long,int) __ptr64
+?EndBuffering@FTransactionFileBufMgr@core@idgn@@QEAAXJ@Z -> public: void __cdecl idgn::core::FTransactionFileBufMgr::EndBuffering(long) __ptr64
+?EndSave@FDataPoolBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDataPoolBase::EndSave(void) __ptr64
+?ExcludeSaveDataPool@FDBSessionBase@core@idgn@@UEAAHPEAVADataPool@idgn_interface@@@Z -> public: virtual int __cdecl idgn::core::FDBSessionBase::ExcludeSaveDataPool(class idgn_interface::ADataPool * __ptr64) __ptr64
+?ExecuteTransactionCmd@FTransactionMgr@core@idgn@@IEAAXXZ -> protected: void __cdecl idgn::core::FTransactionMgr::ExecuteTransactionCmd(void) __ptr64
+?Exist@FDataPoolBase@core@idgn@@UEAAHPEB_W@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::Exist(wchar_t const * __ptr64) __ptr64
+?ExistDataInBuffer@FTransactionInFile@core@idgn@@IEAAHJ@Z -> protected: int __cdecl idgn::core::FTransactionInFile::ExistDataInBuffer(long) __ptr64
+?Find@FDataPoolBase@core@idgn@@UEBA_KJ@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FDataPoolBase::Find(long)const __ptr64
+?Find@FHashContainer@core@idgn@@UEBA_KJ@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FHashContainer::Find(long)const __ptr64
+?FindBlock@FBulkHandler@core@idgn@@QEAAPEAVFBulkBlock@23@U_GUID@@@Z -> public: class idgn::core::FBulkBlock * __ptr64 __cdecl idgn::core::FBulkHandler::FindBlock(struct _GUID) __ptr64
+?FindFirstBlock@FBulkHandler@core@idgn@@QEAAPEAVFBulkBlock@23@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: class idgn::core::FBulkBlock * __ptr64 __cdecl idgn::core::FBulkHandler::FindFirstBlock(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?FindFirstBlock@FBulkHandler@core@idgn@@QEAAPEAVFBulkBlock@23@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAVFBulkProp@23@@Z -> public: class idgn::core::FBulkBlock * __ptr64 __cdecl idgn::core::FBulkHandler::FindFirstBlock(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class idgn::core::FBulkProp * __ptr64) __ptr64
+?Flush@FTransactionFileBufMgr@core@idgn@@QEAAXXZ -> public: void __cdecl idgn::core::FTransactionFileBufMgr::Flush(void) __ptr64
+?FreeDeletedItem@FDataContainer@core@idgn@@SAH_K@Z -> public: static int __cdecl idgn::core::FDataContainer::FreeDeletedItem(unsigned __int64)
+?Get@FBulkProp@core@idgn@@IEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV45@@Z -> protected: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::core::FBulkProp::Get(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetAdjustCmdType@FTransactionMgr@core@idgn@@QEAAG_K@Z -> public: unsigned short __cdecl idgn::core::FTransactionMgr::GetAdjustCmdType(unsigned __int64) __ptr64
+?GetAt@FDataContainer@core@idgn@@UEBAPEBVAData@idgn_interface@@_K@Z -> public: virtual class idgn_interface::AData const * __ptr64 __cdecl idgn::core::FDataContainer::GetAt(unsigned __int64)const __ptr64
+?GetAt@FDataPoolBase@core@idgn@@UEBAH_KPEAVAData@idgn_interface@@@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::GetAt(unsigned __int64,class idgn_interface::AData * __ptr64)const __ptr64
+?GetAt@FDataPoolBase@core@idgn@@UEBAH_KPEAVAData@idgn_interface@@PEAVAUnitCtrl@5@@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::GetAt(unsigned __int64,class idgn_interface::AData * __ptr64,class idgn_interface::AUnitCtrl * __ptr64)const __ptr64
+?GetAtNU@FDataPoolBase@core@idgn@@UEBAPEBVAData@idgn_interface@@_K@Z -> public: virtual class idgn_interface::AData const * __ptr64 __cdecl idgn::core::FDataPoolBase::GetAtNU(unsigned __int64)const __ptr64
+?GetBufferSize@FTransactionFileBufMgr@core@idgn@@QEAAJXZ -> public: long __cdecl idgn::core::FTransactionFileBufMgr::GetBufferSize(void) __ptr64
+?GetCmdList@FTransactionMgr@core@idgn@@QEBAAEBV?$FList@VFTransactionCmdData@core@idgn@@@3@XZ -> public: class idgn::FList<class idgn::core::FTransactionCmdData> const & __ptr64 __cdecl idgn::core::FTransactionMgr::GetCmdList(void)const __ptr64
+?GetCount@FBulkProp@core@idgn@@QEAAHXZ -> public: int __cdecl idgn::core::FBulkProp::GetCount(void) __ptr64
+?GetCount@FDBSessionBase@core@idgn@@UEAAGXZ -> public: virtual unsigned short __cdecl idgn::core::FDBSessionBase::GetCount(void) __ptr64
+?GetCountRedo@FDBSessionBase@core@idgn@@UEAAJXZ -> public: virtual long __cdecl idgn::core::FDBSessionBase::GetCountRedo(void) __ptr64
+?GetCountRedo@FTransactionMgr@core@idgn@@QEAAJXZ -> public: long __cdecl idgn::core::FTransactionMgr::GetCountRedo(void) __ptr64
+?GetCountUndo@FDBSessionBase@core@idgn@@UEAAJXZ -> public: virtual long __cdecl idgn::core::FDBSessionBase::GetCountUndo(void) __ptr64
+?GetCountUndo@FTransactionMgr@core@idgn@@QEAAJXZ -> public: long __cdecl idgn::core::FTransactionMgr::GetCountUndo(void) __ptr64
+?GetCurTransactionInfo@FTransactionMgr@core@idgn@@QEAAPEAVFTransactionInfo@idgn_interface@@XZ -> public: class idgn_interface::FTransactionInfo * __ptr64 __cdecl idgn::core::FTransactionMgr::GetCurTransactionInfo(void) __ptr64
+?GetCurrentTRArray@FDBSessionBase@core@idgn@@UEAAJIAEBV?$FArray@I@3@AEAV?$FArray@_K@3@@Z -> public: virtual long __cdecl idgn::core::FDBSessionBase::GetCurrentTRArray(unsigned int,class idgn::FArray<unsigned int> const & __ptr64,class idgn::FArray<unsigned __int64> & __ptr64) __ptr64
+?GetCurrentTRArray@FDBSessionBase@core@idgn@@UEAAJIIAEAV?$FArray@_K@3@@Z -> public: virtual long __cdecl idgn::core::FDBSessionBase::GetCurrentTRArray(unsigned int,unsigned int,class idgn::FArray<unsigned __int64> & __ptr64) __ptr64
+?GetCurrentTransactionID@FDBSessionBase@core@idgn@@UEAAJXZ -> public: virtual long __cdecl idgn::core::FDBSessionBase::GetCurrentTransactionID(void) __ptr64
+?GetCurrentTransactionID@FTransactionMgr@core@idgn@@QEAAJXZ -> public: long __cdecl idgn::core::FTransactionMgr::GetCurrentTransactionID(void) __ptr64
+?GetDPoolSlot@FDBSessionBase@core@idgn@@IEAAAEAUDPOOL_SLOT@123@G@Z -> protected: struct idgn::core::FDBSessionBase::DPOOL_SLOT & __ptr64 __cdecl idgn::core::FDBSessionBase::GetDPoolSlot(unsigned short) __ptr64
+?GetDPoolSlotBySeq@FDBSessionBase@core@idgn@@IEAAAEAUDPOOL_SLOT@123@J@Z -> protected: struct idgn::core::FDBSessionBase::DPOOL_SLOT & __ptr64 __cdecl idgn::core::FDBSessionBase::GetDPoolSlotBySeq(long) __ptr64
+?GetData@FTransactionCmdData@core@idgn@@QEAAPEAVAData@idgn_interface@@XZ -> public: class idgn_interface::AData * __ptr64 __cdecl idgn::core::FTransactionCmdData::GetData(void) __ptr64
+?GetDataName@FDataPoolBase@core@idgn@@UEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: virtual class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::core::FDataPoolBase::GetDataName(void) __ptr64
+?GetDataPool@FDBSessionBase@core@idgn@@UEAAPEAVADataPool@idgn_interface@@G@Z -> public: virtual class idgn_interface::ADataPool * __ptr64 __cdecl idgn::core::FDBSessionBase::GetDataPool(unsigned short) __ptr64
+?GetDataPoolBySeq@FDBSessionBase@core@idgn@@UEAAPEAVADataPool@idgn_interface@@J@Z -> public: virtual class idgn_interface::ADataPool * __ptr64 __cdecl idgn::core::FDBSessionBase::GetDataPoolBySeq(long) __ptr64
+?GetDataPos@FBulkBlock@core@idgn@@QEAA_JXZ -> public: __int64 __cdecl idgn::core::FBulkBlock::GetDataPos(void) __ptr64
+?GetDataPosition@FTransactionInFile@core@idgn@@QEAAPEADJAEBUFTRNotify@3@@Z -> public: char * __ptr64 __cdecl idgn::core::FTransactionInFile::GetDataPosition(long,struct idgn::FTRNotify const & __ptr64) __ptr64
+?GetDataSize@FBulkBlock@core@idgn@@QEAAKXZ -> public: unsigned long __cdecl idgn::core::FBulkBlock::GetDataSize(void) __ptr64
+?GetDataType@FDataPoolBase@core@idgn@@UEAAGXZ -> public: virtual unsigned short __cdecl idgn::core::FDataPoolBase::GetDataType(void) __ptr64
+?GetDefaultHashSize@FDataPoolBase@core@idgn@@UEAAJXZ -> public: virtual long __cdecl idgn::core::FDataPoolBase::GetDefaultHashSize(void) __ptr64
+?GetDefaultHashSize@FHashContainer@core@idgn@@UEAAJXZ -> public: virtual long __cdecl idgn::core::FHashContainer::GetDefaultHashSize(void) __ptr64
+?GetDocument@FDBSessionBase@core@idgn@@UEAAPEAVCDocument@@XZ -> public: virtual class CDocument * __ptr64 __cdecl idgn::core::FDBSessionBase::GetDocument(void) __ptr64
+?GetDouble@FBulkProp@core@idgn@@QEAANAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: double __cdecl idgn::core::FBulkProp::GetDouble(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetDouble@FBulkProp@core@idgn@@QEAANPEB_W@Z -> public: double __cdecl idgn::core::FBulkProp::GetDouble(wchar_t const * __ptr64) __ptr64
+?GetFile@FTransactionFileBufMgr@core@idgn@@QEAAPEAVCFile@@J@Z -> public: class CFile * __ptr64 __cdecl idgn::core::FTransactionFileBufMgr::GetFile(long) __ptr64
+?GetFilePath@FBulkBlock@core@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::core::FBulkBlock::GetFilePath(void) __ptr64
+?GetFileVersion@FDataPoolBase@core@idgn@@UEAAIXZ -> public: virtual unsigned int __cdecl idgn::core::FDataPoolBase::GetFileVersion(void) __ptr64
+?GetFreeBufferSize@FTransactionFileBufMgr@core@idgn@@QEAAJXZ -> public: long __cdecl idgn::core::FTransactionFileBufMgr::GetFreeBufferSize(void) __ptr64
+?GetGUID@FBulkBlock@core@idgn@@QEAA?AU_GUID@@XZ -> public: struct _GUID __cdecl idgn::core::FBulkBlock::GetGUID(void) __ptr64
+?GetHashSize@FDataPoolBase@core@idgn@@UEAAJXZ -> public: virtual long __cdecl idgn::core::FDataPoolBase::GetHashSize(void) __ptr64
+?GetHashSize@FHashContainer@core@idgn@@UEAAJXZ -> public: virtual long __cdecl idgn::core::FHashContainer::GetHashSize(void) __ptr64
+?GetHeadPosition@FDataPoolBase@core@idgn@@UEBA_KXZ -> public: virtual unsigned __int64 __cdecl idgn::core::FDataPoolBase::GetHeadPosition(void)const __ptr64
+?GetHeadPosition@FHashContainer@core@idgn@@UEBA_KXZ -> public: virtual unsigned __int64 __cdecl idgn::core::FHashContainer::GetHeadPosition(void)const __ptr64
+?GetID@FBulkBlock@core@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::core::FBulkBlock::GetID(void) __ptr64
+?GetIOName@FDataPoolBase@core@idgn@@UEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: virtual class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::core::FDataPoolBase::GetIOName(void) __ptr64
+?GetItr@FDataPoolBase@core@idgn@@UEAA_KPEB_W@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FDataPoolBase::GetItr(wchar_t const * __ptr64) __ptr64
+?GetItrList@FDataPoolBase@core@idgn@@UEAAJAEAV?$FArray@_K@3@@Z -> public: virtual long __cdecl idgn::core::FDataPoolBase::GetItrList(class idgn::FArray<unsigned __int64> & __ptr64) __ptr64
+?GetItrList@FDataPoolBase@core@idgn@@UEAAJAEAV?$FTArray@_K@3@@Z -> public: virtual long __cdecl idgn::core::FDataPoolBase::GetItrList(class idgn::FTArray<unsigned __int64> & __ptr64) __ptr64
+?GetItrList@FHashContainer@core@idgn@@UEAAJAEAV?$FArray@_K@3@@Z -> public: virtual long __cdecl idgn::core::FHashContainer::GetItrList(class idgn::FArray<unsigned __int64> & __ptr64) __ptr64
+?GetItrList@FHashContainer@core@idgn@@UEAAJAEAV?$FTArray@_K@3@@Z -> public: virtual long __cdecl idgn::core::FHashContainer::GetItrList(class idgn::FTArray<unsigned __int64> & __ptr64) __ptr64
+?GetKeyList@FBulkProp@core@idgn@@QEAAXAEAVCStringList@@@Z -> public: void __cdecl idgn::core::FBulkProp::GetKeyList(class CStringList & __ptr64) __ptr64
+?GetKeyList@FDataPoolBase@core@idgn@@UEAAJAEAV?$FArray@J@3@@Z -> public: virtual long __cdecl idgn::core::FDataPoolBase::GetKeyList(class idgn::FArray<long> & __ptr64) __ptr64
+?GetKeyList@FDataPoolBase@core@idgn@@UEAAJAEAV?$FTArray@J@3@@Z -> public: virtual long __cdecl idgn::core::FDataPoolBase::GetKeyList(class idgn::FTArray<long> & __ptr64) __ptr64
+?GetKeyList@FHashContainer@core@idgn@@UEAAJAEAV?$FArray@J@3@@Z -> public: virtual long __cdecl idgn::core::FHashContainer::GetKeyList(class idgn::FArray<long> & __ptr64) __ptr64
+?GetKeyList@FHashContainer@core@idgn@@UEAAJAEAV?$FTArray@J@3@@Z -> public: virtual long __cdecl idgn::core::FHashContainer::GetKeyList(class idgn::FTArray<long> & __ptr64) __ptr64
+?GetLatestVersion@FBulkHandler@core@idgn@@SAIXZ -> public: static unsigned int __cdecl idgn::core::FBulkHandler::GetLatestVersion(void)
+?GetLatestVersion@FDataPoolBase@core@idgn@@UEAAIXZ -> public: virtual unsigned int __cdecl idgn::core::FDataPoolBase::GetLatestVersion(void) __ptr64
+?GetLong@FBulkProp@core@idgn@@QEAAJAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: long __cdecl idgn::core::FBulkProp::GetLong(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetLong@FBulkProp@core@idgn@@QEAAJPEB_W@Z -> public: long __cdecl idgn::core::FBulkProp::GetLong(wchar_t const * __ptr64) __ptr64
+?GetMapKey@FBulkHandler@core@idgn@@IEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@V45@PEAVFBulkProp@23@@Z -> protected: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::core::FBulkHandler::GetMapKey(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class idgn::core::FBulkProp * __ptr64) __ptr64
+?GetMaxKey@FDataPoolBase@core@idgn@@UEAAJXZ -> public: virtual long __cdecl idgn::core::FDataPoolBase::GetMaxKey(void) __ptr64
+?GetMaxKey@FHashContainer@core@idgn@@UEAAJXZ -> public: virtual long __cdecl idgn::core::FHashContainer::GetMaxKey(void) __ptr64
+?GetMode@FBulkHandler@core@idgn@@QEAAJXZ -> public: long __cdecl idgn::core::FBulkHandler::GetMode(void) __ptr64
+?GetNewCopyName@FDataPoolBase@core@idgn@@UEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_W@Z -> public: virtual class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::core::FDataPoolBase::GetNewCopyName(wchar_t const * __ptr64) __ptr64
+?GetNewKey@FDataContainer@core@idgn@@UEAAJXZ -> public: virtual long __cdecl idgn::core::FDataContainer::GetNewKey(void) __ptr64
+?GetNewKey@FDataPoolBase@core@idgn@@UEAAJXZ -> public: virtual long __cdecl idgn::core::FDataPoolBase::GetNewKey(void) __ptr64
+?GetNewName@FDataPoolBase@core@idgn@@UEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: virtual class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::core::FDataPoolBase::GetNewName(void) __ptr64
+?GetNext@FDataContainer@core@idgn@@UEBAPEBVAData@idgn_interface@@AEA_K@Z -> public: virtual class idgn_interface::AData const * __ptr64 __cdecl idgn::core::FDataContainer::GetNext(unsigned __int64 & __ptr64)const __ptr64
+?GetNext@FDataPoolBase@core@idgn@@UEBAHAEA_KPEAVAData@idgn_interface@@@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::GetNext(unsigned __int64 & __ptr64,class idgn_interface::AData * __ptr64)const __ptr64
+?GetNextNU@FDataPoolBase@core@idgn@@UEBAPEBVAData@idgn_interface@@AEA_K@Z -> public: virtual class idgn_interface::AData const * __ptr64 __cdecl idgn::core::FDataPoolBase::GetNextNU(unsigned __int64 & __ptr64)const __ptr64
+?GetNextPosition@FTransactionInFile@core@idgn@@QEAAXAEAJJ@Z -> public: void __cdecl idgn::core::FTransactionInFile::GetNextPosition(long & __ptr64,long) __ptr64
+?GetOriginalData@FDBSessionBase@core@idgn@@UEAAPEAVAData@idgn_interface@@_K@Z -> public: virtual class idgn_interface::AData * __ptr64 __cdecl idgn::core::FDBSessionBase::GetOriginalData(unsigned __int64) __ptr64
+?GetOriginalData@FTransactionMgr@core@idgn@@QEAAPEAVAData@idgn_interface@@_K@Z -> public: class idgn_interface::AData * __ptr64 __cdecl idgn::core::FTransactionMgr::GetOriginalData(unsigned __int64) __ptr64
+?GetPID@FDBSessionBase@core@idgn@@UEAAJXZ -> public: virtual long __cdecl idgn::core::FDBSessionBase::GetPID(void) __ptr64
+?GetParamIdx@FDataContainer@core@idgn@@UEBAK_K@Z -> public: virtual unsigned long __cdecl idgn::core::FDataContainer::GetParamIdx(unsigned __int64)const __ptr64
+?GetParamIdx@FDataPoolBase@core@idgn@@UEBAK_K@Z -> public: virtual unsigned long __cdecl idgn::core::FDataPoolBase::GetParamIdx(unsigned __int64)const __ptr64
+?GetPrev@FDataContainer@core@idgn@@UEBAPEBVAData@idgn_interface@@AEA_K@Z -> public: virtual class idgn_interface::AData const * __ptr64 __cdecl idgn::core::FDataContainer::GetPrev(unsigned __int64 & __ptr64)const __ptr64
+?GetPrev@FDataPoolBase@core@idgn@@UEBAHAEA_KPEAVAData@idgn_interface@@@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::GetPrev(unsigned __int64 & __ptr64,class idgn_interface::AData * __ptr64)const __ptr64
+?GetPrevIterator@FDataPoolBase@core@idgn@@UEBA_K_K@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FDataPoolBase::GetPrevIterator(unsigned __int64)const __ptr64
+?GetPrevIterator@FHashContainer@core@idgn@@UEBA_K_K@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FHashContainer::GetPrevIterator(unsigned __int64)const __ptr64
+?GetPrevNU@FDataPoolBase@core@idgn@@UEBAPEBVAData@idgn_interface@@AEA_K@Z -> public: virtual class idgn_interface::AData const * __ptr64 __cdecl idgn::core::FDataPoolBase::GetPrevNU(unsigned __int64 & __ptr64)const __ptr64
+?GetProperties@FBulkBlock@core@idgn@@QEAAPEAVFBulkProp@23@XZ -> public: class idgn::core::FBulkProp * __ptr64 __cdecl idgn::core::FBulkBlock::GetProperties(void) __ptr64
+?GetRedoList@FDBSessionBase@core@idgn@@UEAAJAEAV?$FList@VFTransactionInfo@idgn_interface@@@3@H@Z -> public: virtual long __cdecl idgn::core::FDBSessionBase::GetRedoList(class idgn::FList<class idgn_interface::FTransactionInfo> & __ptr64,int) __ptr64
+?GetRedoList@FTransactionMgr@core@idgn@@QEAAJAEAV?$FList@VFTransactionInfo@idgn_interface@@@3@H@Z -> public: long __cdecl idgn::core::FTransactionMgr::GetRedoList(class idgn::FList<class idgn_interface::FTransactionInfo> & __ptr64,int) __ptr64
+?GetRedoNameList@FDBSessionBase@core@idgn@@UEAAJAEAV?$FTArray@U?$FString@$0EA@@idgn@@@3@H@Z -> public: virtual long __cdecl idgn::core::FDBSessionBase::GetRedoNameList(class idgn::FTArray<struct idgn::FString<64> > & __ptr64,int) __ptr64
+?GetRedoNameList@FTransactionMgr@core@idgn@@QEAAJAEAV?$FTArray@U?$FString@$0EA@@idgn@@@3@H@Z -> public: long __cdecl idgn::core::FTransactionMgr::GetRedoNameList(class idgn::FTArray<struct idgn::FString<64> > & __ptr64,int) __ptr64
+?GetSize@FDataPoolBase@core@idgn@@UEBAJXZ -> public: virtual long __cdecl idgn::core::FDataPoolBase::GetSize(void)const __ptr64
+?GetSize@FHashContainer@core@idgn@@UEBAHXZ -> public: virtual int __cdecl idgn::core::FHashContainer::GetSize(void)const __ptr64
+?GetStartPosition@FTransactionInFile@core@idgn@@QEAAJXZ -> public: long __cdecl idgn::core::FTransactionInFile::GetStartPosition(void) __ptr64
+?GetString@FBulkProp@core@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV45@@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::core::FBulkProp::GetString(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetString@FBulkProp@core@idgn@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_W@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::core::FBulkProp::GetString(wchar_t const * __ptr64) __ptr64
+?GetStructInstSize@@YAIPEADPEBUDGN_IO_VAR@core@idgn@@_KI@Z -> unsigned int __cdecl GetStructInstSize(char * __ptr64,struct idgn::core::DGN_IO_VAR const * __ptr64,unsigned __int64,unsigned int)
+?GetTRFlags@FDataPoolBase@core@idgn@@UEAAKXZ -> public: virtual unsigned long __cdecl idgn::core::FDataPoolBase::GetTRFlags(void) __ptr64
+?GetTRList@FDBSessionBase@core@idgn@@QEAAPEAV?$FListFixed@UFTRNotify@idgn@@@3@XZ -> public: class idgn::FListFixed<struct idgn::FTRNotify> * __ptr64 __cdecl idgn::core::FDBSessionBase::GetTRList(void) __ptr64
+?GetTRNotify@FTransactionCmdData@core@idgn@@QEAAAEAUFTRNotify@3@XZ -> public: struct idgn::FTRNotify & __ptr64 __cdecl idgn::core::FTransactionCmdData::GetTRNotify(void) __ptr64
+?GetUndoList@FDBSessionBase@core@idgn@@UEAAJAEAV?$FList@VFTransactionInfo@idgn_interface@@@3@H@Z -> public: virtual long __cdecl idgn::core::FDBSessionBase::GetUndoList(class idgn::FList<class idgn_interface::FTransactionInfo> & __ptr64,int) __ptr64
+?GetUndoList@FTransactionMgr@core@idgn@@QEAAJAEAV?$FList@VFTransactionInfo@idgn_interface@@@3@H@Z -> public: long __cdecl idgn::core::FTransactionMgr::GetUndoList(class idgn::FList<class idgn_interface::FTransactionInfo> & __ptr64,int) __ptr64
+?GetUndoNameList@FDBSessionBase@core@idgn@@UEAAJAEAV?$FTArray@U?$FString@$0EA@@idgn@@@3@H@Z -> public: virtual long __cdecl idgn::core::FDBSessionBase::GetUndoNameList(class idgn::FTArray<struct idgn::FString<64> > & __ptr64,int) __ptr64
+?GetUndoNameList@FTransactionMgr@core@idgn@@QEAAJAEAV?$FTArray@U?$FString@$0EA@@idgn@@@3@H@Z -> public: long __cdecl idgn::core::FTransactionMgr::GetUndoNameList(class idgn::FTArray<struct idgn::FString<64> > & __ptr64,int) __ptr64
+?GetUndoRedoNameList@FTransactionMgr@core@idgn@@IEAAJAEAV?$list@VFTransactionInfo@idgn_interface@@V?$allocator@VFTransactionInfo@idgn_interface@@@std@@@std@@AEAV?$FTArray@U?$FString@$0EA@@idgn@@@3@H@Z -> protected: long __cdecl idgn::core::FTransactionMgr::GetUndoRedoNameList(class std::list<class idgn_interface::FTransactionInfo,class std::allocator<class idgn_interface::FTransactionInfo> > & __ptr64,class idgn::FTArray<struct idgn::FString<64> > & __ptr64,int) __ptr64
+?GetUnitCtrl@FDBSessionBase@core@idgn@@UEAAPEAVFUnitCtrl@lib@3@XZ -> public: virtual class idgn::lib::FUnitCtrl * __ptr64 __cdecl idgn::core::FDBSessionBase::GetUnitCtrl(void) __ptr64
+?GetVersion@FBulkHandler@core@idgn@@QEAAIXZ -> public: unsigned int __cdecl idgn::core::FBulkHandler::GetVersion(void) __ptr64
+?GetVersionStringFormat@FBulkHandler@core@idgn@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@I@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl idgn::core::FBulkHandler::GetVersionStringFormat(unsigned int)
+?HasKey@FBulkGuid@core@idgn@@QEAAJXZ -> public: long __cdecl idgn::core::FBulkGuid::HasKey(void) __ptr64
+?HashKey@FBulkGuid@core@idgn@@SAJAEAU_GUID@@@Z -> public: static long __cdecl idgn::core::FBulkGuid::HashKey(struct _GUID & __ptr64)
+?IOValNameValidCheck@FDBCheck@core@idgn@@SAXPEAVADataPool@idgn_interface@@PEBUDGN_IO_VAR@23@@Z -> public: static void __cdecl idgn::core::FDBCheck::IOValNameValidCheck(class idgn_interface::ADataPool * __ptr64,struct idgn::core::DGN_IO_VAR const * __ptr64)
+?IOValSizeValidCheck@FDBCheck@core@idgn@@SAXPEAVADataPool@idgn_interface@@PEBUDGN_IO_VAR@23@IH@Z -> public: static void __cdecl idgn::core::FDBCheck::IOValSizeValidCheck(class idgn_interface::ADataPool * __ptr64,struct idgn::core::DGN_IO_VAR const * __ptr64,unsigned int,int)
+?IncreseEditCount@FDBSessionBase@core@idgn@@IEAAXXZ -> protected: void __cdecl idgn::core::FDBSessionBase::IncreseEditCount(void) __ptr64
+?Init@FTransactionMgr@core@idgn@@IEAAXJPEB_W0@Z -> protected: void __cdecl idgn::core::FTransactionMgr::Init(long,wchar_t const * __ptr64,wchar_t const * __ptr64) __ptr64
+?InitDataPool@FDataPoolBase@core@idgn@@QEAAHW4ContainerType@123@H@Z -> public: int __cdecl idgn::core::FDataPoolBase::InitDataPool(enum idgn::core::FDataPoolBase::ContainerType,int) __ptr64
+?Insert@FDataContainer@core@idgn@@UEAA_KPEBVAData@idgn_interface@@@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FDataContainer::Insert(class idgn_interface::AData const * __ptr64) __ptr64
+?Insert@FDataPoolBase@core@idgn@@UEAA_KPEAVAData@idgn_interface@@@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FDataPoolBase::Insert(class idgn_interface::AData * __ptr64) __ptr64
+?Insert@FHashContainer@core@idgn@@UEAA_KPEBVAData@idgn_interface@@@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FHashContainer::Insert(class idgn_interface::AData const * __ptr64) __ptr64
+?Insert@FHashContainer@core@idgn@@UEAA_KPEBVAData@idgn_interface@@H_K@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FHashContainer::Insert(class idgn_interface::AData const * __ptr64,int,unsigned __int64) __ptr64
+?InsertNU@FDataPoolBase@core@idgn@@UEAA_KPEAVAData@idgn_interface@@@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FDataPoolBase::InsertNU(class idgn_interface::AData * __ptr64) __ptr64
+?InsertNext@FDataPoolBase@core@idgn@@UEAA_KPEAVAData@idgn_interface@@J@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FDataPoolBase::InsertNext(class idgn_interface::AData * __ptr64,long) __ptr64
+?InsertNext@FHashContainer@core@idgn@@UEAA_KPEBVAData@idgn_interface@@J@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FHashContainer::InsertNext(class idgn_interface::AData const * __ptr64,long) __ptr64
+?InsertNextNU@FDataPoolBase@core@idgn@@UEAA_KPEAVAData@idgn_interface@@J@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FDataPoolBase::InsertNextNU(class idgn_interface::AData * __ptr64,long) __ptr64
+?IsAssemDrawMode@FDBSessionBase@core@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::core::FDBSessionBase::IsAssemDrawMode(void) __ptr64
+?IsBegun@FTransaction@core@idgn@@QEBAHXZ -> public: int __cdecl idgn::core::FTransaction::IsBegun(void)const __ptr64
+?IsDeletedItem@FDataContainer@core@idgn@@SAH_K@Z -> public: static int __cdecl idgn::core::FDataContainer::IsDeletedItem(unsigned __int64)
+?IsEmpty@FDataPoolBase@core@idgn@@UEBAHXZ -> public: virtual int __cdecl idgn::core::FDataPoolBase::IsEmpty(void)const __ptr64
+?IsEmpty@FHashContainer@core@idgn@@UEBAHXZ -> public: virtual int __cdecl idgn::core::FHashContainer::IsEmpty(void)const __ptr64
+?IsEmptyDPoolSlot@FDBSessionBase@core@idgn@@UEAAHG@Z -> public: virtual int __cdecl idgn::core::FDBSessionBase::IsEmptyDPoolSlot(unsigned short) __ptr64
+?IsExcludeSaveDataPool@FDBSessionBase@core@idgn@@UEAAHPEAVADataPool@idgn_interface@@@Z -> public: virtual int __cdecl idgn::core::FDBSessionBase::IsExcludeSaveDataPool(class idgn_interface::ADataPool * __ptr64) __ptr64
+?IsExist@FDataPoolBase@core@idgn@@UEAAH_K@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::IsExist(unsigned __int64) __ptr64
+?IsExist@FHashContainer@core@idgn@@UEAAH_K@Z -> public: virtual int __cdecl idgn::core::FHashContainer::IsExist(unsigned __int64) __ptr64
+?IsLoad@FDBSessionBase@core@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::core::FDBSessionBase::IsLoad(void) __ptr64
+?IsProjectSession@FDBSessionBase@core@idgn@@UEAA_NXZ -> public: virtual bool __cdecl idgn::core::FDBSessionBase::IsProjectSession(void) __ptr64
+?IsSaveData@FDataPoolBase@core@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::core::FDataPoolBase::IsSaveData(void) __ptr64
+?IsTREnabled@FDBSessionBase@core@idgn@@UEAA_NXZ -> public: virtual bool __cdecl idgn::core::FDBSessionBase::IsTREnabled(void) __ptr64
+?IsUndoRedoMode@FDBSessionBase@core@idgn@@UEAA_NXZ -> public: virtual bool __cdecl idgn::core::FDBSessionBase::IsUndoRedoMode(void) __ptr64
+?IsVirtual@FDBSessionBase@core@idgn@@UEAAHG@Z -> public: virtual int __cdecl idgn::core::FDBSessionBase::IsVirtual(unsigned short) __ptr64
+?LoadData@FBulkBlock@core@idgn@@QEAAKPEAPEAXJJ@Z -> public: unsigned long __cdecl idgn::core::FBulkBlock::LoadData(void * __ptr64 * __ptr64,long,long) __ptr64
+?LoadData@FBulkBlock@core@idgn@@QEAAKPEAXJJ@Z -> public: unsigned long __cdecl idgn::core::FBulkBlock::LoadData(void * __ptr64,long,long) __ptr64
+?NeedDraw@FDataPoolBase@core@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::core::FDataPoolBase::NeedDraw(void) __ptr64
+?Next@FDataContainer@core@idgn@@UEBAXAEA_K@Z -> public: virtual void __cdecl idgn::core::FDataContainer::Next(unsigned __int64 & __ptr64)const __ptr64
+?Next@FDataPoolBase@core@idgn@@UEBAXAEA_K@Z -> public: virtual void __cdecl idgn::core::FDataPoolBase::Next(unsigned __int64 & __ptr64)const __ptr64
+?Notify@FDBSessionBase@core@idgn@@UEAAHI_K_J@Z -> public: virtual int __cdecl idgn::core::FDBSessionBase::Notify(unsigned int,unsigned __int64,__int64) __ptr64
+?NotifyToAllObservers@FDBSessionBase@core@idgn@@QEAAXXZ -> public: void __cdecl idgn::core::FDBSessionBase::NotifyToAllObservers(void) __ptr64
+?OnAfterLoad@FDataPoolBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDataPoolBase::OnAfterLoad(void) __ptr64
+?OnAfterUndoRedo@FDataPoolBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDataPoolBase::OnAfterUndoRedo(void) __ptr64
+?OnMakeLoad@FDataPoolBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDataPoolBase::OnMakeLoad(void) __ptr64
+?OnNewDocument@FDBSessionBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDBSessionBase::OnNewDocument(void) __ptr64
+?OnOpenDocument@FDBSessionBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDBSessionBase::OnOpenDocument(void) __ptr64
+?OnSaveDocument@FDBSessionBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDBSessionBase::OnSaveDocument(void) __ptr64
+?Optimize@FDataPoolBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDataPoolBase::Optimize(void) __ptr64
+?Optimize@FHashContainer@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FHashContainer::Optimize(void) __ptr64
+?Parse@FBulkProp@core@idgn@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl idgn::core::FBulkProp::Parse(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?PrepareSave@FDataPoolBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDataPoolBase::PrepareSave(void) __ptr64
+?Prev@FDataContainer@core@idgn@@UEBAXAEA_K@Z -> public: virtual void __cdecl idgn::core::FDataContainer::Prev(unsigned __int64 & __ptr64)const __ptr64
+?Prev@FDataPoolBase@core@idgn@@UEBAXAEA_K@Z -> public: virtual void __cdecl idgn::core::FDataPoolBase::Prev(unsigned __int64 & __ptr64)const __ptr64
+?PrevTransaction@FTransactionInFile@core@idgn@@QEAAXXZ -> public: void __cdecl idgn::core::FTransactionInFile::PrevTransaction(void) __ptr64
+?ProcessRelation@FDBSessionBase@core@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::core::FDBSessionBase::ProcessRelation(void) __ptr64
+?ProcessRelation@FDataPoolBase@core@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::core::FDataPoolBase::ProcessRelation(void) __ptr64
+?ProcessRelay@FDBSessionBase@core@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::core::FDBSessionBase::ProcessRelay(void) __ptr64
+?ProgID@FBulkGuid@core@idgn@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl idgn::core::FBulkGuid::ProgID(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?ProgID@FBulkGuid@core@idgn@@QEAAHAEAVCComBSTR@ATL@@@Z -> public: int __cdecl idgn::core::FBulkGuid::ProgID(class ATL::CComBSTR & __ptr64) __ptr64
+?PushNotify@FDBSessionBase@core@idgn@@UEAAXAEAUFTRNotify@3@@Z -> public: virtual void __cdecl idgn::core::FDBSessionBase::PushNotify(struct idgn::FTRNotify & __ptr64) __ptr64
+?PushTransaction@FDBSessionBase@core@idgn@@UEAAXAEAUFTRNotify@3@@Z -> public: virtual void __cdecl idgn::core::FDBSessionBase::PushTransaction(struct idgn::FTRNotify & __ptr64) __ptr64
+?ReadFromFile@FTransactionInFile@core@idgn@@IEAAXJ@Z -> protected: void __cdecl idgn::core::FTransactionInFile::ReadFromFile(long) __ptr64
+?ReadHead@FTransactionInFile@core@idgn@@QEAAHJAEAUFTRNotify@3@@Z -> public: int __cdecl idgn::core::FTransactionInFile::ReadHead(long,struct idgn::FTRNotify & __ptr64) __ptr64
+?ReadPrevKey@FTransactionInFile@core@idgn@@QEAAHJAEAJ@Z -> public: int __cdecl idgn::core::FTransactionInFile::ReadPrevKey(long,long & __ptr64) __ptr64
+?ReadTargetKey@FTransactionInFile@core@idgn@@QEAAHJAEAJ@Z -> public: int __cdecl idgn::core::FTransactionInFile::ReadTargetKey(long,long & __ptr64) __ptr64
+?ReallocBuffer@FTransactionFileBufMgr@core@idgn@@QEAAXJ@Z -> public: void __cdecl idgn::core::FTransactionFileBufMgr::ReallocBuffer(long) __ptr64
+?RebuildHash@FDataPoolBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDataPoolBase::RebuildHash(void) __ptr64
+?RebuildHash@FHashContainer@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FHashContainer::RebuildHash(void) __ptr64
+?Redo@FDBSessionBase@core@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::core::FDBSessionBase::Redo(void) __ptr64
+?Redo@FTransactionMgr@core@idgn@@QEAAHJ@Z -> public: int __cdecl idgn::core::FTransactionMgr::Redo(long) __ptr64
+?ReduceFileSize@FTransactionFileBufMgr@core@idgn@@QEAAXJJ@Z -> public: void __cdecl idgn::core::FTransactionFileBufMgr::ReduceFileSize(long,long) __ptr64
+?Remove@FBulkHandler@core@idgn@@QEAAXPEAVFBulkBlock@23@@Z -> public: void __cdecl idgn::core::FBulkHandler::Remove(class idgn::core::FBulkBlock * __ptr64) __ptr64
+?Remove@FBulkHandler@core@idgn@@QEAAXU_GUID@@@Z -> public: void __cdecl idgn::core::FBulkHandler::Remove(struct _GUID) __ptr64
+?Remove@FDataPoolBase@core@idgn@@UEAAHAEB_K@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::Remove(unsigned __int64 const & __ptr64) __ptr64
+?Remove@FHashContainer@core@idgn@@UEAAHAEB_K@Z -> public: virtual int __cdecl idgn::core::FHashContainer::Remove(unsigned __int64 const & __ptr64) __ptr64
+?RemoveAll@FDataPoolBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDataPoolBase::RemoveAll(void) __ptr64
+?RemoveAll@FHashContainer@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FHashContainer::RemoveAll(void) __ptr64
+?RemoveAllWithoutDelete@FHashContainer@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FHashContainer::RemoveAllWithoutDelete(void) __ptr64
+?RemoveNext@FDataPoolBase@core@idgn@@UEAAHAEA_K@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::RemoveNext(unsigned __int64 & __ptr64) __ptr64
+?RemoveNext@FHashContainer@core@idgn@@UEAAHAEA_K@Z -> public: virtual int __cdecl idgn::core::FHashContainer::RemoveNext(unsigned __int64 & __ptr64) __ptr64
+?RemoveNextWithoutDelete@FHashContainer@core@idgn@@UEAAHAEA_K@Z -> public: virtual int __cdecl idgn::core::FHashContainer::RemoveNextWithoutDelete(unsigned __int64 & __ptr64) __ptr64
+?RemoveWithoutDelete@FDataPoolBase@core@idgn@@UEAAHAEB_K@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::RemoveWithoutDelete(unsigned __int64 const & __ptr64) __ptr64
+?RemoveWithoutDelete@FHashContainer@core@idgn@@UEAAHAEB_K@Z -> public: virtual int __cdecl idgn::core::FHashContainer::RemoveWithoutDelete(unsigned __int64 const & __ptr64) __ptr64
+?ResetItemStatus@FDataContainer@core@idgn@@SAX_K@Z -> public: static void __cdecl idgn::core::FDataContainer::ResetItemStatus(unsigned __int64)
+?Rollback@FDBSessionBase@core@idgn@@MEAAHXZ -> protected: virtual int __cdecl idgn::core::FDBSessionBase::Rollback(void) __ptr64
+?Rollback@FSuperTransaction@core@idgn@@QEAAHXZ -> public: int __cdecl idgn::core::FSuperTransaction::Rollback(void) __ptr64
+?Rollback@FTransaction@core@idgn@@QEAAHXZ -> public: int __cdecl idgn::core::FTransaction::Rollback(void) __ptr64
+?RollbackTransaction@FTransactionMgr@core@idgn@@QEAAXXZ -> public: void __cdecl idgn::core::FTransactionMgr::RollbackTransaction(void) __ptr64
+?Scan@FBulkBlock@core@idgn@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAU_iobuf@@@Z -> public: int __cdecl idgn::core::FBulkBlock::Scan(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,struct _iobuf * __ptr64) __ptr64
+?Set@FBulkProp@core@idgn@@IEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEBV45@@Z -> protected: void __cdecl idgn::core::FBulkProp::Set(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+?SetAt@FDataPoolBase@core@idgn@@UEAAH_KPEAVAData@idgn_interface@@@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::SetAt(unsigned __int64,class idgn_interface::AData * __ptr64) __ptr64
+?SetAt@FHashContainer@core@idgn@@UEAAH_KPEBVAData@idgn_interface@@@Z -> public: virtual int __cdecl idgn::core::FHashContainer::SetAt(unsigned __int64,class idgn_interface::AData const * __ptr64) __ptr64
+?SetAtNU@FDataPoolBase@core@idgn@@UEAAH_KPEAVAData@idgn_interface@@@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::SetAtNU(unsigned __int64,class idgn_interface::AData * __ptr64) __ptr64
+?SetDPoolSlot@FDBSessionBase@core@idgn@@IEAAXGPEAVADataPool@idgn_interface@@PEAVADBSession@5@@Z -> protected: void __cdecl idgn::core::FDBSessionBase::SetDPoolSlot(unsigned short,class idgn_interface::ADataPool * __ptr64,class idgn_interface::ADBSession * __ptr64) __ptr64
+?SetData@FTransactionCmdData@core@idgn@@QEAAXPEAVAData@idgn_interface@@@Z -> public: void __cdecl idgn::core::FTransactionCmdData::SetData(class idgn_interface::AData * __ptr64) __ptr64
+?SetDataType@FDataPoolBase@core@idgn@@MEAAXG@Z -> protected: virtual void __cdecl idgn::core::FDataPoolBase::SetDataType(unsigned short) __ptr64
+?SetDefaultHashSize@FDataPoolBase@core@idgn@@UEAAXJ@Z -> public: virtual void __cdecl idgn::core::FDataPoolBase::SetDefaultHashSize(long) __ptr64
+?SetDefaultHashSize@FHashContainer@core@idgn@@UEAAXJ@Z -> public: virtual void __cdecl idgn::core::FHashContainer::SetDefaultHashSize(long) __ptr64
+?SetDouble@FBulkProp@core@idgn@@QEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@N@Z -> public: void __cdecl idgn::core::FBulkProp::SetDouble(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double) __ptr64
+?SetDouble@FBulkProp@core@idgn@@QEAAXPEB_WN@Z -> public: void __cdecl idgn::core::FBulkProp::SetDouble(wchar_t const * __ptr64,double) __ptr64
+?SetFileSize@FTransactionFileBufMgr@core@idgn@@QEAAXJJ@Z -> public: void __cdecl idgn::core::FTransactionFileBufMgr::SetFileSize(long,long) __ptr64
+?SetFileVersion@FDataPoolBase@core@idgn@@UEAAXI@Z -> public: virtual void __cdecl idgn::core::FDataPoolBase::SetFileVersion(unsigned int) __ptr64
+?SetHashSize@FHashContainer@core@idgn@@UEAAXJ@Z -> public: virtual void __cdecl idgn::core::FHashContainer::SetHashSize(long) __ptr64
+?SetItemStatus@FDataContainer@core@idgn@@SAX_KK@Z -> public: static void __cdecl idgn::core::FDataContainer::SetItemStatus(unsigned __int64,unsigned long)
+?SetLoad@FDBSessionBase@core@idgn@@UEAAXH@Z -> public: virtual void __cdecl idgn::core::FDBSessionBase::SetLoad(int) __ptr64
+?SetLong@FBulkProp@core@idgn@@QEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@J@Z -> public: void __cdecl idgn::core::FBulkProp::SetLong(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,long) __ptr64
+?SetLong@FBulkProp@core@idgn@@QEAAXPEB_WJ@Z -> public: void __cdecl idgn::core::FBulkProp::SetLong(wchar_t const * __ptr64,long) __ptr64
+?SetMinMaxKey@FHashContainer@core@idgn@@QEAAXAEAJ@Z -> public: void __cdecl idgn::core::FHashContainer::SetMinMaxKey(long & __ptr64) __ptr64
+?SetModified@FDBSessionBase@core@idgn@@MEAAXH@Z -> protected: virtual void __cdecl idgn::core::FDBSessionBase::SetModified(int) __ptr64
+?SetModified@FDBSessionBase@core@idgn@@MEAAXXZ -> protected: virtual void __cdecl idgn::core::FDBSessionBase::SetModified(void) __ptr64
+?SetPID@FDBSessionBase@core@idgn@@UEAAXJ@Z -> public: virtual void __cdecl idgn::core::FDBSessionBase::SetPID(long) __ptr64
+?SetParamIdx@FDataContainer@core@idgn@@UEAAX_KK@Z -> public: virtual void __cdecl idgn::core::FDataContainer::SetParamIdx(unsigned __int64,unsigned long) __ptr64
+?SetParamIdx@FDataPoolBase@core@idgn@@UEAAX_KK@Z -> public: virtual void __cdecl idgn::core::FDataPoolBase::SetParamIdx(unsigned __int64,unsigned long) __ptr64
+?SetShapeTRInterface@FDBSessionBase@core@idgn@@UEAAXPEAVAShapeTR@idgn_interface@@@Z -> public: virtual void __cdecl idgn::core::FDBSessionBase::SetShapeTRInterface(class idgn_interface::AShapeTR * __ptr64) __ptr64
+?SetString@FBulkProp@core@idgn@@QEAAXAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEBV45@@Z -> public: void __cdecl idgn::core::FBulkProp::SetString(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+?SetString@FBulkProp@core@idgn@@QEAAXPEB_WAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl idgn::core::FBulkProp::SetString(wchar_t const * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+?SetTRFlags@FDataPoolBase@core@idgn@@UEAAXK@Z -> public: virtual void __cdecl idgn::core::FDataPoolBase::SetTRFlags(unsigned long) __ptr64
+?SetTRNotify@FTransactionCmdData@core@idgn@@QEAAXAEAUFTRNotify@3@@Z -> public: void __cdecl idgn::core::FTransactionCmdData::SetTRNotify(struct idgn::FTRNotify & __ptr64) __ptr64
+?SetTrDataSize@FTransactionInFile@core@idgn@@QEAAXJ@Z -> public: void __cdecl idgn::core::FTransactionInFile::SetTrDataSize(long) __ptr64
+?SetUnitCtrl@FDBSessionBase@core@idgn@@QEAAXPEAVFUnitCtrl@lib@3@@Z -> public: void __cdecl idgn::core::FDBSessionBase::SetUnitCtrl(class idgn::lib::FUnitCtrl * __ptr64) __ptr64
+?SetUserDPoolSlot@FDBSessionBase@core@idgn@@UEAAGPEAVADataPool@idgn_interface@@PEAVADBSession@5@@Z -> public: virtual unsigned short __cdecl idgn::core::FDBSessionBase::SetUserDPoolSlot(class idgn_interface::ADataPool * __ptr64,class idgn_interface::ADBSession * __ptr64) __ptr64
+?SortAsc@FDataPoolBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDataPoolBase::SortAsc(void) __ptr64
+?SortAsc@FHashContainer@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FHashContainer::SortAsc(void) __ptr64
+?StartBuffering@FTransactionFileBufMgr@core@idgn@@QEAAXJ@Z -> public: void __cdecl idgn::core::FTransactionFileBufMgr::StartBuffering(long) __ptr64
+?Stream2DataStruct@@YAHPEBDPEADPEBUDGN_IO_VAR@core@idgn@@_KI@Z -> int __cdecl Stream2DataStruct(char const * __ptr64,char * __ptr64,struct idgn::core::DGN_IO_VAR const * __ptr64,unsigned __int64,unsigned int)
+?TR_Insert@FDataPoolBase@core@idgn@@UEAAHAEAV?$FArray@PEAVAData@idgn_interface@@@3@AEAV?$FArray@_K@3@@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::TR_Insert(class idgn::FArray<class idgn_interface::AData * __ptr64> & __ptr64,class idgn::FArray<unsigned __int64> & __ptr64) __ptr64
+?TR_Insert@FDataPoolBase@core@idgn@@UEAA_KPEAVAData@idgn_interface@@@Z -> public: virtual unsigned __int64 __cdecl idgn::core::FDataPoolBase::TR_Insert(class idgn_interface::AData * __ptr64) __ptr64
+?TR_Remove@FDataPoolBase@core@idgn@@UEAAHAEAV?$FArray@_K@3@@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::TR_Remove(class idgn::FArray<unsigned __int64> & __ptr64) __ptr64
+?TR_Remove@FDataPoolBase@core@idgn@@UEAAH_K@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::TR_Remove(unsigned __int64) __ptr64
+?TR_RemoveAll@FDataPoolBase@core@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::core::FDataPoolBase::TR_RemoveAll(void) __ptr64
+?TR_SetAt@FDataPoolBase@core@idgn@@UEAAHAEAV?$FArray@_K@3@AEAV?$FArray@PEAVAData@idgn_interface@@@3@@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::TR_SetAt(class idgn::FArray<unsigned __int64> & __ptr64,class idgn::FArray<class idgn_interface::AData * __ptr64> & __ptr64) __ptr64
+?TR_SetAt@FDataPoolBase@core@idgn@@UEAAH_KPEAVAData@idgn_interface@@@Z -> public: virtual int __cdecl idgn::core::FDataPoolBase::TR_SetAt(unsigned __int64,class idgn_interface::AData * __ptr64) __ptr64
+?TransactionAdd@FTransactionMgr@core@idgn@@IEAAXAEAVFTransactionCmdData@23@@Z -> protected: void __cdecl idgn::core::FTransactionMgr::TransactionAdd(class idgn::core::FTransactionCmdData & __ptr64) __ptr64
+?TransactionCmdData@FTransactionMgr@core@idgn@@IEAAXAEAVFTransactionCmdData@23@@Z -> protected: void __cdecl idgn::core::FTransactionMgr::TransactionCmdData(class idgn::core::FTransactionCmdData & __ptr64) __ptr64
+?TransactionDel@FTransactionMgr@core@idgn@@IEAAXAEAVFTransactionCmdData@23@@Z -> protected: void __cdecl idgn::core::FTransactionMgr::TransactionDel(class idgn::core::FTransactionCmdData & __ptr64) __ptr64
+?TransactionMod@FTransactionMgr@core@idgn@@IEAAXAEAVFTransactionCmdData@23@@Z -> protected: void __cdecl idgn::core::FTransactionMgr::TransactionMod(class idgn::core::FTransactionCmdData & __ptr64) __ptr64
+?Undo@FDBSessionBase@core@idgn@@UEAAHXZ -> public: virtual int __cdecl idgn::core::FDBSessionBase::Undo(void) __ptr64
+?Undo@FTransactionMgr@core@idgn@@QEAAHJ@Z -> public: int __cdecl idgn::core::FTransactionMgr::Undo(long) __ptr64
+?UpdateUndoRedoList@FDBSessionBase@core@idgn@@UEAAXXZ -> public: virtual void __cdecl idgn::core::FDBSessionBase::UpdateUndoRedoList(void) __ptr64
+?WriteBulkData@FTransactionFileBufMgr@core@idgn@@QEAAXPEADJ@Z -> public: void __cdecl idgn::core::FTransactionFileBufMgr::WriteBulkData(char * __ptr64,long) __ptr64
+?WriteCmdData@FTransactionMgr@core@idgn@@IEAAXAEAVFTransactionCmdData@23@H@Z -> protected: void __cdecl idgn::core::FTransactionMgr::WriteCmdData(class idgn::core::FTransactionCmdData & __ptr64,int) __ptr64
+?copy@FBulkGuid@core@idgn@@IEAAXAEBU_GUID@@@Z -> protected: void __cdecl idgn::core::FBulkGuid::copy(struct _GUID const & __ptr64) __ptr64
+?copy@FBulkGuid@core@idgn@@IEAAXAEBV123@@Z -> protected: void __cdecl idgn::core::FBulkGuid::copy(class idgn::core::FBulkGuid const & __ptr64) __ptr64
+?insert_to_hash@FHashContainer@core@idgn@@IEAAXPEAUtagITEM@FDataContainer@23@@Z -> protected: void __cdecl idgn::core::FHashContainer::insert_to_hash(struct idgn::core::FDataContainer::tagITEM * __ptr64) __ptr64
+?insert_to_list@FHashContainer@core@idgn@@IEAAXPEAUtagITEM@FDataContainer@23@@Z -> protected: void __cdecl idgn::core::FHashContainer::insert_to_list(struct idgn::core::FDataContainer::tagITEM * __ptr64) __ptr64
+?insert_to_list@FHashContainer@core@idgn@@IEAAXPEAUtagITEM@FDataContainer@23@_K@Z -> protected: void __cdecl idgn::core::FHashContainer::insert_to_list(struct idgn::core::FDataContainer::tagITEM * __ptr64,unsigned __int64) __ptr64
+?nsLoadDPool@@YAHAEAV?$FTArray@J@idgn@@PEAVADataPool@idgn_interface@@PEAVADBSession@4@PEAVFBulkHandler@core@2@@Z -> int __cdecl nsLoadDPool(class idgn::FTArray<long> & __ptr64,class idgn_interface::ADataPool * __ptr64,class idgn_interface::ADBSession * __ptr64,class idgn::core::FBulkHandler * __ptr64)
+?nsLoadDPoolWithIOName@@YAHPEAVADataPool@idgn_interface@@PEAVADBSession@2@PEAVFBulkHandler@core@idgn@@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV?$FTArray@J@6@@Z -> int __cdecl nsLoadDPoolWithIOName(class idgn_interface::ADataPool * __ptr64,class idgn_interface::ADBSession * __ptr64,class idgn::core::FBulkHandler * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,class idgn::FTArray<long> & __ptr64)
+?nsSaveDPool@@YAHAEAV?$FTArray@J@idgn@@PEAVADataPool@idgn_interface@@PEAVADBSession@4@PEAU_iobuf@@@Z -> int __cdecl nsSaveDPool(class idgn::FTArray<long> & __ptr64,class idgn_interface::ADataPool * __ptr64,class idgn_interface::ADBSession * __ptr64,struct _iobuf * __ptr64)
+?nsSaveDPoolForDesign@@YAHPEAVADataPool@idgn_interface@@PEAVADBSession@2@PEAU_iobuf@@@Z -> int __cdecl nsSaveDPoolForDesign(class idgn_interface::ADataPool * __ptr64,class idgn_interface::ADBSession * __ptr64,struct _iobuf * __ptr64)
+?nsSaveDPoolWithIOName@@YAHPEAVADataPool@idgn_interface@@PEAVADBSession@2@PEAU_iobuf@@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV?$FTArray@J@idgn@@@Z -> int __cdecl nsSaveDPoolWithIOName(class idgn_interface::ADataPool * __ptr64,class idgn_interface::ADBSession * __ptr64,struct _iobuf * __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,class idgn::FTArray<long> & __ptr64)
+?nsWriteBulkBlock@core@idgn@@YAHHU_GUID@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAVFBulkProp@12@PEAPEAXJK@Z -> int __cdecl idgn::core::nsWriteBulkBlock(int,struct _GUID,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class idgn::core::FBulkProp * __ptr64,void * __ptr64 * __ptr64,long,unsigned long)
+?nsWriteBulkBlock@core@idgn@@YAHHU_GUID@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAVFBulkProp@12@PEAXK@Z -> int __cdecl idgn::core::nsWriteBulkBlock(int,struct _GUID,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class idgn::core::FBulkProp * __ptr64,void * __ptr64,unsigned long)
+?nsWriteBulkBlock@core@idgn@@YAHPEAU_iobuf@@U_GUID@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAVFBulkProp@12@PEAPEAXJK@Z -> int __cdecl idgn::core::nsWriteBulkBlock(struct _iobuf * __ptr64,struct _GUID,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class idgn::core::FBulkProp * __ptr64,void * __ptr64 * __ptr64,long,unsigned long)
+?nsWriteBulkBlock@core@idgn@@YAHPEAU_iobuf@@U_GUID@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEAVFBulkProp@12@PEAXK@Z -> int __cdecl idgn::core::nsWriteBulkBlock(struct _iobuf * __ptr64,struct _GUID,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class idgn::core::FBulkProp * __ptr64,void * __ptr64,unsigned long)
+?nsWriteBulkHeader@@YAHHI@Z -> int __cdecl nsWriteBulkHeader(int,unsigned int)
+?nsWriteBulkHeader@@YAHPEAU_iobuf@@I@Z -> int __cdecl nsWriteBulkHeader(struct _iobuf * __ptr64,unsigned int)
+?nsWriteBulkHeader@@YAHPEAU_iobuf@@IJ@Z -> int __cdecl nsWriteBulkHeader(struct _iobuf * __ptr64,unsigned int,long)
+?remove_from_hash@FHashContainer@core@idgn@@IEAAXPEAUtagITEM@FDataContainer@23@@Z -> protected: void __cdecl idgn::core::FHashContainer::remove_from_hash(struct idgn::core::FDataContainer::tagITEM * __ptr64) __ptr64
+?remove_from_list@FHashContainer@core@idgn@@IEAAXPEAUtagITEM@FDataContainer@23@@Z -> protected: void __cdecl idgn::core::FHashContainer::remove_from_list(struct idgn::core::FDataContainer::tagITEM * __ptr64) __ptr64
+Init_IDGN_coredll -> Init_IDGN_coredll

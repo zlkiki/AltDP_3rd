@@ -1,0 +1,329 @@
+??0CALUCodeCheck@@QEAA@AEBV0@@Z -> public: __cdecl CALUCodeCheck::CALUCodeCheck(class CALUCodeCheck const & __ptr64) __ptr64
+??0CALUCodeCheck@@QEAA@XZ -> public: __cdecl CALUCodeCheck::CALUCodeCheck(void) __ptr64
+??0CALUDataBase@@QEAA@XZ -> public: __cdecl CALUDataBase::CALUDataBase(void) __ptr64
+??0CGUaagPModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CGUaagPModeDlg::CGUaagPModeDlg(class CWnd * __ptr64) __ptr64
+??0CGUaagPModeListDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CGUaagPModeListDlg::CGUaagPModeListDlg(class CWnd * __ptr64) __ptr64
+??0CGUaagSModeMainDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CGUaagSModeMainDlg::CGUaagSModeMainDlg(class CWnd * __ptr64) __ptr64
+??0CGUamtPModeDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CGUamtPModeDlg::CGUamtPModeDlg(class CWnd * __ptr64) __ptr64
+??0CGUamtPModeListDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CGUamtPModeListDlg::CGUamtPModeListDlg(class CWnd * __ptr64) __ptr64
+??0CGUamtSModeMainDlg@@QEAA@PEAVCWnd@@@Z -> public: __cdecl CGUamtSModeMainDlg::CGUamtSModeMainDlg(class CWnd * __ptr64) __ptr64
+??0CMSOffice@@QEAA@AEBV0@@Z -> public: __cdecl CMSOffice::CMSOffice(class CMSOffice const & __ptr64) __ptr64
+??0IDPLUS_AluDataBase@@QEAA@AEBV0@@Z -> public: __cdecl IDPLUS_AluDataBase::IDPLUS_AluDataBase(class IDPLUS_AluDataBase const & __ptr64) __ptr64
+??0IDPLUS_AluDataBase@@QEAA@XZ -> public: __cdecl IDPLUS_AluDataBase::IDPLUS_AluDataBase(void) __ptr64
+??1CALUCodeCheck@@UEAA@XZ -> public: virtual __cdecl CALUCodeCheck::~CALUCodeCheck(void) __ptr64
+??1CALUDataBase@@UEAA@XZ -> public: virtual __cdecl CALUDataBase::~CALUDataBase(void) __ptr64
+??1CGUaagPModeDlg@@UEAA@XZ -> public: virtual __cdecl CGUaagPModeDlg::~CGUaagPModeDlg(void) __ptr64
+??1CGUaagPModeListDlg@@UEAA@XZ -> public: virtual __cdecl CGUaagPModeListDlg::~CGUaagPModeListDlg(void) __ptr64
+??1CGUaagSModeMainDlg@@UEAA@XZ -> public: virtual __cdecl CGUaagSModeMainDlg::~CGUaagSModeMainDlg(void) __ptr64
+??1CGUamtPModeDlg@@UEAA@XZ -> public: virtual __cdecl CGUamtPModeDlg::~CGUamtPModeDlg(void) __ptr64
+??1CGUamtPModeListDlg@@UEAA@XZ -> public: virtual __cdecl CGUamtPModeListDlg::~CGUamtPModeListDlg(void) __ptr64
+??1CGUamtSModeMainDlg@@UEAA@XZ -> public: virtual __cdecl CGUamtSModeMainDlg::~CGUamtSModeMainDlg(void) __ptr64
+??1IDPLUS_AluDataBase@@UEAA@XZ -> public: virtual __cdecl IDPLUS_AluDataBase::~IDPLUS_AluDataBase(void) __ptr64
+??4CALUCodeCheck@@QEAAAEAV0@AEBV0@@Z -> public: class CALUCodeCheck & __ptr64 __cdecl CALUCodeCheck::operator=(class CALUCodeCheck const & __ptr64) __ptr64
+??4CMSOffice@@QEAAAEAV0@AEBV0@@Z -> public: class CMSOffice & __ptr64 __cdecl CMSOffice::operator=(class CMSOffice const & __ptr64) __ptr64
+??4IDPLUS_AluDataBase@@QEAAAEAV0@AEBV0@@Z -> public: class IDPLUS_AluDataBase & __ptr64 __cdecl IDPLUS_AluDataBase::operator=(class IDPLUS_AluDataBase const & __ptr64) __ptr64
+??_7CALUCodeCheck@@6B@ -> const CALUCodeCheck::`vftable'
+??_7CALUDataBase@@6BCDBUpdateConnector@@@ -> const CALUDataBase::`vftable'{for `CDBUpdateConnector'}
+??_7CALUDataBase@@6BCDGN_DataBase@@@ -> const CALUDataBase::`vftable'{for `CDGN_DataBase'}
+??_7CGUaagPModeDlg@@6BCALUTool@@@ -> const CGUaagPModeDlg::`vftable'{for `CALUTool'}
+??_7CGUaagPModeDlg@@6BCDBUpdateConnector@@@ -> const CGUaagPModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CGUaagPModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CGUaagPModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CGUaagPModeListDlg@@6BCDBUpdateConnector@@@ -> const CGUaagPModeListDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CGUaagPModeListDlg@@6BCDGN_FormViewInDlg@@@ -> const CGUaagPModeListDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CGUaagSModeMainDlg@@6BCALUTool@@@ -> const CGUaagSModeMainDlg::`vftable'{for `CALUTool'}
+??_7CGUaagSModeMainDlg@@6BCDBUpdateConnector@@@ -> const CGUaagSModeMainDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CGUaagSModeMainDlg@@6BCDGN_FormViewInDlg@@@ -> const CGUaagSModeMainDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CGUamtPModeDlg@@6BCALUTool@@@ -> const CGUamtPModeDlg::`vftable'{for `CALUTool'}
+??_7CGUamtPModeDlg@@6BCDBUpdateConnector@@@ -> const CGUamtPModeDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CGUamtPModeDlg@@6BCDGN_FormViewInDlg@@@ -> const CGUamtPModeDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CGUamtPModeListDlg@@6BCDBUpdateConnector@@@ -> const CGUamtPModeListDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CGUamtPModeListDlg@@6BCDGN_FormViewInDlg@@@ -> const CGUamtPModeListDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CGUamtSModeMainDlg@@6BCALUTool@@@ -> const CGUamtSModeMainDlg::`vftable'{for `CALUTool'}
+??_7CGUamtSModeMainDlg@@6BCDBUpdateConnector@@@ -> const CGUamtSModeMainDlg::`vftable'{for `CDBUpdateConnector'}
+??_7CGUamtSModeMainDlg@@6BCDGN_FormViewInDlg@@@ -> const CGUamtSModeMainDlg::`vftable'{for `CDGN_FormViewInDlg'}
+??_7CMSOffice@@6B@ -> const CMSOffice::`vftable'
+??_7IDPLUS_AluDataBase@@6B@ -> const IDPLUS_AluDataBase::`vftable'
+??_FCGUaagPModeDlg@@QEAAXXZ -> public: void __cdecl CGUaagPModeDlg::`default constructor closure'(void) __ptr64
+??_FCGUaagPModeListDlg@@QEAAXXZ -> public: void __cdecl CGUaagPModeListDlg::`default constructor closure'(void) __ptr64
+??_FCGUaagSModeMainDlg@@QEAAXXZ -> public: void __cdecl CGUaagSModeMainDlg::`default constructor closure'(void) __ptr64
+??_FCGUamtPModeDlg@@QEAAXXZ -> public: void __cdecl CGUamtPModeDlg::`default constructor closure'(void) __ptr64
+??_FCGUamtPModeListDlg@@QEAAXXZ -> public: void __cdecl CGUamtPModeListDlg::`default constructor closure'(void) __ptr64
+??_FCGUamtSModeMainDlg@@QEAAXXZ -> public: void __cdecl CGUamtSModeMainDlg::`default constructor closure'(void) __ptr64
+?CHK_UAAG@CALUCodeCheck@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CALUCodeCheck::CHK_UAAG(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?CHK_UAAG@CALUCodeCheck@@QEAA_NH@Z -> public: bool __cdecl CALUCodeCheck::CHK_UAAG(int) __ptr64
+?CHK_UAMT@CALUCodeCheck@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CALUCodeCheck::CHK_UAMT(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?CHK_UAMT@CALUCodeCheck@@QEAA_NH@Z -> public: bool __cdecl CALUCodeCheck::CHK_UAMT(int) __ptr64
+?ChangeCurrentKey@CGUaagPModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CGUaagPModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CGUaagPModeListDlg@@UEAAXI@Z -> public: virtual void __cdecl CGUaagPModeListDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CGUaagSModeMainDlg@@UEAAXI@Z -> public: virtual void __cdecl CGUaagSModeMainDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CGUamtPModeDlg@@UEAAXI@Z -> public: virtual void __cdecl CGUamtPModeDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CGUamtPModeListDlg@@UEAAXI@Z -> public: virtual void __cdecl CGUamtPModeListDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeCurrentKey@CGUamtSModeMainDlg@@UEAAXI@Z -> public: virtual void __cdecl CGUamtSModeMainDlg::ChangeCurrentKey(unsigned int) __ptr64
+?ChangeUnit@CGUaagPModeDlg@@QEAAXXZ -> public: void __cdecl CGUaagPModeDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CGUaagPModeListDlg@@QEAAXXZ -> public: void __cdecl CGUaagPModeListDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CGUaagSModeMainDlg@@QEAAXXZ -> public: void __cdecl CGUaagSModeMainDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CGUamtPModeDlg@@QEAAXXZ -> public: void __cdecl CGUamtPModeDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CGUamtPModeListDlg@@QEAAXXZ -> public: void __cdecl CGUamtPModeListDlg::ChangeUnit(void) __ptr64
+?ChangeUnit@CGUamtSModeMainDlg@@QEAAXXZ -> public: void __cdecl CGUamtSModeMainDlg::ChangeUnit(void) __ptr64
+?ClearResultData@CGUaagPModeDlg@@QEAAXXZ -> public: void __cdecl CGUaagPModeDlg::ClearResultData(void) __ptr64
+?ClearResultData@CGUamtPModeDlg@@QEAAXXZ -> public: void __cdecl CGUamtPModeDlg::ClearResultData(void) __ptr64
+?DGN_UAAG@CALUCodeCheck@@QEAA_NAEAV?$CArray@II@@AEAV?$CArray@UT_GUAAG_D@@AEAU1@@@@Z -> public: bool __cdecl CALUCodeCheck::DGN_UAAG(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<struct T_GUAAG_D,struct T_GUAAG_D & __ptr64> & __ptr64) __ptr64
+?DGN_UAAG@CALUCodeCheck@@QEAA_NHAEAUT_GUAAG_D@@@Z -> public: bool __cdecl CALUCodeCheck::DGN_UAAG(int,struct T_GUAAG_D & __ptr64) __ptr64
+?DGN_UAMT@CALUCodeCheck@@QEAA_NAEAV?$CArray@II@@AEAV?$CArray@UT_GUAMT_D@@AEAU1@@@@Z -> public: bool __cdecl CALUCodeCheck::DGN_UAMT(class CArray<unsigned int,unsigned int> & __ptr64,class CArray<struct T_GUAMT_D,struct T_GUAMT_D & __ptr64> & __ptr64) __ptr64
+?DGN_UAMT@CALUCodeCheck@@QEAA_NHAEAUT_GUAMT_D@@@Z -> public: bool __cdecl CALUCodeCheck::DGN_UAMT(int,struct T_GUAMT_D & __ptr64) __ptr64
+?Data2Dlg@CGUaagPModeDlg@@IEAAHXZ -> protected: int __cdecl CGUaagPModeDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CGUaagPModeListDlg@@QEAAHXZ -> public: int __cdecl CGUaagPModeListDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CGUaagSModeMainDlg@@QEAAHH@Z -> public: int __cdecl CGUaagSModeMainDlg::Data2Dlg(int) __ptr64
+?Data2Dlg@CGUamtPModeDlg@@AEAA_NXZ -> private: bool __cdecl CGUamtPModeDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CGUamtPModeListDlg@@QEAAHXZ -> public: int __cdecl CGUamtPModeListDlg::Data2Dlg(void) __ptr64
+?Data2Dlg@CGUamtSModeMainDlg@@QEAAHH@Z -> public: int __cdecl CGUamtSModeMainDlg::Data2Dlg(int) __ptr64
+?DeleteResultDataUAAG@CALUDataBase@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CALUDataBase::DeleteResultDataUAAG(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?DeleteResultDataUAAG@CALUDataBase@@QEAA_NI@Z -> public: bool __cdecl CALUDataBase::DeleteResultDataUAAG(unsigned int) __ptr64
+?DeleteResultDataUAMT@CALUDataBase@@QEAA_NAEAV?$CArray@II@@@Z -> public: bool __cdecl CALUDataBase::DeleteResultDataUAMT(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?DeleteResultDataUAMT@CALUDataBase@@QEAA_NI@Z -> public: bool __cdecl CALUDataBase::DeleteResultDataUAMT(unsigned int) __ptr64
+?Destroy@CALUCodeCheck@@SAXXZ -> public: static void __cdecl CALUCodeCheck::Destroy(void)
+?Destroy@CALUDataBase@@SAXXZ -> public: static void __cdecl CALUDataBase::Destroy(void)
+?DestroyDataBase@IDPLUS_AluDataBase@@SAXXZ -> public: static void __cdecl IDPLUS_AluDataBase::DestroyDataBase(void)
+?Dlg2Data@CGUaagPModeDlg@@IEAAHXZ -> protected: int __cdecl CGUaagPModeDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CGUaagPModeListDlg@@QEAAHXZ -> public: int __cdecl CGUaagPModeListDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CGUaagSModeMainDlg@@QEAAHXZ -> public: int __cdecl CGUaagSModeMainDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CGUamtPModeDlg@@AEAA_NXZ -> private: bool __cdecl CGUamtPModeDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CGUamtPModeListDlg@@QEAAHXZ -> public: int __cdecl CGUamtPModeListDlg::Dlg2Data(void) __ptr64
+?Dlg2Data@CGUamtSModeMainDlg@@QEAAHXZ -> public: int __cdecl CGUamtSModeMainDlg::Dlg2Data(void) __ptr64
+?DoDataExchange@CGUaagPModeDlg@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CGUaagPModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CGUaagPModeListDlg@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CGUaagPModeListDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CGUaagSModeMainDlg@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CGUaagSModeMainDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CGUamtPModeDlg@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CGUamtPModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CGUamtPModeListDlg@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CGUamtPModeListDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?DoDataExchange@CGUamtSModeMainDlg@@MEAAXPEAVCDataExchange@@@Z -> protected: virtual void __cdecl CGUamtSModeMainDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64
+?GetCheckResultUAAG@CALUDataBase@@QEAA_NIAEAUDGNUS_UAAG_RES@@@Z -> public: bool __cdecl CALUDataBase::GetCheckResultUAAG(unsigned int,struct DGNUS_UAAG_RES & __ptr64) __ptr64
+?GetCheckResultUAMT@CALUDataBase@@QEAA_NIAEAUDGNUS_UAMT_RES@@@Z -> public: bool __cdecl CALUDataBase::GetCheckResultUAMT(unsigned int,struct DGNUS_UAMT_RES & __ptr64) __ptr64
+?GetMaxLoadCombNo@CGUaagPModeDlg@@AEAAXAEAH@Z -> private: void __cdecl CGUaagPModeDlg::GetMaxLoadCombNo(int & __ptr64) __ptr64
+?GetMaxLoadCombNo@CGUamtPModeDlg@@AEAAXAEAH@Z -> private: void __cdecl CGUamtPModeDlg::GetMaxLoadCombNo(int & __ptr64) __ptr64
+?GetMessageMap@CGUaagPModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CGUaagPModeDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CGUaagPModeListDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CGUaagPModeListDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CGUaagSModeMainDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CGUaagSModeMainDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CGUamtPModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CGUamtPModeDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CGUamtPModeListDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CGUamtPModeListDlg::GetMessageMap(void)const __ptr64
+?GetMessageMap@CGUamtSModeMainDlg@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CGUamtSModeMainDlg::GetMessageMap(void)const __ptr64
+?GetResultDB_AAG_RES_AA@CALUDataBase@@QEAA_NIAEAUDGNUS_UAAG_RES@@@Z -> public: bool __cdecl CALUDataBase::GetResultDB_AAG_RES_AA(unsigned int,struct DGNUS_UAAG_RES & __ptr64) __ptr64
+?GetResultDB_AAG_UMD_AA@CALUDataBase@@QEAA_NIAEAUT_GUAAG_D@@@Z -> public: bool __cdecl CALUDataBase::GetResultDB_AAG_UMD_AA(unsigned int,struct T_GUAAG_D & __ptr64) __ptr64
+?GetResultDB_AMT_RES_AA@CALUDataBase@@QEAA_NIAEAUDGNUS_UAMT_RES@@@Z -> public: bool __cdecl CALUDataBase::GetResultDB_AMT_RES_AA(unsigned int,struct DGNUS_UAMT_RES & __ptr64) __ptr64
+?GetResultDB_AMT_UMD_AA@CALUDataBase@@QEAA_NIAEAUT_GUAMT_D@@@Z -> public: bool __cdecl CALUDataBase::GetResultDB_AMT_UMD_AA(unsigned int,struct T_GUAMT_D & __ptr64) __ptr64
+?GetThisMessageMap@CGUaagPModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CGUaagPModeDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CGUaagPModeListDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CGUaagPModeListDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CGUaagSModeMainDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CGUaagSModeMainDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CGUamtPModeDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CGUamtPModeDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CGUamtPModeListDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CGUamtPModeListDlg::GetThisMessageMap(void)
+?GetThisMessageMap@CGUamtSModeMainDlg@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CGUamtSModeMainDlg::GetThisMessageMap(void)
+?GridToSpreadSheet@CGUaagPModeListDlg@@AEAAXJ@Z -> private: void __cdecl CGUaagPModeListDlg::GridToSpreadSheet(long) __ptr64
+?GridToSpreadSheet@CGUamtPModeListDlg@@AEAAXJ@Z -> private: void __cdecl CGUamtPModeListDlg::GridToSpreadSheet(long) __ptr64
+?InitializeComboBox@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::InitializeComboBox(void) __ptr64
+?InitializeComboBox@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::InitializeComboBox(void) __ptr64
+?InitializeComboBox@CGUamtPModeDlg@@AEAAXXZ -> private: void __cdecl CGUamtPModeDlg::InitializeComboBox(void) __ptr64
+?InitializeComboBox@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::InitializeComboBox(void) __ptr64
+?InitializeEditSpin@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::InitializeEditSpin(void) __ptr64
+?InitializeEditSpin@CGUamtPModeDlg@@AEAAXXZ -> private: void __cdecl CGUamtPModeDlg::InitializeEditSpin(void) __ptr64
+?Instance@CALUCodeCheck@@SAPEAV1@XZ -> public: static class CALUCodeCheck * __ptr64 __cdecl CALUCodeCheck::Instance(void)
+?Instance@CALUDataBase@@SAPEAV1@XZ -> public: static class CALUDataBase * __ptr64 __cdecl CALUDataBase::Instance(void)
+?IsCheckingREQ@CALUCodeCheck@@AEAA_NW4MEMBType@@I@Z -> private: bool __cdecl CALUCodeCheck::IsCheckingREQ(enum MEMBType,unsigned int) __ptr64
+?IsExistResultData@CALUDataBase@@QEAA_NW4MEMBType@@H@Z -> public: bool __cdecl CALUDataBase::IsExistResultData(enum MEMBType,int) __ptr64
+?IsExistResultDataUAAG@CALUDataBase@@AEAA_NI@Z -> private: bool __cdecl CALUDataBase::IsExistResultDataUAAG(unsigned int) __ptr64
+?IsExistResultDataUAMT@CALUDataBase@@AEAA_NI@Z -> private: bool __cdecl CALUDataBase::IsExistResultDataUAMT(unsigned int) __ptr64
+?IsSameData@CALUDataBase@@QEAA_NAEAUT_GUAAG_D@@0@Z -> public: bool __cdecl CALUDataBase::IsSameData(struct T_GUAAG_D & __ptr64,struct T_GUAAG_D & __ptr64) __ptr64
+?IsSameData@CALUDataBase@@QEAA_NAEAUT_GUAMT_D@@0@Z -> public: bool __cdecl CALUDataBase::IsSameData(struct T_GUAMT_D & __ptr64,struct T_GUAMT_D & __ptr64) __ptr64
+?LayoutChildDlg@CGUaagSModeMainDlg@@QEAAXXZ -> public: void __cdecl CGUaagSModeMainDlg::LayoutChildDlg(void) __ptr64
+?LayoutChildDlg@CGUamtSModeMainDlg@@QEAAXXZ -> public: void __cdecl CGUamtSModeMainDlg::LayoutChildDlg(void) __ptr64
+?MakeReport@CGUaagPModeDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CGUaagPModeDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CGUaagPModeListDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CGUaagPModeListDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CGUaagSModeMainDlg@@IEAAXW4ReportContent@@@Z -> protected: void __cdecl CGUaagSModeMainDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CGUamtPModeDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CGUamtPModeDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CGUamtPModeListDlg@@AEAAXW4ReportContent@@@Z -> private: void __cdecl CGUamtPModeListDlg::MakeReport(enum ReportContent) __ptr64
+?MakeReport@CGUamtSModeMainDlg@@IEAAXW4ReportContent@@@Z -> protected: void __cdecl CGUamtSModeMainDlg::MakeReport(enum ReportContent) __ptr64
+?ModifyDBData@CGUaagPModeDlg@@IEAAHXZ -> protected: int __cdecl CGUaagPModeDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CGUaagSModeMainDlg@@IEAAHXZ -> protected: int __cdecl CGUaagSModeMainDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CGUamtPModeDlg@@AEAA_NXZ -> private: bool __cdecl CGUamtPModeDlg::ModifyDBData(void) __ptr64
+?ModifyDBData@CGUamtSModeMainDlg@@IEAAHXZ -> protected: int __cdecl CGUamtSModeMainDlg::ModifyDBData(void) __ptr64
+?MoveFocusToReportView@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::MoveFocusToReportView(void) __ptr64
+?MoveFocusToReportView@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::MoveFocusToReportView(void) __ptr64
+?OnButtonApply@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnButtonApply(void) __ptr64
+?OnButtonApply@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::OnButtonApply(void) __ptr64
+?OnButtonCheck@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnButtonCheck(void) __ptr64
+?OnButtonCheck@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::OnButtonCheck(void) __ptr64
+?OnButtonDeflCrit@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnButtonDeflCrit(void) __ptr64
+?OnButtonDesign@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnButtonDesign(void) __ptr64
+?OnButtonDesign@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::OnButtonDesign(void) __ptr64
+?OnButtonKFactorX@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnButtonKFactorX(void) __ptr64
+?OnButtonKFactorY@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnButtonKFactorY(void) __ptr64
+?OnButtonLComb@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnButtonLComb(void) __ptr64
+?OnButtonPrint@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::OnButtonPrint(void) __ptr64
+?OnButtonPrint@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::OnButtonPrint(void) __ptr64
+?OnButtonReport@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnButtonReport(void) __ptr64
+?OnButtonReport@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::OnButtonReport(void) __ptr64
+?OnButtonReport@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnButtonReport(void) __ptr64
+?OnButtonReport@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::OnButtonReport(void) __ptr64
+?OnButtonResizeCol@CGUaagPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeListDlg::OnButtonResizeCol(void) __ptr64
+?OnButtonResizeCol@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::OnButtonResizeCol(void) __ptr64
+?OnButtonSave@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::OnButtonSave(void) __ptr64
+?OnButtonSave@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::OnButtonSave(void) __ptr64
+?OnButtonSelectAll@CGUaagPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeListDlg::OnButtonSelectAll(void) __ptr64
+?OnButtonSelectAll@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::OnButtonSelectAll(void) __ptr64
+?OnButtonSelectInv@CGUaagPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeListDlg::OnButtonSelectInv(void) __ptr64
+?OnButtonSelectInv@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::OnButtonSelectInv(void) __ptr64
+?OnButtonSelectNon@CGUaagPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeListDlg::OnButtonSelectNon(void) __ptr64
+?OnButtonSelectNon@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::OnButtonSelectNon(void) __ptr64
+?OnChangeInputData@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnChangeInputData(void) __ptr64
+?OnChangeInputData@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnChangeInputData(void) __ptr64
+?OnChangeMatl@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnChangeMatl(void) __ptr64
+?OnChangeMatl@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnChangeMatl(void) __ptr64
+?OnChangeMemberType@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnChangeMemberType(void) __ptr64
+?OnChangeSection@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnChangeSection(void) __ptr64
+?OnChangeSectionShape@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnChangeSectionShape(void) __ptr64
+?OnChangeSectionSize@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnChangeSectionSize(void) __ptr64
+?OnCheckForceMinor@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnCheckForceMinor(void) __ptr64
+?OnChkBtnByADM@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnChkBtnByADM(void) __ptr64
+?OnChkBtnLComb@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnChkBtnLComb(void) __ptr64
+?OnChkBtnLComb@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnChkBtnLComb(void) __ptr64
+?OnClickedButtonKFactorX@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnClickedButtonKFactorX(void) __ptr64
+?OnClickedButtonKFactorY@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnClickedButtonKFactorY(void) __ptr64
+?OnContextMenu@CGUaagPModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CGUaagPModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CGUaagPModeListDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CGUaagPModeListDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CGUaagSModeMainDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CGUaagSModeMainDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CGUamtPModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CGUamtPModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CGUamtPModeListDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CGUamtPModeListDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnContextMenu@CGUamtSModeMainDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z -> protected: void __cdecl CGUamtSModeMainDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64
+?OnDoubleClickPreview@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnDoubleClickPreview(void) __ptr64
+?OnDoubleClickPreview@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnDoubleClickPreview(void) __ptr64
+?OnGUaagButtonApply@CGUaagPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeListDlg::OnGUaagButtonApply(void) __ptr64
+?OnGUaagButtonCheck@CGUaagPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeListDlg::OnGUaagButtonCheck(void) __ptr64
+?OnGUaagButtonDesign@CGUaagPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeListDlg::OnGUaagButtonDesign(void) __ptr64
+?OnGUaagButtonExcel@CGUaagPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeListDlg::OnGUaagButtonExcel(void) __ptr64
+?OnGUaagButtonLibXL@CGUaagPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeListDlg::OnGUaagButtonLibXL(void) __ptr64
+?OnGUamtButtonApply@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::OnGUamtButtonApply(void) __ptr64
+?OnGUamtButtonCheck@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::OnGUamtButtonCheck(void) __ptr64
+?OnGUamtButtonDesign@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::OnGUamtButtonDesign(void) __ptr64
+?OnGUamtButtonExcel@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::OnGUamtButtonExcel(void) __ptr64
+?OnGUamtButtonLComb@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnGUamtButtonLComb(void) __ptr64
+?OnGUamtButtonLibXL@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::OnGUamtButtonLibXL(void) __ptr64
+?OnInitDialog@CGUaagPModeDlg@@UEAAHXZ -> public: virtual int __cdecl CGUaagPModeDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CGUaagPModeListDlg@@UEAAHXZ -> public: virtual int __cdecl CGUaagPModeListDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CGUaagSModeMainDlg@@UEAAHXZ -> public: virtual int __cdecl CGUaagSModeMainDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CGUamtPModeDlg@@UEAAHXZ -> public: virtual int __cdecl CGUamtPModeDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CGUamtPModeListDlg@@UEAAHXZ -> public: virtual int __cdecl CGUamtPModeListDlg::OnInitDialog(void) __ptr64
+?OnInitDialog@CGUamtSModeMainDlg@@UEAAHXZ -> public: virtual int __cdecl CGUamtSModeMainDlg::OnInitDialog(void) __ptr64
+?OnMouseWheel@CGUaagSModeMainDlg@@IEAAHIFVCPoint@@@Z -> protected: int __cdecl CGUaagSModeMainDlg::OnMouseWheel(unsigned int,short,class CPoint) __ptr64
+?OnMouseWheel@CGUamtSModeMainDlg@@IEAAHIFVCPoint@@@Z -> protected: int __cdecl CGUamtSModeMainDlg::OnMouseWheel(unsigned int,short,class CPoint) __ptr64
+?OnReportDetail@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CGUaagPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeListDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::OnReportDetail(void) __ptr64
+?OnReportDetail@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::OnReportDetail(void) __ptr64
+?OnReportInputList@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CGUaagPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeListDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::OnReportInputList(void) __ptr64
+?OnReportInputList@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::OnReportInputList(void) __ptr64
+?OnReportSummary@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CGUaagPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeListDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CGUamtPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::OnReportSummary(void) __ptr64
+?OnReportSummary@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::OnReportSummary(void) __ptr64
+?OnSelChangeTab@CGUaagSModeMainDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CGUaagSModeMainDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangeTab@CGUamtSModeMainDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CGUamtSModeMainDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CGUaagSModeMainDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CGUaagSModeMainDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSelChangingTab@CGUamtSModeMainDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z -> protected: void __cdecl CGUamtSModeMainDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64
+?OnSetFocus@CGUaagPModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CGUaagPModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CGUaagPModeListDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CGUaagPModeListDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CGUaagSModeMainDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CGUaagSModeMainDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CGUamtPModeDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CGUamtPModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CGUamtPModeListDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CGUamtPModeListDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnSetFocus@CGUamtSModeMainDlg@@UEAAXPEAVCWnd@@@Z -> public: virtual void __cdecl CGUamtSModeMainDlg::OnSetFocus(class CWnd * __ptr64) __ptr64
+?OnUpdate@CALUDataBase@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CALUDataBase::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CGUaagPModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CGUaagPModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CGUaagPModeListDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CGUaagPModeListDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CGUaagSModeMainDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CGUaagSModeMainDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CGUamtPModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CGUamtPModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CGUamtPModeListDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CGUamtPModeListDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CGUamtSModeMainDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CGUamtSModeMainDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnViewZoom@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::OnViewZoom(void) __ptr64
+?OnViewZoom@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::OnViewZoom(void) __ptr64
+?PostNcDestroy@CGUaagPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CGUaagPModeDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CGUaagPModeListDlg@@UEAAXXZ -> public: virtual void __cdecl CGUaagPModeListDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CGUaagSModeMainDlg@@UEAAXXZ -> public: virtual void __cdecl CGUaagSModeMainDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CGUamtPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CGUamtPModeDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CGUamtPModeListDlg@@UEAAXXZ -> public: virtual void __cdecl CGUamtPModeListDlg::PostNcDestroy(void) __ptr64
+?PostNcDestroy@CGUamtSModeMainDlg@@UEAAXXZ -> public: virtual void __cdecl CGUamtSModeMainDlg::PostNcDestroy(void) __ptr64
+?PreTranslateMessage@CGUaagPModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CGUaagPModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CGUaagPModeListDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CGUaagPModeListDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CGUaagSModeMainDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CGUaagSModeMainDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CGUamtPModeDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CGUamtPModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CGUamtPModeListDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CGUamtPModeListDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?PreTranslateMessage@CGUamtSModeMainDlg@@UEAAHPEAUtagMSG@@@Z -> public: virtual int __cdecl CGUamtSModeMainDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64
+?RedrawPreview@CGUaagPModeDlg@@QEAAXXZ -> public: void __cdecl CGUaagPModeDlg::RedrawPreview(void) __ptr64
+?RedrawPreview@CGUamtPModeDlg@@AEAAXXZ -> private: void __cdecl CGUamtPModeDlg::RedrawPreview(void) __ptr64
+?RemoveAllResultDB@CALUDataBase@@QEAAXXZ -> public: void __cdecl CALUDataBase::RemoveAllResultDB(void) __ptr64
+?RemoveAllResultDB_AA@CALUDataBase@@QEAAXW4MEMBType@@@Z -> public: void __cdecl CALUDataBase::RemoveAllResultDB_AA(enum MEMBType) __ptr64
+?RemoveResultDB@CALUCodeCheck@@AEAAXW4MEMBType@@@Z -> private: void __cdecl CALUCodeCheck::RemoveResultDB(enum MEMBType) __ptr64
+?RemoveResultDB_AA@CALUCodeCheck@@AEAAXW4MEMBType@@@Z -> private: void __cdecl CALUCodeCheck::RemoveResultDB_AA(enum MEMBType) __ptr64
+?RemoveResultDB_AAG_AA@CALUDataBase@@QEAAXI@Z -> public: void __cdecl CALUDataBase::RemoveResultDB_AAG_AA(unsigned int) __ptr64
+?RemoveResultDB_AMT_AA@CALUDataBase@@QEAAXI@Z -> public: void __cdecl CALUDataBase::RemoveResultDB_AMT_AA(unsigned int) __ptr64
+?ReplaceForceByMaxLComb@CALUCodeCheck@@AEAAXHAEAUT_GUAAG_D@@@Z -> private: void __cdecl CALUCodeCheck::ReplaceForceByMaxLComb(int,struct T_GUAAG_D & __ptr64) __ptr64
+?ReplaceForceByMaxLComb@CALUCodeCheck@@AEAAXHAEAUT_GUAMT_D@@@Z -> private: void __cdecl CALUCodeCheck::ReplaceForceByMaxLComb(int,struct T_GUAMT_D & __ptr64) __ptr64
+?ResizeDialog@CGUaagPModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CGUaagPModeDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CGUaagPModeListDlg@@UEAAXHH@Z -> public: virtual void __cdecl CGUaagPModeListDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CGUaagSModeMainDlg@@UEAAXHH@Z -> public: virtual void __cdecl CGUaagSModeMainDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CGUamtPModeDlg@@UEAAXHH@Z -> public: virtual void __cdecl CGUamtPModeDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CGUamtPModeListDlg@@UEAAXHH@Z -> public: virtual void __cdecl CGUamtPModeListDlg::ResizeDialog(int,int) __ptr64
+?ResizeDialog@CGUamtSModeMainDlg@@UEAAXHH@Z -> public: virtual void __cdecl CGUamtSModeMainDlg::ResizeDialog(int,int) __ptr64
+?RunShortcutCommand@CGUaagPModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CGUaagPModeDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CGUaagPModeListDlg@@UEAAXH@Z -> public: virtual void __cdecl CGUaagPModeListDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CGUaagSModeMainDlg@@UEAAXH@Z -> public: virtual void __cdecl CGUaagSModeMainDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CGUamtPModeDlg@@UEAAXH@Z -> public: virtual void __cdecl CGUamtPModeDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CGUamtPModeListDlg@@UEAAXH@Z -> public: virtual void __cdecl CGUamtPModeListDlg::RunShortcutCommand(int) __ptr64
+?RunShortcutCommand@CGUamtSModeMainDlg@@UEAAXH@Z -> public: virtual void __cdecl CGUamtSModeMainDlg::RunShortcutCommand(int) __ptr64
+?SetControlForm@CGUaagPModeDlg@@IEAAX_N@Z -> protected: void __cdecl CGUaagPModeDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CGUaagPModeListDlg@@QEAAX_N@Z -> public: void __cdecl CGUaagPModeListDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CGUaagSModeMainDlg@@IEAAX_N@Z -> protected: void __cdecl CGUaagSModeMainDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CGUamtPModeDlg@@AEAAX_N@Z -> private: void __cdecl CGUamtPModeDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CGUamtPModeListDlg@@QEAAX_N@Z -> public: void __cdecl CGUamtPModeListDlg::SetControlForm(bool) __ptr64
+?SetControlForm@CGUamtSModeMainDlg@@IEAAX_N@Z -> protected: void __cdecl CGUamtSModeMainDlg::SetControlForm(bool) __ptr64
+?SetControlText@CGUaagPModeDlg@@AEAAXXZ -> private: void __cdecl CGUaagPModeDlg::SetControlText(void) __ptr64
+?SetControlText@CGUaagPModeListDlg@@AEAAXXZ -> private: void __cdecl CGUaagPModeListDlg::SetControlText(void) __ptr64
+?SetControlText@CGUaagSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUaagSModeMainDlg::SetControlText(void) __ptr64
+?SetControlText@CGUamtPModeDlg@@AEAAXXZ -> private: void __cdecl CGUamtPModeDlg::SetControlText(void) __ptr64
+?SetControlText@CGUamtPModeListDlg@@IEAAXXZ -> protected: void __cdecl CGUamtPModeListDlg::SetControlText(void) __ptr64
+?SetControlText@CGUamtSModeMainDlg@@IEAAXXZ -> protected: void __cdecl CGUamtSModeMainDlg::SetControlText(void) __ptr64
+?SetCtrlEnableForceFactor@CGUamtPModeDlg@@AEAAX_N0@Z -> private: void __cdecl CGUamtPModeDlg::SetCtrlEnableForceFactor(bool,bool) __ptr64
+?SetDgnCodeBasicInfo@CALUCodeCheck@@QEAA_NXZ -> public: bool __cdecl CALUCodeCheck::SetDgnCodeBasicInfo(void) __ptr64
+?SetEnableForceFactorCtrl@CGUaagPModeDlg@@AEAAXH@Z -> private: void __cdecl CGUaagPModeDlg::SetEnableForceFactorCtrl(int) __ptr64
+?SetInitUnit@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::SetInitUnit(void) __ptr64
+?SetInitUnit@CGUamtPModeDlg@@AEAAXXZ -> private: void __cdecl CGUamtPModeDlg::SetInitUnit(void) __ptr64
+?SetMinMax@CGUaagPModeDlg@@IEAAXXZ -> protected: void __cdecl CGUaagPModeDlg::SetMinMax(void) __ptr64
+?SetMinMax@CGUamtPModeDlg@@AEAAXXZ -> private: void __cdecl CGUamtPModeDlg::SetMinMax(void) __ptr64
+?SetPointer@CALUCodeCheck@@QEAAXPEAVCALUDataBase@@PEAVCDBDoc@@@Z -> public: void __cdecl CALUCodeCheck::SetPointer(class CALUDataBase * __ptr64,class CDBDoc * __ptr64) __ptr64
+?SetResultDB_AAG_AA@CALUDataBase@@QEAAXIAEAUT_GUAAG_D@@AEAUDGNUS_UAAG_RES@@@Z -> public: void __cdecl CALUDataBase::SetResultDB_AAG_AA(unsigned int,struct T_GUAAG_D & __ptr64,struct DGNUS_UAAG_RES & __ptr64) __ptr64
+?SetResultDB_AMT_AA@CALUDataBase@@QEAAXIAEAUT_GUAMT_D@@AEAUDGNUS_UAMT_RES@@@Z -> public: void __cdecl CALUDataBase::SetResultDB_AMT_AA(unsigned int,struct T_GUAMT_D & __ptr64,struct DGNUS_UAMT_RES & __ptr64) __ptr64
+?SetToolTip@CGUaagPModeDlg@@AEAAXXZ -> private: void __cdecl CGUaagPModeDlg::SetToolTip(void) __ptr64
+?SetToolTip@CGUamtPModeDlg@@AEAAXXZ -> private: void __cdecl CGUamtPModeDlg::SetToolTip(void) __ptr64
+?UpdateBuffer@CGUaagPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CGUaagPModeDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CGUaagPModeListDlg@@UEAAXXZ -> public: virtual void __cdecl CGUaagPModeListDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CGUaagSModeMainDlg@@UEAAXXZ -> public: virtual void __cdecl CGUaagSModeMainDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CGUamtPModeDlg@@UEAAXXZ -> public: virtual void __cdecl CGUamtPModeDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CGUamtPModeListDlg@@UEAAXXZ -> public: virtual void __cdecl CGUamtPModeListDlg::UpdateBuffer(void) __ptr64
+?UpdateBuffer@CGUamtSModeMainDlg@@UEAAXXZ -> public: virtual void __cdecl CGUamtSModeMainDlg::UpdateBuffer(void) __ptr64
+?UpdateResultData@CGUaagPModeDlg@@QEAAXXZ -> public: void __cdecl CGUaagPModeDlg::UpdateResultData(void) __ptr64
+?UpdateResultData@CGUaagPModeListDlg@@QEAAXXZ -> public: void __cdecl CGUaagPModeListDlg::UpdateResultData(void) __ptr64
+?UpdateResultData@CGUamtPModeDlg@@QEAAXXZ -> public: void __cdecl CGUamtPModeDlg::UpdateResultData(void) __ptr64
+?UpdateResultData@CGUamtPModeListDlg@@QEAAXXZ -> public: void __cdecl CGUamtPModeListDlg::UpdateResultData(void) __ptr64
+?m_pInstance@CALUCodeCheck@@2PEAV1@EA -> public: static class CALUCodeCheck * __ptr64 __ptr64 CALUCodeCheck::m_pInstance
+?m_pInstance@CALUDataBase@@2PEAV1@EA -> public: static class CALUDataBase * __ptr64 __ptr64 CALUDataBase::m_pInstance
+Init_DPLUS_ALUdll -> Init_DPLUS_ALUdll

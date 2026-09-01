@@ -1,0 +1,752 @@
+??0CClassPaste@@QEAA@XZ -> public: __cdecl CClassPaste::CClassPaste(void) __ptr64
+??0CEditGrid@@QEAA@XZ -> public: __cdecl CEditGrid::CEditGrid(void) __ptr64
+??0CFolderDialog@@QEAA@PEB_W0PEAVCWnd@@I@Z -> public: __cdecl CFolderDialog::CFolderDialog(wchar_t const * __ptr64,wchar_t const * __ptr64,class CWnd * __ptr64,unsigned int) __ptr64
+??0CLockUpdateSaver@@QEAA@AEBV0@@Z -> public: __cdecl CLockUpdateSaver::CLockUpdateSaver(class CLockUpdateSaver const & __ptr64) __ptr64
+??0CLockUpdateSaver@@QEAA@PEAVCTBBrowserWnd@@H@Z -> public: __cdecl CLockUpdateSaver::CLockUpdateSaver(class CTBBrowserWnd * __ptr64,int) __ptr64
+??0CTBBrowseParam@@QEAA@XZ -> public: __cdecl CTBBrowseParam::CTBBrowseParam(void) __ptr64
+??0CTBBrowserFRPMatl@@QEAA@XZ -> public: __cdecl CTBBrowserFRPMatl::CTBBrowserFRPMatl(void) __ptr64
+??0CTBBrowserWnd@@QEAA@XZ -> public: __cdecl CTBBrowserWnd::CTBBrowserWnd(void) __ptr64
+??0CTBBrowserWndEx@@QEAA@XZ -> public: __cdecl CTBBrowserWndEx::CTBBrowserWndEx(void) __ptr64
+??0CTBBrowserWndStlSection@@QEAA@AEBN@Z -> public: __cdecl CTBBrowserWndStlSection::CTBBrowserWndStlSection(double const & __ptr64) __ptr64
+??0CTBBrowserWndUnit@@QEAA@XZ -> public: __cdecl CTBBrowserWndUnit::CTBBrowserWndUnit(void) __ptr64
+??0CTBCheckListComboBox@@QEAA@PEAVCGXGridCore@@@Z -> public: __cdecl CTBCheckListComboBox::CTBCheckListComboBox(class CGXGridCore * __ptr64) __ptr64
+??0CTBColHdr@@QEAA@XZ -> public: __cdecl CTBColHdr::CTBColHdr(void) __ptr64
+??0CTBCommon@@QEAA@XZ -> public: __cdecl CTBCommon::CTBCommon(void) __ptr64
+??0CTBCommonUnit@@QEAA@XZ -> public: __cdecl CTBCommonUnit::CTBCommonUnit(void) __ptr64
+??0CTBCore@@QEAA@XZ -> public: __cdecl CTBCore::CTBCore(void) __ptr64
+??0CTBCurRec@@QEAA@XZ -> public: __cdecl CTBCurRec::CTBCurRec(void) __ptr64
+??0CTBDataSrc@@QEAA@AEBV0@@Z -> public: __cdecl CTBDataSrc::CTBDataSrc(class CTBDataSrc const & __ptr64) __ptr64
+??0CTBDataSrc@@QEAA@XZ -> public: __cdecl CTBDataSrc::CTBDataSrc(void) __ptr64
+??0CTBGrid@@QEAA@XZ -> public: __cdecl CTBGrid::CTBGrid(void) __ptr64
+??0CTBGridTool@@QEAA@AEBV0@@Z -> public: __cdecl CTBGridTool::CTBGridTool(class CTBGridTool const & __ptr64) __ptr64
+??0CTBGridTool@@QEAA@XZ -> public: __cdecl CTBGridTool::CTBGridTool(void) __ptr64
+??0CTBKeyCtrl@@QEAA@AEBV0@@Z -> public: __cdecl CTBKeyCtrl::CTBKeyCtrl(class CTBKeyCtrl const & __ptr64) __ptr64
+??0CTBKeyCtrl@@QEAA@XZ -> public: __cdecl CTBKeyCtrl::CTBKeyCtrl(void) __ptr64
+??0CTBRecCtrl@@QEAA@XZ -> public: __cdecl CTBRecCtrl::CTBRecCtrl(void) __ptr64
+??0CTBRecHdr@@QEAA@XZ -> public: __cdecl CTBRecHdr::CTBRecHdr(void) __ptr64
+??0CTBRowHdr@@QEAA@PEAVCTBCore@@@Z -> public: __cdecl CTBRowHdr::CTBRowHdr(class CTBCore * __ptr64) __ptr64
+??0CTBSelCtrl@@QEAA@AEBV0@@Z -> public: __cdecl CTBSelCtrl::CTBSelCtrl(class CTBSelCtrl const & __ptr64) __ptr64
+??0CTBSelCtrl@@QEAA@XZ -> public: __cdecl CTBSelCtrl::CTBSelCtrl(void) __ptr64
+??0CTBSort@@QEAA@XZ -> public: __cdecl CTBSort::CTBSort(void) __ptr64
+??0CTBSortCtrl@@QEAA@XZ -> public: __cdecl CTBSortCtrl::CTBSortCtrl(void) __ptr64
+??0CTBStaticOverOne@@QEAA@AEBV0@@Z -> public: __cdecl CTBStaticOverOne::CTBStaticOverOne(class CTBStaticOverOne const & __ptr64) __ptr64
+??0CTBStaticOverOne@@QEAA@PEAVCGXGridCore@@@Z -> public: __cdecl CTBStaticOverOne::CTBStaticOverOne(class CGXGridCore * __ptr64) __ptr64
+??0CTBStyle@@QEAA@AEBV0@@Z -> public: __cdecl CTBStyle::CTBStyle(class CTBStyle const & __ptr64) __ptr64
+??0CTBStyle@@QEAA@XZ -> public: __cdecl CTBStyle::CTBStyle(void) __ptr64
+??0CTBStyleCtrl@@QEAA@XZ -> public: __cdecl CTBStyleCtrl::CTBStyleCtrl(void) __ptr64
+??0CTBStyleCtrlEx@@QEAA@XZ -> public: __cdecl CTBStyleCtrlEx::CTBStyleCtrlEx(void) __ptr64
+??0CTBVisibleCtrl@@QEAA@XZ -> public: __cdecl CTBVisibleCtrl::CTBVisibleCtrl(void) __ptr64
+??1CClassPaste@@UEAA@XZ -> public: virtual __cdecl CClassPaste::~CClassPaste(void) __ptr64
+??1CEditGrid@@UEAA@XZ -> public: virtual __cdecl CEditGrid::~CEditGrid(void) __ptr64
+??1CFolderDialog@@UEAA@XZ -> public: virtual __cdecl CFolderDialog::~CFolderDialog(void) __ptr64
+??1CLockUpdateSaver@@UEAA@XZ -> public: virtual __cdecl CLockUpdateSaver::~CLockUpdateSaver(void) __ptr64
+??1CTBBrowserFRPMatl@@UEAA@XZ -> public: virtual __cdecl CTBBrowserFRPMatl::~CTBBrowserFRPMatl(void) __ptr64
+??1CTBBrowserWnd@@UEAA@XZ -> public: virtual __cdecl CTBBrowserWnd::~CTBBrowserWnd(void) __ptr64
+??1CTBBrowserWndEx@@UEAA@XZ -> public: virtual __cdecl CTBBrowserWndEx::~CTBBrowserWndEx(void) __ptr64
+??1CTBBrowserWndStlSection@@UEAA@XZ -> public: virtual __cdecl CTBBrowserWndStlSection::~CTBBrowserWndStlSection(void) __ptr64
+??1CTBBrowserWndUnit@@UEAA@XZ -> public: virtual __cdecl CTBBrowserWndUnit::~CTBBrowserWndUnit(void) __ptr64
+??1CTBCheckListComboBox@@UEAA@XZ -> public: virtual __cdecl CTBCheckListComboBox::~CTBCheckListComboBox(void) __ptr64
+??1CTBColHdr@@QEAA@XZ -> public: __cdecl CTBColHdr::~CTBColHdr(void) __ptr64
+??1CTBCommon@@UEAA@XZ -> public: virtual __cdecl CTBCommon::~CTBCommon(void) __ptr64
+??1CTBCommonUnit@@UEAA@XZ -> public: virtual __cdecl CTBCommonUnit::~CTBCommonUnit(void) __ptr64
+??1CTBCore@@UEAA@XZ -> public: virtual __cdecl CTBCore::~CTBCore(void) __ptr64
+??1CTBCurRec@@QEAA@XZ -> public: __cdecl CTBCurRec::~CTBCurRec(void) __ptr64
+??1CTBDataSrc@@UEAA@XZ -> public: virtual __cdecl CTBDataSrc::~CTBDataSrc(void) __ptr64
+??1CTBGrid@@UEAA@XZ -> public: virtual __cdecl CTBGrid::~CTBGrid(void) __ptr64
+??1CTBGridTool@@UEAA@XZ -> public: virtual __cdecl CTBGridTool::~CTBGridTool(void) __ptr64
+??1CTBKeyCtrl@@UEAA@XZ -> public: virtual __cdecl CTBKeyCtrl::~CTBKeyCtrl(void) __ptr64
+??1CTBRecCtrl@@QEAA@XZ -> public: __cdecl CTBRecCtrl::~CTBRecCtrl(void) __ptr64
+??1CTBRecHdr@@UEAA@XZ -> public: virtual __cdecl CTBRecHdr::~CTBRecHdr(void) __ptr64
+??1CTBRowHdr@@UEAA@XZ -> public: virtual __cdecl CTBRowHdr::~CTBRowHdr(void) __ptr64
+??1CTBSelCtrl@@QEAA@XZ -> public: __cdecl CTBSelCtrl::~CTBSelCtrl(void) __ptr64
+??1CTBSort@@QEAA@XZ -> public: __cdecl CTBSort::~CTBSort(void) __ptr64
+??1CTBSortCtrl@@UEAA@XZ -> public: virtual __cdecl CTBSortCtrl::~CTBSortCtrl(void) __ptr64
+??1CTBStaticOverOne@@UEAA@XZ -> public: virtual __cdecl CTBStaticOverOne::~CTBStaticOverOne(void) __ptr64
+??1CTBStyle@@UEAA@XZ -> public: virtual __cdecl CTBStyle::~CTBStyle(void) __ptr64
+??1CTBStyleCtrl@@UEAA@XZ -> public: virtual __cdecl CTBStyleCtrl::~CTBStyleCtrl(void) __ptr64
+??1CTBStyleCtrlEx@@UEAA@XZ -> public: virtual __cdecl CTBStyleCtrlEx::~CTBStyleCtrlEx(void) __ptr64
+??1CTBVisibleCtrl@@UEAA@XZ -> public: virtual __cdecl CTBVisibleCtrl::~CTBVisibleCtrl(void) __ptr64
+??4CLockUpdateSaver@@QEAAAEAV0@AEBV0@@Z -> public: class CLockUpdateSaver & __ptr64 __cdecl CLockUpdateSaver::operator=(class CLockUpdateSaver const & __ptr64) __ptr64
+??4CTBBrowseParam@@QEAAAEAV0@$$QEAV0@@Z -> public: class CTBBrowseParam & __ptr64 __cdecl CTBBrowseParam::operator=(class CTBBrowseParam && __ptr64) __ptr64
+??4CTBBrowseParam@@QEAAAEAV0@AEBV0@@Z -> public: class CTBBrowseParam & __ptr64 __cdecl CTBBrowseParam::operator=(class CTBBrowseParam const & __ptr64) __ptr64
+??4CTBCurRec@@QEAAAEAV0@AEBV0@@Z -> public: class CTBCurRec & __ptr64 __cdecl CTBCurRec::operator=(class CTBCurRec const & __ptr64) __ptr64
+??4CTBDataSrc@@QEAAAEAV0@AEBV0@@Z -> public: class CTBDataSrc & __ptr64 __cdecl CTBDataSrc::operator=(class CTBDataSrc const & __ptr64) __ptr64
+??4CTBGridTool@@QEAAAEAV0@AEBV0@@Z -> public: class CTBGridTool & __ptr64 __cdecl CTBGridTool::operator=(class CTBGridTool const & __ptr64) __ptr64
+??4CTBKeyCtrl@@QEAAAEAV0@AEBV0@@Z -> public: class CTBKeyCtrl & __ptr64 __cdecl CTBKeyCtrl::operator=(class CTBKeyCtrl const & __ptr64) __ptr64
+??4CTBSelCtrl@@QEAAAEAV0@AEBV0@@Z -> public: class CTBSelCtrl & __ptr64 __cdecl CTBSelCtrl::operator=(class CTBSelCtrl const & __ptr64) __ptr64
+??4CTBStaticOverOne@@QEAAAEAV0@AEBV0@@Z -> public: class CTBStaticOverOne & __ptr64 __cdecl CTBStaticOverOne::operator=(class CTBStaticOverOne const & __ptr64) __ptr64
+??4CTBStyle@@QEAAAEAV0@AEBV0@@Z -> public: class CTBStyle & __ptr64 __cdecl CTBStyle::operator=(class CTBStyle const & __ptr64) __ptr64
+??4EG_FORM@@QEAAAEAU0@$$QEAU0@@Z -> public: struct EG_FORM & __ptr64 __cdecl EG_FORM::operator=(struct EG_FORM && __ptr64) __ptr64
+??4EG_FORM@@QEAAAEAU0@AEBU0@@Z -> public: struct EG_FORM & __ptr64 __cdecl EG_FORM::operator=(struct EG_FORM const & __ptr64) __ptr64
+??4EG_SORT@@QEAAAEAU0@$$QEAU0@@Z -> public: struct EG_SORT & __ptr64 __cdecl EG_SORT::operator=(struct EG_SORT && __ptr64) __ptr64
+??4EG_SORT@@QEAAAEAU0@AEBU0@@Z -> public: struct EG_SORT & __ptr64 __cdecl EG_SORT::operator=(struct EG_SORT const & __ptr64) __ptr64
+??_7CClassPaste@@6B@ -> const CClassPaste::`vftable'
+??_7CEditGrid@@6B@ -> const CEditGrid::`vftable'
+??_7CEditGrid@@6BCGXGridCore@@@ -> const CEditGrid::`vftable'{for `CGXGridCore'}
+??_7CEditGrid@@6BCWnd@@@ -> const CEditGrid::`vftable'{for `CWnd'}
+??_7CFolderDialog@@6B@ -> const CFolderDialog::`vftable'
+??_7CLockUpdateSaver@@6B@ -> const CLockUpdateSaver::`vftable'
+??_7CTBBrowserFRPMatl@@6B@ -> const CTBBrowserFRPMatl::`vftable'
+??_7CTBBrowserFRPMatl@@6BCGXGridCore@@@ -> const CTBBrowserFRPMatl::`vftable'{for `CGXGridCore'}
+??_7CTBBrowserFRPMatl@@6BCWnd@@@ -> const CTBBrowserFRPMatl::`vftable'{for `CWnd'}
+??_7CTBBrowserWnd@@6BCGXGridCore@@@ -> const CTBBrowserWnd::`vftable'{for `CGXGridCore'}
+??_7CTBBrowserWnd@@6BCWnd@@@ -> const CTBBrowserWnd::`vftable'{for `CWnd'}
+??_7CTBBrowserWndEx@@6BCGXGridCore@@@ -> const CTBBrowserWndEx::`vftable'{for `CGXGridCore'}
+??_7CTBBrowserWndEx@@6BCWnd@@@ -> const CTBBrowserWndEx::`vftable'{for `CWnd'}
+??_7CTBBrowserWndStlSection@@6B@ -> const CTBBrowserWndStlSection::`vftable'
+??_7CTBBrowserWndStlSection@@6BCGXGridCore@@@ -> const CTBBrowserWndStlSection::`vftable'{for `CGXGridCore'}
+??_7CTBBrowserWndStlSection@@6BCWnd@@@ -> const CTBBrowserWndStlSection::`vftable'{for `CWnd'}
+??_7CTBBrowserWndUnit@@6B@ -> const CTBBrowserWndUnit::`vftable'
+??_7CTBBrowserWndUnit@@6BCGXGridCore@@@ -> const CTBBrowserWndUnit::`vftable'{for `CGXGridCore'}
+??_7CTBBrowserWndUnit@@6BCWnd@@@ -> const CTBBrowserWndUnit::`vftable'{for `CWnd'}
+??_7CTBCheckListComboBox@@6BCEdit@@@ -> const CTBCheckListComboBox::`vftable'{for `CEdit'}
+??_7CTBCheckListComboBox@@6BCGXStatic@@@ -> const CTBCheckListComboBox::`vftable'{for `CGXStatic'}
+??_7CTBCommon@@6BCGXGridCore@@@ -> const CTBCommon::`vftable'{for `CGXGridCore'}
+??_7CTBCommon@@6BCWnd@@@ -> const CTBCommon::`vftable'{for `CWnd'}
+??_7CTBCommonUnit@@6B@ -> const CTBCommonUnit::`vftable'
+??_7CTBCommonUnit@@6BCGXGridCore@@@ -> const CTBCommonUnit::`vftable'{for `CGXGridCore'}
+??_7CTBCommonUnit@@6BCWnd@@@ -> const CTBCommonUnit::`vftable'{for `CWnd'}
+??_7CTBCore@@6BCGXGridCore@@@ -> const CTBCore::`vftable'{for `CGXGridCore'}
+??_7CTBCore@@6BCWnd@@@ -> const CTBCore::`vftable'{for `CWnd'}
+??_7CTBDataSrc@@6B@ -> const CTBDataSrc::`vftable'
+??_7CTBGrid@@6BCGXGridCore@@@ -> const CTBGrid::`vftable'{for `CGXGridCore'}
+??_7CTBGrid@@6BCWnd@@@ -> const CTBGrid::`vftable'{for `CWnd'}
+??_7CTBGridTool@@6B@ -> const CTBGridTool::`vftable'
+??_7CTBKeyCtrl@@6B@ -> const CTBKeyCtrl::`vftable'
+??_7CTBRecHdr@@6B@ -> const CTBRecHdr::`vftable'
+??_7CTBRowHdr@@6B@ -> const CTBRowHdr::`vftable'
+??_7CTBSelCtrl@@6B@ -> const CTBSelCtrl::`vftable'
+??_7CTBSort@@6B@ -> const CTBSort::`vftable'
+??_7CTBSortCtrl@@6B@ -> const CTBSortCtrl::`vftable'
+??_7CTBStaticOverOne@@6B@ -> const CTBStaticOverOne::`vftable'
+??_7CTBStyle@@6B@ -> const CTBStyle::`vftable'
+??_7CTBStyleCtrl@@6B@ -> const CTBStyleCtrl::`vftable'
+??_7CTBStyleCtrlEx@@6B@ -> const CTBStyleCtrlEx::`vftable'
+??_7CTBVisibleCtrl@@6B@ -> const CTBVisibleCtrl::`vftable'
+??_FCFolderDialog@@QEAAXXZ -> public: void __cdecl CFolderDialog::`default constructor closure'(void) __ptr64
+??_FCTBBrowserWndStlSection@@QEAAXXZ -> public: void __cdecl CTBBrowserWndStlSection::`default constructor closure'(void) __ptr64
+?AddCol@CTBStyleCtrl@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@HH@Z -> public: void __cdecl CTBStyleCtrl::AddCol(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int,int) __ptr64
+?AddColInfo@CEditGrid@@QEAAHKW4CELTYPE@@AEAV?$CArray@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV12@@@HW4UNITType@@H@Z -> public: int __cdecl CEditGrid::AddColInfo(unsigned long,enum CELTYPE,class CArray<class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64> & __ptr64,int,enum UNITType,int) __ptr64
+?AddColInfo@CEditGrid@@QEAAHKW4CELTYPE@@PEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@HHW4UNITType@@H@Z -> public: int __cdecl CEditGrid::AddColInfo(unsigned long,enum CELTYPE,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > * __ptr64,int,int,enum UNITType,int) __ptr64
+?AddColInfo@CTBBrowserWndEx@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@HW4UNITType@@@Z -> public: void __cdecl CTBBrowserWndEx::AddColInfo(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int,enum UNITType) __ptr64
+?AddColInfo_h@CEditGrid@@QEAAHKPEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@HPEAHPEAW4UNITType@@@Z -> public: int __cdecl CEditGrid::AddColInfo_h(unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > * __ptr64,int,int * __ptr64,enum UNITType * __ptr64) __ptr64
+?AddFld@CTBRecHdr@@QEAAHHHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@HW4UNITType@@@Z -> public: int __cdecl CTBRecHdr::AddFld(int,int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int,enum UNITType) __ptr64
+?AddNew@CTBBrowserWnd@@QEAAHK@Z -> public: int __cdecl CTBBrowserWnd::AddNew(unsigned long) __ptr64
+?AddNewCols@CEditGrid@@QEAAHKH@Z -> public: int __cdecl CEditGrid::AddNewCols(unsigned long,int) __ptr64
+?AddNewRows@CEditGrid@@QEAAHKH@Z -> public: int __cdecl CEditGrid::AddNewRows(unsigned long,int) __ptr64
+?AddRowInfo@CEditGrid@@QEAAHKW4CELTYPE@@PEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@HHW4UNITType@@@Z -> public: int __cdecl CEditGrid::AddRowInfo(unsigned long,enum CELTYPE,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > * __ptr64,int,int,enum UNITType) __ptr64
+?AddRowInfo_c@CEditGrid@@QEAAHKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@W4CELTYPE@@AEAV?$CArray@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV12@@@H@Z -> public: int __cdecl CEditGrid::AddRowInfo_c(unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,enum CELTYPE,class CArray<class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64> & __ptr64,int) __ptr64
+?AddRowInfo_c@CEditGrid@@QEAAHKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@W4CELTYPE@@PEAV23@HH@Z -> public: int __cdecl CEditGrid::AddRowInfo_c(unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,enum CELTYPE,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > * __ptr64,int,int) __ptr64
+?AddRowInfo_check@CEditGrid@@QEAAHKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@W4UNITType@@H@Z -> public: int __cdecl CEditGrid::AddRowInfo_check(unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,enum UNITType,int) __ptr64
+?AddRowInfo_h@CEditGrid@@QEAAHKAEAV?$CArray@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV12@@@PEAV?$CArray@HH@@PEAV?$CArray@W4UNITType@@W41@@@@Z -> public: int __cdecl CEditGrid::AddRowInfo_h(unsigned long,class CArray<class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64> & __ptr64,class CArray<int,int> * __ptr64,class CArray<enum UNITType,enum UNITType> * __ptr64) __ptr64
+?AddRowInfo_h@CEditGrid@@QEAAHKPEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@HPEAHPEAW4UNITType@@@Z -> public: int __cdecl CEditGrid::AddRowInfo_h(unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > * __ptr64,int,int * __ptr64,enum UNITType * __ptr64) __ptr64
+?AddRowInfo_s@CEditGrid@@QEAAHKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@W4CELTYPE@@W4UNITType@@H@Z -> public: int __cdecl CEditGrid::AddRowInfo_s(unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,enum CELTYPE,enum UNITType,int) __ptr64
+?AddSortInfo@CTBSort@@QEAAHHH@Z -> public: int __cdecl CTBSort::AddSortInfo(int,int) __ptr64
+?AdjustAppendRowNo@CTBCommon@@UEAAXK@Z -> public: virtual void __cdecl CTBCommon::AdjustAppendRowNo(unsigned long) __ptr64
+?AdjustDynPreference@CTBDataSrc@@UEAAHPEAV?$CArray@USTBPrefItem@@AEAU1@@@@Z -> public: virtual int __cdecl CTBDataSrc::AdjustDynPreference(class CArray<struct STBPrefItem,struct STBPrefItem & __ptr64> * __ptr64) __ptr64
+?AfterRedrawTable@CTBDataSrc@@UEAAXXZ -> public: virtual void __cdecl CTBDataSrc::AfterRedrawTable(void) __ptr64
+?AfterSetRecCount@CTBDataSrc@@UEAAXXZ -> public: virtual void __cdecl CTBDataSrc::AfterSetRecCount(void) __ptr64
+?ApplyPreference@CTBBrowserWndEx@@QEAAHXZ -> public: int __cdecl CTBBrowserWndEx::ApplyPreference(void) __ptr64
+?ApplyPreference@CTBCore@@QEAAHXZ -> public: int __cdecl CTBCore::ApplyPreference(void) __ptr64
+?ApplyStyle@CTBBrowserWnd@@QEAAXKKH@Z -> public: void __cdecl CTBBrowserWnd::ApplyStyle(unsigned long,unsigned long,int) __ptr64
+?ApplyStyleCH@CTBBrowserWnd@@QEAAXKKK@Z -> public: void __cdecl CTBBrowserWnd::ApplyStyleCH(unsigned long,unsigned long,unsigned long) __ptr64
+?ApplyStyleCHECK@CTBBrowserWnd@@QEAAXKKK@Z -> public: void __cdecl CTBBrowserWnd::ApplyStyleCHECK(unsigned long,unsigned long,unsigned long) __ptr64
+?ApplyStyleNG@CTBBrowserWnd@@QEAAXKK@Z -> public: void __cdecl CTBBrowserWnd::ApplyStyleNG(unsigned long,unsigned long) __ptr64
+?ApplyStyleNGBOLD@CTBBrowserWnd@@QEAAXKK@Z -> public: void __cdecl CTBBrowserWnd::ApplyStyleNGBOLD(unsigned long,unsigned long) __ptr64
+?ApplyStyleNORMAL@CTBBrowserWnd@@QEAAXKK@Z -> public: void __cdecl CTBBrowserWnd::ApplyStyleNORMAL(unsigned long,unsigned long) __ptr64
+?ApplyStyleOK@CTBBrowserWnd@@QEAAXKK@Z -> public: void __cdecl CTBBrowserWnd::ApplyStyleOK(unsigned long,unsigned long) __ptr64
+?ApplyStyleOKBOLD@CTBBrowserWnd@@QEAAXKK@Z -> public: void __cdecl CTBBrowserWnd::ApplyStyleOKBOLD(unsigned long,unsigned long) __ptr64
+?ApplyStyleOKNG@CTBBrowserWnd@@QEAAXKKH@Z -> public: void __cdecl CTBBrowserWnd::ApplyStyleOKNG(unsigned long,unsigned long,int) __ptr64
+?ApplyStyleUnBoldNORMAL@CTBBrowserWnd@@QEAAXKK@Z -> public: void __cdecl CTBBrowserWnd::ApplyStyleUnBoldNORMAL(unsigned long,unsigned long) __ptr64
+?AutoColumnWidth@CTBBrowserWnd@@QEAAHXZ -> public: int __cdecl CTBBrowserWnd::AutoColumnWidth(void) __ptr64
+?BeforeRedrawTable@CTBDataSrc@@UEAAXXZ -> public: virtual void __cdecl CTBDataSrc::BeforeRedrawTable(void) __ptr64
+?BrowseCallbackProc@CFolderDialog@@CAHPEAUHWND__@@I_J1@Z -> private: static int __cdecl CFolderDialog::BrowseCallbackProc(struct HWND__ * __ptr64,unsigned int,__int64,__int64)
+?CalcCoveredCells@CTBRecHdr@@QEAAHXZ -> public: int __cdecl CTBRecHdr::CalcCoveredCells(void) __ptr64
+?CanAppend@CTBBrowserWnd@@IEAAHXZ -> protected: int __cdecl CTBBrowserWnd::CanAppend(void) __ptr64
+?CanChangeSelection@CTBCore@@UEAAHPEAVCGXRange@@HH@Z -> public: virtual int __cdecl CTBCore::CanChangeSelection(class CGXRange * __ptr64,int,int) __ptr64
+?CanChangeSelection@CTBSelCtrl@@UEAAHPEAVCGXRange@@HH@Z -> public: virtual int __cdecl CTBSelCtrl::CanChangeSelection(class CGXRange * __ptr64,int,int) __ptr64
+?CanCopy@CTBGrid@@UEAAHXZ -> public: virtual int __cdecl CTBGrid::CanCopy(void) __ptr64
+?CanCut@CTBBrowserWnd@@UEAAHXZ -> public: virtual int __cdecl CTBBrowserWnd::CanCut(void) __ptr64
+?CanDeleteRecords@CTBBrowserWnd@@UEAAHAEAVCDWordArray@@@Z -> public: virtual int __cdecl CTBBrowserWnd::CanDeleteRecords(class CDWordArray & __ptr64) __ptr64
+?CanDeleteRowByPressingKey@CTBBrowserWnd@@UEAAHXZ -> public: virtual int __cdecl CTBBrowserWnd::CanDeleteRowByPressingKey(void) __ptr64
+?CanInsertRowByPressingKey@CTBBrowserWnd@@UEAAHXZ -> public: virtual int __cdecl CTBBrowserWnd::CanInsertRowByPressingKey(void) __ptr64
+?CanPaste@CTBCore@@UEAAHXZ -> public: virtual int __cdecl CTBCore::CanPaste(void) __ptr64
+?CanSaveData@CTBBrowserWndEx@@QEAAHXZ -> public: int __cdecl CTBBrowserWndEx::CanSaveData(void) __ptr64
+?CanSelectCurrentCell@CTBBrowserWnd@@UEAAHHKKKK@Z -> public: virtual int __cdecl CTBBrowserWnd::CanSelectCurrentCell(int,unsigned long,unsigned long,unsigned long,unsigned long) __ptr64
+?CancelEdit@CTBBrowserWnd@@QEAAHXZ -> public: int __cdecl CTBBrowserWnd::CancelEdit(void) __ptr64
+?ChangeColName@CTBBrowserWndEx@@QEAAXHPEB_W@Z -> public: void __cdecl CTBBrowserWndEx::ChangeColName(int,wchar_t const * __ptr64) __ptr64
+?ChangeUnit@CEditGrid@@QEAAXXZ -> public: void __cdecl CEditGrid::ChangeUnit(void) __ptr64
+?ChangeUnit@CTBBrowserWndUnit@@QEAAXXZ -> public: void __cdecl CTBBrowserWndUnit::ChangeUnit(void) __ptr64
+?ChangeUnit@CTBCommonUnit@@QEAAXXZ -> public: void __cdecl CTBCommonUnit::ChangeUnit(void) __ptr64
+?ChangeValueByKeyDn@CTBBrowserWnd@@IEAAXKK@Z -> protected: void __cdecl CTBBrowserWnd::ChangeValueByKeyDn(unsigned long,unsigned long) __ptr64
+?ChangeValueByKeyUp@CTBBrowserWnd@@IEAAXKK@Z -> protected: void __cdecl CTBBrowserWnd::ChangeValueByKeyUp(unsigned long,unsigned long) __ptr64
+?CompareKey@CTBBrowserWnd@@SAHPEBX0@Z -> public: static int __cdecl CTBBrowserWnd::CompareKey(void const * __ptr64,void const * __ptr64)
+?CompareRec@CTBSortCtrl@@SAHPEBX0@Z -> public: static int __cdecl CTBSortCtrl::CompareRec(void const * __ptr64,void const * __ptr64)
+?ConvertExp@CClassPaste@@IEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> protected: int __cdecl CClassPaste::ConvertExp(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?ConvertFormulaToValue@CEditGrid@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: int __cdecl CEditGrid::ConvertFormulaToValue(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,int) __ptr64
+?ConvertFormulaToValue@CTBBrowserWnd@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl CTBBrowserWnd::ConvertFormulaToValue(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?Copy@CTBBrowserWndEx@@UEAAHXZ -> public: virtual int __cdecl CTBBrowserWndEx::Copy(void) __ptr64
+?Copy@CTBCore@@UEAAHXZ -> public: virtual int __cdecl CTBCore::Copy(void) __ptr64
+?Copy@CTBGrid@@UEAAHXZ -> public: virtual int __cdecl CTBGrid::Copy(void) __ptr64
+?CreateListBox@CTBCheckListComboBox@@UEAAPEAVCWnd@@PEAV2@I@Z -> public: virtual class CWnd * __ptr64 __cdecl CTBCheckListComboBox::CreateListBox(class CWnd * __ptr64,unsigned int) __ptr64
+?CustomizeContextMenu@CTBGrid@@UEAAXPEAVCMenu@@@Z -> public: virtual void __cdecl CTBGrid::CustomizeContextMenu(class CMenu * __ptr64) __ptr64
+?Cut@CTBCore@@UEAAHXZ -> public: virtual int __cdecl CTBCore::Cut(void) __ptr64
+?Data2Grid@CTBBrowserFRPMatl@@QEAAXAEBUT_GUMD_FRP_MATL@@@Z -> public: void __cdecl CTBBrowserFRPMatl::Data2Grid(struct T_GUMD_FRP_MATL const & __ptr64) __ptr64
+?Data2Grid@CTBBrowserWndStlSection@@QEAAXAEBUT_GUMD_STL_SECTION@@@Z -> public: void __cdecl CTBBrowserWndStlSection::Data2Grid(struct T_GUMD_STL_SECTION const & __ptr64) __ptr64
+?DeleteAllRecords@CTBBrowserWnd@@QEAAHXZ -> public: int __cdecl CTBBrowserWnd::DeleteAllRecords(void) __ptr64
+?DeleteCellData@CTBBrowserWnd@@IEAAXKK@Z -> protected: void __cdecl CTBBrowserWnd::DeleteCellData(unsigned long,unsigned long) __ptr64
+?DeleteRecord@CTBBrowserWnd@@QEAAHAEAVCDWordArray@@@Z -> public: int __cdecl CTBBrowserWnd::DeleteRecord(class CDWordArray & __ptr64) __ptr64
+?DeleteRecord@CTBBrowserWnd@@QEAAHK@Z -> public: int __cdecl CTBBrowserWnd::DeleteRecord(unsigned long) __ptr64
+?DeleteRow@CEditGrid@@QEAAHXZ -> public: int __cdecl CEditGrid::DeleteRow(void) __ptr64
+?DisplayRecords@CTBRecCtrl@@QEAAHXZ -> public: int __cdecl CTBRecCtrl::DisplayRecords(void) __ptr64
+?DoLButtonDblClk@CTBBrowserWnd@@UEAAHIVCPoint@@@Z -> public: virtual int __cdecl CTBBrowserWnd::DoLButtonDblClk(unsigned int,class CPoint) __ptr64
+?DoLButtonDblClk@CTBCore@@UEAAHIVCPoint@@@Z -> public: virtual int __cdecl CTBCore::DoLButtonDblClk(unsigned int,class CPoint) __ptr64
+?DoModal@CFolderDialog@@UEAA_JXZ -> public: virtual __int64 __cdecl CFolderDialog::DoModal(void) __ptr64
+?DoRButtonDown@CTBBrowserWnd@@UEAAHIVCPoint@@@Z -> public: virtual int __cdecl CTBBrowserWnd::DoRButtonDown(unsigned int,class CPoint) __ptr64
+?DoRButtonDown@CTBCore@@UEAAHIVCPoint@@@Z -> public: virtual int __cdecl CTBCore::DoRButtonDown(unsigned int,class CPoint) __ptr64
+?Draw@CTBRowHdr@@UEAAXPEAVCDC@@VCRect@@KKAEBVCGXStyle@@PEBV4@@Z -> public: virtual void __cdecl CTBRowHdr::Draw(class CDC * __ptr64,class CRect,unsigned long,unsigned long,class CGXStyle const & __ptr64,class CGXStyle const * __ptr64) __ptr64
+?DrawAngleText@CTBGrid@@QEAAXPEAVCDC@@PEB_WHNKHH1@Z -> public: void __cdecl CTBGrid::DrawAngleText(class CDC * __ptr64,wchar_t const * __ptr64,int,double,unsigned long,int,int,wchar_t const * __ptr64) __ptr64
+?DrawInvertCell@CTBCore@@UEAAXPEAVCDC@@KKVCRect@@@Z -> public: virtual void __cdecl CTBCore::DrawInvertCell(class CDC * __ptr64,unsigned long,unsigned long,class CRect) __ptr64
+?Edit@CTBBrowserWnd@@QEAAHK@Z -> public: int __cdecl CTBBrowserWnd::Edit(unsigned long) __ptr64
+?EnableAppendRow@CTBBrowserWnd@@QEAAHH@Z -> public: int __cdecl CTBBrowserWnd::EnableAppendRow(int) __ptr64
+?EnableDeleteKey@CTBKeyCtrl@@QEAAHH@Z -> public: int __cdecl CTBKeyCtrl::EnableDeleteKey(int) __ptr64
+?EnableDeleteRowByPressingKey@CTBBrowserWnd@@QEAAHH@Z -> public: int __cdecl CTBBrowserWnd::EnableDeleteRowByPressingKey(int) __ptr64
+?EnableFullRecordMark@CTBCore@@QEAAXH@Z -> public: void __cdecl CTBCore::EnableFullRecordMark(int) __ptr64
+?EnableInsertKey@CTBKeyCtrl@@QEAAHH@Z -> public: int __cdecl CTBKeyCtrl::EnableInsertKey(int) __ptr64
+?EnableInsertRowByPressingKey@CTBBrowserWnd@@QEAAHH@Z -> public: int __cdecl CTBBrowserWnd::EnableInsertRowByPressingKey(int) __ptr64
+?EnableOK@CFolderDialog@@IEAAXH@Z -> protected: void __cdecl CFolderDialog::EnableOK(int) __ptr64
+?EndAdd@CTBRecHdr@@QEAAHXZ -> public: int __cdecl CTBRecHdr::EndAdd(void) __ptr64
+?EndGridUpdate@CEditGrid@@QEAAXXZ -> public: void __cdecl CEditGrid::EndGridUpdate(void) __ptr64
+?EndGridUpdate@CTBBrowserWndUnit@@QEAAXXZ -> public: void __cdecl CTBBrowserWndUnit::EndGridUpdate(void) __ptr64
+?EndGridUpdate@CTBCommonUnit@@QEAAXXZ -> public: void __cdecl CTBCommonUnit::EndGridUpdate(void) __ptr64
+?FilterRecord@CTBBrowserWndEx@@QEAAXPEAJJ@Z -> public: void __cdecl CTBBrowserWndEx::FilterRecord(long * __ptr64,long) __ptr64
+?Find@CTBGrid@@QEAAHAEAUSTBFindStruct@@@Z -> public: int __cdecl CTBGrid::Find(struct STBFindStruct & __ptr64) __ptr64
+?FindCell@CTBGrid@@QEAAHAEAUSTBFindStruct@@K@Z -> public: int __cdecl CTBGrid::FindCell(struct STBFindStruct & __ptr64,unsigned long) __ptr64
+?FindDlg@CTBGrid@@QEAAXXZ -> public: void __cdecl CTBGrid::FindDlg(void) __ptr64
+?FindNext@CTBGrid@@QEAAXXZ -> public: void __cdecl CTBGrid::FindNext(void) __ptr64
+?FindRecordByKey@CTBBrowserWndEx@@QEAAHAEAVCStringArray@@AEAK@Z -> public: int __cdecl CTBBrowserWndEx::FindRecordByKey(class CStringArray & __ptr64,unsigned long & __ptr64) __ptr64
+?FindRecordByKey@CTBBrowserWndEx@@QEAAHKKAEAVCDWordArray@@AEAVCStringArray@@AEAK@Z -> public: int __cdecl CTBBrowserWndEx::FindRecordByKey(unsigned long,unsigned long,class CDWordArray & __ptr64,class CStringArray & __ptr64,unsigned long & __ptr64) __ptr64
+?GetAllKeys@CTBBrowserWndEx@@QEAAJPEAJ@Z -> public: long __cdecl CTBBrowserWndEx::GetAllKeys(long * __ptr64) __ptr64
+?GetAppendRowNo@CTBBrowserWnd@@QEAAKXZ -> public: unsigned long __cdecl CTBBrowserWnd::GetAppendRowNo(void) __ptr64
+?GetBI@CFolderDialog@@QEAAAEAU_browseinfoW@@XZ -> public: struct _browseinfoW & __ptr64 __cdecl CFolderDialog::GetBI(void) __ptr64
+?GetBI@CFolderDialog@@QEBAAEBU_browseinfoW@@XZ -> public: struct _browseinfoW const & __ptr64 __cdecl CFolderDialog::GetBI(void)const __ptr64
+?GetBrowseParam@CTBBrowserWnd@@QEAAPEAVCTBBrowseParam@@XZ -> public: class CTBBrowseParam * __ptr64 __cdecl CTBBrowserWnd::GetBrowseParam(void) __ptr64
+?GetCellUnitInfo@CTBBrowserWndUnit@@QEAAHKKAEAW4UNITType@@@Z -> public: int __cdecl CTBBrowserWndUnit::GetCellUnitInfo(unsigned long,unsigned long,enum UNITType & __ptr64) __ptr64
+?GetColCount@CTBRowHdr@@QEAAHXZ -> public: int __cdecl CTBRowHdr::GetColCount(void) __ptr64
+?GetColCount@CTBStyleCtrl@@UEAAHXZ -> public: virtual int __cdecl CTBStyleCtrl::GetColCount(void) __ptr64
+?GetColCount@CTBStyleCtrlEx@@UEAAHXZ -> public: virtual int __cdecl CTBStyleCtrlEx::GetColCount(void) __ptr64
+?GetColID@CTBStyleCtrl@@UEAAHH@Z -> public: virtual int __cdecl CTBStyleCtrl::GetColID(int) __ptr64
+?GetColID@CTBStyleCtrlEx@@UEAAHH@Z -> public: virtual int __cdecl CTBStyleCtrlEx::GetColID(int) __ptr64
+?GetColInfo@CTBStyleCtrl@@UEAAHHAEAKAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAH@Z -> public: virtual int __cdecl CTBStyleCtrl::GetColInfo(int,unsigned long & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,int & __ptr64) __ptr64
+?GetColInfo@CTBStyleCtrlEx@@UEAAHHAEAKAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAH@Z -> public: virtual int __cdecl CTBStyleCtrlEx::GetColInfo(int,unsigned long & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,int & __ptr64) __ptr64
+?GetColPerRec@CTBRecHdr@@QEAAHXZ -> public: int __cdecl CTBRecHdr::GetColPerRec(void) __ptr64
+?GetColUnitInfo@CTBBrowserWndUnit@@QEAAHKAEAW4UNITType@@@Z -> public: int __cdecl CTBBrowserWndUnit::GetColUnitInfo(unsigned long,enum UNITType & __ptr64) __ptr64
+?GetColumnIDFor@CTBBrowserWndEx@@QEAAHKAEAH@Z -> public: int __cdecl CTBBrowserWndEx::GetColumnIDFor(unsigned long,int & __ptr64) __ptr64
+?GetColumnNoFor@CTBBrowserWnd@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAK@Z -> public: int __cdecl CTBBrowserWnd::GetColumnNoFor(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,unsigned long & __ptr64) __ptr64
+?GetColumnNoFor@CTBBrowserWndEx@@QEAAHHAEAK@Z -> public: int __cdecl CTBBrowserWndEx::GetColumnNoFor(int,unsigned long & __ptr64) __ptr64
+?GetColumnNoFor@CTBBrowserWndEx@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAK@Z -> public: int __cdecl CTBBrowserWndEx::GetColumnNoFor(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,unsigned long & __ptr64) __ptr64
+?GetControlClass@CTBSortColHeader@@UEBAPEAUCGXControlClass@@XZ -> public: virtual struct CGXControlClass * __ptr64 __cdecl CTBSortColHeader::GetControlClass(void)const __ptr64
+?GetControlText@CTBCheckListComboBox@@UEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@KKPEB_WAEBVCGXStyle@@@Z -> public: virtual int __cdecl CTBCheckListComboBox::GetControlText(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,unsigned long,unsigned long,wchar_t const * __ptr64,class CGXStyle const & __ptr64) __ptr64
+?GetControlText@CTBStaticOverOne@@UEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@KKPEB_WAEBVCGXStyle@@@Z -> public: virtual int __cdecl CTBStaticOverOne::GetControlText(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,unsigned long,unsigned long,wchar_t const * __ptr64,class CGXStyle const & __ptr64) __ptr64
+?GetCurFldID@CTBCurRec@@QEAAHXZ -> public: int __cdecl CTBCurRec::GetCurFldID(void) __ptr64
+?GetCurFldNo@CTBCurRec@@QEAAHXZ -> public: int __cdecl CTBCurRec::GetCurFldNo(void) __ptr64
+?GetCurRecNo@CTBCurRec@@QEAAHXZ -> public: int __cdecl CTBCurRec::GetCurRecNo(void) __ptr64
+?GetDataFromText@CClassPaste@@IEAAHAEAPEA_WAEAK@Z -> protected: int __cdecl CClassPaste::GetDataFromText(wchar_t * __ptr64 & __ptr64,unsigned long & __ptr64) __ptr64
+?GetDataRowColBool@CTBBrowserWnd@@QEAAHKK@Z -> public: int __cdecl CTBBrowserWnd::GetDataRowColBool(unsigned long,unsigned long) __ptr64
+?GetDataRowColDbl@CTBBrowserWnd@@QEAANKK@Z -> public: double __cdecl CTBBrowserWnd::GetDataRowColDbl(unsigned long,unsigned long) __ptr64
+?GetDataRowColDble@CTBBrowserWnd@@QEAANKK@Z -> public: double __cdecl CTBBrowserWnd::GetDataRowColDble(unsigned long,unsigned long) __ptr64
+?GetDataRowColDouble@CTBBrowserWnd@@QEAANKK@Z -> public: double __cdecl CTBBrowserWnd::GetDataRowColDouble(unsigned long,unsigned long) __ptr64
+?GetDataRowColInt@CTBBrowserWnd@@QEAAHKK@Z -> public: int __cdecl CTBBrowserWnd::GetDataRowColInt(unsigned long,unsigned long) __ptr64
+?GetDataRowColStr@CTBBrowserWnd@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@KK@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBBrowserWnd::GetDataRowColStr(unsigned long,unsigned long) __ptr64
+?GetDataRowColString@CTBBrowserWnd@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@KK@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBBrowserWnd::GetDataRowColString(unsigned long,unsigned long) __ptr64
+?GetDataRowColText@CTBBrowserWnd@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@KK@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBBrowserWnd::GetDataRowColText(unsigned long,unsigned long) __ptr64
+?GetDataRowColUINT@CTBBrowserWnd@@QEAAIKK@Z -> public: unsigned int __cdecl CTBBrowserWnd::GetDataRowColUINT(unsigned long,unsigned long) __ptr64
+?GetDataRowColbool@CTBBrowserWnd@@QEAA_NKK@Z -> public: bool __cdecl CTBBrowserWnd::GetDataRowColbool(unsigned long,unsigned long) __ptr64
+?GetDisplayedText@CTBGrid@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@KK@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBGrid::GetDisplayedText(unsigned long,unsigned long) __ptr64
+?GetDoubleValue@CEditGrid@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEANH@Z -> public: int __cdecl CEditGrid::GetDoubleValue(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,double & __ptr64,int) __ptr64
+?GetEditingValue@CEditGrid@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@KK@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CEditGrid::GetEditingValue(unsigned long,unsigned long) __ptr64
+?GetFldID@CTBRecCtrl@@QEAAHKK@Z -> public: int __cdecl CTBRecCtrl::GetFldID(unsigned long,unsigned long) __ptr64
+?GetFldName@CTBRecHdr@@UEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: virtual class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBRecHdr::GetFldName(int) __ptr64
+?GetFldNo@CTBRecCtrl@@QEAAHK@Z -> public: int __cdecl CTBRecCtrl::GetFldNo(unsigned long) __ptr64
+?GetFldNum@CTBRecHdr@@UEAAHXZ -> public: virtual int __cdecl CTBRecHdr::GetFldNum(void) __ptr64
+?GetFldType@CTBRecHdr@@UEAAHH@Z -> public: virtual int __cdecl CTBRecHdr::GetFldType(int) __ptr64
+?GetFolderImage@CFolderDialog@@QEBAHXZ -> public: int __cdecl CFolderDialog::GetFolderImage(void)const __ptr64
+?GetFolderName@CFolderDialog@@QEBAPEB_WXZ -> public: wchar_t const * __ptr64 __cdecl CFolderDialog::GetFolderName(void)const __ptr64
+?GetFolderPath@CFolderDialog@@QEBAPEB_WXZ -> public: wchar_t const * __ptr64 __cdecl CFolderDialog::GetFolderPath(void)const __ptr64
+?GetGraphData@CTBBrowserWndEx@@UEAAHPEAUT_GRAPH_D@@@Z -> public: virtual int __cdecl CTBBrowserWndEx::GetGraphData(struct T_GRAPH_D * __ptr64) __ptr64
+?GetGraphData@CTBCore@@UEAAHPEAUT_GRAPH_D@@@Z -> public: virtual int __cdecl CTBCore::GetGraphData(struct T_GRAPH_D * __ptr64) __ptr64
+?GetGraphData@CTBGrid@@UEAAHPEAUT_GRAPH_D@@@Z -> public: virtual int __cdecl CTBGrid::GetGraphData(struct T_GRAPH_D * __ptr64) __ptr64
+?GetGraphRange@CTBGrid@@UEAAHAEAVCDWordArray@@000@Z -> public: virtual int __cdecl CTBGrid::GetGraphRange(class CDWordArray & __ptr64,class CDWordArray & __ptr64,class CDWordArray & __ptr64,class CDWordArray & __ptr64) __ptr64
+?GetGrid@CTBStyle@@QEAAPEAVCTBGrid@@XZ -> public: class CTBGrid * __ptr64 __cdecl CTBStyle::GetGrid(void) __ptr64
+?GetID@CTBRecHdr@@QEAAHHH@Z -> public: int __cdecl CTBRecHdr::GetID(int,int) __ptr64
+?GetInitialColCount@CTBBrowserWndEx@@UEAAJXZ -> public: virtual long __cdecl CTBBrowserWndEx::GetInitialColCount(void) __ptr64
+?GetKeyColID@CTBBrowserWndEx@@UEAAHXZ -> public: virtual int __cdecl CTBBrowserWndEx::GetKeyColID(void) __ptr64
+?GetKeyRowPair@CTBBrowserWndEx@@QEAAJPEAUSTBKeyRowPair@@@Z -> public: long __cdecl CTBBrowserWndEx::GetKeyRowPair(struct STBKeyRowPair * __ptr64) __ptr64
+?GetKeyString@CTBBrowserWndEx@@UEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@K@Z -> public: virtual class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBBrowserWndEx::GetKeyString(unsigned long) __ptr64
+?GetKeyStringBeforeEdit@CTBBrowserWndEx@@UEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@K@Z -> public: virtual class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBBrowserWndEx::GetKeyStringBeforeEdit(unsigned long) __ptr64
+?GetKeysForSelectedRows@CTBBrowserWndEx@@QEAAJAEAVCDWordArray@@PEAJ@Z -> public: long __cdecl CTBBrowserWndEx::GetKeysForSelectedRows(class CDWordArray & __ptr64,long * __ptr64) __ptr64
+?GetKind@CTBDataSrc@@QEAAHXZ -> public: int __cdecl CTBDataSrc::GetKind(void) __ptr64
+?GetLocalRowCol@CTBRecHdr@@QEAAHHAEAK0@Z -> public: int __cdecl CTBRecHdr::GetLocalRowCol(int,unsigned long & __ptr64,unsigned long & __ptr64) __ptr64
+?GetMessageMap@CFolderDialog@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CFolderDialog::GetMessageMap(void)const __ptr64
+?GetMessageMap@CTBBrowserWnd@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CTBBrowserWnd::GetMessageMap(void)const __ptr64
+?GetMessageMap@CTBBrowserWndEx@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CTBBrowserWndEx::GetMessageMap(void)const __ptr64
+?GetMessageMap@CTBCheckListComboBox@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CTBCheckListComboBox::GetMessageMap(void)const __ptr64
+?GetMessageMap@CTBCommon@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CTBCommon::GetMessageMap(void)const __ptr64
+?GetMessageMap@CTBCore@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CTBCore::GetMessageMap(void)const __ptr64
+?GetMessageMap@CTBGrid@@MEBAPEBUAFX_MSGMAP@@XZ -> protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CTBGrid::GetMessageMap(void)const __ptr64
+?GetMetaInfo@CTBGrid@@QEAAPEAVCTBMetaInfo@@XZ -> public: class CTBMetaInfo * __ptr64 __cdecl CTBGrid::GetMetaInfo(void) __ptr64
+?GetMetaInfo@CTBSort@@QEAAPEAVCTBMetaInfo@@XZ -> public: class CTBMetaInfo * __ptr64 __cdecl CTBSort::GetMetaInfo(void) __ptr64
+?GetMinMaxValueByUnit@CTBBrowserWndUnit@@QEAAXW4UNITType@@AEAN1@Z -> public: void __cdecl CTBBrowserWndUnit::GetMinMaxValueByUnit(enum UNITType,double & __ptr64,double & __ptr64) __ptr64
+?GetNoneDropDownCell@CTBBrowserWnd@@MEAAXAEAK0@Z -> protected: virtual void __cdecl CTBBrowserWnd::GetNoneDropDownCell(unsigned long & __ptr64,unsigned long & __ptr64) __ptr64
+?GetPostRecRange@CTBCore@@QEAAHAEAK000@Z -> public: int __cdecl CTBCore::GetPostRecRange(unsigned long & __ptr64,unsigned long & __ptr64,unsigned long & __ptr64,unsigned long & __ptr64) __ptr64
+?GetPreRecRange@CTBCore@@QEAAHAEAK000@Z -> public: int __cdecl CTBCore::GetPreRecRange(unsigned long & __ptr64,unsigned long & __ptr64,unsigned long & __ptr64,unsigned long & __ptr64) __ptr64
+?GetPreRowCount@CTBColHdr@@QEAAHXZ -> public: int __cdecl CTBColHdr::GetPreRowCount(void) __ptr64
+?GetPrefInfo@CTBGrid@@SAPEAV?$CArray@USTBPrefItem@@AEAU1@@@PEB_W@Z -> public: static class CArray<struct STBPrefItem,struct STBPrefItem & __ptr64> * __ptr64 __cdecl CTBGrid::GetPrefInfo(wchar_t const * __ptr64)
+?GetPrefInfo@CTBStyle@@QEAAPEAV?$CArray@USTBPrefItem@@AEAU1@@@XZ -> public: class CArray<struct STBPrefItem,struct STBPrefItem & __ptr64> * __ptr64 __cdecl CTBStyle::GetPrefInfo(void) __ptr64
+?GetRecFldRowCol@CTBRecCtrl@@QEAAHHHAEAK0@Z -> public: int __cdecl CTBRecCtrl::GetRecFldRowCol(int,int,unsigned long & __ptr64,unsigned long & __ptr64) __ptr64
+?GetRecNo@CTBRecCtrl@@QEAAHK@Z -> public: int __cdecl CTBRecCtrl::GetRecNo(unsigned long) __ptr64
+?GetRecNoMapDataPtr@CTBRecCtrl@@QEAAPEAKXZ -> public: unsigned long * __ptr64 __cdecl CTBRecCtrl::GetRecNoMapDataPtr(void) __ptr64
+?GetRecRowRange@CTBRecCtrl@@QEAAHHAEAK0@Z -> public: int __cdecl CTBRecCtrl::GetRecRowRange(int,unsigned long & __ptr64,unsigned long & __ptr64) __ptr64
+?GetRecordRange@CTBCore@@QEAAHAEAK000@Z -> public: int __cdecl CTBCore::GetRecordRange(unsigned long & __ptr64,unsigned long & __ptr64,unsigned long & __ptr64,unsigned long & __ptr64) __ptr64
+?GetReturnDir@CTBBrowserWnd@@QEAAIXZ -> public: unsigned int __cdecl CTBBrowserWnd::GetReturnDir(void) __ptr64
+?GetRootFolder@CFolderDialog@@QEAAHPEA_W@Z -> public: int __cdecl CFolderDialog::GetRootFolder(wchar_t * __ptr64) __ptr64
+?GetRowCount@CTBColHdr@@QEAAHXZ -> public: int __cdecl CTBColHdr::GetRowCount(void) __ptr64
+?GetRowPerRec@CTBRecHdr@@QEAAHXZ -> public: int __cdecl CTBRecHdr::GetRowPerRec(void) __ptr64
+?GetRuntimeClass@CEditGrid@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CEditGrid::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CFolderDialog@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CFolderDialog::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CTBBrowserFRPMatl@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CTBBrowserFRPMatl::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CTBBrowserWnd@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CTBBrowserWnd::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CTBBrowserWndStlSection@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CTBBrowserWndStlSection::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CTBBrowserWndUnit@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CTBBrowserWndUnit::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CTBCheckListComboBox@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CTBCheckListComboBox::GetRuntimeClass(void)const __ptr64
+?GetRuntimeClass@CTBGrid@@UEBAPEAUCRuntimeClass@@XZ -> public: virtual struct CRuntimeClass * __ptr64 __cdecl CTBGrid::GetRuntimeClass(void)const __ptr64
+?GetSelectedFolder@CFolderDialog@@QEBAPEB_WXZ -> public: wchar_t const * __ptr64 __cdecl CFolderDialog::GetSelectedFolder(void)const __ptr64
+?GetSelectedKeys@CTBBrowserWndEx@@UEAAJAEAV?$CArray@JJ@@@Z -> public: virtual long __cdecl CTBBrowserWndEx::GetSelectedKeys(class CArray<long,long> & __ptr64) __ptr64
+?GetSortInfoPtr@CTBSort@@QEAAPEAV?$CArray@USTBSortItem@@U1@@@XZ -> public: class CArray<struct STBSortItem,struct STBSortItem> * __ptr64 __cdecl CTBSort::GetSortInfoPtr(void) __ptr64
+?GetStartRowCol@CTBRecCtrl@@QEAAHHAEAK0@Z -> public: int __cdecl CTBRecCtrl::GetStartRowCol(int,unsigned long & __ptr64,unsigned long & __ptr64) __ptr64
+?GetStyleColArray@CEditGrid@@AEAAPEAVCObArray@@K@Z -> private: class CObArray * __ptr64 __cdecl CEditGrid::GetStyleColArray(unsigned long) __ptr64
+?GetStyleRowCol@CEditGrid@@UEAAHKKAEAVCGXStyle@@W4GXModifyType@@H@Z -> public: virtual int __cdecl CEditGrid::GetStyleRowCol(unsigned long,unsigned long,class CGXStyle & __ptr64,enum GXModifyType,int) __ptr64
+?GetStyleRowCol@CTBBrowserWnd@@UEAAHKKAEAVCGXStyle@@W4GXModifyType@@H@Z -> public: virtual int __cdecl CTBBrowserWnd::GetStyleRowCol(unsigned long,unsigned long,class CGXStyle & __ptr64,enum GXModifyType,int) __ptr64
+?GetStyleRowCol@CTBCore@@UEAAHKKAEAVCGXStyle@@W4GXModifyType@@H@Z -> public: virtual int __cdecl CTBCore::GetStyleRowCol(unsigned long,unsigned long,class CGXStyle & __ptr64,enum GXModifyType,int) __ptr64
+?GetTableName@CTBGrid@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBGrid::GetTableName(void) __ptr64
+?GetTextFromClipBoard@CClassPaste@@IEAAHAEAPEA_WAEAK@Z -> protected: int __cdecl CClassPaste::GetTextFromClipBoard(wchar_t * __ptr64 & __ptr64,unsigned long & __ptr64) __ptr64
+?GetThisClass@CEditGrid@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CEditGrid::GetThisClass(void)
+?GetThisClass@CFolderDialog@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CFolderDialog::GetThisClass(void)
+?GetThisClass@CTBBrowserFRPMatl@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CTBBrowserFRPMatl::GetThisClass(void)
+?GetThisClass@CTBBrowserWnd@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CTBBrowserWnd::GetThisClass(void)
+?GetThisClass@CTBBrowserWndStlSection@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CTBBrowserWndStlSection::GetThisClass(void)
+?GetThisClass@CTBBrowserWndUnit@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CTBBrowserWndUnit::GetThisClass(void)
+?GetThisClass@CTBCheckListComboBox@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CTBCheckListComboBox::GetThisClass(void)
+?GetThisClass@CTBGrid@@SAPEAUCRuntimeClass@@XZ -> public: static struct CRuntimeClass * __ptr64 __cdecl CTBGrid::GetThisClass(void)
+?GetThisMessageMap@CFolderDialog@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CFolderDialog::GetThisMessageMap(void)
+?GetThisMessageMap@CTBBrowserWnd@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CTBBrowserWnd::GetThisMessageMap(void)
+?GetThisMessageMap@CTBBrowserWndEx@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CTBBrowserWndEx::GetThisMessageMap(void)
+?GetThisMessageMap@CTBCheckListComboBox@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CTBCheckListComboBox::GetThisMessageMap(void)
+?GetThisMessageMap@CTBCommon@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CTBCommon::GetThisMessageMap(void)
+?GetThisMessageMap@CTBCore@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CTBCore::GetThisMessageMap(void)
+?GetThisMessageMap@CTBGrid@@KAPEBUAFX_MSGMAP@@XZ -> protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CTBGrid::GetThisMessageMap(void)
+?GetTitleString@CTBColHdr@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@HH@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBColHdr::GetTitleString(int,int) __ptr64
+?GetUnitIndex@CTBRecHdr@@QEAA?AW4UNITType@@H@Z -> public: enum UNITType __cdecl CTBRecHdr::GetUnitIndex(int) __ptr64
+?GetUnitNextLine@CTBBrowserWndUnit@@IEAAHXZ -> protected: int __cdecl CTBBrowserWndUnit::GetUnitNextLine(void) __ptr64
+?GetVal@CEditGrid@@QEAAHKKAEAH@Z -> public: int __cdecl CEditGrid::GetVal(unsigned long,unsigned long,int & __ptr64) __ptr64
+?GetVal@CEditGrid@@QEAAHKKAEAN@Z -> public: int __cdecl CEditGrid::GetVal(unsigned long,unsigned long,double & __ptr64) __ptr64
+?GetVal@CEditGrid@@QEAAHKKAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl CEditGrid::GetVal(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?GetValueNum@CTBCheckListComboBox@@SAJAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static long __cdecl CTBCheckListComboBox::GetValueNum(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64)
+?GetValueRowCol@CTBBrowserWnd@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@KK@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBBrowserWnd::GetValueRowCol(unsigned long,unsigned long) __ptr64
+?GetValueRowColBeforeEdit@CTBBrowserWnd@@QEAA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@KK@Z -> public: class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBBrowserWnd::GetValueRowColBeforeEdit(unsigned long,unsigned long) __ptr64
+?GetValueStr@CTBCheckListComboBox@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@JH@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBCheckListComboBox::GetValueStr(long,int)
+?GoLastWhenOpen@CTBBrowserWndEx@@UEAAHXZ -> public: virtual int __cdecl CTBBrowserWndEx::GoLastWhenOpen(void) __ptr64
+?Grid2Data@CTBBrowserFRPMatl@@QEAAXAEAUT_GUMD_FRP_MATL@@@Z -> public: void __cdecl CTBBrowserFRPMatl::Grid2Data(struct T_GUMD_FRP_MATL & __ptr64) __ptr64
+?Grid2Data@CTBBrowserWndStlSection@@QEAAXAEAUT_GUMD_STL_SECTION@@@Z -> public: void __cdecl CTBBrowserWndStlSection::Grid2Data(struct T_GUMD_STL_SECTION & __ptr64) __ptr64
+?HandleCustomContextMenu@CTBGrid@@UEAAXPEBUtagMSG@@@Z -> public: virtual void __cdecl CTBGrid::HandleCustomContextMenu(struct tagMSG const * __ptr64) __ptr64
+?HideCol@CTBBrowserWnd@@QEAAXKHPEAHIW4GXCmdType@@@Z -> public: void __cdecl CTBBrowserWnd::HideCol(unsigned long,int,int * __ptr64,unsigned int,enum GXCmdType) __ptr64
+?HideCols@CTBBrowserWndEx@@UEAAHKKHPEAHIW4GXCmdType@@@Z -> public: virtual int __cdecl CTBBrowserWndEx::HideCols(unsigned long,unsigned long,int,int * __ptr64,unsigned int,enum GXCmdType) __ptr64
+?HideCols@CTBCore@@UEAAHKKHPEAHIW4GXCmdType@@@Z -> public: virtual int __cdecl CTBCore::HideCols(unsigned long,unsigned long,int,int * __ptr64,unsigned int,enum GXCmdType) __ptr64
+?HideColsByIntend@CTBBrowserWndEx@@QEAAHKKH@Z -> public: int __cdecl CTBBrowserWndEx::HideColsByIntend(unsigned long,unsigned long,int) __ptr64
+?HideColsByIntend@CTBVisibleCtrl@@QEAAHKKH@Z -> public: int __cdecl CTBVisibleCtrl::HideColsByIntend(unsigned long,unsigned long,int) __ptr64
+?HideLastRow@CTBBrowserWnd@@QEAAXXZ -> public: void __cdecl CTBBrowserWnd::HideLastRow(void) __ptr64
+?HideLastRow@CTBBrowserWndStlSection@@AEAAXXZ -> private: void __cdecl CTBBrowserWndStlSection::HideLastRow(void) __ptr64
+?HitTest@CTBBrowserWndEx@@UEAAHAEAVCPoint@@PEAK1PEAVCRect@@@Z -> public: virtual int __cdecl CTBBrowserWndEx::HitTest(class CPoint & __ptr64,unsigned long * __ptr64,unsigned long * __ptr64,class CRect * __ptr64) __ptr64
+?HitTest@CTBCore@@UEAAHAEAVCPoint@@PEAK1PEAVCRect@@@Z -> public: virtual int __cdecl CTBCore::HitTest(class CPoint & __ptr64,unsigned long * __ptr64,unsigned long * __ptr64,class CRect * __ptr64) __ptr64
+?InitBrowserSettings@CTBBrowserWnd@@UEAAXXZ -> public: virtual void __cdecl CTBBrowserWnd::InitBrowserSettings(void) __ptr64
+?InitEditGrid@CEditGrid@@QEAAXW4GRIDTYPE@@@Z -> public: void __cdecl CEditGrid::InitEditGrid(enum GRIDTYPE) __ptr64
+?InitStlSection@CTBBrowserWndStlSection@@QEAAXAEBUT_GUMD_STL_SECTION@@_N@Z -> public: void __cdecl CTBBrowserWndStlSection::InitStlSection(struct T_GUMD_STL_SECTION const & __ptr64,bool) __ptr64
+?Initialize@CTBBrowserFRPMatl@@QEAAXAEBUT_GUMD_FRP_MATL@@@Z -> public: void __cdecl CTBBrowserFRPMatl::Initialize(struct T_GUMD_FRP_MATL const & __ptr64) __ptr64
+?Initialize@CTBBrowserWnd@@UEAAXXZ -> public: virtual void __cdecl CTBBrowserWnd::Initialize(void) __ptr64
+?Initialize@CTBColHdr@@QEAAHPEAVCTBCore@@@Z -> public: int __cdecl CTBColHdr::Initialize(class CTBCore * __ptr64) __ptr64
+?Initialize@CTBCommon@@UEAAXXZ -> public: virtual void __cdecl CTBCommon::Initialize(void) __ptr64
+?Initialize@CTBCore@@QEAAXXZ -> public: void __cdecl CTBCore::Initialize(void) __ptr64
+?Initialize@CTBCurRec@@QEAAHPEAVCTBCore@@@Z -> public: int __cdecl CTBCurRec::Initialize(class CTBCore * __ptr64) __ptr64
+?Initialize@CTBDataSrc@@UEAAHPEAVCTBCore@@@Z -> public: virtual int __cdecl CTBDataSrc::Initialize(class CTBCore * __ptr64) __ptr64
+?Initialize@CTBGrid@@QEAAXXZ -> public: void __cdecl CTBGrid::Initialize(void) __ptr64
+?Initialize@CTBKeyCtrl@@UEAAHPEAVCTBCore@@@Z -> public: virtual int __cdecl CTBKeyCtrl::Initialize(class CTBCore * __ptr64) __ptr64
+?Initialize@CTBRecCtrl@@QEAAHPEAVCTBCore@@@Z -> public: int __cdecl CTBRecCtrl::Initialize(class CTBCore * __ptr64) __ptr64
+?Initialize@CTBRecHdr@@QEAAHPEAVCTBCore@@@Z -> public: int __cdecl CTBRecHdr::Initialize(class CTBCore * __ptr64) __ptr64
+?Initialize@CTBRowHdr@@QEAAHPEAVCTBCore@@@Z -> public: int __cdecl CTBRowHdr::Initialize(class CTBCore * __ptr64) __ptr64
+?Initialize@CTBSelCtrl@@UEAAHPEAVCTBCore@@@Z -> public: virtual int __cdecl CTBSelCtrl::Initialize(class CTBCore * __ptr64) __ptr64
+?Initialize@CTBSort@@UEAAHPEAVCTBGrid@@@Z -> public: virtual int __cdecl CTBSort::Initialize(class CTBGrid * __ptr64) __ptr64
+?Initialize@CTBSortCtrl@@UEAAHPEAVCTBGrid@@@Z -> public: virtual int __cdecl CTBSortCtrl::Initialize(class CTBGrid * __ptr64) __ptr64
+?Initialize@CTBStaticOverOne@@QEAAXPEAVCGXGridWnd@@@Z -> public: void __cdecl CTBStaticOverOne::Initialize(class CGXGridWnd * __ptr64) __ptr64
+?Initialize@CTBStyle@@QEAAHPEAVCTBGrid@@@Z -> public: int __cdecl CTBStyle::Initialize(class CTBGrid * __ptr64) __ptr64
+?Initialize@CTBStyleCtrlEx@@QEAAHPEAVCTBBrowserWndEx@@@Z -> public: int __cdecl CTBStyleCtrlEx::Initialize(class CTBBrowserWndEx * __ptr64) __ptr64
+?Initialize@CTBVisibleCtrl@@QEAAHPEAVCGXGridWnd@@@Z -> public: int __cdecl CTBVisibleCtrl::Initialize(class CGXGridWnd * __ptr64) __ptr64
+?Initialize@EG_FORM@@QEAAXXZ -> public: void __cdecl EG_FORM::Initialize(void) __ptr64
+?Initialize@EG_SORT@@QEAAXXZ -> public: void __cdecl EG_SORT::Initialize(void) __ptr64
+?InsertEmptyRecord@CTBBrowserWnd@@QEAAHK@Z -> public: int __cdecl CTBBrowserWnd::InsertEmptyRecord(unsigned long) __ptr64
+?InsertNewRow@CEditGrid@@QEAAHXZ -> public: int __cdecl CEditGrid::InsertNewRow(void) __ptr64
+?InsertPrePostRows@CTBCore@@QEAAXHH@Z -> public: void __cdecl CTBCore::InsertPrePostRows(int,int) __ptr64
+?InsertRecord@CTBBrowserWnd@@QEAAHK@Z -> public: int __cdecl CTBBrowserWnd::InsertRecord(unsigned long) __ptr64
+?InvalidDoubleNumber@CTBBrowserWnd@@QEAAHH@Z -> public: int __cdecl CTBBrowserWnd::InvalidDoubleNumber(int) __ptr64
+?InvalidLongNumber@CTBBrowserWnd@@QEAAHH@Z -> public: int __cdecl CTBBrowserWnd::InvalidLongNumber(int) __ptr64
+?IsAppendRow@CTBBrowserWnd@@QEAA_NK@Z -> public: bool __cdecl CTBBrowserWnd::IsAppendRow(unsigned long) __ptr64
+?IsCellEnabled@CTBGrid@@QEAAHKK@Z -> public: int __cdecl CTBGrid::IsCellEnabled(unsigned long,unsigned long) __ptr64
+?IsCellReadOnly@CTBGrid@@QEAAHKK@Z -> public: int __cdecl CTBGrid::IsCellReadOnly(unsigned long,unsigned long) __ptr64
+?IsChangeUnitCell@CTBBrowserWndUnit@@IEAAHKK@Z -> protected: int __cdecl CTBBrowserWndUnit::IsChangeUnitCell(unsigned long,unsigned long) __ptr64
+?IsChangeUnitCell@CTBCommonUnit@@IEAAHKK@Z -> protected: int __cdecl CTBCommonUnit::IsChangeUnitCell(unsigned long,unsigned long) __ptr64
+?IsChoiceListRequired@CTBBrowserWnd@@IEAAHG@Z -> protected: int __cdecl CTBBrowserWnd::IsChoiceListRequired(unsigned short) __ptr64
+?IsColdFormSection@CTBBrowserWndStlSection@@AEAA_NV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> private: bool __cdecl CTBBrowserWndStlSection::IsColdFormSection(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?IsComboBox@CTBBrowserWnd@@IEAA_NKK@Z -> protected: bool __cdecl CTBBrowserWnd::IsComboBox(unsigned long,unsigned long) __ptr64
+?IsCurRecFld@CTBCurRec@@QEAAHKK@Z -> public: int __cdecl CTBCurRec::IsCurRecFld(unsigned long,unsigned long) __ptr64
+?IsDisabledCell@CTBBrowserWnd@@QEAA_NKAEBVCGXStyle@@@Z -> public: bool __cdecl CTBBrowserWnd::IsDisabledCell(unsigned long,class CGXStyle const & __ptr64) __ptr64
+?IsDisabledCell@CTBBrowserWnd@@QEAA_NKK@Z -> public: bool __cdecl CTBBrowserWnd::IsDisabledCell(unsigned long,unsigned long) __ptr64
+?IsEdit@CTBBrowserWnd@@QEAAHXZ -> public: int __cdecl CTBBrowserWnd::IsEdit(void) __ptr64
+?IsEnabledCell@CTBBrowserWnd@@QEAA_NKAEBVCGXStyle@@@Z -> public: bool __cdecl CTBBrowserWnd::IsEnabledCell(unsigned long,class CGXStyle const & __ptr64) __ptr64
+?IsEnabledCell@CTBBrowserWnd@@QEAA_NKK@Z -> public: bool __cdecl CTBBrowserWnd::IsEnabledCell(unsigned long,unsigned long) __ptr64
+?IsEnabledDeleteKey@CTBKeyCtrl@@QEAAHXZ -> public: int __cdecl CTBKeyCtrl::IsEnabledDeleteKey(void) __ptr64
+?IsEnabledInsertKey@CTBKeyCtrl@@QEAAHXZ -> public: int __cdecl CTBKeyCtrl::IsEnabledInsertKey(void) __ptr64
+?IsFiltered@CTBBrowserWndEx@@QEAAHXZ -> public: int __cdecl CTBBrowserWndEx::IsFiltered(void) __ptr64
+?IsHeader@CTBBrowserWnd@@QEAA_NKK@Z -> public: bool __cdecl CTBBrowserWnd::IsHeader(unsigned long,unsigned long) __ptr64
+?IsHeaderCell@CTBBrowserWnd@@QEAA_NKK@Z -> public: bool __cdecl CTBBrowserWnd::IsHeaderCell(unsigned long,unsigned long) __ptr64
+?IsHeaderCol@CTBBrowserWnd@@QEAA_NK@Z -> public: bool __cdecl CTBBrowserWnd::IsHeaderCol(unsigned long) __ptr64
+?IsHeaderRow@CTBBrowserWnd@@QEAA_NK@Z -> public: bool __cdecl CTBBrowserWnd::IsHeaderRow(unsigned long) __ptr64
+?IsHiddenByIntend@CTBBrowserWndEx@@UEAAHK@Z -> public: virtual int __cdecl CTBBrowserWndEx::IsHiddenByIntend(unsigned long) __ptr64
+?IsHiddenByIntend@CTBCore@@UEAAHH@Z -> public: virtual int __cdecl CTBCore::IsHiddenByIntend(int) __ptr64
+?IsHiddenByIntend@CTBGrid@@UEAAHH@Z -> public: virtual int __cdecl CTBGrid::IsHiddenByIntend(int) __ptr64
+?IsHiddenByIntend@CTBVisibleCtrl@@QEAAHK@Z -> public: int __cdecl CTBVisibleCtrl::IsHiddenByIntend(unsigned long) __ptr64
+?IsInitialized@CTBColHdr@@QEAAHXZ -> public: int __cdecl CTBColHdr::IsInitialized(void) __ptr64
+?IsInitialized@CTBCurRec@@QEAAHXZ -> public: int __cdecl CTBCurRec::IsInitialized(void) __ptr64
+?IsInitialized@CTBDataSrc@@QEAAHXZ -> public: int __cdecl CTBDataSrc::IsInitialized(void) __ptr64
+?IsInitialized@CTBKeyCtrl@@QEAAHXZ -> public: int __cdecl CTBKeyCtrl::IsInitialized(void) __ptr64
+?IsInitialized@CTBRecCtrl@@QEAAHXZ -> public: int __cdecl CTBRecCtrl::IsInitialized(void) __ptr64
+?IsInitialized@CTBRecHdr@@QEAAHXZ -> public: int __cdecl CTBRecHdr::IsInitialized(void) __ptr64
+?IsInitialized@CTBRowHdr@@QEAAHXZ -> public: int __cdecl CTBRowHdr::IsInitialized(void) __ptr64
+?IsInitialized@CTBSelCtrl@@QEAAHXZ -> public: int __cdecl CTBSelCtrl::IsInitialized(void) __ptr64
+?IsInitialized@CTBSort@@QEAAHXZ -> public: int __cdecl CTBSort::IsInitialized(void) __ptr64
+?IsInitialized@CTBStyle@@QEAAHXZ -> public: int __cdecl CTBStyle::IsInitialized(void) __ptr64
+?IsInitialized@CTBVisibleCtrl@@QEAAHXZ -> public: int __cdecl CTBVisibleCtrl::IsInitialized(void) __ptr64
+?IsLockEdit@CTBBrowserWnd@@QEAAHXZ -> public: int __cdecl CTBBrowserWnd::IsLockEdit(void) __ptr64
+?IsMatch@CTBGrid@@QEAAHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAUSTBFindStruct@@@Z -> public: int __cdecl CTBGrid::IsMatch(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,struct STBFindStruct & __ptr64) __ptr64
+?IsNumeric@CClassPaste@@SAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: static int __cdecl CClassPaste::IsNumeric(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >)
+?IsNumeric@CEditGrid@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAH@Z -> public: int __cdecl CEditGrid::IsNumeric(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int & __ptr64) __ptr64
+?IsNumeric@CTBBrowserWnd@@SAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAH@Z -> public: static int __cdecl CTBBrowserWnd::IsNumeric(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int & __ptr64)
+?IsReadOnlyCell@CTBBrowserWnd@@QEAA_NKAEBVCGXStyle@@@Z -> public: bool __cdecl CTBBrowserWnd::IsReadOnlyCell(unsigned long,class CGXStyle const & __ptr64) __ptr64
+?IsReadOnlyCell@CTBBrowserWnd@@QEAA_NKK@Z -> public: bool __cdecl CTBBrowserWnd::IsReadOnlyCell(unsigned long,unsigned long) __ptr64
+?IsValidDoubleNumber@CEditGrid@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAHH@Z -> public: int __cdecl CEditGrid::IsValidDoubleNumber(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int & __ptr64,int) __ptr64
+?IsValidDoubleNumber@CTBBrowserWnd@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAH@Z -> public: int __cdecl CTBBrowserWnd::IsValidDoubleNumber(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int & __ptr64) __ptr64
+?IsValidField@CTBRecHdr@@QEAAHHH@Z -> public: int __cdecl CTBRecHdr::IsValidField(int,int) __ptr64
+?IsValidLongNumber@CTBBrowserWnd@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAH@Z -> public: int __cdecl CTBBrowserWnd::IsValidLongNumber(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int & __ptr64) __ptr64
+?IsValidateCell@CEditGrid@@QEAAHKKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: int __cdecl CEditGrid::IsValidateCell(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int) __ptr64
+?LeaveComboBoxCell@CTBBrowserWnd@@IEAAXK@Z -> protected: void __cdecl CTBBrowserWnd::LeaveComboBoxCell(unsigned long) __ptr64
+?LeaveDropDownCell@CTBBrowserWnd@@QEAAXXZ -> public: void __cdecl CTBBrowserWnd::LeaveDropDownCell(void) __ptr64
+?LeaveDropDownCell@CTBGridTool@@SAXPEAVCTBBrowserWnd@@@Z -> public: static void __cdecl CTBGridTool::LeaveDropDownCell(class CTBBrowserWnd * __ptr64)
+?LockEditMode@CTBBrowserWnd@@QEAAXH@Z -> public: void __cdecl CTBBrowserWnd::LockEditMode(int) __ptr64
+?MakeDataFromClipBoard@CClassPaste@@QEAAHXZ -> public: int __cdecl CClassPaste::MakeDataFromClipBoard(void) __ptr64
+?MakeItemEx@CTBBrowserWndEx@@UEAAXPEAJJH@Z -> public: virtual void __cdecl CTBBrowserWndEx::MakeItemEx(long * __ptr64,long,int) __ptr64
+?MakeItemEx@CTBCommon@@UEAAXPEAJJH@Z -> public: virtual void __cdecl CTBCommon::MakeItemEx(long * __ptr64,long,int) __ptr64
+?MakeRecords@CTBDataSrc@@UEAAXXZ -> public: virtual void __cdecl CTBDataSrc::MakeRecords(void) __ptr64
+?MoveDownRow@CEditGrid@@QEAAHXZ -> public: int __cdecl CEditGrid::MoveDownRow(void) __ptr64
+?MoveRecord@CTBRecCtrl@@QEAAHHHH@Z -> public: int __cdecl CTBRecCtrl::MoveRecord(int,int,int) __ptr64
+?MoveUpRow@CEditGrid@@QEAAHXZ -> public: int __cdecl CEditGrid::MoveUpRow(void) __ptr64
+?OnActivateGrid@CEditGrid@@UEAAHH@Z -> public: virtual int __cdecl CEditGrid::OnActivateGrid(int) __ptr64
+?OnAddNewRecord@CTBBrowserWnd@@UEAAHK@Z -> public: virtual int __cdecl CTBBrowserWnd::OnAddNewRecord(unsigned long) __ptr64
+?OnAddNewRecord@CTBCommon@@UEAAHK@Z -> public: virtual int __cdecl CTBCommon::OnAddNewRecord(unsigned long) __ptr64
+?OnAfterOpen@CTBBrowserWndEx@@UEAAXXZ -> public: virtual void __cdecl CTBBrowserWndEx::OnAfterOpen(void) __ptr64
+?OnBeforeCopy@CTBDataSrc@@UEAAHXZ -> public: virtual int __cdecl CTBDataSrc::OnBeforeCopy(void) __ptr64
+?OnCanceledAddNew@CTBBrowserWnd@@UEAAHXZ -> public: virtual int __cdecl CTBBrowserWnd::OnCanceledAddNew(void) __ptr64
+?OnCanceledAddNew@CTBCommon@@UEAAHXZ -> public: virtual int __cdecl CTBCommon::OnCanceledAddNew(void) __ptr64
+?OnCanceledModify@CTBBrowserWnd@@UEAAHXZ -> public: virtual int __cdecl CTBBrowserWnd::OnCanceledModify(void) __ptr64
+?OnChangedSelection@CTBBrowserWndEx@@UEAAXPEBVCGXRange@@HH@Z -> public: virtual void __cdecl CTBBrowserWndEx::OnChangedSelection(class CGXRange const * __ptr64,int,int) __ptr64
+?OnChangedSelection@CTBCore@@UEAAXPEBVCGXRange@@HH@Z -> public: virtual void __cdecl CTBCore::OnChangedSelection(class CGXRange const * __ptr64,int,int) __ptr64
+?OnChangedSelection@CTBSelCtrl@@UEAAXPEBVCGXRange@@HH@Z -> public: virtual void __cdecl CTBSelCtrl::OnChangedSelection(class CGXRange const * __ptr64,int,int) __ptr64
+?OnChangedSelectionPublic@CTBBrowserWndEx@@UEAAXPEAJH@Z -> public: virtual void __cdecl CTBBrowserWndEx::OnChangedSelectionPublic(long * __ptr64,int) __ptr64
+?OnChangedValue@CTBCheckListComboBox@@UEAAXXZ -> public: virtual void __cdecl CTBCheckListComboBox::OnChangedValue(void) __ptr64
+?OnClickedButtonRowCol@CTBCore@@UEAAXKK@Z -> public: virtual void __cdecl CTBCore::OnClickedButtonRowCol(unsigned long,unsigned long) __ptr64
+?OnDeleteCell@CTBBrowserWnd@@UEAAHKK@Z -> public: virtual int __cdecl CTBBrowserWnd::OnDeleteCell(unsigned long,unsigned long) __ptr64
+?OnDeleteCell@CTBBrowserWndUnit@@UEAAHKK@Z -> public: virtual int __cdecl CTBBrowserWndUnit::OnDeleteCell(unsigned long,unsigned long) __ptr64
+?OnDeleteRecord@CTBBrowserWnd@@UEAAHK@Z -> public: virtual int __cdecl CTBBrowserWnd::OnDeleteRecord(unsigned long) __ptr64
+?OnDeleteRecord@CTBCommon@@UEAAHK@Z -> public: virtual int __cdecl CTBCommon::OnDeleteRecord(unsigned long) __ptr64
+?OnDeleteRecords@CTBBrowserWnd@@UEAAHAEAVCDWordArray@@@Z -> public: virtual int __cdecl CTBBrowserWnd::OnDeleteRecords(class CDWordArray & __ptr64) __ptr64
+?OnDeleteRecords@CTBCommon@@UEAAHAEAVCDWordArray@@@Z -> public: virtual int __cdecl CTBCommon::OnDeleteRecords(class CDWordArray & __ptr64) __ptr64
+?OnEndEditing@CEditGrid@@UEAAHKK@Z -> public: virtual int __cdecl CEditGrid::OnEndEditing(unsigned long,unsigned long) __ptr64
+?OnEndEditing@CTBBrowserWnd@@UEAAHKK@Z -> public: virtual int __cdecl CTBBrowserWnd::OnEndEditing(unsigned long,unsigned long) __ptr64
+?OnEndEditingRowCol@CEditGrid@@UEAAHKK@Z -> public: virtual int __cdecl CEditGrid::OnEndEditingRowCol(unsigned long,unsigned long) __ptr64
+?OnEndTracking@CTBCore@@UEAAXKKHAEAVCSize@@@Z -> public: virtual void __cdecl CTBCore::OnEndTracking(unsigned long,unsigned long,int,class CSize & __ptr64) __ptr64
+?OnEvent@CTBDataSrc@@UEAAXPEAUT_TB_EVENT_D@@@Z -> public: virtual void __cdecl CTBDataSrc::OnEvent(struct T_TB_EVENT_D * __ptr64) __ptr64
+?OnFillDroppedList@CTBCheckListComboBox@@UEAAXPEAVCListBox@@@Z -> public: virtual void __cdecl CTBCheckListComboBox::OnFillDroppedList(class CListBox * __ptr64) __ptr64
+?OnGridPrint@CTBGrid@@UEAAXPEAVCDC@@PEAUCPrintInfo@@@Z -> public: virtual void __cdecl CTBGrid::OnGridPrint(class CDC * __ptr64,struct CPrintInfo * __ptr64) __ptr64
+?OnIUnknown@CFolderDialog@@MEAAXPEAUIUnknown@@@Z -> protected: virtual void __cdecl CFolderDialog::OnIUnknown(struct IUnknown * __ptr64) __ptr64
+?OnInitialized@CFolderDialog@@MEAAXXZ -> protected: virtual void __cdecl CFolderDialog::OnInitialized(void) __ptr64
+?OnInsertEmptyRecord@CTBBrowserWnd@@UEAAHK@Z -> public: virtual int __cdecl CTBBrowserWnd::OnInsertEmptyRecord(unsigned long) __ptr64
+?OnInsertEmptyRecord@CTBCommon@@UEAAHK@Z -> public: virtual int __cdecl CTBCommon::OnInsertEmptyRecord(unsigned long) __ptr64
+?OnLButtonDown@CTBBrowserWndEx@@IEAAXIVCPoint@@@Z -> protected: void __cdecl CTBBrowserWndEx::OnLButtonDown(unsigned int,class CPoint) __ptr64
+?OnLeftCell@CTBBrowserWnd@@UEAAHKKKK@Z -> public: virtual int __cdecl CTBBrowserWnd::OnLeftCell(unsigned long,unsigned long,unsigned long,unsigned long) __ptr64
+?OnMButtonDblClk@CTBGrid@@IEAAXIVCPoint@@@Z -> protected: void __cdecl CTBGrid::OnMButtonDblClk(unsigned int,class CPoint) __ptr64
+?OnModifyCell@CTBBrowserWnd@@UEAAXKK@Z -> public: virtual void __cdecl CTBBrowserWnd::OnModifyCell(unsigned long,unsigned long) __ptr64
+?OnModifyRecord@CTBBrowserWnd@@UEAAHK@Z -> public: virtual int __cdecl CTBBrowserWnd::OnModifyRecord(unsigned long) __ptr64
+?OnModifyRecord@CTBCommon@@UEAAHK@Z -> public: virtual int __cdecl CTBCommon::OnModifyRecord(unsigned long) __ptr64
+?OnMovedCurrentCell@CTBBrowserWnd@@UEAAXKK@Z -> public: virtual void __cdecl CTBBrowserWnd::OnMovedCurrentCell(unsigned long,unsigned long) __ptr64
+?OnPasteFromClipboard@CEditGrid@@UEAAHAEBVCGXRange@@@Z -> public: virtual int __cdecl CEditGrid::OnPasteFromClipboard(class CGXRange const & __ptr64) __ptr64
+?OnPasteFromClipboard@CTBBrowserWnd@@UEAAHAEBVCGXRange@@@Z -> public: virtual int __cdecl CTBBrowserWnd::OnPasteFromClipboard(class CGXRange const & __ptr64) __ptr64
+?OnPasteFromClipboard@CTBCommon@@UEAAHAEBVCGXRange@@@Z -> public: virtual int __cdecl CTBCommon::OnPasteFromClipboard(class CGXRange const & __ptr64) __ptr64
+?OnPrintHeaderAndFooter@CTBGrid@@UEAAXPEAVCDC@@PEAUCPrintInfo@@@Z -> public: virtual void __cdecl CTBGrid::OnPrintHeaderAndFooter(class CDC * __ptr64,struct CPrintInfo * __ptr64) __ptr64
+?OnSelChanged@CFolderDialog@@MEAAXPEFAU_ITEMIDLIST@@@Z -> protected: virtual void __cdecl CFolderDialog::OnSelChanged(struct _ITEMIDLIST __unaligned * __ptr64) __ptr64
+?OnSelDragColsDrop@CTBBrowserWndEx@@UEAAHKKK@Z -> public: virtual int __cdecl CTBBrowserWndEx::OnSelDragColsDrop(unsigned long,unsigned long,unsigned long) __ptr64
+?OnSetCellActive@CTBBrowserWnd@@IEAA_J_K_J@Z -> protected: __int64 __cdecl CTBBrowserWnd::OnSetCellActive(unsigned __int64,__int64) __ptr64
+?OnStartEditing@CEditGrid@@UEAAHKK@Z -> public: virtual int __cdecl CEditGrid::OnStartEditing(unsigned long,unsigned long) __ptr64
+?OnStartEditing@CTBBrowserWnd@@UEAAHKK@Z -> public: virtual int __cdecl CTBBrowserWnd::OnStartEditing(unsigned long,unsigned long) __ptr64
+?OnStoreDroppedList@CTBCheckListComboBox@@UEAAXPEAVCListBox@@@Z -> public: virtual void __cdecl CTBCheckListComboBox::OnStoreDroppedList(class CListBox * __ptr64) __ptr64
+?OnTerminate@CTBBrowserWnd@@QEAAHH@Z -> public: int __cdecl CTBBrowserWnd::OnTerminate(int) __ptr64
+?OnTrackColWidth@CTBBrowserWndEx@@UEAAHK@Z -> public: virtual int __cdecl CTBBrowserWndEx::OnTrackColWidth(unsigned long) __ptr64
+?OnTrackColWidth@CTBCore@@UEAAHK@Z -> public: virtual int __cdecl CTBCore::OnTrackColWidth(unsigned long) __ptr64
+?OnUpdate@CEditGrid@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CEditGrid::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CTBBrowserFRPMatl@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CTBBrowserFRPMatl::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CTBBrowserWndStlSection@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CTBBrowserWndStlSection::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CTBBrowserWndUnit@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CTBBrowserWndUnit::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnUpdate@CTBCommonUnit@@UEAAXPEAVCView@@_JPEAVCObject@@@Z -> public: virtual void __cdecl CTBCommonUnit::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64
+?OnValidateCell@CEditGrid@@UEAAHKK@Z -> public: virtual int __cdecl CEditGrid::OnValidateCell(unsigned long,unsigned long) __ptr64
+?OnValidateCell@CTBBrowserWnd@@UEAAHKK@Z -> public: virtual int __cdecl CTBBrowserWnd::OnValidateCell(unsigned long,unsigned long) __ptr64
+?OnValidateCell@CTBBrowserWndUnit@@UEAAHKK@Z -> public: virtual int __cdecl CTBBrowserWndUnit::OnValidateCell(unsigned long,unsigned long) __ptr64
+?OnValidateFailed@CFolderDialog@@MEAAHPEB_W@Z -> protected: virtual int __cdecl CFolderDialog::OnValidateFailed(wchar_t const * __ptr64) __ptr64
+?OnValidateField@CTBBrowserWnd@@UEAAHKK@Z -> public: virtual int __cdecl CTBBrowserWnd::OnValidateField(unsigned long,unsigned long) __ptr64
+?OnValidateField@CTBCommon@@UEAAHKK@Z -> public: virtual int __cdecl CTBCommon::OnValidateField(unsigned long,unsigned long) __ptr64
+?OnValidateRecord@CTBBrowserWnd@@UEAAHK@Z -> public: virtual int __cdecl CTBBrowserWnd::OnValidateRecord(unsigned long) __ptr64
+?OnValidateRecord@CTBCommon@@UEAAHK@Z -> public: virtual int __cdecl CTBCommon::OnValidateRecord(unsigned long) __ptr64
+?PasteFromClipboard@CTBBrowserWndEx@@QEAAHAEBVCGXRange@@PEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@HAEAVCGXGridWnd@@AEAH3@Z -> public: int __cdecl CTBBrowserWndEx::PasteFromClipboard(class CGXRange const & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > * __ptr64,int,class CGXGridWnd & __ptr64,int & __ptr64,int & __ptr64) __ptr64
+?PrepareClearSelection@CTBBrowserWnd@@UEAAXH@Z -> public: virtual void __cdecl CTBBrowserWnd::PrepareClearSelection(int) __ptr64
+?ProcessKeys@CEditGrid@@UEAAHPEAVCWnd@@IIII@Z -> public: virtual int __cdecl CEditGrid::ProcessKeys(class CWnd * __ptr64,unsigned int,unsigned int,unsigned int,unsigned int) __ptr64
+?ProcessKeys@CTBBrowserWnd@@UEAAHPEAVCWnd@@IIII@Z -> public: virtual int __cdecl CTBBrowserWnd::ProcessKeys(class CWnd * __ptr64,unsigned int,unsigned int,unsigned int,unsigned int) __ptr64
+?ProcessKeys@CTBBrowserWndUnit@@UEAAHPEAVCWnd@@IIII@Z -> public: virtual int __cdecl CTBBrowserWndUnit::ProcessKeys(class CWnd * __ptr64,unsigned int,unsigned int,unsigned int,unsigned int) __ptr64
+?ProcessKeys@CTBCommonUnit@@UEAAHPEAVCWnd@@IIII@Z -> public: virtual int __cdecl CTBCommonUnit::ProcessKeys(class CWnd * __ptr64,unsigned int,unsigned int,unsigned int,unsigned int) __ptr64
+?ProcessKeys@CTBCore@@UEAAHPEAVCWnd@@IIII@Z -> public: virtual int __cdecl CTBCore::ProcessKeys(class CWnd * __ptr64,unsigned int,unsigned int,unsigned int,unsigned int) __ptr64
+?ProcessKeys@CTBKeyCtrl@@QEAAHPEAVCWnd@@IIII@Z -> public: int __cdecl CTBKeyCtrl::ProcessKeys(class CWnd * __ptr64,unsigned int,unsigned int,unsigned int,unsigned int) __ptr64
+?ReadFromRegistry@CTBGrid@@QEAAHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl CTBGrid::ReadFromRegistry(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?ReadRecords@CTBRecCtrl@@QEAAHXZ -> public: int __cdecl CTBRecCtrl::ReadRecords(void) __ptr64
+?RecalcRange@CTBSelCtrl@@QEAAXPEAVCGXRange@@@Z -> public: void __cdecl CTBSelCtrl::RecalcRange(class CGXRange * __ptr64) __ptr64
+?Redraw@CTBBrowserWnd@@UEAAXIH@Z -> public: virtual void __cdecl CTBBrowserWnd::Redraw(unsigned int,int) __ptr64
+?RedrawAll@CTBGrid@@SAXXZ -> public: static void __cdecl CTBGrid::RedrawAll(void)
+?RedrawTable@CTBRecCtrl@@QEAAHXZ -> public: int __cdecl CTBRecCtrl::RedrawTable(void) __ptr64
+?RegisterTable@CTBGrid@@SA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@PEB_WP6AXPEAV?$CArray@USTBPrefItem@@AEAU1@@@@Z@Z -> public: static class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > __cdecl CTBGrid::RegisterTable(wchar_t const * __ptr64,void (__cdecl*)(class CArray<struct STBPrefItem,struct STBPrefItem & __ptr64> * __ptr64))
+?Release@CLockUpdateSaver@@QEAAXXZ -> public: void __cdecl CLockUpdateSaver::Release(void) __ptr64
+?RemoveRows@CTBBrowserWnd@@UEAAHKKIW4GXCmdType@@@Z -> public: virtual int __cdecl CTBBrowserWnd::RemoveRows(unsigned long,unsigned long,unsigned int,enum GXCmdType) __ptr64
+?Reset@CTBStyleCtrl@@QEAAXXZ -> public: void __cdecl CTBStyleCtrl::Reset(void) __ptr64
+?ResetHeaderRow@CTBBrowserWnd@@QEAAXXZ -> public: void __cdecl CTBBrowserWnd::ResetHeaderRow(void) __ptr64
+?ResetParam@CEditGrid@@QEAAXW4GRIDTYPE@@@Z -> public: void __cdecl CEditGrid::ResetParam(enum GRIDTYPE) __ptr64
+?ResetParam@CTBBrowserWndUnit@@QEAAXXZ -> public: void __cdecl CTBBrowserWndUnit::ResetParam(void) __ptr64
+?ResetParam@CTBCommonUnit@@QEAAXXZ -> public: void __cdecl CTBCommonUnit::ResetParam(void) __ptr64
+?ResizeColWidthsToFitSmart@CTBBrowserWnd@@QEAAHJ@Z -> public: int __cdecl CTBBrowserWnd::ResizeColWidthsToFitSmart(long) __ptr64
+?RestorePrevColStyle@CTBBrowserWnd@@IEAAXXZ -> protected: void __cdecl CTBBrowserWnd::RestorePrevColStyle(void) __ptr64
+?RollBackCurCellData@CTBBrowserWnd@@MEAAHXZ -> protected: virtual int __cdecl CTBBrowserWnd::RollBackCurCellData(void) __ptr64
+?SaveCurrentColStyle@CTBBrowserWnd@@IEAAXXZ -> protected: void __cdecl CTBBrowserWnd::SaveCurrentColStyle(void) __ptr64
+?SaveCurrentRecord@CTBBrowserWnd@@IEAAHXZ -> protected: int __cdecl CTBBrowserWnd::SaveCurrentRecord(void) __ptr64
+?SelectColumnAll@CTBBrowserWnd@@QEAAXK@Z -> public: void __cdecl CTBBrowserWnd::SelectColumnAll(unsigned long) __ptr64
+?SelectColumnInvert@CTBBrowserWnd@@QEAAXK@Z -> public: void __cdecl CTBBrowserWnd::SelectColumnInvert(unsigned long) __ptr64
+?SelectColumnNone@CTBBrowserWnd@@QEAAXK@Z -> public: void __cdecl CTBBrowserWnd::SelectColumnNone(unsigned long) __ptr64
+?SelectGridRow@CTBBrowserWndEx@@QEAAXPEAJJ@Z -> public: void __cdecl CTBBrowserWndEx::SelectGridRow(long * __ptr64,long) __ptr64
+?SelectRowByKey@CTBBrowserWndEx@@QEAAXPEAJJ@Z -> public: void __cdecl CTBBrowserWndEx::SelectRowByKey(long * __ptr64,long) __ptr64
+?SetCellUnitInfo@CTBBrowserWndUnit@@QEAAHKKW4UNITType@@@Z -> public: int __cdecl CTBBrowserWndUnit::SetCellUnitInfo(unsigned long,unsigned long,enum UNITType) __ptr64
+?SetCellUnitInfo@CTBCommonUnit@@QEAAHKKW4UNITType@@@Z -> public: int __cdecl CTBCommonUnit::SetCellUnitInfo(unsigned long,unsigned long,enum UNITType) __ptr64
+?SetChoiceList@CTBBrowserWnd@@QEAAXKKAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CTBBrowserWnd::SetChoiceList(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64) __ptr64
+?SetColHdrTitle@CTBColHdr@@QEAAHXZ -> public: int __cdecl CTBColHdr::SetColHdrTitle(void) __ptr64
+?SetColUnitInfo@CTBBrowserWndUnit@@QEAAHKKW4UNITType@@@Z -> public: int __cdecl CTBBrowserWndUnit::SetColUnitInfo(unsigned long,unsigned long,enum UNITType) __ptr64
+?SetColUnitInfo@CTBBrowserWndUnit@@QEAAHKW4UNITType@@@Z -> public: int __cdecl CTBBrowserWndUnit::SetColUnitInfo(unsigned long,enum UNITType) __ptr64
+?SetColUnitInfo@CTBCommonUnit@@QEAAHKW4UNITType@@@Z -> public: int __cdecl CTBCommonUnit::SetColUnitInfo(unsigned long,enum UNITType) __ptr64
+?SetColumnWidth@CEditGrid@@QEAAXPEAHH@Z -> public: void __cdecl CEditGrid::SetColumnWidth(int * __ptr64,int) __ptr64
+?SetColumnWidth@CEditGrid@@QEAAXPEAV?$CArray@HH@@@Z -> public: void __cdecl CEditGrid::SetColumnWidth(class CArray<int,int> * __ptr64) __ptr64
+?SetCoveredCell@CTBRecCtrl@@IEAAXH@Z -> protected: void __cdecl CTBRecCtrl::SetCoveredCell(int) __ptr64
+?SetCurRecFld@CTBRecCtrl@@QEAAHHH@Z -> public: int __cdecl CTBRecCtrl::SetCurRecFld(int,int) __ptr64
+?SetCurrColWithInPrefInfo@CTBGrid@@QEAAHAEAV?$CArray@II@@@Z -> public: int __cdecl CTBGrid::SetCurrColWithInPrefInfo(class CArray<unsigned int,unsigned int> & __ptr64) __ptr64
+?SetCurrentCell@CTBBrowserWnd@@UEAAHKKI@Z -> public: virtual int __cdecl CTBBrowserWnd::SetCurrentCell(unsigned long,unsigned long,unsigned int) __ptr64
+?SetCurrentCell@CTBCore@@UEAAHKKI@Z -> public: virtual int __cdecl CTBCore::SetCurrentCell(unsigned long,unsigned long,unsigned int) __ptr64
+?SetCurrentCell@CTBCurRec@@QEAAHKK@Z -> public: int __cdecl CTBCurRec::SetCurrentCell(unsigned long,unsigned long) __ptr64
+?SetCurrentRowCount@CTBBrowserWnd@@QEAAXI@Z -> public: void __cdecl CTBBrowserWnd::SetCurrentRowCount(unsigned int) __ptr64
+?SetCurrentRowStyle@CTBBrowserWnd@@IEAAXAEAVCGXStyle@@@Z -> protected: void __cdecl CTBBrowserWnd::SetCurrentRowStyle(class CGXStyle & __ptr64) __ptr64
+?SetDataCell@CTBBrowserWndUnit@@QEAAXKKGIKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@IIHH@Z -> public: void __cdecl CTBBrowserWndUnit::SetDataCell(unsigned long,unsigned long,unsigned short,unsigned int,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,unsigned int,unsigned int,int,int) __ptr64
+?SetDataCol@CTBBrowserWndUnit@@QEAAXKGIKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@IIHHH@Z -> public: void __cdecl CTBBrowserWndUnit::SetDataCol(unsigned long,unsigned short,unsigned int,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,unsigned int,unsigned int,int,int,int) __ptr64
+?SetDataColumn@CTBBrowserFRPMatl@@AEAAXXZ -> private: void __cdecl CTBBrowserFRPMatl::SetDataColumn(void) __ptr64
+?SetDataColumn@CTBBrowserWndStlSection@@AEAAXXZ -> private: void __cdecl CTBBrowserWndStlSection::SetDataColumn(void) __ptr64
+?SetDataRowCol@CTBBrowserWnd@@QEAAXAEBV?$vector@KV?$allocator@K@std@@@std@@KV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CTBBrowserWnd::SetDataRowCol(class std::vector<unsigned long,class std::allocator<unsigned long> > const & __ptr64,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetDataRowCol@CTBBrowserWnd@@QEAAXKAEBV?$vector@KV?$allocator@K@std@@@std@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CTBBrowserWnd::SetDataRowCol(unsigned long,class std::vector<unsigned long,class std::allocator<unsigned long> > const & __ptr64,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetDataRowCol@CTBBrowserWnd@@QEAAXKKH@Z -> public: void __cdecl CTBBrowserWnd::SetDataRowCol(unsigned long,unsigned long,int) __ptr64
+?SetDataRowCol@CTBBrowserWnd@@QEAAXKKI@Z -> public: void __cdecl CTBBrowserWnd::SetDataRowCol(unsigned long,unsigned long,unsigned int) __ptr64
+?SetDataRowCol@CTBBrowserWnd@@QEAAXKKK@Z -> public: void __cdecl CTBBrowserWnd::SetDataRowCol(unsigned long,unsigned long,unsigned long) __ptr64
+?SetDataRowCol@CTBBrowserWnd@@QEAAXKKN@Z -> public: void __cdecl CTBBrowserWnd::SetDataRowCol(unsigned long,unsigned long,double) __ptr64
+?SetDataRowCol@CTBBrowserWnd@@QEAAXKKPEB_W@Z -> public: void __cdecl CTBBrowserWnd::SetDataRowCol(unsigned long,unsigned long,wchar_t const * __ptr64) __ptr64
+?SetDataRowCol@CTBBrowserWnd@@QEAAXKKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CTBBrowserWnd::SetDataRowCol(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetDataRowCol@CTBBrowserWnd@@QEAAXKK_N@Z -> public: void __cdecl CTBBrowserWnd::SetDataRowCol(unsigned long,unsigned long,bool) __ptr64
+?SetDataRowCol@CTBBrowserWnd@@QEAAXKK_W@Z -> public: void __cdecl CTBBrowserWnd::SetDataRowCol(unsigned long,unsigned long,wchar_t) __ptr64
+?SetDataSrc@CTBCore@@QEAAXPEAVCTBDataSrc@@@Z -> public: void __cdecl CTBCore::SetDataSrc(class CTBDataSrc * __ptr64) __ptr64
+?SetDefaultData@CEditGrid@@QEAAXK@Z -> public: void __cdecl CEditGrid::SetDefaultData(unsigned long) __ptr64
+?SetDefaultVal@CEditGrid@@QEAAXAEAVCStringArray@@@Z -> public: void __cdecl CEditGrid::SetDefaultVal(class CStringArray & __ptr64) __ptr64
+?SetDownValidCell@CEditGrid@@QEAAHKK@Z -> public: int __cdecl CEditGrid::SetDownValidCell(unsigned long,unsigned long) __ptr64
+?SetDownValidCell@CTBBrowserWnd@@QEAAHKK@Z -> public: int __cdecl CTBBrowserWnd::SetDownValidCell(unsigned long,unsigned long) __ptr64
+?SetEnable@CTBBrowserWnd@@QEAAXAEBV?$vector@KV?$allocator@K@std@@@std@@0H@Z -> public: void __cdecl CTBBrowserWnd::SetEnable(class std::vector<unsigned long,class std::allocator<unsigned long> > const & __ptr64,class std::vector<unsigned long,class std::allocator<unsigned long> > const & __ptr64,int) __ptr64
+?SetEnable@CTBBrowserWnd@@QEAAXAEBV?$vector@KV?$allocator@K@std@@@std@@KH@Z -> public: void __cdecl CTBBrowserWnd::SetEnable(class std::vector<unsigned long,class std::allocator<unsigned long> > const & __ptr64,unsigned long,int) __ptr64
+?SetEnable@CTBBrowserWnd@@QEAAXKAEBV?$vector@KV?$allocator@K@std@@@std@@H@Z -> public: void __cdecl CTBBrowserWnd::SetEnable(unsigned long,class std::vector<unsigned long,class std::allocator<unsigned long> > const & __ptr64,int) __ptr64
+?SetEnable@CTBBrowserWnd@@QEAAXKH@Z -> public: void __cdecl CTBBrowserWnd::SetEnable(unsigned long,int) __ptr64
+?SetEnable@CTBBrowserWnd@@QEAAXKKH@Z -> public: void __cdecl CTBBrowserWnd::SetEnable(unsigned long,unsigned long,int) __ptr64
+?SetEnableDisable@CEditGrid@@QEAAXKKKKH@Z -> public: void __cdecl CEditGrid::SetEnableDisable(unsigned long,unsigned long,unsigned long,unsigned long,int) __ptr64
+?SetExpanded@CFolderDialog@@IEAAXPEB_W@Z -> protected: void __cdecl CFolderDialog::SetExpanded(wchar_t const * __ptr64) __ptr64
+?SetExpanded@CFolderDialog@@IEAAXPEFAU_ITEMIDLIST@@@Z -> protected: void __cdecl CFolderDialog::SetExpanded(struct _ITEMIDLIST __unaligned * __ptr64) __ptr64
+?SetFieldValidation@CTBBrowserWnd@@IEAAHH@Z -> protected: int __cdecl CTBBrowserWnd::SetFieldValidation(int) __ptr64
+?SetFiltered@CTBBrowserWndEx@@QEAAXH@Z -> public: void __cdecl CTBBrowserWndEx::SetFiltered(int) __ptr64
+?SetFldValue@CTBRecCtrl@@IEAAXPEAVCGXData@@HHAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> protected: void __cdecl CTBRecCtrl::SetFldValue(class CGXData * __ptr64,int,int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64,int) __ptr64
+?SetFrozenCols@CTBBrowserWnd@@UEAAHKKIW4GXCmdType@@@Z -> public: virtual int __cdecl CTBBrowserWnd::SetFrozenCols(unsigned long,unsigned long,unsigned int,enum GXCmdType) __ptr64
+?SetFrozenRows@CTBBrowserWnd@@UEAAHKKIW4GXCmdType@@@Z -> public: virtual int __cdecl CTBBrowserWnd::SetFrozenRows(unsigned long,unsigned long,unsigned int,enum GXCmdType) __ptr64
+?SetGridColor@CTBGrid@@CAXXZ -> private: static void __cdecl CTBGrid::SetGridColor(void)
+?SetGroup@CTBColHdr@@QEAAHHHHH@Z -> public: int __cdecl CTBColHdr::SetGroup(int,int,int,int) __ptr64
+?SetHeader@CTBBrowserWndUnit@@QEAAXKKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@KW4UNITType@@KHH@Z -> public: void __cdecl CTBBrowserWndUnit::SetHeader(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,unsigned long,enum UNITType,unsigned long,int,int) __ptr64
+?SetHeaderCell@CTBBrowserWnd@@QEAAXAEBV?$CArray@VCGXRange@@AEAV1@@@@Z -> public: void __cdecl CTBBrowserWnd::SetHeaderCell(class CArray<class CGXRange,class CGXRange & __ptr64> const & __ptr64) __ptr64
+?SetHeaderCol@CTBBrowserWnd@@QEAAXAEBVCDWordArray@@@Z -> public: void __cdecl CTBBrowserWnd::SetHeaderCol(class CDWordArray const & __ptr64) __ptr64
+?SetHeaderRow@CTBBrowserWnd@@QEAAXAEBV?$CArray@II@@H@Z -> public: void __cdecl CTBBrowserWnd::SetHeaderRow(class CArray<unsigned int,unsigned int> const & __ptr64,int) __ptr64
+?SetHeaderRow@CTBBrowserWnd@@QEAAXAEBVCDWordArray@@@Z -> public: void __cdecl CTBBrowserWnd::SetHeaderRow(class CDWordArray const & __ptr64) __ptr64
+?SetHeaderRow@CTBBrowserWnd@@QEAAXIH@Z -> public: void __cdecl CTBBrowserWnd::SetHeaderRow(unsigned int,int) __ptr64
+?SetHeaderRowCount@CTBBrowserWnd@@QEAAXI@Z -> public: void __cdecl CTBBrowserWnd::SetHeaderRowCount(unsigned int) __ptr64
+?SetHeaderTitle@CTBBrowserFRPMatl@@AEAAXXZ -> private: void __cdecl CTBBrowserFRPMatl::SetHeaderTitle(void) __ptr64
+?SetHeaderTitle@CTBBrowserWndEx@@UEAAXPEAW4UNITType@@HH@Z -> public: virtual void __cdecl CTBBrowserWndEx::SetHeaderTitle(enum UNITType * __ptr64,int,int) __ptr64
+?SetHeaderTitle@CTBCommon@@UEAAXHH@Z -> public: virtual void __cdecl CTBCommon::SetHeaderTitle(int,int) __ptr64
+?SetID@CTBRecHdr@@IEAAHHHH@Z -> protected: int __cdecl CTBRecHdr::SetID(int,int,int) __ptr64
+?SetInitUnit@CTBBrowserWndStlSection@@AEAAXXZ -> private: void __cdecl CTBBrowserWndStlSection::SetInitUnit(void) __ptr64
+?SetInitialUnit@CTBBrowserFRPMatl@@AEAAXXZ -> private: void __cdecl CTBBrowserFRPMatl::SetInitialUnit(void) __ptr64
+?SetLeftValidCell@CEditGrid@@QEAAHKK@Z -> public: int __cdecl CEditGrid::SetLeftValidCell(unsigned long,unsigned long) __ptr64
+?SetLeftValidCell@CTBBrowserWnd@@QEAAHKK@Z -> public: int __cdecl CTBBrowserWnd::SetLeftValidCell(unsigned long,unsigned long) __ptr64
+?SetMetaInfo@CTBGrid@@QEAAXPEAVCTBMetaInfo@@H@Z -> public: void __cdecl CTBGrid::SetMetaInfo(class CTBMetaInfo * __ptr64,int) __ptr64
+?SetModeDisplayOnly@CTBBrowserWnd@@QEAAXH@Z -> public: void __cdecl CTBBrowserWnd::SetModeDisplayOnly(int) __ptr64
+?SetOKText@CFolderDialog@@IEAAXPEB_W@Z -> protected: void __cdecl CFolderDialog::SetOKText(wchar_t const * __ptr64) __ptr64
+?SetPreRowCount@CTBColHdr@@QEAAXH@Z -> public: void __cdecl CTBColHdr::SetPreRowCount(int) __ptr64
+?SetPrefInfo2@CTBGrid@@QEAAXPEB_WPEAV?$CArray@USTBPrefItem@@AEAU1@@@@Z -> public: void __cdecl CTBGrid::SetPrefInfo2(wchar_t const * __ptr64,class CArray<struct STBPrefItem,struct STBPrefItem & __ptr64> * __ptr64) __ptr64
+?SetPrefInfo@CTBStyle@@QEAAXPEAV?$CArray@USTBPrefItem@@AEAU1@@@@Z -> public: void __cdecl CTBStyle::SetPrefInfo(class CArray<struct STBPrefItem,struct STBPrefItem & __ptr64> * __ptr64) __ptr64
+?SetReadOnly@CEditGrid@@QEAAXKKKKH@Z -> public: void __cdecl CEditGrid::SetReadOnly(unsigned long,unsigned long,unsigned long,unsigned long,int) __ptr64
+?SetReadOnly@CTBBrowserWnd@@QEAAXAEBV?$vector@KV?$allocator@K@std@@@std@@0H@Z -> public: void __cdecl CTBBrowserWnd::SetReadOnly(class std::vector<unsigned long,class std::allocator<unsigned long> > const & __ptr64,class std::vector<unsigned long,class std::allocator<unsigned long> > const & __ptr64,int) __ptr64
+?SetReadOnly@CTBBrowserWnd@@QEAAXAEBV?$vector@KV?$allocator@K@std@@@std@@KH@Z -> public: void __cdecl CTBBrowserWnd::SetReadOnly(class std::vector<unsigned long,class std::allocator<unsigned long> > const & __ptr64,unsigned long,int) __ptr64
+?SetReadOnly@CTBBrowserWnd@@QEAAXKAEBV?$vector@KV?$allocator@K@std@@@std@@H@Z -> public: void __cdecl CTBBrowserWnd::SetReadOnly(unsigned long,class std::vector<unsigned long,class std::allocator<unsigned long> > const & __ptr64,int) __ptr64
+?SetReadOnly@CTBBrowserWnd@@QEAAXKH@Z -> public: void __cdecl CTBBrowserWnd::SetReadOnly(unsigned long,int) __ptr64
+?SetReadOnly@CTBBrowserWnd@@QEAAXKKH@Z -> public: void __cdecl CTBBrowserWnd::SetReadOnly(unsigned long,unsigned long,int) __ptr64
+?SetRecCount@CTBRecCtrl@@QEAAHH@Z -> public: int __cdecl CTBRecCtrl::SetRecCount(int) __ptr64
+?SetRecValue@CTBRecCtrl@@IEAAHPEAVCGXData@@HHPEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> protected: int __cdecl CTBRecCtrl::SetRecValue(class CGXData * __ptr64,int,int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > * __ptr64) __ptr64
+?SetRecordCount@CTBBrowserWnd@@QEAAHKI@Z -> public: int __cdecl CTBBrowserWnd::SetRecordCount(unsigned long,unsigned int) __ptr64
+?SetRecordValidation@CTBBrowserWnd@@IEAAHH@Z -> protected: int __cdecl CTBBrowserWnd::SetRecordValidation(int) __ptr64
+?SetReturnDir@CTBBrowserWnd@@QEAAXI@Z -> public: void __cdecl CTBBrowserWnd::SetReturnDir(unsigned int) __ptr64
+?SetReturnDirection@CEditGrid@@QEAAXH@Z -> public: void __cdecl CEditGrid::SetReturnDirection(int) __ptr64
+?SetReturnValidCell@CEditGrid@@AEAAHKK@Z -> private: int __cdecl CEditGrid::SetReturnValidCell(unsigned long,unsigned long) __ptr64
+?SetReturnValidCell@CTBBrowserWnd@@QEAAHKK@Z -> public: int __cdecl CTBBrowserWnd::SetReturnValidCell(unsigned long,unsigned long) __ptr64
+?SetRightValidCell@CEditGrid@@QEAAHKK@Z -> public: int __cdecl CEditGrid::SetRightValidCell(unsigned long,unsigned long) __ptr64
+?SetRightValidCell@CTBBrowserWnd@@QEAAHKK@Z -> public: int __cdecl CTBBrowserWnd::SetRightValidCell(unsigned long,unsigned long) __ptr64
+?SetRootFolder@CFolderDialog@@QEAAHPEB_W@Z -> public: int __cdecl CFolderDialog::SetRootFolder(wchar_t const * __ptr64) __ptr64
+?SetRowColCount@CTBColHdr@@QEAAHHH@Z -> public: int __cdecl CTBColHdr::SetRowColCount(int,int) __ptr64
+?SetRowColCount@CTBRecHdr@@IEAAHHH@Z -> protected: int __cdecl CTBRecHdr::SetRowColCount(int,int) __ptr64
+?SetRowCount@CTBBrowserWnd@@UEAAHKI@Z -> public: virtual int __cdecl CTBBrowserWnd::SetRowCount(unsigned long,unsigned int) __ptr64
+?SetRowHeader@CTBBrowserWndStlSection@@AEAAXXZ -> private: void __cdecl CTBBrowserWndStlSection::SetRowHeader(void) __ptr64
+?SetRowHeight@CEditGrid@@QEAAHKKH@Z -> public: int __cdecl CEditGrid::SetRowHeight(unsigned long,unsigned long,int) __ptr64
+?SetRowHeight@CEditGrid@@QEAAXPEAHH@Z -> public: void __cdecl CEditGrid::SetRowHeight(int * __ptr64,int) __ptr64
+?SetRowUnitInfo@CTBBrowserWndUnit@@QEAAHKW4UNITType@@@Z -> public: int __cdecl CTBBrowserWndUnit::SetRowUnitInfo(unsigned long,enum UNITType) __ptr64
+?SetRowUnitInfo@CTBCommonUnit@@QEAAHKW4UNITType@@@Z -> public: int __cdecl CTBCommonUnit::SetRowUnitInfo(unsigned long,enum UNITType) __ptr64
+?SetSelectedFolder@CFolderDialog@@QEAAHPEB_W@Z -> public: int __cdecl CFolderDialog::SetSelectedFolder(wchar_t const * __ptr64) __ptr64
+?SetSelection@CFolderDialog@@IEAAXPEB_W@Z -> protected: void __cdecl CFolderDialog::SetSelection(wchar_t const * __ptr64) __ptr64
+?SetSelection@CFolderDialog@@IEAAXPEFAU_ITEMIDLIST@@@Z -> protected: void __cdecl CFolderDialog::SetSelection(struct _ITEMIDLIST __unaligned * __ptr64) __ptr64
+?SetSizeColumn@CTBBrowserFRPMatl@@AEAAXXZ -> private: void __cdecl CTBBrowserFRPMatl::SetSizeColumn(void) __ptr64
+?SetSizeColumn@CTBBrowserWndStlSection@@AEAAXXZ -> private: void __cdecl CTBBrowserWndStlSection::SetSizeColumn(void) __ptr64
+?SetSizeRow@CTBBrowserFRPMatl@@AEAAXXZ -> private: void __cdecl CTBBrowserFRPMatl::SetSizeRow(void) __ptr64
+?SetSortDlg@CTBSort@@QEAAXPEAVCTBSortDlg@@@Z -> public: void __cdecl CTBSort::SetSortDlg(class CTBSortDlg * __ptr64) __ptr64
+?SetSpecialInfo@CEditGrid@@QEAAXHAEAV?$CArray@UEG_SORT@@AEAU1@@@K@Z -> public: void __cdecl CEditGrid::SetSpecialInfo(int,class CArray<struct EG_SORT,struct EG_SORT & __ptr64> & __ptr64,unsigned long) __ptr64
+?SetStatusText@CFolderDialog@@IEAAXPEB_W@Z -> protected: void __cdecl CFolderDialog::SetStatusText(wchar_t const * __ptr64) __ptr64
+?SetStyleRangeCheckListComboBox@CTBBrowserWnd@@QEAAHAEBVCGXRange@@PEB_W@Z -> public: int __cdecl CTBBrowserWnd::SetStyleRangeCheckListComboBox(class CGXRange const & __ptr64,wchar_t const * __ptr64) __ptr64
+?SetTextColor@CEditGrid@@QEAAXKKKKK@Z -> public: void __cdecl CEditGrid::SetTextColor(unsigned long,unsigned long,unsigned long,unsigned long,unsigned long) __ptr64
+?SetTextUnitInfo@CTBBrowserWndUnit@@QEAAHKKW4UNITType@@HV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl CTBBrowserWndUnit::SetTextUnitInfo(unsigned long,unsigned long,enum UNITType,int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetTextUnitInfo@CTBCommonUnit@@QEAAHKKW4UNITType@@HV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl CTBCommonUnit::SetTextUnitInfo(unsigned long,unsigned long,enum UNITType,int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetTitle@CTBColHdr@@QEAAHHHV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@W4UNITType@@@Z -> public: int __cdecl CTBColHdr::SetTitle(int,int,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,enum UNITType) __ptr64
+?SetUnitCell@CEditGrid@@QEAAXW4CELTYPE@@KKW4UNITType@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CEditGrid::SetUnitCell(enum CELTYPE,unsigned long,unsigned long,enum UNITType,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetUnitNextLine@CEditGrid@@QEAAXH@Z -> public: void __cdecl CEditGrid::SetUnitNextLine(int) __ptr64
+?SetUnitNextLine@CTBBrowserWndUnit@@QEAAXH@Z -> public: void __cdecl CTBBrowserWndUnit::SetUnitNextLine(int) __ptr64
+?SetUnitNextLine@CTBCommonUnit@@QEAAXH@Z -> public: void __cdecl CTBCommonUnit::SetUnitNextLine(int) __ptr64
+?SetUnitType@CTBBrowserWndUnit@@QEAAXH@Z -> public: void __cdecl CTBBrowserWndUnit::SetUnitType(int) __ptr64
+?SetUnitType@CTBCommonUnit@@QEAAXH@Z -> public: void __cdecl CTBCommonUnit::SetUnitType(int) __ptr64
+?SetUpValidCell@CTBBrowserWnd@@QEAAHKK@Z -> public: int __cdecl CTBBrowserWnd::SetUpValidCell(unsigned long,unsigned long) __ptr64
+?SetVal@CEditGrid@@QEAAHKKH@Z -> public: int __cdecl CEditGrid::SetVal(unsigned long,unsigned long,int) __ptr64
+?SetVal@CEditGrid@@QEAAHKKN@Z -> public: int __cdecl CEditGrid::SetVal(unsigned long,unsigned long,double) __ptr64
+?SetVal@CEditGrid@@QEAAHKKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: int __cdecl CEditGrid::SetVal(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?SetValueRowColBeforeEdit@CTBBrowserWnd@@QEAAXKAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CTBBrowserWnd::SetValueRowColBeforeEdit(unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64
+?ShowColorDlg@CTBGrid@@SAXXZ -> public: static void __cdecl CTBGrid::ShowColorDlg(void)
+?ShowSelected@CTBBrowserWndEx@@QEAAXXZ -> public: void __cdecl CTBBrowserWndEx::ShowSelected(void) __ptr64
+?ShowSortDlg@CTBBrowserWndEx@@QEAAXXZ -> public: void __cdecl CTBBrowserWndEx::ShowSortDlg(void) __ptr64
+?ShowSortDlg@CTBSort@@QEAAXXZ -> public: void __cdecl CTBSort::ShowSortDlg(void) __ptr64
+?ShowStyleDlg@CTBBrowserWndEx@@QEAAXXZ -> public: void __cdecl CTBBrowserWndEx::ShowStyleDlg(void) __ptr64
+?ShowStyleDlg@CTBStyle@@QEAAHXZ -> public: int __cdecl CTBStyle::ShowStyleDlg(void) __ptr64
+?Sort@CEditGrid@@QEAAHXZ -> public: int __cdecl CEditGrid::Sort(void) __ptr64
+?Sort@CTBBrowserWndEx@@QEAAXKHH@Z -> public: void __cdecl CTBBrowserWndEx::Sort(unsigned long,int,int) __ptr64
+?Sort@CTBBrowserWndEx@@UEAAHAEAV?$CArray@USTBSortItem@@U1@@@@Z -> public: virtual int __cdecl CTBBrowserWndEx::Sort(class CArray<struct STBSortItem,struct STBSortItem> & __ptr64) __ptr64
+?Sort@CTBCore@@UEAAHAEAV?$CArray@USTBSortItem@@U1@@@@Z -> public: virtual int __cdecl CTBCore::Sort(class CArray<struct STBSortItem,struct STBSortItem> & __ptr64) __ptr64
+?Sort@CTBGrid@@UEAAHAEAV?$CArray@USTBSortItem@@U1@@@@Z -> public: virtual int __cdecl CTBGrid::Sort(class CArray<struct STBSortItem,struct STBSortItem> & __ptr64) __ptr64
+?Sort@CTBSort@@QEAAHAEAV?$CArray@USTBSortItem@@U1@@@@Z -> public: int __cdecl CTBSort::Sort(class CArray<struct STBSortItem,struct STBSortItem> & __ptr64) __ptr64
+?Sort@CTBSortCtrl@@QEAAHAEAV?$CArray@USTBSortItem@@U1@@@@Z -> public: int __cdecl CTBSortCtrl::Sort(class CArray<struct STBSortItem,struct STBSortItem> & __ptr64) __ptr64
+?SortTable@CTBBrowserWndEx@@QEAAXAEAVCGXSortInfoArray@@@Z -> public: void __cdecl CTBBrowserWndEx::SortTable(class CGXSortInfoArray & __ptr64) __ptr64
+?StartGridUpdate@CEditGrid@@QEAAXXZ -> public: void __cdecl CEditGrid::StartGridUpdate(void) __ptr64
+?StartGridUpdate@CTBBrowserWndUnit@@QEAAXXZ -> public: void __cdecl CTBBrowserWndUnit::StartGridUpdate(void) __ptr64
+?StartGridUpdate@CTBCommonUnit@@QEAAXXZ -> public: void __cdecl CTBCommonUnit::StartGridUpdate(void) __ptr64
+?StoreChangedValue@CTBCheckListComboBox@@IEAAHXZ -> protected: int __cdecl CTBCheckListComboBox::StoreChangedValue(void) __ptr64
+?UnitChanged@CTBCommon@@UEAAXXZ -> public: virtual void __cdecl CTBCommon::UnitChanged(void) __ptr64
+?UpdateBuffer@CTBCommon@@UEAAXPEAVCObject@@@Z -> public: virtual void __cdecl CTBCommon::UpdateBuffer(class CObject * __ptr64) __ptr64
+?UpdateFindParam@CTBCore@@UEAAXAEAUSTBFindStruct@@@Z -> public: virtual void __cdecl CTBCore::UpdateFindParam(struct STBFindStruct & __ptr64) __ptr64
+?UpdateFindParam@CTBGrid@@UEAAXAEAUSTBFindStruct@@@Z -> public: virtual void __cdecl CTBGrid::UpdateFindParam(struct STBFindStruct & __ptr64) __ptr64
+?UpdateNumberCol@CEditGrid@@AEAAXXZ -> private: void __cdecl CEditGrid::UpdateNumberCol(void) __ptr64
+?UpdateUnit@CTBCore@@QEAAXXZ -> public: void __cdecl CTBCore::UpdateUnit(void) __ptr64
+?UpdateUnit@CTBDataSrc@@UEAAXXZ -> public: virtual void __cdecl CTBDataSrc::UpdateUnit(void) __ptr64
+?UserDefinedInit@CTBDataSrc@@UEAAHXZ -> public: virtual int __cdecl CTBDataSrc::UserDefinedInit(void) __ptr64
+?ValidateError@CTBBrowserWnd@@QEAAHPEB_W@Z -> public: int __cdecl CTBBrowserWnd::ValidateError(wchar_t const * __ptr64) __ptr64
+?WriteOKCH@CTBBrowserWnd@@QEAAXKKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: void __cdecl CTBBrowserWnd::WriteOKCH(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int) __ptr64
+?WriteOKNG@CTBBrowserWnd@@QEAAXKKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: void __cdecl CTBBrowserWnd::WriteOKNG(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int) __ptr64
+?WriteRatio@CTBBrowserWnd@@QEAAXKKN@Z -> public: void __cdecl CTBBrowserWnd::WriteRatio(unsigned long,unsigned long,double) __ptr64
+?WriteRatio@CTBBrowserWnd@@QEAAXKKNH@Z -> public: void __cdecl CTBBrowserWnd::WriteRatio(unsigned long,unsigned long,double,int) __ptr64
+?WriteRatio@CTBBrowserWnd@@QEAAXKKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CTBBrowserWnd::WriteRatio(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?WriteRatio@CTBBrowserWnd@@QEAAXKKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@H@Z -> public: void __cdecl CTBBrowserWnd::WriteRatio(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,int) __ptr64
+?WriteRatioOKCH@CTBBrowserWnd@@QEAAXKKNH@Z -> public: void __cdecl CTBBrowserWnd::WriteRatioOKCH(unsigned long,unsigned long,double,int) __ptr64
+?WriteRatioOKCH@CTBBrowserWnd@@QEAAXKKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CTBBrowserWnd::WriteRatioOKCH(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?WriteRebarSpaceFromClipboard@CTBBrowserWnd@@QEAAXKKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CTBBrowserWnd::WriteRebarSpaceFromClipboard(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?WriteToReadOnlyCell@CTBBrowserWnd@@QEAAXKKH@Z -> public: void __cdecl CTBBrowserWnd::WriteToReadOnlyCell(unsigned long,unsigned long,int) __ptr64
+?WriteToReadOnlyCell@CTBBrowserWnd@@QEAAXKKI@Z -> public: void __cdecl CTBBrowserWnd::WriteToReadOnlyCell(unsigned long,unsigned long,unsigned int) __ptr64
+?WriteToReadOnlyCell@CTBBrowserWnd@@QEAAXKKN@Z -> public: void __cdecl CTBBrowserWnd::WriteToReadOnlyCell(unsigned long,unsigned long,double) __ptr64
+?WriteToReadOnlyCell@CTBBrowserWnd@@QEAAXKKPEB_W@Z -> public: void __cdecl CTBBrowserWnd::WriteToReadOnlyCell(unsigned long,unsigned long,wchar_t const * __ptr64) __ptr64
+?WriteToReadOnlyCell@CTBBrowserWnd@@QEAAXKKV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CTBBrowserWnd::WriteToReadOnlyCell(unsigned long,unsigned long,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?WriteToReadOnlyCell@CTBBrowserWnd@@QEAAXKK_N@Z -> public: void __cdecl CTBBrowserWnd::WriteToReadOnlyCell(unsigned long,unsigned long,bool) __ptr64
+?WriteToReadOnlyCell@CTBBrowserWnd@@QEAAXKK_W@Z -> public: void __cdecl CTBBrowserWnd::WriteToReadOnlyCell(unsigned long,unsigned long,wchar_t) __ptr64
+?WriteToRegistry@CTBGrid@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z -> public: void __cdecl CTBGrid::WriteToRegistry(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >) __ptr64
+?WriteUnitString@CTBBrowserFRPMatl@@AEAAXXZ -> private: void __cdecl CTBBrowserFRPMatl::WriteUnitString(void) __ptr64
+?WriteUnitText@CTBBrowserWndStlSection@@AEAAXXZ -> private: void __cdecl CTBBrowserWndStlSection::WriteUnitText(void) __ptr64
+?_GetBaseClass@CEditGrid@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CEditGrid::_GetBaseClass(void)
+?_GetBaseClass@CFolderDialog@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CFolderDialog::_GetBaseClass(void)
+?_GetBaseClass@CTBBrowserFRPMatl@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CTBBrowserFRPMatl::_GetBaseClass(void)
+?_GetBaseClass@CTBBrowserWnd@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CTBBrowserWnd::_GetBaseClass(void)
+?_GetBaseClass@CTBBrowserWndStlSection@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CTBBrowserWndStlSection::_GetBaseClass(void)
+?_GetBaseClass@CTBBrowserWndUnit@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CTBBrowserWndUnit::_GetBaseClass(void)
+?_GetBaseClass@CTBCheckListComboBox@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CTBCheckListComboBox::_GetBaseClass(void)
+?_GetBaseClass@CTBGrid@@KAPEAUCRuntimeClass@@XZ -> protected: static struct CRuntimeClass * __ptr64 __cdecl CTBGrid::_GetBaseClass(void)
+?_GetControlBaseClass@CTBSortColHeader@@KAPEAUCGXControlClass@@XZ -> protected: static struct CGXControlClass * __ptr64 __cdecl CTBSortColHeader::_GetControlBaseClass(void)
+?classCEditGrid@CEditGrid@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CEditGrid::classCEditGrid
+?classCFolderDialog@CFolderDialog@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CFolderDialog::classCFolderDialog
+?classCTBBrowserFRPMatl@CTBBrowserFRPMatl@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CTBBrowserFRPMatl::classCTBBrowserFRPMatl
+?classCTBBrowserWnd@CTBBrowserWnd@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CTBBrowserWnd::classCTBBrowserWnd
+?classCTBBrowserWndStlSection@CTBBrowserWndStlSection@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CTBBrowserWndStlSection::classCTBBrowserWndStlSection
+?classCTBBrowserWndUnit@CTBBrowserWndUnit@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CTBBrowserWndUnit::classCTBBrowserWndUnit
+?classCTBCheckListComboBox@CTBCheckListComboBox@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CTBCheckListComboBox::classCTBCheckListComboBox
+?classCTBGrid@CTBGrid@@2UCRuntimeClass@@B -> public: static struct CRuntimeClass const CTBGrid::classCTBGrid
+?m_Color@CTBGrid@@2USTBColorSet@@A -> public: static struct STBColorSet CTBGrid::m_Color
+?m_Find@CTBGrid@@2USTBFindStruct@@A -> public: static struct STBFindStruct CTBGrid::m_Find
+?m_aInstances@CTBGrid@@2V?$CArray@PEAVCTBGrid@@PEAV1@@@A -> public: static class CArray<class CTBGrid * __ptr64,class CTBGrid * __ptr64> CTBGrid::m_aInstances
+?m_aPrefInfo@CTBGrid@@2V?$CArray@PEAV?$CArray@USTBPrefItem@@AEAU1@@@PEAV1@@@A -> public: static class CArray<class CArray<struct STBPrefItem,struct STBPrefItem & __ptr64> * __ptr64,class CArray<struct STBPrefItem,struct STBPrefItem & __ptr64> * __ptr64> CTBGrid::m_aPrefInfo
+?m_aTableName@CTBGrid@@2V?$CArray@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV12@@@A -> public: static class CArray<class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64> CTBGrid::m_aTableName
+?m_bCurrentRowOutline@CTBGrid@@2HA -> public: static int CTBGrid::m_bCurrentRowOutline
+?m_dblZeroTol@CTBSortCtrl@@2NA -> public: static double CTBSortCtrl::m_dblZeroTol
+?m_nComp@CTBSortCtrl@@2HA -> public: static int CTBSortCtrl::m_nComp
+?m_nPercentUnit@CTBSortCtrl@@2HA -> public: static int CTBSortCtrl::m_nPercentUnit
+?m_pLongOp@CTBSortCtrl@@2PEAVCGXLongOperation@@EA -> public: static class CGXLongOperation * __ptr64 __ptr64 CTBSortCtrl::m_pLongOp
+?m_pThis@CTBSortCtrl@@2PEAV1@EA -> public: static class CTBSortCtrl * __ptr64 __ptr64 CTBSortCtrl::m_pThis
+Init_MIDAS_utildll -> Init_MIDAS_utildll
