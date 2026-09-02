@@ -1,0 +1,78 @@
+{
+  "program": "DPLUS_DB.dll",
+  "matched_count": 12,
+  "functions": [
+    {
+      "name": "??0CAluSectDB@@QEAA@XZ",
+      "full_symbol": "public: __cdecl CAluSectDB::CAluSectDB(void) __ptr64",
+      "file": "db___0CAluSectDB__QEAA_XZ.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "??1CAluSectDB@@UEAA@XZ",
+      "full_symbol": "public: virtual __cdecl CAluSectDB::~CAluSectDB(void) __ptr64",
+      "file": "db___1CAluSectDB__UEAA_XZ.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "??_7CAluSectDB@@6B@",
+      "full_symbol": "const CAluSectDB::`vftable'",
+      "file": "db____7CAluSectDB__6B_.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?AddAluSect@CAluSectDB@@QEAA_NAEAUT_GUMD_ALU_SECT@@@Z",
+      "full_symbol": "public: bool __cdecl CAluSectDB::AddAluSect(struct T_GUMD_ALU_SECT & __ptr64) __ptr64",
+      "file": "db__AddAluSect_CAluSectDB__QEAA_NAEAUT_GUMD_ALU_SECT___Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?ChangeUnitSystem@CAluSectDB@@IEAAXH@Z",
+      "full_symbol": "protected: void __cdecl CAluSectDB::ChangeUnitSystem(int) __ptr64",
+      "file": "db__ChangeUnitSystem_CAluSectDB__IEAAXH_Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?GetAluSectDB@CDBDoc@@QEAAPEAVCAluSectDB@@XZ",
+      "full_symbol": "public: class CAluSectDB * __ptr64 __cdecl CDBDoc::GetAluSectDB(void) __ptr64",
+      "file": "db__GetAluSectDB_CDBDoc__QEAAPEAVCAluSectDB__XZ.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?GetFactorforConvertCurUnit@CAluSectDB@@IEAANW4UNITType@@@Z",
+      "full_symbol": "protected: double __cdecl CAluSectDB::GetFactorforConvertCurUnit(enum UNITType) __ptr64",
+      "file": "db__GetFactorforConvertCurUnit_CAluSectDB__IEAANW4UNITType___Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?GetPath@CAluSectDB@@IEAA_NAEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z",
+      "full_symbol": "protected: bool __cdecl CAluSectDB::GetPath(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64) __ptr64",
+      "file": "db__GetPath_CAluSectDB__IEAA_NAEAV__CStringT__WV__StrTraitMFC_DLL__WV__ChTraitsCRT__W_ATL_____ATL___Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?GetSectData@CAluSectDB@@QEAA_NAEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAUT_IMPORT_SPC@@@Z",
+      "full_symbol": "public: bool __cdecl CAluSectDB::GetSectData(class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > const & __ptr64,struct T_IMPORT_SPC & __ptr64) __ptr64",
+      "file": "db__GetSectData_CAluSectDB__QEAA_NAEBV__CStringT__WV__StrTraitMFC_DLL__WV__ChTraitsCRT__W_ATL_____ATL__AEAUT_IMPORT_SPC___Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?GetSectNameList@CAluSectDB@@QEAAJAEAV?$CArray@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@AEAV12@@@_N@Z",
+      "full_symbol": "public: long __cdecl CAluSectDB::GetSectNameList(class CArray<class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > >,class ATL::CStringT<wchar_t,class StrTraitMFC_DLL<wchar_t,class ATL::ChTraitsCRT<wchar_t> > > & __ptr64> & __ptr64,bool) __ptr64",
+      "file": "db__GetSectNameList_CAluSectDB__QEAAJAEAV__CArray_V__CStringT__WV__StrTraitMFC_DLL__WV__ChTraitsCRT__W_ATL_____ATL__AEAV12____N_Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?Initialize@CAluSectDB@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CAluSectDB::Initialize(void) __ptr64",
+      "file": "db__Initialize_CAluSectDB__QEAAXXZ.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?MakeSectData@CAluSectDB@@IEAA_NXZ",
+      "full_symbol": "protected: bool __cdecl CAluSectDB::MakeSectData(void) __ptr64",
+      "file": "db__MakeSectData_CAluSectDB__IEAA_NXZ.c",
+      "module": "DPLUS_DB.dll"
+    }
+  ]
+}

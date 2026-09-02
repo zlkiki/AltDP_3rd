@@ -1,0 +1,90 @@
+{
+  "program": "DPLUS_RCS.dll",
+  "matched_count": 14,
+  "functions": [
+    {
+      "name": "?CHK_BBBE@CRCSCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_BBBE(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "rc__CHK_BBBE_CRCSCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_BBBE@CRCSCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_BBBE(unsigned int) __ptr64",
+      "file": "rc__CHK_BBBE_CRCSCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_BWUW@CRCSCodeCheck@@QEAA_NAEBV?$CArray@II@@_N@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_BWUW(class CArray<unsigned int,unsigned int> const & __ptr64,bool) __ptr64",
+      "file": "rc__CHK_BWUW_CRCSCodeCheck__QEAA_NAEBV__CArray_II___N_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_BWUW@CRCSCodeCheck@@QEAA_NI_N@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_BWUW(unsigned int,bool) __ptr64",
+      "file": "rc__CHK_BWUW_CRCSCodeCheck__QEAA_NI_N_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_SLAB@CRCSCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_SLAB(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "rc__CHK_SLAB_CRCSCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_SLAB@CRCSCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_SLAB(unsigned int) __ptr64",
+      "file": "rc__CHK_SLAB_CRCSCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_UFDN@CRCSCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_UFDN(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "rc__CHK_UFDN_CRCSCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_UFDN@CRCSCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_UFDN(unsigned int) __ptr64",
+      "file": "rc__CHK_UFDN_CRCSCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_URAB@CRCSCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_URAB(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "rc__CHK_URAB_CRCSCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_URAB@CRCSCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_URAB(unsigned int) __ptr64",
+      "file": "rc__CHK_URAB_CRCSCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_URBE@CRCSCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_URBE(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "rc__CHK_URBE_CRCSCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_URBE@CRCSCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_URBE(unsigned int) __ptr64",
+      "file": "rc__CHK_URBE_CRCSCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SMART_CHK_BWUW@CRCSCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::SMART_CHK_BWUW(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "rc__SMART_CHK_BWUW_CRCSCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SMART_CHK_BWUW@CRCSCodeCheck@@QEAA_NIAEBUT_GURWO_D@@@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::SMART_CHK_BWUW(unsigned int,struct T_GURWO_D const & __ptr64) __ptr64",
+      "file": "rc__SMART_CHK_BWUW_CRCSCodeCheck__QEAA_NIAEBUT_GURWO_D___Z.c",
+      "module": "DPLUS_RCS.dll"
+    }
+  ]
+}

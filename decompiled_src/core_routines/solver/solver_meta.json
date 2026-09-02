@@ -1,0 +1,30 @@
+{
+  "program": "DPLUS_RCS.dll",
+  "matched_count": 4,
+  "functions": [
+    {
+      "name": "?CHK_BCCO@CRCSCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_BCCO(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "solver__CHK_BCCO_CRCSCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_BCCO@CRCSCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_BCCO(unsigned int) __ptr64",
+      "file": "solver__CHK_BCCO_CRCSCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_BCGR@CRCSCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_BCGR(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "solver__CHK_BCGR_CRCSCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?CHK_BCGR@CRCSCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CRCSCodeCheck::CHK_BCGR(unsigned int) __ptr64",
+      "file": "solver__CHK_BCGR_CRCSCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_RCS.dll"
+    }
+  ]
+}

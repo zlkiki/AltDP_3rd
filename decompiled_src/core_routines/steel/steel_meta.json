@@ -1,0 +1,108 @@
+{
+  "program": "DPLUS_STEEL.dll",
+  "matched_count": 17,
+  "functions": [
+    {
+      "name": "?CHK_USBC@CSTLCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USBC(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "steel__CHK_USBC_CSTLCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USBC@CSTLCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USBC(unsigned int) __ptr64",
+      "file": "steel__CHK_USBC_CSTLCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USBP@CSTLCodeCheck@@AEAA_NIII@Z",
+      "full_symbol": "private: bool __cdecl CSTLCodeCheck::CHK_USBP(unsigned int,unsigned int,unsigned int) __ptr64",
+      "file": "steel__CHK_USBP_CSTLCodeCheck__AEAA_NIII_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USBP@CSTLCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USBP(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "steel__CHK_USBP_CSTLCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USBP@CSTLCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USBP(unsigned int) __ptr64",
+      "file": "steel__CHK_USBP_CSTLCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USEP@CSTLCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USEP(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "steel__CHK_USEP_CSTLCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USEP@CSTLCodeCheck@@QEAA_NIII@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USEP(unsigned int,unsigned int,unsigned int) __ptr64",
+      "file": "steel__CHK_USEP_CSTLCodeCheck__QEAA_NIII_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USMC@CSTLCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USMC(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "steel__CHK_USMC_CSTLCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USMC@CSTLCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USMC(unsigned int) __ptr64",
+      "file": "steel__CHK_USMC_CSTLCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USPG@CSTLCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USPG(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "steel__CHK_USPG_CSTLCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USPG@CSTLCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USPG(unsigned int) __ptr64",
+      "file": "steel__CHK_USPG_CSTLCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USWB@CSTLCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USWB(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "steel__CHK_USWB_CSTLCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USWB@CSTLCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USWB(unsigned int) __ptr64",
+      "file": "steel__CHK_USWB_CSTLCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USWE@CSTLCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USWE(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "steel__CHK_USWE_CSTLCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USWE@CSTLCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USWE(unsigned int) __ptr64",
+      "file": "steel__CHK_USWE_CSTLCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USWO@CSTLCodeCheck@@QEAA_NAEBV?$CArray@II@@@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USWO(class CArray<unsigned int,unsigned int> const & __ptr64) __ptr64",
+      "file": "steel__CHK_USWO_CSTLCodeCheck__QEAA_NAEBV__CArray_II___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?CHK_USWO@CSTLCodeCheck@@QEAA_NI@Z",
+      "full_symbol": "public: bool __cdecl CSTLCodeCheck::CHK_USWO(unsigned int) __ptr64",
+      "file": "steel__CHK_USWO_CSTLCodeCheck__QEAA_NI_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    }
+  ]
+}
