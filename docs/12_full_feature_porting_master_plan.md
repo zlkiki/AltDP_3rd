@@ -205,7 +205,7 @@ AGENTS.md의 **Goal 주도형 단계적 연속 구현** 및 **1이슈 1Phase 분
 | **`요구사항05`** | **RC 전단벽(Wall) & 슬래브(Slab)** | `core_routines/rc/rc__CHK_BWUW_*.c`, `SLAB_*.c` | `src/engine/rc/wall.py`, `src/engine/rc/slab.py` | **완료 (100%)** |
 | **`요구사항06`** | **RC 기초(Footing) & 지하외벽/옹벽** | `core_routines/rc/rc__CHK_UFDN_*.c`, `URAB_*.c`, `URBE_*.c` | `src/engine/rc/footing.py`, `src/engine/rc/retaining_wall.py` | 진행 예정 |
 | **`요구사항07`** | **철골 보(Beam) & 기둥(Column)/가새** | `core_routines/steel/steel__CHK_USMC_*.c`, `USWO_*.c`, `USPG_*.c` | `src/engine/steel/beam.py`, `src/engine/steel/column.py`, `brace.py` | 진행 예정 |
-| **`요구사항08`** | **철골 접합부 & 베이스플레이트** | `core_routines/steel/steel__CHK_USBC_*.c`, `USBP_*.c`, `USEP_*.c`, `USWE_*.c`, `USWB_*.c` | `src/engine/steel/connection.py`, `src/engine/steel/baseplate.py` | 진행 예정 |
+| **`요구사항08`** | **철골 접합부 & 베이스플레이트** | `core_routines/steel/steel__CHK_USBC_*.c`, `USBP_*.c`, `USEP_*.c`, `USWE_*.c`, `USWB_*.c` | `src/engine/steel/connection.py`, `src/engine/steel/endplate.py`, `baseplate.py` | **완료 (100%)** |
 | **`요구사항09`** | **A4 표준 구조계산서 출력 시스템** | `CMSOffice`, `CMSExcel`, `CMSWorkRec` 심볼군 | `src/report/generator.py`, `report_template.html`, PDF/인쇄 파이프라인 | 진행 예정 |
 | **`요구사항10`** | **SRC 합성부재 & 알루미늄/보강 엔진** | `DPLUS_SRC.dll`, `DPLUS_ALU.dll`, `DPLUS_RFM.dll` 심볼군 | `src/engine/src_composite/`, `src/engine/alu/`, `src/engine/rfm/` | 진행 예정 |
 | **`요구사항11`** | **통합 웹 UI/UX 완성 & 전수 무결성 검증** | 전체 47,110 심볼 및 47개 디컴파일 소스 전수 회귀 검증 | 통합 프론트엔드 UI, 3대 Pytest 스위트 100% 통과 | 진행 예정 |
