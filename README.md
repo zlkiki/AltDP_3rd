@@ -110,7 +110,7 @@ AltDP_3rd/
 │       ├── rc/                     # RC 5대 부재 핵심 설계식 (14건)
 │       ├── steel/                  # 철골 부재/접합부/주각부 (17건)
 │       └── db/                     # 형강 단면 기하학적 성질 (12건)
-├── docs/                           # 공식 기술 문서 모음 (14종 SSOT)
+├── docs/                           # 공식 기술 문서 모음 (15종 SSOT)
 │   ├── 01_system_architecture.md
 │   ├── 02_binary_reverse_engineering_specification.md
 │   ├── 03_section_db_specification.md
@@ -125,8 +125,8 @@ AltDP_3rd/
 │   ├── 13_midas_design_plus_original_ui_specification.md
 │   ├── 14_structural_calculation_report_specification.md
 │   ├── 15_fem_analysis_and_external_solver_specification.md
-│   ├── README.md
-│   └── 프로젝트_구조_및_파일_인벤토리_명세.md
+│   └── README.md
+
 ├── original_src/                   # 원본 바이너리 및 33종 .sdb 데이터베이스
 ├── scripts/                        # Ghidra Headless 자동 추출 파이프라인
 │   ├── ExportTargetFunctions.java  # Ghidra Decompiler AST C Export 스크립트

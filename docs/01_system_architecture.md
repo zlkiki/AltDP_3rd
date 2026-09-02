@@ -93,3 +93,75 @@ graph TD
   * 설계 하중점($(M_u, P_u)$) 플로팅 및 안전율(DCR: Demand-Capacity Ratio) 시각화.
 * **A4 표준 구조계산서 생성기 (`src/report/`)**:
   * 수식, 도해, 부재 형상, 판정표가 포함된 A4 인쇄 및 PDF 다운로드 지원.
+
+---
+
+## 3. AltDP_3rd 프로젝트 디렉토리 트리 및 파일 인벤토리
+
+```text
+AltDP_3rd/
+├── .agents/                        # AI 에이전트 마스터 가이드
+│   └── AGENTS.md                   # Agent 행동 규약, 0.1s 파일 라우팅 맵, KDS 연동 규칙
+├── decompiled_src/                 # 리버스 엔지니어링 덤프 자산 (Read-Only)
+│   ├── dll_inventory.json          # 20개 DLL별 심볼 및 클래스 통계 (47,110 심볼)
+│   ├── *_symbols.txt               # DLL별 4.7만개 C++ 언맹글 심볼 목록
+│   └── core_routines/              # [Ground Truth] 핵심 C 수도코드 자산 (200+ 파일)
+│       ├── README.md               # [SSOT] 전체 핵심 심볼 총괄 색인표
+│       ├── solver/                 # Group 1: P-M 상관도, CDBSolverTool, Iterative.exe, 접촉 솔버
+│       ├── rc/                     # Group 2: RC 5대 부재 설계식 (보, 기둥, 벽체, 슬래브, 기초, 옹벽)
+│       ├── steel/                  # Group 3 & 4: 철골보, 기둥, 가새, 접합부, 베이스플레이트, 엔드플레이트
+│       └── db/                     # Group 5: 단면 기하 성질 DB
+├── docs/                           # 공식 기술 문서 (SSOT 01 ~ 15)
+│   ├── 01_system_architecture.md
+│   ├── 02_binary_reverse_engineering_specification.md
+│   ├── 03_section_db_specification.md
+│   ├── 04_rc_design_specification.md
+│   ├── 05_steel_design_specification.md
+│   ├── 06_python_engine_architecture_specification.md
+│   ├── 07_web_application_ui_ux_specification.md
+│   ├── 08_pytest_testing_guide.md
+│   ├── 09_decompiled_source_and_symbol_inventory.md
+│   ├── 10_agent_development_protocols.md
+│   ├── 12_full_feature_porting_master_plan.md
+│   ├── 13_midas_design_plus_original_ui_specification.md
+│   ├── 14_structural_calculation_report_specification.md
+│   ├── 15_fem_analysis_and_external_solver_specification.md
+│   └── README.md
+├── original_src/                   # 원본 Midas Design+ 설치본 (Read-Only)
+│   └── Midas Design+/
+│       ├── Dbase/*.sdb             # 형강 데이터베이스 (KS, AISC 등 33개)
+│       └── DgnSolver/              # 유한요소/구조해석 솔버 (FES.EXE, mfsolver.exe, Iterative.exe)
+├── requirements.txt                # 파이썬 의존성 패키지
+├── pytest.ini                      # Pytest 테스트 설정
+├── run.ps1                         # 원클릭 서버 구동 및 브라우저 런처
+├── app_entry.py                    # 독립 실행형 엔트리포인트
+├── README.md                       # 프로젝트 공식 소개 및 퀵스타트
+├── scripts/                        # 유틸리티 및 Ghidra 추출 자동화 스크립트
+│   ├── install_ghidra_env.py       # Ghidra 12.1.3 & JDK 21 자동 설치기
+│   ├── ghidra_extract.py           # Ghidra 자동 추출 파이프라인 CLI
+│   └── extract_symbols.py          # PE 심볼 추출기
+├── src/                            # 신규 웹 애플리케이션 소스코드
+│   ├── api/                        # FastAPI 웹 API 계층
+│   │   ├── routes/                 # 부재별 API 라우트 (rc, steel, connection, composite, report, section)
+│   │   └── server.py               # 메인 서버 애플리케이션
+│   ├── engine/                     # 코어 공학 계산 엔진
+│   │   ├── rc/                     # RC 보, 기둥, 슬래브, 전단벽, 기초, 옹벽
+│   │   ├── steel/                  # 철골 보, 기둥, 가새, 접합부, 베이스플레이트, 엔드플레이트
+│   │   ├── src_composite/          # SRC 복합부재
+│   │   ├── alu/                    # 알루미늄 부재
+│   │   ├── rfm/                    # 탄소섬유/강판 보수보강
+│   │   ├── fem/                    # 2D FEM 평판 휨 (MITC4/DKT), 지반 스프링 및 비선형 접촉 솔버
+│   │   ├── db/                     # 형강 DB (.sdb 파서 및 조회기, 재료, 하중조합)
+│   │   └── solver/                 # P-M 상관도 및 파이버 단면 수치해석 솔버
+│   ├── report/                     # A4 표준 구조계산서 생성기 (HTML, Excel, PDF)
+│   └── web/                        # 프론트엔드 웹 UI
+│       ├── static/                 # CSS, JS, SVG 정적 자산 (renderer2d.js, pm_chart.js)
+│       └── templates/              # HTML Jinja2 템플릿
+├── tests/                          # 3대 도메인 자동화 테스트 스위트 (145 passed)
+│   ├── engine/                     # 공학 수식, 설계 엔진 및 FEM 솔버 테스트 (113 passed)
+│   ├── api/                        # REST API 엔드포인트 테스트 (25 passed)
+│   └── report/                     # 구조계산서 3대 포맷 렌더링 테스트 (7 passed)
+└── 요구사항/                       # 요구사항 명세서 관리
+    └── @@OLD/                      # 아카이빙된 완료 요구사항 (요구사항 01 ~ 12)
+```
+

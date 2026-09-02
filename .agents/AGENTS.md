@@ -66,10 +66,9 @@
 
 * 🎯 **[전 기능 포팅 마스터플랜 (Master Plan)](file:///d:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**
 * 📖 **[상세 개발 프로토콜 및 KDS 연동 가이드](file:///d:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)** (모델 전략, Self-Healing, 상세 규약)
-* 📑 **[프로젝트 파일 인벤토리 명세 (47,110 심볼)](file:///d:/PyProject/AltDP_3rd/docs/프로젝트_구조_및_파일_인벤토리_명세.md)**
-* 🗂️ **[추출 바이너리 및 심볼 자산 분석 명세서](file:///d:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md)**
-* 📐 **[전체 시스템 아키텍처](file:///d:/PyProject/AltDP_3rd/docs/01_system_architecture.md)** | 🔍 **[바이너리 역공학 명세](file:///d:/PyProject/AltDP_3rd/docs/02_binary_reverse_engineering_specification.md)**
-* 🧱 **[RC 설계 기준서](file:///d:/PyProject/AltDP_3rd/docs/04_rc_design_specification.md)** | 🏗️ **[철골 설계 기준서](file:///d:/PyProject/AltDP_3rd/docs/05_steel_design_specification.md)** | 📚 **[단면 형강 DB 명세](file:///d:/PyProject/AltDP_3rd/docs/03_section_db_specification.md)**
+* 📐 **[전체 시스템 아키텍처 & 파일 인벤토리](file:///d:/PyProject/AltDP_3rd/docs/01_system_architecture.md)** | 🗂️ **[추출 바이너리 및 심볼 자산 명세서](file:///d:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md)**
+* 🔍 **[바이너리 역공학 명세](file:///d:/PyProject/AltDP_3rd/docs/02_binary_reverse_engineering_specification.md)** | 🧱 **[RC 설계 기준서](file:///d:/PyProject/AltDP_3rd/docs/04_rc_design_specification.md)** | 🏗️ **[철골 설계 기준서](file:///d:/PyProject/AltDP_3rd/docs/05_steel_design_specification.md)** | 📚 **[단면 형강 DB 명세](file:///d:/PyProject/AltDP_3rd/docs/03_section_db_specification.md)**
 * 🚀 **[Python 독립 엔진 사양](file:///d:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md)** | 💻 **[Web UI/UX 사양](file:///d:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)** | 🖥️ **[Midas Design+ 원본 UI 역공학 사양](file:///d:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md)** | 📑 **[KDS 구조계산서 명세서](file:///d:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md)** | 🔬 **[FEM 해석 및 외부 솔버 역공학 사양](file:///d:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)** | 🧪 **[Pytest 테스트 가이드](file:///d:/PyProject/AltDP_3rd/docs/08_pytest_testing_guide.md)**
+
 
 

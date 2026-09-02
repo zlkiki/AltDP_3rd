@@ -8,9 +8,9 @@
 
 | 번호 | 문서명 | 내용 요약 | 링크 |
 |:---:|---|---|:---:|
-| 00 | **프로젝트 구조 및 파일 인벤토리 명세** | 47,110개 복원 심볼, 47종 C 수도코드 자산 맵 및 디렉토리 구조 | [상세보기](file:///d:/PyProject/AltDP_3rd/docs/프로젝트_구조_및_파일_인벤토리_명세.md) |
-| 01 | **전체 시스템 아키텍처** | 5대 계층(데이터, 수치해석, 설계엔진, API, 웹UI) 흐름도 | [상세보기](file:///d:/PyProject/AltDP_3rd/docs/01_system_architecture.md) |
+| 01 | **전체 시스템 아키텍처** | 5대 논리 계층, 데이터 흐름도 및 전체 프로젝트 디렉토리/파일 인벤토리 | [상세보기](file:///d:/PyProject/AltDP_3rd/docs/01_system_architecture.md) |
 | 02 | **바이너리 리버스 엔지니어링 명세** | Midas Design+ 바이너리 구조, Ghidra 추출 파이프라인 및 C 자산 | [상세보기](file:///d:/PyProject/AltDP_3rd/docs/02_binary_reverse_engineering_specification.md) |
+
 | 03 | **단면 형강 DB 명세** | `.sdb` 바이너리 포맷 파싱 및 JSON/SQLite 변환 사양 | [상세보기](file:///d:/PyProject/AltDP_3rd/docs/03_section_db_specification.md) |
 | 04 | **RC 부재설계 기준서 (KDS 14 20 00)** | 보, 기둥, 슬래브, 전단벽, 기초, 옹벽 수식집 및 C 소스 매핑 | [상세보기](file:///d:/PyProject/AltDP_3rd/docs/04_rc_design_specification.md) |
 | 05 | **철골 부재설계 기준서 (KDS 14 31 00)** | 철골보, 기둥, 가새, 접합부, 베이스플레이트 수식집 및 C 소스 매핑 | [상세보기](file:///d:/PyProject/AltDP_3rd/docs/05_steel_design_specification.md) |
