@@ -95,7 +95,7 @@ src/
 
 ## 6. 검증 및 수용 기준 (Acceptance Criteria)
 
-- [ ] **P-M 상관곡선 수치 일치성**: `decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c` 원본 값 및 MIDAS Design+ 결과 대비 상관곡선 오차 0.1% 미만.
-- [ ] **단면 수렴성 및 속도**: 파이버 100개 기준 단일 P-M 상관곡선(100개 포인트) 생성 시간 50ms 이내 완료.
-- [ ] **KDS 장주/이축휨 검증**: 세장비 $k L_u / r > 22$ 구간 모멘트 확대 및 Bresler 식 DCR 계산 무결성 100%.
-- [ ] **초고속 단위 테스트 통과**: `pytest tests/engine/test_fiber_section.py test_pm_diagram.py tests/api/test_rc_column_api.py` (100% 통과).
+- [x] **P-M 상관곡선 수치 일치성**: `decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c` 원본 값 및 MIDAS Design+ 결과 대비 상관곡선 오차 0.1% 미만.
+- [x] **단면 수렴성 및 속도**: 파이버 100개 기준 단일 P-M 상관곡선(100개 포인트) 생성 시간 50ms 이내 완료.
+- [x] **KDS 장주/이축휨 검증**: 세장비 $k L_u / r > 22$ 구간 모멘트 확대 및 Bresler 식 DCR 계산 무결성 100%.
+- [x] **초고속 단위 테스트 통과**: `pytest tests/engine/test_fiber_section.py test_pm_diagram.py test_rc_column.py tests/api/test_rc_column_api.py` (100% 통과).

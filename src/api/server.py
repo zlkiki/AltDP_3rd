@@ -10,6 +10,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.api.routes.rc import router as rc_router
+from src.api.routes.rc_wall_slab import router as rc_wall_slab_router
 from src.api.routes.steel import router as steel_router
 from src.api.routes.db import router as db_router
 
@@ -46,6 +47,7 @@ except Exception:
 
 # Include API routers
 app.include_router(rc_router)
+app.include_router(rc_wall_slab_router)
 app.include_router(steel_router)
 app.include_router(db_router)
 

@@ -201,9 +201,165 @@ async def auto_design_beam(req: RCBeamAutoDesignRequest):
         raise HTTPException(status_code=400, detail=str(e))
 
 
+from src.api.schemas.rc_column import RCColumnDesignRequest, PMCurveRequest
+from src.engine.rc.column import (
+    RCColumnInput,
+    design_rc_column,
+    create_standard_column_fiber_section,
+    RCColumnDesignResult
+)
+from src.engine.solver.pm_diagram import PMDiagramSolver
+import math
+
+
+@router.post("/column/design")
+async def design_column_comprehensive(req: RCColumnDesignRequest):
+    """Comprehensive RC Column design under slenderness, biaxial bending, shear, and tie detailing."""
+    try:
+        inp = RCColumnInput(
+            name=req.name,
+            b=req.b,
+            h=req.h,
+            cover=req.cover,
+            bar_diam=req.bar_diam,
+            total_bars=req.total_bars,
+            tie_diam=req.tie_diam,
+            tie_spacing=req.tie_spacing,
+            tie_legs_x=req.tie_legs_x,
+            tie_legs_y=req.tie_legs_y,
+            is_spiral=req.is_spiral,
+            Lu=req.Lu,
+            k=req.k,
+            is_braced=req.is_braced,
+            M1x=req.M1x,
+            M2x=req.M2x,
+            M1y=req.M1y,
+            M2y=req.M2y,
+            Pu=req.Pu,
+            Mux=req.Mux,
+            Muy=req.Muy,
+            Vux=req.Vux,
+            Vuy=req.Vuy,
+            concrete=ConcreteMaterial(fck=req.fck),
+            rebar=RebarMaterial(fy=req.fy)
+        )
+        res = design_rc_column(inp)
+        
+        return {
+            "success": True,
+            "data": {
+                "name": res.name,
+                "Ag": res.Ag,
+                "Ast": res.Ast,
+                "rho_g": res.rho_g,
+                "is_rho_ok": res.is_rho_ok,
+                "Po": res.Po,
+                "Pn_max": res.Pn_max,
+                "phi_Pn_max": res.phi_Pn_max,
+                "phi_Pt": res.phi_Pt,
+                "slenderness": {
+                    "is_slender_x": res.slenderness.is_slender_x,
+                    "is_slender_y": res.slenderness.is_slender_y,
+                    "slenderness_x": res.slenderness.slenderness_x,
+                    "slenderness_y": res.slenderness.slenderness_y,
+                    "slenderness_limit_x": res.slenderness.slenderness_limit_x,
+                    "slenderness_limit_y": res.slenderness.slenderness_limit_y,
+                    "delta_ns_x": res.slenderness.delta_ns_x,
+                    "delta_ns_y": res.slenderness.delta_ns_y,
+                    "Pc_x": res.slenderness.Pc_x,
+                    "Pc_y": res.slenderness.Pc_y,
+                    "Mc_x": res.slenderness.Mc_x,
+                    "Mc_y": res.slenderness.Mc_y,
+                    "min_eccentricity_x": res.slenderness.min_eccentricity_x,
+                    "min_eccentricity_y": res.slenderness.min_eccentricity_y,
+                },
+                "design_forces": {
+                    "Pu": res.design_Pu,
+                    "Mux": res.design_Mux,
+                    "Muy": res.design_Muy,
+                    "capacity_Mu": res.capacity_Mu,
+                    "pm_dcr": res.pm_dcr,
+                    "is_pm_safe": res.is_pm_safe
+                },
+                "shear": {
+                    "Vux": res.Vux,
+                    "phi_Vnx": res.phi_Vnx,
+                    "shear_dcr_x": res.shear_dcr_x,
+                    "Vuy": res.Vuy,
+                    "phi_Vny": res.phi_Vny,
+                    "shear_dcr_y": res.shear_dcr_y,
+                    "is_shear_safe": res.is_shear_safe
+                },
+                "tie_check": {
+                    "spacing": res.tie_spacing,
+                    "spacing_max": res.tie_spacing_max,
+                    "is_tie_ok": res.is_tie_ok
+                },
+                "dcr_max": res.dcr_max,
+                "is_safe": res.is_safe,
+                "summary": res.summary,
+                "pm_curve_x": res.pm_curve_x,
+                "pm_curve_y": res.pm_curve_y
+            }
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@router.post("/column/pm-curve")
+async def generate_column_pm_curve(req: PMCurveRequest):
+    """Generate 2D/3D P-M interaction diagram points for given cross-section and angle."""
+    try:
+        inp = RCColumnInput(
+            b=req.b,
+            h=req.h,
+            cover=req.cover,
+            bar_diam=req.bar_diam,
+            total_bars=req.total_bars,
+            is_spiral=req.is_spiral,
+            concrete=ConcreteMaterial(fck=req.fck),
+            rebar=RebarMaterial(fy=req.fy)
+        )
+        sec = create_standard_column_fiber_section(inp, nx=20, ny=20)
+        theta_rad = math.radians(req.theta_deg)
+        diag = PMDiagramSolver.generate_2d_diagram(
+            sec=sec,
+            theta=theta_rad,
+            num_points=req.num_points,
+            is_spiral=req.is_spiral
+        )
+        
+        points = [
+            {
+                "Pn": round(p.Pn, 2),
+                "Mn": round(p.Mn, 2),
+                "phi_Pn": round(p.phi_Pn, 2),
+                "phi_Mn": round(p.phi_Mn, 2),
+                "c": round(p.c, 1),
+                "et": round(p.et, 5),
+                "phi": round(p.phi, 3)
+            }
+            for p in diag.points
+        ]
+        
+        return {
+            "success": True,
+            "data": {
+                "theta_deg": req.theta_deg,
+                "Po": round(diag.Po, 2),
+                "Pn_max": round(diag.Pn_max, 2),
+                "phi_Pn_max": round(diag.phi_Pn_max, 2),
+                "phi_Pt": round(diag.phi_Pt, 2),
+                "points": points
+            }
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
 @router.post("/column/check")
 async def check_rc_column(req: RCColumnRequest):
-    """Generate P-M diagram and evaluate RC column safety according to KDS 14 20 00."""
+    """Generate P-M diagram and evaluate RC column safety (Legacy/Compact Endpoint)."""
     try:
         inp = RCColumnInput(
             name=req.name,
@@ -213,23 +369,12 @@ async def check_rc_column(req: RCColumnRequest):
             bar_diam=req.bar_diam,
             total_bars=req.total_bars,
             Pu=req.Pu,
-            Mu=req.Mu,
-            Vu=req.Vu,
+            Mux=req.Mu,
+            Vuy=req.Vu,
             concrete=ConcreteMaterial(fck=req.fck),
             rebar=RebarMaterial(fy=req.fy)
         )
         res = design_rc_column(inp)
-        
-        curve_data = [
-            {
-                "Pn": pt.Pn,
-                "Mn": pt.Mn,
-                "phi_Pn": pt.phi_Pn,
-                "phi_Mn": pt.phi_Mn,
-                "c": pt.c
-            }
-            for pt in res.pm_curve
-        ]
         
         return {
             "success": True,
@@ -240,11 +385,12 @@ async def check_rc_column(req: RCColumnRequest):
                 "Pn_max": res.Pn_max,
                 "phi_Pn_max": res.phi_Pn_max,
                 "capacity_Mu": res.capacity_Mu,
-                "dcr": res.dcr,
+                "dcr": res.pm_dcr,
                 "is_safe": res.is_safe,
                 "summary": res.summary,
-                "pm_curve": curve_data
+                "pm_curve": res.pm_curve_x
             }
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+

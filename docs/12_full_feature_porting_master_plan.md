@@ -199,10 +199,10 @@ AGENTS.md의 **Goal 주도형 단계적 연속 구현** 및 **1이슈 1Phase 분
 | 요구사항 번호 | 대상 범위 | 핵심 디컴파일 C 소스 자산 | 핵심 산출물 및 파이썬 엔진 | 상태 |
 |:---:|---|---|---|:---:|
 | **`요구사항01`** | **Ghidra 핵심 알고리즘 선별 디컴파일 & C 자산화** | 5대 Group 47개 핵심 C 소스 (`decompiled_src/core_routines/`) | `scripts/ghidra_extract.py`, `core_routines/` (C/JSON 메타데이터) | **완료 (100%)** |
-| **`요구사항02`** | **SDB 단면 DB & KDS 재료/하중 엔진** | `core_routines/db/db__*.c` (12건) | `src/engine/db/sdb_parser.py`, `materials.py`, `load_comb.py` | 진행 예정 |
-| **`요구사항03`** | **RC 보(Beam) 완전 설계 & 2D 배근도** | `core_routines/rc/rc__CHK_BBBE_*.c` | `src/engine/rc/beam.py`, `src/web/static/js/renderer2d.js` | 진행 예정 |
-| **`요구사항04`** | **RC 기둥(Column) & 3D P-M 솔버** | `core_routines/solver/solver__CHK_BCCO_*.c`, `BCGR_*.c` | `src/engine/rc/column.py`, `src/engine/solver/pm_diagram.py`, `pm_chart.js` | 진행 예정 |
-| **`요구사항05`** | **RC 전단벽(Wall) & 슬래브(Slab)** | `core_routines/rc/rc__CHK_BWUW_*.c`, `SLAB_*.c` | `src/engine/rc/wall.py`, `src/engine/rc/slab.py` | 진행 예정 |
+| **`요구사항02`** | **SDB 단면 DB & KDS 재료/하중 엔진** | `core_routines/db/db__*.c` (12건) | `src/engine/db/sdb_parser.py`, `materials.py`, `load_comb.py` | **완료 (100%)** |
+| **`요구사항03`** | **RC 보(Beam) 완전 설계 & 2D 배근도** | `core_routines/rc/rc__CHK_BBBE_*.c` | `src/engine/rc/beam.py`, `src/web/static/js/renderer2d.js` | **완료 (100%)** |
+| **`요구사항04`** | **RC 기둥(Column) & 3D P-M 솔버** | `core_routines/solver/solver__CHK_BCCO_*.c`, `BCGR_*.c` | `src/engine/rc/column.py`, `src/engine/solver/pm_diagram.py`, `pm_chart.js` | **완료 (100%)** |
+| **`요구사항05`** | **RC 전단벽(Wall) & 슬래브(Slab)** | `core_routines/rc/rc__CHK_BWUW_*.c`, `SLAB_*.c` | `src/engine/rc/wall.py`, `src/engine/rc/slab.py` | **완료 (100%)** |
 | **`요구사항06`** | **RC 기초(Footing) & 지하외벽/옹벽** | `core_routines/rc/rc__CHK_UFDN_*.c`, `URAB_*.c`, `URBE_*.c` | `src/engine/rc/footing.py`, `src/engine/rc/retaining_wall.py` | 진행 예정 |
 | **`요구사항07`** | **철골 보(Beam) & 기둥(Column)/가새** | `core_routines/steel/steel__CHK_USMC_*.c`, `USWO_*.c`, `USPG_*.c` | `src/engine/steel/beam.py`, `src/engine/steel/column.py`, `brace.py` | 진행 예정 |
 | **`요구사항08`** | **철골 접합부 & 베이스플레이트** | `core_routines/steel/steel__CHK_USBC_*.c`, `USBP_*.c`, `USEP_*.c`, `USWE_*.c`, `USWB_*.c` | `src/engine/steel/connection.py`, `src/engine/steel/baseplate.py` | 진행 예정 |
