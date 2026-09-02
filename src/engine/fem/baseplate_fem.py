@@ -98,15 +98,28 @@ class BasePlateFEMSolver:
             "dia_mm": bolt_dia_mm
         })
 
-    def set_column_load(self, P_kn: float, Mx_knm: float = 0.0, My_knm: float = 0.0):
-        """Apply total column axial load P (kN, positive compression) and moments Mx, My at plate center."""
-        self.profile_loads = [{
-            "x": self.bx_m / 2.0,
-            "y": self.by_m / 2.0,
-            "P": float(P_kn),
-            "Mx": float(Mx_knm),
-            "My": float(My_knm)
-        }]
+    def set_column_load(
+        self,
+        P_kn: float,
+        Mx_knm: float = 0.0,
+        My_knm: float = 0.0,
+        col_depth_mm: Optional[float] = None,
+        col_flange_mm: Optional[float] = None
+    ):
+        """Apply total column axial load P (kN, positive compression) and moments Mx, My."""
+        cd_m = (col_depth_mm / 1000.0) if col_depth_mm else (self.by_m * 0.6)
+        cf_m = (col_flange_mm / 1000.0) if col_flange_mm else (self.bx_m * 0.6)
+        
+        cx = self.bx_m / 2.0
+        cy = self.by_m / 2.0
+        
+        # 4 perimeter/corner points of column footprint for distributed load transfer
+        self.profile_loads = [
+            {"x": cx - cf_m/2.0, "y": cy - cd_m/2.0, "P": float(P_kn) / 4.0, "Mx": float(Mx_knm) / 4.0, "My": float(My_knm) / 4.0},
+            {"x": cx + cf_m/2.0, "y": cy - cd_m/2.0, "P": float(P_kn) / 4.0, "Mx": float(Mx_knm) / 4.0, "My": float(My_knm) / 4.0},
+            {"x": cx - cf_m/2.0, "y": cy + cd_m/2.0, "P": float(P_kn) / 4.0, "Mx": float(Mx_knm) / 4.0, "My": float(My_knm) / 4.0},
+            {"x": cx + cf_m/2.0, "y": cy + cd_m/2.0, "P": float(P_kn) / 4.0, "Mx": float(Mx_knm) / 4.0, "My": float(My_knm) / 4.0},
+        ]
 
     def solve_contact(self, max_iter: int = 25) -> Dict[str, Any]:
         """Execute nonlinear contact iteration for base plate."""

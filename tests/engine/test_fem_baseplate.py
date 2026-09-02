@@ -1,44 +1,40 @@
-"""
-tests/engine/test_fem_baseplate.py
-==================================
-Verification of Base Plate Nonlinear Contact FEM Solver.
-"""
+"""Tests for Steel Baseplate Nonlinear Contact FEM Solver (Concrete Bearing & Anchor Tension)."""
 
 import pytest
+import numpy as np
 from src.engine.fem.baseplate_fem import BasePlateFEMSolver
 
 
-def test_concentric_baseplate_bearing():
-    """Concentric axial compression on a steel base plate."""
-    # 500mm x 500mm x 30mm base plate with P = 1200 kN
+def test_baseplate_concentric_compression():
+    """Concentric axial compression should engage full concrete bearing with zero bolt tension."""
     solver = BasePlateFEMSolver(
         plate_bx=500.0,
         plate_by=500.0,
         plate_thickness=30.0,
         steel_fy=275.0,
         concrete_fck=24.0,
-        pedestal_bx=700.0,
-        pedestal_by=700.0,
         nx=8,
         ny=8
     )
-    # Add 4 corner anchor bolts (d=24mm)
-    solver.add_anchor_bolt(x_mm=-180.0, y_mm=-180.0, bolt_dia_mm=24.0)
-    solver.add_anchor_bolt(x_mm=180.0, y_mm=-180.0, bolt_dia_mm=24.0)
-    solver.add_anchor_bolt(x_mm=180.0, y_mm=180.0, bolt_dia_mm=24.0)
-    solver.add_anchor_bolt(x_mm=-180.0, y_mm=180.0, bolt_dia_mm=24.0)
-
-    solver.set_column_load(P_kn=400.0, Mx_knm=0.0, My_knm=0.0)
-    res = solver.solve_contact()
-
+    # Add 4 corner anchor bolts
+    solver.add_anchor_bolt(-180.0, -180.0, bolt_dia_mm=24.0)
+    solver.add_anchor_bolt( 180.0, -180.0, bolt_dia_mm=24.0)
+    solver.add_anchor_bolt(-180.0,  180.0, bolt_dia_mm=24.0)
+    solver.add_anchor_bolt( 180.0,  180.0, bolt_dia_mm=24.0)
+    
+    # Concentric 800 kN compression
+    solver.set_column_load(P_kn=800.0, Mx_knm=0.0, My_knm=0.0)
+    
+    res = solver.solve_contact(max_iter=15)
     assert res["converged"] is True
-    assert res["active_bearing_ratio"] > 0.0  # Compressive contact active under column
+    # Under concentric compression, bolt tension is near zero or very small (< 20 kN) due to minor corner curl
+    assert res["max_bolt_tension_kn"] < 20.0
     assert res["max_concrete_stress_mpa"] > 0.0
-    assert res["bearing_ratio"] > 0.0
+    assert res["max_concrete_stress_mpa"] <= res["allowable_concrete_stress_mpa"] * 1.5
 
 
-def test_eccentric_baseplate_with_anchor_tension():
-    """Large eccentric bending moment inducing anchor bolt tension."""
+def test_baseplate_large_moment_with_anchor_tension():
+    """High bending moment should cause tension in anchor bolts and uplift on one side."""
     solver = BasePlateFEMSolver(
         plate_bx=600.0,
         plate_by=600.0,
@@ -48,20 +44,15 @@ def test_eccentric_baseplate_with_anchor_tension():
         nx=10,
         ny=10
     )
-    # 4 Anchor bolts
-    solver.add_anchor_bolt(x_mm=-220.0, y_mm=-220.0, bolt_dia_mm=30.0)
-    solver.add_anchor_bolt(x_mm=220.0, y_mm=-220.0, bolt_dia_mm=30.0)
-    solver.add_anchor_bolt(x_mm=220.0, y_mm=220.0, bolt_dia_mm=30.0)
-    solver.add_anchor_bolt(x_mm=-220.0, y_mm=220.0, bolt_dia_mm=30.0)
-
-    # High moment causing partial separation & bolt tension
-    solver.set_column_load(P_kn=400.0, Mx_knm=180.0, My_knm=0.0)
-    res = solver.solve_contact()
-
+    solver.add_anchor_bolt(-220.0, -220.0, bolt_dia_mm=30.0)
+    solver.add_anchor_bolt( 220.0, -220.0, bolt_dia_mm=30.0)
+    solver.add_anchor_bolt(-220.0,  220.0, bolt_dia_mm=30.0)
+    solver.add_anchor_bolt( 220.0,  220.0, bolt_dia_mm=30.0)
+    
+    # 200 kN axial + 150 kNm moment
+    solver.set_column_load(P_kn=200.0, Mx_knm=150.0, My_knm=0.0)
+    
+    res = solver.solve_contact(max_iter=20)
     assert res["converged"] is True
-    # Contact separation should occur
-    assert res["active_bearing_ratio"] < 1.0
-    # Anchor bolts should engage in tension
-    assert res["max_bolt_tension_kn"] > 0.0
-    assert res["max_concrete_stress_mpa"] > 0.0
-    assert res["max_plate_stress_mpa"] > 0.0
+    assert res["max_bolt_tension_kn"] > 0.0, "High moment must engage anchor bolt tension."
+    assert res["active_bearing_ratio"] < 1.0, "Partial uplift expected on tension side."

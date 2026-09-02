@@ -156,7 +156,16 @@ class PlateModel2D:
                 P_global[3 * n] += nodal_pz
 
         # 6. Apply Boundary Conditions (Penalty method for speed and robustness)
-        penalty = 1e16 * np.max(np.abs(K_global.diagonal())) if K_global.nnz > 0 else 1e16
+        diag = K_global.diagonal()
+        max_diag = np.max(np.abs(diag)) if K_global.nnz > 0 and np.max(np.abs(diag)) > 0 else 1.0
+        penalty = 1e16 * max_diag
+        
+        # Auto-constrain unconnected DOFs (zero diagonal entries) to prevent singularity
+        zero_dofs = np.where(np.abs(diag) < 1e-12)[0]
+        for dof in zero_dofs:
+            K_global[dof, dof] = penalty
+            P_global[dof] = 0.0
+            
         for dof, val in self.fixed_dofs.items():
             K_global[dof, dof] += penalty
             P_global[dof] = penalty * val

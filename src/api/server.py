@@ -15,6 +15,7 @@ from src.api.routes.rc_foundation import router as rc_foundation_router
 from src.api.routes.steel import router as steel_router
 from src.api.routes.db import router as db_router
 from src.api.routes.report import router as report_router
+from src.api.routes.fem import router as fem_router
 
 # Base paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -54,6 +55,7 @@ app.include_router(rc_foundation_router)
 app.include_router(steel_router)
 app.include_router(db_router)
 app.include_router(report_router)
+app.include_router(fem_router)
 
 
 @app.get("/", response_class=HTMLResponse)
