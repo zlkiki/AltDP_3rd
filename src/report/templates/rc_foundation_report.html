@@ -1,0 +1,108 @@
+{% extends "base_report.html" %}
+
+{% block report_content %}
+<!-- 1. General Project & Member Information -->
+<div class="section-title">1. 설계 개요 및 기초/옹벽 제원</div>
+<table class="info-table">
+    <tr>
+        <th>프로젝트명</th>
+        <td>{{ project.title | default('AltDP_3rd Foundation & Retaining Wall') }}</td>
+        <th>부재 ID</th>
+        <td>{{ member.id | default('F-101 / RW-101') }}</td>
+    </tr>
+    <tr>
+        <th>적용 설계기준</th>
+        <td>{{ project.code | default('KDS 14 20 70 / KDS 14 20 80') }}</td>
+        <th>부재 유형</th>
+        <td>{{ member.type | default('RC 독립기초 / 옹벽 (Footing & Wall)') }}</td>
+    </tr>
+    <tr>
+        <th>설계자 / 검토자</th>
+        <td>{{ project.author | default('Senior PE') }} / {{ project.checker | default('Principal PE') }}</td>
+        <th>지반 허용지지력 ($q_a$)</th>
+        <td>{{ material.qa | default(200.0) | fmt_num(1) }} $\text{kN/m}^2$</td>
+    </tr>
+</table>
+
+<!-- 2. Section Geometry & Materials -->
+<div class="section-title">2. 기하 치수 및 재료 물성치</div>
+<table class="info-table">
+    <tr>
+        <th>콘크리트 강도 ($f_{ck}$)</th>
+        <td>{{ material.fck | fmt_stress }}</td>
+        <th>철근 항복강도 ($f_y$)</th>
+        <td>{{ material.fy | fmt_stress }}</td>
+    </tr>
+    <tr>
+        <th>기초/저판 크기 ($B \times L \times H$)</th>
+        <td>{{ section.B | default(2500) | fmt_num(0) }} mm $\times$ {{ section.L | default(2500) | fmt_num(0) }} mm $\times$ {{ section.H | default(600) | fmt_num(0) }} mm</td>
+        <th>기둥 단면 ($c_1 \times c_2$)</th>
+        <td>{{ section.c1 | default(500) | fmt_num(0) }} mm $\times$ {{ section.c2 | default(500) | fmt_num(0) }} mm</td>
+    </tr>
+    <tr>
+        <th>하부 주철근 배근</th>
+        <td colspan="3">{{ section.rebar_desc | default('X: HD19 @ 150, Y: HD19 @ 150') }}</td>
+    </tr>
+</table>
+
+<!-- 3. Factored Design Loads & Reactions -->
+<div class="section-title">3. 상부 작용하중 및 지반 접지압 반력</div>
+<table class="info-table">
+    <tr>
+        <th>상부 축하중 ($P_u$)</th>
+        <td>{{ loads.Pu | default(0.0) | fmt_force }}</td>
+        <th>상부 휨모멘트 ($M_{ux}, M_{uy}$)</th>
+        <td>{{ loads.Mux | default(0.0) | fmt_moment }}, {{ loads.Muy | default(0.0) | fmt_moment }}</td>
+    </tr>
+    <tr>
+        <th>최대 지반 접지압 ($q_{max}$)</th>
+        <td>{{ loads.qmax | default(165.0) | fmt_num(1) }} $\text{kN/m}^2$</td>
+        <th>안정성 판정</th>
+        <td>{{ loads.stability_desc | default('전면 압축 상태 (인장 분리 없음)') }}</td>
+    </tr>
+</table>
+
+<!-- 4. Detailed Design Checks -->
+<div class="section-title">4. 상세 설계 및 한계상태 검토</div>
+{% for chk in checks %}
+<div class="calc-block">
+    <div class="calc-header">
+        <span>{{ chk.title }}</span>
+        <span>{{ chk.dcr | dcr_badge | safe }}</span>
+    </div>
+    <div class="calc-body">
+        {% for step in chk.steps %}
+        <div class="calc-step">
+            <span class="step-label">{{ step.label }}:</span>
+            <span class="step-math">{{ step.formula }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+
+<!-- 5. Executive Summary Table -->
+<div class="section-title avoid-break">5. 설계 검토 결과 종합 요약</div>
+<table class="info-table avoid-break">
+    <thead>
+        <tr style="background: #e2e8f0;">
+            <th style="width: 30%;">검토 항목</th>
+            <th style="width: 25%;">소요치 ($U$)</th>
+            <th style="width: 25%;">설계강도 / 허용치 ($\phi R_n$)</th>
+            <th style="width: 10%;">응력비</th>
+            <th style="width: 10%;">판정</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for chk in checks %}
+        <tr>
+            <td style="font-weight: 500;">{{ chk.title }}</td>
+            <td>{{ chk.demand | default('-') }}</td>
+            <td>{{ chk.capacity | default('-') }}</td>
+            <td><strong>{{ chk.dcr | fmt_dcr }}</strong></td>
+            <td style="text-align: center;">{{ chk.dcr | dcr_badge | safe }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

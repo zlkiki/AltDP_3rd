@@ -1,0 +1,108 @@
+{% extends "base_report.html" %}
+
+{% block report_content %}
+<!-- 1. General Project & Member Information -->
+<div class="section-title">1. 설계 개요 및 프로젝트 정보</div>
+<table class="info-table">
+    <tr>
+        <th>프로젝트명</th>
+        <td>{{ project.title | default('AltDP_3rd RC Wall & Slab Design') }}</td>
+        <th>부재 ID</th>
+        <td>{{ member.id | default('W-101 / S-101') }}</td>
+    </tr>
+    <tr>
+        <th>적용 설계기준</th>
+        <td>{{ project.code | default('KDS 14 20 20 / KDS 14 20 70') }}</td>
+        <th>부재 유형</th>
+        <td>{{ member.type | default('RC 전단벽 / 슬래브 (Wall & Slab)') }}</td>
+    </tr>
+    <tr>
+        <th>설계자 / 검토자</th>
+        <td>{{ project.author | default('Senior PE') }} / {{ project.checker | default('Principal PE') }}</td>
+        <th>설계 일자</th>
+        <td>{{ project.date | default('2026-09-02') }}</td>
+    </tr>
+</table>
+
+<!-- 2. Section Geometry & Materials -->
+<div class="section-title">2. 단면 기하성질 및 재료 물성치</div>
+<table class="info-table">
+    <tr>
+        <th>콘크리트 강도 ($f_{ck}$)</th>
+        <td>{{ material.fck | fmt_stress }}</td>
+        <th>철근 강도 ($f_y, f_{ys}$)</th>
+        <td>{{ material.fy | fmt_stress }} / {{ material.fys | default(material.fy) | fmt_stress }}</td>
+    </tr>
+    <tr>
+        <th>벽체 길이 / 두께 ($l_w \times t_w$)</th>
+        <td>{{ section.lw | default(3000) | fmt_num(0) }} mm $\times$ {{ section.tw | default(200) | fmt_num(0) }} mm</td>
+        <th>슬래브 두께 ($h_s$) / 경간 ($L_x \times L_y$)</th>
+        <td>{{ section.hs | default(150) | fmt_num(0) }} mm / {{ section.Lx | default(4000) | fmt_num(0) }} $\times$ {{ section.Ly | default(5000) | fmt_num(0) }} mm</td>
+    </tr>
+    <tr>
+        <th>배근 상세</th>
+        <td colspan="3">{{ section.rebar_desc | default('복배근 HD13 @ 200 (수직/수평)') }}</td>
+    </tr>
+</table>
+
+<!-- 3. Factored Design Loads -->
+<div class="section-title">3. 계수 설계하중 및 지배 하중조합</div>
+<table class="info-table">
+    <tr>
+        <th>설계 전단력 ($V_u$)</th>
+        <td>{{ loads.Vu | default(0.0) | fmt_force }}</td>
+        <th>설계 축력 ($P_u$)</th>
+        <td>{{ loads.Pu | default(0.0) | fmt_force }}</td>
+    </tr>
+    <tr>
+        <th>설계 휨모멘트 ($M_u$)</th>
+        <td>{{ loads.Mu | default(0.0) | fmt_moment }}</td>
+        <th>지배 하중조합</th>
+        <td>{{ loads.comb_name | default('1.2D + 1.0L + 1.0E') }}</td>
+    </tr>
+</table>
+
+<!-- 4. Detailed Design Checks -->
+<div class="section-title">4. 상세 설계 및 한계상태 검토</div>
+{% for chk in checks %}
+<div class="calc-block">
+    <div class="calc-header">
+        <span>{{ chk.title }}</span>
+        <span>{{ chk.dcr | dcr_badge | safe }}</span>
+    </div>
+    <div class="calc-body">
+        {% for step in chk.steps %}
+        <div class="calc-step">
+            <span class="step-label">{{ step.label }}:</span>
+            <span class="step-math">{{ step.formula }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+
+<!-- 5. Executive Summary Table -->
+<div class="section-title avoid-break">5. 설계 검토 결과 종합 요약</div>
+<table class="info-table avoid-break">
+    <thead>
+        <tr style="background: #e2e8f0;">
+            <th style="width: 30%;">검토 항목</th>
+            <th style="width: 25%;">소요강도 ($U$)</th>
+            <th style="width: 25%;">설계강도 ($\phi R_n$)</th>
+            <th style="width: 10%;">응력비</th>
+            <th style="width: 10%;">판정</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for chk in checks %}
+        <tr>
+            <td style="font-weight: 500;">{{ chk.title }}</td>
+            <td>{{ chk.demand | default('-') }}</td>
+            <td>{{ chk.capacity | default('-') }}</td>
+            <td><strong>{{ chk.dcr | fmt_dcr }}</strong></td>
+            <td style="text-align: center;">{{ chk.dcr | dcr_badge | safe }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends "base_report.html" %}
+
+{% block report_content %}
+<!-- 1. General Project & Member Information -->
+<div class="section-title">1. 설계 개요 및 강구조 부재 정보</div>
+<table class="info-table">
+    <tr>
+        <th>프로젝트명</th>
+        <td>{{ project.title | default('AltDP_3rd Steel Member Design') }}</td>
+        <th>부재 ID</th>
+        <td>{{ member.id | default('SB-101 / SC-101') }}</td>
+    </tr>
+    <tr>
+        <th>적용 설계기준</th>
+        <td>{{ project.code | default('KDS 14 31 10 (강구조설계기준 - 하중저항계수설계법)') }}</td>
+        <th>부재 유형</th>
+        <td>{{ member.type | default('철골 보 / 기둥 / 가새 (H형강 / 각형강관)') }}</td>
+    </tr>
+    <tr>
+        <th>설계자 / 검토자</th>
+        <td>{{ project.author | default('Senior PE') }} / {{ project.checker | default('Principal PE') }}</td>
+        <th>비지지길이 ($L_b$) / $K$계수</th>
+        <td>{{ section.Lb | default(6000) | fmt_num(0) }} mm / $K_x = {{ section.Kx | default(1.0) | fmt_num(2) }}, K_y = {{ section.Ky | default(1.0) | fmt_num(2) }}$</td>
+    </tr>
+</table>
+
+<!-- 2. Section Geometry & Materials -->
+<div class="section-title">2. 형강 단면 성질 및 강재 물성치</div>
+<div class="grid-2col">
+    <div>
+        <table class="info-table">
+            <tr>
+                <th>강재 규격 및 강종</th>
+                <td>{{ material.steel_grade | default('SM355') }} ($F_y = {{ material.Fy | default(355.0) | fmt_stress }}, F_u = {{ material.Fu | default(490.0) | fmt_stress }}$)</td>
+            </tr>
+            <tr>
+                <th>형강 명칭</th>
+                <td>{{ section.name | default('H-400x200x8x13') }}</td>
+            </tr>
+            <tr>
+                <th>단면 치수 ($H \times B \times t_w \times t_f$)</th>
+                <td>{{ section.H | fmt_num(0) }} $\times$ {{ section.B | fmt_num(0) }} $\times$ {{ section.tw | fmt_num(1) }} $\times$ {{ section.tf | fmt_num(1) }} mm</td>
+            </tr>
+            <tr>
+                <th>단면적 ($A$) / 탄성단면계수 ($Z_x$)</th>
+                <td>{{ section.A | fmt_num(0) }} $\text{mm}^2$ / {{ section.Zx | fmt_num(0) }} $\times 10^3 \, \text{mm}^3$</td>
+            </tr>
+            <tr>
+                <th>회전반경 ($r_x, r_y$)</th>
+                <td>{{ section.rx | default(168.0) | fmt_num(1) }} mm / {{ section.ry | default(45.4) | fmt_num(1) }} mm</td>
+            </tr>
+        </table>
+    </div>
+    <div class="drawing-container">
+        {% if svg_diagram %}
+            {{ svg_diagram | safe }}
+        {% else %}
+            <div style="font-size: 8.5pt; color: #94a3b8; text-align: center;">[형강 단면도]</div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- 3. Factored Design Loads -->
+<div class="section-title">3. 계수 설계하중 및 지배 하중조합</div>
+<table class="info-table">
+    <tr>
+        <th>설계 축력 ($P_u$)</th>
+        <td>{{ loads.Pu | default(0.0) | fmt_force }} ({% if (loads.Pu | default(0.0)) >= 0 %}압축{% else %}인장{% endif %})</td>
+        <th>설계 휨모멘트 ($M_{ux}, M_{uy}$)</th>
+        <td>{{ loads.Mux | default(loads.Mu) | default(0.0) | fmt_moment }}, {{ loads.Muy | default(0.0) | fmt_moment }}</td>
+    </tr>
+    <tr>
+        <th>설계 전단력 ($V_{ux}, V_{uy}$)</th>
+        <td>{{ loads.Vux | default(loads.Vu) | default(0.0) | fmt_force }}, {{ loads.Vuy | default(0.0) | fmt_force }}</td>
+        <th>지배 하중조합</th>
+        <td>{{ loads.comb_name | default('1.2D + 1.6L') }}</td>
+    </tr>
+</table>
+
+<!-- 4. Detailed Design Checks -->
+<div class="section-title">4. 상세 한계상태 검토 과정 (KDS 14 31 10)</div>
+{% for chk in checks %}
+<div class="calc-block">
+    <div class="calc-header">
+        <span>{{ chk.title }}</span>
+        <span>{{ chk.dcr | dcr_badge | safe }}</span>
+    </div>
+    <div class="calc-body">
+        {% for step in chk.steps %}
+        <div class="calc-step">
+            <span class="step-label">{{ step.label }}:</span>
+            <span class="step-math">{{ step.formula }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+
+<!-- 5. Executive Summary Table -->
+<div class="section-title avoid-break">5. 설계 검토 결과 종합 요약</div>
+<table class="info-table avoid-break">
+    <thead>
+        <tr style="background: #e2e8f0;">
+            <th style="width: 28%;">검토 항목</th>
+            <th style="width: 25%;">소요강도 ($U$)</th>
+            <th style="width: 25%;">설계강도 ($\phi R_n$)</th>
+            <th style="width: 12%;">응력비 (DCR)</th>
+            <th style="width: 10%;">판정</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for chk in checks %}
+        <tr>
+            <td style="font-weight: 500;">{{ chk.title }}</td>
+            <td>{{ chk.demand | default('-') }}</td>
+            <td>{{ chk.capacity | default('-') }}</td>
+            <td><strong>{{ chk.dcr | fmt_dcr }}</strong></td>
+            <td style="text-align: center;">{{ chk.dcr | dcr_badge | safe }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

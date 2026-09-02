@@ -1,0 +1,208 @@
+{% extends "base_report.html" %}
+
+{% block report_content %}
+<!-- 1. General Project & Member Information -->
+<div class="section-title">1. 설계 개요 및 프로젝트 정보</div>
+<table class="info-table">
+    <tr>
+        <th>프로젝트명</th>
+        <td>{{ project.title | default('AltDP_3rd RC Beam Design') }}</td>
+        <th>부재 ID</th>
+        <td>{{ member.id | default('2B-101') }}</td>
+    </tr>
+    <tr>
+        <th>적용 설계기준</th>
+        <td>{{ project.code | default('KDS 14 20 00 (콘크리트구조설계기준)') }}</td>
+        <th>부재 유형</th>
+        <td>{{ member.type | default('RC 직사각형 보 (Flexure/Shear/Torsion)') }}</td>
+    </tr>
+    <tr>
+        <th>설계자 / 검토자</th>
+        <td>{{ project.author | default('Senior PE') }} / {{ project.checker | default('Principal PE') }}</td>
+        <th>설계 일자</th>
+        <td>{{ project.date | default('2026-09-02') }}</td>
+    </tr>
+</table>
+
+<!-- 2. Section Geometry & Materials -->
+<div class="section-title">2. 단면 기하성질 및 재료 물성치</div>
+<div class="grid-2col">
+    <div>
+        <table class="info-table">
+            <tr>
+                <th>콘크리트 강도 ($f_{ck}$)</th>
+                <td>{{ material.fck | fmt_stress }}</td>
+            </tr>
+            <tr>
+                <th>주철근 강도 ($f_y$)</th>
+                <td>{{ material.fy | fmt_stress }}</td>
+            </tr>
+            <tr>
+                <th>전단철근 강도 ($f_{ys}$)</th>
+                <td>{{ material.fys | fmt_stress }}</td>
+            </tr>
+            <tr>
+                <th>보 단면폭 ($b$) $\times$ 전고 ($h$)</th>
+                <td>{{ section.b | fmt_num(0) }} mm $\times$ {{ section.h | fmt_num(0) }} mm</td>
+            </tr>
+            <tr>
+                <th>유효깊이 ($d$) / 피복두께 ($d'$)</th>
+                <td>{{ section.d | fmt_num(1) }} mm / {{ section.dc | default(40.0) | fmt_num(1) }} mm</td>
+            </tr>
+            <tr>
+                <th>상부 배근 / 하부 배근</th>
+                <td>{{ section.top_rebar_desc | default('3 - D22') }} / {{ section.bot_rebar_desc | default('4 - D22') }}</td>
+            </tr>
+            <tr>
+                <th>전단 스터럽 배근</th>
+                <td>{{ section.stirrup_desc | default('2-D10 @ 150') }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="drawing-container">
+        {% if svg_diagram %}
+            {{ svg_diagram | safe }}
+        {% else %}
+            <div style="font-size: 8.5pt; color: #94a3b8; text-align: center;">[2D 배근 단면도]</div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- 3. Factored Design Loads -->
+<div class="section-title">3. 계수 설계하중 및 지배 하중조합</div>
+<table class="info-table">
+    <tr>
+        <th>설계 정모멘트 ($M_u^+$)</th>
+        <td>{{ loads.Mu_pos | default(loads.Mu) | fmt_moment }}</td>
+        <th>설계 부모멘트 ($M_u^-$)</th>
+        <td>{{ loads.Mu_neg | default(0.0) | fmt_moment }}</td>
+    </tr>
+    <tr>
+        <th>설계 전단력 ($V_u$)</th>
+        <td>{{ loads.Vu | fmt_force }}</td>
+        <th>설계 비틀림 ($T_u$)</th>
+        <td>{{ loads.Tu | default(0.0) | fmt_moment }}</td>
+    </tr>
+    <tr>
+        <th>지배 하중조합</th>
+        <td colspan="3">{{ loads.comb_name | default('1.2D + 1.6L (극한한계상태)') }}</td>
+    </tr>
+</table>
+
+<!-- 4. Detailed Design Checks -->
+<div class="section-title">4. 상세 설계 및 한계상태 검토 과정 (Step-by-Step)</div>
+
+<!-- 4.1 Flexural Strength Check -->
+<div class="calc-block">
+    <div class="calc-header">
+        <span>4.1 휨모멘트 설계강도 검토 (KDS 14 20 20)</span>
+        <span>{{ flexure_check.dcr | dcr_badge | safe }}</span>
+    </div>
+    <div class="calc-body">
+        <div class="calc-step">
+            <span class="step-label">1. 등가응력블록 깊이 ($a$):</span>
+            <span class="step-math">$$a = \frac{A_s f_y}{\alpha_1 f_{ck} b} = \frac{ {{ flexure_check.As | fmt_num(1) }} \times {{ material.fy | fmt_num(0) }} }{ 0.85 \times {{ material.fck | fmt_num(0) }} \times {{ section.b | fmt_num(0) }} } = {{ flexure_check.a | fmt_num(2) }} \, \text{mm}$$</span>
+        </div>
+        <div class="calc-step">
+            <span class="step-label">2. 공칭/설계휨강도 ($\phi M_n$):</span>
+            <span class="step-math">$$\phi M_n = \phi A_s f_y \left(d - \frac{a}{2}\right) = {{ flexure_check.phi | default(0.85) | fmt_num(2) }} \times {{ flexure_check.As | fmt_num(1) }} \times {{ material.fy | fmt_num(0) }} \left({{ section.d | fmt_num(1) }} - \frac{ {{ flexure_check.a | fmt_num(2) }} }{2}\right) \times 10^{-6} = {{ flexure_check.phi_Mn | fmt_moment }}$$</span>
+        </div>
+        <div class="calc-step">
+            <span class="step-label">3. 휨 DCR 및 판정:</span>
+            <span class="step-math">$$\text{DCR} = \frac{M_u}{\phi M_n} = \frac{ {{ loads.Mu | fmt_num(2) }} }{ {{ flexure_check.phi_Mn | fmt_num(2) }} } = \mathbf{ {{ flexure_check.dcr | fmt_dcr }} } \le 1.0 \quad \left( {% if flexure_check.dcr <= 1.0 %}\text{OK}{% else %}\text{NG}{% endif %} \right)$$</span>
+        </div>
+    </div>
+</div>
+
+<!-- 4.2 Shear Strength Check -->
+<div class="calc-block">
+    <div class="calc-header">
+        <span>4.2 전단강도 설계검토 (KDS 14 20 22)</span>
+        <span>{{ shear_check.dcr | dcr_badge | safe }}</span>
+    </div>
+    <div class="calc-body">
+        <div class="calc-step">
+            <span class="step-label">1. 콘크리트 부담 전단 ($\phi V_c$):</span>
+            <span class="step-math">$$\phi V_c = \phi \frac{1}{6} \sqrt{f_{ck}} b_w d = 0.75 \times \frac{1}{6} \sqrt{ {{ material.fck | fmt_num(0) }} } \times {{ section.b | fmt_num(0) }} \times {{ section.d | fmt_num(1) }} \times 10^{-3} = {{ shear_check.phi_Vc | fmt_force }}$$</span>
+        </div>
+        <div class="calc-step">
+            <span class="step-label">2. 스터럽 부담 전단 ($\phi V_s$):</span>
+            <span class="step-math">$$\phi V_s = \phi \frac{A_v f_{ys} d}{s} = 0.75 \times \frac{ {{ shear_check.Av | fmt_num(1) }} \times {{ material.fys | fmt_num(0) }} \times {{ section.d | fmt_num(1) }} }{ {{ shear_check.s | fmt_num(0) }} } \times 10^{-3} = {{ shear_check.phi_Vs | fmt_force }}$$</span>
+        </div>
+        <div class="calc-step">
+            <span class="step-label">3. 전체 설계전단강도 ($\phi V_n$):</span>
+            <span class="step-math">$$\phi V_n = \phi V_c + \phi V_s = {{ shear_check.phi_Vn | fmt_force }} \ge V_u = {{ loads.Vu | fmt_force }} \implies \text{DCR} = \mathbf{ {{ shear_check.dcr | fmt_dcr }} } \quad \left( {% if shear_check.dcr <= 1.0 %}\text{OK}{% else %}\text{NG}{% endif %} \right)$$</span>
+        </div>
+    </div>
+</div>
+
+<!-- 4.3 Serviceability Deflection & Crack Width -->
+{% if service_check %}
+<div class="calc-block">
+    <div class="calc-header">
+        <span>4.3 사용성 검토 (처짐 및 균열폭 - KDS 14 20 30)</span>
+        <span>{{ (service_check.dcr | default(service_check.deflection_dcr)) | dcr_badge | safe }}</span>
+    </div>
+    <div class="calc-body">
+        <div class="calc-step">
+            <span class="step-label">1. 유효단면2차모멘트 ($I_e$):</span>
+            <span class="step-math">$$I_e = \left(\frac{M_{cr}}{M_a}\right)^3 I_g + \left[1 - \left(\frac{M_{cr}}{M_a}\right)^3\right] I_{cr} = {{ service_check.Ie | fmt_num(0) }} \times 10^4 \, \text{mm}^4$$</span>
+        </div>
+        <div class="calc-step">
+            <span class="step-label">2. 총 처짐량 ($\Delta_{total}$):</span>
+            <span class="step-math">$$\Delta_{total} = \Delta_i + \Delta_{long} = {{ service_check.deflection | fmt_num(2) }} \, \text{mm} \le \Delta_{allow} = {{ service_check.allow_deflection | fmt_num(2) }} \, \text{mm} \quad (\text{DCR} = {{ service_check.deflection_dcr | fmt_dcr }})$$</span>
+        </div>
+        <div class="calc-step">
+            <span class="step-label">3. 직접 균열폭 ($w$):</span>
+            <span class="step-math">$$w = {{ service_check.crack_width | fmt_num(3) }} \, \text{mm} \le w_{lim} = {{ service_check.allow_crack_width | default(0.3) | fmt_num(2) }} \, \text{mm} \quad (\text{DCR} = {{ service_check.crack_dcr | fmt_dcr }})$$</span>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- 5. Executive Summary Table -->
+<div class="section-title avoid-break">5. 설계 검토 결과 종합 요약</div>
+<table class="info-table avoid-break">
+    <thead>
+        <tr style="background: #e2e8f0;">
+            <th style="width: 25%;">검토 항목</th>
+            <th style="width: 25%;">소요강도 / 발생치 ($U$)</th>
+            <th style="width: 25%;">설계강도 / 허용치 ($\phi R_n$)</th>
+            <th style="width: 15%;">응력비 (DCR)</th>
+            <th style="width: 10%;">판정</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="font-weight: 500;">휨모멘트 (Flexure)</td>
+            <td>{{ loads.Mu | fmt_moment }}</td>
+            <td>{{ flexure_check.phi_Mn | fmt_moment }}</td>
+            <td><strong>{{ flexure_check.dcr | fmt_dcr }}</strong></td>
+            <td style="text-align: center;">{{ flexure_check.dcr | dcr_badge | safe }}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 500;">전단력 (Shear)</td>
+            <td>{{ loads.Vu | fmt_force }}</td>
+            <td>{{ shear_check.phi_Vn | fmt_force }}</td>
+            <td><strong>{{ shear_check.dcr | fmt_dcr }}</strong></td>
+            <td style="text-align: center;">{{ shear_check.dcr | dcr_badge | safe }}</td>
+        </tr>
+        {% if service_check %}
+        <tr>
+            <td style="font-weight: 500;">처짐 (Deflection)</td>
+            <td>{{ service_check.deflection | fmt_num(2) }} mm</td>
+            <td>{{ service_check.allow_deflection | fmt_num(2) }} mm</td>
+            <td><strong>{{ service_check.deflection_dcr | fmt_dcr }}</strong></td>
+            <td style="text-align: center;">{{ service_check.deflection_dcr | dcr_badge | safe }}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 500;">균열폭 (Crack Width)</td>
+            <td>{{ service_check.crack_width | fmt_num(3) }} mm</td>
+            <td>{{ service_check.allow_crack_width | default(0.3) | fmt_num(2) }} mm</td>
+            <td><strong>{{ service_check.crack_dcr | fmt_dcr }}</strong></td>
+            <td style="text-align: center;">{{ service_check.crack_dcr | dcr_badge | safe }}</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

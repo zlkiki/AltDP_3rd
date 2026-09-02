@@ -82,6 +82,6 @@ src/
 
 ## 6. 검증 및 수용 기준 (Acceptance Criteria)
 
-- [ ] **A4 인쇄 레이아웃 무결성**: 브라우저 인쇄 미리보기 시 테이블/수식 잘림(Page-break 에러) 없이 완벽한 A4 정렬.
-- [ ] **수식 전개 정밀도**: 기호식부터 최종 안전율까지 $\LaTeX$ 수식이 깨짐 없이 선명하게 렌더링.
-- [ ] **Pytest 스위트 통과**: `pytest tests/report/test_report_generator.py test_excel_exporter.py` (100% 통과).
+- [x] **A4 인쇄 레이아웃 무결성**: 브라우저 인쇄 미리보기 시 테이블/수식 잘림(Page-break 에러) 없이 완벽한 A4 정렬.
+- [x] **수식 전개 정밀도**: 기호식부터 최종 안전율까지 $\LaTeX$ 수식이 깨짐 없이 선명하게 렌더링.
+- [x] **Pytest 스위트 통과**: `pytest tests/report/test_report_generator.py test_excel_exporter.py` (100% 통과).

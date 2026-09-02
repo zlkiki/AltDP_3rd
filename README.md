@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/badge/Design_Code-KDS_14_20_00-blue?style=flat" alt="KDS 14 20 00" />
   <img src="https://img.shields.io/badge/Design_Code-KDS_14_31_00-navy?style=flat" alt="KDS 14 31 00" />
   <img src="https://img.shields.io/badge/Ghidra_Assets-47_Routines_Decompiled-orange?style=flat" alt="Ghidra Assets" />
-  <img src="https://img.shields.io/badge/Tests-111_Passed_0.72s-brightgreen?style=flat" alt="Pytest Status" />
+  <img src="https://img.shields.io/badge/Tests-122_Passed_1.21s-brightgreen?style=flat" alt="Pytest Status" />
 </p>
 
 ---

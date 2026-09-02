@@ -1,0 +1,104 @@
+{% extends "base_report.html" %}
+
+{% block report_content %}
+<!-- 1. General Project & Member Information -->
+<div class="section-title">1. 설계 개요 및 접합부/주각부 제원</div>
+<table class="info-table">
+    <tr>
+        <th>프로젝트명</th>
+        <td>{{ project.title | default('AltDP_3rd Steel Connection & Baseplate') }}</td>
+        <th>접합부 ID</th>
+        <td>{{ member.id | default('CONN-101 / BP-101') }}</td>
+    </tr>
+    <tr>
+        <th>적용 설계기준</th>
+        <td>{{ project.code | default('KDS 14 31 25 (강구조 접합부 설계기준)') }}</td>
+        <th>접합부 유형</th>
+        <td>{{ member.type | default('고장력볼트 전단/인장 / 엔드플레이트 / 베이스플레이트') }}</td>
+    </tr>
+    <tr>
+        <th>설계자 / 검토자</th>
+        <td>{{ project.author | default('Senior PE') }} / {{ project.checker | default('Principal PE') }}</td>
+        <th>설계 일자</th>
+        <td>{{ project.date | default('2026-09-02') }}</td>
+    </tr>
+</table>
+
+<!-- 2. Connection Elements & Materials -->
+<div class="section-title">2. 접합 요소 제원 및 재료 강도</div>
+<table class="info-table">
+    <tr>
+        <th>볼트 규격 및 직경</th>
+        <td>{{ material.bolt_grade | default('F10T M22') }} ($F_{nt} = 750\,\text{MPa}, F_{nv} = 450\,\text{MPa}$)</td>
+        <th>용접봉 강도 ($F_{EXX}$)</th>
+        <td>{{ material.weld_grade | default('E70XX / E49XX') }} ($F_{EXX} = 490\,\text{MPa}$)</td>
+    </tr>
+    <tr>
+        <th>연결판(Plate) 강재 및 두께</th>
+        <td>{{ material.plate_steel | default('SM355') }} ($t_p = {{ section.tp | default(16) | fmt_num(1) }} \, \text{mm}, F_y = 355\,\text{MPa}$)</td>
+        <th>볼트 수량 및 배치</th>
+        <td>{{ section.bolt_desc | default('총 8개 (2열 x 4행), 피치 75mm, 연단거리 40mm') }}</td>
+    </tr>
+</table>
+
+<!-- 3. Factored Design Loads -->
+<div class="section-title">3. 계수 설계하중 (Design Actions)</div>
+<table class="info-table">
+    <tr>
+        <th>설계 전단력 ($V_u$)</th>
+        <td>{{ loads.Vu | default(0.0) | fmt_force }}</td>
+        <th>설계 인장력 / 축력 ($T_u / P_u$)</th>
+        <td>{{ loads.Tu | default(loads.Pu) | default(0.0) | fmt_force }}</td>
+    </tr>
+    <tr>
+        <th>설계 휨모멘트 ($M_u$)</th>
+        <td>{{ loads.Mu | default(0.0) | fmt_moment }}</td>
+        <th>지배 하중조합</th>
+        <td>{{ loads.comb_name | default('1.2D + 1.6L') }}</td>
+    </tr>
+</table>
+
+<!-- 4. Detailed Design Checks -->
+<div class="section-title">4. 상세 설계 및 한계상태 검토</div>
+{% for chk in checks %}
+<div class="calc-block">
+    <div class="calc-header">
+        <span>{{ chk.title }}</span>
+        <span>{{ chk.dcr | dcr_badge | safe }}</span>
+    </div>
+    <div class="calc-body">
+        {% for step in chk.steps %}
+        <div class="calc-step">
+            <span class="step-label">{{ step.label }}:</span>
+            <span class="step-math">{{ step.formula }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+
+<!-- 5. Executive Summary Table -->
+<div class="section-title avoid-break">5. 접합부 검토 결과 종합 요약</div>
+<table class="info-table avoid-break">
+    <thead>
+        <tr style="background: #e2e8f0;">
+            <th style="width: 30%;">검토 항목</th>
+            <th style="width: 25%;">소요강도 ($U$)</th>
+            <th style="width: 25%;">설계강도 ($\phi R_n$)</th>
+            <th style="width: 10%;">응력비</th>
+            <th style="width: 10%;">판정</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for chk in checks %}
+        <tr>
+            <td style="font-weight: 500;">{{ chk.title }}</td>
+            <td>{{ chk.demand | default('-') }}</td>
+            <td>{{ chk.capacity | default('-') }}</td>
+            <td><strong>{{ chk.dcr | fmt_dcr }}</strong></td>
+            <td style="text-align: center;">{{ chk.dcr | dcr_badge | safe }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

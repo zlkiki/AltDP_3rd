@@ -1,0 +1,164 @@
+{% extends "base_report.html" %}
+
+{% block report_content %}
+<!-- 1. General Project & Member Information -->
+<div class="section-title">1. 설계 개요 및 프로젝트 정보</div>
+<table class="info-table">
+    <tr>
+        <th>프로젝트명</th>
+        <td>{{ project.title | default('AltDP_3rd RC Column Design') }}</td>
+        <th>부재 ID</th>
+        <td>{{ member.id | default('C-101') }}</td>
+    </tr>
+    <tr>
+        <th>적용 설계기준</th>
+        <td>{{ project.code | default('KDS 14 20 20 (콘크리트구조 휨 및 압축설계기준)') }}</td>
+        <th>부재 유형</th>
+        <td>{{ member.type | default('RC 기둥 (Column P-M Interaction)') }}</td>
+    </tr>
+    <tr>
+        <th>기둥 길이 ($L_u$) / 골조 유형</th>
+        <td>{{ section.Lu | default(3500) | fmt_num(0) }} mm / {{ section.frame_type | default('비횡구속 골조(Unbraced)') }}</td>
+        <th>유효좌굴길이계수 ($k_x, k_y$)</th>
+        <td>{{ section.kx | default(1.0) | fmt_num(2) }}, {{ section.ky | default(1.0) | fmt_num(2) }}</td>
+    </tr>
+</table>
+
+<!-- 2. Section Geometry & Materials -->
+<div class="section-title">2. 단면 기하성질 및 재료 물성치</div>
+<div class="grid-2col">
+    <div>
+        <table class="info-table">
+            <tr>
+                <th>콘크리트 강도 ($f_{ck}$)</th>
+                <td>{{ material.fck | fmt_stress }}</td>
+            </tr>
+            <tr>
+                <th>주철근 강도 ($f_y$)</th>
+                <td>{{ material.fy | fmt_stress }}</td>
+            </tr>
+            <tr>
+                <th>띠철근 강도 ($f_{ys}$)</th>
+                <td>{{ material.fys | fmt_stress }}</td>
+            </tr>
+            <tr>
+                <th>기둥 단면폭 ($B$) $\times$ 높이 ($H$)</th>
+                <td>{{ section.b | fmt_num(0) }} mm $\times$ {{ section.h | fmt_num(0) }} mm</td>
+            </tr>
+            <tr>
+                <th>주철근 배근 ($A_{st}$)</th>
+                <td>{{ section.rebar_desc | default('12 - D25') }} ($A_{st} = {{ section.Ast | default(6079.0) | fmt_num(1) }} \, \text{mm}^2$, $\rho_g = {{ section.rho_g | default(2.11) | fmt_num(2) }} \%$)</td>
+            </tr>
+            <tr>
+                <th>띠철근(Tie) 배근</th>
+                <td>{{ section.tie_desc | default('D10 @ 300') }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="drawing-container">
+        {% if svg_diagram %}
+            {{ svg_diagram | safe }}
+        {% else %}
+            <div style="font-size: 8.5pt; color: #94a3b8; text-align: center;">[기둥 단면 배근도]</div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- 3. Factored Design Loads -->
+<div class="section-title">3. 계수 설계하중 및 세장효과 확대모멘트</div>
+<table class="info-table">
+    <tr>
+        <th>설계 축력 ($P_u$)</th>
+        <td>{{ loads.Pu | fmt_force }}</td>
+        <th>지배 하중조합</th>
+        <td>{{ loads.comb_name | default('1.2D + 1.6L') }}</td>
+    </tr>
+    <tr>
+        <th>1차 휨모멘트 ($M_{ux}, M_{uy}$)</th>
+        <td>{{ (loads.Mux | default(loads.Mu | default(0.0))) | fmt_moment }}, {{ (loads.Muy | default(0.0)) | fmt_moment }}</td>
+        <th>확대 휨모멘트 ($M_{cx}, M_{cy}$)</th>
+        <td>{{ (pm_check.Mcx | default(loads.Mux | default(loads.Mu | default(0.0)))) | fmt_moment }}, {{ (pm_check.Mcy | default(loads.Muy | default(0.0))) | fmt_moment }}</td>
+    </tr>
+    <tr>
+        <th>모멘트 확대계수 ($\delta_{ns,x}, \delta_{ns,y}$)</th>
+        <td colspan="3">$$\delta_{ns,x} = {{ pm_check.delta_ns_x | default(1.05) | fmt_num(3) }}, \quad \delta_{ns,y} = {{ pm_check.delta_ns_y | default(1.0) | fmt_num(3) }}$$</td>
+    </tr>
+</table>
+
+<!-- 4. P-M Interaction Chart & Checks -->
+<div class="section-title">4. 3차원/2차원 P-M 상관곡선 및 상세 해석</div>
+<div class="grid-2col">
+    <div class="drawing-container" style="min-height: 240px;">
+        {% if pm_chart_svg %}
+            {{ pm_chart_svg | safe }}
+        {% else %}
+            <div style="font-size: 8.5pt; color: #94a3b8; text-align: center;">[P-M 상관곡선 차트]</div>
+        {% endif %}
+    </div>
+    <div>
+        <div class="calc-block" style="margin-bottom: 0;">
+            <div class="calc-header">
+                <span>P-M 축휨 상관비 검토 (KDS 14 20 20)</span>
+                <span>{{ pm_check.dcr | dcr_badge | safe }}</span>
+            </div>
+            <div class="calc-body">
+                <div class="calc-step">
+                    <span class="step-label">순수압축 내력 ($\phi P_{n,max}$):</span>
+                    <span class="step-math">$$\phi P_{n,max} = 0.80 \phi [0.85 f_{ck}(A_g - A_{st}) + f_y A_{st}] = {{ pm_check.phi_Pn_max | default(3450.0) | fmt_force }}$$</span>
+                </div>
+                <div class="calc-step">
+                    <span class="step-label">설계 휨내력 ($\phi M_{nx}$):</span>
+                    <span class="step-math">$$\phi M_{nx} (P_u) = {{ pm_check.phi_Mnx | default(380.0) | fmt_moment }}$$</span>
+                </div>
+                <div class="calc-step">
+                    <span class="step-label">이축휨/단축 DCR:</span>
+                    <span class="step-math">$$\text{DCR} = \frac{M_{cx}}{\phi M_{nx}} = \frac{ {{ pm_check.Mcx | default(loads.Mux) | fmt_num(2) }} }{ {{ pm_check.phi_Mnx | default(380.0) | fmt_num(2) }} } = \mathbf{ {{ pm_check.dcr | fmt_dcr }} } \le 1.0$$</span>
+                </div>
+                <div class="calc-step">
+                    <span class="step-label">최종 상태:</span>
+                    <span class="step-math">{% if pm_check.dcr <= 1.0 %}\mathbf{ALL \, SAFE} (안전율 확보){% else %}\mathbf{OVERLOADED} (단면 확대 필요){% endif %}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 5. Executive Summary Table -->
+<div class="section-title avoid-break" style="margin-top: 14px;">5. 설계 검토 결과 종합 요약</div>
+<table class="info-table avoid-break">
+    <thead>
+        <tr style="background: #e2e8f0;">
+            <th style="width: 25%;">검토 항목</th>
+            <th style="width: 25%;">계수 소요치 ($U$)</th>
+            <th style="width: 25%;">설계 강도 ($\phi R_n$)</th>
+            <th style="width: 15%;">응력비 (DCR)</th>
+            <th style="width: 10%;">판정</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="font-weight: 500;">축력-휨 P-M 상관도</td>
+            <td>Pu = {{ loads.Pu | fmt_force }}, Mc = {{ pm_check.Mcx | default(loads.Mux) | fmt_moment }}</td>
+            <td>phi*Mn = {{ pm_check.phi_Mnx | default(380.0) | fmt_moment }}</td>
+            <td><strong>{{ pm_check.dcr | fmt_dcr }}</strong></td>
+            <td style="text-align: center;">{{ pm_check.dcr | dcr_badge | safe }}</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 500;">최대 축압축력</td>
+            <td>Pu = {{ loads.Pu | fmt_force }}</td>
+            <td>phi*Pn,max = {{ pm_check.phi_Pn_max | default(3450.0) | fmt_force }}</td>
+            <td><strong>{{ (loads.Pu / (pm_check.phi_Pn_max | default(3450.0))) | fmt_dcr }}</strong></td>
+            <td style="text-align: center;">{{ (loads.Pu / (pm_check.phi_Pn_max | default(3450.0))) | dcr_badge | safe }}</td>
+        </tr>
+        {% if shear_check %}
+        <tr>
+            <td style="font-weight: 500;">기둥 전단강도</td>
+            <td>Vu = {{ loads.Vu | default(0.0) | fmt_force }}</td>
+            <td>phi*Vn = {{ shear_check.phi_Vn | fmt_force }}</td>
+            <td><strong>{{ shear_check.dcr | fmt_dcr }}</strong></td>
+            <td style="text-align: center;">{{ shear_check.dcr | dcr_badge | safe }}</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
