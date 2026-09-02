@@ -16,14 +16,12 @@ Midas Design+ 원본 바이너리에 탑재된 **성능기반 내진설계 모�
 
 ---
 
-## 2. 세부 기능 개발 명세
+## 2. 하위 Phase 분할 로드맵 (Partitioned Phases for `/goal`)
 
-### 2.1. PBD 소성힌지 엔진 (`src/engine/pbd/`)
-* RC 보/기둥/전단벽 및 철골 부재 소성회전각 한계값($a, b, c$) 산정 및 백본 곡선 생성.
-
-### 2.2. 국제 규준 어댑터 (`src/engine/international/`)
-* `units.py` : SI $\leftrightarrow$ MKS $\leftrightarrow$ US Imperial 실시간 양방향 변환.
-* `eurocode/`, `us/`, `is/` 설계 분기 파이프라인.
+| Phase | 세부 요구사항 문서 | 주요 구현 및 산출물 | 검증 타겟 |
+|:---:|---|---|---|
+| **Phase 18-1** | [`요구사항18-1_PBD_비선형_소성힌지_백본곡선_및_성능수준평가_엔진.md`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항18-1_PBD_비선형_소성힌지_백본곡선_및_성능수준평가_엔진.md) | `src/engine/pbd/hinge_rc.py`, `hinge_steel.py`, `backbone_curve.py` | ASCE 41-17 / KDS 41 17 00 백본곡선 및 IO/LS/CP 판정 |
+| **Phase 18-2** | [`요구사항18-2_글로벌_설계규준_Eurocode_US_IS_및_다단위계_어댑터.md`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항18-2_글로벌_설계규준_Eurocode_US_IS_및_다단위계_어댑터.md) | `src/engine/international/units.py`, `eurocode/`, `us_code/`, `is_code/` | SI/MKS/Imperial 단위 변환, Eurocode 2/3, ACI 318-19, IS 456 검토 |
 
 ---
 
@@ -31,4 +29,4 @@ Midas Design+ 원본 바이너리에 탑재된 **성능기반 내진설계 모�
 
 - [ ] ASCE 41-17 및 Eurocode/ACI 표준 예제 대비 계산 오차 0.1% 미만.
 - [ ] 단위 변환 수치 정밀도 $10^{-6}$ 이내 유지.
-- [ ] `tests/engine/test_pbd.py`, `test_international_codes.py` 통과.
+- [ ] Pytest 스위트 통과: `tests/engine/test_pbd_hinge.py`, `tests/engine/test_units.py`, `tests/engine/test_international_codes.py`, `tests/api/test_international_routes.py`.

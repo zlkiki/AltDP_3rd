@@ -16,20 +16,12 @@ Midas Design+ 원본 4대 메인 폼뷰 중 **도면 생성 뷰(`CMainFormViewDr
 
 ---
 
-## 2. 세부 기능 개발 명세
+## 2. 하위 Phase 분할 로드맵 (Partitioned Phases for `/goal`)
 
-### 2.1. CAD 생성 엔진 (`src/report/cad_exporter.py`)
-* `POLYLINE`, `LWPOLYLINE`, `HATCH`, `DIMENSION`, `TEXT` 엔티티 생성.
-* AutoCAD R2018 호환 DXF 출력.
-
-### 2.2. 물량 산출 엔진 (`src/engine/project/quantity_engine.py`)
-* KDS 14 20 52 정착/이음길이 자동 산정식 연동 철근 톤수 집계.
-* 다중 시트 Excel 익스포트.
-
-### 2.3. REST API 엔드포인트
-* `POST /api/v1/report/export-dxf` : 단면/입면 배근 상세도 DXF 다운로드
-* `POST /api/v1/report/export-schedule-dxf` : 층별 배근 일람표 DXF 다운로드
-* `GET /api/v1/project/export-quantity-excel` : 물량 집계표 Excel 다운로드
+| Phase | 세부 요구사항 문서 | 주요 구현 및 산출물 | 검증 타겟 |
+|:---:|---|---|---|
+| **Phase 17-1** | [`요구사항17-1_ezdxf_기반_2D_배근상세도_DXF_CAD_생성_엔진.md`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항17-1_ezdxf_기반_2D_배근상세도_DXF_CAD_생성_엔진.md) | `src/report/cad_exporter.py`, `cad_schedule.py` | AutoCAD 호환 단면/입면 배근도 및 일람표 DXF 출력 |
+| **Phase 17-2** | [`요구사항17-2_KDS_표준_물량산출_엔진_및_다중시트_Excel_익스포트.md`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항17-2_KDS_표준_물량산출_엔진_및_다중시트_Excel_익스포트.md) | `src/engine/project/quantity_engine.py`, `excel_quantity_exporter.py`, `src/api/routes/quantity.py` | 콘크리트/거푸집/철근톤수 집계표, 다중시트 Excel 다운로드 |
 
 ---
 
@@ -37,4 +29,4 @@ Midas Design+ 원본 4대 메인 폼뷰 중 **도면 생성 뷰(`CMainFormViewDr
 
 - [ ] 생성된 `.dxf` 파일이 표준 CAD 프로그램에서 결함 없이 열리고 레이어/치수선 정상 표현.
 - [ ] 철근 톤수 및 콘크리트 체적($\text{m}^3$) 산출 오차 0.1% 미만 검증.
-- [ ] `tests/report/test_cad_exporter.py`, `tests/engine/test_quantity_engine.py` 통과.
+- [ ] Pytest 스위트 통과: `tests/report/test_cad_exporter.py`, `tests/engine/test_quantity_engine.py`, `tests/api/test_quantity_routes.py`.

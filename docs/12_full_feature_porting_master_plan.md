@@ -164,28 +164,29 @@ flowchart TD
 
 ### Phase 9: MIDAS Gen 3D 해석 모델 연동 및 부재력 임포트 파이프라인 (`DgnPlugIn`) - [로드맵]
 > **대상 C++ 모듈**: `DgnPlugIn/` (`AnalysisDB.dll`, `GEN_UmdDataBase.dll`, `GEN_DgnCalc_KR.dll`)  
-> **목표 요구사항**: `요구사항16`
+> **목표 요구사항**: [`요구사항16`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항16_MIDAS_Gen_3D_해석모델_연동_및_부재력_임포트_파이프라인.md) (`16-1`, `16-2`, `16-3`)
 
-* **9.1. MIDAS 텍스트 모델/부재력 파일 (`.mgt`) 및 결과 DB (`.db`, `.mgb`) 파서**.
-* **9.2. 3D 프레임 $\rightarrow$ AltDP 부재 자동 변환 및 Governing LCB 자동 추출**.
+* **9.1. MIDAS MGT 텍스트 스크립트 파서 및 3D 모델 구축 (`src/engine/interop/mgt_parser.py`)**: [`요구사항16-1`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항16-1_MIDAS_MGT_텍스트스크립트_파서_및_3D모델구축.md)
+* **9.2. 해석 결과 부재력 파서 및 Governing LCB 자동 선별 (`src/engine/interop/governing_lcb.py`)**: [`요구사항16-2`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항16-2_부재력_DB_파서_및_최악하중_Governing_LCB_자동선별.md)
+* **9.3. Gen 연동 REST API 및 다중 부재 일괄 설계 파이프라인 (`src/api/routes/interop.py`)**: [`요구사항16-3`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항16-3_Gen연동_REST_API_및_다중부재_일괄설계_파이프라인.md)
 
 ---
 
 ### Phase 10: 2D 배근 CAD 도면 생성 및 물량산출 시스템 (Draw & Qntt View) - [로드맵]
 > **대상 C++ 모듈**: `DPLUS_VDraw.dll` (`CMainFormViewDraw`), `CMainFormViewQntt`  
-> **목표 요구사항**: `요구사항17`
+> **목표 요구사항**: [`요구사항17`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항17_2D_배근_상세도_CAD_도면_생성_및_물량산출_시스템.md) (`17-1`, `17-2`)
 
-* **10.1. 2D 배근 상세도 CAD (DXF/DWG) 생성 엔진 (`src/report/cad_exporter.py`)**: `ezdxf` 기반 단면도/입면도/일람표 CAD 내보내기.
-* **10.2. KDS 표준 물량산출 엔진 (`src/engine/project/quantity_engine.py`)**: 콘크리트($\text{m}^3$), 거푸집($\text{m}^2$), 철근 규격별 톤수(ton) 집계 및 Excel 익스포트.
+* **10.1. ezdxf 기반 2D 배근 상세도 CAD(DXF) 생성 엔진 (`src/report/cad_exporter.py`)**: [`요구사항17-1`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항17-1_ezdxf_기반_2D_배근상세도_DXF_CAD_생성_엔진.md)
+* **10.2. KDS 표준 물량산출 엔진 및 다중시트 Excel 익스포트 (`src/engine/project/quantity_engine.py`)**: [`요구사항17-2`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항17-2_KDS_표준_물량산출_엔진_및_다중시트_Excel_익스포트.md)
 
 ---
 
 ### Phase 11: 성능기반설계 (PBD) 및 글로벌 규준 (Eurocode, US, IS) 확장 - [로드맵]
 > **대상 C++ 모듈**: `Language/Korean/Menu.ini` (`IDS_RIBBON_BARR_PBD`), `DPLUS_EC.dll`, `DPLUS_IS.dll`, `GEN_DgnCalc_US.dll`  
-> **목표 요구사항**: `요구사항18`
+> **목표 요구사항**: [`요구사항18`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항18_RC_철골_성능기반설계_PBD_및_글로벌_규준_확장.md) (`18-1`, `18-2`)
 
-* **11.1. 성능기반설계 (PBD) 소성힌지 엔진 (`src/engine/pbd/`)**: KDS 41 17 00 / ASCE 41-17 기반 $M-\theta, V-\gamma$ 백본 곡선 및 IO/LS/CP 판정.
-* **11.2. 글로벌 규준 및 다단위계 확장 (`src/engine/international/`)**: Eurocode 2/3, US ACI 318 / AISC 360, IS 456 / 800 및 Imperial 단위계 변환.
+* **11.1. PBD 비선형 소성힌지 백본곡선 및 성능수준 평가 엔진 (`src/engine/pbd/`)**: [`요구사항18-1`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항18-1_PBD_비선형_소성힌지_백본곡선_및_성능수준평가_엔진.md)
+* **11.2. 글로벌 설계규준 (Eurocode, US, IS) 및 다단위계 어댑터 (`src/engine/international/`)**: [`요구사항18-2`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항18-2_글로벌_설계규준_Eurocode_US_IS_및_다단위계_어댑터.md)
 
 ---
 
@@ -204,12 +205,12 @@ flowchart TD
 | **`요구사항09`** | **A4 표준 구조계산서 출력 시스템** | `CMSOffice`, `CMSExcel`, `DgnReportBase.ini` | `src/report/generator.py`, `excel_exporter.py`, `pdf_exporter.py` | **완료 (100%)** |
 | **`요구사항10`** | **SRC 합성부재 & 알루미늄/보강 엔진** | `DPLUS_SRC.dll`, `DPLUS_ALU.dll`, `DPLUS_RFM.dll` | `src/engine/src_composite/`, `src/engine/alu/`, `src/engine/rfm/` | **완료 (100%)** |
 | **`요구사항11`** | **통합 웹 UI/UX 완성 & 전수 무결성 검증** | 47,110 심볼 및 47개 디컴파일 소스 전수 회귀 검증 | 통합 프론트엔드 UI, 145개 Pytest 100% 통과 | **완료 (사내 구현 반영)** |
-| **`요구사항13`** | **Ghidra 역공학 2D FEM & 5대 부재 완전 연동 (docs 15 구현)** | `DgnSolver/` (`FES.EXE`, `mfsolver.exe`, `Iterative.exe`), CM2 메셔 | `src/engine/fem/` (매트기초, 지하외벽, 베이스플레이트, 엔드플레이트, 슬래브 5대 모듈 & 응력 컨투어) | **차기 1순위 (Next Sprint)** |
-| **`요구사항14`** | **Midas Design+ 원본 UI 역공학 기반 웹 UI/UX 고도화 (docs 13 $\rightarrow$ docs 07)** | `Design+.exe` (리본 바, 4대 폼뷰, 3대 인터랙션 모드) | `docs/07` 고도화, 4대 메인 폼뷰(Memb/List/Draw/Qntt), 3대 모드(P/S/M) 웹 프론트엔드 완성 | **차기 2순위** |
-| **`요구사항15`** | **KDS 구조계산서 3대 보고서 모드 및 옵션 제어 고도화 (docs 14 고도화)** | `IDD_DGN_REPORT_OPT_*`, `CMSOffice` | 요약/상세/입력데이터 3대 보고서 분기, 옵션 제어 파이프라인, 대용량 일괄 바인딩 PDF 출력 | **차기 3순위** |
-| **`요구사항16`** | **MIDAS Gen 3D 해석 모델 연동 파이프라인** | `DgnPlugIn/` (`AnalysisDB.dll`, `GEN_UmdDataBase.dll`) | `src/engine/interop/` (`.mgt`/`.db` 파서, Governing LCB 자동 추출 및 부재 일괄 설계) | **차기 4순위** |
-| **`요구사항17`** | **2D 배근 CAD 도면 생성 및 물량산출 시스템** | `CMainFormViewDraw`, `CMainFormViewQntt` | `src/report/cad_exporter.py` (DXF 도면 내보내기), `quantity_engine.py` (철근/콘크리트 톤수 집계) | **로드맵** |
-| **`요구사항18`** | **성능기반설계 (PBD) 및 글로벌 규준 확장** | `IDS_RIBBON_BARR_PBD`, `DPLUS_EC.dll`, `DPLUS_IS.dll` | `src/engine/pbd/` (ASCE 41 소성힌지 백본곡선), `international/` (Eurocode, US, IS 규준) | **로드맵** |
+| **`요구사항13`** | **Ghidra 역공학 2D FEM & 5대 부재 완전 연동 (docs 15 구현)** | `DgnSolver/` (`FES.EXE`, `mfsolver.exe`, `Iterative.exe`), CM2 메셔 | `src/engine/fem/` (`13-1` ~ `13-4`, 5대 부재 & 응력 컨투어) | **차기 1순위 (Next Sprint)** |
+| **`요구사항14`** | **Midas Design+ 원본 UI 역공학 기반 웹 UI/UX 고도화 (docs 13 $\rightarrow$ docs 07)** | `Design+.exe` (리본 바, 4대 폼뷰, 3대 인터랙션 모드) | `docs/07` 고도화, 4대 메인 폼뷰(`14-1` ~ `14-3`), 3대 모드(P/S/M) 웹 프론트엔드 완성 | **차기 2순위** |
+| **`요구사항15`** | **KDS 구조계산서 3대 보고서 모드 및 옵션 제어 고도화 (docs 14 고도화)** | `IDD_DGN_REPORT_OPT_*`, `CMSOffice` | 요약/상세/입력데이터 3대 보고서 분기(`15-1` ~ `15-3`), 대용량 일괄 바인딩 PDF 출력 | **차기 3순위** |
+| **`요구사항16`** | **MIDAS Gen 3D 해석 모델 연동 파이프라인** | `DgnPlugIn/` (`AnalysisDB.dll`, `GEN_UmdDataBase.dll`) | `src/engine/interop/` (`16-1` ~ `16-3`, `.mgt`/`.db` 파서, Governing LCB 선별 & 일괄설계) | **차기 4순위** |
+| **`요구사항17`** | **2D 배근 CAD 도면 생성 및 물량산출 시스템** | `CMainFormViewDraw`, `CMainFormViewQntt` | `src/report/cad_exporter.py` (`17-1`, `17-2`, DXF 도면 내보내기 & 철근/콘크리트 톤수 집계) | **로드맵** |
+| **`요구사항18`** | **성능기반설계 (PBD) 및 글로벌 규준 확장** | `IDS_RIBBON_BARR_PBD`, `DPLUS_EC.dll`, `DPLUS_IS.dll` | `src/engine/pbd/` (`18-1`, `18-2`, ASCE 41 소성힌지 백본 & Eurocode/US/IS 다단위계) | **로드맵** |
 
 ---
 
