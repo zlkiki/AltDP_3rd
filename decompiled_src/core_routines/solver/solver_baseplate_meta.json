@@ -1,0 +1,354 @@
+{
+  "program": "DPLUS_STEEL.dll",
+  "matched_count": 58,
+  "functions": [
+    {
+      "name": "??0CUSBPPModeDlg@@QEAA@PEAVCWnd@@@Z",
+      "full_symbol": "public: __cdecl CUSBPPModeDlg::CUSBPPModeDlg(class CWnd * __ptr64) __ptr64",
+      "file": "solver_baseplate___0CUSBPPModeDlg__QEAA_PEAVCWnd___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "??1CUSBPPModeDlg@@UEAA@XZ",
+      "full_symbol": "public: virtual __cdecl CUSBPPModeDlg::~CUSBPPModeDlg(void) __ptr64",
+      "file": "solver_baseplate___1CUSBPPModeDlg__UEAA_XZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "??_7CUSBPPModeDlg@@6BCDBUpdateConnector@@@",
+      "full_symbol": "const CUSBPPModeDlg::`vftable'{for `CDBUpdateConnector'}",
+      "file": "solver_baseplate____7CUSBPPModeDlg__6BCDBUpdateConnector___.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "??_7CUSBPPModeDlg@@6BCDGN_FormViewInDlg@@@",
+      "full_symbol": "const CUSBPPModeDlg::`vftable'{for `CDGN_FormViewInDlg'}",
+      "file": "solver_baseplate____7CUSBPPModeDlg__6BCDGN_FormViewInDlg___.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "??_7CUSBPPModeDlg@@6BCSTLTool@@@",
+      "full_symbol": "const CUSBPPModeDlg::`vftable'{for `CSTLTool'}",
+      "file": "solver_baseplate____7CUSBPPModeDlg__6BCSTLTool___.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "??_FCUSBPPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CUSBPPModeDlg::`default constructor closure'(void) __ptr64",
+      "file": "solver_baseplate____FCUSBPPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?ChangeCurrentKey@CUSBPPModeDlg@@UEAAXI@Z",
+      "full_symbol": "public: virtual void __cdecl CUSBPPModeDlg::ChangeCurrentKey(unsigned int) __ptr64",
+      "file": "solver_baseplate__ChangeCurrentKey_CUSBPPModeDlg__UEAAXI_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?ChangeUnit@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::ChangeUnit(void) __ptr64",
+      "file": "solver_baseplate__ChangeUnit_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?ClearResult@CUSBPPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CUSBPPModeDlg::ClearResult(void) __ptr64",
+      "file": "solver_baseplate__ClearResult_CUSBPPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnitResult@CUSBPPModeDlg@@AEAAXAEAUDGNKR_USBP_RES@@H@Z",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::ConvertToCurrentUnitResult(struct DGNKR_USBP_RES & __ptr64,int) __ptr64",
+      "file": "solver_baseplate__ConvertToCurrentUnitResult_CUSBPPModeDlg__AEAAXAEAUDGNKR_USBP_RES__H_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnitResult@CUSBPPModeDlg@@AEAAXAEAUDGNUS_USBP_RES@@H@Z",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::ConvertToCurrentUnitResult(struct DGNUS_USBP_RES & __ptr64,int) __ptr64",
+      "file": "solver_baseplate__ConvertToCurrentUnitResult_CUSBPPModeDlg__AEAAXAEAUDGNUS_USBP_RES__H_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?Data2Dlg@CUSBPPModeDlg@@AEAA_NXZ",
+      "full_symbol": "private: bool __cdecl CUSBPPModeDlg::Data2Dlg(void) __ptr64",
+      "file": "solver_baseplate__Data2Dlg_CUSBPPModeDlg__AEAA_NXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?Data2Tab@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::Data2Tab(void) __ptr64",
+      "file": "solver_baseplate__Data2Tab_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?Dlg2Data@CUSBPPModeDlg@@AEAA_NXZ",
+      "full_symbol": "private: bool __cdecl CUSBPPModeDlg::Dlg2Data(void) __ptr64",
+      "file": "solver_baseplate__Dlg2Data_CUSBPPModeDlg__AEAA_NXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?DoDataExchange@CUSBPPModeDlg@@UEAAXPEAVCDataExchange@@@Z",
+      "full_symbol": "public: virtual void __cdecl CUSBPPModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64",
+      "file": "solver_baseplate__DoDataExchange_CUSBPPModeDlg__UEAAXPEAVCDataExchange___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?GetMessageMap@CUSBPPModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ",
+      "full_symbol": "protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CUSBPPModeDlg::GetMessageMap(void)const __ptr64",
+      "file": "solver_baseplate__GetMessageMap_CUSBPPModeDlg__MEBAPEBUAFX_MSGMAP__XZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?GetThisMessageMap@CUSBPPModeDlg@@KAPEBUAFX_MSGMAP@@XZ",
+      "full_symbol": "protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CUSBPPModeDlg::GetThisMessageMap(void)",
+      "file": "solver_baseplate__GetThisMessageMap_CUSBPPModeDlg__KAPEBUAFX_MSGMAP__XZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?HideRowByAnchInstallType@CUSBPPModeDlg@@QEAAXI@Z",
+      "full_symbol": "public: void __cdecl CUSBPPModeDlg::HideRowByAnchInstallType(unsigned int) __ptr64",
+      "file": "solver_baseplate__HideRowByAnchInstallType_CUSBPPModeDlg__QEAAXI_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?InitChildDlg@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::InitChildDlg(void) __ptr64",
+      "file": "solver_baseplate__InitChildDlg_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?InitComboBox@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::InitComboBox(void) __ptr64",
+      "file": "solver_baseplate__InitComboBox_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?InitEditSpin@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::InitEditSpin(void) __ptr64",
+      "file": "solver_baseplate__InitEditSpin_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?InitGrid@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::InitGrid(void) __ptr64",
+      "file": "solver_baseplate__InitGrid_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?InitPreview@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::InitPreview(void) __ptr64",
+      "file": "solver_baseplate__InitPreview_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?ModifyDBData@CUSBPPModeDlg@@AEAA_NXZ",
+      "full_symbol": "private: bool __cdecl CUSBPPModeDlg::ModifyDBData(void) __ptr64",
+      "file": "solver_baseplate__ModifyDBData_CUSBPPModeDlg__AEAA_NXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnButtonApply@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnButtonApply(void) __ptr64",
+      "file": "solver_baseplate__OnButtonApply_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnButtonCheck@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnButtonCheck(void) __ptr64",
+      "file": "solver_baseplate__OnButtonCheck_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnButtonDesign@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnButtonDesign(void) __ptr64",
+      "file": "solver_baseplate__OnButtonDesign_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnButtonReport@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnButtonReport(void) __ptr64",
+      "file": "solver_baseplate__OnButtonReport_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnChangeAnchBoltFact@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnChangeAnchBoltFact(void) __ptr64",
+      "file": "solver_baseplate__OnChangeAnchBoltFact_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnChangeAnchBoltMatl@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnChangeAnchBoltMatl(void) __ptr64",
+      "file": "solver_baseplate__OnChangeAnchBoltMatl_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnChangeAnchBoltSect@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnChangeAnchBoltSect(void) __ptr64",
+      "file": "solver_baseplate__OnChangeAnchBoltSect_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnChangePreviewItem@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnChangePreviewItem(void) __ptr64",
+      "file": "solver_baseplate__OnChangePreviewItem_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnCheckPreviewContour@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnCheckPreviewContour(void) __ptr64",
+      "file": "solver_baseplate__OnCheckPreviewContour_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnCheckPreviewMeshLine@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnCheckPreviewMeshLine(void) __ptr64",
+      "file": "solver_baseplate__OnCheckPreviewMeshLine_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnCheckPreviewValue@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnCheckPreviewValue(void) __ptr64",
+      "file": "solver_baseplate__OnCheckPreviewValue_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnContextMenu@CUSBPPModeDlg@@AEAAXPEAVCWnd@@VCPoint@@@Z",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64",
+      "file": "solver_baseplate__OnContextMenu_CUSBPPModeDlg__AEAAXPEAVCWnd__VCPoint___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnDoubleClickPreview@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnDoubleClickPreview(void) __ptr64",
+      "file": "solver_baseplate__OnDoubleClickPreview_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnInitDialog@CUSBPPModeDlg@@UEAAHXZ",
+      "full_symbol": "public: virtual int __cdecl CUSBPPModeDlg::OnInitDialog(void) __ptr64",
+      "file": "solver_baseplate__OnInitDialog_CUSBPPModeDlg__UEAAHXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnReportDetail@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnReportDetail(void) __ptr64",
+      "file": "solver_baseplate__OnReportDetail_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnReportInputList@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnReportInputList(void) __ptr64",
+      "file": "solver_baseplate__OnReportInputList_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnReportSummary@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnReportSummary(void) __ptr64",
+      "file": "solver_baseplate__OnReportSummary_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnSelChangeTab@CUSBPPModeDlg@@AEAAXPEAUtagNMHDR@@PEA_J@Z",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64",
+      "file": "solver_baseplate__OnSelChangeTab_CUSBPPModeDlg__AEAAXPEAUtagNMHDR__PEA_J_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnSelChangingTab@CUSBPPModeDlg@@AEAAXPEAUtagNMHDR@@PEA_J@Z",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64",
+      "file": "solver_baseplate__OnSelChangingTab_CUSBPPModeDlg__AEAAXPEAUtagNMHDR__PEA_J_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnSetFocus@CUSBPPModeDlg@@UEAAXPEAVCWnd@@@Z",
+      "full_symbol": "public: virtual void __cdecl CUSBPPModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64",
+      "file": "solver_baseplate__OnSetFocus_CUSBPPModeDlg__UEAAXPEAVCWnd___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?OnUpdate@CUSBPPModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z",
+      "full_symbol": "public: virtual void __cdecl CUSBPPModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64",
+      "file": "solver_baseplate__OnUpdate_CUSBPPModeDlg__UEAAXPEAVCView___JPEAVCObject___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?PostNcDestroy@CUSBPPModeDlg@@UEAAXXZ",
+      "full_symbol": "public: virtual void __cdecl CUSBPPModeDlg::PostNcDestroy(void) __ptr64",
+      "file": "solver_baseplate__PostNcDestroy_CUSBPPModeDlg__UEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?PreTranslateMessage@CUSBPPModeDlg@@UEAAHPEAUtagMSG@@@Z",
+      "full_symbol": "public: virtual int __cdecl CUSBPPModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64",
+      "file": "solver_baseplate__PreTranslateMessage_CUSBPPModeDlg__UEAAHPEAUtagMSG___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?RedrawPreview@CUSBPPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CUSBPPModeDlg::RedrawPreview(void) __ptr64",
+      "file": "solver_baseplate__RedrawPreview_CUSBPPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?ResizeDialog@CUSBPPModeDlg@@UEAAXHH@Z",
+      "full_symbol": "public: virtual void __cdecl CUSBPPModeDlg::ResizeDialog(int,int) __ptr64",
+      "file": "solver_baseplate__ResizeDialog_CUSBPPModeDlg__UEAAXHH_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?RunShortcutCommand@CUSBPPModeDlg@@UEAAXH@Z",
+      "full_symbol": "public: virtual void __cdecl CUSBPPModeDlg::RunShortcutCommand(int) __ptr64",
+      "file": "solver_baseplate__RunShortcutCommand_CUSBPPModeDlg__UEAAXH_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?SetControlForm@CUSBPPModeDlg@@AEAAX_N@Z",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::SetControlForm(bool) __ptr64",
+      "file": "solver_baseplate__SetControlForm_CUSBPPModeDlg__AEAAX_N_Z.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?SetControlText@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::SetControlText(void) __ptr64",
+      "file": "solver_baseplate__SetControlText_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?SetInitUnit@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::SetInitUnit(void) __ptr64",
+      "file": "solver_baseplate__SetInitUnit_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?SetMinMax@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::SetMinMax(void) __ptr64",
+      "file": "solver_baseplate__SetMinMax_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?Tab2Data@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::Tab2Data(void) __ptr64",
+      "file": "solver_baseplate__Tab2Data_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?UpdateBuffer@CUSBPPModeDlg@@UEAAXXZ",
+      "full_symbol": "public: virtual void __cdecl CUSBPPModeDlg::UpdateBuffer(void) __ptr64",
+      "file": "solver_baseplate__UpdateBuffer_CUSBPPModeDlg__UEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?UpdateResult@CUSBPPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::UpdateResult(void) __ptr64",
+      "file": "solver_baseplate__UpdateResult_CUSBPPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_STEEL.dll"
+    },
+    {
+      "name": "?WriteReport@CUSBPPModeDlg@@AEAAXW4ReportContent@@@Z",
+      "full_symbol": "private: void __cdecl CUSBPPModeDlg::WriteReport(enum ReportContent) __ptr64",
+      "file": "solver_baseplate__WriteReport_CUSBPPModeDlg__AEAAXW4ReportContent___Z.c",
+      "module": "DPLUS_STEEL.dll"
+    }
+  ]
+}

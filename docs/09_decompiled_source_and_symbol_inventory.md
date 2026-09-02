@@ -4,7 +4,7 @@
 
 Midas Design+ 원본 바이너리(`original_src/Midas Design+/`)로부터 추출된 역공학 자산(`decompiled_src/`)은 총 **20개 DLL 모듈, 47,110개의 MSVC 데코레이션 C++ Exported Symbol, 1,000개 이상의 핵심 C++ 클래스**로 구성되어 있습니다.
 
-추가로 Ghidra Headless 자동 추출 파이프라인([scripts/ghidra_extract.py](file:///f:/PyProject/AltDP_3rd/scripts/ghidra_extract.py))을 통해 노이즈(MFC GUI)를 제거하고 **순수 공학 설계 알고리즘 C 수도코드 47종([decompiled_src/core_routines/](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/))**을 영구 자산화하였습니다.
+추가로 Ghidra Headless 자동 추출 파이프라인([scripts/ghidra_extract.py](file:///d:/PyProject/AltDP_3rd/scripts/ghidra_extract.py))을 통해 노이즈(MFC GUI)를 제거하고 **순수 공학 설계 알고리즘 C 수도코드 47종([decompiled_src/core_routines/](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/))**을 영구 자산화하였습니다.
 
 본 자산은 **AltDP_3rd** 시스템의 모든 부재설계 알고리즘, 파라미터 구조, 검토 파이프라인의 **절대적 정답 기준(Ground Truth)**으로 사용됩니다.
 
@@ -34,7 +34,7 @@ Midas Design+ 원본 바이너리(`original_src/Midas Design+/`)로부터 추출
 
 ---
 
-## 3. 선별 디컴파일 C 수도코드 자산 ([decompiled_src/core_routines/](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/))
+## 3. 선별 디컴파일 C 수도코드 자산 ([decompiled_src/core_routines/](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/))
 
 Ghidra Decompiler AST로부터 추출된 47개 무손실 C 수도코드 파일이 4개 도메인 서브디렉토리에 배치되어 있습니다:
 
@@ -117,4 +117,4 @@ decompiled_src/core_routines/
 
 1. **독립성 유지**: 신규 엔진은 C++ 바이너리나 Windows DLL을 직접 호출하지 않고, **순수 Python 3.13 및 Web 표준 기술**로 완전히 재작성되어 플랫폼 독립적으로 동작합니다.
 2. **설계식의 무결성**: KDS 국가건설기준 원문 및 C++ 심볼 검토 로직을 교차 검증하여, 원본 프로그램과의 **계산 오차 0.1% 미만**을 달성합니다.
-3. **전수 단위 테스트**: [tests/engine/](file:///f:/PyProject/AltDP_3rd/tests/engine/) 및 [tests/api/](file:///f:/PyProject/AltDP_3rd/tests/api/)를 통해 모든 부재 검토 수식을 0.5초 이내에 자동 회귀 테스트합니다.
+3. **전수 단위 테스트**: [tests/engine/](file:///d:/PyProject/AltDP_3rd/tests/engine/) 및 [tests/api/](file:///d:/PyProject/AltDP_3rd/tests/api/)를 통해 모든 부재 검토 수식을 0.5초 이내에 자동 회귀 테스트합니다.

@@ -2,9 +2,9 @@
 
 ## 1. 마스터플랜 개요 및 목적 (Executive Summary)
 
-본 문서는 **Midas Design+** 원본 바이너리로부터 추출된 **20개 DLL 모듈, 47,110개 C++ Exported 심볼**([docs/09](file:///f:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md))과 Ghidra Headless 디컴파일러를 통해 선별 자산화된 **5대 도메인 47개 핵심 C 수도코드 알고리즘**([decompiled_src/core_routines/](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/))을 바탕으로, 순수 **Python 3.13 + FastAPI + Modern Web(HTML5 Canvas/SVG) + KDS 국가건설기준** 스택으로 100% 웹 마이그레이션하기 위한 **전체 포팅 종합 마스터플랜**입니다.
+본 문서는 **Midas Design+** 원본 바이너리로부터 추출된 **20개 DLL 모듈, 47,110개 C++ Exported 심볼**([docs/09](file:///d:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md))과 Ghidra Headless 디컴파일러를 통해 선별 자산화된 **5대 도메인 47개 핵심 C 수도코드 알고리즘**([decompiled_src/core_routines/](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/))을 바탕으로, 순수 **Python 3.13 + FastAPI + Modern Web(HTML5 Canvas/SVG) + KDS 국가건설기준** 스택으로 100% 웹 마이그레이션하기 위한 **전체 포팅 종합 마스터플랜**입니다.
 
-[.agents/AGENTS.md](file:///f:/PyProject/AltDP_3rd/.agents/AGENTS.md)의 핵심 행동 규약(Zero-Dependency 소스 격리, KDS 0.1% 오차 무결성, 1이슈 1Phase 및 Goal 주도형 단계적 분할 실행, 도메인별 3대 Pytest 초고속 검증)을 최우선으로 준수하며, 향후 `요구사항/요구사항XX_...md`로 구체화될 모든 개발 스텝의 최상위 나침반(Single Source of Truth, SSOT) 역할을 수행합니다.
+[.agents/AGENTS.md](file:///d:/PyProject/AltDP_3rd/.agents/AGENTS.md)의 핵심 행동 규약(Zero-Dependency 소스 격리, KDS 0.1% 오차 무결성, 1이슈 1Phase 및 Goal 주도형 단계적 분할 실행, 도메인별 3대 Pytest 초고속 검증)을 최우선으로 준수하며, 향후 `요구사항/요구사항XX_...md`로 구체화될 모든 개발 스텝의 최상위 나침반(Single Source of Truth, SSOT) 역할을 수행합니다.
 
 ---
 
@@ -54,9 +54,9 @@ flowchart TD
 
 ## 3. 단계별 포팅 로드맵 및 고도화 추출 소스 매핑 (Phases 1 ~ 7)
 
-### Phase 1: 기반 인프라 & 데이터/단면 계층 (Core DB & Structural Foundations)
+### Phase 1: 기반 인프라 & 데이터/단면 계층 (Core DB & Structural Foundations) - [완료]
 > **대상 C++ 모듈**: `DPLUS_DB.dll` (23,447 심볼), `MIDAS_base.dll` (1,401), `MIDAS_lib.dll` (2,116)  
-> **참조 디컴파일 C 소스**: [`decompiled_src/core_routines/db/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/db/) (12개 소스, `CSteelSectDB`, `CAluSectDB`)  
+> **참조 디컴파일 C 소스**: [`decompiled_src/core_routines/db/`](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/db/) (12개 소스, `CSteelSectDB`, `CAluSectDB`)  
 > **적용 기준**: KDS 14 31 10, KDS 41 10 15
 
 * **1.1. SDB 단면 데이터베이스 파서 및 기하학적 성질 엔진 (`src/engine/db/`)**:
@@ -75,11 +75,11 @@ flowchart TD
 
 ---
 
-### Phase 2: RC 구조설계 엔진 & 3차원 P-M 수치해석 솔버 (Concrete Engineering Core)
+### Phase 2: RC 구조설계 엔진 & 3차원 P-M 수치해석 솔버 (Concrete Engineering Core) - [완료]
 > **대상 C++ 모듈**: `DPLUS_RCS.dll` (3,305 심볼), `DPLUS_DGN.dll` (2,620)  
 > **참조 디컴파일 C 소스**: 
-> - 솔버: [`decompiled_src/core_routines/solver/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/solver/) (`solver__CHK_BCCO_*.c`, `solver__CHK_BCGR_*.c`)
-> - RC 부재: [`decompiled_src/core_routines/rc/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/rc/) (14개 소스, `CHK_BBBE`, `CHK_BWUW`, `CHK_SLAB`, `CHK_UFDN`, `CHK_URAB`, `CHK_URBE`)  
+> - 솔버: [`decompiled_src/core_routines/solver/`](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/solver/) (`solver__CHK_BCCO_*.c`, `solver__CHK_BCGR_*.c`)
+> - RC 부재: [`decompiled_src/core_routines/rc/`](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/rc/) (14개 소스, `CHK_BBBE`, `CHK_BWUW`, `CHK_SLAB`, `CHK_UFDN`, `CHK_URAB`, `CHK_URBE`)  
 > **적용 기준**: KDS 14 20 10, 20, 22, 30, 70
 
 * **2.1. RC 보(Beam) 완전 설계 엔진 (`src/engine/rc/beam.py` / `rc__CHK_BBBE_*.c`)**:
@@ -109,9 +109,9 @@ flowchart TD
 
 ---
 
-### Phase 3: 철골 구조설계 및 접합부/베이스플레이트 엔진 (Steel & Connections)
+### Phase 3: 철골 구조설계 및 접합부/베이스플레이트 엔진 (Steel & Connections) - [완료]
 > **대상 C++ 모듈**: `DPLUS_STEEL.dll` (1,900 심볼)  
-> **참조 디컴파일 C 소스**: [`decompiled_src/core_routines/steel/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/steel/) (17개 소스, `CHK_USMC`, `CHK_USBP`, `CHK_USBC`, `CHK_USEP`, `CHK_USWE`, `CHK_USWO`, `CHK_USPG`, `CHK_USWB`)  
+> **참조 디컴파일 C 소스**: [`decompiled_src/core_routines/steel/`](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/steel/) (17개 소스, `CHK_USMC`, `CHK_USBP`, `CHK_USBC`, `CHK_USEP`, `CHK_USWE`, `CHK_USWO`, `CHK_USPG`, `CHK_USWB`)  
 > **적용 기준**: KDS 14 31 10, KDS 14 31 15, KDS 14 31 25
 
 * **3.1. 철골 보(Steel Beam) 설계 엔진 (`src/engine/steel/beam.py` / `steel__CHK_USMC_*.c`, `USWO_*.c`, `USPG_*.c`)**:
@@ -127,7 +127,7 @@ flowchart TD
 * **3.3. 철골 가새(Steel Brace) 설계 엔진 (`src/engine/steel/brace.py` / `steel__CHK_USMC_*.c`, `USWB_*.c`)**:
   - 인장부재 총단면 항복($P_n = F_y A_g$), 순단면 파단($P_n = F_u A_e$, $A_e = U A_n$, $U$ 전단지체계수).
   - 거셋플레이트(Gusset Plate) 유효폭(Whitmore Section) 인장/압축 및 블록전단 검토.
-* **3.4. 철골 접합부 설계 엔진 (`src/engine/steel/connection.py` / `steel__CHK_USBC_*.c`, `USEP_*.c`, `USWE_*.c`)**:
+* **3.4. 철골 접합부 설계 엔진 (`src/engine/steel/connection.py`, `endplate.py` / `steel__CHK_USBC_*.c`, `USEP_*.c`, `USWE_*.c`)**:
   - **고장력 볼트(F10T, TS볼트)**: 전단접합(마찰접합 볼트 미끄럼강도 / 지압접합 볼트 전단강도), 인장강도, 인장-전단 조합응력.
   - **모재 한계상태**: 볼트 홀 지압강도($R_n = 1.2 L_c t F_u$), 블록전단파단(Block Shear Rupture: $R_n = 0.6 F_u A_{nv} + U_{bs} F_u A_{nt}$).
   - **엔드플레이트 모멘트 접합**: 두께($t_p$), 볼트 인장력, 항복선 이론(Yield Line Theory) 휨강도 검토.
@@ -138,7 +138,7 @@ flowchart TD
 
 ---
 
-### Phase 4: 특수/합성 구조 및 보강 설계 엔진 (SRC, ALU, Retrofit)
+### Phase 4: 특수/합성 구조 및 보강 설계 엔진 (SRC, ALU, Retrofit) - [완료]
 > **대상 C++ 모듈**: `DPLUS_SRC.dll` (505 심볼), `DPLUS_ALU.dll` (329), `DPLUS_RFM.dll` (529)  
 > **적용 기준**: KDS 14 31 30, KDS 14 31 40, KDS 14 20 90
 
@@ -152,7 +152,7 @@ flowchart TD
 
 ---
 
-### Phase 5: 2D/3D 대화형 캔버스 렌더러 & 웹 UI 계층 (Visualization & Canvas)
+### Phase 5: 2D/3D 대화형 캔버스 렌더러 & 웹 UI 계층 (Visualization & Canvas) - [진행 중]
 > **대상 C++ 모듈**: `DPLUS_VDraw.dll` (2,674 심볼), `MIDAS_util.dll` (752)  
 > **기술 스택**: HTML5 Canvas, SVG 2D, Chart.js / Pure Canvas P-M 차트, Vanilla CSS 토큰 시스템
 
@@ -168,7 +168,7 @@ flowchart TD
 
 ---
 
-### Phase 6: A4 표준 구조계산서 및 오피스 익스포트 (Calculation Report & Office)
+### Phase 6: A4 표준 구조계산서 및 오피스 익스포트 (Calculation Report & Office) - [완료]
 > **대상 C++ 모듈**: `DPLUS_RCS.dll`(`CMSOffice`), `DGN_lib.dll`(`CMSExcel`, `CMSWorkRec`)  
 > **기술 스택**: Python Jinja2, MathJax/KaTeX ($\LaTeX$), WeasyPrint / CSS Paged Media
 
@@ -182,7 +182,7 @@ flowchart TD
 
 ---
 
-### Phase 7: 글로벌 설계 규준 확장 (Eurocode & Indian Standard)
+### Phase 7: 글로벌 설계 규준 확장 (Eurocode & Indian Standard) - [로드맵]
 > **대상 C++ 모듈**: `DPLUS_EC.dll` (2,493 심볼), `DPLUS_IS.dll` (2,188)
 
 * **7.1. Eurocode (EC2, EC3, EC4) 규준 어댑터 (`src/engine/international/eurocode/`)**:
@@ -203,12 +203,15 @@ AGENTS.md의 **Goal 주도형 단계적 연속 구현** 및 **1이슈 1Phase 분
 | **`요구사항03`** | **RC 보(Beam) 완전 설계 & 2D 배근도** | `core_routines/rc/rc__CHK_BBBE_*.c` | `src/engine/rc/beam.py`, `src/web/static/js/renderer2d.js` | **완료 (100%)** |
 | **`요구사항04`** | **RC 기둥(Column) & 3D P-M 솔버** | `core_routines/solver/solver__CHK_BCCO_*.c`, `BCGR_*.c` | `src/engine/rc/column.py`, `src/engine/solver/pm_diagram.py`, `pm_chart.js` | **완료 (100%)** |
 | **`요구사항05`** | **RC 전단벽(Wall) & 슬래브(Slab)** | `core_routines/rc/rc__CHK_BWUW_*.c`, `SLAB_*.c` | `src/engine/rc/wall.py`, `src/engine/rc/slab.py` | **완료 (100%)** |
-| **`요구사항06`** | **RC 기초(Footing) & 지하외벽/옹벽** | `core_routines/rc/rc__CHK_UFDN_*.c`, `URAB_*.c`, `URBE_*.c` | `src/engine/rc/footing.py`, `src/engine/rc/retaining_wall.py` | 진행 예정 |
-| **`요구사항07`** | **철골 보(Beam) & 기둥(Column)/가새** | `core_routines/steel/steel__CHK_USMC_*.c`, `USWO_*.c`, `USPG_*.c` | `src/engine/steel/beam.py`, `src/engine/steel/column.py`, `brace.py` | 진행 예정 |
+| **`요구사항06`** | **RC 기초(Footing) & 지하외벽/옹벽** | `core_routines/rc/rc__CHK_UFDN_*.c`, `URAB_*.c`, `URBE_*.c` | `src/engine/rc/footing.py`, `src/engine/rc/retaining_wall.py` | **완료 (100%)** |
+| **`요구사항07`** | **철골 보(Beam) & 기둥(Column)/가새** | `core_routines/steel/steel__CHK_USMC_*.c`, `USWO_*.c`, `USPG_*.c` | `src/engine/steel/beam.py`, `src/engine/steel/column.py`, `brace.py` | **완료 (100%)** |
 | **`요구사항08`** | **철골 접합부 & 베이스플레이트** | `core_routines/steel/steel__CHK_USBC_*.c`, `USBP_*.c`, `USEP_*.c`, `USWE_*.c`, `USWB_*.c` | `src/engine/steel/connection.py`, `src/engine/steel/endplate.py`, `baseplate.py` | **완료 (100%)** |
-| **`요구사항09`** | **A4 표준 구조계산서 출력 시스템** | `CMSOffice`, `CMSExcel`, `CMSWorkRec` 심볼군 | `src/report/generator.py`, `report_template.html`, PDF/인쇄 파이프라인 | 진행 예정 |
+| **`요구사항09`** | **A4 표준 구조계산서 출력 시스템** | `CMSOffice`, `CMSExcel`, `CMSWorkRec` 심볼군 | `src/report/generator.py`, `report_template.html`, PDF/인쇄 파이프라인 | **완료 (100%)** |
 | **`요구사항10`** | **SRC 합성부재 & 알루미늄/보강 엔진** | `DPLUS_SRC.dll`, `DPLUS_ALU.dll`, `DPLUS_RFM.dll` 심볼군 | `src/engine/src_composite/`, `src/engine/alu/`, `src/engine/rfm/` | **완료 (100%)** |
-| **`요구사항11`** | **통합 웹 UI/UX 완성 & 전수 무결성 검증** | 전체 47,110 심볼 및 47개 디컴파일 소스 전수 회귀 검증 | 통합 프론트엔드 UI, 3대 Pytest 스위트 100% 통과 | 진행 예정 |
+| **`요구사항11`** | **통합 웹 UI/UX 완성 & 전수 무결성 검증** | 전체 47,110 심볼 및 47개 디컴파일 소스 전수 회귀 검증 | 통합 프론트엔드 UI, 3대 Pytest 스위트 100% 통과 | **진행 중 (Roadmap)** |
+| **`요구사항12`** | **Ghidra 핀포인트 2D FEM & 지반/접촉 솔버** | `CDBSolverTool`, `Iterative.exe`, `CUSBPPModeDlg` 4종 | `src/engine/fem/` (DKMQ/MITC4 판휨, 윙클러/접촉 비선형 솔버) | **완료 (100%)** |
+
+
 
 ---
 
@@ -220,7 +223,7 @@ flowchart LR
     KDS["KDS 국가건설기준<br>(kcsc2md)"] --> PY_ENG
     PY_ENG --> T1["1. 수치해석/공학식 검증<br>(pytest tests/engine/ ~0.5s)"]
     PY_ENG --> T2["2. REST API 검증<br>(pytest tests/api/ ~0.5s)"]
-    PY_ENG --> T3["3. 캔버스/UI 검증<br>(pytest tests/ui/ ~0.5s)"]
+    PY_ENG --> T3["3. 계산서/UI 검증<br>(pytest tests/report/ ~0.5s)"]
     T1 & T2 & T3 --> PASS["전체 테스트 100% 통과<br>(오차 0.1% 미만 달성)"]
 ```
 
@@ -229,7 +232,7 @@ flowchart LR
 2. **도메인별 3대 초고속 Pytest 체계**:
    - `pytest tests/engine/` : 단면 성질, P-M 수렴성, 휨/전단/좌굴 강도 수치 검증.
    - `pytest tests/api/` : Pydantic 입출력 스키마, 에러 핸들링, JSON 응답 검증.
-   - `pytest tests/ui/` : Canvas 드로잉 좌표 계산, 템플릿 렌더링 검증.
+   - `pytest tests/report/` : 구조계산서 렌더링, 수식 및 PDF/Excel 내보내기 검증.
    - `pytest` : 전체 1.5초 이내 회귀 테스트 완료.
 3. **Patch-First 선행 치유 원칙**:
    - 기준서와 원본 로직 간 모순 발생 시 KDS 기준서 해설 및 `kcsc2md`를 우선 패치하고 신규 엔진에 반영.

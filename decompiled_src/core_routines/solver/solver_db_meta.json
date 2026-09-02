@@ -1,0 +1,96 @@
+{
+  "program": "DPLUS_DB.dll",
+  "matched_count": 15,
+  "functions": [
+    {
+      "name": "??0CDBSolverTool@@QEAA@AEBV0@@Z",
+      "full_symbol": "public: __cdecl CDBSolverTool::CDBSolverTool(class CDBSolverTool const & __ptr64) __ptr64",
+      "file": "solver_db___0CDBSolverTool__QEAA_AEBV0__Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "??0CDBSolverTool@@QEAA@XZ",
+      "full_symbol": "public: __cdecl CDBSolverTool::CDBSolverTool(void) __ptr64",
+      "file": "solver_db___0CDBSolverTool__QEAA_XZ.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "??1CDBSolverTool@@UEAA@XZ",
+      "full_symbol": "public: virtual __cdecl CDBSolverTool::~CDBSolverTool(void) __ptr64",
+      "file": "solver_db___1CDBSolverTool__UEAA_XZ.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "??4CDBSolverTool@@QEAAAEAV0@AEBV0@@Z",
+      "full_symbol": "public: class CDBSolverTool & __ptr64 __cdecl CDBSolverTool::operator=(class CDBSolverTool const & __ptr64) __ptr64",
+      "file": "solver_db___4CDBSolverTool__QEAAAEAV0_AEBV0__Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "??_7CDBSolverTool@@6B@",
+      "full_symbol": "const CDBSolverTool::`vftable'",
+      "file": "solver_db____7CDBSolverTool__6B_.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?ConvertModel_Plate@CDBManagerTool@@SA_NAEAUDGNWORD_MODEL_PLATE@@AEBUDGNFES_PLATE@@@Z",
+      "full_symbol": "public: static bool __cdecl CDBManagerTool::ConvertModel_Plate(struct DGNWORD_MODEL_PLATE & __ptr64,struct DGNFES_PLATE const & __ptr64)",
+      "file": "solver_db__ConvertModel_Plate_CDBManagerTool__SA_NAEAUDGNWORD_MODEL_PLATE__AEBUDGNFES_PLATE___Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?ConvertModel_PlateDgnForce@CDBManagerTool@@SA_NAEAUDGNWORD_MODEL_PLATE_DGN_FORCE@@AEBUDGNFES_DGN_FORCE@@@Z",
+      "full_symbol": "public: static bool __cdecl CDBManagerTool::ConvertModel_PlateDgnForce(struct DGNWORD_MODEL_PLATE_DGN_FORCE & __ptr64,struct DGNFES_DGN_FORCE const & __ptr64)",
+      "file": "solver_db__ConvertModel_PlateDgnForce_CDBManagerTool__SA_NAEAUDGNWORD_MODEL_PLATE_DGN_FORCE__AEBUDGNFES_DGN_FORCE___Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?ConvertModel_PlateDgnForce_Side@CDBManagerTool@@SA_NAEAUDGNWORD_MODEL_PLATE_DGN_FORCE_SIDE@@AEBUDGNFES_DGN_FORCE_SIDE@@@Z",
+      "full_symbol": "public: static bool __cdecl CDBManagerTool::ConvertModel_PlateDgnForce_Side(struct DGNWORD_MODEL_PLATE_DGN_FORCE_SIDE & __ptr64,struct DGNFES_DGN_FORCE_SIDE const & __ptr64)",
+      "file": "solver_db__ConvertModel_PlateDgnForce_Side_CDBManagerTool__SA_NAEAUDGNWORD_MODEL_PLATE_DGN_FORCE_SIDE__AEBUDGNFES_DGN_FORCE_SIDE___Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?ConvertModel_PlateDgnForce_Side_Unit@CDBManagerTool@@CA_NAEAUDGNWORD_MODEL_PLATE_DGN_FORCE_SIDE_UNIT@@AEBUDGNFES_DGN_FORCE_SIDE_UNIT@@@Z",
+      "full_symbol": "private: static bool __cdecl CDBManagerTool::ConvertModel_PlateDgnForce_Side_Unit(struct DGNWORD_MODEL_PLATE_DGN_FORCE_SIDE_UNIT & __ptr64,struct DGNFES_DGN_FORCE_SIDE_UNIT const & __ptr64)",
+      "file": "solver_db__ConvertModel_PlateDgnForce_Side_Unit_CDBManagerTool__CA_NAEAUDGNWORD_MODEL_PLATE_DGN_FORCE_SIDE_UNIT__AEBUDGNFES_DGN_FORCE_SIDE_UNIT___Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?ConvertModel_PlateForce@CDBManagerTool@@SA_NAEAUDGNWORD_MODEL_PLATE_FORCE@@AEBUDGNFES_PLATE_FORCE@@@Z",
+      "full_symbol": "public: static bool __cdecl CDBManagerTool::ConvertModel_PlateForce(struct DGNWORD_MODEL_PLATE_FORCE & __ptr64,struct DGNFES_PLATE_FORCE const & __ptr64)",
+      "file": "solver_db__ConvertModel_PlateForce_CDBManagerTool__SA_NAEAUDGNWORD_MODEL_PLATE_FORCE__AEBUDGNFES_PLATE_FORCE___Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnit@CDBSolverTool@@SAXW4MATLType@@AEAV?$CArray@NAEAN@@@Z",
+      "full_symbol": "public: static void __cdecl CDBSolverTool::ConvertToCurrentUnit(enum MATLType,class CArray<double,double & __ptr64> & __ptr64)",
+      "file": "solver_db__ConvertToCurrentUnit_CDBSolverTool__SAXW4MATLType__AEAV__CArray_NAEAN___Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnit@CDBSolverTool@@SAXW4MATLType@@AEAV?$CArray@UDGNFES_BEAM_DGN_FORCE@@AEAU1@@@@Z",
+      "full_symbol": "public: static void __cdecl CDBSolverTool::ConvertToCurrentUnit(enum MATLType,class CArray<struct DGNFES_BEAM_DGN_FORCE,struct DGNFES_BEAM_DGN_FORCE & __ptr64> & __ptr64)",
+      "file": "solver_db__ConvertToCurrentUnit_CDBSolverTool__SAXW4MATLType__AEAV__CArray_UDGNFES_BEAM_DGN_FORCE__AEAU1____Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnit@CDBSolverTool@@SAXW4MATLType@@AEAV?$CArray@UDGNFES_BEAM_FORCE@@AEAU1@@@@Z",
+      "full_symbol": "public: static void __cdecl CDBSolverTool::ConvertToCurrentUnit(enum MATLType,class CArray<struct DGNFES_BEAM_FORCE,struct DGNFES_BEAM_FORCE & __ptr64> & __ptr64)",
+      "file": "solver_db__ConvertToCurrentUnit_CDBSolverTool__SAXW4MATLType__AEAV__CArray_UDGNFES_BEAM_FORCE__AEAU1____Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnit@CDBSolverTool@@SAXW4MATLType@@AEAV?$CArray@UDGNFES_NODE@@AEAU1@@@@Z",
+      "full_symbol": "public: static void __cdecl CDBSolverTool::ConvertToCurrentUnit(enum MATLType,class CArray<struct DGNFES_NODE,struct DGNFES_NODE & __ptr64> & __ptr64)",
+      "file": "solver_db__ConvertToCurrentUnit_CDBSolverTool__SAXW4MATLType__AEAV__CArray_UDGNFES_NODE__AEAU1____Z.c",
+      "module": "DPLUS_DB.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnit@CDBSolverTool@@SAXW4MATLType@@AEAV?$CArray@UDGNFES_PLATE_FORCE@@AEAU1@@@@Z",
+      "full_symbol": "public: static void __cdecl CDBSolverTool::ConvertToCurrentUnit(enum MATLType,class CArray<struct DGNFES_PLATE_FORCE,struct DGNFES_PLATE_FORCE & __ptr64> & __ptr64)",
+      "file": "solver_db__ConvertToCurrentUnit_CDBSolverTool__SAXW4MATLType__AEAV__CArray_UDGNFES_PLATE_FORCE__AEAU1____Z.c",
+      "module": "DPLUS_DB.dll"
+    }
+  ]
+}

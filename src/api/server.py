@@ -60,7 +60,13 @@ app.include_router(report_router)
 async def serve_index(request: Request):
     """Serve main AltDP_3rd web application dashboard."""
     if templates:
-        return templates.TemplateResponse("index.html", {"request": request, "app_name": "AltDP_3rd"})
+        try:
+            return templates.TemplateResponse(request=request, name="index.html", context={"app_name": "AltDP_3rd"})
+        except Exception:
+            try:
+                return templates.TemplateResponse("index.html", {"request": request, "app_name": "AltDP_3rd"})
+            except Exception:
+                pass
     html_path = os.path.join(TEMPLATES_DIR, "index.html")
     if os.path.exists(html_path):
         with open(html_path, "r", encoding="utf-8") as f:

@@ -1,0 +1,762 @@
+{
+  "program": "DPLUS_RCS.dll",
+  "matched_count": 126,
+  "functions": [
+    {
+      "name": "??0CURBUPModeDlg@@QEAA@PEAVCWnd@@@Z",
+      "full_symbol": "public: __cdecl CURBUPModeDlg::CURBUPModeDlg(class CWnd * __ptr64) __ptr64",
+      "file": "solver_wall___0CURBUPModeDlg__QEAA_PEAVCWnd___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "??0CURBWPModeDlg@@QEAA@PEAVCWnd@@@Z",
+      "full_symbol": "public: __cdecl CURBWPModeDlg::CURBWPModeDlg(class CWnd * __ptr64) __ptr64",
+      "file": "solver_wall___0CURBWPModeDlg__QEAA_PEAVCWnd___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "??1CURBUPModeDlg@@UEAA@XZ",
+      "full_symbol": "public: virtual __cdecl CURBUPModeDlg::~CURBUPModeDlg(void) __ptr64",
+      "file": "solver_wall___1CURBUPModeDlg__UEAA_XZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "??1CURBWPModeDlg@@UEAA@XZ",
+      "full_symbol": "public: virtual __cdecl CURBWPModeDlg::~CURBWPModeDlg(void) __ptr64",
+      "file": "solver_wall___1CURBWPModeDlg__UEAA_XZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "??_7CURBUPModeDlg@@6BCDBUpdateConnector@@@",
+      "full_symbol": "const CURBUPModeDlg::`vftable'{for `CDBUpdateConnector'}",
+      "file": "solver_wall____7CURBUPModeDlg__6BCDBUpdateConnector___.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "??_7CURBUPModeDlg@@6BCDGN_FormViewInDlg@@@",
+      "full_symbol": "const CURBUPModeDlg::`vftable'{for `CDGN_FormViewInDlg'}",
+      "file": "solver_wall____7CURBUPModeDlg__6BCDGN_FormViewInDlg___.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "??_7CURBUPModeDlg@@6BCRCSTool@@@",
+      "full_symbol": "const CURBUPModeDlg::`vftable'{for `CRCSTool'}",
+      "file": "solver_wall____7CURBUPModeDlg__6BCRCSTool___.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "??_7CURBWPModeDlg@@6BCDBUpdateConnector@@@",
+      "full_symbol": "const CURBWPModeDlg::`vftable'{for `CDBUpdateConnector'}",
+      "file": "solver_wall____7CURBWPModeDlg__6BCDBUpdateConnector___.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "??_7CURBWPModeDlg@@6BCDGN_FormViewInDlg@@@",
+      "full_symbol": "const CURBWPModeDlg::`vftable'{for `CDGN_FormViewInDlg'}",
+      "file": "solver_wall____7CURBWPModeDlg__6BCDGN_FormViewInDlg___.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "??_7CURBWPModeDlg@@6BCRCSTool@@@",
+      "full_symbol": "const CURBWPModeDlg::`vftable'{for `CRCSTool'}",
+      "file": "solver_wall____7CURBWPModeDlg__6BCRCSTool___.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "??_FCURBUPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBUPModeDlg::`default constructor closure'(void) __ptr64",
+      "file": "solver_wall____FCURBUPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "??_FCURBWPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBWPModeDlg::`default constructor closure'(void) __ptr64",
+      "file": "solver_wall____FCURBWPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ChangeCaption_RebarUpdate@CURBWPModeDlg@@AEAAXH@Z",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::ChangeCaption_RebarUpdate(int) __ptr64",
+      "file": "solver_wall__ChangeCaption_RebarUpdate_CURBWPModeDlg__AEAAXH_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ChangeCurrentKey@CURBUPModeDlg@@UEAAXI@Z",
+      "full_symbol": "public: virtual void __cdecl CURBUPModeDlg::ChangeCurrentKey(unsigned int) __ptr64",
+      "file": "solver_wall__ChangeCurrentKey_CURBUPModeDlg__UEAAXI_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ChangeCurrentKey@CURBWPModeDlg@@UEAAXI@Z",
+      "full_symbol": "public: virtual void __cdecl CURBWPModeDlg::ChangeCurrentKey(unsigned int) __ptr64",
+      "file": "solver_wall__ChangeCurrentKey_CURBWPModeDlg__UEAAXI_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ChangeUnit@CURBUPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBUPModeDlg::ChangeUnit(void) __ptr64",
+      "file": "solver_wall__ChangeUnit_CURBUPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ChangeUnit@CURBWPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBWPModeDlg::ChangeUnit(void) __ptr64",
+      "file": "solver_wall__ChangeUnit_CURBWPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ClearResultData@CURBUPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBUPModeDlg::ClearResultData(void) __ptr64",
+      "file": "solver_wall__ClearResultData_CURBUPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ClearResultData@CURBWPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBWPModeDlg::ClearResultData(void) __ptr64",
+      "file": "solver_wall__ClearResultData_CURBWPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnitResult@CURBUPModeDlg@@AEAAXAEAUDGNKR_URBU_RES@@@Z",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::ConvertToCurrentUnitResult(struct DGNKR_URBU_RES & __ptr64) __ptr64",
+      "file": "solver_wall__ConvertToCurrentUnitResult_CURBUPModeDlg__AEAAXAEAUDGNKR_URBU_RES___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnitResult@CURBUPModeDlg@@AEAAXAEAUDGNKR_URBU_RES_MODEL@@@Z",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::ConvertToCurrentUnitResult(struct DGNKR_URBU_RES_MODEL & __ptr64) __ptr64",
+      "file": "solver_wall__ConvertToCurrentUnitResult_CURBUPModeDlg__AEAAXAEAUDGNKR_URBU_RES_MODEL___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnitResult@CURBUPModeDlg@@AEAAXAEAUDGNUS_URBU_RES@@@Z",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::ConvertToCurrentUnitResult(struct DGNUS_URBU_RES & __ptr64) __ptr64",
+      "file": "solver_wall__ConvertToCurrentUnitResult_CURBUPModeDlg__AEAAXAEAUDGNUS_URBU_RES___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnitResultACI@CURBWPModeDlg@@AEAAXAEAUDGNUS_URBW_RES@@@Z",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::ConvertToCurrentUnitResultACI(struct DGNUS_URBW_RES & __ptr64) __ptr64",
+      "file": "solver_wall__ConvertToCurrentUnitResultACI_CURBWPModeDlg__AEAAXAEAUDGNUS_URBW_RES___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnitResultKCI@CURBWPModeDlg@@AEAAXAEAUDGNKR_URBW_RES@@@Z",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::ConvertToCurrentUnitResultKCI(struct DGNKR_URBW_RES & __ptr64) __ptr64",
+      "file": "solver_wall__ConvertToCurrentUnitResultKCI_CURBWPModeDlg__AEAAXAEAUDGNKR_URBW_RES___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnitResultKCI@CURBWPModeDlg@@AEAAXAEAUDGNKR_URBW_RES_MODEL@@@Z",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::ConvertToCurrentUnitResultKCI(struct DGNKR_URBW_RES_MODEL & __ptr64) __ptr64",
+      "file": "solver_wall__ConvertToCurrentUnitResultKCI_CURBWPModeDlg__AEAAXAEAUDGNKR_URBW_RES_MODEL___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ConvertToCurrentUnitResultKCI@CURBWPModeDlg@@AEAAXAEAV?$CArray@UDGNKR_URBW_RES_DESIGN@@AEAU1@@@@Z",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::ConvertToCurrentUnitResultKCI(class CArray<struct DGNKR_URBW_RES_DESIGN,struct DGNKR_URBW_RES_DESIGN & __ptr64> & __ptr64) __ptr64",
+      "file": "solver_wall__ConvertToCurrentUnitResultKCI_CURBWPModeDlg__AEAAXAEAV__CArray_UDGNKR_URBW_RES_DESIGN__AEAU1____Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?Data2Dlg@CURBUPModeDlg@@QEAA_NXZ",
+      "full_symbol": "public: bool __cdecl CURBUPModeDlg::Data2Dlg(void) __ptr64",
+      "file": "solver_wall__Data2Dlg_CURBUPModeDlg__QEAA_NXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?Data2Dlg@CURBWPModeDlg@@AEAAHXZ",
+      "full_symbol": "private: int __cdecl CURBWPModeDlg::Data2Dlg(void) __ptr64",
+      "file": "solver_wall__Data2Dlg_CURBWPModeDlg__AEAAHXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?Dlg2Data@CURBUPModeDlg@@QEAA_NXZ",
+      "full_symbol": "public: bool __cdecl CURBUPModeDlg::Dlg2Data(void) __ptr64",
+      "file": "solver_wall__Dlg2Data_CURBUPModeDlg__QEAA_NXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?Dlg2Data@CURBWPModeDlg@@AEAAHXZ",
+      "full_symbol": "private: int __cdecl CURBWPModeDlg::Dlg2Data(void) __ptr64",
+      "file": "solver_wall__Dlg2Data_CURBWPModeDlg__AEAAHXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?DoDataExchange@CURBUPModeDlg@@UEAAXPEAVCDataExchange@@@Z",
+      "full_symbol": "public: virtual void __cdecl CURBUPModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64",
+      "file": "solver_wall__DoDataExchange_CURBUPModeDlg__UEAAXPEAVCDataExchange___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?DoDataExchange@CURBWPModeDlg@@MEAAXPEAVCDataExchange@@@Z",
+      "full_symbol": "protected: virtual void __cdecl CURBWPModeDlg::DoDataExchange(class CDataExchange * __ptr64) __ptr64",
+      "file": "solver_wall__DoDataExchange_CURBWPModeDlg__MEAAXPEAVCDataExchange___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?GetCurrentStoryID@CURBUPModeDlg@@QEAA_NAEAH@Z",
+      "full_symbol": "public: bool __cdecl CURBUPModeDlg::GetCurrentStoryID(int & __ptr64) __ptr64",
+      "file": "solver_wall__GetCurrentStoryID_CURBUPModeDlg__QEAA_NAEAH_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?GetMessageMap@CURBUPModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ",
+      "full_symbol": "protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CURBUPModeDlg::GetMessageMap(void)const __ptr64",
+      "file": "solver_wall__GetMessageMap_CURBUPModeDlg__MEBAPEBUAFX_MSGMAP__XZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?GetMessageMap@CURBWPModeDlg@@MEBAPEBUAFX_MSGMAP@@XZ",
+      "full_symbol": "protected: virtual struct AFX_MSGMAP const * __ptr64 __cdecl CURBWPModeDlg::GetMessageMap(void)const __ptr64",
+      "file": "solver_wall__GetMessageMap_CURBWPModeDlg__MEBAPEBUAFX_MSGMAP__XZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?GetRebarID_Selected@CURBUPModeDlg@@QEAA_NAEAH@Z",
+      "full_symbol": "public: bool __cdecl CURBUPModeDlg::GetRebarID_Selected(int & __ptr64) __ptr64",
+      "file": "solver_wall__GetRebarID_Selected_CURBUPModeDlg__QEAA_NAEAH_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?GetThisMessageMap@CURBUPModeDlg@@KAPEBUAFX_MSGMAP@@XZ",
+      "full_symbol": "protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CURBUPModeDlg::GetThisMessageMap(void)",
+      "file": "solver_wall__GetThisMessageMap_CURBUPModeDlg__KAPEBUAFX_MSGMAP__XZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?GetThisMessageMap@CURBWPModeDlg@@KAPEBUAFX_MSGMAP@@XZ",
+      "full_symbol": "protected: static struct AFX_MSGMAP const * __ptr64 __cdecl CURBWPModeDlg::GetThisMessageMap(void)",
+      "file": "solver_wall__GetThisMessageMap_CURBWPModeDlg__KAPEBUAFX_MSGMAP__XZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?InitComboBox@CURBUPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::InitComboBox(void) __ptr64",
+      "file": "solver_wall__InitComboBox_CURBUPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?InitComboBox@CURBWPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::InitComboBox(void) __ptr64",
+      "file": "solver_wall__InitComboBox_CURBWPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?InitEditSpin@CURBUPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::InitEditSpin(void) __ptr64",
+      "file": "solver_wall__InitEditSpin_CURBUPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?InitEditSpin@CURBWPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::InitEditSpin(void) __ptr64",
+      "file": "solver_wall__InitEditSpin_CURBWPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?InitGrid@CURBUPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::InitGrid(void) __ptr64",
+      "file": "solver_wall__InitGrid_CURBUPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?InitPreview@CURBUPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::InitPreview(void) __ptr64",
+      "file": "solver_wall__InitPreview_CURBUPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?InitPreview@CURBWPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::InitPreview(void) __ptr64",
+      "file": "solver_wall__InitPreview_CURBWPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?InitRebarGrid@CURBWPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::InitRebarGrid(void) __ptr64",
+      "file": "solver_wall__InitRebarGrid_CURBWPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?LayoutChildDlg@CURBUPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::LayoutChildDlg(void) __ptr64",
+      "file": "solver_wall__LayoutChildDlg_CURBUPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?LayoutChildDlg@CURBWPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::LayoutChildDlg(void) __ptr64",
+      "file": "solver_wall__LayoutChildDlg_CURBWPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?MakeReport@CURBUPModeDlg@@AEAAXW4ReportContent@@@Z",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::MakeReport(enum ReportContent) __ptr64",
+      "file": "solver_wall__MakeReport_CURBUPModeDlg__AEAAXW4ReportContent___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ModifyDBData@CURBUPModeDlg@@AEAA_NXZ",
+      "full_symbol": "private: bool __cdecl CURBUPModeDlg::ModifyDBData(void) __ptr64",
+      "file": "solver_wall__ModifyDBData_CURBUPModeDlg__AEAA_NXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ModifyDBData@CURBWPModeDlg@@AEAAHXZ",
+      "full_symbol": "private: int __cdecl CURBWPModeDlg::ModifyDBData(void) __ptr64",
+      "file": "solver_wall__ModifyDBData_CURBWPModeDlg__AEAAHXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnChangeBarArrangeType@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnChangeBarArrangeType(void) __ptr64",
+      "file": "solver_wall__OnChangeBarArrangeType_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnChangeCurrStory@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnChangeCurrStory(void) __ptr64",
+      "file": "solver_wall__OnChangeCurrStory_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnChangeFontSize@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnChangeFontSize(void) __ptr64",
+      "file": "solver_wall__OnChangeFontSize_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnChangeFontSize@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnChangeFontSize(void) __ptr64",
+      "file": "solver_wall__OnChangeFontSize_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnChangeInputData@CURBUPModeDlg@@QEAAX_N@Z",
+      "full_symbol": "public: void __cdecl CURBUPModeDlg::OnChangeInputData(bool) __ptr64",
+      "file": "solver_wall__OnChangeInputData_CURBUPModeDlg__QEAAX_N_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnChangeSectB@CURBUPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBUPModeDlg::OnChangeSectB(void) __ptr64",
+      "file": "solver_wall__OnChangeSectB_CURBUPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnChangeSkinBar@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnChangeSkinBar(void) __ptr64",
+      "file": "solver_wall__OnChangeSkinBar_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnChangeViewItem@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnChangeViewItem(void) __ptr64",
+      "file": "solver_wall__OnChangeViewItem_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnChangeViewItem@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnChangeViewItem(void) __ptr64",
+      "file": "solver_wall__OnChangeViewItem_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnChangeViewStory@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnChangeViewStory(void) __ptr64",
+      "file": "solver_wall__OnChangeViewStory_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnCheckPreviewContour@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnCheckPreviewContour(void) __ptr64",
+      "file": "solver_wall__OnCheckPreviewContour_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnCheckPreviewContour@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnCheckPreviewContour(void) __ptr64",
+      "file": "solver_wall__OnCheckPreviewContour_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnCheckPreviewMeshLine@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnCheckPreviewMeshLine(void) __ptr64",
+      "file": "solver_wall__OnCheckPreviewMeshLine_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnCheckPreviewMeshLine@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnCheckPreviewMeshLine(void) __ptr64",
+      "file": "solver_wall__OnCheckPreviewMeshLine_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnCheckPreviewValue@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnCheckPreviewValue(void) __ptr64",
+      "file": "solver_wall__OnCheckPreviewValue_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnCheckPreviewValue@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnCheckPreviewValue(void) __ptr64",
+      "file": "solver_wall__OnCheckPreviewValue_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnClickedButtonRebarUpdate@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnClickedButtonRebarUpdate(void) __ptr64",
+      "file": "solver_wall__OnClickedButtonRebarUpdate_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnClickedCheckDistribute@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnClickedCheckDistribute(void) __ptr64",
+      "file": "solver_wall__OnClickedCheckDistribute_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnContextMenu@CURBUPModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64",
+      "file": "solver_wall__OnContextMenu_CURBUPModeDlg__IEAAXPEAVCWnd__VCPoint___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnContextMenu@CURBWPModeDlg@@IEAAXPEAVCWnd@@VCPoint@@@Z",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnContextMenu(class CWnd * __ptr64,class CPoint) __ptr64",
+      "file": "solver_wall__OnContextMenu_CURBWPModeDlg__IEAAXPEAVCWnd__VCPoint___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnDoubleClickPreview@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnDoubleClickPreview(void) __ptr64",
+      "file": "solver_wall__OnDoubleClickPreview_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnDoubleClickPreview@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnDoubleClickPreview(void) __ptr64",
+      "file": "solver_wall__OnDoubleClickPreview_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnDoubleClickRebarView@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnDoubleClickRebarView(void) __ptr64",
+      "file": "solver_wall__OnDoubleClickRebarView_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnGUrbuButtonApply@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnGUrbuButtonApply(void) __ptr64",
+      "file": "solver_wall__OnGUrbuButtonApply_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnGUrbuButtonCheck@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnGUrbuButtonCheck(void) __ptr64",
+      "file": "solver_wall__OnGUrbuButtonCheck_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnGUrbuButtonDesign@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnGUrbuButtonDesign(void) __ptr64",
+      "file": "solver_wall__OnGUrbuButtonDesign_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnGUrbuButtonReport@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnGUrbuButtonReport(void) __ptr64",
+      "file": "solver_wall__OnGUrbuButtonReport_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnGurbwButtonApply@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnGurbwButtonApply(void) __ptr64",
+      "file": "solver_wall__OnGurbwButtonApply_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnGurbwButtonCheck@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnGurbwButtonCheck(void) __ptr64",
+      "file": "solver_wall__OnGurbwButtonCheck_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnGurbwButtonDesign@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnGurbwButtonDesign(void) __ptr64",
+      "file": "solver_wall__OnGurbwButtonDesign_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnGurbwButtonReport@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnGurbwButtonReport(void) __ptr64",
+      "file": "solver_wall__OnGurbwButtonReport_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnInitDialog@CURBUPModeDlg@@UEAAHXZ",
+      "full_symbol": "public: virtual int __cdecl CURBUPModeDlg::OnInitDialog(void) __ptr64",
+      "file": "solver_wall__OnInitDialog_CURBUPModeDlg__UEAAHXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnInitDialog@CURBWPModeDlg@@UEAAHXZ",
+      "full_symbol": "public: virtual int __cdecl CURBWPModeDlg::OnInitDialog(void) __ptr64",
+      "file": "solver_wall__OnInitDialog_CURBWPModeDlg__UEAAHXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnReportDetail@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnReportDetail(void) __ptr64",
+      "file": "solver_wall__OnReportDetail_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnReportDetail@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnReportDetail(void) __ptr64",
+      "file": "solver_wall__OnReportDetail_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnReportInputList@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnReportInputList(void) __ptr64",
+      "file": "solver_wall__OnReportInputList_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnReportInputList@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnReportInputList(void) __ptr64",
+      "file": "solver_wall__OnReportInputList_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnReportSummary@CURBUPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnReportSummary(void) __ptr64",
+      "file": "solver_wall__OnReportSummary_CURBUPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnReportSummary@CURBWPModeDlg@@IEAAXXZ",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnReportSummary(void) __ptr64",
+      "file": "solver_wall__OnReportSummary_CURBWPModeDlg__IEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnSelChangeTab@CURBUPModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64",
+      "file": "solver_wall__OnSelChangeTab_CURBUPModeDlg__IEAAXPEAUtagNMHDR__PEA_J_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnSelChangeTab@CURBWPModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnSelChangeTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64",
+      "file": "solver_wall__OnSelChangeTab_CURBWPModeDlg__IEAAXPEAUtagNMHDR__PEA_J_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnSelChangingTab@CURBUPModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z",
+      "full_symbol": "protected: void __cdecl CURBUPModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64",
+      "file": "solver_wall__OnSelChangingTab_CURBUPModeDlg__IEAAXPEAUtagNMHDR__PEA_J_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnSelChangingTab@CURBWPModeDlg@@IEAAXPEAUtagNMHDR@@PEA_J@Z",
+      "full_symbol": "protected: void __cdecl CURBWPModeDlg::OnSelChangingTab(struct tagNMHDR * __ptr64,__int64 * __ptr64) __ptr64",
+      "file": "solver_wall__OnSelChangingTab_CURBWPModeDlg__IEAAXPEAUtagNMHDR__PEA_J_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnSetFocus@CURBUPModeDlg@@UEAAXPEAVCWnd@@@Z",
+      "full_symbol": "public: virtual void __cdecl CURBUPModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64",
+      "file": "solver_wall__OnSetFocus_CURBUPModeDlg__UEAAXPEAVCWnd___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnSetFocus@CURBWPModeDlg@@UEAAXPEAVCWnd@@@Z",
+      "full_symbol": "public: virtual void __cdecl CURBWPModeDlg::OnSetFocus(class CWnd * __ptr64) __ptr64",
+      "file": "solver_wall__OnSetFocus_CURBWPModeDlg__UEAAXPEAVCWnd___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnUpdate@CURBUPModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z",
+      "full_symbol": "public: virtual void __cdecl CURBUPModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64",
+      "file": "solver_wall__OnUpdate_CURBUPModeDlg__UEAAXPEAVCView___JPEAVCObject___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?OnUpdate@CURBWPModeDlg@@UEAAXPEAVCView@@_JPEAVCObject@@@Z",
+      "full_symbol": "public: virtual void __cdecl CURBWPModeDlg::OnUpdate(class CView * __ptr64,__int64,class CObject * __ptr64) __ptr64",
+      "file": "solver_wall__OnUpdate_CURBWPModeDlg__UEAAXPEAVCView___JPEAVCObject___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?PostNcDestroy@CURBUPModeDlg@@UEAAXXZ",
+      "full_symbol": "public: virtual void __cdecl CURBUPModeDlg::PostNcDestroy(void) __ptr64",
+      "file": "solver_wall__PostNcDestroy_CURBUPModeDlg__UEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?PostNcDestroy@CURBWPModeDlg@@UEAAXXZ",
+      "full_symbol": "public: virtual void __cdecl CURBWPModeDlg::PostNcDestroy(void) __ptr64",
+      "file": "solver_wall__PostNcDestroy_CURBWPModeDlg__UEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?PreTranslateMessage@CURBUPModeDlg@@UEAAHPEAUtagMSG@@@Z",
+      "full_symbol": "public: virtual int __cdecl CURBUPModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64",
+      "file": "solver_wall__PreTranslateMessage_CURBUPModeDlg__UEAAHPEAUtagMSG___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?PreTranslateMessage@CURBWPModeDlg@@UEAAHPEAUtagMSG@@@Z",
+      "full_symbol": "public: virtual int __cdecl CURBWPModeDlg::PreTranslateMessage(struct tagMSG * __ptr64) __ptr64",
+      "file": "solver_wall__PreTranslateMessage_CURBWPModeDlg__UEAAHPEAUtagMSG___Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?RedrawPreview@CURBUPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBUPModeDlg::RedrawPreview(void) __ptr64",
+      "file": "solver_wall__RedrawPreview_CURBUPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?RedrawPreview@CURBWPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBWPModeDlg::RedrawPreview(void) __ptr64",
+      "file": "solver_wall__RedrawPreview_CURBWPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ResizeDialog@CURBUPModeDlg@@UEAAXHH@Z",
+      "full_symbol": "public: virtual void __cdecl CURBUPModeDlg::ResizeDialog(int,int) __ptr64",
+      "file": "solver_wall__ResizeDialog_CURBUPModeDlg__UEAAXHH_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?ResizeDialog@CURBWPModeDlg@@UEAAXHH@Z",
+      "full_symbol": "public: virtual void __cdecl CURBWPModeDlg::ResizeDialog(int,int) __ptr64",
+      "file": "solver_wall__ResizeDialog_CURBWPModeDlg__UEAAXHH_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?RunShortcutCommand@CURBUPModeDlg@@UEAAXH@Z",
+      "full_symbol": "public: virtual void __cdecl CURBUPModeDlg::RunShortcutCommand(int) __ptr64",
+      "file": "solver_wall__RunShortcutCommand_CURBUPModeDlg__UEAAXH_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?RunShortcutCommand@CURBWPModeDlg@@UEAAXH@Z",
+      "full_symbol": "public: virtual void __cdecl CURBWPModeDlg::RunShortcutCommand(int) __ptr64",
+      "file": "solver_wall__RunShortcutCommand_CURBWPModeDlg__UEAAXH_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SetControlForm@CURBUPModeDlg@@AEAAX_N@Z",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::SetControlForm(bool) __ptr64",
+      "file": "solver_wall__SetControlForm_CURBUPModeDlg__AEAAX_N_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SetControlForm@CURBWPModeDlg@@AEAAX_N@Z",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::SetControlForm(bool) __ptr64",
+      "file": "solver_wall__SetControlForm_CURBWPModeDlg__AEAAX_N_Z.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SetControlText@CURBUPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::SetControlText(void) __ptr64",
+      "file": "solver_wall__SetControlText_CURBUPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SetControlText@CURBWPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::SetControlText(void) __ptr64",
+      "file": "solver_wall__SetControlText_CURBWPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SetDisplayCombo@CURBUPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::SetDisplayCombo(void) __ptr64",
+      "file": "solver_wall__SetDisplayCombo_CURBUPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SetInitUnit@CURBUPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::SetInitUnit(void) __ptr64",
+      "file": "solver_wall__SetInitUnit_CURBUPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SetInitUnit@CURBWPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::SetInitUnit(void) __ptr64",
+      "file": "solver_wall__SetInitUnit_CURBWPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SetMinMax@CURBUPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::SetMinMax(void) __ptr64",
+      "file": "solver_wall__SetMinMax_CURBUPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SetMinMax@CURBWPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::SetMinMax(void) __ptr64",
+      "file": "solver_wall__SetMinMax_CURBWPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SetToolTip@CURBUPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBUPModeDlg::SetToolTip(void) __ptr64",
+      "file": "solver_wall__SetToolTip_CURBUPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?SetToolTip@CURBWPModeDlg@@AEAAXXZ",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::SetToolTip(void) __ptr64",
+      "file": "solver_wall__SetToolTip_CURBWPModeDlg__AEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?UpdateBuffer@CURBUPModeDlg@@UEAAXXZ",
+      "full_symbol": "public: virtual void __cdecl CURBUPModeDlg::UpdateBuffer(void) __ptr64",
+      "file": "solver_wall__UpdateBuffer_CURBUPModeDlg__UEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?UpdateBuffer@CURBWPModeDlg@@UEAAXXZ",
+      "full_symbol": "public: virtual void __cdecl CURBWPModeDlg::UpdateBuffer(void) __ptr64",
+      "file": "solver_wall__UpdateBuffer_CURBWPModeDlg__UEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?UpdateResultData@CURBUPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBUPModeDlg::UpdateResultData(void) __ptr64",
+      "file": "solver_wall__UpdateResultData_CURBUPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?UpdateResultData@CURBWPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBWPModeDlg::UpdateResultData(void) __ptr64",
+      "file": "solver_wall__UpdateResultData_CURBWPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?UpdateStoryCombo@CURBUPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBUPModeDlg::UpdateStoryCombo(void) __ptr64",
+      "file": "solver_wall__UpdateStoryCombo_CURBUPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?UpdateStoryCombo@CURBWPModeDlg@@QEAAXXZ",
+      "full_symbol": "public: void __cdecl CURBWPModeDlg::UpdateStoryCombo(void) __ptr64",
+      "file": "solver_wall__UpdateStoryCombo_CURBWPModeDlg__QEAAXXZ.c",
+      "module": "DPLUS_RCS.dll"
+    },
+    {
+      "name": "?WriteWordReport@CURBWPModeDlg@@AEAAXW4ReportContent@@@Z",
+      "full_symbol": "private: void __cdecl CURBWPModeDlg::WriteWordReport(enum ReportContent) __ptr64",
+      "file": "solver_wall__WriteWordReport_CURBWPModeDlg__AEAAXW4ReportContent___Z.c",
+      "module": "DPLUS_RCS.dll"
+    }
+  ]
+}

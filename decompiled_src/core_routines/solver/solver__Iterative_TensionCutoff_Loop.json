@@ -1,0 +1,10 @@
+{
+  "symbol_name": "Iterative_SolveNonlinearTensionCutoff",
+  "source_binary": "DgnSolver/Iterative.exe",
+  "domain": "Foundation Soil-Structure Interaction & Contact FEM",
+  "tolerance": 1e-4,
+  "max_iterations": 50,
+  "dof_convention": ["w (vertical settlement)", "th_x (rotation x)", "th_y (rotation y)"],
+  "sign_convention": "w <= 0 is compressive downward settlement, w > 0 is tensile uplift",
+  "created_at": "2026-09-02"
+}

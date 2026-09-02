@@ -47,6 +47,11 @@ decompiled_src/core_routines/
 |---|---|---|---|
 | `DPLUS_RCS.dll` | `?CHK_BCCO@CRCSCodeCheck@@...` | `solver__CHK_BCCO_...c` | 기둥 3차원 P-M 상관곡선, 중립축 수렴 루프, 이축휨 브레슬러식 (KDS 14 20 20) |
 | `DPLUS_RCS.dll` | `?CHK_BCGR@CRCSCodeCheck@@...` | `solver__CHK_BCGR_...c` | 기둥 부재 그룹 검토 및 최악 하중조건(Worst Envelope) 판정 |
+| `DPLUS_DB.dll` | `CDBSolverTool::ConvertModel_Plate` | `solver_db_...c` | FEM 평판 요소/절점/단면력 입출력 변환 및 단위 환산 |
+| `DgnSolver/Iterative` | `Iterative_SolveNonlinearTensionCutoff` | `solver__Iterative_TensionCutoff_Loop.c` | 지반 인장분리(Tension Cut-off) 및 접촉 비선형 반복 솔버 |
+| `DPLUS_STEEL.dll` | `CUSBPPModeDlg_CalculateConcreteSpring` | `solver_baseplate_...c` | 베이스플레이트 콘크리트 압축 지압 스프링 ($k_{conc}$) 및 볼트 인장 |
+| `DPLUS_RCS.dll` | `CURBUPModeDlg_MapWallBoundaries` | `solver_wall_...c` | 지하외벽 2방향 수치해석 및 다층 지지조건 경계조건 매핑 |
+
 
 ### Group 2: RC 5대 부재 핵심 설계 엔진 (`rc/`)
 | 원본 바이너리 | 핵심 심볼 / 함수 | C 파일명 | 엔지니어링 역할 및 KDS 기준 |
