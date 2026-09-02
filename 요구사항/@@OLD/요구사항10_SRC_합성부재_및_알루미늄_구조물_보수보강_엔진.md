@@ -73,6 +73,6 @@ src/engine/
 
 ## 6. 검증 및 수용 기준 (Acceptance Criteria)
 
-- [ ] **합성부재 소성내력 일치성**: KDS 14 31 30 기준 CFT 원형/각형 소성압축강도 $P_{no}$ 오차 0.1% 미만.
-- [ ] **CFRP 보강 내력 검증**: KDS 14 20 90 계면 부착파괴 한계변형률 $\epsilon_{fe}$ 및 전단보강 기여분 $V_f$ 수치 일치.
-- [ ] **Pytest 스위트 통과**: `pytest tests/engine/test_composite.py test_alu.py test_rfm.py` (100% 통과).
+- [x] **합성부재 소성내력 일치성**: KDS 14 31 30 기준 CFT 원형/각형 소성압축강도 $P_{no}$ 오차 0.1% 미만.
+- [x] **CFRP 보강 내력 검증**: KDS 14 20 90 계면 부착파괴 한계변형률 $\epsilon_{fe}$ 및 전단보강 기여분 $V_f$ 수치 일치.
+- [x] **Pytest 스위트 통과**: `pytest tests/engine/test_composite.py test_alu.py test_rfm.py` (100% 통과).

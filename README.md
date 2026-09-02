@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/badge/Design_Code-KDS_14_20_00-blue?style=flat" alt="KDS 14 20 00" />
   <img src="https://img.shields.io/badge/Design_Code-KDS_14_31_00-navy?style=flat" alt="KDS 14 31 00" />
   <img src="https://img.shields.io/badge/Ghidra_Assets-47_Routines_Decompiled-orange?style=flat" alt="Ghidra Assets" />
-  <img src="https://img.shields.io/badge/Tests-122_Passed_1.21s-brightgreen?style=flat" alt="Pytest Status" />
+  <img src="https://img.shields.io/badge/Tests-136_Passed_1.12s-brightgreen?style=flat" alt="Pytest Status" />
 </p>
 
 ---
@@ -41,6 +41,7 @@ graph TD
     subgraph Core_Engine ["Pure Python Core Engineering Engine (src/engine/)"]
         E_RC["🧱 RC 엔진 (beam, column, wall, slab, footing, retaining_wall)"]
         E_STL["🏗️ Steel 엔진 (beam, column, brace, connection, baseplate)"]
+        E_ADV["⚡ 특수/합성 엔진 (src_composite, alu, rfm)"]
         E_SLV["🔬 수치 솔버 (pm_diagram, fiber_section)"]
         E_DB["📚 단면 DB (sdb_parser, section_db, materials)"]
     end
@@ -48,12 +49,14 @@ graph TD
     subgraph Ground_Truth ["역공학 C 수도코드 자산 (decompiled_src/core_routines/)"]
         GT_RC["rc/ (보/기둥/벽체/슬래브/기초/옹벽 14종)"]
         GT_STL["steel/ (부재/접합부/주각부 17종)"]
+        GT_ADV["SRC / ALU / RFM (DPLUS DLL 1,363 심볼)"]
         GT_SLV["solver/ (P-M 상관곡선 및 중립축 수렴 4종)"]
         GT_DB["db/ (단면 기하학적 성질 12종)"]
     end
 
     GT_RC -.-> E_RC
     GT_STL -.-> E_STL
+    GT_ADV -.-> E_ADV
     GT_SLV -.-> E_SLV
     GT_DB -.-> E_DB
 ```
@@ -70,6 +73,11 @@ graph TD
 * **철골 가새 (Brace)**: 인장 순단면 파단($U$ 전단지체계수) 및 압축 세장비($KL/r \le 200$) 검토.
 * **철골 접합부**: 고장력 볼트(F10T, TS볼트) 전단/인장/지압 강도, 모재 블록전단파단(Block Shear Rupture) 및 용접(필릿/그루브) 유효목두께 검토.
 * **주각부 베이스플레이트**: 콘크리트 지압응력 삼각/사다리꼴 분포, 캔틸레버 모멘트 소요두께($t_p$), 앵커볼트 Breakout/Pryout 복합파괴 검토.
+
+### ⚡ 3. 특수/합성구조 및 보수보강 모듈 (SRC, ALU, Retrofit)
+* **SRC/CFT 합성구조 (KDS 14 31 30)**: CFT(원형/각형) 및 매입형 SRC 소성압축강도($P_{no}$), 유효휨강성($EI_{eff}$), 좌굴강도($\phi P_n$) 및 합성보 스터드 전단연결재($Q_n$)·휨설계.
+* **알루미늄 합금구조 (KDS 14 31 40)**: 6061-T6/6063-T6 물성, 용접 열영향부(HAZ, $25\text{mm}$) 강도저감($k_{haz}$) 및 압출형재 휨/압축/전단 설계.
+* **구조물 보수보강 (KDS 14 20 90)**: CFRP 탄소섬유판/시트 및 강판 보강 휨·전단 내력 증진비, 계면 부착파괴(Debonding) 유효변형률($\epsilon_{fe} \le 0.004$) 검토.
 
 ### 📚 3. 전세계 표준 형강 단면 DB (33종 .sdb 파서)
 * 한국(KS, KS21), 미국(AISC 16/10/05/2K), 일본(JIS), 유럽(BS, DIN, UNI) 등 33종 표준 형강 단면의 제원($H, B, t_w, t_f, r$) 및 단면 성질($A, I, Z, S, r, J, C_w$) 실시간 검색 및 로드.
