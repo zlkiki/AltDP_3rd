@@ -82,27 +82,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const s = parseFloat(document.getElementById('beam_s').value) || 200;
     const Mu = parseFloat(document.getElementById('beam_mu').value) || 250;
     const Vu = parseFloat(document.getElementById('beam_vu').value) || 150;
+    const Tu = parseFloat(document.getElementById('beam_tu')?.value) || 0;
+    const Ma = parseFloat(document.getElementById('beam_ma')?.value) || 160;
     const fck = parseFloat(document.getElementById('beam_fck').value) || 24;
     const fy = parseFloat(document.getElementById('beam_fy').value) || 400;
 
-    renderRcBeamCanvas(b, h, cover, As);
+    const numTension = Math.max(Math.round(As / 387), 2);
+
+    if (window.Renderer2D && window.Renderer2D.drawRCBeamSection) {
+      window.Renderer2D.drawRCBeamSection(canvas, {
+        b, h, cover, num_tension_bars: numTension, num_comp_bars: 2, bar_size: 'D22', stirrup_size: 'D10'
+      });
+    } else {
+      renderRcBeamCanvas(b, h, cover, As);
+    }
 
     try {
       const res = await fetch('/api/rc/beam/check', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ b, h, cover, As, Av, s, Mu, Vu, fck, fy })
+        body: JSON.stringify({ b, h, cover, As, Av, s, Mu, Vu, Tu, Ma, fck, fy, num_tension_bars: numTension })
       });
       const json = await res.json();
       if (json.success) {
         const d = json.data;
-        updateDcr(Math.max(d.flexure_dcr, d.shear_dcr));
+        const maxDcr = Math.max(d.flexure_dcr, d.shear_dcr, d.torsion_dcr || 0, d.deflection_dcr || 0, d.crack_dcr || 0);
+        updateDcr(maxDcr);
         resultTable.innerHTML = `
           <tbody>
             <tr><td>설계 휨강도 (\\phi M_n)</td><td>${d.phi_Mn.toFixed(1)} kN·m</td></tr>
             <tr><td>휨 DCR (M_u / \\phi M_n)</td><td>${d.flexure_dcr.toFixed(3)}</td></tr>
             <tr><td>설계 전단강도 (\\phi V_n)</td><td>${d.phi_Vn.toFixed(1)} kN</td></tr>
             <tr><td>전단 DCR (V_u / \\phi V_n)</td><td>${d.shear_dcr.toFixed(3)}</td></tr>
+            <tr><td>비틀림 무시 여부</td><td>${d.is_torsion_ignored ? '무시가능 (OK)' : `검토필요 (DCR ${d.torsion_dcr.toFixed(3)})`}</td></tr>
+            <tr><td>총 처짐 / 허용치</td><td>${d.delta_total.toFixed(1)} mm / ${d.delta_allowable.toFixed(1)} mm (DCR ${d.deflection_dcr.toFixed(3)})</td></tr>
+            <tr><td>예상 균열폭 (w)</td><td>${d.crack_width.toFixed(2)} mm (DCR ${d.crack_dcr.toFixed(3)})</td></tr>
             <tr><td>철근비 (\\rho)</td><td>${(d.rho * 100).toFixed(2)} %</td></tr>
           </tbody>
         `;
@@ -111,6 +125,30 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error(err);
     }
   }
+
+  // Auto-design rebar button handler
+  document.getElementById('btnAutoDesignBeam')?.addEventListener('click', async () => {
+    const b = parseFloat(document.getElementById('beam_b').value) || 400;
+    const h = parseFloat(document.getElementById('beam_h').value) || 600;
+    const As = parseFloat(document.getElementById('beam_as').value) || 1935;
+    
+    try {
+      const res = await fetch('/api/rc/beam/auto-design', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ b, h, As_req: As, cover: 40.0 })
+      });
+      const json = await res.json();
+      if (json.success && json.data.selected) {
+        const sel = json.data.selected;
+        alert(`[KDS 최적 배근 추천]\n• 주철근: ${sel.total_bars}-${sel.bar_size} (${sel.num_layers}단 배근, As = ${sel.total_area.toFixed(0)} mm²)\n• 스터럽: 2-D10@200\n• 유효깊이 d: ${sel.effective_d.toFixed(1)} mm`);
+        document.getElementById('beam_as').value = Math.round(sel.total_area);
+        await calculateRcBeam();
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  });
 
   // 2. RC Column Calculation & Rendering
   async function calculateRcColumn() {

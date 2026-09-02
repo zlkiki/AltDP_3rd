@@ -107,7 +107,7 @@
             </div>
           </div>
 
-          <div class="form-group-title">설계 단면력 (KDS 계수하중)</div>
+          <div class="form-group-title">설계 단면력 (KDS 계수하중 및 사용하중)</div>
           <div class="input-row">
             <div class="input-field">
               <label for="beam_mu">설계휨모멘트 ($M_u$, $\text{kN}\cdot\text{m}$)</label>
@@ -118,6 +118,17 @@
               <input type="number" id="beam_vu" value="150" step="10">
             </div>
           </div>
+          <div class="input-row">
+            <div class="input-field">
+              <label for="beam_tu">설계비틀림 ($T_u$, $\text{kN}\cdot\text{m}$)</label>
+              <input type="number" id="beam_tu" value="0" step="5">
+            </div>
+            <div class="input-field">
+              <label for="beam_ma">사용하중모멘트 ($M_a$, $\text{kN}\cdot\text{m}$)</label>
+              <input type="number" id="beam_ma" value="160" step="10">
+            </div>
+          </div>
+          <button type="button" class="action-btn secondary" id="btnAutoDesignBeam" style="width: 100%; margin-top: 8px;">✨ KDS 최적 철근 자동 배근</button>
         </div>
 
         <!-- RC Column Form -->
@@ -319,6 +330,7 @@
   </main>
 
   <!-- Application Frontend Logic -->
+  <script src="/static/js/renderer2d.js"></script>
   <script src="/static/js/app.js"></script>
 </body>
 </html>
