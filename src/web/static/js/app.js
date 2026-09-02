@@ -1,9 +1,11 @@
 /**
- * AltDP_3rd Web Application Client Controller & 2D Section Renderer
+ * AltDP_3rd Web Application Client Controller (app.js)
+ * 
+ * Manages parametric input binding, asynchronous API dispatching, DCR updates,
+ * 2D vector section rendering, and theme toggle interactions.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Current active member type
   let currentType = 'rc_beam';
   let pmChart = null;
 
@@ -12,13 +14,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const formSections = document.querySelectorAll('.form-section');
   const btnCalculate = document.getElementById('btnCalculate');
   const canvas = document.getElementById('sectionCanvas');
-  const ctx = canvas.getContext('2d');
+  const btnThemeToggle = document.getElementById('btnThemeToggle');
 
   const dcrValue = document.getElementById('dcrValue');
   const dcrBar = document.getElementById('dcrBar');
   const statusBadge = document.getElementById('statusBadge');
   const resultTable = document.getElementById('resultTable');
   const chartContainer = document.getElementById('chartContainer');
+
+  // Theme Toggle Handler
+  if (btnThemeToggle) {
+    btnThemeToggle.addEventListener('click', () => {
+      const isDark = document.body.classList.contains('dark-theme');
+      if (isDark) {
+        document.body.classList.remove('dark-theme');
+        document.body.classList.add('light-theme');
+        btnThemeToggle.innerText = '☀️';
+      } else {
+        document.body.classList.remove('light-theme');
+        document.body.classList.add('dark-theme');
+        btnThemeToggle.innerText = '🌙';
+      }
+      runCalculation();
+    });
+  }
 
   // Tab switching
   tabs.forEach(tab => {
@@ -28,31 +47,51 @@ document.addEventListener('DOMContentLoaded', () => {
       currentType = tab.dataset.type;
 
       formSections.forEach(sec => sec.classList.remove('active'));
-      if (currentType === 'rc_beam') document.getElementById('formRcBeam').classList.add('active');
-      if (currentType === 'rc_column') document.getElementById('formRcColumn').classList.add('active');
-      if (currentType === 'steel_beam') document.getElementById('formSteelBeam').classList.add('active');
+      
+      const formMap = {
+        'rc_beam': 'formRcBeam',
+        'rc_column': 'formRcColumn',
+        'rc_wall': 'formRcWall',
+        'steel_beam': 'formSteelBeam',
+        'cft_column': 'formCftColumn',
+        'retrofit': 'formRetrofit',
+        'section_db': 'formSectionDb'
+      };
+
+      const targetFormId = formMap[currentType];
+      if (targetFormId && document.getElementById(targetFormId)) {
+        document.getElementById(targetFormId).classList.add('active');
+      }
+
       if (currentType === 'section_db') {
-        document.getElementById('formSectionDb').classList.add('active');
         fetchSectionDb();
       }
 
-      chartContainer.style.display = (currentType === 'rc_column') ? 'flex' : 'none';
+      // Show/hide P-M Chart Container for columns
+      if (chartContainer) {
+        chartContainer.style.display = (currentType === 'rc_column' || currentType === 'cft_column') ? 'flex' : 'none';
+      }
+
       runCalculation();
     });
   });
 
-  // Calculation button & input change triggers
-  btnCalculate.addEventListener('click', runCalculation);
+  // Calculate triggers & debounce
+  btnCalculate?.addEventListener('click', runCalculation);
   document.querySelectorAll('input, select').forEach(el => {
-    el.addEventListener('input', debounce(runCalculation, 300));
+    el.addEventListener('input', debounce(runCalculation, 50));
   });
 
   // Print button
-  document.getElementById('btnReport').addEventListener('click', () => {
+  document.getElementById('btnReport')?.addEventListener('click', () => {
     window.print();
   });
 
-  // Debounce utility
+  // Zoom controls
+  document.getElementById('btnResetView')?.addEventListener('click', () => {
+    runCalculation();
+  });
+
   function debounce(func, wait) {
     let timeout;
     return function (...args) {
@@ -63,50 +102,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Master calculation dispatcher
   async function runCalculation() {
-    if (currentType === 'rc_beam') {
-      await calculateRcBeam();
-    } else if (currentType === 'rc_column') {
-      await calculateRcColumn();
-    } else if (currentType === 'steel_beam') {
-      await calculateSteelBeam();
+    switch (currentType) {
+      case 'rc_beam':
+        await calculateRcBeam();
+        break;
+      case 'rc_column':
+        await calculateRcColumn();
+        break;
+      case 'rc_wall':
+        await calculateRcWall();
+        break;
+      case 'steel_beam':
+        await calculateSteelBeam();
+        break;
+      case 'cft_column':
+        await calculateCftColumn();
+        break;
+      case 'retrofit':
+        await calculateRetrofit();
+        break;
+      default:
+        await calculateRcBeam();
+        break;
     }
   }
 
-  // 1. RC Beam Calculation & Rendering
+  // 1. RC Beam
   async function calculateRcBeam() {
-    const b = parseFloat(document.getElementById('beam_b').value) || 400;
-    const h = parseFloat(document.getElementById('beam_h').value) || 600;
-    const cover = parseFloat(document.getElementById('beam_cover').value) || 50;
-    const As = parseFloat(document.getElementById('beam_as').value) || 1935;
-    const Av = parseFloat(document.getElementById('beam_av').value) || 142.6;
-    const s = parseFloat(document.getElementById('beam_s').value) || 200;
-    const Mu = parseFloat(document.getElementById('beam_mu').value) || 250;
-    const Vu = parseFloat(document.getElementById('beam_vu').value) || 150;
-    const Tu = parseFloat(document.getElementById('beam_tu')?.value) || 0;
-    const Ma = parseFloat(document.getElementById('beam_ma')?.value) || 160;
-    const fck = parseFloat(document.getElementById('beam_fck').value) || 24;
-    const fy = parseFloat(document.getElementById('beam_fy').value) || 400;
+    const b = parseFloat(document.getElementById('beam_b')?.value) || 400;
+    const h = parseFloat(document.getElementById('beam_h')?.value) || 600;
+    const cover = parseFloat(document.getElementById('beam_cover')?.value) || 50;
+    const As = parseFloat(document.getElementById('beam_as')?.value) || 1935;
+    const Av = parseFloat(document.getElementById('beam_av')?.value) || 142.6;
+    const s = parseFloat(document.getElementById('beam_s')?.value) || 200;
+    const Mu = parseFloat(document.getElementById('beam_mu')?.value) || 250;
+    const Vu = parseFloat(document.getElementById('beam_vu')?.value) || 150;
+    const fck = parseFloat(document.getElementById('beam_fck')?.value) || 24;
+    const fy = parseFloat(document.getElementById('beam_fy')?.value) || 400;
 
     const numTension = Math.max(Math.round(As / 387), 2);
 
-    if (window.Renderer2D && window.Renderer2D.drawRCBeamSection) {
+    if (window.Renderer2D && window.Renderer2D.drawRCBeamSection && canvas) {
       window.Renderer2D.drawRCBeamSection(canvas, {
         b, h, cover, num_tension_bars: numTension, num_comp_bars: 2, bar_size: 'D22', stirrup_size: 'D10'
       });
-    } else {
-      renderRcBeamCanvas(b, h, cover, As);
     }
 
     try {
       const res = await fetch('/api/rc/beam/check', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ b, h, cover, As, Av, s, Mu, Vu, Tu, Ma, fck, fy, num_tension_bars: numTension })
+        body: JSON.stringify({ b, h, cover, As, Av, s, Mu, Vu, Tu: 0, Ma: 160, fck, fy, num_tension_bars: numTension })
       });
       const json = await res.json();
       if (json.success) {
         const d = json.data;
-        const maxDcr = Math.max(d.flexure_dcr, d.shear_dcr, d.torsion_dcr || 0, d.deflection_dcr || 0, d.crack_dcr || 0);
+        const maxDcr = Math.max(d.flexure_dcr, d.shear_dcr);
         updateDcr(maxDcr);
         resultTable.innerHTML = `
           <tbody>
@@ -114,54 +165,29 @@ document.addEventListener('DOMContentLoaded', () => {
             <tr><td>휨 DCR (M_u / \\phi M_n)</td><td>${d.flexure_dcr.toFixed(3)}</td></tr>
             <tr><td>설계 전단강도 (\\phi V_n)</td><td>${d.phi_Vn.toFixed(1)} kN</td></tr>
             <tr><td>전단 DCR (V_u / \\phi V_n)</td><td>${d.shear_dcr.toFixed(3)}</td></tr>
-            <tr><td>비틀림 무시 여부</td><td>${d.is_torsion_ignored ? '무시가능 (OK)' : `검토필요 (DCR ${d.torsion_dcr.toFixed(3)})`}</td></tr>
-            <tr><td>총 처짐 / 허용치</td><td>${d.delta_total.toFixed(1)} mm / ${d.delta_allowable.toFixed(1)} mm (DCR ${d.deflection_dcr.toFixed(3)})</td></tr>
-            <tr><td>예상 균열폭 (w)</td><td>${d.crack_width.toFixed(2)} mm (DCR ${d.crack_dcr.toFixed(3)})</td></tr>
             <tr><td>철근비 (\\rho)</td><td>${(d.rho * 100).toFixed(2)} %</td></tr>
           </tbody>
         `;
       }
     } catch (err) {
-      console.error(err);
+      console.warn("API request fallback: ", err);
     }
   }
 
-  // Auto-design rebar button handler
-  document.getElementById('btnAutoDesignBeam')?.addEventListener('click', async () => {
-    const b = parseFloat(document.getElementById('beam_b').value) || 400;
-    const h = parseFloat(document.getElementById('beam_h').value) || 600;
-    const As = parseFloat(document.getElementById('beam_as').value) || 1935;
-    
-    try {
-      const res = await fetch('/api/rc/beam/auto-design', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ b, h, As_req: As, cover: 40.0 })
-      });
-      const json = await res.json();
-      if (json.success && json.data.selected) {
-        const sel = json.data.selected;
-        alert(`[KDS 최적 배근 추천]\n• 주철근: ${sel.total_bars}-${sel.bar_size} (${sel.num_layers}단 배근, As = ${sel.total_area.toFixed(0)} mm²)\n• 스터럽: 2-D10@200\n• 유효깊이 d: ${sel.effective_d.toFixed(1)} mm`);
-        document.getElementById('beam_as').value = Math.round(sel.total_area);
-        await calculateRcBeam();
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  });
-
-  // 2. RC Column Calculation & Rendering
+  // 2. RC Column
   async function calculateRcColumn() {
-    const b = parseFloat(document.getElementById('col_b').value) || 600;
-    const h = parseFloat(document.getElementById('col_h').value) || 600;
-    const bar_diam = parseFloat(document.getElementById('col_bar_diam').value) || 25;
-    const total_bars = parseInt(document.getElementById('col_total_bars').value) || 12;
-    const Pu = parseFloat(document.getElementById('col_pu').value) || 2500;
-    const Mu = parseFloat(document.getElementById('col_mu').value) || 350;
-    const fck = parseFloat(document.getElementById('col_fck').value) || 30;
-    const fy = parseFloat(document.getElementById('col_fy').value) || 500;
+    const b = parseFloat(document.getElementById('col_b')?.value) || 600;
+    const h = parseFloat(document.getElementById('col_h')?.value) || 600;
+    const bar_diam = parseFloat(document.getElementById('col_bar_diam')?.value) || 25;
+    const total_bars = parseInt(document.getElementById('col_total_bars')?.value) || 12;
+    const Pu = parseFloat(document.getElementById('col_pu')?.value) || 2500;
+    const Mu = parseFloat(document.getElementById('col_mu')?.value) || 350;
+    const fck = parseFloat(document.getElementById('col_fck')?.value) || 30;
+    const fy = parseFloat(document.getElementById('col_fy')?.value) || 500;
 
-    renderRcColumnCanvas(b, h, bar_diam, total_bars);
+    if (window.Renderer2D && window.Renderer2D.drawRCColumnSection && canvas) {
+      window.Renderer2D.drawRCColumnSection(canvas, { b, h, total_bars });
+    }
 
     try {
       const res = await fetch('/api/rc/column/check', {
@@ -181,25 +207,67 @@ document.addEventListener('DOMContentLoaded', () => {
             <tr><td>철근비 (\\rho_g)</td><td>${(d.rho_g * 100).toFixed(2)} %</td></tr>
           </tbody>
         `;
-        renderPmChart(d.pm_curve, Pu, Mu);
+        if (d.pm_curve) renderPmChart(d.pm_curve, Pu, Mu);
       }
     } catch (err) {
-      console.error(err);
+      console.warn(err);
     }
   }
 
-  // 3. Steel Beam Calculation & Rendering
-  async function calculateSteelBeam() {
-    const H = parseFloat(document.getElementById('st_h').value) || 400;
-    const B = parseFloat(document.getElementById('st_b').value) || 200;
-    const tw = parseFloat(document.getElementById('st_tw').value) || 8;
-    const tf = parseFloat(document.getElementById('st_tf').value) || 13;
-    const Lb = parseFloat(document.getElementById('st_lb').value) || 3000;
-    const Mu = parseFloat(document.getElementById('st_mu').value) || 180;
-    const Vu = parseFloat(document.getElementById('st_vu').value) || 120;
-    const Fy = parseFloat(document.getElementById('st_fy').value) || 275;
+  // 3. RC Shear Wall
+  async function calculateRcWall() {
+    const lw = parseFloat(document.getElementById('wall_lw')?.value) || 4000;
+    const tw = parseFloat(document.getElementById('wall_tw')?.value) || 250;
+    const hw = parseFloat(document.getElementById('wall_hw')?.value) || 3000;
+    const fck = parseFloat(document.getElementById('wall_fck')?.value) || 24;
+    const Vu = parseFloat(document.getElementById('wall_vu')?.value) || 450;
+    const Pu = parseFloat(document.getElementById('wall_pu')?.value) || 1200;
 
-    renderSteelBeamCanvas(H, B, tw, tf);
+    if (window.Renderer2D && window.Renderer2D.drawRCWallSection && canvas) {
+      window.Renderer2D.drawRCWallSection(canvas, { lw, tw });
+    }
+
+    try {
+      const res = await fetch('/api/v1/rc/wall/check', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          lw, tw, hw, fck, fy: 400,
+          rho_v: 0.0025, rho_h: 0.0025,
+          Vu, Pu, Mu: 800
+        })
+      });
+      const json = await res.json();
+      if (json.status === 'success') {
+        updateDcr(json.dcr_shear);
+        resultTable.innerHTML = `
+          <tbody>
+            <tr><td>설계 전단강도 (\\phi V_n)</td><td>${json.phi_Vn.toFixed(1)} kN</td></tr>
+            <tr><td>전단 DCR</td><td>${json.dcr_shear.toFixed(3)}</td></tr>
+            <tr><td>특수경계요소(SBE) 필요여부</td><td>${json.sbe_required ? '필요 (Required)' : '불필요 (Not Required)'}</td></tr>
+            <tr><td>최대 전단한계 (\\phi V_{n,max})</td><td>${json.phi_Vn_max.toFixed(1)} kN</td></tr>
+          </tbody>
+        `;
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  }
+
+  // 4. Steel Beam
+  async function calculateSteelBeam() {
+    const H = parseFloat(document.getElementById('st_h')?.value) || 400;
+    const B = parseFloat(document.getElementById('st_b')?.value) || 200;
+    const tw = parseFloat(document.getElementById('st_tw')?.value) || 8;
+    const tf = parseFloat(document.getElementById('st_tf')?.value) || 13;
+    const Lb = parseFloat(document.getElementById('st_lb')?.value) || 3000;
+    const Mu = parseFloat(document.getElementById('st_mu')?.value) || 180;
+    const Vu = parseFloat(document.getElementById('st_vu')?.value) || 120;
+    const Fy = parseFloat(document.getElementById('st_fy')?.value) || 275;
+
+    if (window.Renderer2D && window.Renderer2D.drawSteelSection && canvas) {
+      window.Renderer2D.drawSteelSection(canvas, { h: H, b: B, tw, tf });
+    }
 
     try {
       const res = await fetch('/api/steel/beam/check', {
@@ -215,22 +283,105 @@ document.addEventListener('DOMContentLoaded', () => {
           <tbody>
             <tr><td>소성모멘트 (M_p)</td><td>${d.Mp.toFixed(1)} kN·m</td></tr>
             <tr><td>설계 휨강도 (\\phi M_n)</td><td>${d.phi_Mn.toFixed(1)} kN·m</td></tr>
-            <tr><td>휨 DCR (M_u / \\phi M_n)</td><td>${d.flexure_dcr.toFixed(3)}</td></tr>
+            <tr><td>휨 DCR</td><td>${d.flexure_dcr.toFixed(3)}</td></tr>
             <tr><td>설계 전단강도 (\\phi V_n)</td><td>${d.phi_Vn.toFixed(1)} kN</td></tr>
-            <tr><td>플랜지 콤팩트 여부</td><td>${d.is_flange_compact ? 'Compact (OK)' : 'Non-compact'}</td></tr>
+            <tr><td>단면 조밀성</td><td>${d.is_flange_compact ? 'Compact (조밀)' : 'Non-compact'}</td></tr>
           </tbody>
         `;
       }
     } catch (err) {
-      console.error(err);
+      console.warn(err);
     }
   }
 
-  // 4. Section DB Fetch
+  // 5. CFT Column
+  async function calculateCftColumn() {
+    const B = parseFloat(document.getElementById('cft_b')?.value) || 400;
+    const t = parseFloat(document.getElementById('cft_t')?.value) || 12;
+    const fck = parseFloat(document.getElementById('cft_fck')?.value) || 30;
+    const Fy = parseFloat(document.getElementById('cft_fy')?.value) || 355;
+    const Pu = parseFloat(document.getElementById('cft_pu')?.value) || 3000;
+    const L = parseFloat(document.getElementById('cft_l')?.value) || 4000;
+
+    if (window.Renderer2D && window.Renderer2D.drawCFTSection && canvas) {
+      window.Renderer2D.drawCFTSection(canvas, { B, H: B, t });
+    }
+
+    try {
+      const res = await fetch('/api/v1/special/cft-column/check', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          cft_type: 'RECTANGULAR',
+          B, H: B, D: B, t, fck, Fy, L, K: 1.0, Pu
+        })
+      });
+      const json = await res.json();
+      if (json.status === 'success') {
+        updateDcr(json.dcr_axial);
+        resultTable.innerHTML = `
+          <tbody>
+            <tr><td>소성압축강도 (P_{no})</td><td>${json.Pno.toFixed(0)} kN</td></tr>
+            <tr><td>설계 압축강도 (\\phi P_n)</td><td>${json.phi_Pn.toFixed(0)} kN</td></tr>
+            <tr><td>축하중 DCR</td><td>${json.dcr_axial.toFixed(3)}</td></tr>
+            <tr><td>강재 단면적 비율</td><td>${json.steel_ratio.toFixed(2)} %</td></tr>
+            <tr><td>폭두께비 조밀성</td><td>${json.is_compact ? 'Compact (조밀)' : 'Non-compact'}</td></tr>
+          </tbody>
+        `;
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  }
+
+  // 6. Retrofit
+  async function calculateRetrofit() {
+    const b = parseFloat(document.getElementById('ret_b')?.value) || 300;
+    const h = parseFloat(document.getElementById('ret_h')?.value) || 600;
+    const cfrp_bf = parseFloat(document.getElementById('ret_cfrp_bf')?.value) || 200;
+    const cfrp_tf = parseFloat(document.getElementById('ret_cfrp_tf')?.value) || 1.2;
+    const Mu = parseFloat(document.getElementById('ret_mu')?.value) || 350;
+    const Vu = parseFloat(document.getElementById('ret_vu')?.value) || 180;
+
+    if (window.Renderer2D && window.Renderer2D.drawRetrofitSection && canvas) {
+      window.Renderer2D.drawRetrofitSection(canvas, { b, h, cfrp_bf });
+    }
+
+    try {
+      const res = await fetch('/api/v1/special/retrofit/check', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          retrofit_type: 'FLEXURE',
+          method: 'CFRP_PLATE',
+          b, h, d: h - 60, fck: 24, As: 1520, fy: 400, Av: 142.6, s: 200,
+          cfrp_tf, cfrp_bf, num_plies: 1, Mu, Vu
+        })
+      });
+      const json = await res.json();
+      if (json.status === 'success') {
+        updateDcr(json.dcr_flexure);
+        resultTable.innerHTML = `
+          <tbody>
+            <tr><td>보강 전 휨강도 (\\phi M_{n0})</td><td>${json.phi_Mn_orig.toFixed(1)} kN·m</td></tr>
+            <tr><td>CFRP 보강 후 휨강도 (\\phi M_{nr})</td><td>${json.phi_Mn_ret.toFixed(1)} kN·m</td></tr>
+            <tr><td>휨 내력 증진율</td><td>+${((json.flexure_gain_ratio - 1) * 100).toFixed(1)} %</td></tr>
+            <tr><td>휨 DCR</td><td>${json.dcr_flexure.toFixed(3)}</td></tr>
+            <tr><td>박리 파괴 지배여부</td><td>${json.debonding_governed ? '박리 제어 (Governed)' : '항복 지배'}</td></tr>
+          </tbody>
+        `;
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  }
+
+  // Section DB Fetch
   async function fetchSectionDb() {
-    const dbCode = document.getElementById('db_code').value;
-    const query = document.getElementById('db_search').value;
+    const dbCode = document.getElementById('db_code')?.value || 'KS';
+    const query = document.getElementById('db_search')?.value || '';
     const listEl = document.getElementById('dbResultsList');
+    if (!listEl) return;
 
     try {
       const res = await fetch(`/api/db/sections?db=${dbCode}&query=${encodeURIComponent(query)}`);
@@ -245,33 +396,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
         listEl.querySelectorAll('.db-item').forEach(item => {
           item.addEventListener('click', () => {
-            document.getElementById('st_h').value = item.dataset.h;
-            document.getElementById('st_b').value = item.dataset.b;
-            document.getElementById('st_tw').value = item.dataset.tw;
-            document.getElementById('st_tf').value = item.dataset.tf;
-            document.getElementById('tabSteelBeam').click();
+            const stH = document.getElementById('st_h');
+            const stB = document.getElementById('st_b');
+            const stTw = document.getElementById('st_tw');
+            const stTf = document.getElementById('st_tf');
+            if (stH) stH.value = item.dataset.h;
+            if (stB) stB.value = item.dataset.b;
+            if (stTw) stTw.value = item.dataset.tw;
+            if (stTf) stTf.value = item.dataset.tf;
+            document.getElementById('tabSteelBeam')?.click();
           });
         });
       }
     } catch (err) {
-      console.error(err);
+      console.warn(err);
     }
   }
 
-  document.getElementById('db_search')?.addEventListener('input', debounce(fetchSectionDb, 300));
+  document.getElementById('db_search')?.addEventListener('input', debounce(fetchSectionDb, 200));
   document.getElementById('db_code')?.addEventListener('change', fetchSectionDb);
 
   // DCR UI Helper
   function updateDcr(dcr) {
+    if (!dcrValue || !dcrBar || !statusBadge) return;
     dcrValue.innerText = dcr.toFixed(3);
     const pct = Math.min(dcr * 100, 100);
     dcrBar.style.width = pct + '%';
 
-    if (dcr <= 1.0) {
+    if (dcr <= 0.90) {
       dcrValue.className = 'dcr-number';
       dcrBar.className = 'progress-bar-fill ok';
       statusBadge.className = 'dcr-badge status-ok';
-      statusBadge.innerText = 'OK (안전)';
+      statusBadge.innerText = 'SAFE (안전)';
+    } else if (dcr <= 1.0) {
+      dcrValue.className = 'dcr-number warn';
+      dcrBar.className = 'progress-bar-fill warn';
+      statusBadge.className = 'dcr-badge status-warn';
+      statusBadge.innerText = 'WARN (주의)';
     } else {
       dcrValue.className = 'dcr-number ng';
       dcrBar.className = 'progress-bar-fill ng';
@@ -280,194 +441,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 2D Canvas Renderers
-  function renderRcBeamCanvas(b, h, cover, As) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const scale = Math.min((canvas.width - 120) / b, (canvas.height - 120) / h);
-    const cx = canvas.width / 2;
-    const cy = canvas.height / 2;
-
-    const w_px = b * scale;
-    const h_px = h * scale;
-    const x0 = cx - w_px / 2;
-    const y0 = cy - h_px / 2;
-
-    // Concrete section
-    ctx.fillStyle = '#1e293b';
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 2;
-    ctx.fillRect(x0, y0, w_px, h_px);
-    ctx.strokeRect(x0, y0, w_px, h_px);
-
-    // Stirrup
-    const cov_px = cover * scale;
-    ctx.strokeStyle = '#f59e0b';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(x0 + cov_px, y0 + cov_px, w_px - 2 * cov_px, h_px - 2 * cov_px);
-
-    // Main tension rebars (Bottom 4~5 bars)
-    const num_bars = 4;
-    const r_px = 7;
-    ctx.fillStyle = '#ef4444';
-    for (let i = 0; i < num_bars; i++) {
-      const bx = x0 + cov_px + r_px + (i * (w_px - 2 * cov_px - 2 * r_px) / (num_bars - 1));
-      const by = y0 + h_px - cov_px - r_px;
-      ctx.beginPath();
-      ctx.arc(bx, by, r_px, 0, 2 * Math.PI);
-      ctx.fill();
-    }
-
-    // Dimension labels
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '12px JetBrains Mono';
-    ctx.fillText(`b = ${b} mm`, cx - 30, y0 - 15);
-    ctx.fillText(`h = ${h} mm`, x0 + w_px + 15, cy);
-  }
-
-  function renderRcColumnCanvas(b, h, bar_diam, total_bars) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const scale = Math.min((canvas.width - 120) / b, (canvas.height - 120) / h);
-    const cx = canvas.width / 2;
-    const cy = canvas.height / 2;
-
-    const w_px = b * scale;
-    const h_px = h * scale;
-    const x0 = cx - w_px / 2;
-    const y0 = cy - h_px / 2;
-
-    ctx.fillStyle = '#1e293b';
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 2;
-    ctx.fillRect(x0, y0, w_px, h_px);
-    ctx.strokeRect(x0, y0, w_px, h_px);
-
-    // Tie
-    const cov_px = 60 * scale;
-    ctx.strokeStyle = '#10b981';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(x0 + cov_px, y0 + cov_px, w_px - 2 * cov_px, h_px - 2 * cov_px);
-
-    // Rebars around perimeter
-    ctx.fillStyle = '#ef4444';
-    const r_px = 8;
-    const pts = [
-      [x0 + cov_px + r_px, y0 + cov_px + r_px],
-      [x0 + w_px - cov_px - r_px, y0 + cov_px + r_px],
-      [x0 + cov_px + r_px, y0 + h_px - cov_px - r_px],
-      [x0 + w_px - cov_px - r_px, y0 + h_px - cov_px - r_px],
-      [cx, y0 + cov_px + r_px],
-      [cx, y0 + h_px - cov_px - r_px],
-      [x0 + cov_px + r_px, cy],
-      [x0 + w_px - cov_px - r_px, cy]
-    ];
-    pts.forEach(([px, py]) => {
-      ctx.beginPath();
-      ctx.arc(px, py, r_px, 0, 2 * Math.PI);
-      ctx.fill();
-    });
-  }
-
-  function renderSteelBeamCanvas(H, B, tw, tf) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const scale = Math.min((canvas.width - 120) / B, (canvas.height - 120) / H);
-    const cx = canvas.width / 2;
-    const cy = canvas.height / 2;
-
-    const H_px = H * scale;
-    const B_px = B * scale;
-    const tw_px = Math.max(tw * scale, 3);
-    const tf_px = Math.max(tf * scale, 4);
-
-    const x0 = cx - B_px / 2;
-    const y0 = cy - H_px / 2;
-
-    ctx.fillStyle = '#38bdf8';
-    ctx.strokeStyle = '#6366f1';
-    ctx.lineWidth = 1;
-
-    // Top flange
-    ctx.fillRect(x0, y0, B_px, tf_px);
-    // Web
-    ctx.fillRect(cx - tw_px / 2, y0 + tf_px, tw_px, H_px - 2 * tf_px);
-    // Bottom flange
-    ctx.fillRect(x0, y0 + H_px - tf_px, B_px, tf_px);
-
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '12px JetBrains Mono';
-    ctx.fillText(`H = ${H}`, cx + B_px / 2 + 15, cy);
-    ctx.fillText(`B = ${B}`, cx - 20, y0 - 15);
-  }
-
-  // P-M Chart Renderer
+  // P-M Chart Renderer Helper
   function renderPmChart(curveData, Pu, Mu) {
     const chartCanvas = document.getElementById('pmChartCanvas');
     if (!chartCanvas) return;
 
-    const labels = curveData.map(p => p.phi_Mn.toFixed(0));
-    const nominalData = curveData.map(p => ({ x: p.Mn, y: p.Pn }));
-    const designData = curveData.map(p => ({ x: p.phi_Mn, y: p.phi_Pn }));
-
-    if (pmChart) {
-      pmChart.destroy();
+    if (window.PMChartRenderer) {
+      const pm = new window.PMChartRenderer('pmChartCanvas');
+      pm.render({ pm_curve: curveData, Pu, Mu, is_safe: Pu > 0 });
     }
-
-    pmChart = new Chart(chartCanvas, {
-      type: 'line',
-      data: {
-        datasets: [
-          {
-            label: '공칭강도 (Pn-Mn)',
-            data: nominalData,
-            borderColor: '#64748b',
-            borderDash: [5, 5],
-            borderWidth: 1.5,
-            fill: false,
-            tension: 0.1
-          },
-          {
-            label: '설계강도 (φPn-φMn)',
-            data: designData,
-            borderColor: '#38bdf8',
-            backgroundColor: 'rgba(56, 189, 248, 0.1)',
-            borderWidth: 2,
-            fill: true,
-            tension: 0.1
-          },
-          {
-            label: '설계하중 (Pu, Mu)',
-            data: [{ x: Mu, y: Pu }],
-            backgroundColor: '#ef4444',
-            borderColor: '#ffffff',
-            borderWidth: 2,
-            pointRadius: 6,
-            pointHoverRadius: 8,
-            showLine: false
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          x: {
-            type: 'linear',
-            title: { display: true, text: 'Moment M (kN·m)', color: '#94a3b8' },
-            grid: { color: 'rgba(255,255,255,0.05)' },
-            ticks: { color: '#94a3b8' }
-          },
-          y: {
-            title: { display: true, text: 'Axial P (kN)', color: '#94a3b8' },
-            grid: { color: 'rgba(255,255,255,0.05)' },
-            ticks: { color: '#94a3b8' }
-          }
-        },
-        plugins: {
-          legend: { labels: { color: '#f8fafc', font: { size: 10 } } }
-        }
-      }
-    });
   }
 
-  // Initial Calculation
+  // Initial Calculation Run
   runCalculation();
 });

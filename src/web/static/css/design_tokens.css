@@ -1,0 +1,117 @@
+/**
+ * AltDP_3rd Design Tokens
+ * Modern Engineering Glassmorphic Design System
+ */
+
+:root {
+  /* ==========================================================================
+     1. Color Palette - Dark Theme (Default)
+     ========================================================================== */
+  --bg-primary: #0a0f1d;
+  --bg-secondary: #11192e;
+  --bg-tertiary: #1a2646;
+  --bg-card: rgba(17, 25, 46, 0.75);
+  --bg-card-hover: rgba(26, 38, 70, 0.85);
+  --bg-input: rgba(0, 0, 0, 0.35);
+  --bg-glass: rgba(17, 25, 46, 0.65);
+  
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --border-focus: #38bdf8;
+  --border-hover: rgba(56, 189, 248, 0.4);
+
+  /* Brand Accents */
+  --accent-primary: #38bdf8;
+  --accent-primary-hover: #0ea5e9;
+  --accent-secondary: #6366f1;
+  --accent-glow: rgba(56, 189, 248, 0.25);
+  --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  --accent-gradient-subtle: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%);
+
+  /* DCR & Semantic Status Colors */
+  --status-safe: #10b981;
+  --status-safe-glow: rgba(16, 185, 129, 0.25);
+  --status-warning: #f59e0b;
+  --status-warning-glow: rgba(245, 158, 11, 0.25);
+  --status-danger: #ef4444;
+  --status-danger-glow: rgba(239, 68, 68, 0.25);
+  --status-info: #38bdf8;
+
+  /* Text Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-on-accent: #04101e;
+
+  /* ==========================================================================
+     2. Typography
+     ========================================================================== */
+  --font-sans: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  --font-size-xs: 0.72rem;
+  --font-size-sm: 0.82rem;
+  --font-size-base: 0.9rem;
+  --font-size-md: 1.0rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.75rem;
+
+  /* ==========================================================================
+     3. Spacing & Radius
+     ========================================================================== */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* ==========================================================================
+     4. Shadows & Glassmorphism
+     ========================================================================== */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 36px -4px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.2);
+  --shadow-glow-safe: 0 0 20px rgba(16, 185, 129, 0.25);
+  --shadow-glow-danger: 0 0 20px rgba(239, 68, 68, 0.3);
+
+  --backdrop-blur: blur(16px);
+  --backdrop-blur-sm: blur(8px);
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light Theme Override */
+body.light-theme {
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e2e8f0;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(241, 245, 249, 0.95);
+  --bg-input: rgba(241, 245, 249, 0.9);
+  --bg-glass: rgba(255, 255, 255, 0.75);
+
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-glass: rgba(0, 0, 0, 0.1);
+  --border-focus: #0284c7;
+  --border-hover: rgba(2, 132, 199, 0.4);
+
+  --accent-primary: #0284c7;
+  --accent-primary-hover: #0369a1;
+  --accent-secondary: #4f46e5;
+  --accent-glow: rgba(2, 132, 199, 0.15);
+  --accent-gradient: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
+  --accent-gradient-subtle: linear-gradient(135deg, rgba(2, 132, 199, 0.1) 0%, rgba(79, 70, 229, 0.1) 100%);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-on-accent: #ffffff;
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 6px 20px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 36px -4px rgba(15, 23, 42, 0.12);
+  --shadow-glow: 0 0 20px rgba(2, 132, 199, 0.15);
+}

@@ -4,54 +4,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AltDP_3rd | Web Structural Design Platform</title>
-  <meta name="description" content="Midas Design+ Web Migration - KDS 14 20 00 / 14 31 00 Structural Member Design">
-  <!-- Google Fonts & Chart.js -->
+  <meta name="description" content="Midas Design+ Web Migration - KDS 14 20 00 / 14 31 00 / 41 00 00 Structural Member Design">
+  
+  <!-- Google Fonts & Pretendard -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Stylesheet -->
+  
+  <!-- KaTeX for formula rendering if needed -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  
+  <!-- Design Tokens & Main Stylesheet -->
+  <link rel="stylesheet" href="/static/css/design_tokens.css">
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body class="dark-theme">
-  <!-- Top Navigation Bar -->
+  <!-- Top Global Navigation Bar -->
   <header class="top-nav" id="topNav">
     <div class="nav-left">
       <div class="logo-badge">
-        <span class="logo-icon">🚀</span>
+        <span class="logo-icon">📐</span>
         <span class="logo-text">AltDP_3rd</span>
-        <span class="logo-sub">Web Migration</span>
+        <span class="logo-sub">Design+ Web</span>
       </div>
-      <span class="design-code-tag">KDS 14 20 00 / 14 31 00</span>
+      <span class="design-code-tag">KDS 14 20 / 14 31 / 14 41</span>
     </div>
     
+    <!-- Member Selection Tabs -->
     <div class="nav-center">
-      <div class="member-tab-group" id="memberTabs">
-        <button class="tab-btn active" data-type="rc_beam" id="tabRcBeam">RC 보 (Beam)</button>
-        <button class="tab-btn" data-type="rc_column" id="tabRcColumn">RC 기둥 (Column)</button>
-        <button class="tab-btn" data-type="steel_beam" id="tabSteelBeam">철골 보 (Steel)</button>
-        <button class="tab-btn" data-type="section_db" id="tabSectionDb">형강 DB (SDB)</button>
-      </div>
+      <nav class="member-tab-group" id="memberTabs" aria-label="Member Categories">
+        <!-- RC Group -->
+        <button class="tab-btn active" data-type="rc_beam" id="tabRcBeam">RC 보</button>
+        <button class="tab-btn" data-type="rc_column" id="tabRcColumn">RC 기둥</button>
+        <button class="tab-btn" data-type="rc_wall" id="tabRcWall">RC 전단벽</button>
+        <button class="tab-btn" data-type="rc_slab" id="tabRcSlab">슬래브</button>
+        <button class="tab-btn" data-type="rc_footing" id="tabRcFooting">기초</button>
+        <button class="tab-btn" data-type="rc_retaining_wall" id="tabRcRetWall">옹벽</button>
+        
+        <!-- Steel Group -->
+        <button class="tab-btn" data-type="steel_beam" id="tabSteelBeam">철골 보</button>
+        <button class="tab-btn" data-type="steel_column" id="tabSteelColumn">철골 기둥</button>
+        <button class="tab-btn" data-type="steel_connection" id="tabSteelConn">접합부</button>
+        <button class="tab-btn" data-type="steel_baseplate" id="tabSteelBase">주각부</button>
+        
+        <!-- Special Group -->
+        <button class="tab-btn" data-type="cft_column" id="tabCftColumn">CFT/SRC</button>
+        <button class="tab-btn" data-type="retrofit" id="tabRetrofit">보수보강</button>
+        
+        <!-- Tools -->
+        <button class="tab-btn tool-tab" data-type="section_db" id="tabSectionDb">형강DB</button>
+      </nav>
     </div>
     
+    <!-- Navigation Right Controls -->
     <div class="nav-right">
-      <button class="action-btn" id="btnReport" title="A4 구조계산서 출력">📄 계산서 인쇄</button>
-      <a href="/docs" target="_blank" class="action-btn secondary" id="btnSwagger">⚡ API Swagger</a>
+      <button class="theme-toggle-btn" id="btnThemeToggle" title="테마 변경 (다크/라이트)">🌙</button>
+      <button class="action-btn" id="btnReport" title="A4 구조계산서 출력">📄 계산서</button>
+      <a href="/docs" target="_blank" class="action-btn secondary" id="btnSwagger" title="OpenAPI Documentation">⚡ API</a>
     </div>
   </header>
 
-  <!-- Main Grid Workspace -->
+  <!-- Main Multi-Column Grid Workspace -->
   <main class="main-container" id="mainWorkspace">
-    <!-- Left Sidebar: Property & Input Panel -->
+    <!-- 1. Left Sidebar: Parametric Input Panel -->
     <aside class="sidebar-panel" id="inputPanel">
       <div class="panel-header">
-        <h2 class="panel-title" id="inputPanelTitle">📐 단면 제원 및 배근 입력</h2>
-        <span class="status-indicator live">실시간 연동</span>
+        <h2 class="panel-title" id="inputPanelTitle">⚙️ 설계 변수 및 하중 입력</h2>
+        <span class="status-indicator live" id="liveSyncBadge">실시간 동기화</span>
       </div>
 
       <!-- Dynamic Form Container -->
       <form id="designForm" class="form-container">
-        <!-- RC Beam Form -->
+        
+        <!-- 1) RC Beam Form -->
         <div id="formRcBeam" class="form-section active">
           <div class="form-group-title">단면 치수 (mm)</div>
           <div class="input-row">
@@ -84,8 +109,8 @@
           <div class="form-group-title">철근 배근 및 강도</div>
           <div class="input-row">
             <div class="input-field">
-              <label for="beam_as">주근 단면적 ($A_s$, $\text{mm}^2$)</label>
-              <input type="number" id="beam_as" value="1935" step="50" title="예: 5-D22 = 1935">
+              <label for="beam_as">주근 면적 ($A_s$, $\text{mm}^2$)</label>
+              <input type="number" id="beam_as" value="1935" step="50">
             </div>
             <div class="input-field">
               <label for="beam_fy">철근 강도 ($f_y$)</label>
@@ -99,7 +124,7 @@
           <div class="input-row">
             <div class="input-field">
               <label for="beam_av">늑근 면적 ($A_v$, $\text{mm}^2$)</label>
-              <input type="number" id="beam_av" value="142.6" step="10" title="예: 2-D10 = 142.6">
+              <input type="number" id="beam_av" value="142.6" step="10">
             </div>
             <div class="input-field">
               <label for="beam_s">늑근 간격 ($s$, mm)</label>
@@ -107,7 +132,7 @@
             </div>
           </div>
 
-          <div class="form-group-title">설계 단면력 (KDS 계수하중 및 사용하중)</div>
+          <div class="form-group-title">설계 단면력 (KDS 계수하중)</div>
           <div class="input-row">
             <div class="input-field">
               <label for="beam_mu">설계휨모멘트 ($M_u$, $\text{kN}\cdot\text{m}$)</label>
@@ -118,20 +143,10 @@
               <input type="number" id="beam_vu" value="150" step="10">
             </div>
           </div>
-          <div class="input-row">
-            <div class="input-field">
-              <label for="beam_tu">설계비틀림 ($T_u$, $\text{kN}\cdot\text{m}$)</label>
-              <input type="number" id="beam_tu" value="0" step="5">
-            </div>
-            <div class="input-field">
-              <label for="beam_ma">사용하중모멘트 ($M_a$, $\text{kN}\cdot\text{m}$)</label>
-              <input type="number" id="beam_ma" value="160" step="10">
-            </div>
-          </div>
-          <button type="button" class="action-btn secondary" id="btnAutoDesignBeam" style="width: 100%; margin-top: 8px;">✨ KDS 최적 철근 자동 배근</button>
+          <button type="button" class="action-btn secondary full-width" id="btnAutoDesignBeam">✨ KDS 최적 철근 자동 배근</button>
         </div>
 
-        <!-- RC Column Form -->
+        <!-- 2) RC Column Form -->
         <div id="formRcColumn" class="form-section">
           <div class="form-group-title">기둥 치수 (mm)</div>
           <div class="input-row">
@@ -144,11 +159,10 @@
               <input type="number" id="col_h" value="600" step="50">
             </div>
           </div>
-
           <div class="form-group-title">주철근 및 재료</div>
           <div class="input-row">
             <div class="input-field">
-              <label for="col_bar_diam">주근 직경 (mm)</label>
+              <label for="col_bar_diam">주근 직경</label>
               <select id="col_bar_diam">
                 <option value="19">D19</option>
                 <option value="22">D22</option>
@@ -174,15 +188,13 @@
               </select>
             </div>
             <div class="input-field">
-              <label for="col_fy">철근 ($f_y$)</label>
+              <label for="col_fy">철근 강도 ($f_y$)</label>
               <select id="col_fy">
                 <option value="400">SD400</option>
                 <option value="500" selected>SD500 (500 MPa)</option>
-                <option value="600">SD600</option>
               </select>
             </div>
           </div>
-
           <div class="form-group-title">설계 단면력</div>
           <div class="input-row">
             <div class="input-field">
@@ -196,7 +208,47 @@
           </div>
         </div>
 
-        <!-- Steel Beam Form -->
+        <!-- 3) RC Wall Form -->
+        <div id="formRcWall" class="form-section">
+          <div class="form-group-title">전단벽 제원 (mm)</div>
+          <div class="input-row">
+            <div class="input-field">
+              <label for="wall_lw">벽체 길이 ($l_w$)</label>
+              <input type="number" id="wall_lw" value="4000" step="100">
+            </div>
+            <div class="input-field">
+              <label for="wall_tw">벽체 두께 ($t_w$)</label>
+              <input type="number" id="wall_tw" value="250" step="10">
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-field">
+              <label for="wall_hw">벽체 높이 ($h_w$)</label>
+              <input type="number" id="wall_hw" value="3000" step="100">
+            </div>
+            <div class="input-field">
+              <label for="wall_fck">콘크리트 ($f_{ck}$)</label>
+              <select id="wall_fck">
+                <option value="24" selected>C24 (24 MPa)</option>
+                <option value="27">C27</option>
+                <option value="30">C30</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group-title">설계 하중</div>
+          <div class="input-row">
+            <div class="input-field">
+              <label for="wall_vu">전단력 ($V_u$, $\text{kN}$)</label>
+              <input type="number" id="wall_vu" value="450" step="25">
+            </div>
+            <div class="input-field">
+              <label for="wall_pu">축력 ($P_u$, $\text{kN}$)</label>
+              <input type="number" id="wall_pu" value="1200" step="50">
+            </div>
+          </div>
+        </div>
+
+        <!-- 4) Steel Beam Form -->
         <div id="formSteelBeam" class="form-section">
           <div class="form-group-title">H형강 치수 (mm)</div>
           <div class="input-row">
@@ -246,9 +298,86 @@
           </div>
         </div>
 
-        <!-- Section DB Search -->
+        <!-- 5) CFT/SRC Form -->
+        <div id="formCftColumn" class="form-section">
+          <div class="form-group-title">CFT 단면 치수 (mm)</div>
+          <div class="input-row">
+            <div class="input-field">
+              <label for="cft_b">폭 ($B$)</label>
+              <input type="number" id="cft_b" value="400" step="20">
+            </div>
+            <div class="input-field">
+              <label for="cft_t">두께 ($t$)</label>
+              <input type="number" id="cft_t" value="12" step="1">
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-field">
+              <label for="cft_fck">콘크리트 ($f_{ck}$)</label>
+              <select id="cft_fck">
+                <option value="30" selected>C30 (30 MPa)</option>
+                <option value="40">C40 (40 MPa)</option>
+              </select>
+            </div>
+            <div class="input-field">
+              <label for="cft_fy">강재 ($F_y$)</label>
+              <select id="cft_fy">
+                <option value="355" selected>SM355 (355 MPa)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group-title">설계 축력</div>
+          <div class="input-row">
+            <div class="input-field">
+              <label for="cft_pu">축하중 ($P_u$, $\text{kN}$)</label>
+              <input type="number" id="cft_pu" value="3000" step="100">
+            </div>
+            <div class="input-field">
+              <label for="cft_l">기둥길이 ($L$, mm)</label>
+              <input type="number" id="cft_l" value="4000" step="500">
+            </div>
+          </div>
+        </div>
+
+        <!-- 6) Retrofit Form -->
+        <div id="formRetrofit" class="form-section">
+          <div class="form-group-title">기존 보 및 CFRP 보강재</div>
+          <div class="input-row">
+            <div class="input-field">
+              <label for="ret_b">보 폭 ($b$, mm)</label>
+              <input type="number" id="ret_b" value="300" step="10">
+            </div>
+            <div class="input-field">
+              <label for="ret_h">보 높이 ($h$, mm)</label>
+              <input type="number" id="ret_h" value="600" step="10">
+            </div>
+          </div>
+          <div class="input-row">
+            <div class="input-field">
+              <label for="ret_cfrp_bf">CFRP 폭 ($b_f$)</label>
+              <input type="number" id="ret_cfrp_bf" value="200" step="10">
+            </div>
+            <div class="input-field">
+              <label for="ret_cfrp_tf">CFRP 두께 ($t_f$)</label>
+              <input type="number" id="ret_cfrp_tf" value="1.2" step="0.1">
+            </div>
+          </div>
+          <div class="form-group-title">목표 소요 강도</div>
+          <div class="input-row">
+            <div class="input-field">
+              <label for="ret_mu">소요모멘트 ($M_u$, $\text{kN}\cdot\text{m}$)</label>
+              <input type="number" id="ret_mu" value="350" step="10">
+            </div>
+            <div class="input-field">
+              <label for="ret_vu">소요전단력 ($V_u$, $\text{kN}$)</label>
+              <input type="number" id="ret_vu" value="180" step="10">
+            </div>
+          </div>
+        </div>
+
+        <!-- 7) Section DB Search -->
         <div id="formSectionDb" class="form-section">
-          <div class="form-group-title">Midas SDB 단면 검색</div>
+          <div class="form-group-title">Midas SDB 형강 단면 검색</div>
           <div class="input-row">
             <div class="input-field">
               <label for="db_code">규격 DB</label>
@@ -273,12 +402,17 @@
       </form>
     </aside>
 
-    <!-- Center: Interactive 2D Cross Section & Drawing Canvas -->
+    <!-- 2. Center: Interactive 2D Cross Section Canvas Viewport -->
     <section class="canvas-panel" id="canvasPanel">
       <div class="canvas-header">
-        <span class="canvas-title" id="canvasTitle">2D 단면 및 배근도</span>
+        <div class="canvas-title-group">
+          <span class="canvas-title" id="canvasTitle">2D 단면 및 배근도</span>
+          <span class="canvas-subtitle" id="canvasSubtitle">Vector Drawing</span>
+        </div>
         <div class="canvas-controls">
-          <button class="icon-btn" id="btnResetView" title="뷰 리셋">🔍 1:1</button>
+          <button class="icon-btn" id="btnZoomIn" title="확대">+</button>
+          <button class="icon-btn" id="btnZoomOut" title="축소">-</button>
+          <button class="icon-btn" id="btnResetView" title="1:1 리셋">🔍 1:1</button>
         </div>
       </div>
       <div class="canvas-viewport" id="canvasViewport">
@@ -286,30 +420,30 @@
       </div>
     </section>
 
-    <!-- Right/Bottom: Results, DCR Gauges & P-M Diagram -->
+    <!-- 3. Right: Results, DCR Gauges & P-M Interaction Diagram -->
     <aside class="results-panel" id="resultsPanel">
-      <!-- Status Card -->
+      <!-- DCR Status Card -->
       <div class="dcr-card" id="dcrCard">
         <div class="dcr-header">
-          <span class="dcr-title">종합 안전율 (DCR)</span>
-          <span class="dcr-badge status-ok" id="statusBadge">OK</span>
+          <span class="dcr-title">종합 안전율 (Max DCR)</span>
+          <span class="dcr-badge status-ok" id="statusBadge">SAFE</span>
         </div>
         <div class="dcr-value-wrapper">
           <span class="dcr-number" id="dcrValue">0.785</span>
-          <span class="dcr-limit">/ 1.000 Max</span>
+          <span class="dcr-limit">/ 1.000 Allowable</span>
         </div>
         <div class="progress-bar-bg">
           <div class="progress-bar-fill ok" id="dcrBar" style="width: 78.5%;"></div>
         </div>
       </div>
 
-      <!-- Capacity Details Breakdown -->
+      <!-- Capacity Breakdown Table -->
       <div class="capacity-breakdown" id="capacityBreakdown">
-        <h3 class="section-title">KDS 14 20 00 검토 상세</h3>
+        <h3 class="section-title">KDS 국가건설기준 검토 상세</h3>
         <div class="table-wrapper">
           <table class="spec-table" id="resultTable">
             <tbody>
-              <tr><td>설계 휨강도 ($\phi M_n$)</td><td id="resPhiMn">318.4 kN*m</td></tr>
+              <tr><td>설계 휨강도 ($\phi M_n$)</td><td id="resPhiMn">318.4 kN·m</td></tr>
               <tr><td>휨 DCR ($M_u / \phi M_n$)</td><td id="resFlexDcr">0.785</td></tr>
               <tr><td>설계 전단강도 ($\phi V_n$)</td><td id="resPhiVn">214.2 kN</td></tr>
               <tr><td>전단 DCR ($V_u / \phi V_n$)</td><td id="resShearDcr">0.700</td></tr>
@@ -319,18 +453,19 @@
         </div>
       </div>
 
-      <!-- P-M Interaction Diagram Chart Container (Visible for Column) -->
+      <!-- Interactive P-M Diagram Chart -->
       <div class="chart-container" id="chartContainer" style="display: none;">
         <h3 class="section-title">P-M 상관도 곡선</h3>
         <div class="canvas-chart-wrapper">
-          <canvas id="pmChartCanvas"></canvas>
+          <canvas id="pmChartCanvas" width="340" height="200"></canvas>
         </div>
       </div>
     </aside>
   </main>
 
-  <!-- Application Frontend Logic -->
+  <!-- Application Logic -->
   <script src="/static/js/renderer2d.js"></script>
+  <script src="/static/js/pm_chart.js"></script>
   <script src="/static/js/app.js"></script>
 </body>
 </html>

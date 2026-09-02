@@ -8,7 +8,8 @@ from src.engine.db.sdb_parser import SDBParser, SectionRecord
 
 router = APIRouter(prefix="/api/db", tags=["Section Database"])
 
-SDB_DIR = r"f:\PyProject\re-DP\original_src\Midas Design+\Dbase"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+SDB_DIR = os.path.join(BASE_DIR, "original_src", "Midas Design+", "Dbase")
 _CACHED_PARSERS = {}
 
 
