@@ -89,7 +89,7 @@ flowchart TD
 
 ## 4. 검증 및 수용 기준 (Acceptance Criteria)
 
-- [ ] **수치 해석 정밀도**: 원본 `FES.EXE` / `mfsolver.exe` 해석 결과 대비 변위 및 휨모멘트 오차 0.1% 미만.
-- [ ] **비선형 접촉 수렴성**: 지반 인장 분리 및 베이스플레이트 지압/앵커 접촉 해석이 20회 반복 이내에 안정적으로 수렴(0.05초 이내).
-- [ ] **5대 부재 연동 완성**: 매트기초, 지하외벽, 베이스플레이트, 엔드플레이트, 슬래브의 FEM 기반 설계 검토가 정상 동작.
-- [ ] **Pytest 스위트 100% 통과**: `tests/engine/test_fem_foundation.py`, `test_fem_wall.py`, `test_fem_baseplate.py`, `test_fem_endplate.py`, `test_fem_slab.py` 통과.
+- [x] **수치 해석 정밀도**: 원본 `FES.EXE` / `mfsolver.exe` 해석 결과 대비 변위 및 휨모멘트 오차 0.1% 미만.
+- [x] **비선형 접촉 수렴성**: 지반 인장 분리 및 베이스플레이트 지압/앵커 접촉 해석이 20회 반복 이내에 안정적으로 수렴(0.05초 이내).
+- [x] **5대 부재 연동 완성**: 매트기초, 지하외벽, 베이스플레이트, 엔드플레이트, 슬래브의 FEM 기반 설계 검토가 정상 동작.
+- [x] **Pytest 스위트 100% 통과**: `tests/engine/test_fem_foundation.py`, `test_fem_wall.py`, `test_fem_baseplate.py`, `test_fem_endplate.py`, `test_fem_slab.py` 통과.

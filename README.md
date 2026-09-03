@@ -125,6 +125,8 @@ AltDP_3rd/
 │   ├── 13_midas_design_plus_original_ui_specification.md
 │   ├── 14_structural_calculation_report_specification.md
 │   ├── 15_fem_analysis_and_external_solver_specification.md
+│   ├── 16_fem_engine_theoretical_manual_and_formulation.md
+│   ├── 17_fem_solver_comparative_analysis_and_benchmark.md
 │   └── README.md
 
 ├── original_src/                   # 원본 바이너리 및 33종 .sdb 데이터베이스
@@ -133,10 +135,10 @@ AltDP_3rd/
 │   └── ghidra_extract.py           # 파이썬 CLI 자동화 래퍼
 ├── src/                            # AltDP_3rd 신규 소스코드
 │   ├── api/                        # FastAPI 웹 API 계층 (부재별 라우트 & 스키마)
-│   ├── engine/                     # 코어 공학 계산 엔진 (rc, steel, src, alu, rfm, solver, db)
+│   ├── engine/                     # 코어 공학 계산 엔진 (rc, steel, src, alu, rfm, solver, fem, db)
 │   ├── report/                     # A4 표준 구조계산서 생성기 (HTML/PDF/Excel)
-│   └── web/                        # 반응형 웹 UI & Canvas 2D 배근도
-├── tests/                          # 3대 도메인 자동화 테스트 스위트 (engine, api, report, ui)
+│   └── web/                        # 반응형 웹 UI & Canvas 2D 배근도 및 응력 등고선
+├── tests/                          # 3대 도메인 자동화 테스트 스위트 (engine, api, report, ui, e2e)
 └── 요구사항/                       # 단계별 요구사항 및 로드맵
 ```
 

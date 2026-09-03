@@ -52,7 +52,7 @@
 
 ## 4. 구현 및 검증 체크리스트
 
-- [ ] 개구부 포함 비정형 슬래브의 FEM 해석이 0.05초 이내 완료되고 Wood-Armer 설계 모멘트가 정확히 계산되는지 확인
-- [ ] 5대 FEM API 엔드포인트가 비동기/동기 요청에 대해 200 OK와 정밀한 JSON 결과를 반환하는지 검증
-- [ ] Canvas 응력 등고선 렌더러가 0.02초 이내에 매끄러운 컬러 맵을 웹 화면에 그리는지 검증
-- [ ] `pytest tests/engine/test_fem_slab.py tests/api/test_fem_api.py` 100% 통과 (수행시간 < 0.8s)
+- [x] 개구부 포함 비정형 슬래브의 FEM 해석이 0.05초 이내 완료되고 Wood-Armer 설계 모멘트가 정확히 계산되는지 확인
+- [x] 5대 FEM API 엔드포인트가 비동기/동기 요청에 대해 200 OK와 정밀한 JSON 결과를 반환하는지 검증
+- [x] Canvas 응력 등고선 렌더러가 0.02초 이내에 매끄러운 컬러 맵을 웹 화면에 그리는지 검증
+- [x] `pytest tests/engine/test_fem_slab.py tests/api/test_fem_api.py` 100% 통과 (수행시간 < 0.8s)

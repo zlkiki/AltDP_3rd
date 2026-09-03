@@ -117,10 +117,10 @@ flowchart TD
 
 ---
 
-### Phase 6: 2D FEM 해석 엔진 고도화 및 5대 핵심 부재 완전 연동 (docs 15 구현) - [차기 1순위]
+### Phase 6: 2D FEM 해석 엔진 고도화 및 5대 핵심 부재 완전 연동 (docs 15 구현) - [완료 (100%)]
 > **대상 C++ 모듈**: `DgnSolver/` (`FES.EXE`, `mfsolver.exe`, `Iterative.exe`), CM2 메셔 12종 DLL  
 > **참조 기술 문서**: [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)  
-> **목표 요구사항**: `요구사항13`
+> **수행 요구사항**: `요구사항13` 완료 (5대 부재 연동 및 24개 Pytest 100% 통과)
 
 * **6.1. 순수 Python 2D 평판 휨 코어 FEM (`element_dkmq.py`, `element_dkt.py`, `solver_plate.py`)**: DKMQ/DKT 판휨 강성행렬, SciPy Sparse Cholesky 솔버.
 * **6.2. 5대 핵심 설계 모듈 FEM 완전 연동**:
@@ -133,7 +133,7 @@ flowchart TD
 
 ---
 
-### Phase 7: 원본 UI 역공학 기반 웹 UI/UX 고도화 및 프론트엔드 완성 (docs 13 $\rightarrow$ docs 07) - [차기 2순위]
+### Phase 7: 원본 UI 역공학 기반 웹 UI/UX 고도화 및 프론트엔드 완성 (docs 13 $\rightarrow$ docs 07) - [차기 1순위]
 > **대상 C++ 모듈**: `Design+.exe` (리본 바, 4대 폼뷰, 3대 인터랙션 모드, `Menu.ini`, `DLG_*.ini`)  
 > **참조 기술 문서**: [`docs/13_midas_design_plus_original_ui_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md), [`docs/07`](file:///d:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)  
 > **목표 요구사항**: `요구사항14`
@@ -205,10 +205,10 @@ flowchart TD
 | **`요구사항09`** | **A4 표준 구조계산서 출력 시스템** | `CMSOffice`, `CMSExcel`, `DgnReportBase.ini` | `src/report/generator.py`, `excel_exporter.py`, `pdf_exporter.py` | **완료 (100%)** |
 | **`요구사항10`** | **SRC 합성부재 & 알루미늄/보강 엔진** | `DPLUS_SRC.dll`, `DPLUS_ALU.dll`, `DPLUS_RFM.dll` | `src/engine/src_composite/`, `src/engine/alu/`, `src/engine/rfm/` | **완료 (100%)** |
 | **`요구사항11`** | **통합 웹 UI/UX 완성 & 전수 무결성 검증** | 47,110 심볼 및 47개 디컴파일 소스 전수 회귀 검증 | 통합 프론트엔드 UI, 145개 Pytest 100% 통과 | **완료 (사내 구현 반영)** |
-| **`요구사항13`** | **Ghidra 역공학 2D FEM & 5대 부재 완전 연동 (docs 15 구현)** | `DgnSolver/` (`FES.EXE`, `mfsolver.exe`, `Iterative.exe`), CM2 메셔 | `src/engine/fem/` (`13-1` ~ `13-4`, 5대 부재 & 응력 컨투어) | **차기 1순위 (Next Sprint)** |
-| **`요구사항14`** | **Midas Design+ 원본 UI 역공학 기반 웹 UI/UX 고도화 (docs 13 $\rightarrow$ docs 07)** | `Design+.exe` (리본 바, 4대 폼뷰, 3대 인터랙션 모드) | `docs/07` 고도화, 4대 메인 폼뷰(`14-1` ~ `14-3`), 3대 모드(P/S/M) 웹 프론트엔드 완성 | **차기 2순위** |
-| **`요구사항15`** | **KDS 구조계산서 3대 보고서 모드 및 옵션 제어 고도화 (docs 14 고도화)** | `IDD_DGN_REPORT_OPT_*`, `CMSOffice` | 요약/상세/입력데이터 3대 보고서 분기(`15-1` ~ `15-3`), 대용량 일괄 바인딩 PDF 출력 | **차기 3순위** |
-| **`요구사항16`** | **MIDAS Gen 3D 해석 모델 연동 파이프라인** | `DgnPlugIn/` (`AnalysisDB.dll`, `GEN_UmdDataBase.dll`) | `src/engine/interop/` (`16-1` ~ `16-3`, `.mgt`/`.db` 파서, Governing LCB 선별 & 일괄설계) | **차기 4순위** |
+| **`요구사항13`** | **Ghidra 역공학 2D FEM & 5대 부재 완전 연동 (docs 15 구현)** | `DgnSolver/` (`FES.EXE`, `mfsolver.exe`, `Iterative.exe`), CM2 메셔 | `src/engine/fem/` (`13-1` ~ `13-4`, 5대 부재 & 응력 컨투어) | **완료 (100%)** |
+| **`요구사항14`** | **Midas Design+ 원본 UI 역공학 기반 웹 UI/UX 고도화 (docs 13 $\rightarrow$ docs 07)** | `Design+.exe` (리본 바, 4대 폼뷰, 3대 인터랙션 모드) | `docs/07` 고도화, 4대 메인 폼뷰(`14-1` ~ `14-3`), 3대 모드(P/S/M) 웹 프론트엔드 완성 | **차기 1순위 (Next Sprint)** |
+| **`요구사항15`** | **KDS 구조계산서 3대 보고서 모드 및 옵션 제어 고도화 (docs 14 고도화)** | `IDD_DGN_REPORT_OPT_*`, `CMSOffice` | 요약/상세/입력데이터 3대 보고서 분기(`15-1` ~ `15-3`), 대용량 일괄 바인딩 PDF 출력 | **차기 2순위** |
+| **`요구사항16`** | **MIDAS Gen 3D 해석 모델 연동 파이프라인** | `DgnPlugIn/` (`AnalysisDB.dll`, `GEN_UmdDataBase.dll`) | `src/engine/interop/` (`16-1` ~ `16-3`, `.mgt`/`.db` 파서, Governing LCB 선별 & 일괄설계) | **차기 3순위** |
 | **`요구사항17`** | **2D 배근 CAD 도면 생성 및 물량산출 시스템** | `CMainFormViewDraw`, `CMainFormViewQntt` | `src/report/cad_exporter.py` (`17-1`, `17-2`, DXF 도면 내보내기 & 철근/콘크리트 톤수 집계) | **로드맵** |
 | **`요구사항18`** | **성능기반설계 (PBD) 및 글로벌 규준 확장** | `IDS_RIBBON_BARR_PBD`, `DPLUS_EC.dll`, `DPLUS_IS.dll` | `src/engine/pbd/` (`18-1`, `18-2`, ASCE 41 소성힌지 백본 & Eurocode/US/IS 다단위계) | **로드맵** |
 
