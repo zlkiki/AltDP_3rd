@@ -7,6 +7,8 @@ Utilizes Jinja2 templating, KaTeX LaTeX formulas, and CSS Paged Media.
 import os
 from typing import Any, Dict, Optional
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from src.report.options import ReportOptions
+from src.report.unit_converter import UnitConverter
 
 
 # Custom Jinja2 Filters
@@ -120,11 +122,52 @@ class ReportGenerator:
         self.env.filters["dcr_badge"] = dcr_badge
         self.env.filters["katex_inline"] = katex_inline
         self.env.filters["katex_block"] = katex_block
+        self.env.filters["unit_force"] = UnitConverter.format_force
+        self.env.filters["unit_moment"] = UnitConverter.format_moment
+        self.env.filters["unit_stress"] = UnitConverter.format_stress
 
     def render(self, template_name: str, context: Dict[str, Any]) -> str:
         """Render calculation report HTML from template and context dict."""
         template = self.env.get_template(template_name)
         return template.render(**context)
+
+    def render_with_options(
+        self,
+        context: Dict[str, Any],
+        options: Optional[ReportOptions] = None,
+        default_template: str = "base_report.html",
+    ) -> str:
+        """Render calculation report according to ReportOptions (summary, detail, input_data)."""
+        opts = options or ReportOptions()
+        ctx = dict(context)
+        ctx["options"] = opts
+
+        if opts.report_mode == "summary":
+            return self.render("summary_report.html", ctx)
+        elif opts.report_mode == "detail":
+            return self.render("detail_report.html", ctx)
+        elif opts.report_mode == "input_data":
+            return self.render("input_data_report.html", ctx)
+        return self.render(default_template, ctx)
+
+    def render_summary_report(self, context: Dict[str, Any], options: Optional[ReportOptions] = None) -> str:
+        """Render 1-2 page compact summary report."""
+        opts = options or ReportOptions(report_mode="summary")
+        opts.report_mode = "summary"
+        return self.render_with_options(context, opts)
+
+    def render_detail_report(self, context: Dict[str, Any], options: Optional[ReportOptions] = None) -> str:
+        """Render detailed audit report with step-by-step formula derivations."""
+        opts = options or ReportOptions(report_mode="detail")
+        opts.report_mode = "detail"
+        return self.render_with_options(context, opts)
+
+    def render_input_data_report(self, context: Dict[str, Any], options: Optional[ReportOptions] = None) -> str:
+        """Render user input raw data sheet."""
+        opts = options or ReportOptions(report_mode="input_data")
+        opts.report_mode = "input_data"
+        return self.render_with_options(context, opts)
+
 
     def render_generic_report(
         self,

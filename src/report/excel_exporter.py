@@ -182,3 +182,66 @@ class ExcelReportExporter:
             ws.cell(row=r, column=2, value=str(k)).border = self.thin_border
             ws.cell(row=r, column=3, value=str(v)).border = self.thin_border
             r += 1
+
+    def export_project_workbook_bytes(
+        self,
+        project_info: Dict[str, Any],
+        members_data: List[Dict[str, Any]],
+    ) -> bytes:
+        """Create integrated multi-sheet Excel workbook for all project members."""
+        wb = openpyxl.Workbook()
+
+        # Sheet 1: Project_Summary
+        ws_sum = wb.active
+        ws_sum.title = "Project_Summary"
+        ws_sum.views.sheetView[0].showGridLines = True
+        ws_sum.cell(row=2, column=2, value=f"{project_info.get('title', 'AltDP_3rd')} - 전 부재 설계 요약표").font = self.font_title
+
+        headers = ["No", "부재 ID", "부재 종류", "단면 제원", "최대 DCR", "안전성 판정"]
+        for c_idx, h in enumerate(headers, start=2):
+            cell = ws_sum.cell(row=4, column=c_idx, value=h)
+            cell.font = self.font_header
+            cell.fill = self.header_fill
+            cell.alignment = self.align_center
+            cell.border = self.thin_border
+
+        for r_idx, m_dict in enumerate(members_data, start=5):
+            m = m_dict.get("member", {})
+            sec = m_dict.get("section", {})
+            dcr = float(m_dict.get("summary_dcr", 0.0))
+            is_ok = dcr <= 1.0
+
+            ws_sum.cell(row=r_idx, column=2, value=r_idx - 4).border = self.thin_border
+            ws_sum.cell(row=r_idx, column=3, value=m.get("name", f"M-{r_idx}")).border = self.thin_border
+            ws_sum.cell(row=r_idx, column=4, value=m.get("type", "RC Member")).border = self.thin_border
+            ws_sum.cell(row=r_idx, column=5, value=f"{sec.get('b', 400)}x{sec.get('h', 600)}").border = self.thin_border
+            
+            c_dcr = ws_sum.cell(row=r_idx, column=6, value=f"{dcr:.3f}")
+            c_dcr.border = self.thin_border
+            c_dcr.alignment = self.align_right
+            c_dcr.font = self.font_pass if is_ok else self.font_fail
+
+            c_stat = ws_sum.cell(row=r_idx, column=7, value="PASS" if is_ok else "NG")
+            c_stat.border = self.thin_border
+            c_stat.alignment = self.align_center
+            c_stat.fill = self.pass_fill if is_ok else self.fail_fill
+            c_stat.font = self.font_pass if is_ok else self.font_fail
+
+        # Sheets 2~N: Individual Member Sheets
+        for m_dict in members_data:
+            m_name = m_dict.get("member", {}).get("name", "Memb")[:28]
+            ws_m = wb.create_sheet(title=f"M_{m_name}")
+            self._build_checks_sheet(ws_m, m_dict.get("checks", []))
+
+        # Auto-fit columns
+        for sheet in wb.worksheets:
+            for col in sheet.columns:
+                max_len = max(len(str(cell.value or "")) for cell in col)
+                col_letter = get_column_letter(col[0].column)
+                sheet.column_dimensions[col_letter].width = max(max_len + 3, 11)
+
+        buf = io.BytesIO()
+        wb.save(buf)
+        buf.seek(0)
+        return buf.getvalue()
+

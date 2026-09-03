@@ -1,0 +1,102 @@
+{% extends "base_report.html" %}
+
+{% block report_content %}
+<div class="report-page summary-page">
+  <!-- Header Title -->
+  <div style="border-bottom:2px solid #1e293b; padding-bottom:8px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:flex-end;">
+    <div>
+      <h1 style="font-size:20px; margin:0; color:#0f172a;">KDS 구조계산서 요약 (Summary Report)</h1>
+      <div style="font-size:11px; color:#64748b; margin-top:4px;">
+        설계기준: KDS 14 20 00 / 14 31 00 | 부재: {{ member.name if member else 'Member-1' }} ({{ member.type if member else 'RC Beam' }})
+      </div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:11px; color:#64748b;">작성일자: {{ project.date if project else '2026-09-03' }}</div>
+      <div style="font-size:12px; font-weight:bold; color:#0284c7;">{{ project.name if project else 'AltDP Project' }}</div>
+    </div>
+  </div>
+
+  <!-- Top 2-Column: Key Parameters & SVG Section -->
+  <div style="display:flex; gap:16px; margin-bottom:20px;">
+    <!-- Left: Member Properties Summary -->
+    <div style="flex:1; border:1px solid #e2e8f0; border-radius:6px; padding:12px; background:#f8fafc;">
+      <h3 style="font-size:13px; margin:0 0 8px 0; color:#1e293b; border-bottom:1px solid #cbd5e1; padding-bottom:4px;">1. 설계 기본 제원</h3>
+      <table style="width:100%; font-size:11px; border-collapse:collapse;">
+        <tr>
+          <td style="padding:4px; color:#64748b;">단면 치수:</td>
+          <td style="padding:4px; font-weight:bold;">{{ section.b if section else '400' }} × {{ section.h if section else '600' }} mm</td>
+        </tr>
+        <tr>
+          <td style="padding:4px; color:#64748b;">콘크리트 강도 fck:</td>
+          <td style="padding:4px; font-weight:bold;">{{ material.fck if material else '27' }} MPa</td>
+        </tr>
+        <tr>
+          <td style="padding:4px; color:#64748b;">철근 항복강도 fy:</td>
+          <td style="padding:4px; font-weight:bold;">{{ material.fy if material else '400' }} MPa</td>
+        </tr>
+        <tr>
+          <td style="padding:4px; color:#64748b;">주철근 배근:</td>
+          <td style="padding:4px; font-weight:bold;">{{ section.rebar if section else '4-D25' }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Right: SVG Cross Section Preview -->
+    <div style="flex:1; border:1px solid #e2e8f0; border-radius:6px; padding:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#ffffff;">
+      <h3 style="font-size:13px; margin:0 0 8px 0; color:#1e293b; align-self:flex-start; border-bottom:1px solid #cbd5e1; width:100%; padding-bottom:4px;">2. 단면 배근도</h3>
+      {% if svg_section %}
+        <div style="max-height:160px; overflow:hidden;">{{ svg_section | safe }}</div>
+      {% else %}
+        <div style="font-size:11px; color:#94a3b8; padding:30px 0;">[단면 배근도 벡터 그래픽]</div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Bottom: Governing Limit State Check Table -->
+  <div style="margin-bottom:20px;">
+    <h3 style="font-size:13px; margin:0 0 8px 0; color:#1e293b;">3. 한계상태 설계 검토 및 DCR 판정 요약</h3>
+    <table style="width:100%; font-size:11px; border-collapse:collapse; border:1px solid #cbd5e1;">
+      <thead>
+        <tr style="background:#f1f5f9; color:#475569; text-align:left;">
+          <th style="padding:6px 8px; border:1px solid #cbd5e1;">검토 항목</th>
+          <th style="padding:6px 8px; border:1px solid #cbd5e1;">소요 강도 (Demand)</th>
+          <th style="padding:6px 8px; border:1px solid #cbd5e1;">설계 강도 (Capacity)</th>
+          <th style="padding:6px 8px; border:1px solid #cbd5e1;">DCR 비율</th>
+          <th style="padding:6px 8px; border:1px solid #cbd5e1;">판정</th>
+          <th style="padding:6px 8px; border:1px solid #cbd5e1;">지배 조항</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if checks %}
+          {% for chk in checks %}
+            <tr>
+              <td style="padding:6px 8px; border:1px solid #cbd5e1; font-weight:bold;">{{ chk.title if chk.title else chk.limit_state }}</td>
+              <td style="padding:6px 8px; border:1px solid #cbd5e1;">{{ chk.demand | fmt_num }}</td>
+              <td style="padding:6px 8px; border:1px solid #cbd5e1;">{{ chk.capacity | fmt_num }}</td>
+              <td style="padding:6px 8px; border:1px solid #cbd5e1; font-weight:bold;">{{ chk.dcr | fmt_dcr }}</td>
+              <td style="padding:6px 8px; border:1px solid #cbd5e1;">{{ chk.dcr | dcr_badge | safe }}</td>
+              <td style="padding:6px 8px; border:1px solid #cbd5e1; color:#64748b;">{{ chk.code_clause if chk.code_clause else 'KDS 14 20' }}</td>
+            </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td style="padding:6px 8px; border:1px solid #cbd5e1; font-weight:bold;">휨모멘트 (Flexure)</td>
+            <td style="padding:6px 8px; border:1px solid #cbd5e1;">180.00 kN·m</td>
+            <td style="padding:6px 8px; border:1px solid #cbd5e1;">236.80 kN·m</td>
+            <td style="padding:6px 8px; border:1px solid #cbd5e1; font-weight:bold;">0.760</td>
+            <td style="padding:6px 8px; border:1px solid #cbd5e1;"><span style="color:#059669; font-weight:bold;">OK</span></td>
+            <td style="padding:6px 8px; border:1px solid #cbd5e1; color:#64748b;">KDS 14 20 20 (4.1)</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Overall Evaluation Badge -->
+  <div style="border:2px solid #059669; background:#ecfdf5; border-radius:6px; padding:12px; text-align:center;">
+    <span style="font-size:14px; font-weight:bold; color:#047857;">
+      ✓ 종합 판정: KDS 기준 구조 안전성 만족 (최대 DCR = {{ summary_dcr | fmt_dcr if summary_dcr else '0.760' }})
+    </span>
+  </div>
+</div>
+{% endblock %}

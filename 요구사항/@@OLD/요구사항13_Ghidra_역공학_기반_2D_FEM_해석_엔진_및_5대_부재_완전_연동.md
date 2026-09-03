@@ -1,9 +1,9 @@
-# 요구사항 13: Ghidra 역공학 기반 2D FEM 해석 엔진 및 5대 부재 완전 연동 (docs 15 구현)
+﻿# 요구사항 13: Ghidra 역공학 기반 2D FEM 해석 엔진 및 5대 부재 완전 연동 (docs 15 구현)
 
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-[`docs/15_fem_analysis_and_external_solver_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)에 상세히 기술된 바와 같이, Midas Design+는 단순 수식 검토 외에 **2D 평판(Plate/Shell) 유한요소해석 및 비선형 지반/접촉 솔버**(`original_src/Midas Design+/DgnSolver/`의 `FES.EXE`, `mfsolver.exe`, `Iterative.exe` 및 CM2 메셔 12종)를 내장하여 복잡한 5대 설계 모듈을 처리합니다. 현재 해당 기능은 웹 마이그레이션이 완료되지 않은 **미구현 상태**입니다.
+[`docs/15_fem_analysis_and_external_solver_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)에 상세히 기술된 바와 같이, Midas Design+는 단순 수식 검토 외에 **2D 평판(Plate/Shell) 유한요소해석 및 비선형 지반/접촉 솔버**(`original_src/Midas Design+/DgnSolver/`의 `FES.EXE`, `mfsolver.exe`, `Iterative.exe` 및 CM2 메셔 12종)를 내장하여 복잡한 5대 설계 모듈을 처리합니다. 현재 해당 기능은 웹 마이그레이션이 완료되지 않은 **미구현 상태**입니다.
 
 ### 1.2. 개발 목적
 1. **순수 Python/NumPy/SciPy 경량 2D 평판 휨 FEM 코어 엔진 완성 (`src/engine/fem/`)**:

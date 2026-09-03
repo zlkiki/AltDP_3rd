@@ -19,7 +19,7 @@
 
 **AltDP_3rd**는 국내 상용 건축구조 부재설계 프로그램인 **Midas Design+**의 모든 공학 해석·설계 알고리즘과 형강 라이브러리를 **순수 Python/FastAPI + 모던 웹(HTML5 Canvas/SVG) 기반으로 100% 완전 마이그레이션(Full Web Migration)**하는 차세대 엔지니어링 플랫폼입니다.
 
-* **완전 무결한 Ground Truth**: Midas Design+ 원본 바이너리(20개 DLL)로부터 복원된 **47,110개의 C++ Export 심볼** 및 Ghidra Headless로 추출한 **47종의 C 수도코드 루틴([decompiled_src/core_routines/](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/))**을 기반으로 0.1% 미만의 계산 오차 무결성을 보증합니다.
+* **완전 무결한 Ground Truth**: Midas Design+ 원본 바이너리(20개 DLL)로부터 복원된 **47,110개의 C++ Export 심볼** 및 Ghidra Headless로 추출한 **47종의 C 수도코드 루틴([decompiled_src/core_routines/](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/))**을 기반으로 0.1% 미만의 계산 오차 무결성을 보증합니다.
 * **Zero-Dependency**: Wibu 동글 락이나 MFC DLL 의존성 없이, Windows/Linux/macOS 어디서나 순수 웹 브라우저만으로 동작합니다.
 
 ```mermaid
@@ -94,6 +94,17 @@ graph TD
 * **2D Canvas 실시간 배근도**: 주근, 늑근, 피복두께, 치수선을 정밀 벡터 렌더링.
 * **P-M 상관도 대화형 차트**: 공칭강도 곡선, 설계강도 곡선, 계수하중 작용점($(M_u, P_u)$) 플로팅 및 실시간 DCR 게이지.
 
+### 🎯 7. 성능기반 내진설계 (PBD) 및 소성힌지 엔진 (`src/engine/pbd/`)
+* **KDS 41 17 00 / ASCE 41-17 기반 비선형 소성힌지**: RC(보, 기둥, 전단벽) 및 철골(보, 기둥, 가새) $M-\theta, V-\gamma$ 백본곡선 다선형 좌표열 생성.
+* **축력비 및 거동모드 분기**: 기둥 축력비($\nu = P / A_g f_{ck}$) 및 전단력비($V_p / V_n$)에 따른 연성/취성 거동 모드 분기 및 선형 보간.
+* **3대 목표 성능수준 자동 판정**: 즉시거주(IO), 인명안전(LS), 붕괴방지(CP) 한계치 및 요구 회전각 대비 $DCR_{CP}$ 평가.
+
+### 🌐 8. 글로벌 설계 규준 및 초정밀 다단위계 어댑터 (`src/engine/international/`)
+* **초정밀 다단위계 변환기 (`units.py`)**: SI $\leftrightarrow$ MKS $\leftrightarrow$ US Imperial ($\text{kip, in, ft, ksi}$) 양방향 부동소수점 오차 $10^{-7}$ 이하 무결성 보장.
+* **Eurocode 2 & 3 어댑터**: EN 1992-1-1 ($\gamma_c=1.5, \gamma_s=1.15, \alpha_{cc}=0.85$, $M_{Rd}, V_{Rd,c}, V_{Rd,s}$) 및 EN 1993-1-1 ($\gamma_{M0}=1.0$, 단면분류, $M_{c,Rd}, M_{b,Rd}, V_{pl,Rd}$).
+* **US Standards 어댑터**: ACI 318-19 ($\beta_1$, 순인장변형률 $\epsilon_t$ 기반 $\phi=0.65\sim 0.90$) 및 AISC 360-16 LRFD ($\phi_b=0.90$, 휨 LTB, 압축 $P_n$).
+* **Indian Standards 어댑터**: IS 456:2000 (LSM, $x_{u,max}/d$, $M_{u,lim}$) 및 IS 800:2007 (LSM, $\gamma_{m0}=1.10$, $M_d, V_d, P_d$).
+
 ---
 
 ## 3. 디렉토리 구조 (Repository Layout)
@@ -110,7 +121,7 @@ AltDP_3rd/
 │       ├── rc/                     # RC 5대 부재 핵심 설계식 (14건)
 │       ├── steel/                  # 철골 부재/접합부/주각부 (17건)
 │       └── db/                     # 형강 단면 기하학적 성질 (12건)
-├── docs/                           # 공식 기술 문서 모음 (15종 SSOT)
+├── docs/                           # 공식 기술 문서 모음 (17종 SSOT)
 │   ├── 01_system_architecture.md
 │   ├── 02_binary_reverse_engineering_specification.md
 │   ├── 03_section_db_specification.md
@@ -128,18 +139,18 @@ AltDP_3rd/
 │   ├── 16_fem_engine_theoretical_manual_and_formulation.md
 │   ├── 17_fem_solver_comparative_analysis_and_benchmark.md
 │   └── README.md
-
 ├── original_src/                   # 원본 바이너리 및 33종 .sdb 데이터베이스
 ├── scripts/                        # Ghidra Headless 자동 추출 파이프라인
 │   ├── ExportTargetFunctions.java  # Ghidra Decompiler AST C Export 스크립트
 │   └── ghidra_extract.py           # 파이썬 CLI 자동화 래퍼
 ├── src/                            # AltDP_3rd 신규 소스코드
 │   ├── api/                        # FastAPI 웹 API 계층 (부재별 라우트 & 스키마)
-│   ├── engine/                     # 코어 공학 계산 엔진 (rc, steel, src, alu, rfm, solver, fem, db)
-│   ├── report/                     # A4 표준 구조계산서 생성기 (HTML/PDF/Excel)
+│   ├── engine/                     # 코어 공학 계산 엔진 (rc, steel, src, alu, rfm, solver, fem, pbd, international, interop, project, db)
+│   ├── report/                     # A4 표준 구조계산서 생성기 (HTML/PDF/Excel/CAD DXF)
 │   └── web/                        # 반응형 웹 UI & Canvas 2D 배근도 및 응력 등고선
 ├── tests/                          # 3대 도메인 자동화 테스트 스위트 (engine, api, report, ui, e2e)
 └── 요구사항/                       # 단계별 요구사항 및 로드맵
+    └── @@OLD/                      # 아카이빙된 완료 요구사항 (요구사항 01 ~ 18)
 ```
 
 ---
@@ -186,9 +197,11 @@ pytest tests/report/
 
 | 테스트 도메인 | 테스트 대상 | 통과 현황 | 소요 시간 |
 |---|---|:---:|:---:|
-| **엔진 & FEM 솔버** | RC/Steel/SRC/ALU 부재설계 및 2D FEM 평판/지반/접촉 솔버 | **113 / 113** | **1.41s** |
-| **REST API 라우트** | FastAPI 엔드포인트 및 검토 파라미터 유효성 검증 | **25 / 25** | **0.82s** |
-| **구조계산서 리포트** | HTML, Excel, PDF 3대 포맷 렌더링 검증 | **7 / 7** | **0.51s** |
-| **합계** | **전체 시스템 회귀 검증** | **145 / 145 (100% 무결성)** | **초고속 검증** |
+| **엔진 & 솔버 & PBD** | RC/Steel/SRC/ALU 부재설계, FEM 솔버, PBD 소성힌지, 글로벌규준/다단위계 | **147 / 147** | **1.95s** |
+| **REST API 라우트** | 부재설계, FEM, MGT 업로드, 글로벌규준/단위변환/PBD, Excel/CAD 다운로드 | **40 / 40** | **1.20s** |
+| **도면 & 구조계산서** | ezdxf 2D CAD 배근도, 다중시트 Excel 물량집계, HTML/PDF 계산서 | **32 / 32** | **0.80s** |
+| **웹 UI/UX 프론트** | 4대 폼뷰 및 인터랙티브 캔버스 렌더러 | **24 / 24** | **0.42s** |
+| **합계** | **전체 시스템 회귀 검증** | **243 / 243 (100% 무결성)** | **초고속 검증 (< 4.0s)** |
+
 
 

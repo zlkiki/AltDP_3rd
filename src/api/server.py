@@ -17,6 +17,9 @@ from src.api.routes.db import router as db_router
 from src.api.routes.report import router as report_router
 from src.api.routes.fem import router as fem_router
 from src.api.routes.special import router as special_router
+from src.api.routes.interop import router as interop_router
+from src.api.routes.quantity import router as quantity_router
+from src.api.routes.international import router as international_router
 
 # Base paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -58,6 +61,9 @@ app.include_router(special_router)
 app.include_router(db_router)
 app.include_router(report_router)
 app.include_router(fem_router)
+app.include_router(interop_router)
+app.include_router(quantity_router)
+app.include_router(international_router)
 
 
 @app.get("/", response_class=HTMLResponse)

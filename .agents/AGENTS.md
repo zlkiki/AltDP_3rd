@@ -14,17 +14,17 @@
 
 | 도메인 / 부재 | 바이너리 심볼 레퍼런스 | 기술 문서 (SSOT) | 주요 구현 파일 (`src/`) |
 |---|---|---|---|
-| **RC 보 / 기둥 / 전단벽** | `decompiled_src/DPLUS_RCS.dll_symbols.txt` | [`docs/04_rc_design_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/04_rc_design_specification.md) | `src/engine/rc/beam.py`, `column.py`, `wall.py` |
-| **RC 슬래브 / 기초 / 옹벽** | `decompiled_src/DPLUS_RCS.dll_symbols.txt` | [`docs/04_rc_design_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/04_rc_design_specification.md) | `src/engine/rc/slab.py`, `footing.py`, `retaining_wall.py` |
-| **철골 보 / 기둥 / 가새 / 개구부** | `decompiled_src/DPLUS_STEEL.dll_symbols.txt` | [`docs/05_steel_design_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/05_steel_design_specification.md) | `src/engine/steel/beam.py`, `column.py`, `brace.py`, `web_opening.py`, `compactness.py` |
-| **철골 접합부 / 베이스플레이트 / 엔드플레이트** | `decompiled_src/DPLUS_STEEL.dll_symbols.txt` | [`docs/05_steel_design_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/05_steel_design_specification.md) | `src/engine/steel/connection.py`, `baseplate.py`, `endplate.py` |
-| **SRC / 알루미늄 / 보수보강** | `decompiled_src/DPLUS_SRC.dll_symbols.txt`, `DPLUS_ALU.dll_symbols.txt` | [`docs/06_python_engine_architecture_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md) | `src/engine/src_composite/`, `src/engine/alu/`, `src/engine/rfm/` |
-| **단면 형강 DB (.sdb) & 재료 / 하중조합** | `original_src/Midas Design+/Dbase/` | [`docs/03_section_db_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/03_section_db_specification.md) | `src/engine/db/sdb_parser.py`, `section_db.py`, `materials.py`, `load_comb.py` |
-| **P-M 상관도 & 수치 솔버** | `decompiled_src/DPLUS_DB.dll_symbols.txt` | [`docs/01_system_architecture.md`](file:///d:/PyProject/AltDP_3rd/docs/01_system_architecture.md) | `src/engine/solver/pm_diagram.py`, `fiber_section.py` |
-| **2D FEM 평판 휨 & 지반/접촉 솔버** | `original_src/Midas Design+/DgnSolver/` | [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md) | `src/engine/fem/` (`element_dkmq.py`, `solver_plate.py`, `foundation_fem.py`, `baseplate_fem.py`) |
-| **Web UI & 2D/3D 캔버스** | `decompiled_src/DPLUS_VDraw.dll_symbols.txt` | [`docs/07_web_application_ui_ux_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md), [`docs/13_midas_design_plus_original_ui_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md) | `src/web/`, `src/web/static/js/renderer2d.js`, `pm_chart.js`, `app.js` |
-| **A4 구조계산서 출력 (HTML/PDF/Excel)** | `CMSOffice`, `CMSExcel` 심볼 | [`docs/14_structural_calculation_report_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md) | `src/report/generator.py`, `src/report/templates/` |
-| **FastAPI REST API 라우트** | - | [`docs/01_system_architecture.md`](file:///d:/PyProject/AltDP_3rd/docs/01_system_architecture.md) | `src/api/routes/` (`rc_member.py`, `steel_member.py`, `connection.py`, `composite_adv.py`, `report.py`, `section.py`) |
+| **RC 보 / 기둥 / 전단벽** | `decompiled_src/DPLUS_RCS.dll_symbols.txt` | [`docs/04_rc_design_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/04_rc_design_specification.md) | `src/engine/rc/beam.py`, `column.py`, `wall.py` |
+| **RC 슬래브 / 기초 / 옹벽** | `decompiled_src/DPLUS_RCS.dll_symbols.txt` | [`docs/04_rc_design_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/04_rc_design_specification.md) | `src/engine/rc/slab.py`, `footing.py`, `retaining_wall.py` |
+| **철골 보 / 기둥 / 가새 / 개구부** | `decompiled_src/DPLUS_STEEL.dll_symbols.txt` | [`docs/05_steel_design_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/05_steel_design_specification.md) | `src/engine/steel/beam.py`, `column.py`, `brace.py`, `web_opening.py`, `compactness.py` |
+| **철골 접합부 / 베이스플레이트 / 엔드플레이트** | `decompiled_src/DPLUS_STEEL.dll_symbols.txt` | [`docs/05_steel_design_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/05_steel_design_specification.md) | `src/engine/steel/connection.py`, `baseplate.py`, `endplate.py` |
+| **SRC / 알루미늄 / 보수보강** | `decompiled_src/DPLUS_SRC.dll_symbols.txt`, `DPLUS_ALU.dll_symbols.txt` | [`docs/06_python_engine_architecture_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md) | `src/engine/src_composite/`, `src/engine/alu/`, `src/engine/rfm/` |
+| **단면 형강 DB (.sdb) & 재료 / 하중조합** | `original_src/Midas Design+/Dbase/` | [`docs/03_section_db_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/03_section_db_specification.md) | `src/engine/db/sdb_parser.py`, `section_db.py`, `materials.py`, `load_comb.py` |
+| **P-M 상관도 & 수치 솔버** | `decompiled_src/DPLUS_DB.dll_symbols.txt` | [`docs/01_system_architecture.md`](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md) | `src/engine/solver/pm_diagram.py`, `fiber_section.py` |
+| **2D FEM 평판 휨 & 지반/접촉 솔버** | `original_src/Midas Design+/DgnSolver/` | [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md) | `src/engine/fem/` (`element_dkmq.py`, `solver_plate.py`, `foundation_fem.py`, `baseplate_fem.py`) |
+| **Web UI & 2D/3D 캔버스** | `decompiled_src/DPLUS_VDraw.dll_symbols.txt` | [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md), [`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md) | `src/web/`, `src/web/static/js/renderer2d.js`, `pm_chart.js`, `app.js` |
+| **A4 구조계산서 출력 (HTML/PDF/Excel)** | `CMSOffice`, `CMSExcel` 심볼 | [`docs/14_structural_calculation_report_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md) | `src/report/generator.py`, `src/report/templates/` |
+| **FastAPI REST API 라우트** | - | [`docs/01_system_architecture.md`](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md) | `src/api/routes/` (`rc.py`, `steel.py`, `rc_foundation.py`, `rc_wall_slab.py`, `special.py`, `fem.py`, `db.py`, `report.py`, `interop.py`, `quantity.py`, `international.py`) |
 
 
 ---
@@ -55,20 +55,20 @@
      * API 라우트: `pytest tests/api/` (0.8s)
      * 계산서 출력: `pytest tests/report/` (0.5s)
      * 전체 검증: `pytest`
-   - **🟢 테스트 생략 (Skip Test)**: `docs/` 기술 문서, `요구사항/` 기획 문서, `README.md`, `AGENTS.md` 등 순수 마크다운(`.md`) 작성/수정 및 주석/스타일링 작업 시 테스트 실행을 전면 생략하여 리소스 낭비 방지 ([`docs/08_pytest_testing_guide.md`](file:///d:/PyProject/AltDP_3rd/docs/08_pytest_testing_guide.md) 준수).
+   - **🟢 테스트 생략 (Skip Test)**: `docs/` 기술 문서, `요구사항/` 기획 문서, `README.md`, `AGENTS.md` 등 순수 마크다운(`.md`) 작성/수정 및 주석/스타일링 작업 시 테스트 실행을 전면 생략하여 리소스 낭비 방지 ([`docs/08_pytest_testing_guide.md`](file:///f:/PyProject/AltDP_3rd/docs/08_pytest_testing_guide.md) 준수).
 8. **수퍼 파일(Superfile) 지양 및 엄격한 모듈화 (Anti-Superfile Rule)**:
    - **파일 크기 상한**: 단일 파일 당 권장 300라인 이하, **최대 500라인 절대 초과 금지** (500라인 근접 시 즉시 서브패키지/모듈로 분할).
-   - **단일 책임 원칙 (SRP)**: 수치 계산, 데이터 모델, 검토 오케스트레이션, UI 컴포넌트, 렌더러를 명확히 분리하여 거대 모놀리식 파일 발생 원천 차단 ([`docs/10_agent_development_protocols.md`](file:///d:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md) 준수).
+   - **단일 책임 원칙 (SRP)**: 수치 계산, 데이터 모델, 검토 오케스트레이션, UI 컴포넌트, 렌더러를 명확히 분리하여 거대 모놀리식 파일 발생 원천 차단 ([`docs/10_agent_development_protocols.md`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md) 준수).
 
 ---
 
 ## 4. 상세 기술 문서 및 프로토콜 레퍼런스 (SSOT)
 
-* 🎯 **[전 기능 포팅 마스터플랜 (Master Plan)](file:///d:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**
-* 📖 **[상세 개발 프로토콜 및 KDS 연동 가이드](file:///d:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)** (모델 전략, Self-Healing, 상세 규약)
-* 📐 **[전체 시스템 아키텍처 & 파일 인벤토리](file:///d:/PyProject/AltDP_3rd/docs/01_system_architecture.md)** | 🗂️ **[추출 바이너리 및 심볼 자산 명세서](file:///d:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md)**
-* 🔍 **[바이너리 역공학 명세](file:///d:/PyProject/AltDP_3rd/docs/02_binary_reverse_engineering_specification.md)** | 🧱 **[RC 설계 기준서](file:///d:/PyProject/AltDP_3rd/docs/04_rc_design_specification.md)** | 🏗️ **[철골 설계 기준서](file:///d:/PyProject/AltDP_3rd/docs/05_steel_design_specification.md)** | 📚 **[단면 형강 DB 명세](file:///d:/PyProject/AltDP_3rd/docs/03_section_db_specification.md)**
-* 🚀 **[Python 독립 엔진 사양](file:///d:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md)** | 💻 **[Web UI/UX 사양](file:///d:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)** | 🖥️ **[Midas Design+ 원본 UI 역공학 사양](file:///d:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md)** | 📑 **[KDS 구조계산서 명세서](file:///d:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md)** | 🔬 **[FEM 해석 및 외부 솔버 역공학 사양](file:///d:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)** | 📐 **[FEM 솔버 이론 및 정식화 명세서](file:///d:/PyProject/AltDP_3rd/docs/16_fem_engine_theoretical_manual_and_formulation.md)** | 📊 **[기존 솔버 비교 분석 및 벤치마크](file:///d:/PyProject/AltDP_3rd/docs/17_fem_solver_comparative_analysis_and_benchmark.md)** | 🧪 **[Pytest 테스트 가이드](file:///d:/PyProject/AltDP_3rd/docs/08_pytest_testing_guide.md)**
+* 🎯 **[전 기능 포팅 마스터플랜 (Master Plan)](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**
+* 📖 **[상세 개발 프로토콜 및 KDS 연동 가이드](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)** (모델 전략, Self-Healing, 상세 규약)
+* 📐 **[전체 시스템 아키텍처 & 파일 인벤토리](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md)** | 🗂️ **[추출 바이너리 및 심볼 자산 명세서](file:///f:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md)**
+* 🔍 **[바이너리 역공학 명세](file:///f:/PyProject/AltDP_3rd/docs/02_binary_reverse_engineering_specification.md)** | 🧱 **[RC 설계 기준서](file:///f:/PyProject/AltDP_3rd/docs/04_rc_design_specification.md)** | 🏗️ **[철골 설계 기준서](file:///f:/PyProject/AltDP_3rd/docs/05_steel_design_specification.md)** | 📚 **[단면 형강 DB 명세](file:///f:/PyProject/AltDP_3rd/docs/03_section_db_specification.md)**
+* 🚀 **[Python 독립 엔진 사양](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md)** | 💻 **[Web UI/UX 사양](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)** | 🖥️ **[Midas Design+ 원본 UI 역공학 사양](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md)** | 📑 **[KDS 구조계산서 명세서](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md)** | 🔬 **[FEM 해석 및 외부 솔버 역공학 사양](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)** | 📐 **[FEM 솔버 이론 및 정식화 명세서](file:///f:/PyProject/AltDP_3rd/docs/16_fem_engine_theoretical_manual_and_formulation.md)** | 📊 **[기존 솔버 비교 분석 및 벤치마크](file:///f:/PyProject/AltDP_3rd/docs/17_fem_solver_comparative_analysis_and_benchmark.md)** | 🧪 **[Pytest 테스트 가이드](file:///f:/PyProject/AltDP_3rd/docs/08_pytest_testing_guide.md)**
 
 
 

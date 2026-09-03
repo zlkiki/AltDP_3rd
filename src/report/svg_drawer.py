@@ -265,3 +265,57 @@ def draw_pm_diagram_svg(
 
     svg.append('</svg>')
     return '\n'.join(svg)
+
+
+def draw_fem_contour_svg(
+    nx: int = 5,
+    ny: int = 5,
+    title: str = "FEM Bending Moment Contour (Mx)",
+    width_px: int = 280,
+    height_px: int = 220,
+) -> str:
+    """Generate SVG for 2D FEM plate stress / moment contour map."""
+    pad = 30
+    draw_w = width_px - 2 * pad
+    draw_h = height_px - 2 * pad - 20
+
+    dx = draw_w / nx
+    dy = draw_h / ny
+
+    # Color palette for contour (Blue -> Green -> Yellow -> Red)
+    colors = ["#3b82f6", "#10b981", "#fbbf24", "#f97316", "#ef4444"]
+
+    svg = [
+        f'<svg viewBox="0 0 {width_px} {height_px}" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">',
+        f'  <text x="{width_px/2:.1f}" y="18" font-size="11" font-weight="bold" fill="#0f172a" text-anchor="middle">{title}</text>',
+    ]
+
+    for i in range(nx):
+        for j in range(ny):
+            x = pad + i * dx
+            y = pad + 15 + j * dy
+            # Pseudo-stress distribution (higher at center)
+            dist_center = 1.0 - (((i - nx / 2) ** 2 + (j - ny / 2) ** 2) / ((nx / 2) ** 2 + (ny / 2) ** 2))
+            c_idx = min(len(colors) - 1, max(0, int(dist_center * len(colors))))
+            color = colors[c_idx]
+
+            svg.append(
+                f'  <rect x="{x:.1f}" y="{y:.1f}" width="{dx:.1f}" height="{dy:.1f}" '
+                f'fill="{color}" fill-opacity="0.85" stroke="#ffffff" stroke-width="0.5" />'
+            )
+
+    # Border outline
+    svg.append(f'  <rect x="{pad}" y="{pad + 15}" width="{draw_w}" height="{draw_h}" fill="none" stroke="#334155" stroke-width="1.5" />')
+
+    # Color Legend bar at bottom
+    leg_y = height_px - 14
+    leg_w = draw_w / len(colors)
+    for k, c in enumerate(colors):
+        lx = pad + k * leg_w
+        svg.append(f'  <rect x="{lx:.1f}" y="{leg_y}" width="{leg_w:.1f}" height="6" fill="{c}" />')
+    svg.append(f'  <text x="{pad}" y="{leg_y - 3}" font-size="8" fill="#64748b">Min (Safe)</text>')
+    svg.append(f'  <text x="{pad + draw_w}" y="{leg_y - 3}" font-size="8" fill="#64748b" text-anchor="end">Max (Critical)</text>')
+
+    svg.append('</svg>')
+    return '\n'.join(svg)
+

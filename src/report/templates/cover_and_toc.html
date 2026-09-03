@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ project.name if project else 'AltDP 종합 구조계산서' }}</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 20mm;
+    }
+    body {
+      font-family: 'Pretendard', 'Inter', sans-serif;
+      color: #0f172a;
+      line-height: 1.6;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    .cover-container {
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 250mm;
+      border: 3px double #1e293b;
+      padding: 30mm 20mm;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .cover-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-top: 40mm;
+      letter-spacing: -0.02em;
+    }
+    .cover-sub {
+      font-size: 16px;
+      color: #0284c7;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+    .cover-meta {
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 20mm;
+      line-height: 2.0;
+    }
+    .toc-container {
+      page-break-after: always;
+      padding: 10mm 0;
+    }
+    .toc-title {
+      font-size: 20px;
+      font-weight: 700;
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    .toc-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dotted #cbd5e1;
+      padding: 8px 0;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cover Page -->
+  <div class="cover-container">
+    <div>
+      <div style="font-size:14px; font-weight:bold; color:#64748b; letter-spacing:0.1em;">KDS 14 20 00 / KDS 14 31 00</div>
+      <div class="cover-title">{{ project.name if project else 'AltDP 프로젝트' }}</div>
+      <div class="cover-sub" style="font-size:20px; font-weight:700; color:#0284c7; margin-top:8px;">건축구조 부재설계 종합계산서</div>
+      <div style="font-size:13px; color:#64748b; margin-top:4px;">AltDP_3rd Structural Member Calculation Book</div>
+    </div>
+
+    <div class="cover-meta">
+      <div><strong>적용 설계기준:</strong> KDS 14 20 00 / KDS 14 31 00</div>
+      <div><strong>프로젝트 위치:</strong> {{ project.location if project else '서울특별시 강남구' }}</div>
+      <div><strong>구조설계사:</strong> {{ options.company if options and options.company else 'AltDP Engineering' }}</div>
+      <div><strong>책임기술자:</strong> {{ options.author if options and options.author else 'AltDP Engineer' }}</div>
+      <div><strong>작성일자:</strong> {{ project.date if project else '2026. 09. 03' }}</div>
+    </div>
+  </div>
+
+  <!-- Table of Contents Page -->
+  <div class="toc-container">
+    <div class="toc-title">목 차 (Table of Contents)</div>
+    
+    <div style="margin-bottom:16px;">
+      <h3 style="font-size:14px; color:#1e293b; margin:12px 0 6px 0;">1. 프로젝트 개요 및 설계 조건</h3>
+      <div class="toc-item"><span>1.1 구조설계 개요 및 사용재료 강도</span><span>Page 3</span></div>
+      <div class="toc-item"><span>1.2 적용 설계 하중 및 하중조합 (KDS 41 10 15)</span><span>Page 4</span></div>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <h3 style="font-size:14px; color:#1e293b; margin:12px 0 6px 0;">2. 철근콘크리트(RC) 부재 설계 계산서</h3>
+      {% if members %}
+        {% for m in members %}
+          <div class="toc-item">
+            <span>2.{{ loop.index }} {{ m.name }} ({{ m.type }}) - {{ m.section }}</span>
+            <span>Page {{ loop.index + 4 }}</span>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="toc-item"><span>2.1 B1 (RC Beam - 400x600)</span><span>Page 5</span></div>
+        <div class="toc-item"><span>2.2 C1 (RC Column - 600x600)</span><span>Page 7</span></div>
+        <div class="toc-item"><span>2.3 W1 (RC Shear Wall - thk200)</span><span>Page 9</span></div>
+      {% endif %}
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <h3 style="font-size:14px; color:#1e293b; margin:12px 0 6px 0;">3. 종합 안전성 판정 및 검토 집계표</h3>
+      <div class="toc-item"><span>3.1 전 부재 한계상태 DCR 요약표</span><span>Page 11</span></div>
+      <div class="toc-item"><span>3.2 구조물량 산출 집계 내역</span><span>Page 12</span></div>
+    </div>
+  </div>
+</body>
+</html>

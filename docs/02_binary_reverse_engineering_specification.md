@@ -6,7 +6,7 @@ Midas Design+ 원본 바이너리는 Microsoft Visual C++ (MSVC)로 빌드된 64
 
 모듈 간 동적 링킹을 위해 내보낸(Exported) C++ 심볼 47,110개가 완벽히 보존되어 있어 클래스 명세, 멤버 함수, 설계 검토 파이프라인의 100% 역추적이 가능합니다.
 
-추가로 Ghidra Headless Analyzer 연동 파이프라인([scripts/ghidra_extract.py](file:///d:/PyProject/AltDP_3rd/scripts/ghidra_extract.py))을 통해 핵심 설계 알고리즘 47종의 무손실 C 수도코드를 [decompiled_src/core_routines/](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/)로 자산화 완료하였습니다.
+추가로 Ghidra Headless Analyzer 연동 파이프라인([scripts/ghidra_extract.py](file:///f:/PyProject/AltDP_3rd/scripts/ghidra_extract.py))을 통해 핵심 설계 알고리즘 47종의 무손실 C 수도코드를 [decompiled_src/core_routines/](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/)로 자산화 완료하였습니다.
 
 ---
 
@@ -47,6 +47,6 @@ Midas Design+ 원본 바이너리는 Microsoft Visual C++ (MSVC)로 빌드된 64
 ---
 
 ## 3. 심볼 역공학 및 C 수도코드 자산 활용 원칙 (Ground Truth Protocol)
-1. 신규 파이썬 부재설계 엔진(`src/engine/`) 개발 시, 각 함수는 [decompiled_src/core_routines/](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/)에 수록된 C 수도코드의 분기 조건문과 수식을 직접 대조하여 구현합니다.
+1. 신규 파이썬 부재설계 엔진(`src/engine/`) 개발 시, 각 함수는 [decompiled_src/core_routines/](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/)에 수록된 C 수도코드의 분기 조건문과 수식을 직접 대조하여 구현합니다.
 2. 입력 변수 명칭 및 단면 제원 필드는 Midas Design+의 표준 명명 규칙을 수렴하여 데이터 호환성을 극대화합니다.
-3. 세부 심볼 원문은 [decompiled_src/](file:///d:/PyProject/AltDP_3rd/decompiled_src/) 디렉토리 내의 텍스트 덤프 및 [core_routines/README.md](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/README.md) 총괄 색인표를 참조합니다.
+3. 세부 심볼 원문은 [decompiled_src/](file:///f:/PyProject/AltDP_3rd/decompiled_src/) 디렉토리 내의 텍스트 덤프 및 [core_routines/README.md](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/README.md) 총괄 색인표를 참조합니다.

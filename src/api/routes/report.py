@@ -12,6 +12,8 @@ from pydantic import BaseModel, Field
 from src.report.generator import ReportGenerator
 from src.report.excel_exporter import ExcelReportExporter
 from src.report.pdf_exporter import PDFReportExporter
+from src.report.binder import ReportBinder
+from src.report.options import ReportOptions
 from src.report.svg_drawer import (
     draw_rc_beam_section_svg,
     draw_rc_column_section_svg,
@@ -24,6 +26,15 @@ router = APIRouter(prefix="/api/v1/report", tags=["Calculation Report"])
 report_gen = ReportGenerator()
 excel_exp = ExcelReportExporter()
 pdf_exp = PDFReportExporter()
+report_binder = ReportBinder(report_gen)
+
+
+class BatchReportRequest(BaseModel):
+    """Batch calculation report request for multi-member binding."""
+    project_info: Dict[str, Any] = Field(default_factory=lambda: {"name": "AltDP 종합 계산서", "code": "KDS 14 20 00 / 14 31 00", "date": "2026-09-03"})
+    members: List[Dict[str, Any]] = Field(default_factory=list)
+    options: Optional[Dict[str, Any]] = Field(default_factory=dict)
+
 
 
 class ReportRequest(BaseModel):
@@ -194,3 +205,88 @@ async def sample_report(member_type: str = "rc_beam"):
     )
     html = _render_report_html(sample_req)
     return HTMLResponse(content=html, status_code=200)
+
+
+@router.post("/batch-generate")
+async def batch_generate_report(req: BatchReportRequest):
+    """Generate multi-member bound calculation book (HTML / PDF)."""
+    try:
+        opts_dict = req.options or {}
+        options = ReportOptions(
+            report_mode=opts_dict.get("report_mode", "standard"),
+            unit_system=opts_dict.get("unit_system", "SI"),
+            include_user_input=opts_dict.get("include_user_input", True),
+            governing_only=opts_dict.get("governing_only", False),
+            include_drawings=opts_dict.get("include_drawings", True),
+        )
+
+        member_contexts = req.members or [
+            {
+                "project": req.project_info,
+                "member": {"name": "B1", "type": "RC Beam"},
+                "material": {"fck": 27.0, "fy": 400.0},
+                "section": {"b": 400.0, "h": 600.0, "rebar": "4-D25"},
+                "loads": {"Mu": 180.0, "Vu": 140.0},
+                "summary_dcr": 0.760,
+                "is_safe": True,
+            },
+            {
+                "project": req.project_info,
+                "member": {"name": "C1", "type": "RC Column"},
+                "material": {"fck": 30.0, "fy": 500.0},
+                "section": {"b": 600.0, "h": 600.0, "rebar": "12-D25"},
+                "loads": {"Pu": 1200.0, "Mu": 240.0},
+                "summary_dcr": 0.650,
+                "is_safe": True,
+            },
+        ]
+
+        pdf_bytes = report_binder.export_batch_pdf(
+            project_info=req.project_info,
+            member_contexts=member_contexts,
+            options=options,
+        )
+
+        media_type = "application/pdf" if pdf_exp.is_weasyprint_available else "text/html; charset=utf-8"
+        ext = "pdf" if pdf_exp.is_weasyprint_available else "html"
+        filename = f"Batch_Calculation_Book.{ext}"
+        return Response(
+            content=pdf_bytes,
+            media_type=media_type,
+            headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Batch binding error: {str(e)}")
+
+
+@router.post("/export-excel")
+async def export_project_excel(req: BatchReportRequest):
+    """Export multi-sheet integrated Excel file for all project members."""
+    try:
+        member_contexts = req.members or [
+            {
+                "member": {"name": "B1", "type": "RC Beam"},
+                "section": {"b": 400.0, "h": 600.0},
+                "checks": [{"title": "휨모멘트", "demand": "180.0", "capacity": "236.8", "dcr": 0.76}],
+                "summary_dcr": 0.760,
+            },
+            {
+                "member": {"name": "C1", "type": "RC Column"},
+                "section": {"b": 600.0, "h": 600.0},
+                "checks": [{"title": "P-M 축력휨", "demand": "1200.0", "capacity": "1840.0", "dcr": 0.65}],
+                "summary_dcr": 0.650,
+            },
+        ]
+        excel_bytes = excel_exp.export_project_workbook_bytes(
+            project_info=req.project_info,
+            members_data=member_contexts,
+        )
+        filename = "Project_Calculation_Summary.xlsx"
+        return Response(
+            content=excel_bytes,
+            media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Project Excel export error: {str(e)}")
+

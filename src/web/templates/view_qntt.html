@@ -1,0 +1,70 @@
+<!-- Pane 4: Qntt View (Quantity Takeoff & Materials Dashboard) -->
+<div class="main-form-view" id="view-qntt">
+  <div class="qntt-workspace">
+    <!-- Left Stats & Summary Panel -->
+    <aside class="qntt-stats-panel">
+      <h4 style="font-size:14px; font-weight:600; margin:0; color:var(--text-primary);">전체 물량 집계 요약</h4>
+      
+      <!-- Metric Cards -->
+      <div style="background:var(--bg-tertiary); padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-glass);">
+        <div style="font-size:11px; color:var(--text-muted);">콘크리트 체적 (Volume)</div>
+        <div style="font-size:20px; font-weight:700; color:var(--accent-primary); margin-top:4px;" id="qntt-concrete-vol">
+          42.8 m³
+        </div>
+      </div>
+
+      <div style="background:var(--bg-tertiary); padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-glass);">
+        <div style="font-size:11px; color:var(--text-muted);">총 거푸집 면적 (Formwork)</div>
+        <div style="font-size:20px; font-weight:700; color:var(--text-primary); margin-top:4px;" id="qntt-formwork-area">
+          285.4 m²
+        </div>
+      </div>
+
+      <div style="background:var(--bg-tertiary); padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-glass);">
+        <div style="font-size:11px; color:var(--text-muted);">철근 총 중량 (Rebar Weight)</div>
+        <div style="font-size:20px; font-weight:700; color:var(--status-safe); margin-top:4px;" id="qntt-rebar-weight">
+          6.82 ton
+        </div>
+      </div>
+
+      <div style="background:var(--bg-tertiary); padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-glass);">
+        <div style="font-size:11px; color:var(--text-muted);">형강 총 중량 (Steel Weight)</div>
+        <div style="font-size:20px; font-weight:700; color:var(--status-warning); margin-top:4px;" id="qntt-steel-weight">
+          3.15 ton
+        </div>
+      </div>
+
+      <button class="ribbon-btn-small" id="btn-export-qntt-excel" style="background:var(--status-safe); color:#fff; font-weight:600; justify-content:center; padding:8px;">
+        📊 물량집계표 Excel 다운로드
+      </button>
+    </aside>
+
+    <!-- Resizer Vertical -->
+    <div class="pane-resizer-v"></div>
+
+    <!-- Right Breakdown Table Panel -->
+    <section class="qntt-table-panel">
+      <div style="padding:10px 16px; background:var(--bg-secondary); border-bottom:1px solid var(--border-glass);">
+        <h4 style="font-size:13px; font-weight:600; margin:0;">철근 규격별 세부 산출 내역 (D10 ~ D32)</h4>
+      </div>
+      <div style="flex:1; overflow:auto; padding:12px;">
+        <table style="width:100%; border-collapse:collapse; font-size:12px;" id="qntt-rebar-detail-table">
+          <thead>
+            <tr style="background:var(--bg-tertiary); color:var(--text-secondary); text-align:left;">
+              <th style="padding:8px; border:1px solid var(--border-subtle);">철근 규격</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">공칭 지경 (mm)</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">단위 중량 (kg/m)</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">총 연장 (m)</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">산출 중량 (kg)</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">중량 (ton)</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">점유 비율 (%)</th>
+            </tr>
+          </thead>
+          <tbody id="qntt-rebar-tbody">
+            <!-- Dynamically populated by qntt_summary.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>

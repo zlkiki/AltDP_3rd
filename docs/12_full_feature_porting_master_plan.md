@@ -2,9 +2,9 @@
 
 ## 1. 마스터플랜 개요 및 목적 (Executive Summary)
 
-본 문서는 **Midas Design+** 원본 바이너리로부터 추출된 **20개 DLL 모듈, 47,110개 C++ Exported 심볼**([docs/09](file:///d:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md)), Ghidra Headless 디컴파일러를 통해 선별 자산화된 **5대 도메인 47개 핵심 C 수도코드 알고리즘**([decompiled_src/core_routines/](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/)), 그리고 신규 분석된 **3대 외부 솔버/CM2 메셔 FEM 엔진 명세서**([docs/15](file:///d:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)), **원본 MFC 4대 폼뷰/3대 인터랙션 모드 명세서**([docs/13](file:///d:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md)), **KDS 3대 구조계산서 체계 명세서**([docs/14](file:///d:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md))를 바탕으로, 순수 **Python 3.13 + FastAPI + Modern Web(HTML5 Canvas/SVG) + KDS 국가건설기준** 스택으로 100% 웹 마이그레이션하기 위한 **전체 포팅 종합 마스터플랜**입니다.
+본 문서는 **Midas Design+** 원본 바이너리로부터 추출된 **20개 DLL 모듈, 47,110개 C++ Exported 심볼**([docs/09](file:///f:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md)), Ghidra Headless 디컴파일러를 통해 선별 자산화된 **5대 도메인 47개 핵심 C 수도코드 알고리즘**([decompiled_src/core_routines/](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/)), 그리고 신규 분석된 **3대 외부 솔버/CM2 메셔 FEM 엔진 명세서**([docs/15](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)), **원본 MFC 4대 폼뷰/3대 인터랙션 모드 명세서**([docs/13](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md)), **KDS 3대 구조계산서 체계 명세서**([docs/14](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md))를 바탕으로, 순수 **Python 3.13 + FastAPI + Modern Web(HTML5 Canvas/SVG) + KDS 국가건설기준** 스택으로 100% 웹 마이그레이션하기 위한 **전체 포팅 종합 마스터플랜**입니다.
 
-[.agents/AGENTS.md](file:///d:/PyProject/AltDP_3rd/.agents/AGENTS.md)의 핵심 행동 규약(Zero-Dependency 소스 격리, KDS 0.1% 오차 무결성, 1이슈 1Phase 및 Goal 주도형 단계적 분할 실행, 도메인별 3대 Pytest 초고속 검증)을 최우선으로 준수하며, 향후 `요구사항/요구사항XX_...md`로 구체화될 모든 개발 스텝의 최상위 나침반(Single Source of Truth, SSOT) 역할을 수행합니다.
+[.agents/AGENTS.md](file:///f:/PyProject/AltDP_3rd/.agents/AGENTS.md)의 핵심 행동 규약(Zero-Dependency 소스 격리, KDS 0.1% 오차 무결성, 1이슈 1Phase 및 Goal 주도형 단계적 분할 실행, 도메인별 3대 Pytest 초고속 검증)을 최우선으로 준수하며, 향후 `요구사항/요구사항XX_...md`로 구체화될 모든 개발 스텝의 최상위 나침반(Single Source of Truth, SSOT) 역할을 수행합니다.
 
 ---
 
@@ -68,7 +68,7 @@ flowchart TD
 
 ### Phase 1: 기반 인프라 & 데이터/단면 계층 (Core DB & Foundations) - [완료 (100%)]
 > **대상 C++ 모듈**: `DPLUS_DB.dll` (23,447 심볼), `MIDAS_base.dll` (1,401), `MIDAS_lib.dll` (2,116)  
-> **참조 디컴파일 C 소스**: [`decompiled_src/core_routines/db/`](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/db/) (12개 소스, `CSteelSectDB`, `CAluSectDB`)  
+> **참조 디컴파일 C 소스**: [`decompiled_src/core_routines/db/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/db/) (12개 소스, `CSteelSectDB`, `CAluSectDB`)  
 > **적용 기준**: KDS 14 31 10, KDS 41 10 15
 
 * **1.1. SDB 단면 DB 파서 및 기하성질 산정 엔진 (`src/engine/db/`)**: 33개 형강 DB 파싱 및 $A, I_x, I_y, S, Z, J, C_w$ 산출.
@@ -79,7 +79,7 @@ flowchart TD
 
 ### Phase 2: RC 구조설계 엔진 & 3차원 P-M 수치해석 솔버 (Concrete Core) - [완료 (100%)]
 > **대상 C++ 모듈**: `DPLUS_RCS.dll` (3,305 심볼), `DPLUS_DGN.dll` (2,620)  
-> **참조 디컴파일 C 소스**: [`decompiled_src/core_routines/solver/`](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/solver/), [`rc/`](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/rc/)  
+> **참조 디컴파일 C 소스**: [`decompiled_src/core_routines/solver/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/solver/), [`rc/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/rc/)  
 > **적용 기준**: KDS 14 20 10, 20, 22, 30, 70
 
 * **2.1. RC 보 완전설계 (`src/engine/rc/beam.py`)**: 단철근/복철근 휨강도($\phi M_n$), 전단/비틀림 강도, Branson 처짐/균열폭 검토.
@@ -92,7 +92,7 @@ flowchart TD
 
 ### Phase 3: 철골 구조설계 및 접합부/베이스플레이트 엔진 (Steel & Connections) - [완료 (100%)]
 > **대상 C++ 모듈**: `DPLUS_STEEL.dll` (1,900 심볼)  
-> **참조 디컴파일 C 소스**: [`decompiled_src/core_routines/steel/`](file:///d:/PyProject/AltDP_3rd/decompiled_src/core_routines/steel/) (17개 소스)  
+> **참조 디컴파일 C 소스**: [`decompiled_src/core_routines/steel/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/steel/) (17개 소스)  
 > **적용 기준**: KDS 14 31 10, KDS 14 31 15, KDS 14 31 25
 
 * **3.1. 철골 보/기둥/가새 (`src/engine/steel/beam.py`, `column.py`, `brace.py`)**: 조밀성 판정, LTB 좌굴강도, 축휨 P-M 상호작용.
@@ -119,7 +119,7 @@ flowchart TD
 
 ### Phase 6: 2D FEM 해석 엔진 고도화 및 5대 핵심 부재 완전 연동 (docs 15 구현) - [완료 (100%)]
 > **대상 C++ 모듈**: `DgnSolver/` (`FES.EXE`, `mfsolver.exe`, `Iterative.exe`), CM2 메셔 12종 DLL  
-> **참조 기술 문서**: [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)  
+> **참조 기술 문서**: [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)  
 > **수행 요구사항**: `요구사항13` 완료 (5대 부재 연동 및 24개 Pytest 100% 통과)
 
 * **6.1. 순수 Python 2D 평판 휨 코어 FEM (`element_dkmq.py`, `element_dkt.py`, `solver_plate.py`)**: DKMQ/DKT 판휨 강성행렬, SciPy Sparse Cholesky 솔버.
@@ -135,7 +135,7 @@ flowchart TD
 
 ### Phase 7: 원본 UI 역공학 기반 웹 UI/UX 고도화 및 프론트엔드 완성 (docs 13 $\rightarrow$ docs 07) - [차기 1순위]
 > **대상 C++ 모듈**: `Design+.exe` (리본 바, 4대 폼뷰, 3대 인터랙션 모드, `Menu.ini`, `DLG_*.ini`)  
-> **참조 기술 문서**: [`docs/13_midas_design_plus_original_ui_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md), [`docs/07`](file:///d:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)  
+> **참조 기술 문서**: [`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md), [`docs/07`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)  
 > **목표 요구사항**: `요구사항14`
 
 * **7.1. docs 07 명세서 고도화**: docs 13의 4대 폼뷰와 3대 모드를 docs 07에 완전 융합/개정.
@@ -150,7 +150,7 @@ flowchart TD
 
 ### Phase 8: KDS 구조계산서 3대 보고서 모드 및 옵션 제어 시스템 고도화 (docs 14 고도화) - [차기 3순위]
 > **대상 C++ 모듈**: `DPLUS_RCS.dll`(`CMSOffice`), `DGN_lib.dll`(`CMSExcel`), `IDD_DGN_REPORT_OPT_*`  
-> **참조 기술 문서**: [`docs/14_structural_calculation_report_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md)  
+> **참조 기술 문서**: [`docs/14_structural_calculation_report_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md)  
 > **목표 요구사항**: `요구사항15`
 
 * **8.1. 3대 보고서 모드 분기 엔진 (`generator.py`)**:
@@ -164,29 +164,29 @@ flowchart TD
 
 ### Phase 9: MIDAS Gen 3D 해석 모델 연동 및 부재력 임포트 파이프라인 (`DgnPlugIn`) - [로드맵]
 > **대상 C++ 모듈**: `DgnPlugIn/` (`AnalysisDB.dll`, `GEN_UmdDataBase.dll`, `GEN_DgnCalc_KR.dll`)  
-> **목표 요구사항**: [`요구사항16`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항16_MIDAS_Gen_3D_해석모델_연동_및_부재력_임포트_파이프라인.md) (`16-1`, `16-2`, `16-3`)
+> **목표 요구사항**: [`요구사항16`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항16_MIDAS_Gen_3D_해석모델_연동_및_부재력_임포트_파이프라인.md) (`16-1`, `16-2`, `16-3`)
 
-* **9.1. MIDAS MGT 텍스트 스크립트 파서 및 3D 모델 구축 (`src/engine/interop/mgt_parser.py`)**: [`요구사항16-1`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항16-1_MIDAS_MGT_텍스트스크립트_파서_및_3D모델구축.md)
-* **9.2. 해석 결과 부재력 파서 및 Governing LCB 자동 선별 (`src/engine/interop/governing_lcb.py`)**: [`요구사항16-2`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항16-2_부재력_DB_파서_및_최악하중_Governing_LCB_자동선별.md)
-* **9.3. Gen 연동 REST API 및 다중 부재 일괄 설계 파이프라인 (`src/api/routes/interop.py`)**: [`요구사항16-3`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항16-3_Gen연동_REST_API_및_다중부재_일괄설계_파이프라인.md)
+* **9.1. MIDAS MGT 텍스트 스크립트 파서 및 3D 모델 구축 (`src/engine/interop/mgt_parser.py`)**: [`요구사항16-1`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항16-1_MIDAS_MGT_텍스트스크립트_파서_및_3D모델구축.md)
+* **9.2. 해석 결과 부재력 파서 및 Governing LCB 자동 선별 (`src/engine/interop/governing_lcb.py`)**: [`요구사항16-2`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항16-2_부재력_DB_파서_및_최악하중_Governing_LCB_자동선별.md)
+* **9.3. Gen 연동 REST API 및 다중 부재 일괄 설계 파이프라인 (`src/api/routes/interop.py`)**: [`요구사항16-3`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항16-3_Gen연동_REST_API_및_다중부재_일괄설계_파이프라인.md)
 
 ---
 
 ### Phase 10: 2D 배근 CAD 도면 생성 및 물량산출 시스템 (Draw & Qntt View) - [로드맵]
 > **대상 C++ 모듈**: `DPLUS_VDraw.dll` (`CMainFormViewDraw`), `CMainFormViewQntt`  
-> **목표 요구사항**: [`요구사항17`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항17_2D_배근_상세도_CAD_도면_생성_및_물량산출_시스템.md) (`17-1`, `17-2`)
+> **목표 요구사항**: [`요구사항17`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항17_2D_배근_상세도_CAD_도면_생성_및_물량산출_시스템.md) (`17-1`, `17-2`)
 
-* **10.1. ezdxf 기반 2D 배근 상세도 CAD(DXF) 생성 엔진 (`src/report/cad_exporter.py`)**: [`요구사항17-1`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항17-1_ezdxf_기반_2D_배근상세도_DXF_CAD_생성_엔진.md)
-* **10.2. KDS 표준 물량산출 엔진 및 다중시트 Excel 익스포트 (`src/engine/project/quantity_engine.py`)**: [`요구사항17-2`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항17-2_KDS_표준_물량산출_엔진_및_다중시트_Excel_익스포트.md)
+* **10.1. ezdxf 기반 2D 배근 상세도 CAD(DXF) 생성 엔진 (`src/report/cad_exporter.py`)**: [`요구사항17-1`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항17-1_ezdxf_기반_2D_배근상세도_DXF_CAD_생성_엔진.md)
+* **10.2. KDS 표준 물량산출 엔진 및 다중시트 Excel 익스포트 (`src/engine/project/quantity_engine.py`)**: [`요구사항17-2`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항17-2_KDS_표준_물량산출_엔진_및_다중시트_Excel_익스포트.md)
 
 ---
 
 ### Phase 11: 성능기반설계 (PBD) 및 글로벌 규준 (Eurocode, US, IS) 확장 - [로드맵]
 > **대상 C++ 모듈**: `Language/Korean/Menu.ini` (`IDS_RIBBON_BARR_PBD`), `DPLUS_EC.dll`, `DPLUS_IS.dll`, `GEN_DgnCalc_US.dll`  
-> **목표 요구사항**: [`요구사항18`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항18_RC_철골_성능기반설계_PBD_및_글로벌_규준_확장.md) (`18-1`, `18-2`)
+> **목표 요구사항**: [`요구사항18`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항18_RC_철골_성능기반설계_PBD_및_글로벌_규준_확장.md) (`18-1`, `18-2`)
 
-* **11.1. PBD 비선형 소성힌지 백본곡선 및 성능수준 평가 엔진 (`src/engine/pbd/`)**: [`요구사항18-1`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항18-1_PBD_비선형_소성힌지_백본곡선_및_성능수준평가_엔진.md)
-* **11.2. 글로벌 설계규준 (Eurocode, US, IS) 및 다단위계 어댑터 (`src/engine/international/`)**: [`요구사항18-2`](file:///d:/PyProject/AltDP_3rd/요구사항/요구사항18-2_글로벌_설계규준_Eurocode_US_IS_및_다단위계_어댑터.md)
+* **11.1. PBD 비선형 소성힌지 백본곡선 및 성능수준 평가 엔진 (`src/engine/pbd/`)**: [`요구사항18-1`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항18-1_PBD_비선형_소성힌지_백본곡선_및_성능수준평가_엔진.md)
+* **11.2. 글로벌 설계규준 (Eurocode, US, IS) 및 다단위계 어댑터 (`src/engine/international/`)**: [`요구사항18-2`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항18-2_글로벌_설계규준_Eurocode_US_IS_및_다단위계_어댑터.md)
 
 ---
 

@@ -163,9 +163,50 @@ class PMChartRenderer {
         ctx.fillStyle = '#94a3b8';
         ctx.fillText('┅ Nominal (Pn - Mn)', w - 220, 35);
     }
+
+    static drawChart(ctx, w, h, dcr = 0.75) {
+        ctx.clearRect(0, 0, w, h);
+        const margin = 40;
+        const pw = w - margin * 2;
+        const ph = h - margin * 2;
+
+        // Axes
+        ctx.strokeStyle = '#475569';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(margin, margin);
+        ctx.lineTo(margin, h - margin);
+        ctx.lineTo(w - margin, h - margin);
+        ctx.stroke();
+
+        // Nominal & Design Curves
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(margin, margin + 20);
+        ctx.quadraticCurveTo(w - margin - 20, margin + ph * 0.4, margin, h - margin - 20);
+        ctx.stroke();
+
+        // Load Point
+        const isSafe = dcr <= 1.0;
+        const lx = margin + pw * Math.min(0.8, dcr * 0.6);
+        const ly = margin + ph * 0.45;
+
+        ctx.fillStyle = isSafe ? '#10b981' : '#ef4444';
+        ctx.beginPath();
+        ctx.arc(lx, ly, 6, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.strokeStyle = '#ffffff';
+        ctx.stroke();
+
+        ctx.fillStyle = '#f8fafc';
+        ctx.font = '11px monospace';
+        ctx.fillText(`P-M Point (DCR=${dcr.toFixed(2)})`, lx + 10, ly);
+    }
 }
 
 // Global export
 if (typeof window !== 'undefined') {
     window.PMChartRenderer = PMChartRenderer;
 }
+

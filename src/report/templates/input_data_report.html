@@ -1,0 +1,91 @@
+{% extends "base_report.html" %}
+
+{% block report_content %}
+<div class="report-page input-data-page">
+  <!-- Header -->
+  <div style="border-bottom:2px solid #334155; padding-bottom:8px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:flex-end;">
+    <div>
+      <h1 style="font-size:20px; margin:0; color:#0f172a;">사용자 입력 원시 데이터 시트 (Input Data Sheet)</h1>
+      <div style="font-size:11px; color:#64748b; margin-top:4px;">
+        설계 입력 제원 검증 및 감사용 (Raw Input Audit)
+      </div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:12px; font-weight:bold; color:#0284c7;">{{ project.name if project else 'AltDP Project' }}</div>
+    </div>
+  </div>
+
+  <!-- Raw Tables -->
+  <section style="margin-bottom:20px;">
+    <h3 style="font-size:13px; color:#1e293b; border-bottom:1px solid #cbd5e1; padding-bottom:4px;">1. 단면 형상 및 배근 입력 데이터</h3>
+    <table style="width:100%; font-size:11px; border-collapse:collapse; border:1px solid #cbd5e1;">
+      <thead>
+        <tr style="background:#f1f5f9; text-align:left;">
+          <th style="padding:6px; border:1px solid #cbd5e1;">변수명</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">설명</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">입력값</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">단위</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-family:monospace;">b</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">단면 유효 폭 (Width)</td>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-weight:bold;">{{ section.b if section else '400' }}</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">mm</td>
+        </tr>
+        <tr>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-family:monospace;">h</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">단면 전체 높이 (Height)</td>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-weight:bold;">{{ section.h if section else '600' }}</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">mm</td>
+        </tr>
+        <tr>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-family:monospace;">cover</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">순 피복 두께 (Clear Cover)</td>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-weight:bold;">{{ section.cover if section else '40' }}</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">mm</td>
+        </tr>
+        <tr>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-family:monospace;">rebar_bot</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">하부 주철근 배근 (Tension)</td>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-weight:bold;">{{ section.rebar if section else '4-D25' }}</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">-</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Load Cases Table -->
+  <section>
+    <h3 style="font-size:13px; color:#1e293b; border-bottom:1px solid #cbd5e1; padding-bottom:4px;">2. 설계 하중조합 (Load Combinations & Member Forces)</h3>
+    <table style="width:100%; font-size:11px; border-collapse:collapse; border:1px solid #cbd5e1;">
+      <thead>
+        <tr style="background:#f1f5f9; text-align:left;">
+          <th style="padding:6px; border:1px solid #cbd5e1;">LCB No.</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">하중조합명</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">축력 Pu (kN)</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">휨모멘트 Mu (kN·m)</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">전단력 Vu (kN)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:6px; border:1px solid #cbd5e1;">LCB 1</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">1.4D</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">0.0</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">140.0</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">95.0</td>
+        </tr>
+        <tr>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-weight:bold; color:#0284c7;">LCB 2 (Gov)</td>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-weight:bold;">1.2D + 1.6L</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">0.0</td>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-weight:bold;">180.0</td>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-weight:bold;">140.0</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+{% endblock %}

@@ -452,5 +452,28 @@
     drawDimension(ctx, startX + drawW, startY, startX + drawW, startY + drawH, `h = ${h} mm`, 25, true);
   };
 
+  /**
+   * Generic Dispatcher for canvas drawing.
+   */
+  Renderer2D.drawSection = function (ctx, width, height, memberType, data = {}) {
+    const canvas = ctx.canvas;
+    if (memberType === 'rc_column') {
+      if (typeof Renderer2D.drawRCColumnSection === 'function') {
+        Renderer2D.drawRCColumnSection(canvas, data);
+        return;
+      }
+    } else if (memberType === 'steel_beam') {
+      if (typeof Renderer2D.drawSteelHSection === 'function') {
+        Renderer2D.drawSteelHSection(canvas, data);
+        return;
+      }
+    }
+    // Default RC Beam
+    if (typeof Renderer2D.drawRCBeamSection === 'function') {
+      Renderer2D.drawRCBeamSection(canvas, data);
+    }
+  };
+
   global.Renderer2D = Renderer2D;
 })(typeof window !== 'undefined' ? window : this);
+

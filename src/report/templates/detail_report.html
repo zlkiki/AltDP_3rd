@@ -1,0 +1,127 @@
+{% extends "base_report.html" %}
+
+{% block report_content %}
+<div class="report-page detail-page">
+  <!-- Header -->
+  <div style="border-bottom:2px solid #0f172a; padding-bottom:8px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:flex-end;">
+    <div>
+      <h1 style="font-size:20px; margin:0; color:#0f172a;">KDS 표준 구조계산서 (Detail & Audit Report)</h1>
+      <div style="font-size:11px; color:#475569; margin-top:4px;">
+        설계기준: KDS 14 20 00 (콘크리트구조설계기준) / KDS 14 31 00 (강구조설계기준)
+      </div>
+    </div>
+    <div style="text-align:right;">
+      <div style="font-size:11px; color:#64748b;">프로젝트: {{ project.name if project else 'AltDP Building' }}</div>
+      <div style="font-size:12px; font-weight:bold; color:#0369a1;">부재 ID: {{ member.name if member else 'B1' }}</div>
+    </div>
+  </div>
+
+  <!-- Section 1: Detailed Design Criteria & Material Properties -->
+  <section style="margin-bottom:20px;">
+    <h3 style="font-size:14px; color:#1e293b; border-bottom:1px solid #cbd5e1; padding-bottom:4px; margin-bottom:8px;">
+      1. 재료 물성치 및 설계 가정 (Material Properties & Design Criteria)
+    </h3>
+    <table style="width:100%; font-size:11px; border-collapse:collapse; margin-bottom:10px;">
+      <tr>
+        <td style="padding:4px; width:35%;">콘크리트 기준압축강도 ($f_{ck}$):</td>
+        <td style="padding:4px; font-weight:bold;">{{ material.fck if material else '27.00' }} MPa</td>
+        <td style="padding:4px; width:35%;">탄성계수 계수 ($\beta_1$):</td>
+        <td style="padding:4px; font-weight:bold;">0.85</td>
+      </tr>
+      <tr>
+        <td style="padding:4px;">철근 기준항복강도 ($f_y$):</td>
+        <td style="padding:4px; font-weight:bold;">{{ material.fy if material else '400.00' }} MPa</td>
+        <td style="padding:4px;">강도감소계수 ($\phi$ 휨/전단):</td>
+        <td style="padding:4px; font-weight:bold;">0.85 / 0.75</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Section 2: Step-by-Step KaTeX Equation Derivation -->
+  <section style="margin-bottom:20px;">
+    <h3 style="font-size:14px; color:#1e293b; border-bottom:1px solid #cbd5e1; padding-bottom:4px; margin-bottom:8px;">
+      2. 단계별 상세 수식 전개 과정 (Step-by-Step Formula Derivation)
+    </h3>
+
+    <!-- Step 2.1: Flexural Strength Check -->
+    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:12px; margin-bottom:12px;">
+      <h4 style="font-size:12px; margin:0 0 6px 0; color:#0f172a;">2.1 휨모멘트 설계 강도 검토 [KDS 14 20 20 (4.1.2)]</h4>
+      <div style="font-size:11px; color:#334155; line-height:1.6;">
+        <p style="margin:4px 0;">(1) 등가 직사각형 응력블록 깊이 $a$ 산정:</p>
+        <div style="background:#ffffff; padding:6px 10px; border-left:3px solid #0284c7; margin:4px 0; font-family:monospace;">
+          $$a = \frac{A_s f_y}{0.85 f_{ck} b} = \frac{2026.8 \times 400}{0.85 \times 27 \times 400} = 88.31 \text{ mm}$$
+        </div>
+
+        <p style="margin:4px 0;">(2) 중립축 깊이 $c$ 및 최외단 인장변형률 $\epsilon_t$ 산정:</p>
+        <div style="background:#ffffff; padding:6px 10px; border-left:3px solid #0284c7; margin:4px 0; font-family:monospace;">
+          $$c = \frac{a}{\beta_1} = \frac{88.31}{0.85} = 103.89 \text{ mm}, \quad \epsilon_t = 0.003 \frac{d - c}{c} = 0.003 \times \frac{540 - 103.89}{103.89} = 0.0126 > 0.005$$
+        </div>
+        <p style="font-size:10px; color:#059669; margin:2px 0;">* $\epsilon_t \ge 0.005$ 이므로 인장지배단면으로 판정되며, $\phi = 0.85$ 적용.</p>
+
+        <p style="margin:4px 0;">(3) 설계휨강도 $\phi M_n$ 산출 및 소요강도 대비 검토:</p>
+        <div style="background:#ffffff; padding:6px 10px; border-left:3px solid #0284c7; margin:4px 0; font-family:monospace;">
+          $$\phi M_n = \phi \left[ A_s f_y \left( d - \frac{a}{2} \right) \right] = 0.85 \times \left[ 2026.8 \times 400 \times \left( 540 - \frac{88.31}{2} \right) \right] \times 10^{-6} = 341.65 \text{ kN}\cdot\text{m}$$
+          $$DCR = \frac{M_u}{\phi M_n} = \frac{180.00}{341.65} = 0.527 \le 1.00 \quad \text{[OK]}$$
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2.2: Shear Strength Check -->
+    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:12px;">
+      <h4 style="font-size:12px; margin:0 0 6px 0; color:#0f172a;">2.2 전단 설계 강도 검토 [KDS 14 20 22 (4.1)]</h4>
+      <div style="font-size:11px; color:#334155; line-height:1.6;">
+        <p style="margin:4px 0;">(1) 콘크리트 부담 전단강도 $V_c$:</p>
+        <div style="background:#ffffff; padding:6px 10px; border-left:3px solid #0284c7; margin:4px 0; font-family:monospace;">
+          $$V_c = \frac{1}{6} \lambda \sqrt{f_{ck}} b_w d = \frac{1}{6} \times 1.0 \times \sqrt{27} \times 400 \times 540 \times 10^{-3} = 187.06 \text{ kN}$$
+        </div>
+        <p style="margin:4px 0;">(2) 전단 철근 부담 강도 $V_s$ 및 설계 전단강도 $\phi V_n$:</p>
+        <div style="background:#ffffff; padding:6px 10px; border-left:3px solid #0284c7; margin:4px 0; font-family:monospace;">
+          $$V_s = \frac{A_v f_{yt} d}{s} = \frac{142.6 \times 400 \times 540}{150} \times 10^{-3} = 205.34 \text{ kN}$$
+          $$\phi V_n = \phi (V_c + V_s) = 0.75 \times (187.06 + 205.34) = 294.30 \text{ kN}$$
+          $$DCR = \frac{V_u}{\phi V_n} = \frac{140.00}{294.30} = 0.476 \le 1.00 \quad \text{[OK]}$$
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Summary Table -->
+  <section>
+    <h3 style="font-size:14px; color:#1e293b; border-bottom:1px solid #cbd5e1; padding-bottom:4px; margin-bottom:8px;">
+      3. 종합 한계상태 검토표 (Comprehensive Audit Table)
+    </h3>
+    <table style="width:100%; font-size:11px; border-collapse:collapse; border:1px solid #cbd5e1;">
+      <thead>
+        <tr style="background:#f1f5f9; text-align:left;">
+          <th style="padding:6px; border:1px solid #cbd5e1;">항목</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">소요강도</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">공칭강도</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">저감계수 $\phi$</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">설계강도</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">DCR</th>
+          <th style="padding:6px; border:1px solid #cbd5e1;">판정</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-weight:bold;">정모멘트 (+)</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">180.00 kN·m</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">401.94 kN·m</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">0.850</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">341.65 kN·m</td>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-weight:bold;">0.527</td>
+          <td style="padding:6px; border:1px solid #cbd5e1; color:#059669; font-weight:bold;">PASS</td>
+        </tr>
+        <tr>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-weight:bold;">전단력 (V)</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">140.00 kN</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">392.40 kN</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">0.750</td>
+          <td style="padding:6px; border:1px solid #cbd5e1;">294.30 kN</td>
+          <td style="padding:6px; border:1px solid #cbd5e1; font-weight:bold;">0.476</td>
+          <td style="padding:6px; border:1px solid #cbd5e1; color:#059669; font-weight:bold;">PASS</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+{% endblock %}

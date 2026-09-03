@@ -31,7 +31,8 @@ src/engine/
 │   ├── brace.py                    # 가새 인장/압축
 │   ├── column.py                   # 철골기둥 휨좌굴/비틀림좌굴/P-M
 │   ├── connection.py               # 볼트/용접 접합부
-│   └── endplate.py                 # 엔드플레이트 모멘트 접합부
+│   ├── endplate.py                 # 엔드플레이트 모멘트 접합부
+│   └── web_opening.py              # 철골보 웨브 개구부 보강 검토
 ├── src_composite/                  # SRC 합성부재
 │   ├── composite_beam.py           # 합성보 휨/전단연결재(Stud)
 │   └── composite_column.py         # 매입형/충전형 합성기둥
@@ -39,6 +40,25 @@ src/engine/
 │   └── beam_column.py              # 알루미늄 보/기둥/멀리온
 ├── rfm/                            # 보수보강 설계
 │   └── retrofit.py                 # CFRP / 강판 휨·전단 보강
+├── fem/                            # 2D FEM 평판 휨 및 지반/접촉 솔버
+│   ├── element_dkmq.py             # DKMQ 평판 휨 요소 강성행렬
+│   ├── solver_plate.py             # 평판 휨 선형 FEM 솔버
+│   ├── foundation_fem.py           # 매트기초 Winkler 지반 스프링 솔버
+│   ├── baseplate_fem.py            # 주각부 비선형 접촉 솔버
+│   └── slab_fem.py                 # 슬래브 Wood-Armer 설계 솔버
+├── pbd/                            # 성능기반 내진설계 비선형 소성힌지 백본곡선 엔진
+│   ├── hinge_rc.py                 # RC 부재 모멘트-회전각 비선형 백본곡선
+│   └── hinge_steel.py              # 철골 부재 소성힌지 및 거동모드 판정
+├── international/                  # 글로벌 설계규준 및 초정밀 다단위계
+│   ├── units.py                    # SI/MKS/Imperial 양방향 단위변환기
+│   ├── eurocode/                   # Eurocode 2 / 3 어댑터
+│   ├── us_code/                    # ACI 318 / AISC 360 어댑터
+│   └── is_code/                    # IS 456 / IS 800 어댑터
+├── interop/                        # MIDAS Gen 3D 해석모델 연동
+│   ├── mgt_parser.py               # *.mgt 텍스트 스크립트 파서
+│   └── governing_lcb.py            # 해석 부재력 파싱 및 지배 LCB 자동선별
+├── project/                        # KDS 표준 물량산출 엔진
+│   └── quantity_engine.py          # 콘크리트/철근/형강 물량 집계
 └── solver/                         # 수치해석 공통 솔버
     ├── fiber_section.py            # 파이버 단면 분할 모델
     ├── pm_diagram.py               # P-M / P-M-M 3D 포락면 해석기

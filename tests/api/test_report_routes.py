@@ -62,3 +62,46 @@ def test_api_report_pdf_post():
     resp = client.post("/api/v1/report/pdf", json=payload)
     assert resp.status_code == 200
     assert len(resp.content) > 500
+
+
+def test_api_report_batch_generate():
+    """Test batch calculation book binding API."""
+    payload = {
+        "project_info": {"name": "일괄 바인딩 프로젝트", "code": "KDS 14 20 00"},
+        "members": [
+            {
+                "member": {"name": "B-101", "type": "RC Beam"},
+                "section": {"b": 400.0, "h": 600.0},
+                "summary_dcr": 0.72,
+            },
+            {
+                "member": {"name": "C-101", "type": "RC Column"},
+                "section": {"b": 600.0, "h": 600.0},
+                "summary_dcr": 0.65,
+            },
+        ],
+        "options": {"report_mode": "summary"},
+    }
+    resp = client.post("/api/v1/report/batch-generate", json=payload)
+    assert resp.status_code == 200
+    assert len(resp.content) > 500
+
+
+def test_api_report_export_excel():
+    """Test project multi-sheet Excel export API."""
+    payload = {
+        "project_info": {"title": "통합 엑셀 프로젝트"},
+        "members": [
+            {
+                "member": {"name": "B-101", "type": "RC Beam"},
+                "section": {"b": 400.0, "h": 600.0},
+                "checks": [{"title": "휨모멘트", "demand": "180.0", "capacity": "250.0", "dcr": 0.72}],
+                "summary_dcr": 0.72,
+            },
+        ],
+    }
+    resp = client.post("/api/v1/report/export-excel", json=payload)
+    assert resp.status_code == 200
+    assert "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" in resp.headers["content-type"]
+    assert len(resp.content) > 1000
+

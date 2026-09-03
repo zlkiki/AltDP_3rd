@@ -111,7 +111,7 @@ AltDP_3rd/
 │       ├── rc/                     # Group 2: RC 5대 부재 설계식 (보, 기둥, 벽체, 슬래브, 기초, 옹벽)
 │       ├── steel/                  # Group 3 & 4: 철골보, 기둥, 가새, 접합부, 베이스플레이트, 엔드플레이트
 │       └── db/                     # Group 5: 단면 기하 성질 DB
-├── docs/                           # 공식 기술 문서 (SSOT 01 ~ 15)
+├── docs/                           # 공식 기술 문서 (SSOT 01 ~ 17)
 │   ├── 01_system_architecture.md
 │   ├── 02_binary_reverse_engineering_specification.md
 │   ├── 03_section_db_specification.md
@@ -126,6 +126,8 @@ AltDP_3rd/
 │   ├── 13_midas_design_plus_original_ui_specification.md
 │   ├── 14_structural_calculation_report_specification.md
 │   ├── 15_fem_analysis_and_external_solver_specification.md
+│   ├── 16_fem_engine_theoretical_manual_and_formulation.md
+│   ├── 17_fem_solver_comparative_analysis_and_benchmark.md
 │   └── README.md
 ├── original_src/                   # 원본 Midas Design+ 설치본 (Read-Only)
 │   └── Midas Design+/
@@ -142,26 +144,31 @@ AltDP_3rd/
 │   └── extract_symbols.py          # PE 심볼 추출기
 ├── src/                            # 신규 웹 애플리케이션 소스코드
 │   ├── api/                        # FastAPI 웹 API 계층
-│   │   ├── routes/                 # 부재별 API 라우트 (rc, steel, connection, composite, report, section)
+│   │   ├── routes/                 # 부재별 API 라우트 (rc, rc_foundation, rc_wall_slab, steel, special, fem, db, report, interop, quantity, international)
 │   │   └── server.py               # 메인 서버 애플리케이션
 │   ├── engine/                     # 코어 공학 계산 엔진
 │   │   ├── rc/                     # RC 보, 기둥, 슬래브, 전단벽, 기초, 옹벽
-│   │   ├── steel/                  # 철골 보, 기둥, 가새, 접합부, 베이스플레이트, 엔드플레이트
-│   │   ├── src_composite/          # SRC 복합부재
-│   │   ├── alu/                    # 알루미늄 부재
+│   │   ├── steel/                  # 철골 보, 기둥, 가새, 접합부, 베이스플레이트, 엔드플레이트, 개구부
+│   │   ├── src_composite/          # SRC 복합부재 (매입형/충전형 합성기둥, 합성보)
+│   │   ├── alu/                    # 알루미늄 합금 부재 (보, 기둥, 멀리온)
 │   │   ├── rfm/                    # 탄소섬유/강판 보수보강
-│   │   ├── fem/                    # 2D FEM 평판 휨 (MITC4/DKT), 지반 스프링 및 비선형 접촉 솔버
+│   │   ├── fem/                    # 2D FEM 평판 휨 (DKMQ/MITC4), 지반 스프링 및 비선형 접촉 솔버
+│   │   ├── pbd/                    # 성능기반 내진설계 비선형 소성힌지 백본곡선 엔진 (KDS 41 17 00 / ASCE 41-17)
+│   │   ├── international/          # 글로벌 설계규준(Eurocode, US, IS) 및 초정밀 다단위계(SI/MKS/Imperial) 어댑터
+│   │   ├── interop/                # MIDAS Gen 3D 해석모델(*.mgt, *.db) 파서 및 LCB 자동선별 파이프라인
+│   │   ├── project/                # KDS 표준 물량산출 엔진 (콘크리트, 철근톤수, 거푸집)
 │   │   ├── db/                     # 형강 DB (.sdb 파서 및 조회기, 재료, 하중조합)
 │   │   └── solver/                 # P-M 상관도 및 파이버 단면 수치해석 솔버
-│   ├── report/                     # A4 표준 구조계산서 생성기 (HTML, Excel, PDF)
-│   └── web/                        # 프론트엔드 웹 UI
-│       ├── static/                 # CSS, JS, SVG 정적 자산 (renderer2d.js, pm_chart.js)
-│       └── templates/              # HTML Jinja2 템플릿
-├── tests/                          # 3대 도메인 자동화 테스트 스위트 (145 passed)
-│   ├── engine/                     # 공학 수식, 설계 엔진 및 FEM 솔버 테스트 (113 passed)
-│   ├── api/                        # REST API 엔드포인트 테스트 (25 passed)
-│   └── report/                     # 구조계산서 3대 포맷 렌더링 테스트 (7 passed)
+│   ├── report/                     # A4 표준 구조계산서 및 도면 생성기 (HTML, Excel, PDF, CAD DXF)
+│   └── web/                        # 프론트엔드 웹 UI (4대 폼뷰 Memb/List/Draw/Qntt, 3대 인터랙션 모드 P/S/M)
+│       ├── static/                 # CSS, JS, SVG 정적 자산 (renderer2d.js, pm_chart.js, batch_grid.js, draw_cad.js)
+│       └── templates/              # HTML Jinja2 템플릿 (view_memb.html, view_list.html, view_draw.html, view_qntt.html)
+├── tests/                          # 3대 도메인 자동화 테스트 스위트 (243 passed, 100% 무결성)
+│   ├── engine/                     # 공학 수식, 설계 엔진, FEM 솔버, PBD, 국제규준 단위테스트 (147 passed)
+│   ├── api/                        # REST API 엔드포인트 테스트 (40 passed)
+│   ├── report/                     # 구조계산서, CAD DXF, Excel 물량산출 테스트 (32 passed)
+│   └── ui/                         # 4대 폼뷰 및 웹 렌더러 테스트 (24 passed)
 └── 요구사항/                       # 요구사항 명세서 관리
-    └── @@OLD/                      # 아카이빙된 완료 요구사항 (요구사항 01 ~ 12)
+    └── @@OLD/                      # 아카이빙된 완료 요구사항 (요구사항 01 ~ 18 완료)
 ```
 

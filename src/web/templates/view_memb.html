@@ -1,0 +1,125 @@
+<!-- Pane 1: Memb View (4-Split Single Member Workspace) -->
+<div class="main-form-view active" id="view-memb">
+  <div class="memb-workspace">
+    <!-- Pane 1: Left Parametric Input Panel -->
+    <section class="memb-pane-input" id="memb-input-container">
+      <div style="padding:12px 14px; border-bottom:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center;">
+        <h3 style="font-size:13px; font-weight:600; color:var(--text-primary); margin:0;">부재 파라미터 (Properties)</h3>
+        <select id="member-type-select" style="background:var(--bg-input); color:var(--text-primary); border:1px solid var(--border-glass); border-radius:4px; padding:3px 6px; font-size:11px;">
+          <optgroup label="RC 부재 (KDS 14 20 00)">
+            <option value="rc_beam" selected>RC 보 (Beam)</option>
+            <option value="rc_column">RC 기둥 (Column)</option>
+            <option value="rc_wall">전단벽 (Shear Wall)</option>
+            <option value="rc_slab">슬래브 (Slab)</option>
+            <option value="rc_footing">독립기초 (Footing)</option>
+            <option value="rc_retaining_wall">옹벽 (Retaining Wall)</option>
+          </optgroup>
+          <optgroup label="강구조 부재 (KDS 14 31 00)">
+            <option value="steel_beam">철골 보 (Steel Beam)</option>
+            <option value="steel_column">철골 기둥 (Steel Column)</option>
+            <option value="steel_brace">가새 (Steel Brace)</option>
+            <option value="steel_connection">접합부 (Connection)</option>
+            <option value="steel_baseplate">베이스플레이트 (Baseplate)</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <!-- Mode Action Bar (P / S / M) -->
+      <div style="display:flex; gap:6px; padding:10px 14px; background:rgba(0,0,0,0.15); border-bottom:1px solid var(--border-subtle);">
+        <button id="btn-mode-apply" class="ribbon-btn-small" style="background:var(--bg-tertiary); color:var(--accent-primary); font-weight:600;">
+          💾 적용 (Apply)
+        </button>
+        <button id="btn-mode-check" class="ribbon-btn-small" style="background:var(--status-safe); color:#fff; font-weight:600;">
+          ⚡ 검토 (Check)
+        </button>
+        <button id="btn-mode-design" class="ribbon-btn-small" style="background:var(--accent-secondary); color:#fff; font-weight:600;">
+          ✨ 자동설계 (P-Mode)
+        </button>
+      </div>
+
+      <!-- Dynamic Parametric Form Injection Root -->
+      <div id="dynamic-member-form" style="padding:14px; display:flex; flex-direction:column; gap:12px; flex:1; overflow-y:auto;">
+        <!-- Filled dynamically by member_forms.js -->
+      </div>
+    </section>
+
+    <!-- Resizer Vertical (Input ↔ Graphics) -->
+    <div class="pane-resizer-v" id="resizer-memb-v"></div>
+
+    <!-- Center/Right: Graphics & Summary -->
+    <div class="memb-pane-center">
+      <!-- Upper: 2D Canvas & P-M Chart (Split 50:50) -->
+      <div class="memb-pane-graphics">
+        <!-- Pane 2: 2D Section Rebar Canvas -->
+        <section class="canvas-panel-half" id="panel-canvas-2d">
+          <div style="padding:6px 12px; background:rgba(0,0,0,0.2); border-bottom:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:12px; font-weight:600; color:var(--text-secondary);">2D 단면 배근도 (Cross Section)</span>
+            <div style="display:flex; gap:4px;">
+              <button class="ribbon-btn-small" id="btn-zoom-in" style="padding:2px 6px;">+</button>
+              <button class="ribbon-btn-small" id="btn-zoom-out" style="padding:2px 6px;">-</button>
+              <button class="ribbon-btn-small" id="btn-zoom-reset" style="padding:2px 6px;">Reset</button>
+            </div>
+          </div>
+          <div style="flex:1; position:relative; overflow:hidden;">
+            <canvas id="sectionCanvas" style="width:100%; height:100%; display:block;"></canvas>
+          </div>
+        </section>
+
+        <!-- Pane 3: P-M Interaction & DCR Chart -->
+        <section class="canvas-panel-half" id="panel-chart-pm">
+          <div style="padding:6px 12px; background:rgba(0,0,0,0.2); border-bottom:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:12px; font-weight:600; color:var(--text-secondary);">P-M 상관곡선 & DCR 게이지</span>
+            <span id="pm-status-badge" style="font-size:11px; padding:2px 6px; border-radius:3px; background:var(--status-safe); color:#fff;">SAFE</span>
+          </div>
+          <div style="flex:1; position:relative; overflow:hidden;">
+            <canvas id="pmCanvas" style="width:100%; height:100%; display:block;"></canvas>
+            <canvas id="pmChartCanvas" style="display:none;"></canvas>
+          </div>
+        </section>
+      </div>
+
+      <!-- Resizer Horizontal (Graphics ↔ Summary) -->
+      <div class="pane-resizer-h" id="resizer-memb-h"></div>
+
+      <!-- Pane 4: KDS Realtime Summary & Quick Report -->
+      <section class="memb-pane-summary" id="panel-kds-summary">
+        <div id="dcrCard" style="display:none;">
+          <span id="dcrValue">0.76</span>
+          <div id="dcrBar"></div>
+        </div>
+        <div style="padding:8px 16px; background:rgba(0,0,0,0.15); border-bottom:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center;">
+          <h4 style="font-size:12px; font-weight:600; margin:0; color:var(--text-primary);">KDS 14 20 00 / 14 31 00 실시간 한계상태 판정표</h4>
+          <div style="font-size:12px;">
+            종합 판정: <strong id="overall-status-text" style="color:var(--status-safe);">OK (DCR = 0.76)</strong>
+          </div>
+        </div>
+        <div style="padding:10px 16px; overflow-x:auto;">
+          <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;" id="kds-summary-table">
+            <tbody id="resultTable" style="display:none;"></tbody>
+            <thead>
+              <tr style="border-bottom:1px solid var(--border-glass); color:var(--text-muted);">
+                <th style="padding:6px 8px;">검토 항목 (Limit State)</th>
+                <th style="padding:6px 8px;">소요 강도 (Demand)</th>
+                <th style="padding:6px 8px;">설계 강도 (Capacity)</th>
+                <th style="padding:6px 8px;">DCR (비율)</th>
+                <th style="padding:6px 8px;">판정 (Status)</th>
+                <th style="padding:6px 8px;">지배 기준 (Code)</th>
+              </tr>
+            </thead>
+            <tbody id="kds-summary-tbody">
+              <!-- Dynamically populated by app.js -->
+              <tr>
+                <td style="padding:6px 8px; font-weight:600;">휨모멘트 (Flexure)</td>
+                <td style="padding:6px 8px;">180.0 kN·m</td>
+                <td style="padding:6px 8px;">236.8 kN·m</td>
+                <td style="padding:6px 8px;"><span style="color:var(--status-safe); font-weight:600;">0.760</span></td>
+                <td style="padding:6px 8px;"><span style="color:var(--status-safe);">PASS</span></td>
+                <td style="padding:6px 8px; color:var(--text-muted);">KDS 14 20 20 (4.1)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

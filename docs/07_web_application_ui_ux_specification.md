@@ -2,7 +2,7 @@
 
 본 문서는 **AltDP_3rd 모던 웹 부재설계 플랫폼**의 프론트엔드 아키텍처, 4-Pane 반응형 레이아웃, 독립 드래그 리사이저 엔진, 중앙 데이터 스토어(SSOT), 다중 단위계 관리, 파라메트릭 인풋 폼, 2D/3D 벡터 그래픽 엔진, 실시간 KDS 구조계산서 렌더러 및 **AltDP_2nd의 정식 `UI_UX_디자인_표준명세서.md`의 디자인 토큰과 상호작용 체계**를 총체적으로 융합한 단일 진실 공급원(SSOT) 종합 명세서입니다.
 
-*(※ Midas Design+ 원본 데스크톱 앱의 C++/MFC 역공학 분석 내용은 [`docs/13_midas_design_plus_original_ui_specification.md`](file:///d:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md)를 참조하십시오.)*
+*(※ Midas Design+ 원본 데스크톱 앱의 C++/MFC 역공학 분석 내용은 [`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md)를 참조하십시오.)*
 
 ---
 
@@ -235,3 +235,26 @@ AltDP_2nd의 웹 프론트엔드 파일을 AltDP_3rd 프로젝트로 직접 연�
 | **2D 벡터 렌더러** | `AltDP_2nd/web/js/visual/vector/*.js` | `src/web/static/js/visual/vector/*.js` | `vector_core.js`, `vector_rc_sec.js`, `vector_footing.js`, `vector_slab.js`, `vector_steel.js` |
 | **KDS 계산서** | `AltDP_2nd/web/js/report/redcr_common_renderer.js` | `src/web/static/js/report/redcr_common_renderer.js` | KaTeX 수식, 종합 검토표, 한계상태 판정 배지 렌더러 |
 | **자동 설계기** | `AltDP_2nd/web/js/designer/auto_designer.js` | `src/web/static/js/designer/auto_designer.js` | $DCR \le 1.0$ 만족 최적 단면/배근 자동 산출기 |
+
+---
+
+## 9. Midas Design+ 역공학 기반 4대 메인 폼뷰 & 3대 인터랙션 모드 융합 명세
+
+### 9.1. 4대 메인 폼뷰 (4 Main Form Views Architecture)
+1. **Memb View (`CMainFormViewMemb`)**:
+   - 단일 부재 정밀 4분할 워크스페이스 (속성 그리드 ↔ 2D 단면 배근도 ↔ P-M 상관곡선/DCR ↔ KDS 실시간 요약서).
+2. **List View (`CMainFormViewList`)**:
+   - 다중 부재 일괄 스프레드시트 검토 뷰 (층별/부재별 트리 네비게이터, Excel형 그리드, 원클릭 일괄 DCR 히트맵).
+3. **Draw View (`CMainFormViewDraw`)**:
+   - 2D 배근 상세도 및 일람표 CAD 뷰어 (보/기둥 단면/입면 벡터 드로잉, 스케줄 테이블, DXF/SVG 내보내기).
+4. **Qntt View (`CMainFormViewQntt`)**:
+   - 콘크리트/거푸집/철근/강재 자동 물량 산출 대시보드 (D10~D32 직경별 물량, 형강 중량, 도넛 차트 및 Excel 내보내기).
+
+### 9.2. 3대 인터랙션 모드 (3 Interactive Operational Modes)
+1. **P-Mode (Parametric Auto-Design Mode)**:
+   - 설계 단면 가정 및 KDS 강도설계법/허용응력설계법에 따른 최적 철근 배근 및 형강 규격 자동 제안.
+2. **S-Mode (Section Check Mode)**:
+   - 기 배근된 단면 및 단면 제원에 대해 모멘트/전단/축력/비틀림 DCR을 즉각 해석/검토하는 엔지니어링 검토 모드.
+3. **M-Mode (Member Management Mode)**:
+   - 부재 태그, 그룹핑, 층(Story) 배치, 하중 케이스 연계 등 구조 모델 메타데이터를 통합 관리하는 모드.
+

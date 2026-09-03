@@ -1,0 +1,75 @@
+<!-- Pane 2: List View (Batch Member Spreadsheet & Hierarchy Tree) -->
+<div class="main-form-view" id="view-list">
+  <div class="list-workspace">
+    <!-- Left Hierarchy Tree Navigator -->
+    <aside class="list-tree-panel">
+      <div style="padding:12px 14px; border-bottom:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:13px; font-weight:600; color:var(--text-primary);">프로젝트 계층 트리</span>
+        <button class="ribbon-btn-small" id="btn-add-member-tree">+ 부재추가</button>
+      </div>
+      <div style="padding:10px; font-size:12px;" id="project-tree-container">
+        <ul style="list-style:none; padding-left:8px; margin:0;" id="project-tree-root">
+          <li style="margin-bottom:6px;">
+            <span style="font-weight:600; cursor:pointer;">🏢 1F (1층)</span>
+            <ul style="list-style:none; padding-left:14px; margin-top:4px;">
+              <li style="padding:3px 0; cursor:pointer;" class="tree-item-member active" data-id="B1">🪵 B1 (RC 보 - 400x600)</li>
+              <li style="padding:3px 0; cursor:pointer;" class="tree-item-member" data-id="C1">🏛️ C1 (RC 기둥 - 600x600)</li>
+              <li style="padding:3px 0; cursor:pointer;" class="tree-item-member" data-id="W1">🧱 W1 (전단벽 - thk200)</li>
+            </ul>
+          </li>
+          <li style="margin-bottom:6px;">
+            <span style="font-weight:600; cursor:pointer;">🏢 2F (2층)</span>
+            <ul style="list-style:none; padding-left:14px; margin-top:4px;">
+              <li style="padding:3px 0; cursor:pointer;" class="tree-item-member" data-id="B2">🪵 B2 (RC 보 - 400x500)</li>
+              <li style="padding:3px 0; cursor:pointer;" class="tree-item-member" data-id="SB1">🔩 SB1 (철골 보 - H-400x200)</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Resizer Vertical -->
+    <div class="pane-resizer-v"></div>
+
+    <!-- Right Batch Grid Spreadsheet -->
+    <section class="list-grid-panel">
+      <!-- Toolbar -->
+      <div style="padding:8px 16px; background:var(--bg-secondary); border-bottom:1px solid var(--border-glass); display:flex; justify-content:space-between; align-items:center;">
+        <div style="display:flex; gap:8px; align-items:center;">
+          <button class="ribbon-btn-small" id="btn-batch-check" style="background:var(--status-safe); color:#fff; font-weight:600;">
+            ⚡ 전체 일괄 검토 (Run All Batch)
+          </button>
+          <button class="ribbon-btn-small" id="btn-batch-add-row">+ 행 추가</button>
+          <button class="ribbon-btn-small" id="btn-batch-delete-row">🗑️ 행 삭제</button>
+        </div>
+        <div style="font-size:12px; color:var(--text-muted);">
+          총 부재 수: <span id="batch-total-count" style="font-weight:600; color:var(--text-primary);">5</span>개 | 
+          NG 부재: <span id="batch-ng-count" style="font-weight:600; color:var(--status-danger);">0</span>개
+        </div>
+      </div>
+
+      <!-- Batch Table View -->
+      <div style="flex:1; overflow:auto; padding:12px;">
+        <table style="width:100%; border-collapse:collapse; font-size:12px;" id="batch-spreadsheet-table">
+          <thead>
+            <tr style="background:var(--bg-tertiary); color:var(--text-secondary); text-align:left;">
+              <th style="padding:8px; border:1px solid var(--border-subtle);"><input type="checkbox" id="batch-check-all"></th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">부재 ID</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">층 (Story)</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">부재 종류</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">단면 규격</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">주철근 / 강재</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">모멘트 Mu</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">전단력 Vu</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">DCR (최대)</th>
+              <th style="padding:8px; border:1px solid var(--border-subtle);">판정</th>
+            </tr>
+          </thead>
+          <tbody id="batch-tbody">
+            <!-- Dynamically populated by batch_grid.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
