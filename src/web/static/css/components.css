@@ -1,0 +1,652 @@
+/* web/css/components.css - AltDP UI Components, Member Table, Dynamic Forms & Action Buttons */
+
+/* ========================================================= */
+/* Header Navigation Controls & Unit Selectors               */
+/* ========================================================= */
+.unit-selector-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2px 6px;
+}
+
+.unit-icon {
+    font-size: 13px;
+    color: var(--accent);
+}
+
+.unit-select {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 11.5px;
+    font-weight: 600;
+    font-family: var(--font-main);
+    outline: none;
+    cursor: pointer;
+}
+
+.unit-select option {
+    background: var(--bg-card);
+    color: var(--text-main);
+}
+
+.nav-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 6px 11px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background: var(--bg-surface);
+    border-color: var(--border-light);
+    color: #fff;
+}
+
+.icon-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+}
+
+.btn-export {
+    border-color: rgba(59, 130, 246, 0.4);
+    color: #93c5fd;
+}
+.btn-export:hover {
+    background: rgba(59, 130, 246, 0.15);
+}
+
+.btn-import {
+    border-color: rgba(16, 185, 129, 0.4);
+    color: #6ee7b7;
+}
+.btn-import:hover {
+    background: rgba(16, 185, 129, 0.15);
+}
+
+.btn-reset-ui {
+    color: var(--text-muted);
+}
+
+.btn-print-top {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+}
+.btn-print-top:hover {
+    background: var(--accent-hover);
+}
+
+/* ========================================================= */
+/* Header Badges & Breadcrumbs                               */
+/* ========================================================= */
+.member-badge-count {
+    background: var(--bg-surface);
+    color: var(--text-muted);
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-size: 10px;
+}
+
+.active-member-tag {
+    background: rgba(59, 130, 246, 0.2);
+    color: #93c5fd;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: var(--font-mono);
+}
+
+.breadcrumb-mini {
+    font-size: 11px;
+    color: var(--text-dim);
+}
+
+.mini-btn {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.mini-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-light);
+}
+
+.btn-add {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.35);
+    color: #6ee7b7;
+}
+.btn-add:hover {
+    background: rgba(16, 185, 129, 0.25);
+}
+
+.btn-del {
+    color: #fca5a5;
+}
+.btn-del:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+.btn-calc-mini {
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    color: #fff;
+    padding: 4px 9px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-calc-mini:hover {
+    background: var(--accent-hover);
+}
+
+/* ========================================================= */
+/* Member Table UI (Member List)                             */
+/* ========================================================= */
+.member-list-container {
+    flex: 1;
+    overflow-y: auto;
+    background: var(--bg-primary);
+}
+
+.member-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11.5px;
+}
+
+.member-table th {
+    background: var(--bg-surface);
+    color: var(--text-muted);
+    font-weight: 600;
+    text-align: left;
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.member-table td {
+    padding: 6px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+}
+
+.member-row {
+    cursor: pointer;
+    transition: background 0.12s ease;
+}
+
+.member-row:hover {
+    background: var(--bg-surface);
+}
+
+.member-row.active {
+    background: rgba(59, 130, 246, 0.16);
+    border-left: 3px solid var(--accent);
+}
+
+.member-name-cell {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.member-name-input {
+    background: var(--bg-primary);
+    border: 1px solid var(--accent);
+    color: #fff;
+    font-size: 11.5px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    width: 100%;
+    outline: none;
+}
+
+.dcr-badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.dcr-badge.pass {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.dcr-badge.fail {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.dcr-badge.ready {
+    background: rgba(148, 163, 184, 0.15);
+    color: #94a3b8;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+/* ========================================================= */
+/* Dynamic Form UI                                           */
+/* ========================================================= */
+.form-scroll-wrap {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+}
+
+.schema-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+}
+
+.form-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-field-group label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form-field-group input {
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 6px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-family: var(--font-mono);
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.form-field-group input:focus {
+    border-color: var(--accent);
+}
+
+.inp-unit-badge {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--primary, #3b82f6);
+    background: rgba(59, 130, 246, 0.08);
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-family: var(--font-mono, Consolas, monospace);
+    vertical-align: middle;
+}
+
+/* Action Toolbar in Input Pane: [적용], [검토], [설계] */
+.input-action-bar {
+    display: flex;
+    gap: 8px;
+    padding: 10px 12px;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+}
+
+.btn-apply-action {
+    flex: 1;
+    background: var(--bg-surface);
+    color: #93c5fd;
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 12.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+}
+.btn-apply-action:hover {
+    background: rgba(59, 130, 246, 0.18);
+    border-color: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.btn-check-action {
+    flex: 1;
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid var(--accent);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 12.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+}
+.btn-check-action:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.btn-design-action {
+    flex: 1;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    border: 1px solid #059669;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 12.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+}
+.btn-design-action:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.35);
+}
+
+/* ========================================================= */
+/* 2-Tier Stack Input Breadcrumb Banner                      */
+/* ========================================================= */
+.input-pane-header {
+    min-height: 32px;
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--border-subtle, rgba(255,255,255,0.06));
+}
+
+.input-breadcrumb-banner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    padding: 6px 12px;
+    background: var(--bg-surface, #1e222d);
+    border-bottom: 1px solid var(--border, #2d3343);
+    font-size: 11px;
+    color: var(--text-dim, #94a3b8);
+    line-height: 1.4;
+}
+
+.bc-cat-tag {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.bc-sep {
+    color: var(--text-dim, #64748b);
+    font-weight: 700;
+    font-size: 11px;
+    user-select: none;
+}
+
+.bc-grp-tag {
+    color: var(--text-muted, #cbd5e1);
+    font-weight: 600;
+}
+
+.bc-mod-tag {
+    color: var(--text-main, #f8fafc);
+    font-weight: 700;
+}
+
+/* ========================================================= */
+/* re-DCR 4-Pillar Section Grouping Cards                    */
+/* ========================================================= */
+.form-section-card {
+    margin-bottom: 10px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: visible !important;
+    position: relative;
+}
+
+.form-section-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+}
+
+.form-section-icon {
+    font-size: 12px;
+}
+
+.form-section-body {
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 8px;
+    overflow: visible !important;
+}
+
+/* ========================================================= */
+/* Custom KS Standard Hybrid Combobox                        */
+/* ========================================================= */
+.custom-combobox-wrap {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+}
+
+.custom-combobox-wrap:focus-within {
+    z-index: 500;
+}
+
+.combo-input-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.combo-input-box input {
+    width: 100%;
+    padding-right: 26px !important;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-main);
+    height: 28px;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-family: var(--font-mono, Consolas, monospace);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.combo-input-box input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+.combo-toggle-btn {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 9px;
+    padding: 4px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.combo-toggle-btn:hover {
+    background: var(--bg-hover);
+    color: var(--accent);
+}
+
+.combo-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    right: 0;
+    min-width: 100%;
+    width: max-content;
+    max-width: 280px;
+    z-index: 1500;
+    max-height: 220px;
+    overflow-y: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 5px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    padding: 4px 0;
+}
+
+.combo-dropdown-menu.active {
+    display: block;
+    animation: comboFadeIn 0.12s ease-out;
+}
+
+@keyframes comboFadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.combo-option {
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 11.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    transition: background-color 0.1s ease;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.combo-option:last-child {
+    border-bottom: none;
+}
+
+.combo-option:hover, .combo-option.selected {
+    background-color: var(--bg-hover);
+}
+
+.combo-option-main {
+    font-weight: 700;
+    color: var(--text-main);
+    font-family: var(--font-mono, Consolas, monospace);
+}
+
+.combo-option-desc {
+    font-size: 10px;
+    color: var(--text-dim);
+}
+
+/* ========================================================= */
+/* Input Form Top Action Bar ([⚡ 검토], [✨ 설계])           */
+/* ========================================================= */
+.input-action-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background: var(--bg-card);
+    padding: 6px 0;
+}
+
+.btn-check-action, .btn-design-action {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+}
+
+.btn-check-action {
+    background: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 2px 6px var(--accent-glow);
+}
+.btn-check-action:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.btn-design-action {
+    background: rgba(16, 185, 129, 0.18);
+    color: #34d399;
+    border-color: rgba(16, 185, 129, 0.4);
+}
+.btn-design-action:hover {
+    background: rgba(16, 185, 129, 0.28);
+    color: #6ee7b7;
+    border-color: #10b981;
+    transform: translateY(-1px);
+}
+

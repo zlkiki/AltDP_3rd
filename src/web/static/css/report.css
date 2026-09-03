@@ -1,0 +1,613 @@
+/* web/css/report.css - AltDP A4 Fixed Calculation Sheet, 4-Pillars & Formula Blocks */
+
+.report-scroll-wrap {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 12px;
+    background: var(--bg-secondary);
+}
+
+/* ========================================================= */
+/* Top Summary Toolbar in Report                             */
+/* ========================================================= */
+.top-summary-toolbar {
+    position: sticky;
+    top: -12px;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 14px;
+    margin-top: -12px;
+    margin-left: -12px;
+    margin-right: -12px;
+    margin-bottom: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    gap: 8px;
+    flex-wrap: wrap;
+    backdrop-filter: blur(8px);
+}
+
+.toolbar-left, .toolbar-center, .toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-pill {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+}
+.status-pill.badge-ok {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+}
+.status-pill.badge-ng {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+}
+
+.dcr-indicator {
+    font-size: 12px;
+    font-weight: 600;
+}
+.dcr-number {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    margin-left: 4px;
+}
+
+.mini-gauge-track {
+    width: 80px;
+    height: 7px;
+    background: var(--bg-surface);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.mini-gauge-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+/* Zoom Toolbar Controls */
+.zoom-toolbar-group {
+    background: var(--bg-surface);
+    padding: 2px 6px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    gap: 4px;
+}
+
+.zoom-btn, .zoom-btn-mini {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 6px;
+    transition: all 0.15s ease;
+}
+
+.zoom-btn:hover, .zoom-btn-mini:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent);
+}
+
+#report-zoom-slider {
+    width: 70px;
+    cursor: pointer;
+    accent-color: var(--accent);
+}
+
+.zoom-label {
+    font-size: 10.5px;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    min-width: 32px;
+    text-align: center;
+}
+
+/* View Mode Toggle Group & Print Button (Unified Theme) */
+.view-toggle-group {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2px;
+    display: inline-flex;
+    gap: 2px;
+    align-items: center;
+}
+
+.btn-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 11.5px;
+    font-weight: 600;
+    font-family: var(--font-main);
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.btn-toggle:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-toggle.active {
+    background: var(--accent);
+    color: #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-print {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    font-size: 11.5px;
+    font-weight: 600;
+    font-family: var(--font-main);
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.btn-print:hover {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+    box-shadow: 0 1px 6px var(--accent-glow);
+}
+
+/* ========================================================= */
+/* A4 Zoom Viewport & Fixed White Sheet                      */
+/* ========================================================= */
+.a4-zoom-viewport {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: visible;
+}
+
+.a4-sheet-container.pure-white-sheet {
+    width: 794px !important;
+    min-width: 794px !important;
+    max-width: 794px !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    padding: 32px 28px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+    margin: 0 auto 24px auto !important;
+    box-sizing: border-box !important;
+    font-family: var(--font-main) !important;
+    line-height: 1.5 !important;
+    transform-origin: top center;
+    transition: transform 0.1s ease-out;
+}
+
+/* Ensure all text inside pure-white-sheet is crisp high contrast black/dark grey */
+.pure-white-sheet h1, .pure-white-sheet h2, .pure-white-sheet h3, .pure-white-sheet h4, .pure-white-sheet strong {
+    color: #0f172a !important;
+}
+.pure-white-sheet p, .pure-white-sheet span, .pure-white-sheet td, .pure-white-sheet th, .pure-white-sheet div, .pure-white-sheet label {
+    color: #1e293b !important;
+}
+.pure-white-sheet .text-muted, .pure-white-sheet .formula-desc {
+    color: #475569 !important;
+}
+
+/* ========================================================= */
+/* Universal 4-Pillar Container & Card Styles                */
+/* ========================================================= */
+.four-pillar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.pillar-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.pillar-card {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.pillar-card .card-header {
+    background: #f1f5f9 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+    padding: 7px 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.pillar-card .card-icon {
+    font-size: 13px !important;
+}
+
+.pillar-card .card-title {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    letter-spacing: -0.2px !important;
+}
+
+.pillar-card .card-body {
+    padding: 12px !important;
+    background: #ffffff !important;
+}
+
+/* Calculation & Step Blocks (re-DCR sheetFormulas) */
+.calc-block {
+    margin: 6px 0 10px !important;
+    font-family: var(--font-mono), Consolas, monospace !important;
+    font-size: 11px !important;
+    background: #ffffff !important;
+}
+
+.calc-title {
+    font-weight: 700 !important;
+    color: #1e3a8a !important;
+    margin-bottom: 4px !important;
+    font-family: var(--font-main), sans-serif !important;
+    font-size: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.calc-step {
+    padding: 2px 0 !important;
+    line-height: 1.4 !important;
+}
+
+.calc-formula {
+    color: #1e293b !important;
+    font-weight: 600 !important;
+}
+
+.calc-sub {
+    color: #475569 !important;
+    padding-left: 14px !important;
+    font-size: 10.5px !important;
+}
+
+.calc-result {
+    color: #047857 !important;
+    font-weight: 700 !important;
+    padding-left: 14px !important;
+    font-size: 11px !important;
+}
+
+.calc-note {
+    color: #64748b !important;
+    font-size: 10px !important;
+    font-style: italic !important;
+    padding-left: 14px !important;
+}
+
+/* Check Results Table (KDS 한계상태 종합 판정표) */
+.chk-table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin: 6px 0 !important;
+    font-size: 11px !important;
+    background: #ffffff !important;
+}
+
+.chk-table th {
+    background: #e2e8f0 !important;
+    color: #0f172a !important;
+    padding: 6px 8px !important;
+    text-align: left !important;
+    border: 1px solid #cbd5e1 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+}
+
+.chk-table td {
+    padding: 5px 8px !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #1e293b !important;
+    font-size: 11px !important;
+}
+
+.chk-pass {
+    color: #059669 !important;
+    font-weight: 700 !important;
+}
+
+.chk-fail {
+    color: #dc2626 !important;
+    font-weight: 700 !important;
+}
+
+/* Input Parameters Summary Table */
+.inp-table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin: 4px 0 !important;
+    font-size: 11px !important;
+    background: #ffffff !important;
+}
+
+.inp-table td {
+    padding: 4px 8px !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #1e293b !important;
+}
+
+.inp-label {
+    color: #334155 !important;
+    font-weight: 600 !important;
+    width: 60% !important;
+    background: #f8fafc !important;
+}
+
+.inp-val {
+    font-family: var(--font-mono), Consolas, monospace !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+}
+
+.inp-unit {
+    color: #64748b !important;
+    font-size: 10px !important;
+}
+
+.warn-box {
+    background: #fffbeb !important;
+    border-left: 3px solid #f59e0b !important;
+    color: #92400e !important;
+    padding: 6px 10px !important;
+    margin: 6px 0 !important;
+    font-size: 11px !important;
+    border-radius: 2px !important;
+}
+
+.note-box {
+    background: #eff6ff !important;
+    border-left: 3px solid #3b82f6 !important;
+    color: #1e40af !important;
+    padding: 6px 10px !important;
+    margin: 6px 0 !important;
+    font-size: 11px !important;
+    border-radius: 2px !important;
+}
+
+/* Report Dynamic Data Tables (배열 및 단면 성능 일람표) */
+.rpt-data-table {
+    margin: 8px 0 14px 0 !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+
+.rpt-data-table th {
+    background: #eef3fc !important;
+    color: #1e3a8a !important;
+    border: 1px solid #cbd5e1 !important;
+    font-size: 10.5px !important;
+    padding: 5px 6px !important;
+    text-align: center !important;
+}
+
+.rpt-data-table td {
+    padding: 4px 6px !important;
+    font-size: 10.5px !important;
+    border: 1px solid #e2e8f0 !important;
+    font-family: var(--font-mono), Consolas, monospace !important;
+}
+
+.rpt-data-table tbody tr:nth-child(even) {
+    background: #f8fafc !important;
+}
+
+.rpt-data-table tbody tr:hover {
+    background: #f1f5f9 !important;
+}
+
+/* Engineering Diagram Cards (P-M, Soil Pressure, Splice Chart) */
+.card-pm-diagram, .card-soil-diagram, .card-splice-diagram {
+    border: 1px solid #cbd5e1 !important;
+    background: #ffffff !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+}
+
+.card-pm-diagram .card-header,
+.card-soil-diagram .card-header,
+.card-splice-diagram .card-header {
+    background: #f8fafc !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #1e3a8a !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.card-pm-diagram .card-body,
+.card-soil-diagram .card-body,
+.card-splice-diagram .card-body {
+    background: #ffffff !important;
+    padding: 12px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.card-pm-diagram svg,
+.card-soil-diagram svg,
+.card-splice-diagram svg {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* ========================================================= */
+/* Standardized Report Global Typography & Design Tokens     */
+/* Shared across Special Modules (Beam/Col/Steel/Footing/etc)*/
+/* and General Modules (RedcrCommonRenderer)                 */
+/* ========================================================= */
+.pure-white-sheet, .a4-sheet-page, .a4-print-container {
+    font-family: 'Segoe UI', Arial, -apple-system, sans-serif !important;
+    color: #222222 !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+}
+
+/* Master Section Headings */
+.pure-white-sheet h1, .a4-print-container h1, .a4-sheet-page h1 {
+    font-size: 20px !important;
+    color: #1a3a5c !important;
+    border-bottom: 3px solid #1a3a5c !important;
+    padding-bottom: 8px !important;
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+    font-weight: 700 !important;
+}
+
+.pure-white-sheet h2, .a4-print-container h2, .a4-sheet-page h2 {
+    font-size: 14.5px !important;
+    color: #1a3a5c !important;
+    background: #eef3fc !important;
+    margin: 22px 0 10px !important;
+    padding: 6px 12px !important;
+    border-left: 4px solid #1565c0 !important;
+    font-weight: 700 !important;
+}
+
+.pure-white-sheet h3, .a4-print-container h3, .a4-sheet-page h3 {
+    font-size: 12.5px !important;
+    color: #1565c0 !important;
+    margin: 12px 0 6px !important;
+    border-left: 3px solid #90caf9 !important;
+    padding-left: 8px !important;
+    font-weight: 600 !important;
+}
+
+/* Spec & Material Summary Banner */
+.rpt-spec-banner {
+    background: #eef3fc !important;
+    border-left: 4px solid #1565c0 !important;
+    padding: 8px 12px !important;
+    margin-bottom: 14px !important;
+    font-size: 12.5px !important;
+    color: #1a3a5c !important;
+    border-radius: 2px !important;
+}
+
+/* Summary Box & Summary Table */
+.summary-box {
+    background: #f0f6ff !important;
+    border: 1px solid #c5d9f7 !important;
+    border-left: 3px solid #1565c0 !important;
+    padding: 8px 12px !important;
+    margin: 8px 0 12px !important;
+    border-radius: 2px !important;
+}
+
+table.summary-tbl {
+    border-collapse: collapse !important;
+    width: 100% !important;
+}
+
+table.summary-tbl td {
+    padding: 4px 8px !important;
+    font-size: 12.5px !important;
+    border-bottom: 1px solid #e0eaf7 !important;
+    color: #1a3a5c !important;
+}
+
+/* Engineering Data Table (dt) */
+table.dt {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin-bottom: 8px !important;
+}
+
+table.dt td {
+    padding: 4px 8px !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+    font-size: 12.5px !important;
+    font-family: Consolas, monospace !important;
+    color: #222222 !important;
+}
+
+table.dt td:first-child {
+    color: #1a3a5c !important;
+    font-family: 'Segoe UI', Arial, sans-serif !important;
+    font-weight: 600 !important;
+}
+
+table.dt td.kds {
+    color: #888888 !important;
+    font-size: 10px !important;
+    text-align: right !important;
+    font-family: 'Segoe UI', Arial, sans-serif !important;
+}
+
+/* Trial / Iteration Table */
+table.trial-tbl {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin-bottom: 8px !important;
+    font-size: 11.5px !important;
+}
+
+table.trial-tbl th {
+    background: #1a3a5c !important;
+    color: #ffffff !important;
+    padding: 4px 6px !important;
+    text-align: center !important;
+    font-size: 11px !important;
+}
+
+table.trial-tbl td {
+    border: 1px solid #dddddd !important;
+    padding: 3px 6px !important;
+    text-align: right !important;
+    font-family: Consolas, monospace !important;
+    color: #222222 !important;
+}
+
+/* Standardized OK / NG Badges */
+.ok, .chk-pass {
+    color: #065f46 !important;
+    font-weight: 700 !important;
+}
+
+.ng, .chk-fail {
+    color: #991b1b !important;
+    font-weight: 700 !important;
+}

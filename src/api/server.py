@@ -20,6 +20,8 @@ from src.api.routes.special import router as special_router
 from src.api.routes.interop import router as interop_router
 from src.api.routes.quantity import router as quantity_router
 from src.api.routes.international import router as international_router
+from src.api.routes.schema import router as schema_router
+from src.api.routes.dispatch import router as dispatch_router
 
 # Base paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -44,6 +46,12 @@ app.add_middleware(
 # Mount static files
 if os.path.exists(STATIC_DIR):
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+    css_dir = os.path.join(STATIC_DIR, "css")
+    js_dir = os.path.join(STATIC_DIR, "js")
+    if os.path.exists(css_dir):
+        app.mount("/css", StaticFiles(directory=css_dir), name="css")
+    if os.path.exists(js_dir):
+        app.mount("/js", StaticFiles(directory=js_dir), name="js")
 
 # Templates or Direct HTML loader
 try:
@@ -64,6 +72,8 @@ app.include_router(fem_router)
 app.include_router(interop_router)
 app.include_router(quantity_router)
 app.include_router(international_router)
+app.include_router(schema_router)
+app.include_router(dispatch_router)
 
 
 @app.get("/", response_class=HTMLResponse)

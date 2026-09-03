@@ -1,0 +1,111 @@
+/* web/css/print.css - AltDP Print Media Styles for Standalone A4 KDS Report */
+
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 12mm 15mm 15mm 15mm;
+    }
+
+    body, html {
+        background: #ffffff !important;
+        color: #000000 !important;
+        height: auto !important;
+        min-height: 100% !important;
+        overflow: visible !important;
+    }
+
+    .app-layout {
+        height: auto !important;
+        display: block !important;
+    }
+
+    /* 1. 상단 네비게이션, 사이드바, 모든 리사이저 완전 제외 */
+    .top-nav,
+    .sidebar,
+    .resizer-h,
+    .resizer-v,
+    .pane-actions,
+    .graphic-toolbar,
+    .report-top-actions,
+    .top-summary-toolbar,
+    .input-action-bar,
+    .pane-header {
+        display: none !important;
+    }
+
+    /* 2. [출력 제외]: 부재 리스트, 사용자 입력부, 그래픽 정보부 (좌측 전체) */
+    .left-main-pane,
+    .left-sub-pane,
+    .member-pane,
+    .input-pane,
+    .graphic-pane,
+    #pane-left-main,
+    #pane-left-sub,
+    #pane-member-list,
+    #pane-input-form,
+    #pane-graphic-view {
+        display: none !important;
+    }
+
+    /* 3. [출력 대상]: 우측 기준검토부 & A4 계산서만 100% 전체 폭으로 렌더링 */
+    .workspace,
+    .workspace-body {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        border: none !important;
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .right-report-pane,
+    #pane-right-report {
+        display: block !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+        border: none !important;
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .report-scroll-wrap {
+        padding: 0 !important;
+        background: #ffffff !important;
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    .a4-zoom-viewport {
+        display: block !important;
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
+    .a4-sheet-container.pure-white-sheet {
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        transform: none !important;
+        background: #ffffff !important;
+        page-break-after: auto;
+    }
+
+    .pillar-card {
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+        page-break-inside: avoid;
+    }
+
+    .chk-table, .inp-table, .calc-block {
+        page-break-inside: avoid;
+    }
+}
