@@ -15,6 +15,17 @@ async function initApp() {
     if (window.ThemeManager) window.ThemeManager.init();
     if (window.LayoutResizer) window.LayoutResizer.init();
     if (window.MemberManager) window.MemberManager.init();
+    if (window.ModuleDispatcher) {
+        window.ModuleDispatcher.init({
+            canvas: document.getElementById('sectionCanvas'),
+            pmCanvas: document.getElementById('pmChartCanvas'),
+            formContainer: document.getElementById('dynamic-form'),
+            reportContainer: document.getElementById('result-container')
+        });
+    }
+    if (window.TreeMenu) {
+        window.TreeMenu.init('module-accordion', 'sidebar-cat-pills');
+    }
 
     // 2. Setup Controls
     setupUnitSelector();

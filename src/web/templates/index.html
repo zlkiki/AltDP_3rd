@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="/static/css/canvas.css">
     <link rel="stylesheet" href="/static/css/report.css">
     <link rel="stylesheet" href="/static/css/print.css">
+    <link rel="stylesheet" href="/static/css/tree_menu.css">
+    <link rel="stylesheet" href="/static/css/vdraw.css">
+    <link rel="stylesheet" href="/static/css/modal.css">
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
@@ -226,6 +229,27 @@
     <!-- ========================================================= -->
     <!-- Script Architecture (Layered & Modular Zero-Build)        -->
     <!-- ========================================================= -->
+    <!-- 0. Core Event Bus & Module Dispatcher & VDraw Layer -->
+    <script src="/static/js/core/event_bus.js?v=20.8"></script>
+    <script src="/static/js/core/dispatcher.js?v=20.8"></script>
+    <script src="/static/js/core/context_menu.js?v=20.8"></script>
+    <script src="/static/js/core/tree_menu.js?v=20.8"></script>
+    <script src="/static/js/core/vdraw_engine.js?v=20.8"></script>
+    <script src="/static/js/core/vdraw_primitives.js?v=20.8"></script>
+    <script src="/static/js/core/pm_chart_vdraw.js?v=20.8"></script>
+    <script src="/static/js/core/modal_manager.js?v=20.8"></script>
+    <script src="/static/js/core/common_dialogs.js?v=20.8"></script>
+    <script src="/static/js/core/form_builder.js?v=20.8"></script>
+    <script src="/static/js/core/report_katex.js?v=20.8"></script>
+    <script src="/static/js/core/report_renderer.js?v=20.8"></script>
+
+    <!-- 0.1 Specialized Flagship Member Modules -->
+    <script src="/static/js/modules/rc_beam/rc_beam_module.js?v=20.8"></script>
+    <script src="/static/js/modules/rc_column/rc_column_module.js?v=20.8"></script>
+    <script src="/static/js/modules/rc_slab/rc_slab_module.js?v=20.8"></script>
+    <script src="/static/js/modules/steel_beam/steel_beam_module.js?v=20.8"></script>
+    <script src="/static/js/modules/steel_baseplate/steel_baseplate_module.js?v=20.8"></script>
+
     <!-- 1. Central Store & Unit Management Layer (SSOT) -->
     <script src="/static/js/store/unit_manager.js?v=20.8"></script>
     <script src="/static/js/store/project_store.js?v=20.8"></script>

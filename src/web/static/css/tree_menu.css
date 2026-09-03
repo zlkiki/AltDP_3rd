@@ -1,0 +1,122 @@
+/* tree_menu.css - AltDP 1열 WorkTree 6대 탭 및 트리 노드, 우클릭 컨텍스트 메뉴 스타일 */
+
+.tree-menu-root {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 6px;
+}
+
+.tree-node.module-node {
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+
+.tree-node.module-node:hover {
+    background: var(--bg-surface);
+    border-color: var(--border-light);
+    transform: translateX(2px);
+}
+
+.tree-node.module-node.selected {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: var(--accent);
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.2);
+}
+
+.tree-node-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+}
+
+.tree-node-icon {
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+}
+
+.tree-node-title {
+    font-weight: 600;
+    color: var(--text-main);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tree-node-dim {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+.tree-node-badge {
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+}
+
+.badge-ok {
+    background: rgba(16, 185, 129, 0.18);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-ng {
+    background: rgba(239, 68, 68, 0.18);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* 우클릭 컨텍스트 메뉴 */
+.app-context-menu {
+    position: fixed;
+    z-index: 9999;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    padding: 4px;
+    min-width: 150px;
+    font-family: var(--font-main);
+    color: #f8fafc;
+}
+
+.app-context-menu .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.12s ease;
+}
+
+.app-context-menu .menu-item:hover {
+    background: #334155;
+    color: #38bdf8;
+}
+
+.app-context-menu .menu-item.menu-danger:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.app-context-menu .menu-divider {
+    height: 1px;
+    background: #334155;
+    margin: 4px 0;
+}

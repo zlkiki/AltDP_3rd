@@ -1,0 +1,59 @@
+/* vdraw.css - AltDP 2열 캔버스 CAD 뷰포트 오버레이 및 툴바 스타일 */
+
+.vdraw-viewport-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #0b0f19;
+}
+
+.vdraw-overlay-toolbar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 6px;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 4px;
+    z-index: 10;
+}
+
+.vdraw-tool-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #94a3b8;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.vdraw-tool-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f8fafc;
+}
+
+.vdraw-tool-btn.active {
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.vdraw-canvas-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 11px;
+    font-family: var(--font-mono, monospace);
+    color: #64748b;
+    background: rgba(15, 23, 42, 0.7);
+    padding: 3px 8px;
+    border-radius: 4px;
+    pointer-events: none;
+}
