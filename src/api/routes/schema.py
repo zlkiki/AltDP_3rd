@@ -13,11 +13,14 @@ router = APIRouter(tags=["schema"])
 
 @router.get("/api/modules")
 def list_modules() -> Dict[str, Any]:
-    """Returns metadata for all auto-discovered member design modules (54 modules)."""
+    """Returns metadata for all 61 member design modules with 3-tier classifications and summary stats."""
     modules = get_all_modules_meta()
+    from src.api.models.wip import get_catalog_stats
+    summary = get_catalog_stats()
     return {
         "modules": modules,
-        "total_count": len(modules)
+        "total_count": len(modules),
+        "summary": summary
     }
 
 

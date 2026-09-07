@@ -7,28 +7,29 @@ client = TestClient(app)
 
 
 def test_get_all_modules():
-    """Verify listing all 54 member design modules."""
+    """Verify listing all 61 member design modules."""
     response = client.get("/api/modules")
     assert response.status_code == 200
     data = response.json()
     
     assert "modules" in data
     assert "total_count" in data
-    assert data["total_count"] == 54
-    assert len(data["modules"]) == 54
+    assert "summary" in data
+    assert data["total_count"] == 61
+    assert len(data["modules"]) == 61
     
-    # Check sample modules across categories
+    # Check sample modules across tiers
     keys = [m["key"] for m in data["modules"]]
-    assert "rc/beam/base" in keys
-    assert "rc/column/base" in keys
-    assert "rc/footing/base" in keys
-    assert "rc/slab/base" in keys
-    assert "rc/wall/base" in keys
-    assert "steel/member/beam" in keys
-    assert "steel/member/column" in keys
-    assert "steel/connection/baseplate" in keys
-    assert "pc/beam/pc_beam" in keys
-    assert "misc/special/bracket" in keys
+    assert "rc/beam/rc_beam" in keys
+    assert "rc/column/rc_column" in keys
+    assert "rc/footing/rc_iso_footing" in keys
+    assert "rc/slab/rc_slab" in keys
+    assert "rc/wall/rc_shear_wall" in keys
+    assert "steel/beam/steel_beam_column" in keys
+    assert "steel/baseplate/steel_baseplate" in keys
+    assert "steel/conn/steel_bolt_conn" in keys
+    assert "fem/foundation/foundation_fem" in keys
+    assert "rc/special/rc_stair" in keys
 
 
 def test_get_module_schema():

@@ -85,13 +85,72 @@ def auto_discover_modules():
 def get_module(category: str, group: str, module_id: str) -> Optional[Dict[str, Any]]:
     """Retrieves registered module entry by category/group/id."""
     key = f"{category}/{group}/{module_id}"
-    return REGISTRY.get(key)
+    if key in REGISTRY:
+        return REGISTRY[key]
+        
+    # Check by primary ID or aliases
+    for reg_key, mod in REGISTRY.items():
+        if mod.get("id") == module_id or reg_key.endswith(f"/{module_id}"):
+            return mod
+
+    # Fallback to 61-module catalog if unintegrated or WIP
+    from src.api.models.wip import get_wip_module_detail
+    detail = get_wip_module_detail(category, group, module_id)
+    if detail:
+        return {
+            "key": detail.key,
+            "category": detail.category,
+            "group": detail.group,
+            "id": module_id,
+            "info": {
+                "name": detail.name,
+                "category": detail.category,
+                "group": detail.group,
+                "submodule": module_id,
+                "midas_dlg": detail.midas_dlg,
+                "tier": detail.tier,
+                "standard": detail.standard,
+                "engine_status": detail.engine_status,
+                "notice": detail.notice
+            },
+            "schema_cls": None,
+            "schema_json": {
+                "title": detail.name,
+                "type": "object",
+                "properties": {},
+                "description": f"[{detail.tier}] {detail.name} ({detail.standard}) - {detail.engine_status}"
+            },
+            "calculate": None
+        }
+
+    return None
 
 
 def get_all_modules_meta() -> list:
-    """Returns metadata of all registered modules."""
-    return MODULE_LIST
+    """Returns metadata of all 61 original app member modules with 3-tier classifications."""
+    from src.api.models.wip import MODULE_CATALOG_61
+    
+    full_catalog_list = []
+    for mod_id, meta in MODULE_CATALOG_61.items():
+        entry = {
+            "key": meta["key"],
+            "category": meta["category"],
+            "group": meta["group"],
+            "id": meta.get("id", mod_id),
+            "name": meta["name"],
+            "midas_dlg": meta["midas_dlg"],
+            "tier": meta["tier"],
+            "standard": meta["standard"],
+            "engine_status": meta["engine_status"],
+            "domain": meta.get("domain", "RC"),
+            "geomType": meta.get("geomType", "rc_rect"),
+            "description": meta.get("description", f"{meta['name']} ({meta['standard']})"),
+            "aliases": meta.get("aliases", [])
+        }
+        full_catalog_list.append(entry)
+    return full_catalog_list
 
 
 # Initial scan on module import
 auto_discover_modules()
+

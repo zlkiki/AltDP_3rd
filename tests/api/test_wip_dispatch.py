@@ -44,11 +44,11 @@ def test_wip_pydantic_schema_serialization():
 def test_wip_dispatch_unintegrated_modules():
     """Test calling unintegrated catalog modules returns HTTP 200 with WIPResponse."""
     wip_targets = [
-        ("rc", "wall", "rc_basement_wall"),
-        ("steel", "member", "steel_brace"),
         ("rc", "special", "rc_stair"),
+        ("steel", "special", "steel_stair"),
+        ("rc", "special", "rc_buttress"),
         ("rfm", "beam", "rfm_beam"),
-        ("src", "column", "src_cft_column")
+        ("pbd", "rc", "pbd_rc_beam")
     ]
     
     for cat, grp, mod in wip_targets:
@@ -132,7 +132,7 @@ def test_get_design_status_endpoint():
     assert data_v["is_wip"] is False
 
     # WIP module
-    resp_wip = client.get("/api/design/rc/wall/rc_basement_wall/status")
+    resp_wip = client.get("/api/design/rc/special/rc_stair/status")
     assert resp_wip.status_code == 200
     data_w = resp_wip.json()
     assert data_w["engine_status"] == "WIP"
