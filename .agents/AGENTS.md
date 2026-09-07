@@ -4,7 +4,7 @@
 
 > [!IMPORTANT]
 > **🚨 필수 선행 열람 규약 (Mandatory Protocol)**:
-> 새로운 세션 시작이나 작업 착수 시, 특히 **수직 구현계획(Vertical Slice) 수립 및 요구사항 문서 작성/검토 시**, 모든 세부 개발 프로토콜과 행동 규약의 단일 진실 공급원(SSOT)인 **[`docs/10_agent_development_protocols.md`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)**, Goal 마이크로 공정 지침인 **[`docs/16_goal_micro_execution_protocol.md`](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md)**, 그리고 4-Pane 워크스페이스 및 웹 UI/UX 연동 표준인 **[`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)**를 **반드시 함께 열람(`view_file`)**해야 합니다.
+> 새로운 세션 시작이나 AI 모델 교체, 작업 착수 시, 특히 **수직 구현계획(Vertical Slice) 수립 및 요구사항 문서 작성/검토 시**, 모든 세부 개발 프로토콜과 행동 규약의 단일 진실 공급원(SSOT)인 **[`docs/10_agent_development_protocols.md`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)**, Goal 마이크로 공정 지침인 **[`docs/16_goal_micro_execution_protocol.md`](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md)**, 4-Pane 워크스페이스 및 웹 UI/UX 연동 표준인 **[`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)**, 그리고 프로젝트 진행 상태 및 모델 핸드오버 SSOT인 **[`docs/PROJECT_PROGRESS.md`](file:///f:/PyProject/AltDP_3rd/docs/PROJECT_PROGRESS.md)**를 **반드시 함께 열람(`view_file`)**해야 합니다. /goal 실행 프롬프트는 **[`요구사항/GOAL_COMMANDS.md`](file:///f:/PyProject/AltDP_3rd/요구사항/GOAL_COMMANDS.md)**를 참조합니다.
 
 ---
 
@@ -83,11 +83,17 @@
     - **사후 리팩토링 원칙**: 포팅 과정에서 수퍼파일이 발생할 경우 무리하게 조기 분할하지 않으며, 부재 기능 완성 및 오차 검증 완료 후 추후 리팩토링 단계에서 체계적으로 분할 정리.
 11. **단위 작업 = 1 커밋 & 원격 푸시 완수**:
     - 단위 작업(Phase/Step) 완료 즉시 1개의 Git 커밋을 생성하고 원격(`git push origin main`)까지 완료.
+12. **외부 기억 파일 유지보수 및 세션/모델 핸드오버 규약 (External Memory Mandate)**:
+    - AI 모델 교체나 새 세션 시작 시 **[`docs/PROJECT_PROGRESS.md`](file:///f:/PyProject/AltDP_3rd/docs/PROJECT_PROGRESS.md)**를 즉시 열람하여 프로젝트 스냅샷, 직전 커밋, 다음 작업 번호를 100% 복원.
+    - 단위 작업(Phase/Step) 완료 직전, 해당 진행 상태를 `docs/PROJECT_PROGRESS.md`에 즉시 반영하고 Git 커밋에 동봉.
+    - `/goal` 명령문 실행 및 제안 시 **[`요구사항/GOAL_COMMANDS.md`](file:///f:/PyProject/AltDP_3rd/요구사항/GOAL_COMMANDS.md)**의 정밀 프롬프트를 1순위로 사용.
 
 ---
 
 ## 4. 상세 기술 문서 및 프로토콜 레퍼런스 (SSOT)
 
+* 📌 **[마스터 진행 현황 및 외부 기억 (PROJECT_PROGRESS.md)](file:///f:/PyProject/AltDP_3rd/docs/PROJECT_PROGRESS.md)** (스냅샷, 매트릭스, 모델 핸드오버 프로토콜)
+* ⚡ **[마스터 /goal 명령문 모음집 (GOAL_COMMANDS.md)](file:///f:/PyProject/AltDP_3rd/요구사항/GOAL_COMMANDS.md)** (Phase 20~26 원클릭 실행 프롬프트 인덱스)
 * 🚦 **[16. Goal 마이크로 공정 표준 실행 지침](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md)** (5대 정밀 공정, 단독 완수 원칙, TDD, Proof-First)
 * 💻 **[07. Web UI/UX 및 원본앱 역공학 통합 사양](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)** (4-Pane 워크스페이스, 세로 적층 뷰포트, 순백색 A4 계산서, Step 1~5 UI/UX 결합 표준)
 * 📖 **[10. 상세 개발 프로토콜 및 KDS 연동 가이드](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)** (모델 전략, Self-Healing, 상세 규약)

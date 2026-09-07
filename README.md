@@ -15,6 +15,11 @@
 
 ---
 
+> 📌 **마스터 진행 현황 및 외부 기억 (SSOT)**: [`docs/PROJECT_PROGRESS.md`](file:///f:/PyProject/AltDP_3rd/docs/PROJECT_PROGRESS.md)  
+> ⚡ **마스터 /goal 명령문 모음집**: [`요구사항/GOAL_COMMANDS.md`](file:///f:/PyProject/AltDP_3rd/요구사항/GOAL_COMMANDS.md)
+
+---
+
 ## 1. 프로젝트 개요 (Overview)
 
 **AltDP_3rd**는 국내 상용 건축구조 부재설계 프로그램인 **원본앱**의 모든 공학 해석·설계 알고리즘과 형강 라이브러리를 **순수 Python/FastAPI + 모던 웹(HTML5 Canvas/SVG) 기반으로 100% 완전 마이그레이션(Full Web Migration)**하는 차세대 엔지니어링 플랫폼입니다.
