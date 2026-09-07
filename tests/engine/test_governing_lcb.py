@@ -1,9 +1,9 @@
-"""Tests for MIDAS Gen Internal Forces Parser and Governing LCB Selector (Phase 16-2)."""
+"""Tests for 3D Frame Internal Forces Parser and Governing LCB Selector (Phase 16-2)."""
 
 import sqlite3
 import pytest
 from src.engine.interop.model_schema import MemberForce
-from src.engine.interop.mgb_parser import MidasForceParser
+from src.engine.interop.mgb_parser import FrameForceParser
 from src.engine.interop.governing_lcb import GoverningLCBSelector
 
 
@@ -26,7 +26,7 @@ SAMPLE_FORCE_MGT = """
 
 def test_mgt_force_parsing():
     """Test parsing 6-DOF internal forces from MGT text."""
-    forces = MidasForceParser.parse_mgt_forces(SAMPLE_FORCE_MGT)
+    forces = FrameForceParser.parse_mgt_forces(SAMPLE_FORCE_MGT)
     assert 1 in forces
     assert 2 in forces
     assert len(forces[1]) == 6
@@ -43,7 +43,7 @@ def test_mgt_force_parsing():
 
 def test_sqlite_force_parsing(tmp_path):
     """Test parsing internal forces from SQLite/MGB database."""
-    db_file = tmp_path / "test_midas.db"
+    db_file = tmp_path / "test_frame.db"
     conn = sqlite3.connect(str(db_file))
     cursor = conn.cursor()
     cursor.execute("""
@@ -64,7 +64,7 @@ def test_sqlite_force_parsing(tmp_path):
     conn.commit()
     conn.close()
 
-    forces = MidasForceParser.parse_sqlite_forces(str(db_file))
+    forces = FrameForceParser.parse_sqlite_forces(str(db_file))
     assert 10 in forces
     assert len(forces[10]) == 2
     assert forces[10][1].mz == 75.0

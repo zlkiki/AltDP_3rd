@@ -1,12 +1,13 @@
-"""Tests for MIDAS Gen MGT parser and 3D model construction (Phase 16-1)."""
+"""Tests for 3D Frame MGT parser and 3D model construction (Phase 16-1)."""
 
 import time
 import pytest
+from src.engine.interop.model_schema import FrameModel3D
 from src.engine.interop.mgt_parser import MGTParser
 
 
 SAMPLE_MGT = """
-; MIDAS Gen MGT Script Test Sample
+; 3D Frame MGT Script Test Sample
 *NODE
 1, 0.0, 0.0, 0.0
 2, 6000.0, 0.0, 0.0
@@ -51,6 +52,7 @@ def test_mgt_parsing_nodes_and_elements():
     parser = MGTParser()
     model = parser.parse_string(SAMPLE_MGT)
 
+    assert isinstance(model, FrameModel3D)
     assert len(model.nodes) == 6
     assert model.nodes[1].x == 0.0
     assert model.nodes[1].z == 0.0

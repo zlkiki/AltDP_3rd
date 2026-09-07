@@ -1,4 +1,4 @@
-"""Parser for MIDAS Gen Internal Forces from MGT scripts and SQLite/Access DBs.
+"""Parser for 3D Frame Model Internal Forces from MGT scripts and SQLite/Access DBs.
 
 Extracts 6-DOF internal forces (P, Vy, Vz, My, Mz, T) across load combinations
 and member positions (I, M, J).
@@ -10,8 +10,8 @@ import re
 from .model_schema import MemberForce
 
 
-class MidasForceParser:
-    """Parser for MIDAS Gen load combinations and member forces."""
+class FrameForceParser:
+    """Parser for 3D Frame Model load combinations and member forces."""
 
     @staticmethod
     def parse_mgt_forces(content: str) -> Dict[int, List[MemberForce]]:
@@ -47,7 +47,7 @@ class MidasForceParser:
                         elem_id = int(parts[0])
                         lcb_name = parts[1]
                         pos = parts[2].upper()
-                        # Some Gen exports have: P, Vy, Vz, T, My, Mz or P, Vy, Vz, My, Mz, T
+                        # Standard export formats: P, Vy, Vz, T, My, Mz or P, Vy, Vz, My, Mz, T
                         p = float(parts[3])
                         vy = float(parts[4])
                         vz = float(parts[5])

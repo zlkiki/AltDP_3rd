@@ -1,4 +1,4 @@
-"""Batch Design Checking Engine for MIDAS Gen 3D Frame Models.
+"""Batch Design Checking Engine for 3D Frame Models.
 
 Dispatches members to RC and Steel design engines and aggregates
 DCRs, governing LCBs, and pass/fail safety evaluations per story and member.
@@ -8,7 +8,7 @@ from typing import List, Dict, Any, Optional
 from pydantic import BaseModel, Field
 import time
 
-from src.engine.interop.model_schema import MidasModel3D, MemberForce, GoverningForceSummary
+from src.engine.interop.model_schema import FrameModel3D, MemberForce, GoverningForceSummary
 from src.engine.interop.governing_lcb import GoverningLCBSelector
 from src.engine.rc.beam import design_rc_beam, RCBeamInput
 from src.engine.rc.column import design_rc_column, RCColumnInput
@@ -47,7 +47,7 @@ class BatchDesignChecker:
     @classmethod
     def run_batch_check(
         cls,
-        model: MidasModel3D,
+        model: FrameModel3D,
         forces_by_elem: Dict[int, List[MemberForce]],
         story_filter: Optional[str] = None
     ) -> BatchDesignSummary:

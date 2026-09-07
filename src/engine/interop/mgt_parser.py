@@ -1,4 +1,4 @@
-"""MIDAS Gen MGT Text Script Parser and 3D Frame Model Builder.
+"""3D Frame MGT Text Script Parser and Model Builder.
 
 High-performance parser for .mgt files extracting nodes, elements,
 materials, sections, and stories with automated member classification.
@@ -7,23 +7,23 @@ materials, sections, and stories with automated member classification.
 import math
 from typing import Dict, List, Optional, Tuple
 from src.engine.interop.model_schema import (
-    MidasNode,
-    MidasElement,
-    MidasMaterial,
-    MidasSection,
-    MidasStory,
-    MidasModel3D,
+    FrameNode,
+    FrameElement,
+    FrameMaterial,
+    FrameSection,
+    FrameStory,
+    FrameModel3D,
 )
 
 
 class MGTParser:
-    """Parser for MIDAS Gen .mgt text script."""
+    """Parser for 3D Frame Model .mgt text script."""
 
     def __init__(self):
         self.raw_blocks: Dict[str, List[str]] = {}
 
-    def parse_string(self, text: str) -> MidasModel3D:
-        """Parse entire MGT script string into MidasModel3D."""
+    def parse_string(self, text: str) -> FrameModel3D:
+        """Parse entire MGT script string into FrameModel3D."""
         self._split_command_blocks(text)
 
         nodes = self._parse_nodes()
@@ -32,7 +32,7 @@ class MGTParser:
         stories = self._parse_stories()
         elements = self._parse_elements(nodes, stories)
 
-        return MidasModel3D(
+        return FrameModel3D(
             nodes=nodes,
             elements=elements,
             materials=materials,
@@ -40,7 +40,7 @@ class MGTParser:
             stories=stories,
         )
 
-    def parse_file(self, file_path: str) -> MidasModel3D:
+    def parse_file(self, file_path: str) -> FrameModel3D:
         """Parse MGT script from file."""
         with open(file_path, "r", encoding="utf-8", errors="replace") as f:
             content = f.read()
@@ -79,9 +79,9 @@ class MGTParser:
             return [t.strip() for t in line.split(",") if t.strip()]
         return line.split()
 
-    def _parse_nodes(self) -> Dict[int, MidasNode]:
+    def _parse_nodes(self) -> Dict[int, FrameNode]:
         """Parse *NODE command block."""
-        nodes: Dict[int, MidasNode] = {}
+        nodes: Dict[int, FrameNode] = {}
         lines = self.raw_blocks.get("*NODE", [])
 
         for line in lines:
@@ -92,14 +92,14 @@ class MGTParser:
                     x = float(tokens[1])
                     y = float(tokens[2])
                     z = float(tokens[3])
-                    nodes[nid] = MidasNode(node_id=nid, x=x, y=y, z=z)
+                    nodes[nid] = FrameNode(node_id=nid, x=x, y=y, z=z)
                 except (ValueError, IndexError):
                     continue
         return nodes
 
-    def _parse_materials(self) -> Dict[int, MidasMaterial]:
+    def _parse_materials(self) -> Dict[int, FrameMaterial]:
         """Parse *MATERIAL command block."""
-        materials: Dict[int, MidasMaterial] = {}
+        materials: Dict[int, FrameMaterial] = {}
         lines = self.raw_blocks.get("*MATERIAL", [])
 
         i = 0
@@ -115,7 +115,7 @@ class MGTParser:
                 mtype = tokens[1].upper() if len(tokens) > 1 else "CONC"
                 name = tokens[2] if len(tokens) > 2 else f"MAT_{mid}"
 
-                mat = MidasMaterial(mat_id=mid, mat_type=mtype, name=name)
+                mat = FrameMaterial(mat_id=mid, mat_type=mtype, name=name)
 
                 # Next line often contains elastic modulus, poisson ratio, etc.
                 if i + 1 < len(lines) and not lines[i + 1].startswith("*"):
@@ -150,9 +150,9 @@ class MGTParser:
 
         return materials
 
-    def _parse_sections(self) -> Dict[int, MidasSection]:
+    def _parse_sections(self) -> Dict[int, FrameSection]:
         """Parse *SECTION command block."""
-        sections: Dict[int, MidasSection] = {}
+        sections: Dict[int, FrameSection] = {}
         lines = self.raw_blocks.get("*SECTION", [])
 
         i = 0
@@ -174,7 +174,7 @@ class MGTParser:
                 else:
                     shape_hint = sec_type
 
-                sec = MidasSection(sec_id=sec_id, sec_type=shape_hint, sec_name=sec_name)
+                sec = FrameSection(sec_id=sec_id, sec_type=shape_hint, sec_name=sec_name)
 
                 # Check if dimensions follow on next lines
                 if i + 1 < len(lines) and not lines[i + 1].startswith("*"):
@@ -189,7 +189,7 @@ class MGTParser:
 
         return sections
 
-    def _populate_sec_dims(self, sec: MidasSection, tokens: List[str]) -> None:
+    def _populate_sec_dims(self, sec: FrameSection, tokens: List[str]) -> None:
         """Extract dimension attributes (h, b, tw, tf) from tokens."""
         dims: List[float] = []
         for t in tokens:
@@ -229,9 +229,9 @@ class MGTParser:
             sec.h = dims[0]
             sec.b = dims[1]
 
-    def _parse_stories(self) -> List[MidasStory]:
+    def _parse_stories(self) -> List[FrameStory]:
         """Parse *STORY command block."""
-        stories: List[MidasStory] = []
+        stories: List[FrameStory] = []
         lines = self.raw_blocks.get("*STORY", [])
 
         for line in lines:
@@ -241,7 +241,7 @@ class MGTParser:
                     name = tokens[0]
                     height = float(tokens[1])
                     elev = float(tokens[2])
-                    stories.append(MidasStory(name=name, height=height, elevation=elev))
+                    stories.append(FrameStory(name=name, height=height, elevation=elev))
                 except (ValueError, IndexError):
                     continue
         # Sort stories by elevation ascending
@@ -249,10 +249,10 @@ class MGTParser:
         return stories
 
     def _parse_elements(
-        self, nodes: Dict[int, MidasNode], stories: List[MidasStory]
-    ) -> Dict[int, MidasElement]:
+        self, nodes: Dict[int, FrameNode], stories: List[FrameStory]
+    ) -> Dict[int, FrameElement]:
         """Parse *ELEMENT command block and categorize elements."""
-        elements: Dict[int, MidasElement] = {}
+        elements: Dict[int, FrameElement] = {}
         lines = self.raw_blocks.get("*ELEMENT", [])
 
         for line in lines:
@@ -297,7 +297,7 @@ class MGTParser:
                     else:
                         story_name = None
 
-                    elements[eid] = MidasElement(
+                    elements[eid] = FrameElement(
                         elem_id=eid,
                         elem_type=elem_type,
                         mat_id=mat_id,
@@ -330,7 +330,7 @@ class MGTParser:
         else:
             return "BRACE"
 
-    def _find_story_for_elevation(self, z: float, stories: List[MidasStory]) -> Optional[str]:
+    def _find_story_for_elevation(self, z: float, stories: List[FrameStory]) -> Optional[str]:
         """Find the corresponding story name for a given elevation Z."""
         if not stories:
             return None
@@ -345,3 +345,7 @@ class MGTParser:
                 return s.name
 
         return stories[0].name
+
+
+MgtParser = MGTParser
+

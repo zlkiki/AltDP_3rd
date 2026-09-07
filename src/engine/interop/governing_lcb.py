@@ -67,7 +67,7 @@ class GoverningLCBSelector:
         indexed_forces = list(enumerate(forces))
 
         # 1. Max Compression (most negative P if standard sign, or max abs(P))
-        # Note: In standard Midas, compression is often (-) or (+) depending on convention.
+        # Note: In standard 3D frame conventions, compression is often (-) or (+) depending on convention.
         # We consider both max positive P (Tension) and max negative P (Compression).
         idx_max_p = max(indexed_forces, key=lambda x: x[1].p)[0]
         idx_min_p = min(indexed_forces, key=lambda x: x[1].p)[0]

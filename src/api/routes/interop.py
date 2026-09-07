@@ -1,19 +1,19 @@
-"""FastAPI Routes for MIDAS Gen Interoperability and Batch Design (Phase 16-3)."""
+"""FastAPI Routes for 3D Frame Model Interoperability and Batch Design (Phase 16-3)."""
 
 from typing import Optional, Dict, Any, List
 from fastapi import APIRouter, UploadFile, File, Form, HTTPException
 from pydantic import BaseModel, Field
 
-from src.engine.interop.model_schema import MidasModel3D, MemberForce
+from src.engine.interop.model_schema import FrameModel3D, MemberForce
 from src.engine.interop.mgt_parser import MGTParser
-from src.engine.interop.mgb_parser import MidasForceParser
+from src.engine.interop.mgb_parser import FrameForceParser
 from src.engine.project.batch_checker import BatchDesignChecker, BatchDesignSummary
 
 
-router = APIRouter(prefix="/api/v1/interop", tags=["MIDAS Gen Interoperability"])
+router = APIRouter(prefix="/api/v1/interop", tags=["3D Frame Model Interoperability"])
 
 # In-memory session store for uploaded models and forces
-_ACTIVE_MODEL: Optional[MidasModel3D] = None
+_ACTIVE_MODEL: Optional[FrameModel3D] = None
 _ACTIVE_FORCES: Dict[int, List[MemberForce]] = {}
 _LAST_BATCH_SUMMARY: Optional[BatchDesignSummary] = None
 
@@ -36,7 +36,7 @@ async def upload_mgt_file(
     file: Optional[UploadFile] = File(None),
     mgt_text: Optional[str] = Form(None)
 ):
-    """Upload and parse MIDAS Gen .mgt script file or raw text."""
+    """Upload and parse 3D Frame Model .mgt script file or raw text."""
     global _ACTIVE_MODEL, _ACTIVE_FORCES
     content = ""
     if file:
@@ -56,7 +56,7 @@ async def upload_mgt_file(
     try:
         parser = MGTParser()
         model = parser.parse_string(content)
-        forces = MidasForceParser.parse_mgt_forces(content)
+        forces = FrameForceParser.parse_mgt_forces(content)
         _ACTIVE_MODEL = model
         _ACTIVE_FORCES = forces
 
@@ -81,7 +81,7 @@ def run_batch_design(request: Optional[BatchDesignRequest] = None):
     """Execute batch member design for loaded model and forces."""
     global _ACTIVE_MODEL, _ACTIVE_FORCES, _LAST_BATCH_SUMMARY
     if _ACTIVE_MODEL is None or len(_ACTIVE_MODEL.elements) == 0:
-        raise HTTPException(status_code=400, detail="No active MIDAS model loaded. Upload an MGT file first.")
+        raise HTTPException(status_code=400, detail="No active 3D frame model loaded. Upload an MGT file first.")
 
     story = request.story_filter if request else None
     summary = BatchDesignChecker.run_batch_check(

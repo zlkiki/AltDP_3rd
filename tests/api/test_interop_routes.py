@@ -1,4 +1,4 @@
-"""API Integration tests for MIDAS Gen Interoperability Routes (Phase 16-3)."""
+"""API Integration tests for 3D Frame Model Interoperability Routes (Phase 16-3)."""
 
 from fastapi.testclient import TestClient
 from src.api.server import app

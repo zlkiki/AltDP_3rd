@@ -1,4 +1,4 @@
-"""Data models and schemas for MIDAS Gen 3D Model Interoperability.
+"""Data models and schemas for 3D Structural Frame Model Interoperability.
 
 Complies with KDS standards and provides seamless bidirectional mapping
 for nodes, elements, materials, sections, and stories.
@@ -8,7 +8,7 @@ from typing import List, Dict, Optional, Tuple
 from pydantic import BaseModel, Field
 
 
-class MidasNode(BaseModel):
+class FrameNode(BaseModel):
     """3D nodal coordinate definition."""
     node_id: int
     x: float
@@ -16,7 +16,7 @@ class MidasNode(BaseModel):
     z: float
 
 
-class MidasElement(BaseModel):
+class FrameElement(BaseModel):
     """Finite element record with geometry and member categorization."""
     elem_id: int
     elem_type: str  # "BEAM", "COLUMN", "WALL", "BRACE", "TRUSS", "PLATE"
@@ -28,7 +28,7 @@ class MidasElement(BaseModel):
     direction_cosines: Tuple[float, float, float] = (0.0, 0.0, 0.0)
 
 
-class MidasMaterial(BaseModel):
+class FrameMaterial(BaseModel):
     """Material definition (Concrete, Rebar, Structural Steel)."""
     mat_id: int
     mat_type: str  # "CONC", "STEEL", "REBAR"
@@ -43,7 +43,7 @@ class MidasMaterial(BaseModel):
     fu: float = 500.0  # MPa for steel
 
 
-class MidasSection(BaseModel):
+class FrameSection(BaseModel):
     """Section geometry and dimension properties."""
     sec_id: int
     sec_type: str = "RECT"  # "RECT", "H-SECTION", "BOX", "PIPE", "DBUSER", "WALL"
@@ -60,26 +60,26 @@ class MidasSection(BaseModel):
     iy: float = 0.0
 
 
-class MidasStory(BaseModel):
+class FrameStory(BaseModel):
     """Story / Floor level metadata."""
     name: str
     height: float
     elevation: float
 
 
-class MidasModel3D(BaseModel):
-    """Complete 3D Structural Frame and FEM Model imported from MIDAS Gen."""
-    nodes: Dict[int, MidasNode] = Field(default_factory=dict)
-    elements: Dict[int, MidasElement] = Field(default_factory=dict)
-    materials: Dict[int, MidasMaterial] = Field(default_factory=dict)
-    sections: Dict[int, MidasSection] = Field(default_factory=dict)
-    stories: List[MidasStory] = Field(default_factory=list)
+class FrameModel3D(BaseModel):
+    """Complete 3D Structural Frame Model."""
+    nodes: Dict[int, FrameNode] = Field(default_factory=dict)
+    elements: Dict[int, FrameElement] = Field(default_factory=dict)
+    materials: Dict[int, FrameMaterial] = Field(default_factory=dict)
+    sections: Dict[int, FrameSection] = Field(default_factory=dict)
+    stories: List[FrameStory] = Field(default_factory=list)
 
-    def get_elements_by_type(self, elem_type: str) -> List[MidasElement]:
+    def get_elements_by_type(self, elem_type: str) -> List[FrameElement]:
         """Filter elements by type (e.g. BEAM, COLUMN, WALL, BRACE)."""
         return [el for el in self.elements.values() if el.elem_type == elem_type]
 
-    def get_elements_by_story(self, story_name: str) -> List[MidasElement]:
+    def get_elements_by_story(self, story_name: str) -> List[FrameElement]:
         """Filter elements located at a specific story."""
         return [el for el in self.elements.values() if el.story == story_name]
 
