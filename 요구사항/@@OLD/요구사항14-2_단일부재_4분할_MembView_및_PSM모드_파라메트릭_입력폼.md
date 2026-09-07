@@ -7,7 +7,7 @@
 * 사용자가 단면 치수, 철근 배근, 재료 강도를 변경하면 즉시 2D Canvas 단면도와 3D P-M 곡선, 그리고 KDS DCR 계산 결과가 0.05초 이내 실시간 갱신되는 4-Pane 반응형 인터페이스를 구축하고, `P-Mode`(파라메트릭 자동설계), `S-Mode`(단면검토), `M-Mode`(일괄관리) 3대 인터랙션 모드를 완성합니다.
 
 ### 1.2. 참조 Ground Truth 자산
-* **UI 역공학 명세 (SSOT)**: [`docs/13_original_app_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_original_app_ui_specification.md)
+* **UI 역공학 명세 (SSOT)**: [`docs/13_original_app_ui_specification.md`](../../docs/13_original_app_ui_specification.md)
 * **디컴파일 폼 다이얼로그**: `original_src/Midas Design+/Dbase/` 및 `decompiled_src/core_routines/` 내 `DLG_*.ini` (RC 보/기둥/벽체/슬래브/기초, 철골 보/기둥/접합부/주각부 폼 24종)
 
 ---
@@ -37,11 +37,11 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/web/templates/view_memb.html`](file:///f:/PyProject/AltDP_3rd/src/web/templates/view_memb.html) | [NEW] | 4분할 단일 부재 메인 워크스페이스 템플릿 구현 |
-| [`src/web/static/js/renderer2d.js`](file:///f:/PyProject/AltDP_3rd/src/web/static/js/renderer2d.js) | [MODIFY] | RC/철골 전 부재 단면 및 치수선 인터랙티브 캔버스 렌더러 확장 |
-| [`src/web/static/js/pm_chart.js`](file:///f:/PyProject/AltDP_3rd/src/web/static/js/pm_chart.js) | [MODIFY] | P-M 상관곡면 및 DCR 차트 반응형 플로팅 고도화 |
-| [`src/web/static/js/member_forms.js`](file:///f:/PyProject/AltDP_3rd/src/web/static/js/member_forms.js) | [NEW] | 부재별 파라메트릭 입력 폼 제어 및 Auto-Design 로직 |
-| [`tests/api/test_web_routes.py`](file:///f:/PyProject/AltDP_3rd/tests/api/test_web_routes.py) | [MODIFY] | Memb View 및 부재별 파라메트릭 폼 렌더링 검증 |
+| [`src/web/templates/view_memb.html`](../../src/web/templates/view_memb.html) | [NEW] | 4분할 단일 부재 메인 워크스페이스 템플릿 구현 |
+| [`src/web/static/js/renderer2d.js`](../../src/web/static/js/renderer2d.js) | [MODIFY] | RC/철골 전 부재 단면 및 치수선 인터랙티브 캔버스 렌더러 확장 |
+| [`src/web/static/js/pm_chart.js`](../../src/web/static/js/pm_chart.js) | [MODIFY] | P-M 상관곡면 및 DCR 차트 반응형 플로팅 고도화 |
+| [`src/web/static/js/member_forms.js`](../../src/web/static/js/member_forms.js) | [NEW] | 부재별 파라메트릭 입력 폼 제어 및 Auto-Design 로직 |
+| [`tests/api/test_web_routes.py`](../../tests/api/test_web_routes.py) | [MODIFY] | Memb View 및 부재별 파라메트릭 폼 렌더링 검증 |
 
 ---
 

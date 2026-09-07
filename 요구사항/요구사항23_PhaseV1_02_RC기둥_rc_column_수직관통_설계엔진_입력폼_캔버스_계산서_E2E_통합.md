@@ -3,7 +3,7 @@
 ## 1. 개요 및 61종 마스터플랜 매핑 (Master Plan Alignment)
 
 ### 1.1. 모듈 개요 및 SSOT 매핑
-본 문서는 **[`docs/04_master_original_app_modules_comprehensive_catalog.md`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md)**(61종 전수 모듈 인벤토리) 및 **[`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**(Phase V1~V6 수직 포팅 마스터플랜)에 따라, Tier 1 플래그십 핵심 부재인 **RC 기둥 (`rc_column`)**을 5대 공정(Step 1~5)으로 수직 관통(Vertical Slice)하여 100% 작동 가능한 완성형 상용 웹 모듈로 개발하기 위한 **총괄 마스터 명세서**입니다.
+본 문서는 **[`docs/04_master_original_app_modules_comprehensive_catalog.md`](../docs/04_master_original_app_modules_comprehensive_catalog.md)**(61종 전수 모듈 인벤토리) 및 **[`docs/12_full_feature_porting_master_plan.md`](../docs/12_full_feature_porting_master_plan.md)**(Phase V1~V6 수직 포팅 마스터플랜)에 따라, Tier 1 플래그십 핵심 부재인 **RC 기둥 (`rc_column`)**을 5대 공정(Step 1~5)으로 수직 관통(Vertical Slice)하여 100% 작동 가능한 완성형 상용 웹 모듈로 개발하기 위한 **총괄 마스터 명세서**입니다.
 
 * **모듈 식별자**: `rc_column` (카탈로그 번호 No. 2, Tier 1 플래그십)
 * **4대 포팅 참조 우선순위 (SSOT Hierarchy)**:
@@ -20,11 +20,11 @@
 
 | 공정 단계 | 권장 AI 모델 | 하위 명세서 링크 | 핵심 산출물 및 주요 업무 | DoD 검증 기준 |
 |:---:|:---:|---|---|:---:|
-| **Step 1** | 🧠 **High** | [**요구사항 23-1**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항23-1_PhaseV1_02_Step1_RC기둥_KDS계산엔진_및_파이버PM_Pydantic스키마.md) | • KDS 14 20 20 축휨/전단 파이썬 엔진 (`src/engine/rc/column.py`)<br>• 200 파이버 단면 수치적분 P-M 솔버 연동<br>• 장주 모멘트확대($\delta_{ns}, \delta_s$) 및 Bresler 이축휨 | `pytest` 100% PASS<br>(오차 $\le 0.10\%$) |
-| **Step 2** | ⚙️ **Medium** | [**요구사항 23-2**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항23-2_PhaseV1_02_Step2_RC기둥_원본앱_1대1_서브탭_입력폼_및_모달.md) | • 원본앱 `IDD_RCS_COLUMN_PMODE_DLG` 1:1 서브탭 폼 (`form_rc_column.js`)<br>• 배근 상세 설정 서브대화창 모달 (`IDD_RCS_COLM_REBAR_DLG`)<br>• P-M 상관곡선 인터랙티브 뷰어 확장 모달 | 브라우저 DOM 정상<br>콘솔 에러 0건 |
-| **Step 3** | ⚙️ **Medium** | [**요구사항 23-3**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항23-3_PhaseV1_02_Step3_RC기둥_2D_VDraw_캔버스_배근도_및_PM곡선_인터랙션.md) | • 상단: 사각/원형 단면, 135° 절곡 띠대근, 솔리드 주철근, 치수선, 태그<br>• 하단: KDS 200 파이버 $\phi P_n-\phi M_n$ 상관곡선 및 설계하중점 플롯<br>• 마우스 휠 줌/팬/Fit 및 하중점 마우스 호버 DCR 툴팁 | Canvas 그래픽스 렌더링<br>인터랙션 무결성 |
-| **Step 4** | 🧠 **High** | [**요구사항 23-4**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항23-4_PhaseV1_02_Step4_RC기둥_A4_5대장구분_8단계_KaTeX_구조계산서.md) | • 원본 5대 장구분 완벽 계승 (개요-부재력-PM-이축휨-전단)<br>• 8단계 Step-by-Step KaTeX 수식 전개식 (`redcr_rc_column.js`)<br>• 순백색(`#ffffff`) A4 용지 인쇄 프리뷰 및 `  →  O.K / N.G` 판정 | A4 인쇄 레이아웃<br>KaTeX 수식 무결성 |
-| **Step 5** | ⚙️ **Medium** | [**요구사항 23-5**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항23-5_PhaseV1_02_Step5_RC기둥_4열통합_E2E검증_및_실사용UI_온라인전환.md) | • 4-Pane(사이드바-Left-Sub(부재/폼)-중앙그래픽-순백색A4계산서) 연동<br>• 파라미터 입력 시 **100ms 이내 실시간 3-View 동시 동기화**<br>• `catalog.js`에서 `rc_column`의 `is_wip: false` 정식 온라인 전환 | E2E 전수 테스트 Pass<br>콘솔 에러 0건 |
+| **Step 1** | 🧠 **High** | [**요구사항 23-1**](요구사항23-1_PhaseV1_02_Step1_RC기둥_KDS계산엔진_및_파이버PM_Pydantic스키마.md) | • KDS 14 20 20 축휨/전단 파이썬 엔진 (`src/engine/rc/column.py`)<br>• 200 파이버 단면 수치적분 P-M 솔버 연동<br>• 장주 모멘트확대($\delta_{ns}, \delta_s$) 및 Bresler 이축휨 | `pytest` 100% PASS<br>(오차 $\le 0.10\%$) |
+| **Step 2** | ⚙️ **Medium** | [**요구사항 23-2**](요구사항23-2_PhaseV1_02_Step2_RC기둥_원본앱_1대1_서브탭_입력폼_및_모달.md) | • 원본앱 `IDD_RCS_COLUMN_PMODE_DLG` 1:1 서브탭 폼 (`form_rc_column.js`)<br>• 배근 상세 설정 서브대화창 모달 (`IDD_RCS_COLM_REBAR_DLG`)<br>• P-M 상관곡선 인터랙티브 뷰어 확장 모달 | 브라우저 DOM 정상<br>콘솔 에러 0건 |
+| **Step 3** | ⚙️ **Medium** | [**요구사항 23-3**](요구사항23-3_PhaseV1_02_Step3_RC기둥_2D_VDraw_캔버스_배근도_및_PM곡선_인터랙션.md) | • 상단: 사각/원형 단면, 135° 절곡 띠대근, 솔리드 주철근, 치수선, 태그<br>• 하단: KDS 200 파이버 $\phi P_n-\phi M_n$ 상관곡선 및 설계하중점 플롯<br>• 마우스 휠 줌/팬/Fit 및 하중점 마우스 호버 DCR 툴팁 | Canvas 그래픽스 렌더링<br>인터랙션 무결성 |
+| **Step 4** | 🧠 **High** | [**요구사항 23-4**](요구사항23-4_PhaseV1_02_Step4_RC기둥_A4_5대장구분_8단계_KaTeX_구조계산서.md) | • 원본 5대 장구분 완벽 계승 (개요-부재력-PM-이축휨-전단)<br>• 8단계 Step-by-Step KaTeX 수식 전개식 (`redcr_rc_column.js`)<br>• 순백색(`#ffffff`) A4 용지 인쇄 프리뷰 및 `  →  O.K / N.G` 판정 | A4 인쇄 레이아웃<br>KaTeX 수식 무결성 |
+| **Step 5** | ⚙️ **Medium** | [**요구사항 23-5**](요구사항23-5_PhaseV1_02_Step5_RC기둥_4열통합_E2E검증_및_실사용UI_온라인전환.md) | • 4-Pane(사이드바-Left-Sub(부재/폼)-중앙그래픽-순백색A4계산서) 연동<br>• 파라미터 입력 시 **100ms 이내 실시간 3-View 동시 동기화**<br>• `catalog.js`에서 `rc_column`의 `is_wip: false` 정식 온라인 전환 | E2E 전수 테스트 Pass<br>콘솔 에러 0건 |
 
 ---
 

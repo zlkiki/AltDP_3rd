@@ -2,8 +2,8 @@
 
 ## 1. 개요 및 목적 (Background & Objectives)
 * **상위 기술 문서(SSOT)**:
-  - [`요구사항 20 (Phase 20 마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20_Phase20_더미코드_전면제거_및_정직한_WIP_베이스라인_구축.md) 제3.2절 및 제5절
-  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) (Left-Sub 워크스페이스, 3버튼 액션 파이프라인 및 원본앱 다이얼로그 탭 구조)
+  - [`요구사항 20 (Phase 20 마스터)`](요구사항20_Phase20_더미코드_전면제거_및_정직한_WIP_베이스라인_구축.md) 제3.2절 및 제5절
+  - [`docs/07_web_application_ui_ux_specification.md`](../docs/07_web_application_ui_ux_specification.md) (Left-Sub 워크스페이스, 3버튼 액션 파이프라인 및 원본앱 다이얼로그 탭 구조)
 * **목적**: 1열 탐색기에서 원본앱 1:1 서브탭 전용 폼이 아직 연동 준비 중(WIP)인 부재를 선택했을 때, **`docs/07`의 Left-Sub 영역(`pane-input-form`)에 이전 부재의 폼이 잔존하거나 엉뚱한 필드가 노출되는 결함을 완벽히 차단**하고, 모던 글래스모피즘 기반의 **"원본앱 전용 WIP 안내 카드"**를 렌더링하며, 상단 툴바의 **3버튼 액션 파이프라인(`적용/검토/설계`)**과 안전하게 연동합니다.
 
 ---

@@ -17,11 +17,11 @@
 
 | 하위 Phase | 문서명 | 핵심 작업 내용 | 주요 타겟 파일 |
 |---|---|---|---|
-| **Phase 19-1** | [`요구사항19-1_AltDP_2nd_ZeroBuild_4분할_UI_UX_프레임워크_이식.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항19-1_AltDP_2nd_ZeroBuild_4분할_UI_UX_프레임워크_이식.md) | 4-Pane 레이아웃, 6대 CSS, 리사이저, 테마, 단위계, 중앙 스토어, 부재관리자 이식 | `src/web/templates/index.html`, `static/css/*.css`, `static/js/components/*.js`, `static/js/store/*.js` |
-| **Phase 19-2** | [`요구사항19-2_단위부재_스키마_및_동적_폼_KS_DB_컴포넌트_연동.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항19-2_단위부재_스키마_및_동적_폼_KS_DB_컴포넌트_연동.md) | 동적 폼 빌더, KS 콤보박스, KS 규격 DB, 자동설계기, 백엔드 스키마 API 연동 | `static/js/components/form_*.js`, `static/js/db/*.js`, `static/js/designer/*.js`, `src/api/routes/schema.py` |
-| **Phase 19-3** | [`요구사항19-3_2D_캔버스_및_KDS_계산서_리포트_렌더러_이식.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항19-3_2D_캔버스_및_KDS_계산서_리포트_렌더러_이식.md) | 2D Canvas & Vector SVG 렌더러군, A4 KDS 계산서 렌더러군, 줌 컨트롤러 이식 | `static/js/visual/`, `static/js/report/`, `static/js/report/redcr/` |
-| **Phase 19-4** | [`요구사항19-4_AltDP_3rd_엔진_REST_API_디스패처_전수_연결_및_검증.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항19-4_AltDP_3rd_엔진_REST_API_디스패처_전수_연결_및_검증.md) | `/api/design/{cat}/{grp}/{mod}` 동적 디스패처 구축 및 AltDP_3rd 엔진(RC, Steel, Special) 전수 직결 | `src/api/routes/dispatch.py`, `src/api/server.py`, `tests/api/test_dispatch_api.py` |
-| **Phase 19-5** | [`요구사항19-5_고급_특화기능(FEM_도면CAD_물량_PBD_Gen)_UI_연동_완성.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항19-5_고급_특화기능(FEM_도면CAD_물량_PBD_Gen)_UI_연동_완성.md) | 2D FEM 등고선, 3D P-M 곡면, CAD DXF 내보내기, 물량산출 대시보드, MIDAS Gen 연동 UI 통합 | `static/js/app.js`, `src/web/templates/index.html`, `tests/ui/` |
+| **Phase 19-1** | [`요구사항19-1_AltDP_2nd_ZeroBuild_4분할_UI_UX_프레임워크_이식.md`](../요구사항19-1_AltDP_2nd_ZeroBuild_4분할_UI_UX_프레임워크_이식.md) | 4-Pane 레이아웃, 6대 CSS, 리사이저, 테마, 단위계, 중앙 스토어, 부재관리자 이식 | `src/web/templates/index.html`, `static/css/*.css`, `static/js/components/*.js`, `static/js/store/*.js` |
+| **Phase 19-2** | [`요구사항19-2_단위부재_스키마_및_동적_폼_KS_DB_컴포넌트_연동.md`](../요구사항19-2_단위부재_스키마_및_동적_폼_KS_DB_컴포넌트_연동.md) | 동적 폼 빌더, KS 콤보박스, KS 규격 DB, 자동설계기, 백엔드 스키마 API 연동 | `static/js/components/form_*.js`, `static/js/db/*.js`, `static/js/designer/*.js`, `src/api/routes/schema.py` |
+| **Phase 19-3** | [`요구사항19-3_2D_캔버스_및_KDS_계산서_리포트_렌더러_이식.md`](../요구사항19-3_2D_캔버스_및_KDS_계산서_리포트_렌더러_이식.md) | 2D Canvas & Vector SVG 렌더러군, A4 KDS 계산서 렌더러군, 줌 컨트롤러 이식 | `static/js/visual/`, `static/js/report/`, `static/js/report/redcr/` |
+| **Phase 19-4** | [`요구사항19-4_AltDP_3rd_엔진_REST_API_디스패처_전수_연결_및_검증.md`](../요구사항19-4_AltDP_3rd_엔진_REST_API_디스패처_전수_연결_및_검증.md) | `/api/design/{cat}/{grp}/{mod}` 동적 디스패처 구축 및 AltDP_3rd 엔진(RC, Steel, Special) 전수 직결 | `src/api/routes/dispatch.py`, `src/api/server.py`, `tests/api/test_dispatch_api.py` |
+| **Phase 19-5** | [`요구사항19-5_고급_특화기능(FEM_도면CAD_물량_PBD_Gen)_UI_연동_완성.md`](../요구사항19-5_고급_특화기능(FEM_도면CAD_물량_PBD_Gen)_UI_연동_완성.md) | 2D FEM 등고선, 3D P-M 곡면, CAD DXF 내보내기, 물량산출 대시보드, MIDAS Gen 연동 UI 통합 | `static/js/app.js`, `src/web/templates/index.html`, `tests/ui/` |
 
 ---
 

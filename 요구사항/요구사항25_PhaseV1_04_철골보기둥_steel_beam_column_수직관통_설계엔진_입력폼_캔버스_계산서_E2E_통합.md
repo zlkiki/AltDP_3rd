@@ -3,11 +3,11 @@
 ## 1. 개요 및 모듈 개요 (Module Overview)
 
 ### 1.1. 모듈 개요 및 SSOT 매핑
-본 문서는 **[`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**의 Phase V1(Tier 1 플래그십 5대 핵심 부재) 중 네 번째 모듈인 **철골 보/기둥 (`steel_beam_column`)**을 부재 단위 수직 관통(Vertical Slice)하여 **Step 1(엔진)부터 Step 5(E2E 통합)**까지 100% 작동 가능한 상용 엔지니어링 모듈로 완성하기 위한 마스터 요구사항 명세서입니다.
+본 문서는 **[`docs/12_full_feature_porting_master_plan.md`](../docs/12_full_feature_porting_master_plan.md)**의 Phase V1(Tier 1 플래그십 5대 핵심 부재) 중 네 번째 모듈인 **철골 보/기둥 (`steel_beam_column`)**을 부재 단위 수직 관통(Vertical Slice)하여 **Step 1(엔진)부터 Step 5(E2E 통합)**까지 100% 작동 가능한 상용 엔지니어링 모듈로 완성하기 위한 마스터 요구사항 명세서입니다.
 
 * **부재 및 모듈 식별자**: `steel_beam_column` (카탈로그 번호 No. 22, Tier 1 플래그십)
 * **담당 핵심 파일**:
-  - 엔진 & 스키마: [`src/engine/steel/beam.py`](file:///f:/PyProject/AltDP_3rd/src/engine/steel/beam.py), [`src/engine/steel/column.py`](file:///f:/PyProject/AltDP_3rd/src/engine/steel/column.py), [`src/engine/steel/compactness.py`](file:///f:/PyProject/AltDP_3rd/src/engine/steel/compactness.py), [`src/api/routes/steel.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/steel.py)
+  - 엔진 & 스키마: [`src/engine/steel/beam.py`](../src/engine/steel/beam.py), [`src/engine/steel/column.py`](../src/engine/steel/column.py), [`src/engine/steel/compactness.py`](../src/engine/steel/compactness.py), [`src/api/routes/steel.py`](../src/api/routes/steel.py)
   - 입력폼 컴포넌트: `src/web/static/js/components/form_steel_beam_column.js`, `src/web/static/js/components/member_manager.js`
   - 그래픽 뷰포트: `src/web/static/js/visual/vector_steel_beam_column.js`, `src/web/static/js/visual/vector/vector_steel.js`
   - 구조계산서 렌더러: `src/web/static/js/report/redcr/SteelReportGenerator.js`, `src/web/static/js/report/redcr_steel_beam_column.js`
@@ -27,7 +27,7 @@
 
 ## 2. docs/07 제21절 기반 UI/UX 선행 검토 체크리스트
 
-[`docs/07_web_application_ui_ux_specification.md 제21절`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)의 6대 필수 검토 항목을 충실히 반영하여 프론트엔드 연동 사양을 사전 확립합니다:
+[`docs/07_web_application_ui_ux_specification.md 제21절`](../docs/07_web_application_ui_ux_specification.md)의 6대 필수 검토 항목을 충실히 반영하여 프론트엔드 연동 사양을 사전 확립합니다:
 
 1. **[사이드바 & 카테고리 정합성]**:
    - 8대 카테고리 Pills 탭 중 `[Steel 강구조]` 그룹에 속하며, 영문 키 `steel_beam_column`, 한글 명칭 "철골 보/기둥".
@@ -146,23 +146,23 @@
 
 본 마스터 요구사항 25는 5대 정밀 공정에 따라 아래 5개의 독립 세부 구현계획서로 분할되어 체계적으로 실행됩니다:
 
-1. **[`요구사항25-1_PhaseV1_04_Step1_철골보기둥_KDS계산엔진_및_Pydantic스키마.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항25-1_PhaseV1_04_Step1_철골보기둥_KDS계산엔진_및_Pydantic스키마.md)**
+1. **[`요구사항25-1_PhaseV1_04_Step1_철골보기둥_KDS계산엔진_및_Pydantic스키마.md`](요구사항25-1_PhaseV1_04_Step1_철골보기둥_KDS계산엔진_및_Pydantic스키마.md)**
    - KDS 14 31 10 조밀성·LTB·좌굴·전단·P-M 순수 파이썬 정밀 수식
    - Pydantic v2 데이터 입출력 스키마 체계
    - 강구조설계예제집 5.1/6.1/7.1/8.1 3자 삼각대조 및 Pytest TDD
-2. **[`요구사항25-2_PhaseV1_04_Step2_철골보기둥_원본앱_1대1_서브탭_입력폼_및_모달.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항25-2_PhaseV1_04_Step2_철골보기둥_원본앱_1대1_서브탭_입력폼_및_모달.md)**
+2. **[`요구사항25-2_PhaseV1_04_Step2_철골보기둥_원본앱_1대1_서브탭_입력폼_및_모달.md`](요구사항25-2_PhaseV1_04_Step2_철골보기둥_원본앱_1대1_서브탭_입력폼_및_모달.md)**
    - Pane 1 다중 부재 매니저 요약 테이블 그리드
    - Pane 2 원본앱 `IDD_STL_BEAMCOLUMN_INPUT_DLG` 1:1 계승 4대 서브탭 폼
    - 형강 DB 모달, Cb 계산기 모달, 하중조합 모달 연동
-3. **[`요구사항25-3_PhaseV1_04_Step3_철골보기둥_2D_VDraw_캔버스_단면도_및_부재력도_인터랙션.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항25-3_PhaseV1_04_Step3_철골보기둥_2D_VDraw_캔버스_단면도_및_부재력도_인터랙션.md)**
+3. **[`요구사항25-3_PhaseV1_04_Step3_철골보기둥_2D_VDraw_캔버스_단면도_및_부재력도_인터랙션.md`](요구사항25-3_PhaseV1_04_Step3_철골보기둥_2D_VDraw_캔버스_단면도_및_부재력도_인터랙션.md)**
    - Pane 3 세로 적층형 2단 그래픽 뷰포트
    - 상단: 부재 입면, 지지/횡구속, 모멘트도, LTB 좌굴형상
    - 하단: H/Box 형강 정밀 단면, 필릿 곡률, 치수선, 조밀성 하이라이트
-4. **[`요구사항25-4_PhaseV1_04_Step4_철골보기둥_A4_5대장구분_8단계_KaTeX_구조계산서.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항25-4_PhaseV1_04_Step4_철골보기둥_A4_5대장구분_8단계_KaTeX_구조계산서.md)**
+4. **[`요구사항25-4_PhaseV1_04_Step4_철골보기둥_A4_5대장구분_8단계_KaTeX_구조계산서.md`](요구사항25-4_PhaseV1_04_Step4_철골보기둥_A4_5대장구분_8단계_KaTeX_구조계산서.md)**
    - Pane 4 상시 순백색(`#ffffff`) A4 고정 구조계산서
    - 원본 5대 장구분 및 8단계 KaTeX 수식 유도 (LTB, 오일러, P-M 상호작용)
    - 상세/요약 분기, 인쇄/PDF/Excel 익스포트
-5. **[`요구사항25-5_PhaseV1_04_Step5_철골보기둥_4열통합_E2E검증_및_실사용UI_온라인전환.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항25-5_PhaseV1_04_Step5_철골보기둥_4열통합_E2E검증_및_실사용UI_온라인전환.md)**
+5. **[`요구사항25-5_PhaseV1_04_Step5_철골보기둥_4열통합_E2E검증_및_실사용UI_온라인전환.md`](요구사항25-5_PhaseV1_04_Step5_철골보기둥_4열통합_E2E검증_및_실사용UI_온라인전환.md)**
    - 4-Pane 워크스페이스 100ms 실시간 동시 동기화 검증
    - `catalog.js` 및 메타데이터 WIP 해제 (`is_wip: false`)
    - E2E 전수 통합 테스트 및 콘솔 에러 0건 검증

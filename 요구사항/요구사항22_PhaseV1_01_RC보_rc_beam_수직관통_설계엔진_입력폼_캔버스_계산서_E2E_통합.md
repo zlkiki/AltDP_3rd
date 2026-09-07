@@ -3,7 +3,7 @@
 ## 1. 개요 및 61종 마스터플랜 매핑 (Master Plan Alignment)
 
 ### 1.1. 모듈 개요 및 SSOT 매핑
-본 문서는 **[`docs/04_master_original_app_modules_comprehensive_catalog.md`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md)**(61종 전수 모듈 인벤토리) 및 **[`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**(Phase V1~V6 수직 포팅 마스터플랜)에 따라, 최우선 기반 부재군인 **Tier 1 플래그십 핵심 부재 No. 1**인 **RC 보 (`rc_beam`)**를 5대 공정(Step 1~5)으로 수직 관통(Vertical Slice)하여 100% 작동 가능한 상용 엔지니어링 웹 모듈로 개발하기 위한 **총괄 마스터 명세서**입니다.
+본 문서는 **[`docs/04_master_original_app_modules_comprehensive_catalog.md`](../docs/04_master_original_app_modules_comprehensive_catalog.md)**(61종 전수 모듈 인벤토리) 및 **[`docs/12_full_feature_porting_master_plan.md`](../docs/12_full_feature_porting_master_plan.md)**(Phase V1~V6 수직 포팅 마스터플랜)에 따라, 최우선 기반 부재군인 **Tier 1 플래그십 핵심 부재 No. 1**인 **RC 보 (`rc_beam`)**를 5대 공정(Step 1~5)으로 수직 관통(Vertical Slice)하여 100% 작동 가능한 상용 엔지니어링 웹 모듈로 개발하기 위한 **총괄 마스터 명세서**입니다.
 
 * **모듈 식별자**: `rc_beam` (카탈로그 번호 No. 1, Tier 1 플래그십)
 * **4대 포팅 참조 우선순위 (SSOT Hierarchy)**:
@@ -21,11 +21,11 @@
 
 | 공정 단계 | 권장 AI 모델 | 하위 명세서 링크 | 핵심 산출물 및 주요 업무 | DoD 검증 기준 |
 |:---:|:---:|---|---|:---:|
-| **Step 1** | 🧠 **High** | [**요구사항 22-1**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항22-1_PhaseV1_01_Step1_RC보_KDS계산엔진_및_Pydantic스키마.md) | • KDS 14 20 20/22/30 보 해석 엔진 (`src/engine/rc/beam.py`)<br>• 단/복철근 및 T형 플랜지 등가응력블록 휨 수렴 해석<br>• 전단($V_c, V_s$), 비틀림($T_{cr}, T_n, A_l$), Branson $I_e$ 장단기 처짐 | `pytest` 100% PASS<br>(오차 $\le 0.10\%$) |
-| **Step 2** | ⚙️ **Medium** | [**요구사항 22-2**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항22-2_PhaseV1_01_Step2_RC보_원본앱_1대1_서브탭_입력폼_및_모달.md) | • 원본앱 `IDD_RCS_BEAM_PMODE_DLG` 1:1 서브탭 폼 (`form_rc_beam.js`)<br>• 단부(I/J)/중앙(M) 다단 배근 테이블 및 스터럽 입력<br>• 배근 상세 모달(`IDD_RCS_BEAM_REBAR_DLG`) 및 T형 단면 모달 | 브라우저 DOM 정상<br>콘솔 에러 0건 |
-| **Step 3** | ⚙️ **Medium** | [**요구사항 22-3**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항22-3_PhaseV1_01_Step3_RC보_2D_VDraw_캔버스_배근도_및_부재력도_인터랙션.md) | • 상단 뷰포트: 보 경간($L$) 종단면 배근도 & $M/V$ 부재력 포락선<br>• 하단 뷰포트: 단부 I, 중앙 M, 단부 J 3개 횡단면도, 135° 갈고리 스터럽<br>• 피복 옵셋, 치수선, 철근태그, 휠 줌/팬/Fit/호버 툴팁 | Canvas 그래픽스 렌더링<br>인터랙션 무결성 |
-| **Step 4** | 🧠 **High** | [**요구사항 22-4**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항22-4_PhaseV1_01_Step4_RC보_A4_5대장구분_8단계_KaTeX_구조계산서.md) | • 원본 5대 장구분 계승 (개요-부재력-휨-전단/비틀림-사용성처짐균열)<br>• 8단계 Step-by-Step KaTeX 수식 전개식 (`redcr_rc_beam.js`)<br>• 순백색(`#ffffff`) A4 용지 인쇄 프리뷰 및 `  →  O.K / N.G` 판정 | A4 인쇄 레이아웃<br>KaTeX 수식 무결성 |
-| **Step 5** | ⚙️ **Medium** | [**요구사항 22-5**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항22-5_PhaseV1_01_Step5_RC보_4열통합_E2E검증_및_실사용UI_온라인전환.md) | • 4-Pane(사이드바-Left-Sub(부재/폼)-중앙그래픽-순백색A4계산서) 연동<br>• 파라미터 수정 시 **100ms 이내 실시간 3-View 동시 동기화**<br>• `catalog.js`에서 `rc_beam`의 `is_wip: false` 정식 온라인 전환 | E2E 전수 테스트 Pass<br>콘솔 에러 0건 |
+| **Step 1** | 🧠 **High** | [**요구사항 22-1**](요구사항22-1_PhaseV1_01_Step1_RC보_KDS계산엔진_및_Pydantic스키마.md) | • KDS 14 20 20/22/30 보 해석 엔진 (`src/engine/rc/beam.py`)<br>• 단/복철근 및 T형 플랜지 등가응력블록 휨 수렴 해석<br>• 전단($V_c, V_s$), 비틀림($T_{cr}, T_n, A_l$), Branson $I_e$ 장단기 처짐 | `pytest` 100% PASS<br>(오차 $\le 0.10\%$) |
+| **Step 2** | ⚙️ **Medium** | [**요구사항 22-2**](요구사항22-2_PhaseV1_01_Step2_RC보_원본앱_1대1_서브탭_입력폼_및_모달.md) | • 원본앱 `IDD_RCS_BEAM_PMODE_DLG` 1:1 서브탭 폼 (`form_rc_beam.js`)<br>• 단부(I/J)/중앙(M) 다단 배근 테이블 및 스터럽 입력<br>• 배근 상세 모달(`IDD_RCS_BEAM_REBAR_DLG`) 및 T형 단면 모달 | 브라우저 DOM 정상<br>콘솔 에러 0건 |
+| **Step 3** | ⚙️ **Medium** | [**요구사항 22-3**](요구사항22-3_PhaseV1_01_Step3_RC보_2D_VDraw_캔버스_배근도_및_부재력도_인터랙션.md) | • 상단 뷰포트: 보 경간($L$) 종단면 배근도 & $M/V$ 부재력 포락선<br>• 하단 뷰포트: 단부 I, 중앙 M, 단부 J 3개 횡단면도, 135° 갈고리 스터럽<br>• 피복 옵셋, 치수선, 철근태그, 휠 줌/팬/Fit/호버 툴팁 | Canvas 그래픽스 렌더링<br>인터랙션 무결성 |
+| **Step 4** | 🧠 **High** | [**요구사항 22-4**](요구사항22-4_PhaseV1_01_Step4_RC보_A4_5대장구분_8단계_KaTeX_구조계산서.md) | • 원본 5대 장구분 계승 (개요-부재력-휨-전단/비틀림-사용성처짐균열)<br>• 8단계 Step-by-Step KaTeX 수식 전개식 (`redcr_rc_beam.js`)<br>• 순백색(`#ffffff`) A4 용지 인쇄 프리뷰 및 `  →  O.K / N.G` 판정 | A4 인쇄 레이아웃<br>KaTeX 수식 무결성 |
+| **Step 5** | ⚙️ **Medium** | [**요구사항 22-5**](요구사항22-5_PhaseV1_01_Step5_RC보_4열통합_E2E검증_및_실사용UI_온라인전환.md) | • 4-Pane(사이드바-Left-Sub(부재/폼)-중앙그래픽-순백색A4계산서) 연동<br>• 파라미터 수정 시 **100ms 이내 실시간 3-View 동시 동기화**<br>• `catalog.js`에서 `rc_beam`의 `is_wip: false` 정식 온라인 전환 | E2E 전수 테스트 Pass<br>콘솔 에러 0건 |
 
 ---
 

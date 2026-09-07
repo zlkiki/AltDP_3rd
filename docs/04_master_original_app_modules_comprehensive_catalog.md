@@ -4,7 +4,7 @@
 
 ## 1. 개요 및 관리 목적
 
-본 문서는 **원본앱 (`원본앱(Design+.exe)`)** 원본 바이너리 및 리소스([`original_src/Midas Design+/`](file:///f:/PyProject/AltDP_3rd/original_src/Midas%20Design+/)), 디컴파일 C 수도코드 및 심볼([`decompiled_src/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/)), 그리고 관련 기술 사양서([`docs/06_python_engine_architecture_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md), [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md))에 정의된 **총 61종 전수 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**의 정의를 단 1종의 누락이나 축약 없이 총망라하여, **4대 참조 우선순위 자산(1순위 추출 소스, 2순위 매뉴얼/리소스, 3순위 kcsc2md 예제집, 4순위 KDS 구조기준)**과 구현 대상 파이썬 엔진 파일을 1:1로 매핑한 **전체 총괄 단일 진실 공급원(Master Inventory SSOT)**입니다.
+본 문서는 **원본앱 (`원본앱(Design+.exe)`)** 원본 바이너리 및 리소스([`original_src/Midas Design+/`](../original_src/Midas Design+)), 디컴파일 C 수도코드 및 심볼([`decompiled_src/`](../decompiled_src)), 그리고 관련 기술 사양서([`docs/06_python_engine_architecture_specification.md`](06_python_engine_architecture_specification.md), [`docs/15_fem_analysis_and_external_solver_specification.md`](15_fem_analysis_and_external_solver_specification.md))에 정의된 **총 61종 전수 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**의 정의를 단 1종의 누락이나 축약 없이 총망라하여, **4대 참조 우선순위 자산(1순위 추출 소스, 2순위 매뉴얼/리소스, 3순위 kcsc2md 예제집, 4순위 KDS 구조기준)**과 구현 대상 파이썬 엔진 파일을 1:1로 매핑한 **전체 총괄 단일 진실 공급원(Master Inventory SSOT)**입니다.
 
 > [!IMPORTANT]
 > **🚨 4대 포팅 참조 우선순위 계층 (SSOT Priority Hierarchy)**:
@@ -69,7 +69,7 @@
 ---
 
 ## 4. 합성구조 (SRC) 모듈군 전수 인벤토리 (4종)
-*상세 사양서 단일 진실 공급원: [`docs/06_python_engine_architecture_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md)*
+*상세 사양서 단일 진실 공급원: [`docs/06_python_engine_architecture_specification.md`](06_python_engine_architecture_specification.md)*
 
 | No | 부재 분류 | 모듈 식별자 (`type`) | 원본 리소스/메뉴 ID | [1순위] 추출 소스/심볼 | [2순위] 원본 DLG 리소스 | [3순위] kcsc2md 예제집 | [4순위] KDS 조항 | 티어 | 핵심 설계 기능 및 구현 대상 파일 |
 |:---:|---|---|---|---|---|---|---|:---:|---|
@@ -81,7 +81,7 @@
 ---
 
 ## 5. 알루미늄 (ALU) 모듈군 전수 인벤토리 (2종)
-*상세 사양서 단일 진실 공급원: [`docs/06_python_engine_architecture_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md)*
+*상세 사양서 단일 진실 공급원: [`docs/06_python_engine_architecture_specification.md`](06_python_engine_architecture_specification.md)*
 
 | No | 부재 분류 | 모듈 식별자 (`type`) | 원본 리소스/메뉴 ID | [1순위] 추출 소스/심볼 | [2순위] 원본 DLG 리소스 | [3순위] kcsc2md 예제집 | [4순위] KDS 조항 | 티어 | 핵심 설계 기능 및 구현 대상 파일 |
 |:---:|---|---|---|---|---|---|---|:---:|---|
@@ -91,7 +91,7 @@
 ---
 
 ## 6. 보수/보강 (RFM) 모듈군 전수 인벤토리 (3종)
-*상세 사양서 단일 진실 공급원: [`docs/06_python_engine_architecture_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md)*
+*상세 사양서 단일 진실 공급원: [`docs/06_python_engine_architecture_specification.md`](06_python_engine_architecture_specification.md)*
 
 | No | 부재 분류 | 모듈 식별자 (`type`) | 원본 리소스/메뉴 ID | [1순위] 추출 소스/심볼 | [2순위] 원본 DLG 리소스 | [3순위] kcsc2md 예제집 | [4순위] KDS 조항 | 티어 | 핵심 설계 기능 및 구현 대상 파일 |
 |:---:|---|---|---|---|---|---|---|:---:|---|
@@ -102,20 +102,20 @@
 ---
 
 ## 7. 2D FEM 평판 휨 & 접촉 솔버 연동 부재군 (5종)
-*상세 사양서 단일 진실 공급원: [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)*
+*상세 사양서 단일 진실 공급원: [`docs/15_fem_analysis_and_external_solver_specification.md`](15_fem_analysis_and_external_solver_specification.md)*
 
 | No | 부재 분류 | 모듈 식별자 (`type`) | 원본 솔버 바이너리 | [1순위] 추출 소스/심볼 | [2순위] 연동 명세 | [3순위] kcsc2md 예제집 | [4순위] KDS 조항 | 티어 | 핵심 설계 기능 및 구현 대상 파일 |
 |:---:|---|---|---|---|---|---|---|:---:|---|
-| **47**| **기초 FEM** | `foundation_fem` | `DgnSolver/FES.EXE`<br>`mfsolver.exe` | `CDBSolverTool`<br>`DPLUS_DB.dll` | [`docs/15`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md) 3.1절 | Winkler 탄성지반 매트 | KDS 14 20 50 | **Tier 2** | 전면 매트기초 후판휨(DKMQ)+지반스프링 인장분리 비선형해석<br>`src/engine/fem/foundation_fem.py` |
-| **48**| **외벽 FEM** | `wall_2way_fem` | `DgnSolver/FES.EXE`<br>`mfsolver.exe` | `CDBSolverTool`<br>`DPLUS_DB.dll` | [`docs/15`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md) 3.2절 | 2방향 지하외벽 토압 | KDS 14 20 40 | **Tier 2** | 횡토압/수압 작용 지하외벽 2방향 판휨 및 다층 지지 경계해석<br>`src/engine/fem/wall_2way_fem.py` |
-| **49**| **주각부 FEM** | `baseplate_fem` | `DgnSolver/Iterative.exe` | `CDBSolverTool`<br>`DPLUS_STEEL.dll` | [`docs/15`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md) 3.3절 | 비선형 접촉 주각부 | KDS 14 31 25 | **Tier 2** | 콘크리트 압축 지압-앵커볼트 인장 상호작용 비선형 접촉 FEM<br>`src/engine/fem/baseplate_fem.py` |
-| **50**| **엔드플레이트 FEM** | `endplate_fem` | `DgnSolver/Iterative.exe` | `CDBSolverTool`<br>`DPLUS_STEEL.dll` | [`docs/15`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md) 3.4절 | 항복선(Yield Line) | KDS 14 31 25 | **Tier 2** | 모멘트 접합 엔드플레이트 소성 항복선 수치해석 및 프라잉력<br>`src/engine/fem/endplate_fem.py` |
-| **51**| **슬래브 FEM** | `slab_fem` | `DgnSolver/FES.EXE` | `CDBSolverTool`<br>`DPLUS_DB.dll` | [`docs/15`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md) 3.5절 | 개구부 슬래브 응력 | KDS 14 20 40 | **Tier 2** | 다각형 이형 슬래브 및 개구부 주변 응력집중 판휨 해석<br>`src/engine/fem/slab_fem.py` |
+| **47**| **기초 FEM** | `foundation_fem` | `DgnSolver/FES.EXE`<br>`mfsolver.exe` | `CDBSolverTool`<br>`DPLUS_DB.dll` | [`docs/15`](15_fem_analysis_and_external_solver_specification.md) 3.1절 | Winkler 탄성지반 매트 | KDS 14 20 50 | **Tier 2** | 전면 매트기초 후판휨(DKMQ)+지반스프링 인장분리 비선형해석<br>`src/engine/fem/foundation_fem.py` |
+| **48**| **외벽 FEM** | `wall_2way_fem` | `DgnSolver/FES.EXE`<br>`mfsolver.exe` | `CDBSolverTool`<br>`DPLUS_DB.dll` | [`docs/15`](15_fem_analysis_and_external_solver_specification.md) 3.2절 | 2방향 지하외벽 토압 | KDS 14 20 40 | **Tier 2** | 횡토압/수압 작용 지하외벽 2방향 판휨 및 다층 지지 경계해석<br>`src/engine/fem/wall_2way_fem.py` |
+| **49**| **주각부 FEM** | `baseplate_fem` | `DgnSolver/Iterative.exe` | `CDBSolverTool`<br>`DPLUS_STEEL.dll` | [`docs/15`](15_fem_analysis_and_external_solver_specification.md) 3.3절 | 비선형 접촉 주각부 | KDS 14 31 25 | **Tier 2** | 콘크리트 압축 지압-앵커볼트 인장 상호작용 비선형 접촉 FEM<br>`src/engine/fem/baseplate_fem.py` |
+| **50**| **엔드플레이트 FEM** | `endplate_fem` | `DgnSolver/Iterative.exe` | `CDBSolverTool`<br>`DPLUS_STEEL.dll` | [`docs/15`](15_fem_analysis_and_external_solver_specification.md) 3.4절 | 항복선(Yield Line) | KDS 14 31 25 | **Tier 2** | 모멘트 접합 엔드플레이트 소성 항복선 수치해석 및 프라잉력<br>`src/engine/fem/endplate_fem.py` |
+| **51**| **슬래브 FEM** | `slab_fem` | `DgnSolver/FES.EXE` | `CDBSolverTool`<br>`DPLUS_DB.dll` | [`docs/15`](15_fem_analysis_and_external_solver_specification.md) 3.5절 | 개구부 슬래브 응력 | KDS 14 20 40 | **Tier 2** | 다각형 이형 슬래브 및 개구부 주변 응력집중 판휨 해석<br>`src/engine/fem/slab_fem.py` |
 
 ---
 
 ## 8. 성능기반설계 (PBD) 모듈군 전수 인벤토리 (3종)
-*상세 사양서 단일 진실 공급원: [`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)*
+*상세 사양서 단일 진실 공급원: [`docs/12_full_feature_porting_master_plan.md`](12_full_feature_porting_master_plan.md)*
 
 | No | 부재 분류 | 모듈 식별자 (`type`) | 원본 리소스/메뉴 ID | [1순위] 추출 소스/심볼 | [2순위] 원본 매뉴얼 | [3순위] 검증 기준 | [4순위] KDS 조항 | 티어 | 핵심 설계 기능 및 구현 대상 파일 |
 |:---:|---|---|---|---|---|---|---|:---:|---|
@@ -126,7 +126,7 @@
 ---
 
 ## 9. CAD 도면 / 물량산출 / 모델 연동 모듈군 (3종)
-*상세 사양서 단일 진실 공급원: [`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)*
+*상세 사양서 단일 진실 공급원: [`docs/12_full_feature_porting_master_plan.md`](12_full_feature_porting_master_plan.md)*
 
 | No | 부재 분류 | 모듈 식별자 (`type`) | 원본 바이너리/모듈 | [1순위] 추출 소스/심볼 | [2순위] 원본 폼뷰/모드 | [3순위] 표준 양식 | [4순위] KDS 조항 | 티어 | 핵심 설계 기능 및 구현 대상 파일 |
 |:---:|---|---|---|---|---|---|---|:---:|---|
@@ -137,7 +137,7 @@
 ---
 
 ## 10. 글로벌 규준 (International Codes) 어댑터군 (4종)
-*상세 사양서 단일 진실 공급원: [`docs/09_decompiled_source_and_symbol_inventory.md`](file:///f:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md)*
+*상세 사양서 단일 진실 공급원: [`docs/09_decompiled_source_and_symbol_inventory.md`](09_decompiled_source_and_symbol_inventory.md)*
 
 | No | 규준 분류 | 모듈 식별자 (`type`) | 원본 바이너리/모듈 | [1순위] 추출 소스/심볼 | [2순위] 원본 DLG 리소스 | [3순위] 국제 공인 예제 | [4순위] 국제 기준 코드 | 티어 | 핵심 설계 기능 및 구현 대상 파일 |
 |:---:|---|---|---|---|---|---|---|:---:|---|

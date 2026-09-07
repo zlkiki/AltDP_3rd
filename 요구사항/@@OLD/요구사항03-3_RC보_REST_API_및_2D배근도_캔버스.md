@@ -7,8 +7,8 @@
 * HTML5 Canvas를 활용하여 단면 치수, 1단/2단 주철근, 스터럽, 치수선 및 철근 제원을 직관적이고 미려하게 렌더링하는 2D 배근도 렌더러를 구현합니다.
 
 ### 1.2. 참조 Ground Truth 자산
-* **UI/UX 명세서**: [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)
-* **기존 API 구조**: [`src/api/routes/rc.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/rc.py)
+* **UI/UX 명세서**: [`docs/07_web_application_ui_ux_specification.md`](../../docs/07_web_application_ui_ux_specification.md)
+* **기존 API 구조**: [`src/api/routes/rc.py`](../../src/api/routes/rc.py)
 
 ---
 
@@ -39,10 +39,10 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/api/schemas/rc_beam.py`](file:///f:/PyProject/AltDP_3rd/src/api/schemas/rc_beam.py) | [NEW] | RC 보 전용 Pydantic 요청/응답 스키마 |
-| [`src/api/routes/rc_beam.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/rc_beam.py) | [NEW] | RC 보 검토 및 자동설계 REST 엔드포인트 |
-| [`src/web/static/js/renderer2d.js`](file:///f:/PyProject/AltDP_3rd/src/web/static/js/renderer2d.js) | [MODIFY] | RC 보 2D 단면 배근도 캔버스 렌더링 함수 구현 |
-| [`tests/api/test_rc_beam_api.py`](file:///f:/PyProject/AltDP_3rd/tests/api/test_rc_beam_api.py) | [NEW] | RC 보 API 검토 및 자동설계 엔드포인트 테스트 |
+| [`src/api/schemas/rc_beam.py`](../../src/api/schemas/rc_beam.py) | [NEW] | RC 보 전용 Pydantic 요청/응답 스키마 |
+| [`src/api/routes/rc_beam.py`](../../src/api/routes/rc_beam.py) | [NEW] | RC 보 검토 및 자동설계 REST 엔드포인트 |
+| [`src/web/static/js/renderer2d.js`](../../src/web/static/js/renderer2d.js) | [MODIFY] | RC 보 2D 단면 배근도 캔버스 렌더링 함수 구현 |
+| [`tests/api/test_rc_beam_api.py`](../../tests/api/test_rc_beam_api.py) | [NEW] | RC 보 API 검토 및 자동설계 엔드포인트 테스트 |
 
 ---
 

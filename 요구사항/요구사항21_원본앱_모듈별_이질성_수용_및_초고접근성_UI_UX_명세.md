@@ -3,7 +3,7 @@
 ## 1. 개요 및 설계 철학 (Vision & Alignment with DOCS 07)
 
 ### 1.1. DOCS 07 단일 진실 공급원(SSOT) 정렬
-본 문서는 **[`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)**에 명시된 **Zero-Build 4분할(4-Pane) 반응형 올인원 워크스페이스 아키텍처**를 기준 프레임워크로 철저히 계승하며, 실무 구조 엔지니어링 워크플로우에 맞추어 발견된 개선점을 각 Pane별로 정밀하게 융합한 단일 마스터 요구사항 명세서입니다.
+본 문서는 **[`docs/07_web_application_ui_ux_specification.md`](../docs/07_web_application_ui_ux_specification.md)**에 명시된 **Zero-Build 4분할(4-Pane) 반응형 올인원 워크스페이스 아키텍처**를 기준 프레임워크로 철저히 계승하며, 실무 구조 엔지니어링 워크플로우에 맞추어 발견된 개선점을 각 Pane별로 정밀하게 융합한 단일 마스터 요구사항 명세서입니다.
 
 ### 1.2. DOCS 07 표준 레이아웃 순서 및 4-Pillars 차례 엄수
 사용자의 입력과 데이터의 흐름은 공학적 표준 워크플로우인 **[탐색 및 부재 선택] $\rightarrow$ [파라메트릭 입력] $\rightarrow$ [역학 형상/거동 그래픽 확인] $\rightarrow$ [최종 KDS 계산서 검토]**의 좌에서 우($\text{Left} \rightarrow \text{Right}$) 흐름을 엄격히 준수합니다.
@@ -252,12 +252,12 @@ src/web/static/js/
 
 | Phase | 세부 구현 문서 (Clickable Link) | 핵심 담당 컴포넌트 | 주요 산출물 및 완수 기준 |
 |:---:|---|---|---|
-| **21-1** | [요구사항 21-1 (레이아웃 & 리사이저)](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21-1_Phase21-1_DOCS07_4Pane_워크스페이스_레이아웃_및_4대_독립_리사이저.md) | `index.html`, `layout.css`, `layout_resizer.js` | Top Master Toolbar + 4-Pane(사이드바/부재·폼/그래픽/계산서) 그리드 복원 및 4대 독립 리사이저 엔진 완수 |
-| **21-2** | [요구사항 21-2 (사이드바 & 즐겨찾기)](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21-2_Phase21-2_스마트_계층형_모듈_탐색기_사이드바_및_즐겨찾기_시스템.md) | `sidebar_nav.js`, `catalog.js`, `tree_menu.css` | 8개 카테고리 Pills 탭 필터, 즐겨찾기(⭐) 영속화, 3단계 WorkTree, DCR 2단계(OK/NG) 글자 표기, 3초 자동숨김 & 고정핀(📌) |
-| **21-3** | [요구사항 21-3 (부재매니저 & 입력폼)](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21-3_Phase21-3_다중_부재_매니저_Pane1_및_파라메트릭_입력폼_Pane2_고도화.md) | `member_manager.js`, `form_generator.js`, `form_combobox.js`, `modal_manager.js` | Pane 1 부재 CRUD/요약그리드, Pane 2 4대 서브탭, KS 콤보박스, 원본 1:1 서브 대화창(`...`) 모달 4종, 3버튼(`적용/검토/설계`) |
-| **21-4** | [요구사항 21-4 (세로적층 뷰포트)](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21-4_Phase21-4_세로_적층형_다중_뷰포트_그래픽_정보부_Pane3_구축.md) | `graphic_viewport.js`, `renderer2d.js`, `pm_chart.js`, `canvas.css` | 상단(단면/형상) + 하단(공학역학/P-M) 세로 적층 다중 뷰포트, RC/Steel/접합부/기초/PC 2D 그래픽 시각화, 독립 줌/팬/Fit/호버툴팁 |
-| **21-5** | [요구사항 21-5 (KDS 표준 구조계산서)](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21-5_Phase21-5_원본_출력모듈_1대1_계승_KDS_표준_구조계산서_Pane4_엔진.md) | `report_engine.js`, `report.css`, `print.css` | 상시 순백색(`#ffffff`) A4 고정 용지, 상세/요약 2대 모드 라디오 분기, `[☑ 입력데이터 상세 포함]` 토글, 머릿말 설정 모달, KaTeX 8단계 수식 유도식, O.K/N.G 판정 표기 |
-| **21-6** | [요구사항 21-6 (모듈팩 & 4열 E2E 통합)](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21-6_Phase21-6_부재별_다형적_모듈팩_디스패처_및_5대_플래그십_4열_E2E_통합.md) | `dispatcher.js`, `event_bus.js`, `project_store.js`, `src/web/static/js/modules/` | Polymorphic Module Pack 디스패처, ProjectStore 중심 3-View 100ms 실시간 동기화, 5대 플래그십(RC보, 기둥, 기초, 철골보, 주각부) E2E 검증, 오차 $\le 0.10\%$ |
+| **21-1** | [요구사항 21-1 (레이아웃 & 리사이저)](요구사항21-1_Phase21-1_DOCS07_4Pane_워크스페이스_레이아웃_및_4대_독립_리사이저.md) | `index.html`, `layout.css`, `layout_resizer.js` | Top Master Toolbar + 4-Pane(사이드바/부재·폼/그래픽/계산서) 그리드 복원 및 4대 독립 리사이저 엔진 완수 |
+| **21-2** | [요구사항 21-2 (사이드바 & 즐겨찾기)](요구사항21-2_Phase21-2_스마트_계층형_모듈_탐색기_사이드바_및_즐겨찾기_시스템.md) | `sidebar_nav.js`, `catalog.js`, `tree_menu.css` | 8개 카테고리 Pills 탭 필터, 즐겨찾기(⭐) 영속화, 3단계 WorkTree, DCR 2단계(OK/NG) 글자 표기, 3초 자동숨김 & 고정핀(📌) |
+| **21-3** | [요구사항 21-3 (부재매니저 & 입력폼)](요구사항21-3_Phase21-3_다중_부재_매니저_Pane1_및_파라메트릭_입력폼_Pane2_고도화.md) | `member_manager.js`, `form_generator.js`, `form_combobox.js`, `modal_manager.js` | Pane 1 부재 CRUD/요약그리드, Pane 2 4대 서브탭, KS 콤보박스, 원본 1:1 서브 대화창(`...`) 모달 4종, 3버튼(`적용/검토/설계`) |
+| **21-4** | [요구사항 21-4 (세로적층 뷰포트)](요구사항21-4_Phase21-4_세로_적층형_다중_뷰포트_그래픽_정보부_Pane3_구축.md) | `graphic_viewport.js`, `renderer2d.js`, `pm_chart.js`, `canvas.css` | 상단(단면/형상) + 하단(공학역학/P-M) 세로 적층 다중 뷰포트, RC/Steel/접합부/기초/PC 2D 그래픽 시각화, 독립 줌/팬/Fit/호버툴팁 |
+| **21-5** | [요구사항 21-5 (KDS 표준 구조계산서)](요구사항21-5_Phase21-5_원본_출력모듈_1대1_계승_KDS_표준_구조계산서_Pane4_엔진.md) | `report_engine.js`, `report.css`, `print.css` | 상시 순백색(`#ffffff`) A4 고정 용지, 상세/요약 2대 모드 라디오 분기, `[☑ 입력데이터 상세 포함]` 토글, 머릿말 설정 모달, KaTeX 8단계 수식 유도식, O.K/N.G 판정 표기 |
+| **21-6** | [요구사항 21-6 (모듈팩 & 4열 E2E 통합)](요구사항21-6_Phase21-6_부재별_다형적_모듈팩_디스패처_및_5대_플래그십_4열_E2E_통합.md) | `dispatcher.js`, `event_bus.js`, `project_store.js`, `src/web/static/js/modules/` | Polymorphic Module Pack 디스패처, ProjectStore 중심 3-View 100ms 실시간 동기화, 5대 플래그십(RC보, 기둥, 기초, 철골보, 주각부) E2E 검증, 오차 $\le 0.10\%$ |
 
 ---
 

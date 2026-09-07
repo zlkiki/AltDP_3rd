@@ -135,11 +135,11 @@ decompiled_src/
 
 | Phase | 세부 요구사항 문서 | 주요 구현 및 추출 산출물 | 대상 바이너리 |
 |:---:|---|---|---|
-| **Phase 01-1** | [요구사항01-1: Ghidra Headless 파이프라인 구축](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항01-1_Ghidra_Headless_파이프라인_및_추출엔진_구축.md) | `scripts/ghidra_extract.py`, `scripts/ExportTargetFunctions.java`, `tests/engine/test_ghidra_pipeline.py` | CLI & Ghidra 환경 |
-| **Phase 01-2** | [요구사항01-2: Group 1 P-M 비선형 솔버 추출](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항01-2_Group1_P-M상관도_비선형해석_수치솔버_추출.md) | `solver/CHK_BCCO_column_pm.c`, 중립축 수렴 루프 | `DPLUS_RCS.dll`, `DPLUS_DB.dll` |
-| **Phase 01-3** | [요구사항01-3: Group 2 RC 5대 부재 설계식 추출](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항01-3_Group2_RC_5대부재_핵심설계식_추출.md) | `rc/CHK_BBBE_beam.c`, `wall.c`, `slab.c`, `footing.c`, `retaining.c`, `underground_beam.c` | `DPLUS_RCS.dll` |
-| **Phase 01-4** | [요구사항01-4: Group 3 & 4 철골/접합부/주각부 추출](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항01-4_Group3-4_철골부재_접합부_주각부_추출.md) | `steel/CHK_USMC_member.c`, `CHK_USBP_baseplate.c`, `CHK_USBC_bolt_connection.c`, `endplate.c`, `welding.c` | `DPLUS_STEEL.dll` |
-| **Phase 01-5** | [요구사항01-5: Group 5 단면DB연산 추출 및 무결성 검증](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항01-5_Group5_단면DB연산_추출_색인_무결성검증.md) | `db/CSteelSectDB_properties.c`, `core_routines/README.md` 총괄 색인표, 회귀 테스트 | `DPLUS_DB.dll` |
+| **Phase 01-1** | [요구사항01-1: Ghidra Headless 파이프라인 구축](../요구사항01-1_Ghidra_Headless_파이프라인_및_추출엔진_구축.md) | `scripts/ghidra_extract.py`, `scripts/ExportTargetFunctions.java`, `tests/engine/test_ghidra_pipeline.py` | CLI & Ghidra 환경 |
+| **Phase 01-2** | [요구사항01-2: Group 1 P-M 비선형 솔버 추출](../요구사항01-2_Group1_P-M상관도_비선형해석_수치솔버_추출.md) | `solver/CHK_BCCO_column_pm.c`, 중립축 수렴 루프 | `DPLUS_RCS.dll`, `DPLUS_DB.dll` |
+| **Phase 01-3** | [요구사항01-3: Group 2 RC 5대 부재 설계식 추출](../요구사항01-3_Group2_RC_5대부재_핵심설계식_추출.md) | `rc/CHK_BBBE_beam.c`, `wall.c`, `slab.c`, `footing.c`, `retaining.c`, `underground_beam.c` | `DPLUS_RCS.dll` |
+| **Phase 01-4** | [요구사항01-4: Group 3 & 4 철골/접합부/주각부 추출](../요구사항01-4_Group3-4_철골부재_접합부_주각부_추출.md) | `steel/CHK_USMC_member.c`, `CHK_USBP_baseplate.c`, `CHK_USBC_bolt_connection.c`, `endplate.c`, `welding.c` | `DPLUS_STEEL.dll` |
+| **Phase 01-5** | [요구사항01-5: Group 5 단면DB연산 추출 및 무결성 검증](../요구사항01-5_Group5_단면DB연산_추출_색인_무결성검증.md) | `db/CSteelSectDB_properties.c`, `core_routines/README.md` 총괄 색인표, 회귀 테스트 | `DPLUS_DB.dll` |
 
 ---
 

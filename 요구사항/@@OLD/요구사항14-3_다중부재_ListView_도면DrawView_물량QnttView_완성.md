@@ -7,7 +7,7 @@
 * 다중 부재 일괄 스프레드시트 검토 뷰(List View), 2D 배근 상세도 및 일람표 CAD 뷰어(Draw View), 그리고 콘크리트/거푸집/철근/형강 자동 물량 산출 대시보드(Qntt View)를 완성하여 상용 엔지니어링 프로그램 수준의 통합 웹 UI/UX를 달성합니다.
 
 ### 1.2. 참조 Ground Truth 자산
-* **UI 역공학 명세 (SSOT)**: [`docs/13_original_app_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_original_app_ui_specification.md)
+* **UI 역공학 명세 (SSOT)**: [`docs/13_original_app_ui_specification.md`](../../docs/13_original_app_ui_specification.md)
 * **디컴파일 심볼**: `decompiled_src/DPLUS_VDraw.dll_symbols.txt` (`CMainFormViewList`, `CMainFormViewDraw`, `CMainFormViewQntt`)
 
 ---
@@ -40,13 +40,13 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/web/templates/view_list.html`](file:///f:/PyProject/AltDP_3rd/src/web/templates/view_list.html) | [NEW] | 다중 부재 계층 트리 및 스프레드시트 일괄 검토 템플릿 |
-| [`src/web/templates/view_draw.html`](file:///f:/PyProject/AltDP_3rd/src/web/templates/view_draw.html) | [NEW] | 2D 배근 상세도 및 일람표 CAD 도면 뷰어 템플릿 |
-| [`src/web/templates/view_qntt.html`](file:///f:/PyProject/AltDP_3rd/src/web/templates/view_qntt.html) | [NEW] | 콘크리트/철근/형강 물량 산출 대시보드 템플릿 |
-| [`src/web/static/js/batch_grid.js`](file:///f:/PyProject/AltDP_3rd/src/web/static/js/batch_grid.js) | [NEW] | 다중 부재 고속 그리드 편집기 및 일괄 검토 클라이언트 |
-| [`src/web/static/js/draw_cad.js`](file:///f:/PyProject/AltDP_3rd/src/web/static/js/draw_cad.js) | [NEW] | 2D 구조 도면 및 배근 일람표 벡터 렌더러 |
-| [`src/web/static/js/qntt_summary.js`](file:///f:/PyProject/AltDP_3rd/src/web/static/js/qntt_summary.js) | [NEW] | 물량 자동 적산 엔진 및 통계 대시보드 스크립트 |
-| [`tests/api/test_web_routes.py`](file:///f:/PyProject/AltDP_3rd/tests/api/test_web_routes.py) | [MODIFY] | 4대 폼뷰 전체 엔드포인트 무결성 검증 테스트 추가 |
+| [`src/web/templates/view_list.html`](../../src/web/templates/view_list.html) | [NEW] | 다중 부재 계층 트리 및 스프레드시트 일괄 검토 템플릿 |
+| [`src/web/templates/view_draw.html`](../../src/web/templates/view_draw.html) | [NEW] | 2D 배근 상세도 및 일람표 CAD 도면 뷰어 템플릿 |
+| [`src/web/templates/view_qntt.html`](../../src/web/templates/view_qntt.html) | [NEW] | 콘크리트/철근/형강 물량 산출 대시보드 템플릿 |
+| [`src/web/static/js/batch_grid.js`](../../src/web/static/js/batch_grid.js) | [NEW] | 다중 부재 고속 그리드 편집기 및 일괄 검토 클라이언트 |
+| [`src/web/static/js/draw_cad.js`](../../src/web/static/js/draw_cad.js) | [NEW] | 2D 구조 도면 및 배근 일람표 벡터 렌더러 |
+| [`src/web/static/js/qntt_summary.js`](../../src/web/static/js/qntt_summary.js) | [NEW] | 물량 자동 적산 엔진 및 통계 대시보드 스크립트 |
+| [`tests/api/test_web_routes.py`](../../tests/api/test_web_routes.py) | [MODIFY] | 4대 폼뷰 전체 엔드포인트 무결성 검증 테스트 추가 |
 
 ---
 

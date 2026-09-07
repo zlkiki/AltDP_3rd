@@ -28,14 +28,14 @@
 | **단면 DB & 재료/하중** | • 33개 형강 DB 및 단면 기하성질 산정 (`src/engine/db/`)<br>• KDS 14 20/31 콘크리트·강재 모델 (`materials.py`), LCB 다축 포락 (`load_comb.py`) | **완료** |
 | **수치 솔버 코어** | • 200 파이버 수치적분 3D P-M 상관곡면 솔버 (`src/engine/solver/pm_diagram.py`)<br>• DKMQ/DKT 2D 평판 휨 요소 및 Winkler 지반/접촉 솔버 코어 (`src/engine/fem/`) | **완료** |
 | **4열 웹 워크스페이스** | • 1열(트리메뉴) - 2열(VDraw 캔버스) - 3열(파라메트릭 입력) - 4열(A4 구조계산서)<br>• 반응형 글래스모피즘 UI, 테마 시스템, ProjectStore 상태 관리 | **완료** |
-| **모듈 디스패처 & WIP 체계** | • Phase 20 더미 코드 전면 청산 및 정직한 WIP 디스패처/안내 카드 구축<br>• 61종 전수 모듈 3단계 티어 메타데이터 체계 확립 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md)) | **완료** |
+| **모듈 디스패처 & WIP 체계** | • Phase 20 더미 코드 전면 청산 및 정직한 WIP 디스패처/안내 카드 구축<br>• 61종 전수 모듈 3단계 티어 메타데이터 체계 확립 ([`docs/04`](04_master_original_app_modules_comprehensive_catalog.md)) | **완료** |
 | **4대 SSOT 검증 파이프라인** | • Ghidra C 루틴(1순위) $\leftrightarrow$ 매뉴얼/DLG(2순위) $\leftrightarrow$ 학회 예제집(3순위) $\leftrightarrow$ KDS 원문(4순위)<br>• 3자 삼각대조 0.10% 오차 검증 및 kcsc2md Self-Healing 선 치유 프로토콜 (기준서 및 예제집) | **완료** |
 
 ---
 
 ## 3. 부재별 5대 정밀 수직 공정 파이프라인 (Vertical 5-Step Micro Pipeline)
 
-개별 부재 모듈 개발 시 [`docs/16_goal_micro_execution_protocol.md`](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md)에 정의된 5대 마이크로 공정을 순차적으로 완수합니다:
+개별 부재 모듈 개발 시 [`docs/16_goal_micro_execution_protocol.md`](16_goal_micro_execution_protocol.md)에 정의된 5대 마이크로 공정을 순차적으로 완수합니다:
 
 | 공정 단계 | 권장 모델 | 공정 명칭 | 핵심 산출물 및 작업 내용 | 필수 검증 기준 (DoD) |
 |:---:|:---:|---|---|:---:|
@@ -49,7 +49,7 @@
 
 ## 4. 61종 전수 모듈 수직 개발 스프린트 로드맵 (Phases V1 ~ V6)
 
-전체 61종 모듈([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md))은 실무 활용도 및 의존성 계층에 따라 6대 수직 스프린트로 분할 실행됩니다:
+전체 61종 모듈([`docs/04`](04_master_original_app_modules_comprehensive_catalog.md))은 실무 활용도 및 의존성 계층에 따라 6대 수직 스프린트로 분할 실행됩니다:
 
 ```mermaid
 flowchart LR
@@ -109,7 +109,7 @@ flowchart LR
 ### Phase V4 (Sprint 4): Tier 2 2D FEM 연동 및 특수 철골 부재군 (9종)
 > **목표**: 2D 평판 휨 및 접촉 비선형 FEM 솔버 연동 부재 5종 및 특수 철골 부재 4종 수직 완성.
 
-* **2D FEM 평판 휨 연동 부재군 ([`docs/15`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md) 연동 5종)**:
+* **2D FEM 평판 휨 연동 부재군 ([`docs/15`](15_fem_analysis_and_external_solver_specification.md) 연동 5종)**:
   - `foundation_fem` (매트기초 FEM): Winkler 탄성지반 + 인장분리(Tension Cut-off) 비선형 반복해석
   - `wall_2way_fem` (지하외벽 2방향 FEM): 횡토압/수압 2방향 판휨 및 다층 지지 경계조건 해석
   - `baseplate_fem` (주각부 접촉 FEM): 콘크리트 압축 지압 - 앵커볼트 인장 비선형 접촉 FEM

@@ -2,9 +2,9 @@
 
 ## 1. 개요 및 목적 (Background & Objectives)
 * **상위 기술 문서 (SSOT)**:
-  - [`요구사항 21 (마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제3절
-  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) 제4.1절, 제4.2절
-  - [`docs/03_section_db_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/03_section_db_specification.md) (단면 형강 DB)
+  - [`요구사항 21 (마스터)`](요구사항21_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제3절
+  - [`docs/07_web_application_ui_ux_specification.md`](../docs/07_web_application_ui_ux_specification.md) 제4.1절, 제4.2절
+  - [`docs/03_section_db_specification.md`](../docs/03_section_db_specification.md) (단면 형강 DB)
 * **목적**: Left-Sub 패널 내에서 여러 부재 인스턴스를 추가·복제·관리하는 **다중 부재 매니저(Pane 1)**와, 부재별 고유 제원·배근·하중·옵션을 정밀하게 제어하는 **파라메트릭 입력폼(Pane 2)** 및 원본앱 1:1 서브 대화창 모달 시스템을 완성합니다.
 
 ---

@@ -6,9 +6,9 @@
 
 * **부재 및 모듈 식별자**: `steel_baseplate` (카탈로그 No. 24, Tier 1 플래그십)
 * **담당 소스 파일**:
-  - 엔진 구현: [`src/engine/steel/baseplate.py`](file:///f:/PyProject/AltDP_3rd/src/engine/steel/baseplate.py)
-  - API 라우트: [`src/api/routes/steel.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/steel.py)
-  - 단위 테스트: [`tests/engine/test_steel_baseplate.py`](file:///f:/PyProject/AltDP_3rd/tests/engine/test_steel_baseplate.py)
+  - 엔진 구현: [`src/engine/steel/baseplate.py`](../src/engine/steel/baseplate.py)
+  - API 라우트: [`src/api/routes/steel.py`](../src/api/routes/steel.py)
+  - 단위 테스트: [`tests/engine/test_steel_baseplate.py`](../tests/engine/test_steel_baseplate.py)
 * **4대 포팅 참조 우선순위 (SSOT Hierarchy)**:
   1. `[1순위 추출 소스]`: `decompiled_src/core_routines/` C루틴 (`steel__CHK_USBP_*.c`, `solver_baseplate_*`, `DPLUS_STEEL.dll`, `DPLUS_DB.dll`)
   2. `[2순위 원본 매뉴얼]`: 원본앱 기술 매뉴얼 Baseplate 편 (KDS 14 31 25 한계상태설계법, 콘크리트 지압 및 대·소편심 해석, AISC Design Guide 1 캔틸레버 휨 모델)

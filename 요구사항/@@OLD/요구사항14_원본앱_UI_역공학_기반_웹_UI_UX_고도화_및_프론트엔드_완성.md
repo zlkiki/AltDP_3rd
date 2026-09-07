@@ -3,10 +3,10 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-[`docs/13_original_app_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_original_app_ui_specification.md)에는 원본 원본앱의 MFC 리본 바, **4대 메인 폼뷰**(`CMainFormViewMemb`, `CMainFormViewList`, `CMainFormViewDraw`, `CMainFormViewQntt`), **3대 인터랙션 모드**(`P-Mode`, `S-Mode`, `M-Mode`), 그리고 부재별 다이얼로그 폼(`DLG_*.ini`)이 정밀하게 역공학 분석되어 있습니다. 본 요구사항은 이를 웹 UI/UX 종합 명세서([`docs/07`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md))에 완전 융합/고도화하고, 이를 바탕으로 **AltDP_3rd의 실질적인 반응형 웹 프론트엔드를 완성**하는 것입니다.
+[`docs/13_original_app_ui_specification.md`](../../docs/13_original_app_ui_specification.md)에는 원본 원본앱의 MFC 리본 바, **4대 메인 폼뷰**(`CMainFormViewMemb`, `CMainFormViewList`, `CMainFormViewDraw`, `CMainFormViewQntt`), **3대 인터랙션 모드**(`P-Mode`, `S-Mode`, `M-Mode`), 그리고 부재별 다이얼로그 폼(`DLG_*.ini`)이 정밀하게 역공학 분석되어 있습니다. 본 요구사항은 이를 웹 UI/UX 종합 명세서([`docs/07`](../../docs/07_web_application_ui_ux_specification.md))에 완전 융합/고도화하고, 이를 바탕으로 **AltDP_3rd의 실질적인 반응형 웹 프론트엔드를 완성**하는 것입니다.
 
 ### 1.2. 개발 목적
-1. **[`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) 명세서 고도화**:
+1. **[`docs/07_web_application_ui_ux_specification.md`](../../docs/07_web_application_ui_ux_specification.md) 명세서 고도화**:
    - docs 13의 원본 4대 폼뷰 및 3대 모드 워크플로우를 docs 07에 완전히 반영하여 모던 웹 규격으로 개정.
 2. **모던 엔지니어링 리본 바 & 4대 폼뷰 탭 전환 시스템 구축**:
    - **Memb View (`CMainFormViewMemb`)**: 단일 부재 4분할 워크스페이스 (입력 폼 + 2D 배근도 + P-M 차트 + KDS 계산서).

@@ -8,7 +8,7 @@
 
 ### 1.2. 참조 Ground Truth 자산
 * **바이너리 & 외부 솔버**: `original_src/Midas Design+/DgnSolver/FES.EXE`
-* **기술 명세서 (SSOT)**: [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md), [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)
+* **기술 명세서 (SSOT)**: [`docs/15_fem_analysis_and_external_solver_specification.md`](../../docs/15_fem_analysis_and_external_solver_specification.md), [`docs/07_web_application_ui_ux_specification.md`](../../docs/07_web_application_ui_ux_specification.md)
 * **심볼 레퍼런스**: `decompiled_src/DPLUS_RCS.dll_symbols.txt` (`CHK_URSL`)
 
 ---
@@ -41,12 +41,12 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/engine/fem/slab_fem.py`](file:///f:/PyProject/AltDP_3rd/src/engine/fem/slab_fem.py) | [NEW] | 비정형/개구부 슬래브 2D FEM 해석 엔진 구현 |
-| [`src/api/routes/fem.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/fem.py) | [NEW] | 5대 부재 FEM 해석 통합 REST API 엔드포인트 구현 |
-| [`src/api/main.py`](file:///f:/PyProject/AltDP_3rd/src/api/main.py) | [MODIFY] | FEM 라우트 등록 |
-| [`src/web/static/js/stress_contour.js`](file:///f:/PyProject/AltDP_3rd/src/web/static/js/stress_contour.js) | [NEW] | Canvas 2D 실시간 컬러 등고선 및 범례 렌더러 구현 |
-| [`tests/engine/test_fem_slab.py`](file:///f:/PyProject/AltDP_3rd/tests/engine/test_fem_slab.py) | [NEW] | 개구부 슬래브 휨 및 펀칭 전단 FEM 해석 검증 |
-| [`tests/api/test_fem_api.py`](file:///f:/PyProject/AltDP_3rd/tests/api/test_fem_api.py) | [NEW] | 5대 FEM API 엔드포인트 입출력 검증 테스트 |
+| [`src/engine/fem/slab_fem.py`](../../src/engine/fem/slab_fem.py) | [NEW] | 비정형/개구부 슬래브 2D FEM 해석 엔진 구현 |
+| [`src/api/routes/fem.py`](../../src/api/routes/fem.py) | [NEW] | 5대 부재 FEM 해석 통합 REST API 엔드포인트 구현 |
+| [`src/api/main.py`](../../src/api/main.py) | [MODIFY] | FEM 라우트 등록 |
+| [`src/web/static/js/stress_contour.js`](../../src/web/static/js/stress_contour.js) | [NEW] | Canvas 2D 실시간 컬러 등고선 및 범례 렌더러 구현 |
+| [`tests/engine/test_fem_slab.py`](../../tests/engine/test_fem_slab.py) | [NEW] | 개구부 슬래브 휨 및 펀칭 전단 FEM 해석 검증 |
+| [`tests/api/test_fem_api.py`](../../tests/api/test_fem_api.py) | [NEW] | 5대 FEM API 엔드포인트 입출력 검증 테스트 |
 
 ---
 

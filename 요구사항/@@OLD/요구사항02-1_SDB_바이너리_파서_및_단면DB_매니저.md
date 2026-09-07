@@ -8,7 +8,7 @@
 
 ### 1.2. 참조 Ground Truth 자산
 * **바이너리 파일**: `original_src/Midas Design+/Dbase/*.sdb` (33개 파일)
-* **바이너리 역공학 명세**: [`docs/03_section_db_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/03_section_db_specification.md)
+* **바이너리 역공학 명세**: [`docs/03_section_db_specification.md`](../../docs/03_section_db_specification.md)
 * **디컴파일 심볼**: `decompiled_src/core_routines/db/` 내 `CSteelSectDB` / `CAluSectDB` 루틴
 
 ---
@@ -61,9 +61,9 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/engine/db/sdb_parser.py`](file:///f:/PyProject/AltDP_3rd/src/engine/db/sdb_parser.py) | [MODIFY] | 바이너리 디코딩 고도화 및 레코드 구조 완성 |
-| [`src/engine/db/section_db.py`](file:///f:/PyProject/AltDP_3rd/src/engine/db/section_db.py) | [NEW] | 인메모리 SQLite 기반 단면 DB 매니저 구현 |
-| [`tests/engine/test_sdb_parser.py`](file:///f:/PyProject/AltDP_3rd/tests/engine/test_sdb_parser.py) | [MODIFY] | KS, AISC, JIS 단면 DB 파싱 및 검색 검증 테스트 |
+| [`src/engine/db/sdb_parser.py`](../../src/engine/db/sdb_parser.py) | [MODIFY] | 바이너리 디코딩 고도화 및 레코드 구조 완성 |
+| [`src/engine/db/section_db.py`](../../src/engine/db/section_db.py) | [NEW] | 인메모리 SQLite 기반 단면 DB 매니저 구현 |
+| [`tests/engine/test_sdb_parser.py`](../../tests/engine/test_sdb_parser.py) | [MODIFY] | KS, AISC, JIS 단면 DB 파싱 및 검색 검증 테스트 |
 
 ---
 

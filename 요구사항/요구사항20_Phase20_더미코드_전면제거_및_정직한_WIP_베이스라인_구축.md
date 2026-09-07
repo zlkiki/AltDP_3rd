@@ -4,12 +4,12 @@
 
 ### 1.1. 상위 기술 문서(SSOT) 연동 및 설계 철학
 * **단일 진실 공급원(SSOT) 참조**:
-  - [`docs/01_system_architecture.md`](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md) (전체 시스템 아키텍처 및 5대 계층)
-  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) (독립 4-Pane 레이아웃, 3버튼 액션 파이프라인, 원본앱 리본/폼뷰/다이얼로그 통합 명세)
-  - [`docs/10_agent_development_protocols.md`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md) (개발 프로토콜 및 오차 한계 규약)
-  - [`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md) (Phase 1~6 기완료 자산 보호 및 전 기능 로드맵)
-  - [`docs/14_structural_calculation_report_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md) (KDS 3대 보고서 모드 및 5대 장구분 표준 목차)
-  - [`docs/16_goal_micro_execution_protocol.md`](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md) (2단계 5정밀 마이크로 공정 및 Proof-First Mandate)
+  - [`docs/01_system_architecture.md`](../docs/01_system_architecture.md) (전체 시스템 아키텍처 및 5대 계층)
+  - [`docs/07_web_application_ui_ux_specification.md`](../docs/07_web_application_ui_ux_specification.md) (독립 4-Pane 레이아웃, 3버튼 액션 파이프라인, 원본앱 리본/폼뷰/다이얼로그 통합 명세)
+  - [`docs/10_agent_development_protocols.md`](../docs/10_agent_development_protocols.md) (개발 프로토콜 및 오차 한계 규약)
+  - [`docs/12_full_feature_porting_master_plan.md`](../docs/12_full_feature_porting_master_plan.md) (Phase 1~6 기완료 자산 보호 및 전 기능 로드맵)
+  - [`docs/14_structural_calculation_report_specification.md`](../docs/14_structural_calculation_report_specification.md) (KDS 3대 보고서 모드 및 5대 장구분 표준 목차)
+  - [`docs/16_goal_micro_execution_protocol.md`](../docs/16_goal_micro_execution_protocol.md) (2단계 5정밀 마이크로 공정 및 Proof-First Mandate)
 * **문서 성격**: 원본앱 61종 전체 부재의 실무급 1:1 웹 마이그레이션에 앞서, 시스템 전반에 잠재된 **기만적 가짜 연산 코드(Mock/Stub 강도치 150/100, 임의 OK 판정), 불완전한 폼 잔존/뭉뚱그림, 계산서 하드코딩 정적 텍스트 및 데드코드를 전면 척결**하고, `docs/07` 및 `docs/14` 규격에 부합하는 투명하고 정직한 **`[미구현 (WIP)]` 4-Pane 베이스라인**을 확립하기 위한 핵심 독립 전술 요구사항 명세서입니다.
 * **4대 포팅 참조 우선순위 준수**:
   - `1순위`: 원본 추출 소스 (`decompiled_src/core_routines/*.c`, `symbols/*.txt`, `original_src/`)
@@ -30,7 +30,7 @@
 4. **`docs/14` KDS 3대 보고서 & 5대 장구분 체계 준수 및 레거시 임시 뷰어(`redcr_common_renderer.js`) 청산**:
    - `As-Is`: AltBU 잔재인 "8단계 KaTeX 수식 전개식" 등 타 프로젝트 용어가 혼입되어 `docs/14` 명세와 충돌하고, 전용 계산서가 없는 부재에 대해 AltDP_2nd 시절의 뭉뚱그림 4-Pillar 카드형 뷰어(`redcr_common_renderer.js`)가 호출되어 A4 용지 규격을 위반하고 가짜/임의 테이블을 조립할 위험.
    - `To-Be`: `redcr_common_renderer.js`의 기만적 카드 뷰 및 데드코드를 전면 청산/제거하고, 원본앱 및 `docs/14`의 정식 규격인 **"5대 장구분 (1. 일반조건, 2. 재질/단면, 3. 설계하중, 4. 단면안전성, 5. 종합판정)"** 및 **"3대 보고서 모드 (요약/상세/입력데이터)"** 표준 양식으로 완전 일치화. 하드코딩된 정적 텍스트를 전면 청산하고 미계산/미구현 시 순백색 A4 WIP 시트로 일원화.
-5. **원본앱 61종 모듈 3단계 티어(Tier) 메타데이터 전수 주입 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md))**:
+5. **원본앱 61종 모듈 3단계 티어(Tier) 메타데이터 전수 주입 ([`docs/04`](../docs/04_master_original_app_modules_comprehensive_catalog.md))**:
    - `docs/13`의 원본앱 6대 대분류 탭(RC, STEEL, SRC, ALU, RFM, FEM/기타)에 기반하여 61종 전체 모듈에 3단계 티어(`Tier 1: 9종 핵심`, `Tier 2: 26종 주요`, `Tier 3: 26종 특수`) 속성 전수 주입.
 
 ---
@@ -120,7 +120,7 @@ class WIPResponse(BaseModel):
 
 ---
 
-## 4. 원본앱 61종 전체 모듈 3단계 티어(Tier) 전수 분류표 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md))
+## 4. 원본앱 61종 전체 모듈 3단계 티어(Tier) 전수 분류표 ([`docs/04`](../docs/04_master_original_app_modules_comprehensive_catalog.md))
 
 원본앱 리본 메뉴(`Menu.ini`) 및 대화상자 리소스(`DLG_*.ini`), 외부 솔버(`docs/15`)에 기반하여 **총 61종 전체 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**을 단 1종의 누락이나 축약("등 N종" 표현 전면 금지) 없이 3단계 티어로 전수 분류하여 엄격히 관리합니다:
 
@@ -215,11 +215,11 @@ flowchart TD
 
 | 하위 Phase | 세부 요구사항 문서 | 핵심 개발 영역 | 주요 담당 산출물 및 정합성 목표 |
 |:---:|---|---|---|
-| **Phase 20-1** | [`요구사항 20-1`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-1_Phase20-1_백엔드_더미연산_제거_및_WIP_디스패처_구축.md) | 백엔드 API & 디스패처 | • 가짜 연산(150/100) 영구 삭제, `WIPResponse` 표준 스키마<br>• `docs/12` 기완료 검증 엔진 100% 보호 및 `dispatch.py` 분기 |
-| **Phase 20-2** | [`요구사항 20-2`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-2_Phase20-2_원본앱_61종_3단계_티어_메타_전수_주입.md) | 카탈로그 & 메타데이터 | • 원본앱 61종 카탈로그에 `Tier 1/2/3`, `standard`, `midas_dlg` 전수 주입<br>• `GET /api/modules` 티어별 통계 집계 엔드포인트 제공 |
-| **Phase 20-3** | [`요구사항 20-3`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-3_Phase20-3_프론트엔드_입력부_WIP_안내카드_및_폼_방어.md) | Left-Sub (사용자입력부) | • `docs/07` 4-Pane 레이아웃 연동 및 이전 폼 잔존 방지 클린업<br>• `WIPCardRenderer`: 글래스모피즘 카드, 3버튼 액션 파이프라인 방어 |
-| **Phase 20-4** | [`요구사항 20-4`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-4_Phase20-4_2D_VDraw_캔버스_WIP_및_A4_계산서_하드코딩_청산.md) | Center 캔버스 & Right 리포트 | • 2D VDraw Canvas WIP 플레이스홀더 (그리드+부재명)<br>• `docs/14` 5대 장구분 준수, 계산서 하드코딩 청산, 순백색 `#ffffff` A4 WIP 시트<br>• 레거시 4-Pillar 카드형 `redcr_common_renderer.js` 청산 및 폴백 일원화 |
-| **Phase 20-5** | [`요구사항 20-5`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-5_Phase20-5_4열_통합_E2E_검증_및_콘솔에러_0건_검수창구_확립.md) | 4-Pane 통합 E2E & 무결성 | • 61종 순회 클릭 시 F12 콘솔 에러 0건(404, TypeError 등) 입증<br>• 플래그십-WIP 이중 검증 및 전체 `pytest` 100% 통과 (Exit Code 0) |
+| **Phase 20-1** | [`요구사항 20-1`](요구사항20-1_Phase20-1_백엔드_더미연산_제거_및_WIP_디스패처_구축.md) | 백엔드 API & 디스패처 | • 가짜 연산(150/100) 영구 삭제, `WIPResponse` 표준 스키마<br>• `docs/12` 기완료 검증 엔진 100% 보호 및 `dispatch.py` 분기 |
+| **Phase 20-2** | [`요구사항 20-2`](요구사항20-2_Phase20-2_원본앱_61종_3단계_티어_메타_전수_주입.md) | 카탈로그 & 메타데이터 | • 원본앱 61종 카탈로그에 `Tier 1/2/3`, `standard`, `midas_dlg` 전수 주입<br>• `GET /api/modules` 티어별 통계 집계 엔드포인트 제공 |
+| **Phase 20-3** | [`요구사항 20-3`](요구사항20-3_Phase20-3_프론트엔드_입력부_WIP_안내카드_및_폼_방어.md) | Left-Sub (사용자입력부) | • `docs/07` 4-Pane 레이아웃 연동 및 이전 폼 잔존 방지 클린업<br>• `WIPCardRenderer`: 글래스모피즘 카드, 3버튼 액션 파이프라인 방어 |
+| **Phase 20-4** | [`요구사항 20-4`](요구사항20-4_Phase20-4_2D_VDraw_캔버스_WIP_및_A4_계산서_하드코딩_청산.md) | Center 캔버스 & Right 리포트 | • 2D VDraw Canvas WIP 플레이스홀더 (그리드+부재명)<br>• `docs/14` 5대 장구분 준수, 계산서 하드코딩 청산, 순백색 `#ffffff` A4 WIP 시트<br>• 레거시 4-Pillar 카드형 `redcr_common_renderer.js` 청산 및 폴백 일원화 |
+| **Phase 20-5** | [`요구사항 20-5`](요구사항20-5_Phase20-5_4열_통합_E2E_검증_및_콘솔에러_0건_검수창구_확립.md) | 4-Pane 통합 E2E & 무결성 | • 61종 순회 클릭 시 F12 콘솔 에러 0건(404, TypeError 등) 입증<br>• 플래그십-WIP 이중 검증 및 전체 `pytest` 100% 통과 (Exit Code 0) |
 
 ---
 

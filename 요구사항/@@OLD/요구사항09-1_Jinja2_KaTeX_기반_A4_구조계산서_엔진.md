@@ -13,10 +13,10 @@
   - `decompiled_src/DPLUS_DGN.dll_symbols.txt` (`CMSWorkRec`)
 * **KDS 기준서**: KDS 14 20 00 (콘크리트구조설계기준), KDS 14 31 00 (강구조설계기준) 계산서 표기 규약
 * **대상 소스**:
-  - [`src/report/__init__.py`](file:///f:/PyProject/AltDP_3rd/src/report/__init__.py)
-  - [`src/report/generator.py`](file:///f:/PyProject/AltDP_3rd/src/report/generator.py)
-  - [`src/report/templates/base_report.html`](file:///f:/PyProject/AltDP_3rd/src/report/templates/base_report.html)
-  - [`tests/report/test_report_generator.py`](file:///f:/PyProject/AltDP_3rd/tests/report/test_report_generator.py)
+  - [`src/report/__init__.py`](../../src/report/__init__.py)
+  - [`src/report/generator.py`](../../src/report/generator.py)
+  - [`src/report/templates/base_report.html`](../../src/report/templates/base_report.html)
+  - [`tests/report/test_report_generator.py`](../../tests/report/test_report_generator.py)
 
 ---
 
@@ -58,10 +58,10 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/report/__init__.py`](file:///f:/PyProject/AltDP_3rd/src/report/__init__.py) | [NEW] | Report 패키지 초기화 및 주요 인터페이스 노출 |
-| [`src/report/generator.py`](file:///f:/PyProject/AltDP_3rd/src/report/generator.py) | [NEW] | `ReportGenerator` 엔진 (Jinja2 환경 설정, 커스텀 수식/DCR 필터, 컨텍스트 바인딩) |
-| [`src/report/templates/base_report.html`](file:///f:/PyProject/AltDP_3rd/src/report/templates/base_report.html) | [NEW] | A4 Paged Media 레이아웃, KaTeX 0.16.x CDN, Pretendard 웹폰트, 인쇄 최적화 스타일 |
-| [`tests/report/test_report_generator.py`](file:///f:/PyProject/AltDP_3rd/tests/report/test_report_generator.py) | [NEW] | 베이스 템플릿 렌더링, 필터 유효성, A4 CSS 클래스 및 DCR 하이라이트 단위 테스트 |
+| [`src/report/__init__.py`](../../src/report/__init__.py) | [NEW] | Report 패키지 초기화 및 주요 인터페이스 노출 |
+| [`src/report/generator.py`](../../src/report/generator.py) | [NEW] | `ReportGenerator` 엔진 (Jinja2 환경 설정, 커스텀 수식/DCR 필터, 컨텍스트 바인딩) |
+| [`src/report/templates/base_report.html`](../../src/report/templates/base_report.html) | [NEW] | A4 Paged Media 레이아웃, KaTeX 0.16.x CDN, Pretendard 웹폰트, 인쇄 최적화 스타일 |
+| [`tests/report/test_report_generator.py`](../../tests/report/test_report_generator.py) | [NEW] | 베이스 템플릿 렌더링, 필터 유효성, A4 CSS 클래스 및 DCR 하이라이트 단위 테스트 |
 
 ---
 

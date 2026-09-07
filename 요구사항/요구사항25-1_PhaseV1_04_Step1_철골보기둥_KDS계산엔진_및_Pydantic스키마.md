@@ -6,9 +6,9 @@
 
 * **부재 및 모듈 식별자**: `steel_beam_column` (카탈로그 No. 22, Tier 1 플래그십)
 * **담당 소스 파일**:
-  - 엔진 구현: [`src/engine/steel/beam.py`](file:///f:/PyProject/AltDP_3rd/src/engine/steel/beam.py), [`src/engine/steel/column.py`](file:///f:/PyProject/AltDP_3rd/src/engine/steel/column.py), [`src/engine/steel/compactness.py`](file:///f:/PyProject/AltDP_3rd/src/engine/steel/compactness.py)
-  - API 라우트: [`src/api/routes/steel.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/steel.py)
-  - 테스트: [`tests/engine/test_steel_beam.py`](file:///f:/PyProject/AltDP_3rd/tests/engine/test_steel_beam.py), [`tests/engine/test_steel_column.py`](file:///f:/PyProject/AltDP_3rd/tests/engine/test_steel_column.py)
+  - 엔진 구현: [`src/engine/steel/beam.py`](../src/engine/steel/beam.py), [`src/engine/steel/column.py`](../src/engine/steel/column.py), [`src/engine/steel/compactness.py`](../src/engine/steel/compactness.py)
+  - API 라우트: [`src/api/routes/steel.py`](../src/api/routes/steel.py)
+  - 테스트: [`tests/engine/test_steel_beam.py`](../tests/engine/test_steel_beam.py), [`tests/engine/test_steel_column.py`](../tests/engine/test_steel_column.py)
 * **4대 포팅 참조 우선순위 (SSOT Hierarchy)**:
   1. `[1순위 추출 소스]`: `decompiled_src/core_routines/` C루틴 (`steel__CHK_USMC_*.c`, `DPLUS_STEEL.dll`, `DPLUS_DB.dll`)
   2. `[2순위 원본 매뉴얼]`: 원본앱 기술 매뉴얼 Steel Beam-Column 장 (AISC 360 / KDS 14 31 10 한계상태설계법, LTB 횡좌굴강도, 유효단면계수, 보-기둥 P-M 상관식)

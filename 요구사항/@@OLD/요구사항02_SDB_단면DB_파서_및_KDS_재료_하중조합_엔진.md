@@ -54,12 +54,12 @@
 
 | 기능 도메인 | 참조 디컴파일 C 소스 자산 | 대상 C++ 클래스 및 핵심 함수 |
 |---|---|---|
-| **H형강 성질 계산** | [`decompiled_src/core_routines/db/CSteelSectDB_properties.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/db/CSteelSectDB_properties.c) | `CSteelSectDB::CalcHSectionProp()` |
-| **C/Channel 성질** | [`decompiled_src/core_routines/db/CSteelSectDB_properties.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/db/CSteelSectDB_properties.c) | `CSteelSectDB::CalcChannelProp()` |
-| **L/Angle 성질** | [`decompiled_src/core_routines/db/CSteelSectDB_properties.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/db/CSteelSectDB_properties.c) | `CSteelSectDB::CalcAngleProp()`, 주축회전($\theta$) |
-| **강관/파이프 성질** | [`decompiled_src/core_routines/db/CSteelSectDB_properties.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/db/CSteelSectDB_properties.c) | `CSteelSectDB::CalcBoxProp()`, `CalcPipeProp()` |
-| **비틀림($J$)/뜀($C_w$)** | [`decompiled_src/core_routines/db/CSteelSectDB_properties.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/db/CSteelSectDB_properties.c) | `CSteelSectDB::CalcTorsionConstant()` |
-| **소성단면계수($Z_x, Z_y$)** | [`decompiled_src/core_routines/db/CSteelSectDB_properties.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/db/CSteelSectDB_properties.c) | `CSteelSectDB::CalcPlasticModulus()` |
+| **H형강 성질 계산** | [`decompiled_src/core_routines/db/CSteelSectDB_properties.c`](../../decompiled_src/core_routines/db/CSteelSectDB_properties.c) | `CSteelSectDB::CalcHSectionProp()` |
+| **C/Channel 성질** | [`decompiled_src/core_routines/db/CSteelSectDB_properties.c`](../../decompiled_src/core_routines/db/CSteelSectDB_properties.c) | `CSteelSectDB::CalcChannelProp()` |
+| **L/Angle 성질** | [`decompiled_src/core_routines/db/CSteelSectDB_properties.c`](../../decompiled_src/core_routines/db/CSteelSectDB_properties.c) | `CSteelSectDB::CalcAngleProp()`, 주축회전($\theta$) |
+| **강관/파이프 성질** | [`decompiled_src/core_routines/db/CSteelSectDB_properties.c`](../../decompiled_src/core_routines/db/CSteelSectDB_properties.c) | `CSteelSectDB::CalcBoxProp()`, `CalcPipeProp()` |
+| **비틀림($J$)/뜀($C_w$)** | [`decompiled_src/core_routines/db/CSteelSectDB_properties.c`](../../decompiled_src/core_routines/db/CSteelSectDB_properties.c) | `CSteelSectDB::CalcTorsionConstant()` |
+| **소성단면계수($Z_x, Z_y$)** | [`decompiled_src/core_routines/db/CSteelSectDB_properties.c`](../../decompiled_src/core_routines/db/CSteelSectDB_properties.c) | `CSteelSectDB::CalcPlasticModulus()` |
 
 ---
 
@@ -77,17 +77,17 @@ src/engine/
 ```
 
 ### 4.1. 핵심 모듈별 클래스 및 함수 사양
-* **[`sdb_parser.py`](file:///f:/PyProject/AltDP_3rd/src/engine/db/sdb_parser.py)**:
+* **[`sdb_parser.py`](../../src/engine/db/sdb_parser.py)**:
   - `class SDBParser`: 바이너리 헤더 디코딩, 레코드 단위 테이블 추출, SQLite 메모리 DB 적재.
   - `parse_sdb_file(file_path: str) -> List[SectionRecord]`
-* **[`section_properties.py`](file:///f:/PyProject/AltDP_3rd/src/engine/db/section_properties.py)**:
+* **[`section_properties.py`](../../src/engine/db/section_properties.py)**:
   - `class SectionCalculator`: H, Box, Pipe, Angle, Channel, Tee, Cold-formed 형강의 기하학적 성질 수식 계산.
   - 산정 파라미터: `Area, Ix, Iy, Sx, Sy, rx, ry, J, Cw, Zx, Zy, xp, yp`
-* **[`materials.py`](file:///f:/PyProject/AltDP_3rd/src/engine/materials.py)**:
+* **[`materials.py`](../../src/engine/materials.py)**:
   - `class ConcreteMaterial`: $f_{ck}, E_c, \epsilon_{cu}, \alpha_1, \beta_1$ 계산 프로퍼티.
   - `class RebarMaterial`: $f_y, f_u, E_s, \epsilon_y$ 프로퍼티.
   - `class SteelMaterial`: $F_y, F_u, E_s, G_s, \nu, t$-감축 프로퍼티.
-* **[`load_comb.py`](file:///f:/PyProject/AltDP_3rd/src/engine/load_comb.py)**:
+* **[`load_comb.py`](../../src/engine/load_comb.py)**:
   - `class LoadCase`: $D, L, L_r, S, W, E$ 작용력.
   - `class LoadCombinator`: KDS 41 하중계수 행렬곱을 통한 설계 하중($P_u, V_{ux}, V_{uy}, M_{ux}, M_{uy}, T_u$) 및 거버닝 케이스 선별.
 

@@ -7,9 +7,9 @@
 * 다중 설계 축력/휨모멘트 하중점 $(P_u, M_{ux}, M_{uy})$에 대해 설계 상관곡면과의 최단 벡터 교점 탐색을 수행하여 정확한 3차원 DCR(Demand-Capacity Ratio)을 산정합니다.
 
 ### 1.2. 참조 Ground Truth 자산
-* **디컴파일 소스**: [`decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c)
+* **디컴파일 소스**: [`decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c`](../../decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c)
 * **KDS 기준서**: KDS 14 20 10 (설계원칙 - $\phi$ 산정), KDS 14 20 20 (휨 및 압축 - $\phi P_{n,max}$)
-* **대상 소스**: [`src/engine/solver/pm_diagram.py`](file:///f:/PyProject/AltDP_3rd/src/engine/solver/pm_diagram.py)
+* **대상 소스**: [`src/engine/solver/pm_diagram.py`](../../src/engine/solver/pm_diagram.py)
 
 ---
 
@@ -38,8 +38,8 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/engine/solver/pm_diagram.py`](file:///f:/PyProject/AltDP_3rd/src/engine/solver/pm_diagram.py) | [NEW] | 2D/3D P-M 상관곡선 생성기, $\phi$ 보간 및 3차원 DCR 솔버 |
-| [`tests/engine/test_pm_diagram.py`](file:///f:/PyProject/AltDP_3rd/tests/engine/test_pm_diagram.py) | [NEW] | 2D/3D P-M 곡선 생성, 주요 점($P_0, P_{max}, P_b, P_t$) 검증 및 DCR 정확도 테스트 |
+| [`src/engine/solver/pm_diagram.py`](../../src/engine/solver/pm_diagram.py) | [NEW] | 2D/3D P-M 상관곡선 생성기, $\phi$ 보간 및 3차원 DCR 솔버 |
+| [`tests/engine/test_pm_diagram.py`](../../tests/engine/test_pm_diagram.py) | [NEW] | 2D/3D P-M 곡선 생성, 주요 점($P_0, P_{max}, P_b, P_t$) 검증 및 DCR 정확도 테스트 |
 
 ---
 

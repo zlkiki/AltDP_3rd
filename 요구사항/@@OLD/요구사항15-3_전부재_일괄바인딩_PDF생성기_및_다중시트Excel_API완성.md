@@ -7,7 +7,7 @@
 * 표지(Cover Page), 자동 목차(Table of Contents), 일련 페이지 번호(Header/Footer)를 포함하는 일괄 PDF 바인더(`binder.py`)를 구현하고, 다중 시트 Excel 익스포터(`excel_exporter.py`)와 FastAPI 리포트 엔드포인트(`src/api/routes/report.py`)를 완성합니다.
 
 ### 1.2. 참조 Ground Truth 자산
-* **보고서 역공학 명세 (SSOT)**: [`docs/14_structural_calculation_report_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md)
+* **보고서 역공학 명세 (SSOT)**: [`docs/14_structural_calculation_report_specification.md`](../../docs/14_structural_calculation_report_specification.md)
 * **디컴파일 심볼**: `decompiled_src/core_routines/` 내 `CMSOffice`, `CMSExcel` 심볼
 
 ---
@@ -39,12 +39,12 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/report/binder.py`](file:///f:/PyProject/AltDP_3rd/src/report/binder.py) | [NEW] | 표지/목차/페이지번호 포함 일괄 PDF 바인더 구현 |
-| [`src/report/templates/cover_and_toc.html`](file:///f:/PyProject/AltDP_3rd/src/report/templates/cover_and_toc.html) | [NEW] | 종합 계산서 표지 및 자동 목차 템플릿 |
-| [`src/report/excel_exporter.py`](file:///f:/PyProject/AltDP_3rd/src/report/excel_exporter.py) | [MODIFY] | 다중 시트 엑셀 워크북 및 조건부 서식 완성 |
-| [`src/api/routes/report.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/report.py) | [MODIFY] | 일괄 PDF 바인딩 및 Excel 내보내기 API 엔드포인트 연동 |
-| [`tests/report/test_binder.py`](file:///f:/PyProject/AltDP_3rd/tests/report/test_binder.py) | [NEW] | 일괄 PDF 바인딩 및 목차/페이지 번호 검증 |
-| [`tests/api/test_report_routes.py`](file:///f:/PyProject/AltDP_3rd/tests/api/test_report_routes.py) | [MODIFY] | 일괄 바인딩 및 엑셀 다운로드 API 검증 테스트 보강 |
+| [`src/report/binder.py`](../../src/report/binder.py) | [NEW] | 표지/목차/페이지번호 포함 일괄 PDF 바인더 구현 |
+| [`src/report/templates/cover_and_toc.html`](../../src/report/templates/cover_and_toc.html) | [NEW] | 종합 계산서 표지 및 자동 목차 템플릿 |
+| [`src/report/excel_exporter.py`](../../src/report/excel_exporter.py) | [MODIFY] | 다중 시트 엑셀 워크북 및 조건부 서식 완성 |
+| [`src/api/routes/report.py`](../../src/api/routes/report.py) | [MODIFY] | 일괄 PDF 바인딩 및 Excel 내보내기 API 엔드포인트 연동 |
+| [`tests/report/test_binder.py`](../../tests/report/test_binder.py) | [NEW] | 일괄 PDF 바인딩 및 목차/페이지 번호 검증 |
+| [`tests/api/test_report_routes.py`](../../tests/api/test_report_routes.py) | [MODIFY] | 일괄 바인딩 및 엑셀 다운로드 API 검증 테스트 보강 |
 
 ---
 

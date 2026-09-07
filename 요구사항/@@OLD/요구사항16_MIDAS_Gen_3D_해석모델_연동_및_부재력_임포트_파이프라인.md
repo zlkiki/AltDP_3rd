@@ -51,9 +51,9 @@ flowchart TD
 
 | Phase | 세부 요구사항 문서 | 주요 구현 및 산출물 | 검증 타겟 |
 |:---:|---|---|---|
-| **Phase 16-1** | [`요구사항16-1_MIDAS MGT_텍스트스크립트_파서_및_3D모델구축.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항16-1_MIDAS MGT_텍스트스크립트_파서_및_3D모델구축.md) | `src/engine/interop/mgt_parser.py`, `model_schema.py` | `*NODE`, `*ELEMENT` 파싱, 3D 부재/층 자동 분류 |
-| **Phase 16-2** | [`요구사항16-2_부재력_DB_파서_및_최악하중_Governing_LCB_자동선별.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항16-2_부재력_DB_파서_및_최악하중_Governing_LCB_자동선별.md) | `src/engine/interop/mgb_parser.py`, `governing_lcb.py` | 6자유도 부재력 추출, 지배 LCB 자동 필터링 |
-| **Phase 16-3** | [`요구사항16-3_Gen연동_REST_API_및_다중부재_일괄설계_파이프라인.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항16-3_Gen연동_REST_API_및_다중부재_일괄설계_파이프라인.md) | `src/api/routes/interop.py`, `batch_checker.py` | 대용량 부재 일괄 설계 API, 층별 요약 JSON |
+| **Phase 16-1** | [`요구사항16-1_MIDAS MGT_텍스트스크립트_파서_및_3D모델구축.md`](../요구사항16-1_MIDAS MGT_텍스트스크립트_파서_및_3D모델구축.md) | `src/engine/interop/mgt_parser.py`, `model_schema.py` | `*NODE`, `*ELEMENT` 파싱, 3D 부재/층 자동 분류 |
+| **Phase 16-2** | [`요구사항16-2_부재력_DB_파서_및_최악하중_Governing_LCB_자동선별.md`](../요구사항16-2_부재력_DB_파서_및_최악하중_Governing_LCB_자동선별.md) | `src/engine/interop/mgb_parser.py`, `governing_lcb.py` | 6자유도 부재력 추출, 지배 LCB 자동 필터링 |
+| **Phase 16-3** | [`요구사항16-3_Gen연동_REST_API_및_다중부재_일괄설계_파이프라인.md`](../요구사항16-3_Gen연동_REST_API_및_다중부재_일괄설계_파이프라인.md) | `src/api/routes/interop.py`, `batch_checker.py` | 대용량 부재 일괄 설계 API, 층별 요약 JSON |
 
 ---
 

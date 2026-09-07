@@ -12,12 +12,12 @@
   - `decompiled_src/DGN_lib.dll_symbols.txt` (`CMSExcel`)
   - `decompiled_src/DPLUS_RCS.dll_symbols.txt` (`CMSOffice`)
 * **대상 소스**:
-  - [`src/report/excel_exporter.py`](file:///f:/PyProject/AltDP_3rd/src/report/excel_exporter.py)
-  - [`src/report/pdf_exporter.py`](file:///f:/PyProject/AltDP_3rd/src/report/pdf_exporter.py)
-  - [`src/api/routes/report.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/report.py)
-  - [`src/api/server.py`](file:///f:/PyProject/AltDP_3rd/src/api/server.py)
-  - [`tests/report/test_excel_exporter.py`](file:///f:/PyProject/AltDP_3rd/tests/report/test_excel_exporter.py)
-  - [`tests/api/test_report_routes.py`](file:///f:/PyProject/AltDP_3rd/tests/api/test_report_routes.py)
+  - [`src/report/excel_exporter.py`](../../src/report/excel_exporter.py)
+  - [`src/report/pdf_exporter.py`](../../src/report/pdf_exporter.py)
+  - [`src/api/routes/report.py`](../../src/api/routes/report.py)
+  - [`src/api/server.py`](../../src/api/server.py)
+  - [`tests/report/test_excel_exporter.py`](../../tests/report/test_excel_exporter.py)
+  - [`tests/api/test_report_routes.py`](../../tests/api/test_report_routes.py)
 
 ---
 
@@ -50,12 +50,12 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/report/excel_exporter.py`](file:///f:/PyProject/AltDP_3rd/src/report/excel_exporter.py) | [NEW] | openpyxl 기반 멀티시트 표준 구조계산서 엑셀 익스포터 |
-| [`src/report/pdf_exporter.py`](file:///f:/PyProject/AltDP_3rd/src/report/pdf_exporter.py) | [NEW] | WeasyPrint / Headless Chrome 인쇄 기반 PDF 변환 파이프라인 |
-| [`src/api/routes/report.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/report.py) | [NEW] | 구조계산서 HTML/PDF/Excel 생성 및 다운로드 REST 라우터 |
-| [`src/api/server.py`](file:///f:/PyProject/AltDP_3rd/src/api/server.py) | [MODIFY] | `report_router` 마운트 및 라우트 등록 |
-| [`tests/report/test_excel_exporter.py`](file:///f:/PyProject/AltDP_3rd/tests/report/test_excel_exporter.py) | [NEW] | 엑셀 워크북 생성, 셀 수식 및 서식 검증 테스트 |
-| [`tests/api/test_report_routes.py`](file:///f:/PyProject/AltDP_3rd/tests/api/test_report_routes.py) | [NEW] | HTML/PDF/Excel API 엔드포인트 200 OK 및 미디어타입 검증 |
+| [`src/report/excel_exporter.py`](../../src/report/excel_exporter.py) | [NEW] | openpyxl 기반 멀티시트 표준 구조계산서 엑셀 익스포터 |
+| [`src/report/pdf_exporter.py`](../../src/report/pdf_exporter.py) | [NEW] | WeasyPrint / Headless Chrome 인쇄 기반 PDF 변환 파이프라인 |
+| [`src/api/routes/report.py`](../../src/api/routes/report.py) | [NEW] | 구조계산서 HTML/PDF/Excel 생성 및 다운로드 REST 라우터 |
+| [`src/api/server.py`](../../src/api/server.py) | [MODIFY] | `report_router` 마운트 및 라우트 등록 |
+| [`tests/report/test_excel_exporter.py`](../../tests/report/test_excel_exporter.py) | [NEW] | 엑셀 워크북 생성, 셀 수식 및 서식 검증 테스트 |
+| [`tests/api/test_report_routes.py`](../../tests/api/test_report_routes.py) | [NEW] | HTML/PDF/Excel API 엔드포인트 200 OK 및 미디어타입 검증 |
 
 ---
 

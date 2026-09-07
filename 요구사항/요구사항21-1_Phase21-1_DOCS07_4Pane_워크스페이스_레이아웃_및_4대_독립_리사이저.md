@@ -2,9 +2,9 @@
 
 ## 1. 개요 및 목적 (Background & Objectives)
 * **상위 기술 문서 (SSOT)**:
-  - [`요구사항 21 (마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제1절, 제6절
-  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) 제1절, 제2절, 제5절
-  - [`docs/10_agent_development_protocols.md`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)
+  - [`요구사항 21 (마스터)`](요구사항21_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제1절, 제6절
+  - [`docs/07_web_application_ui_ux_specification.md`](../docs/07_web_application_ui_ux_specification.md) 제1절, 제2절, 제5절
+  - [`docs/10_agent_development_protocols.md`](../docs/10_agent_development_protocols.md)
 * **목적**: DOCS 07에 정의된 표준 4-Pane(탐색기/사이드바 ↔ 부재매니저/입력폼 ↔ 2D/3D 그래픽 ↔ KDS 계산서) 올인원 워크스페이스 레이아웃을 웹에 물리적으로 정렬하고, 상호 연쇄 간섭 없이 부드럽게 크기를 조절하는 4대 독립 리사이저 엔진(`layout_resizer.js`)을 확립합니다.
 
 ---

@@ -7,12 +7,12 @@
 * 또한 지반 접지압 분포 선도, 토압/수압 다이어그램, 기초 및 옹벽 단면 배근 형상을 2D 캔버스에서 실시간 시각화할 수 있는 렌더링 데이터 구조를 제공합니다.
 
 ### 1.2. 참조 Ground Truth 자산
-* **엔진 소스**: [`src/engine/rc/footing.py`](file:///f:/PyProject/AltDP_3rd/src/engine/rc/footing.py), [`src/engine/rc/retaining_wall.py`](file:///f:/PyProject/AltDP_3rd/src/engine/rc/retaining_wall.py)
-* **API 구조**: [`src/api/routes/rc_beam.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/rc_beam.py), [`src/api/routes/rc_column.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/rc_column.py)
+* **엔진 소스**: [`src/engine/rc/footing.py`](../../src/engine/rc/footing.py), [`src/engine/rc/retaining_wall.py`](../../src/engine/rc/retaining_wall.py)
+* **API 구조**: [`src/api/routes/rc_beam.py`](../../src/api/routes/rc_beam.py), [`src/api/routes/rc_column.py`](../../src/api/routes/rc_column.py)
 * **대상 소스**:
-  - [`src/api/schemas/rc_foundation.py`](file:///f:/PyProject/AltDP_3rd/src/api/schemas/rc_foundation.py)
-  - [`src/api/routes/rc_foundation.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/rc_foundation.py)
-  - [`src/api/main.py`](file:///f:/PyProject/AltDP_3rd/src/api/main.py)
+  - [`src/api/schemas/rc_foundation.py`](../../src/api/schemas/rc_foundation.py)
+  - [`src/api/routes/rc_foundation.py`](../../src/api/routes/rc_foundation.py)
+  - [`src/api/main.py`](../../src/api/main.py)
 
 ---
 
@@ -38,10 +38,10 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/api/schemas/rc_foundation.py`](file:///f:/PyProject/AltDP_3rd/src/api/schemas/rc_foundation.py) | [NEW] | 기초 및 옹벽 입출력 Pydantic 스키마 정의 |
-| [`src/api/routes/rc_foundation.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/rc_foundation.py) | [NEW] | 기초/옹벽 설계 및 안정성 검토 REST API 엔드포인트 구현 |
-| [`src/api/main.py`](file:///f:/PyProject/AltDP_3rd/src/api/main.py) | [MODIFY] | `rc_foundation` 라우터 등록 |
-| [`tests/api/test_rc_foundation_api.py`](file:///f:/PyProject/AltDP_3rd/tests/api/test_rc_foundation_api.py) | [NEW] | 기초/옹벽 API 엔드포인트 호출 및 응답 무결성 테스트 |
+| [`src/api/schemas/rc_foundation.py`](../../src/api/schemas/rc_foundation.py) | [NEW] | 기초 및 옹벽 입출력 Pydantic 스키마 정의 |
+| [`src/api/routes/rc_foundation.py`](../../src/api/routes/rc_foundation.py) | [NEW] | 기초/옹벽 설계 및 안정성 검토 REST API 엔드포인트 구현 |
+| [`src/api/main.py`](../../src/api/main.py) | [MODIFY] | `rc_foundation` 라우터 등록 |
+| [`tests/api/test_rc_foundation_api.py`](../../tests/api/test_rc_foundation_api.py) | [NEW] | 기초/옹벽 API 엔드포인트 호출 및 응답 무결성 테스트 |
 
 ---
 

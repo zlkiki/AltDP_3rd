@@ -14,10 +14,10 @@
 * **KDS 기준서**:
   - KDS 14 31 30 강-콘크리트 합성구조 설계기준 (4.1 합성기둥, 4.2 합성보)
 * **대상 소스**:
-  - [`src/engine/src_composite/__init__.py`](file:///f:/PyProject/AltDP_3rd/src/engine/src_composite/__init__.py)
-  - [`src/engine/src_composite/composite_column.py`](file:///f:/PyProject/AltDP_3rd/src/engine/src_composite/composite_column.py)
-  - [`src/engine/src_composite/composite_beam.py`](file:///f:/PyProject/AltDP_3rd/src/engine/src_composite/composite_beam.py)
-  - [`tests/engine/test_composite.py`](file:///f:/PyProject/AltDP_3rd/tests/engine/test_composite.py)
+  - [`src/engine/src_composite/__init__.py`](../../src/engine/src_composite/__init__.py)
+  - [`src/engine/src_composite/composite_column.py`](../../src/engine/src_composite/composite_column.py)
+  - [`src/engine/src_composite/composite_beam.py`](../../src/engine/src_composite/composite_beam.py)
+  - [`tests/engine/test_composite.py`](../../tests/engine/test_composite.py)
 
 ---
 
@@ -68,10 +68,10 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/engine/src_composite/__init__.py`](file:///f:/PyProject/AltDP_3rd/src/engine/src_composite/__init__.py) | [NEW] | SRC 합성 모듈 패키지 진입점 |
-| [`src/engine/src_composite/composite_column.py`](file:///f:/PyProject/AltDP_3rd/src/engine/src_composite/composite_column.py) | [NEW] | CFT(원형/각형), SRC 매입형 소성강도($P_{no}$), $EI_{eff}$, 좌굴강도, 축하중 DCR 산정 |
-| [`src/engine/src_composite/composite_beam.py`](file:///f:/PyProject/AltDP_3rd/src/engine/src_composite/composite_beam.py) | [NEW] | 합성보 유효폭, 스터드볼트 전단강도($Q_n$), 소성중립축 휨강도($M_n$) 산정 |
-| [`tests/engine/test_composite.py`](file:///f:/PyProject/AltDP_3rd/tests/engine/test_composite.py) | [NEW] | CFT/SRC 기둥 및 합성보 KDS 14 31 30 공학 단위 테스트 |
+| [`src/engine/src_composite/__init__.py`](../../src/engine/src_composite/__init__.py) | [NEW] | SRC 합성 모듈 패키지 진입점 |
+| [`src/engine/src_composite/composite_column.py`](../../src/engine/src_composite/composite_column.py) | [NEW] | CFT(원형/각형), SRC 매입형 소성강도($P_{no}$), $EI_{eff}$, 좌굴강도, 축하중 DCR 산정 |
+| [`src/engine/src_composite/composite_beam.py`](../../src/engine/src_composite/composite_beam.py) | [NEW] | 합성보 유효폭, 스터드볼트 전단강도($Q_n$), 소성중립축 휨강도($M_n$) 산정 |
+| [`tests/engine/test_composite.py`](../../tests/engine/test_composite.py) | [NEW] | CFT/SRC 기둥 및 합성보 KDS 14 31 30 공학 단위 테스트 |
 
 ---
 

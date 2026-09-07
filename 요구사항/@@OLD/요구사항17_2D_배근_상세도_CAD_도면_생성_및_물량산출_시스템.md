@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-원본앱 4대 메인 폼뷰 중 **도면 생성 뷰(`CMainFormViewDraw`)**와 **물량 산출 뷰(`CMainFormViewQntt`)**는 설계 완료 후 실무 납품을 완성하는 핵심 파이프라인입니다 ([docs/13](file:///f:/PyProject/AltDP_3rd/docs/13_original_app_ui_specification.md) 참조).
+원본앱 4대 메인 폼뷰 중 **도면 생성 뷰(`CMainFormViewDraw`)**와 **물량 산출 뷰(`CMainFormViewQntt`)**는 설계 완료 후 실무 납품을 완성하는 핵심 파이프라인입니다 ([docs/13](../../docs/13_original_app_ui_specification.md) 참조).
 
 ### 1.2. 개발 목적
 1. **2D 배근 상세도 CAD (DXF/DWG) 내보내기 엔진 (`src/report/cad_exporter.py`)**:
@@ -20,8 +20,8 @@
 
 | Phase | 세부 요구사항 문서 | 주요 구현 및 산출물 | 검증 타겟 |
 |:---:|---|---|---|
-| **Phase 17-1** | [`요구사항17-1_ezdxf_기반_2D_배근상세도_DXF_CAD_생성_엔진.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항17-1_ezdxf_기반_2D_배근상세도_DXF_CAD_생성_엔진.md) | `src/report/cad_exporter.py`, `cad_schedule.py` | AutoCAD 호환 단면/입면 배근도 및 일람표 DXF 출력 |
-| **Phase 17-2** | [`요구사항17-2_KDS_표준_물량산출_엔진_및_다중시트_Excel_익스포트.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항17-2_KDS_표준_물량산출_엔진_및_다중시트_Excel_익스포트.md) | `src/engine/project/quantity_engine.py`, `excel_quantity_exporter.py`, `src/api/routes/quantity.py` | 콘크리트/거푸집/철근톤수 집계표, 다중시트 Excel 다운로드 |
+| **Phase 17-1** | [`요구사항17-1_ezdxf_기반_2D_배근상세도_DXF_CAD_생성_엔진.md`](../요구사항17-1_ezdxf_기반_2D_배근상세도_DXF_CAD_생성_엔진.md) | `src/report/cad_exporter.py`, `cad_schedule.py` | AutoCAD 호환 단면/입면 배근도 및 일람표 DXF 출력 |
+| **Phase 17-2** | [`요구사항17-2_KDS_표준_물량산출_엔진_및_다중시트_Excel_익스포트.md`](../요구사항17-2_KDS_표준_물량산출_엔진_및_다중시트_Excel_익스포트.md) | `src/engine/project/quantity_engine.py`, `excel_quantity_exporter.py`, `src/api/routes/quantity.py` | 콘크리트/거푸집/철근톤수 집계표, 다중시트 Excel 다운로드 |
 
 ---
 

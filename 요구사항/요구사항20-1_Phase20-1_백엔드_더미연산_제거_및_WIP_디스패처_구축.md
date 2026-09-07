@@ -2,10 +2,10 @@
 
 ## 1. 개요 및 목적 (Background & Objectives)
 * **상위 기술 문서(SSOT)**:
-  - [`요구사항 20 (Phase 20 마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20_Phase20_더미코드_전면제거_및_정직한_WIP_베이스라인_구축.md) 제3.1절 및 제5절
-  - [`docs/01_system_architecture.md`](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md) (REST API 디스패처 계층)
-  - [`docs/10_agent_development_protocols.md`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md) (오차 $\le 0.10\%$ 무결성 및 Proof-First Mandate)
-  - [`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md) (Phase 1~6 기완료 엔진 100% 보호)
+  - [`요구사항 20 (Phase 20 마스터)`](요구사항20_Phase20_더미코드_전면제거_및_정직한_WIP_베이스라인_구축.md) 제3.1절 및 제5절
+  - [`docs/01_system_architecture.md`](../docs/01_system_architecture.md) (REST API 디스패처 계층)
+  - [`docs/10_agent_development_protocols.md`](../docs/10_agent_development_protocols.md) (오차 $\le 0.10\%$ 무결성 및 Proof-First Mandate)
+  - [`docs/12_full_feature_porting_master_plan.md`](../docs/12_full_feature_porting_master_plan.md) (Phase 1~6 기완료 엔진 100% 보호)
 * **목적**: 시스템 전반(엔진, 라우트, 디스패처)에 잠재된 **기만적 가짜 숫자(Mock/Stub 강도값, 임의의 150/100, DCR=0.8, 가짜 OK 판정)를 전면 척결**하고, `docs/12`에서 이미 검증 완료된 KDS 엔진은 철저히 보호하면서, 아직 전용 스키마 및 UI 연동이 완비되지 않은 모듈 요청 시 일관되고 정직한 **표준 `WIPResponse`(`NOT_YET_IMPLEMENTED`)**를 반환하는 중앙 백엔드 디스패치 인프라를 구축합니다.
 
 ---

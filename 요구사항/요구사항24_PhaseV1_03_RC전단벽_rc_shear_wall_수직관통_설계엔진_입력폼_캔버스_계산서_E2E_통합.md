@@ -3,7 +3,7 @@
 ## 1. 개요 및 모듈 개요 (Module Overview)
 
 ### 1.1. 모듈 개요 및 SSOT 매핑
-본 문서는 **[`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**의 Phase V1(Tier 1 플래그십 5대 핵심 부재) 중 세 번째 모듈인 **RC 전단벽 (`rc_shear_wall`)**을 부재 단위 수직 관통(Vertical Slice)하여 **Step 1(엔진)부터 Step 5(E2E 통합)**까지 100% 작동 가능한 상용 엔지니어링 모듈로 완성하기 위한 마스터 요구사항 명세서입니다.
+본 문서는 **[`docs/12_full_feature_porting_master_plan.md`](../docs/12_full_feature_porting_master_plan.md)**의 Phase V1(Tier 1 플래그십 5대 핵심 부재) 중 세 번째 모듈인 **RC 전단벽 (`rc_shear_wall`)**을 부재 단위 수직 관통(Vertical Slice)하여 **Step 1(엔진)부터 Step 5(E2E 통합)**까지 100% 작동 가능한 상용 엔지니어링 모듈로 완성하기 위한 마스터 요구사항 명세서입니다.
 
 * **모듈 식별자**: `rc_shear_wall` (카탈로그 번호 No. 4, Tier 1 플래그십)
 * **국가건설기준 (4순위)**:
@@ -23,7 +23,7 @@
 
 ## 2. docs/07 제21절 기반 UI/UX 선행 검토 체크리스트
 
-[`docs/07_web_application_ui_ux_specification.md 제21절`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)의 6대 필수 검토 항목을 완벽히 수용하여 프론트엔드 연동 사양을 사전 확립합니다:
+[`docs/07_web_application_ui_ux_specification.md 제21절`](../docs/07_web_application_ui_ux_specification.md)의 6대 필수 검토 항목을 완벽히 수용하여 프론트엔드 연동 사양을 사전 확립합니다:
 
 1. **[사이드바 & 카테고리 정합성]**:
    - 8대 카테고리 중 `[RC 콘크리트]` 그룹에 속하며, 영문 키 `rc_shear_wall`, 한글 명칭 "전단벽".
@@ -104,11 +104,11 @@
 
 본 마스터 요구사항을 바탕으로 작성된 5대 정밀 공정별 세부 구현계획서는 아래와 같습니다:
 
-1. [`요구사항 24-1: Step 1 KDS 계산 엔진 & 경계요소 Pydantic 스키마 명세서`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항24-1_PhaseV1_03_Step1_RC전단벽_KDS계산엔진_및_경계요소_Pydantic스키마.md)
-2. [`요구사항 24-2: Step 2 원본앱 1:1 서브탭 입력폼 & 모달 명세서`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항24-2_PhaseV1_03_Step2_RC전단벽_원본앱_1대1_서브탭_입력폼_및_모달.md)
-3. [`요구사항 24-3: Step 3 2D VDraw 캔버스 배근도 & 경계요소 인터랙션 명세서`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항24-3_PhaseV1_03_Step3_RC전단벽_2D_VDraw_캔버스_배근도_및_경계요소_인터랙션.md)
-4. [`요구사항 24-4: Step 4 A4 5대장구분 8단계 KaTeX 구조계산서 명세서`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항24-4_PhaseV1_03_Step4_RC전단벽_A4_5대장구분_8단계_KaTeX_구조계산서.md)
-5. [`요구사항 24-5: Step 5 4열 통합 E2E 검증 & 실사용 UI 온라인 전환 명세서`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항24-5_PhaseV1_03_Step5_RC전단벽_4열통합_E2E검증_및_실사용UI_온라인전환.md)
+1. [`요구사항 24-1: Step 1 KDS 계산 엔진 & 경계요소 Pydantic 스키마 명세서`](요구사항24-1_PhaseV1_03_Step1_RC전단벽_KDS계산엔진_및_경계요소_Pydantic스키마.md)
+2. [`요구사항 24-2: Step 2 원본앱 1:1 서브탭 입력폼 & 모달 명세서`](요구사항24-2_PhaseV1_03_Step2_RC전단벽_원본앱_1대1_서브탭_입력폼_및_모달.md)
+3. [`요구사항 24-3: Step 3 2D VDraw 캔버스 배근도 & 경계요소 인터랙션 명세서`](요구사항24-3_PhaseV1_03_Step3_RC전단벽_2D_VDraw_캔버스_배근도_및_경계요소_인터랙션.md)
+4. [`요구사항 24-4: Step 4 A4 5대장구분 8단계 KaTeX 구조계산서 명세서`](요구사항24-4_PhaseV1_03_Step4_RC전단벽_A4_5대장구분_8단계_KaTeX_구조계산서.md)
+5. [`요구사항 24-5: Step 5 4열 통합 E2E 검증 & 실사용 UI 온라인 전환 명세서`](요구사항24-5_PhaseV1_03_Step5_RC전단벽_4열통합_E2E검증_및_실사용UI_온라인전환.md)
 
 ---
 

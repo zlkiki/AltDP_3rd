@@ -15,7 +15,7 @@
 
 ---
 
-> 📌 **마스터 진행 현황, 모델 핸드오버 및 /goal 실행 인덱스 (SSOT)**: [`요구사항/PROJECT_PROGRESS.md`](file:///f:/PyProject/AltDP_3rd/요구사항/PROJECT_PROGRESS.md)
+> 📌 **마스터 진행 현황, 모델 핸드오버 및 /goal 실행 인덱스 (SSOT)**: [`요구사항/PROJECT_PROGRESS.md`](요구사항/PROJECT_PROGRESS.md)
 
 ---
 
@@ -23,7 +23,7 @@
 
 **AltDP_3rd**는 국내 상용 건축구조 부재설계 프로그램인 **원본앱**의 모든 공학 해석·설계 알고리즘과 형강 라이브러리를 **순수 Python/FastAPI + 모던 웹(HTML5 Canvas/SVG) 기반으로 100% 완전 마이그레이션(Full Web Migration)**하는 차세대 엔지니어링 플랫폼입니다.
 
-* **완전 무결한 Ground Truth**: 원본앱 바이너리(20개 DLL)로부터 복원된 **47,110개의 C++ Export 심볼** 및 Ghidra Headless로 추출한 **47종의 C 수도코드 루틴([decompiled_src/core_routines/](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/))**을 기반으로 0.1% 미만의 계산 오차 무결성을 보증합니다.
+* **완전 무결한 Ground Truth**: 원본앱 바이너리(20개 DLL)로부터 복원된 **47,110개의 C++ Export 심볼** 및 Ghidra Headless로 추출한 **47종의 C 수도코드 루틴([decompiled_src/core_routines/](decompiled_src/core_routines))**을 기반으로 0.1% 미만의 계산 오차 무결성을 보증합니다.
 * **Zero-Dependency**: Wibu 동글 락이나 MFC DLL 의존성 없이, Windows/Linux/macOS 어디서나 순수 웹 브라우저만으로 동작합니다.
 
 ```mermaid

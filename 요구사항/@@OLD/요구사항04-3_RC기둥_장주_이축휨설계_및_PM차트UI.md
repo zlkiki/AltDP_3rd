@@ -7,9 +7,9 @@
 * FastAPI 기반 REST API 엔드포인트와 Web 프론트엔드 대화형 3D/2D P-M 상관도 차트(`src/web/static/js/pm_chart.js`)를 구축하여 웹에서 즉각적인 기둥 설계 및 시각화가 가능하도록 합니다.
 
 ### 1.2. 참조 Ground Truth 자산
-* **디컴파일 소스**: [`decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c), [`decompiled_src/core_routines/solver/CHK_BCGR_column_group.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/solver/CHK_BCGR_column_group.c)
+* **디컴파일 소스**: [`decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c`](../../decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c), [`decompiled_src/core_routines/solver/CHK_BCGR_column_group.c`](../../decompiled_src/core_routines/solver/CHK_BCGR_column_group.c)
 * **KDS 기준서**: KDS 14 20 20 (세장효과, 모멘트 확대), KDS 14 20 50 (철근상세 - 띠철근/나선철근 간격)
-* **대상 소스**: [`src/engine/rc/column.py`](file:///f:/PyProject/AltDP_3rd/src/engine/rc/column.py), [`src/api/routes/rc_column.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/rc_column.py), [`src/web/static/js/pm_chart.js`](file:///f:/PyProject/AltDP_3rd/src/web/static/js/pm_chart.js)
+* **대상 소스**: [`src/engine/rc/column.py`](../../src/engine/rc/column.py), [`src/api/routes/rc_column.py`](../../src/api/routes/rc_column.py), [`src/web/static/js/pm_chart.js`](../../src/web/static/js/pm_chart.js)
 
 ---
 
@@ -49,13 +49,13 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/engine/rc/column.py`](file:///f:/PyProject/AltDP_3rd/src/engine/rc/column.py) | [MODIFY] | 세장비/모멘트확대, 이축휨, 띠철근 상세 및 파이버 솔버 연동 고도화 |
-| [`src/api/schemas/rc_column.py`](file:///f:/PyProject/AltDP_3rd/src/api/schemas/rc_column.py) | [NEW] | 기둥 설계 및 P-M 곡선 Pydantic v2 I/O 스키마 |
-| [`src/api/routes/rc_column.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/rc_column.py) | [NEW] | FastAPI 기둥 설계 및 P-M 곡선 엔드포인트 |
-| [`src/api/main.py`](file:///f:/PyProject/AltDP_3rd/src/api/main.py) | [MODIFY] | `rc_column` 라우터 등록 |
-| [`src/web/static/js/pm_chart.js`](file:///f:/PyProject/AltDP_3rd/src/web/static/js/pm_chart.js) | [NEW] | 대화형 2D/3D P-M 상관도 및 하중점 렌더러 |
-| [`tests/engine/test_rc_column.py`](file:///f:/PyProject/AltDP_3rd/tests/engine/test_rc_column.py) | [NEW] | 장주효과($\delta_{ns}$), Bresler 이축휨, 철근간격 검증 단위테스트 |
-| [`tests/api/test_rc_column_api.py`](file:///f:/PyProject/AltDP_3rd/tests/api/test_rc_column_api.py) | [NEW] | FastAPI `/api/v1/rc/column/*` 엔드포인트 E2E 테스트 |
+| [`src/engine/rc/column.py`](../../src/engine/rc/column.py) | [MODIFY] | 세장비/모멘트확대, 이축휨, 띠철근 상세 및 파이버 솔버 연동 고도화 |
+| [`src/api/schemas/rc_column.py`](../../src/api/schemas/rc_column.py) | [NEW] | 기둥 설계 및 P-M 곡선 Pydantic v2 I/O 스키마 |
+| [`src/api/routes/rc_column.py`](../../src/api/routes/rc_column.py) | [NEW] | FastAPI 기둥 설계 및 P-M 곡선 엔드포인트 |
+| [`src/api/main.py`](../../src/api/main.py) | [MODIFY] | `rc_column` 라우터 등록 |
+| [`src/web/static/js/pm_chart.js`](../../src/web/static/js/pm_chart.js) | [NEW] | 대화형 2D/3D P-M 상관도 및 하중점 렌더러 |
+| [`tests/engine/test_rc_column.py`](../../tests/engine/test_rc_column.py) | [NEW] | 장주효과($\delta_{ns}$), Bresler 이축휨, 철근간격 검증 단위테스트 |
+| [`tests/api/test_rc_column_api.py`](../../tests/api/test_rc_column_api.py) | [NEW] | FastAPI `/api/v1/rc/column/*` 엔드포인트 E2E 테스트 |
 
 ---
 

@@ -14,9 +14,9 @@
 * **KDS 기준서**:
   - KDS 14 20 90 기존 콘크리트구조물의 보수·보강 설계기준
 * **대상 소스**:
-  - [`src/engine/rfm/__init__.py`](file:///f:/PyProject/AltDP_3rd/src/engine/rfm/__init__.py)
-  - [`src/engine/rfm/retrofit_design.py`](file:///f:/PyProject/AltDP_3rd/src/engine/rfm/retrofit_design.py)
-  - [`tests/engine/test_rfm.py`](file:///f:/PyProject/AltDP_3rd/tests/engine/test_rfm.py)
+  - [`src/engine/rfm/__init__.py`](../../src/engine/rfm/__init__.py)
+  - [`src/engine/rfm/retrofit_design.py`](../../src/engine/rfm/retrofit_design.py)
+  - [`tests/engine/test_rfm.py`](../../tests/engine/test_rfm.py)
 
 ---
 
@@ -56,9 +56,9 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/engine/rfm/__init__.py`](file:///f:/PyProject/AltDP_3rd/src/engine/rfm/__init__.py) | [NEW] | 보수보강 모듈 패키지 진입점 |
-| [`src/engine/rfm/retrofit_design.py`](file:///f:/PyProject/AltDP_3rd/src/engine/rfm/retrofit_design.py) | [NEW] | CFRP/강판 휨보강(Debonding 검토), 전단보강, 내력 증진비 산정 엔진 |
-| [`tests/engine/test_rfm.py`](file:///f:/PyProject/AltDP_3rd/tests/engine/test_rfm.py) | [NEW] | CFRP/강판 보강 KDS 14 20 90 공학 단위 테스트 |
+| [`src/engine/rfm/__init__.py`](../../src/engine/rfm/__init__.py) | [NEW] | 보수보강 모듈 패키지 진입점 |
+| [`src/engine/rfm/retrofit_design.py`](../../src/engine/rfm/retrofit_design.py) | [NEW] | CFRP/강판 휨보강(Debonding 검토), 전단보강, 내력 증진비 산정 엔진 |
+| [`tests/engine/test_rfm.py`](../../tests/engine/test_rfm.py) | [NEW] | CFRP/강판 보강 KDS 14 20 90 공학 단위 테스트 |
 
 ---
 

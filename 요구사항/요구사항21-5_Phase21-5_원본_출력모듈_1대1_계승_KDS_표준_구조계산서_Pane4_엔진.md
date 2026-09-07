@@ -2,9 +2,9 @@
 
 ## 1. 개요 및 목적 (Background & Objectives)
 * **상위 기술 문서 (SSOT)**:
-  - [`요구사항 21 (마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제5절
-  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) 제4.4절
-  - [`docs/14_structural_calculation_report_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md) (KDS 8단계 수식 유도식 명세)
+  - [`요구사항 21 (마스터)`](요구사항21_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제5절
+  - [`docs/07_web_application_ui_ux_specification.md`](../docs/07_web_application_ui_ux_specification.md) 제4.4절
+  - [`docs/14_structural_calculation_report_specification.md`](../docs/14_structural_calculation_report_specification.md) (KDS 8단계 수식 유도식 명세)
   - 원본앱 출력 모듈: `IDD_DGN_CHECK_MODE_DLG`, `DgnReportBase.ini`, `GENDgnReportKR.ini`
 * **목적**: 인허가 관공서 및 구조심의 제출용 초정밀 공학 계산서를 위해, **상시 순백색 A4 용지 원칙, 상세/요약 2대 모드 분기, 입력 데이터 상세 포함 토글, 머릿말/회사명 설정 모달, KaTeX 8단계 수식 유도식 및 원본앱 고유의 O.K/N.G 판정 표기**를 제공하는 KDS 표준 구조계산서 엔진(`report_engine.js`)을 구축합니다.
 

@@ -20,8 +20,8 @@
 
 | Phase | 세부 요구사항 문서 | 주요 구현 및 산출물 | 검증 타겟 |
 |:---:|---|---|---|
-| **Phase 18-1** | [`요구사항18-1_PBD_비선형_소성힌지_백본곡선_및_성능수준평가_엔진.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항18-1_PBD_비선형_소성힌지_백본곡선_및_성능수준평가_엔진.md) | `src/engine/pbd/hinge_rc.py`, `hinge_steel.py`, `backbone_curve.py` | ASCE 41-17 / KDS 41 17 00 백본곡선 및 IO/LS/CP 판정 |
-| **Phase 18-2** | [`요구사항18-2_글로벌_설계규준_Eurocode_US_IS_및_다단위계_어댑터.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항18-2_글로벌_설계규준_Eurocode_US_IS_및_다단위계_어댑터.md) | `src/engine/international/units.py`, `eurocode/`, `us_code/`, `is_code/` | SI/MKS/Imperial 단위 변환, Eurocode 2/3, ACI 318-19, IS 456 검토 |
+| **Phase 18-1** | [`요구사항18-1_PBD_비선형_소성힌지_백본곡선_및_성능수준평가_엔진.md`](../요구사항18-1_PBD_비선형_소성힌지_백본곡선_및_성능수준평가_엔진.md) | `src/engine/pbd/hinge_rc.py`, `hinge_steel.py`, `backbone_curve.py` | ASCE 41-17 / KDS 41 17 00 백본곡선 및 IO/LS/CP 판정 |
+| **Phase 18-2** | [`요구사항18-2_글로벌_설계규준_Eurocode_US_IS_및_다단위계_어댑터.md`](../요구사항18-2_글로벌_설계규준_Eurocode_US_IS_및_다단위계_어댑터.md) | `src/engine/international/units.py`, `eurocode/`, `us_code/`, `is_code/` | SI/MKS/Imperial 단위 변환, Eurocode 2/3, ACI 318-19, IS 456 검토 |
 
 ---
 

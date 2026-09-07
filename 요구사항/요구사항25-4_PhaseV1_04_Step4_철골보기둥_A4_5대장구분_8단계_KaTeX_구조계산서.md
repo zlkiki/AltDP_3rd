@@ -17,7 +17,7 @@
 
 ## 2. Pane 4 순백색 A4 구조계산서 레이아웃 규격
 
-[`docs/07 제1절 및 제14절`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)의 엄격한 인쇄 품질 사양을 준수합니다:
+[`docs/07 제1절 및 제14절`](../docs/07_web_application_ui_ux_specification.md)의 엄격한 인쇄 품질 사양을 준수합니다:
 
 1. **상시 순백색 용지 (`#ffffff`)**:
    - 다크/라이트 테마와 무관하게 계산서 뷰포트는 언제나 순백색(`#ffffff`) 배경과 고대비 텍스트(`#111827`) 유지.

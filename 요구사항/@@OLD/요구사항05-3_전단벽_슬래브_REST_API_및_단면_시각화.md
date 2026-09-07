@@ -7,11 +7,11 @@
 * DCR(Demand Capacity Ratio), 안전율, 모멘트 분배도 및 펀칭 위험단면 기하 형상을 JSON 및 SVG 호환 포맷으로 직렬화하여 반환합니다.
 
 ### 1.2. 참조 Ground Truth 자산
-* **기존 API 패턴**: [`src/api/routes/rc_beam.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/rc_beam.py), [`src/api/routes/rc_column.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/rc_column.py)
+* **기존 API 패턴**: [`src/api/routes/rc_beam.py`](../../src/api/routes/rc_beam.py), [`src/api/routes/rc_column.py`](../../src/api/routes/rc_column.py)
 * **대상 소스**:
-  - [`src/api/schemas/rc_wall.py`](file:///f:/PyProject/AltDP_3rd/src/api/schemas/rc_wall.py)
-  - [`src/api/schemas/rc_slab.py`](file:///f:/PyProject/AltDP_3rd/src/api/schemas/rc_slab.py)
-  - [`src/api/routes/rc_wall_slab.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/rc_wall_slab.py)
+  - [`src/api/schemas/rc_wall.py`](../../src/api/schemas/rc_wall.py)
+  - [`src/api/schemas/rc_slab.py`](../../src/api/schemas/rc_slab.py)
+  - [`src/api/routes/rc_wall_slab.py`](../../src/api/routes/rc_wall_slab.py)
 
 ---
 
@@ -35,11 +35,11 @@
 
 | 파일 경로 | 상태 | 설명 |
 |---|:---:|---|
-| [`src/api/schemas/rc_wall.py`](file:///f:/PyProject/AltDP_3rd/src/api/schemas/rc_wall.py) | [NEW] | 전단벽 Pydantic 요청/응답 스키마 |
-| [`src/api/schemas/rc_slab.py`](file:///f:/PyProject/AltDP_3rd/src/api/schemas/rc_slab.py) | [NEW] | 슬래브 및 펀칭전단 Pydantic 요청/응답 스키마 |
-| [`src/api/routes/rc_wall_slab.py`](file:///f:/PyProject/AltDP_3rd/src/api/routes/rc_wall_slab.py) | [NEW] | 전단벽 및 슬래브/펀칭 REST API 라우터 |
-| [`src/api/main.py`](file:///f:/PyProject/AltDP_3rd/src/api/main.py) | [MODIFY] | 전단벽/슬래브 라우터 등록 |
-| [`tests/api/test_rc_wall_slab_api.py`](file:///f:/PyProject/AltDP_3rd/tests/api/test_rc_wall_slab_api.py) | [NEW] | 전단벽 및 슬래브/펀칭 API 통합 엔드투엔드 테스트 |
+| [`src/api/schemas/rc_wall.py`](../../src/api/schemas/rc_wall.py) | [NEW] | 전단벽 Pydantic 요청/응답 스키마 |
+| [`src/api/schemas/rc_slab.py`](../../src/api/schemas/rc_slab.py) | [NEW] | 슬래브 및 펀칭전단 Pydantic 요청/응답 스키마 |
+| [`src/api/routes/rc_wall_slab.py`](../../src/api/routes/rc_wall_slab.py) | [NEW] | 전단벽 및 슬래브/펀칭 REST API 라우터 |
+| [`src/api/main.py`](../../src/api/main.py) | [MODIFY] | 전단벽/슬래브 라우터 등록 |
+| [`tests/api/test_rc_wall_slab_api.py`](../../tests/api/test_rc_wall_slab_api.py) | [NEW] | 전단벽 및 슬래브/펀칭 API 통합 엔드투엔드 테스트 |
 
 ---
 

@@ -45,10 +45,10 @@
 
 | 기능 도메인 | 참조 디컴파일 C 소스 자산 | 대상 C++ 클래스 및 핵심 함수 |
 |---|---|---|
-| **기둥 P-M 해석 & 모멘트 확대** | [`decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c) | `CRCSCodeCheck::CHK_BCCO()` |
-| **P-M 곡선 점 샘플링** | [`decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c) | `CRCSCodeCheck::CalcPMDiagramPoints()` |
-| **기둥 그룹 다중단면 일괄검토** | [`decompiled_src/core_routines/solver/CHK_BCGR_column_group.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/solver/CHK_BCGR_column_group.c) | `CRCSCodeCheck::CHK_BCGR()` |
-| **파이버 단면 비선형 적분** | [`decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c`](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c) | `FiberSectionIntegrator::SolveForces()` |
+| **기둥 P-M 해석 & 모멘트 확대** | [`decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c`](../../decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c) | `CRCSCodeCheck::CHK_BCCO()` |
+| **P-M 곡선 점 샘플링** | [`decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c`](../../decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c) | `CRCSCodeCheck::CalcPMDiagramPoints()` |
+| **기둥 그룹 다중단면 일괄검토** | [`decompiled_src/core_routines/solver/CHK_BCGR_column_group.c`](../../decompiled_src/core_routines/solver/CHK_BCGR_column_group.c) | `CRCSCodeCheck::CHK_BCGR()` |
+| **파이버 단면 비선형 적분** | [`decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c`](../../decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c) | `FiberSectionIntegrator::SolveForces()` |
 
 ---
 
@@ -71,13 +71,13 @@ src/
 ```
 
 ### 4.1. 클래스 및 핵심 메서드 사양
-* **[`src/engine/solver/fiber_section.py`](file:///f:/PyProject/AltDP_3rd/src/engine/solver/fiber_section.py)**:
+* **[`src/engine/solver/fiber_section.py`](../../src/engine/solver/fiber_section.py)**:
   - `class Fiber`: `x, y, area, material_type`
   - `class FiberSection`: 단면 메쉬 생성(`discretize(nx=30, ny=30)`), 중립축 위치 $c, \theta$에 대한 $(P, M_x, M_y)$ 반환.
-* **[`src/engine/solver/pm_diagram.py`](file:///f:/PyProject/AltDP_3rd/src/engine/solver/pm_diagram.py)**:
+* **[`src/engine/solver/pm_diagram.py`](../../src/engine/solver/pm_diagram.py)**:
   - `class PMDiagramSolver`: $\theta \in [0, 2\pi]$ 및 $c$ 스윕을 통해 $(P_n, M_n)$ 및 $(\phi P_n, \phi M_n)$ 곡면 포인트 생성.
   - `calc_dcr(Pu, Mux, Muy) -> float`: P-M 표면과 하중 벡터의 교점 탐색을 통한 정확한 DCR 산출.
-* **[`src/engine/rc/column.py`](file:///f:/PyProject/AltDP_3rd/src/engine/rc/column.py)**:
+* **[`src/engine/rc/column.py`](../../src/engine/rc/column.py)**:
   - `class RCColumn`: 단면, 주철근, 띠철근/나선철근, 비지지길이 $L_u$, 유효좌굴계수 $k$.
   - `evaluate_column(loads: List[SectionForces]) -> RCColumnDesignResult`
 

@@ -2,9 +2,9 @@
 
 ## 1. 개요 및 목적 (Background & Objectives)
 * **상위 기술 문서(SSOT)**:
-  - [`요구사항 20 (Phase 20 마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20_Phase20_더미코드_전면제거_및_정직한_WIP_베이스라인_구축.md) 제1.2절, 제3.3절, 제3.4절 및 제5절
-  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) (상시 순백색 `#ffffff` A4 용지 고정, Center 캔버스 및 VDraw 2D/3D 드로잉 엔진)
-  - [`docs/14_structural_calculation_report_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md) (KDS 3대 보고서 모드 & 5대 장구분 표준 목차)
+  - [`요구사항 20 (Phase 20 마스터)`](요구사항20_Phase20_더미코드_전면제거_및_정직한_WIP_베이스라인_구축.md) 제1.2절, 제3.3절, 제3.4절 및 제5절
+  - [`docs/07_web_application_ui_ux_specification.md`](../docs/07_web_application_ui_ux_specification.md) (상시 순백색 `#ffffff` A4 용지 고정, Center 캔버스 및 VDraw 2D/3D 드로잉 엔진)
+  - [`docs/14_structural_calculation_report_specification.md`](../docs/14_structural_calculation_report_specification.md) (KDS 3대 보고서 모드 & 5대 장구분 표준 목차)
 * **목적**: 
   1. Center 캔버스(`pane-graphic-view`)와 Right 리포트(`pane-right-report`)에 잔존하는 **하드코딩된 정적 텍스트 및 가짜 계산 결과(가짜 처짐/강도, 무조건 ALL O.K 출력)를 100% 영구 청산**.
   2. AltDP_2nd 시절 임시로 뭉뚱그려 화면을 때우던 **레거시 범용 뷰어(`redcr_common_renderer.js`)의 2단 카드형 레이아웃 및 가짜 판정표를 전면 제거/청산**.
