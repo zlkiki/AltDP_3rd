@@ -5,10 +5,9 @@
 ### 1.1. 상위 기술 문서(SSOT) 연동 및 설계 철학
 * **단일 진실 공급원(SSOT) 참조**:
   - [`docs/01_system_architecture.md`](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md) (전체 시스템 아키텍처 및 5대 계층)
-  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) (독립 4-Pane 레이아웃, 3버튼 액션 파이프라인, 순백색 A4 고정)
+  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) (독립 4-Pane 레이아웃, 3버튼 액션 파이프라인, Midas 원본 리본/폼뷰/다이얼로그 통합 명세)
   - [`docs/10_agent_development_protocols.md`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md) (개발 프로토콜 및 오차 한계 규약)
   - [`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md) (Phase 1~6 기완료 자산 보호 및 전 기능 로드맵)
-  - [`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md) (Midas 원본 리본 메뉴, 4대 폼뷰, 3대 인터랙션 모드, `DLG_*.ini`)
   - [`docs/14_structural_calculation_report_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md) (KDS 3대 보고서 모드 및 5대 장구분 표준 목차)
   - [`docs/16_goal_micro_execution_protocol.md`](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md) (2단계 5정밀 마이크로 공정 및 Proof-First Mandate)
 * **문서 성격**: Midas Design+ 61종 전체 부재의 실무급 1:1 웹 마이그레이션에 앞서, 시스템 전반에 잠재된 **기만적 가짜 연산 코드(Mock/Stub 강도치 150/100, 임의 OK 판정), 불완전한 폼 잔존/뭉뚱그림, 계산서 하드코딩 정적 텍스트 및 데드코드를 전면 척결**하고, `docs/07` 및 `docs/14` 규격에 부합하는 투명하고 정직한 **`[미구현 (WIP)]` 4-Pane 베이스라인**을 확립하기 위한 핵심 독립 전술 요구사항 명세서입니다.

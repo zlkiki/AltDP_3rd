@@ -14,13 +14,13 @@
 | 04 | **Midas Design+ 61종 전체 모듈 종합 카탈로그 및 4대 자산 인벤토리 (SSOT)** | 전수 61종 모듈 4대 SSOT 1:1 매핑 및 티어 분류 마스터 인벤토리 | [상세보기](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md) |
 | 05 | **[예비/보관]** | 구 설계요약(04, 05) 문서는 `docs/@@OLD/`로 보관 이동 | [보관폴더](file:///f:/PyProject/AltDP_3rd/docs/@@OLD/) |
 | 06 | **Python 독립 엔진 아키텍처 명세서** | 백엔드/클라이언트 코어 엔지니어링 계산 엔진 사양 (SRC, ALU, 보강 포함) | [상세보기](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md) |
-| 07 | **Web Application UI/UX 명세서** | AltDP 모던 웹 UI, 2D/3D 부재 렌더러 및 P-M 상관도 차트 | [상세보기](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) |
+| 07 | **Web Application UI/UX 및 Midas 원본 역공학 종합 명세서** | AltDP 모던 웹 UI 아키텍처, Midas Design+ 원본 UI 분석 및 1:1 매핑 구현 사양 | [상세보기](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) |
 | 08 | **Pytest 도메인별 3대 테스트 가이드** | 단위/통합 테스트 규약 및 초고속 실행 치트시트 | [상세보기](file:///f:/PyProject/AltDP_3rd/docs/08_pytest_testing_guide.md) |
 | 09 | **추출 바이너리 및 심볼 자산 분석 명세서** | 20개 DLL 모듈, 47,110개 심볼 및 47종 C 수도코드 인벤토리 | [상세보기](file:///f:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md) |
 | 10 | **에이전트 개발 프로토콜 및 세부 규약** | 모델 전략, Self-Healing, 세부 워크플로우 규약 | [상세보기](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md) |
 | 11 | **KDS 국가건설기준 연동 가이드 (kcsc2md)** | kcsc2md Ground Truth 자산 및 Self-Healing 연동 표준 | [상세보기](file:///f:/PyProject/kcsc2md/docs/외부프로젝트_연동_및_조회_가이드.md) |
 | 12 | **전 기능 포팅 마스터플랜** | 20개 모듈/4.7만 심볼 100% 웹 마이그레이션 단계별 로드맵 | [상세보기](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md) |
-| 13 | **Midas Design+ 원본 UI/UX 역공학 명세서** | MFC 리본 메뉴, 4대 폼뷰, 3대 인터랙션 모드, 드로잉 및 계산서 분석 | [상세보기](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md) |
+| 13 | **[예비/통합]** | 구 13번 UI 분석 문서는 `docs/07`로 통합 후 `docs/@@OLD/`로 보관 이동 | [보관폴더](file:///f:/PyProject/AltDP_3rd/docs/@@OLD/) |
 | 14 | **KDS 구조계산서 및 검토보고서 명세서** | 요약/상세/입력데이터 보고서 3대 모드, 보고서 옵션 및 KDS 수식 체계 | [상세보기](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md) |
 | 15 | **FEM 해석 및 외부 솔버 역공학 명세서** | FES/mfsolver/Iterative 3대 외부 솔버, CM2 자동메셔 연동 및 해석 데이터 파이프라인 | [상세보기](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md) |
 | 16 | **Goal 마이크로 공정 표준 실행 지침** | 5대 정밀 공정(Step 1~5), 4대 증거 강제 규약(Proof-First), Stop Protocol | [상세보기](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md) |

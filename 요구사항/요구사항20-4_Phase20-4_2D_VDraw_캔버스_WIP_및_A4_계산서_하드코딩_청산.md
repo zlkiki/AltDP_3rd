@@ -3,8 +3,7 @@
 ## 1. 개요 및 목적 (Background & Objectives)
 * **상위 기술 문서(SSOT)**:
   - [`요구사항 20 (Phase 20 마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20_Phase20_더미코드_전면제거_및_정직한_WIP_베이스라인_구축.md) 제3.3절, 제3.4절 및 제5절
-  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) (상시 순백색 `#ffffff` A4 용지 고정 & Center 캔버스)
-  - [`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md) (VDraw 2D/3D 드로잉 엔진)
+  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) (상시 순백색 `#ffffff` A4 용지 고정, Center 캔버스 및 VDraw 2D/3D 드로잉 엔진)
   - [`docs/14_structural_calculation_report_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md) (KDS 3대 보고서 모드 & 5대 장구분 표준 목차)
 * **목적**: Center 캔버스(`pane-graphic-view`)와 Right 리포트(`pane-right-report`)에 잔존하는 **하드코딩된 정적 텍스트 및 가짜 계산 결과(가짜 처짐/강도, 무조건 ALL O.K 출력)를 100% 영구 청산**하고, `docs/14` 5대 장구분 규격에 기반한 **순백색 A4 계산서 WIP 시트**와 단정한 **2D VDraw Canvas WIP 플레이스홀더**를 렌더링하여 투명하고 무결한 엔지니어링 신뢰성을 확보합니다.
 
@@ -12,7 +11,7 @@
 
 ## 2. 세부 개발 사양 (Detailed Specifications)
 
-### 2.1. Center 영역 2D VDraw Canvas WIP 플레이스홀더 (`docs/07`, `docs/13`)
+### 2.1. Center 영역 2D VDraw Canvas WIP 플레이스홀더 (`docs/07`)
 * **구현 파일**: `src/web/static/js/renderer2d.js` (또는 `vdraw_engine.js`)
 * **동작 사양**:
   - 전용 VDraw 드로잉이 미연동된 부재 선택 시:

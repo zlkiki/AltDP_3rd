@@ -2,7 +2,7 @@
 
 ## 1. 마스터플랜 개요 및 목적 (Executive Summary)
 
-본 문서는 **Midas Design+** 원본 바이너리로부터 추출된 **20개 DLL 모듈, 47,110개 C++ Exported 심볼**([docs/09](file:///f:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md)), Ghidra Headless 디컴파일러를 통해 선별 자산화된 **5대 도메인 47개 핵심 C 수도코드 알고리즘**([decompiled_src/core_routines/](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/)), 그리고 신규 분석된 **3대 외부 솔버/CM2 메셔 FEM 엔진 명세서**([docs/15](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)), **원본 MFC 4대 폼뷰/3대 인터랙션 모드 명세서**([docs/13](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md)), **KDS 3대 구조계산서 체계 명세서**([docs/14](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md))를 바탕으로, 순수 **Python 3.13 + FastAPI + Modern Web(HTML5 Canvas/SVG) + KDS 국가건설기준** 스택으로 100% 웹 마이그레이션하기 위한 **전체 포팅 종합 마스터플랜**입니다.
+본 문서는 **Midas Design+** 원본 바이너리로부터 추출된 **20개 DLL 모듈, 47,110개 C++ Exported 심볼**([docs/09](file:///f:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md)), Ghidra Headless 디컴파일러를 통해 선별 자산화된 **5대 도메인 47개 핵심 C 수도코드 알고리즘**([decompiled_src/core_routines/](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/)), 그리고 신규 분석된 **3대 외부 솔버/CM2 메셔 FEM 엔진 명세서**([docs/15](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)), **웹 UI/UX 및 원본 MFC 역공학 통합 명세서**([docs/07](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)), **KDS 3대 구조계산서 체계 명세서**([docs/14](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md))를 바탕으로, 순수 **Python 3.13 + FastAPI + Modern Web(HTML5 Canvas/SVG) + KDS 국가건설기준** 스택으로 100% 웹 마이그레이션하기 위한 **전체 포팅 종합 마스터플랜**입니다.
 
 [.agents/AGENTS.md](file:///f:/PyProject/AltDP_3rd/.agents/AGENTS.md)의 핵심 행동 규약(Zero-Dependency 소스 격리, KDS 0.1% 오차 무결성, 1이슈 1Phase 및 Goal 주도형 단계적 분할 실행, 도메인별 3대 Pytest 초고속 검증)을 최우선으로 준수하며, 향후 `요구사항/요구사항XX_...md`로 구체화될 모든 개발 스텝의 최상위 나침반(Single Source of Truth, SSOT) 역할을 수행합니다.
 
@@ -133,9 +133,9 @@ flowchart TD
 
 ---
 
-### Phase 7: 원본 UI 역공학 기반 웹 UI/UX 고도화 및 프론트엔드 완성 (docs 13 $\rightarrow$ docs 07) - [차기 1순위]
+### Phase 7: 원본 UI 역공학 기반 웹 UI/UX 고도화 및 프론트엔드 완성 (docs 07 통합) - [차기 1순위]
 > **대상 C++ 모듈**: `Design+.exe` (리본 바, 4대 폼뷰, 3대 인터랙션 모드, `Menu.ini`, `DLG_*.ini`)  
-> **참조 기술 문서**: [`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md), [`docs/07`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)  
+> **참조 기술 문서**: [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)  
 > **목표 요구사항**: `요구사항14`
 
 * **7.1. docs 07 명세서 고도화**: docs 13의 4대 폼뷰와 3대 모드를 docs 07에 완전 융합/개정.

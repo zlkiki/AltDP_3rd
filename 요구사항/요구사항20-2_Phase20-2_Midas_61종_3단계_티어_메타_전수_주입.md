@@ -5,8 +5,7 @@
   - [`요구사항 20 (Phase 20 마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20_Phase20_더미코드_전면제거_및_정직한_WIP_베이스라인_구축.md) 제4절 및 제5절
   - [`docs/04_master_midas_modules_comprehensive_catalog.md`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md) (Midas Design+ 61종 전체 모듈 종합 카탈로그)
   - [`docs/01_system_architecture.md`](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md) (단면 DB 및 부재 카탈로그 구조)
-  - [`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md) (Phase 1~6 기완료 부재 현황)
-  - [`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md) (`Menu.ini` 6대 탭 및 `DLG_*.ini` 리소스)
+  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) (`Menu.ini` 11대 탭 및 `DLG_*.ini` 리소스)
 * **목적**: Midas Design+ 원본 6대 대분류에 기반한 **61종 전체 설계/검토 모듈 카탈로그에 3단계 티어(Tier 1: 9종 핵심, Tier 2: 26종 주요, Tier 3: 26종 특수), KDS 표준 코드 및 Midas 원본 DLG 심볼을 단 1종의 누락/뭉뚱그림 없이 전수 주입**하고, `docs/12` 기완료 엔진 현황(`engine_status: VERIFIED/WIP`)을 일치시켜 단일 진실 공급원(SSOT) 카탈로그를 완성합니다.
 
 ---

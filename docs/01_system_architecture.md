@@ -116,14 +116,13 @@ AltDP_3rd/
 │   ├── 02_binary_reverse_engineering_specification.md
 │   ├── 03_section_db_specification.md
 │   ├── 04_master_midas_modules_comprehensive_catalog.md # 전수 61종 모듈 카탈로그 & 4대 SSOT
-│   ├── @@OLD/                      # 구 요약 사양서 (04_rc, 05_steel 보관)
+│   ├── @@OLD/                      # 구 사양서 보관 (04_rc, 05_steel, 13_ui)
 │   ├── 06_python_engine_architecture_specification.md
-│   ├── 07_web_application_ui_ux_specification.md
+│   ├── 07_web_application_ui_ux_specification.md # Web UI/UX 및 Midas 원본 통합 명세
 │   ├── 08_pytest_testing_guide.md
 │   ├── 09_decompiled_source_and_symbol_inventory.md
 │   ├── 10_agent_development_protocols.md
 │   ├── 12_full_feature_porting_master_plan.md
-│   ├── 13_midas_design_plus_original_ui_specification.md
 │   ├── 14_structural_calculation_report_specification.md
 │   ├── 15_fem_analysis_and_external_solver_specification.md
 │   ├── 16_goal_micro_execution_protocol.md
