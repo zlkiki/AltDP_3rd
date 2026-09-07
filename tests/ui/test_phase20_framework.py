@@ -156,5 +156,45 @@ def test_phase20_flagship_5member_modules():
         assert "renderForm" in resp.text
 
 
+def test_phase20_3_wip_card_and_toast_guard():
+    """Verify Phase 20-3 WIPCardRenderer, ToastManager, cleanupForm, and 3-button pipeline guard."""
+    # 1. wip_card.js served correctly
+    resp_wip = client.get("/static/js/forms/wip_card.js")
+    assert resp_wip.status_code == 200, "Failed to serve wip_card.js"
+    js_wip = resp_wip.text
+    assert "WIPCardRenderer" in js_wip
+    assert "ToastManager" in js_wip
+    assert "showToast" in js_wip
+    assert "getSubtabsForModule" in js_wip
+    assert "Tier 1 핵심 플래그십" in js_wip
+    assert "Tier 2 실무 주요 부재" in js_wip
+    assert "Tier 3 특수/상세 모듈" in js_wip
+    assert "IDD_RCS_BASEMENT_WALL_DLG" in js_wip or "IDD_" in js_wip
+    assert "altdp-toast-container" in js_wip
 
+    # 2. index.html includes wip_card.js
+    resp_html = client.get("/")
+    assert resp_html.status_code == 200
+    assert "/static/js/forms/wip_card.js" in resp_html.text
+    assert "/static/js/member_forms.js" in resp_html.text
 
+    # 3. dispatcher.js contains cleanupForm and isWIP
+    resp_disp = client.get("/static/js/core/dispatcher.js")
+    assert resp_disp.status_code == 200
+    js_disp = resp_disp.text
+    assert "cleanupForm" in js_disp
+    assert "isWIP" in js_disp
+    assert "WIPCardRenderer" in js_disp
+
+    # 4. member_forms.js contains clearForm
+    resp_mf = client.get("/static/js/member_forms.js")
+    assert resp_mf.status_code == 200
+    assert "clearForm" in resp_mf.text
+
+    # 5. app.js contains isModuleWIP and 3-button guards
+    resp_app = client.get("/static/js/app.js")
+    assert resp_app.status_code == 200
+    js_app = resp_app.text
+    assert "function isModuleWIP" in js_app
+    assert "isModuleWIP(modKey)" in js_app
+    assert "해당 부재는 원본앱 1:1 전용 서브탭 폼 및 KDS 연산 탑재 준비 중입니다" in js_app

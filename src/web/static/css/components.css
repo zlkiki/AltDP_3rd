@@ -650,3 +650,36 @@
     transform: translateY(-1px);
 }
 
+/* ========================================================= */
+/* Phase 20-3 WIP Informative Card & Toast Styles             */
+/* ========================================================= */
+@keyframes wipCardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.wip-subtab-pill {
+    transition: all 0.15s ease;
+}
+.wip-subtab-pill:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: var(--text-primary, #ffffff) !important;
+}
+
+#altdp-toast-container {
+    box-sizing: border-box;
+}
+
+.altdp-toast {
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+

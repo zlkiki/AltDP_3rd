@@ -38,6 +38,12 @@ const MemberForms = {
     ]
   },
 
+  clearForm(containerId) {
+    const container = typeof containerId === 'string' ? document.getElementById(containerId) : containerId;
+    if (!container) return;
+    container.innerHTML = '';
+  },
+
   renderForm(containerId, memberType) {
     const container = document.getElementById(containerId);
     if (!container) return;

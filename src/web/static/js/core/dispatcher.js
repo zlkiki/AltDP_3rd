@@ -56,6 +56,64 @@ class ModuleDispatcher {
     }
 
     /**
+     * Resolves metadata for module key
+     * @param {string} moduleKey 
+     * @returns {Object|null}
+     */
+    getModuleMeta(moduleKey) {
+        if (!moduleKey) return null;
+        if (window.CatalogManager && typeof window.CatalogManager.getModule === 'function') {
+            const meta = window.CatalogManager.getModule(moduleKey);
+            if (meta) return meta;
+        }
+        if (window.allModules && Array.isArray(window.allModules)) {
+            const found = window.allModules.find(m => m.key === moduleKey || m.id === moduleKey);
+            if (found) return found;
+        }
+        return { key: moduleKey, id: moduleKey, name: moduleKey, engine_status: 'WIP', tier: 'Tier 3' };
+    },
+
+    /**
+     * Determines whether the module is currently WIP
+     * @param {string} moduleKey 
+     * @returns {boolean}
+     */
+    isWIP(moduleKey) {
+        const meta = this.getModuleMeta(moduleKey);
+        if (meta && meta.engine_status === 'WIP') return true;
+        // If it does not have a specialized pack and has no properties schema, consider it WIP
+        if (!this.modules.has(moduleKey)) {
+            if (meta && meta.engine_status === 'VERIFIED') return false;
+            return true;
+        }
+        return false;
+    },
+
+    /**
+     * Cleans up input pane form to prevent leftover listeners and stale DOM
+     * @param {HTMLElement} [container] 
+     */
+    cleanupForm(container = null) {
+        const target = container || document.getElementById('dynamic-form') || document.getElementById('pane-input-form');
+        if (!target) return;
+
+        // Unmount member_forms if available
+        if (window.MemberForms && typeof window.MemberForms.clearForm === 'function') {
+            window.MemberForms.clearForm(target.id || 'dynamic-form');
+        }
+
+        // Deep wipe of form content and replace to strip stale listeners
+        const formEl = document.getElementById('dynamic-form');
+        if (formEl && formEl.parentNode) {
+            const newForm = formEl.cloneNode(false);
+            newForm.innerHTML = '';
+            formEl.parentNode.replaceChild(newForm, formEl);
+        } else if (target) {
+            target.innerHTML = '';
+        }
+    },
+
+    /**
      * Switch active member module
      * @param {string} moduleKey 
      * @param {string} memberId 
@@ -73,10 +131,12 @@ class ModuleDispatcher {
             }
         }
 
-        const targetModule = this.modules.get(moduleKey);
         this.currentMemberId = memberId;
+        const targetModule = this.modules.get(moduleKey);
+        const moduleMeta = this.getModuleMeta(moduleKey);
+        const isWip = this.isWIP(moduleKey);
 
-        if (targetModule) {
+        if (targetModule && !isWip) {
             this.currentModule = targetModule;
             try {
                 if (typeof targetModule.mount === 'function') {
@@ -91,9 +151,26 @@ class ModuleDispatcher {
                 console.error(`[ModuleDispatcher] Error mounting module "${moduleKey}":`, e);
             }
         } else {
-            // Fallback for modules not yet having a specialized pack
-            console.warn(`[ModuleDispatcher] Module "${moduleKey}" has no custom pack. Falling back to default.`);
+            // Fallback / WIP Guard for modules without custom packs or in WIP status
+            console.log(`[ModuleDispatcher] Module "${moduleKey}" handled as WIP/Fallback.`);
             this.currentModule = null;
+
+            // 1. Completely unmount and clear pane-input-form
+            this.cleanupForm();
+
+            // 2. Render modern WIP informative card if WIP
+            if (isWip) {
+                const targetContainer = document.getElementById('dynamic-form') || document.getElementById('pane-input-form');
+                if (targetContainer && window.WIPCardRenderer) {
+                    window.WIPCardRenderer.render(targetContainer, moduleMeta);
+                }
+            }
+        }
+
+        // Protect Member Manager & Member List tag
+        const tagEl = document.getElementById('active-member-tag');
+        if (tagEl && memberId) {
+            tagEl.textContent = memberId;
         }
 
         // Broadcast module switched
@@ -101,7 +178,9 @@ class ModuleDispatcher {
             window.EventBus.emit('dispatcher:switched', {
                 key: moduleKey,
                 memberId: memberId,
-                hasCustomModule: !!targetModule
+                hasCustomModule: !!targetModule && !isWip,
+                isWip: isWip,
+                meta: moduleMeta
             });
         }
     }

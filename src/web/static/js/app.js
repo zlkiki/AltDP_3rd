@@ -513,6 +513,25 @@ function renderSidebar(filterQuery = '') {
     });
 }
 
+/**
+ * Determines whether the given module key is currently in WIP status
+ * @param {string} moduleKey 
+ * @returns {boolean}
+ */
+function isModuleWIP(moduleKey) {
+    if (!moduleKey) return false;
+    if (window.CatalogManager && typeof window.CatalogManager.getModule === 'function') {
+        const m = window.CatalogManager.getModule(moduleKey);
+        if (m && m.engine_status === 'WIP') return true;
+    }
+    if (window.allModules && Array.isArray(window.allModules)) {
+        const m = window.allModules.find(item => item.key === moduleKey || item.id === moduleKey);
+        if (m && m.engine_status === 'WIP') return true;
+    }
+    return false;
+}
+window.isModuleWIP = isModuleWIP;
+
 async function selectModule(key, targetMemberId = null) {
     if (window.ProjectStore) {
         window.ProjectStore.setActiveModule(key);
@@ -524,25 +543,37 @@ async function selectModule(key, targetMemberId = null) {
     renderSidebar();
 
     const [cat, grp, modId] = key.split('/');
+    const isWip = isModuleWIP(key);
+    let modMeta = null;
+    if (window.CatalogManager && typeof window.CatalogManager.getModule === 'function') {
+        modMeta = window.CatalogManager.getModule(key);
+    }
+    if (!modMeta && window.allModules) {
+        modMeta = window.allModules.find(m => m.key === key || m.id === key);
+    }
 
     try {
         const res = await fetch(`/api/schema/${cat}/${grp}/${modId}`);
         const data = await res.json();
         currentSchema = data.schema || {};
+        if (!modMeta && data.info) {
+            modMeta = data.info;
+        }
 
         // Update Breadcrumb Banner
-        const catMap = { rc: 'RC 콘크리트', steel: 'Steel 강구조', pc: 'PC 구조', misc: '기타·상세' };
+        const catMap = { rc: 'RC 콘크리트', steel: 'Steel 강구조', pc: 'PC 구조', misc: '기타·상세', src: 'SRC 합성', alu: '알루미늄', rfm: '보수보강' };
         const catName = catMap[cat] || cat.toUpperCase();
         const bannerEl = document.getElementById('stage-breadcrumb-banner');
         if (bannerEl) {
+            const modTitle = (modMeta && modMeta.name) || (data.info && data.info.name) || key;
             bannerEl.innerHTML = `
                 <span class="bc-cat-tag">${cat.toUpperCase()}</span>
                 <span class="bc-sep">›</span>
                 <span class="bc-grp-tag">${grp.toUpperCase()}</span>
                 <span class="bc-sep">›</span>
-                <span class="bc-mod-tag" id="stage-breadcrumb">${data.info.name} (${key})</span>
+                <span class="bc-mod-tag" id="stage-breadcrumb">${modTitle} (${key})</span>
             `;
-            bannerEl.title = `${catName} > ${grp} > ${data.info.name} (${key})`;
+            bannerEl.title = `${catName} > ${grp} > ${modTitle} (${key})`;
         }
 
         // Extract default inputs from schema properties
@@ -562,8 +593,55 @@ async function selectModule(key, targetMemberId = null) {
             }
         }
 
-        // Render dynamic form with [Apply], [Check] & [Design] actions
         const formEl = document.getElementById('dynamic-form');
+
+        // Check if module is WIP or has empty schema properties
+        const hasNoProps = !props || Object.keys(props).length === 0;
+        if (isWip || hasNoProps) {
+            // Unmount and cleanly wipe existing form DOM & event listeners
+            if (window.ModuleDispatcher && typeof window.ModuleDispatcher.cleanupForm === 'function') {
+                window.ModuleDispatcher.cleanupForm(formEl);
+            } else if (formEl) {
+                formEl.innerHTML = '';
+            }
+
+            // Render WIP Informative Card in Left-Sub Form container
+            if (window.WIPCardRenderer) {
+                window.WIPCardRenderer.render(formEl, modMeta || { key, name: key, tier: 'Tier 3', engine_status: 'WIP' });
+            }
+
+            // Dispatch module switch
+            if (window.ModuleDispatcher) {
+                window.ModuleDispatcher.switchModule(key, targetMemberId || 'M-1');
+            }
+
+            // Clear 2D Canvas and report preview cleanly to prevent leftover graphics
+            const canvas = document.getElementById('sectionCanvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            const resultContainer = document.getElementById('result-container');
+            if (resultContainer) {
+                resultContainer.innerHTML = `
+                    <div style="padding: 32px 16px; text-align: center; color: var(--text-secondary); font-size: 12px; line-height: 1.6;">
+                        <div style="font-size: 28px; margin-bottom: 8px;">📑</div>
+                        <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">KDS 표준 계산서 준비 중</div>
+                        <div>해당 부재(${(modMeta && modMeta.name) || key})의 KDS 기준 계산서가 탑재 대기 중입니다.</div>
+                    </div>
+                `;
+            }
+
+            // Render member list in top panel to keep list interaction safe
+            if (window.MemberManager) {
+                window.MemberManager.renderMemberList();
+            }
+
+            renderSidebar();
+            return;
+        }
+
+        // Render dynamic form with [Apply], [Check] & [Design] actions
         window.FormGenerator.renderForm(
             currentSchema, 
             formEl, 
@@ -573,6 +651,11 @@ async function selectModule(key, targetMemberId = null) {
             key,
             () => triggerApply()
         );
+
+        // Notify dispatcher for custom module packs
+        if (window.ModuleDispatcher) {
+            window.ModuleDispatcher.switchModule(key, targetMemberId || 'M-1');
+        }
 
         // Populate active member inputs into form (do not auto-trigger calculate on module change)
         syncActiveMemberToForm(false);
@@ -668,6 +751,17 @@ function triggerApply() {
     const modKey = window.ProjectStore.getState().activeContext.moduleKey;
     if (!modKey) return;
 
+    // Safety guard for WIP modules
+    if (isModuleWIP(modKey)) {
+        const msg = "⚠️ 해당 부재는 원본앱 1:1 전용 서브탭 폼 및 KDS 연산 탑재 준비 중입니다.";
+        if (window.showToast) {
+            window.showToast(msg, 'warning');
+        } else {
+            alert(msg);
+        }
+        return;
+    }
+
     const activeMember = window.ProjectStore.getActiveMember(modKey);
     const formEl = document.getElementById('dynamic-form');
     if (!activeMember || !formEl || !window.FormGenerator) return;
@@ -691,6 +785,17 @@ async function triggerCalculate() {
     if (!window.ProjectStore) return;
     const modKey = window.ProjectStore.getState().activeContext.moduleKey;
     if (!modKey) return;
+
+    // Safety guard for WIP modules
+    if (isModuleWIP(modKey)) {
+        const msg = "⚠️ 해당 부재는 원본앱 1:1 전용 서브탭 폼 및 KDS 연산 탑재 준비 중입니다.";
+        if (window.showToast) {
+            window.showToast(msg, 'warning');
+        } else {
+            alert(msg);
+        }
+        return;
+    }
 
     // 1. Always execute [적용] first to sync memory
     triggerApply();
@@ -746,6 +851,17 @@ async function triggerAutoDesign() {
     if (!window.ProjectStore || !window.AutoDesigner) return;
     const modKey = window.ProjectStore.getState().activeContext.moduleKey;
     if (!modKey) return;
+
+    // Safety guard for WIP modules
+    if (isModuleWIP(modKey)) {
+        const msg = "⚠️ 해당 부재는 원본앱 1:1 전용 서브탭 폼 및 KDS 연산 탑재 준비 중입니다.";
+        if (window.showToast) {
+            window.showToast(msg, 'warning');
+        } else {
+            alert(msg);
+        }
+        return;
+    }
 
     // 1. Always execute [적용] first to sync memory
     triggerApply();
