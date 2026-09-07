@@ -615,21 +615,33 @@ async function selectModule(key, targetMemberId = null) {
                 window.ModuleDispatcher.switchModule(key, targetMemberId || 'M-1');
             }
 
-            // Clear 2D Canvas and report preview cleanly to prevent leftover graphics
+            // Render 2D VDraw Canvas WIP Placeholder with dark engineering grid & geometry symbol
             const canvas = document.getElementById('sectionCanvas');
+            const pmCanvas = document.getElementById('pmChartCanvas');
+            if (pmCanvas) pmCanvas.style.display = 'none';
             if (canvas) {
-                const ctx = canvas.getContext('2d');
-                if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+                canvas.style.display = 'block';
+                if (window.Renderer2D && typeof window.Renderer2D.renderWIPCanvas === 'function') {
+                    window.Renderer2D.renderWIPCanvas(canvas, modMeta || { key, name: key, tier: 'Tier 3' });
+                } else {
+                    const ctx = canvas.getContext('2d');
+                    if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
             }
+            const caption = document.getElementById('canvas-caption');
+            if (caption) {
+                caption.textContent = `2D VDraw (WIP: ${(modMeta && modMeta.name) || key})`;
+            }
+
+            // Render pure white (#ffffff) A4 5-chapter KDS WIP standard calculation sheet
             const resultContainer = document.getElementById('result-container');
-            if (resultContainer) {
-                resultContainer.innerHTML = `
-                    <div style="padding: 32px 16px; text-align: center; color: var(--text-secondary); font-size: 12px; line-height: 1.6;">
-                        <div style="font-size: 28px; margin-bottom: 8px;">📑</div>
-                        <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">KDS 표준 계산서 준비 중</div>
-                        <div>해당 부재(${(modMeta && modMeta.name) || key})의 KDS 기준 계산서가 탑재 대기 중입니다.</div>
-                    </div>
-                `;
+            if (resultContainer && window.ResultRenderer && typeof window.ResultRenderer.render === 'function') {
+                window.ResultRenderer.render(
+                    resultContainer, 
+                    { status: 'NOT_YET_IMPLEMENTED', code: 'WIP_MODULE' }, 
+                    key, 
+                    {}
+                );
             }
 
             // Render member list in top panel to keep list interaction safe
@@ -1015,6 +1027,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const secCanvas = document.getElementById('sectionCanvas');
             const pmCanvas = document.getElementById('pmChartCanvas');
             if (!secCanvas || !pmCanvas) return;
+
+            // WIP Guard: Prevent runtime chart errors on WIP modules
+            const currentModMeta = window.allModules && window.allModules.find(m => m.key === currentModuleKey);
+            const isWip = currentModMeta && (currentModMeta.engine_status === 'WIP' || currentModMeta.hasFullParams === false);
+            if (isWip) {
+                const toastFn = (window.ToastManager && window.ToastManager.showToast) || (typeof showToast === 'function' ? showToast : null);
+                if (toastFn) {
+                    toastFn('⚠️ 본 부재는 3D P-M 상관곡선 그래픽 준비 중 (WIP) 상태입니다.', 'warning');
+                }
+                return;
+            }
 
             isPmView = !isPmView;
             if (isPmView) {

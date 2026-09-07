@@ -36,18 +36,27 @@ def test_visual_canvas_and_vector_serving():
     assert res_legend.status_code == 200
     assert "LegendBar" in res_legend.text
 
+    # 5. Native Renderer2D & WIP Canvas Placeholder
+    res_r2d = client.get("/static/js/renderer2d.js")
+    assert res_r2d.status_code == 200
+    assert "Renderer2D" in res_r2d.text
+    assert "renderWIPCanvas" in res_r2d.text
+
 
 def test_kds_report_renderers_serving():
     """Verify A4 KDS Calculation Report generators and Zoom Controller are served."""
-    # 1. Result Renderer
+    # 1. Result Renderer (A4 Standard & WIP Sheet)
     res_result = client.get("/static/js/report/result_renderer.js")
     assert res_result.status_code == 200
     assert "ResultRenderer" in res_result.text
+    assert "renderA4WIPSheet" in res_result.text
 
-    # 2. re-DCR Common Renderer
+    # 2. Common KDS A4 Calculation Sheet Generator (Legacy 4-pillar eliminated)
     res_redcr = client.get("/static/js/report/redcr_common_renderer.js")
     assert res_redcr.status_code == 200
     assert "RedcrCommonRenderer" in res_redcr.text
+    assert "four-pillar-container" not in res_redcr.text
+    assert "pure-white-sheet" in res_redcr.text
 
     # 3. Dedicated Member Report Generators
     res_beam_rep = client.get("/static/js/report/redcr/BeamReportGenerator.js")

@@ -474,6 +474,123 @@
     }
   };
 
+  /**
+   * Render Dark Engineering Grid & Clean Geometry WIP Placeholder for unfinished modules.
+   * Conforms to docs/07 (Center 2D Graphic View) and requirements 20-4.
+   */
+  Renderer2D.renderWIPCanvas = function (canvas, meta = {}) {
+    if (!canvas) return;
+    const { ctx, width, height } = setupDPI(canvas);
+
+    // 1. Clear & Dark Engineering Slate Background
+    ctx.clearRect(0, 0, width, height);
+    ctx.save();
+    ctx.fillStyle = '#0f172a'; // Deep slate background
+    ctx.fillRect(0, 0, width, height);
+
+    // 2. Soft Engineering Grid Lines
+    const gridSize = 24;
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.08)';
+    ctx.lineWidth = 1.0;
+    ctx.beginPath();
+    for (let x = 0; x < width; x += gridSize) {
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, height);
+    }
+    for (let y = 0; y < height; y += gridSize) {
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
+    }
+    ctx.stroke();
+
+    // 3. Subtle Geometry Section Silhouette at Center
+    const cx = width / 2;
+    const cy = height / 2 - 30;
+    const boxW = 140;
+    const boxH = 100;
+
+    // Outer section rect
+    ctx.fillStyle = 'rgba(30, 41, 59, 0.85)';
+    ctx.strokeStyle = '#475569';
+    ctx.lineWidth = 1.5;
+    ctx.fillRect(cx - boxW / 2, cy - boxH / 2, boxW, boxH);
+    ctx.strokeRect(cx - boxW / 2, cy - boxH / 2, boxW, boxH);
+
+    // Center cross axis (dashed)
+    ctx.save();
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.4)';
+    ctx.lineWidth = 1.0;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(cx - boxW / 2 - 15, cy);
+    ctx.lineTo(cx + boxW / 2 + 15, cy);
+    ctx.moveTo(cx, cy - boxH / 2 - 15);
+    ctx.lineTo(cx, cy + boxH / 2 + 15);
+    ctx.stroke();
+    ctx.restore();
+
+    // Corner Rebar / Anchor placeholders
+    const rebarOffset = 14;
+    const rebarR = 4;
+    const rebars = [
+      [cx - boxW / 2 + rebarOffset, cy - boxH / 2 + rebarOffset],
+      [cx + boxW / 2 - rebarOffset, cy - boxH / 2 + rebarOffset],
+      [cx - boxW / 2 + rebarOffset, cy + boxH / 2 - rebarOffset],
+      [cx + boxW / 2 - rebarOffset, cy + boxH / 2 - rebarOffset],
+    ];
+    rebars.forEach(([rx, ry]) => {
+      ctx.beginPath();
+      ctx.arc(rx, ry, rebarR, 0, Math.PI * 2);
+      ctx.fillStyle = '#38bdf8';
+      ctx.fill();
+      ctx.strokeStyle = '#bae6fd';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    });
+
+    // 4. Center Typography & Informative Badges
+    const memberName = meta.name || meta.key || '선택 부재';
+    const tier = meta.tier || 'Tier 3';
+    const midasDlg = meta.midas_dlg || '';
+    const std = meta.standard || 'KDS 국가건설기준';
+
+    // Badge Pill
+    const badgeText = `${tier}${midasDlg ? ` · ${midasDlg}` : ''}`;
+    ctx.font = '600 11px "Inter", sans-serif';
+    const badgeW = ctx.measureText(badgeText).width + 18;
+    const badgeH = 22;
+    const badgeY = cy + boxH / 2 + 25;
+    
+    ctx.fillStyle = tier.includes('Tier 1') ? 'rgba(245, 158, 11, 0.15)' : 'rgba(56, 189, 248, 0.15)';
+    ctx.strokeStyle = tier.includes('Tier 1') ? '#f59e0b' : '#38bdf8';
+    ctx.lineWidth = 1.0;
+    ctx.beginPath();
+    if (typeof ctx.roundRect === 'function') {
+      ctx.roundRect(cx - badgeW / 2, badgeY, badgeW, badgeH, 11);
+    } else {
+      ctx.rect(cx - badgeW / 2, badgeY, badgeW, badgeH);
+    }
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = tier.includes('Tier 1') ? '#fbbf24' : '#7dd3fc';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(badgeText, cx, badgeY + badgeH / 2);
+
+    // Primary WIP Heading
+    ctx.font = 'bold 14px "Pretendard", "Segoe UI", sans-serif';
+    ctx.fillStyle = '#f8fafc';
+    ctx.fillText('📐 2D VDraw 단면 및 배근도 그래픽 준비 중 (WIP)', cx, badgeY + badgeH + 24);
+
+    // Subtitle & Member Name
+    ctx.font = '12px "Pretendard", "Segoe UI", sans-serif';
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillText(`부재: ${memberName} (${std})`, cx, badgeY + badgeH + 46);
+
+    ctx.restore();
+  };
+
   global.Renderer2D = Renderer2D;
 })(typeof window !== 'undefined' ? window : this);
 

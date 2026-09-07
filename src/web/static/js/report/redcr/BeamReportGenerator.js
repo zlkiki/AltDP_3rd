@@ -48,7 +48,7 @@
     }
 
     /**
-     * RC 보 8단계 KDS 상세 계산서 생성
+     * RC 보 KDS 표준 구조계산서 생성 (docs/14 준수)
      * @param {Object} r - 백엔드 결과 및 입력 데이터
      * @param {Boolean} isCheck - 검토 모드 여부
      */
