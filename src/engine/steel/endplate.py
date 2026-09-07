@@ -1,8 +1,8 @@
 """강구조 엔드플레이트 모멘트 접합부 설계 엔진 (KDS 14 31 25 4.4.3)
 
-Ground Truth:
-  - decompiled_src/core_routines/steel/steel__CHK_USEP_*.c (CSTLCodeCheck::CHK_USEP)
-  - decompiled_src/core_routines/steel/steel__CHK_USWB_*.c (CSTLCodeCheck::CHK_USWB)
+설계 기준:
+  - KDS 14 31 25 : 2024 강구조 연결 설계기준 (엔드플레이트 모멘트접합부)
+  - KDS 14 31 10 : 2024 강구조설계기준 (하중저항계수설계법)
 """
 
 from dataclasses import dataclass, field

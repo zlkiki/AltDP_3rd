@@ -4,12 +4,12 @@ import os
 from fastapi import APIRouter, HTTPException, Query
 from typing import List, Optional
 
+from src.core.paths import DBASE_DIR
 from src.engine.db.sdb_parser import SDBParser, SectionRecord
 
 router = APIRouter(prefix="/api/db", tags=["Section Database"])
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-SDB_DIR = os.path.join(BASE_DIR, "original_src", "Midas Design+", "Dbase")
+SDB_DIR = str(DBASE_DIR)
 _CACHED_PARSERS = {}
 
 

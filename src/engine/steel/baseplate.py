@@ -1,7 +1,9 @@
 """강구조 주각부 베이스플레이트 및 앵커볼트 설계 엔진 (KDS 14 31 25 4.5 / KDS 14 20 54)
 
-Ground Truth:
-  - decompiled_src/core_routines/steel/steel__CHK_USBP_*.c (CSTLCodeCheck::CHK_USBP)
+설계 기준:
+  - KDS 14 31 10 : 2024 강구조설계기준 (하중저항계수설계법)
+  - KDS 14 31 25 : 2024 강구조 연결 설계기준 (주각부)
+  - KDS 14 20 54 : 2021 콘크리트용 앵커 정착 설계기준
 """
 
 from dataclasses import dataclass, field

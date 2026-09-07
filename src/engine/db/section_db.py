@@ -9,15 +9,14 @@ import sqlite3
 from typing import List, Dict, Optional, Tuple, Any
 from pathlib import Path
 
+from src.core.paths import DBASE_DIR
 from src.engine.db.sdb_parser import SDBParser, SectionRecord
 
 
 class SectionDBManager:
     """Manages steel section databases with in-memory SQLite backend."""
 
-    DEFAULT_DB_DIR = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), "..", "..", "..", "original_src", "Midas Design+", "Dbase")
-    )
+    DEFAULT_DB_DIR = str(DBASE_DIR)
 
     def __init__(self, db_dir: Optional[str] = None):
         self.db_dir = db_dir or self.DEFAULT_DB_DIR

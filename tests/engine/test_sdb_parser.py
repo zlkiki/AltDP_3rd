@@ -3,12 +3,11 @@
 import os
 import pytest
 from pathlib import Path
+from src.core.paths import DBASE_DIR
 from src.engine.db.sdb_parser import SDBParser
 from src.engine.db.section_db import SectionDBManager, get_section_db_manager
 
-DB_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "..", "original_src", "Midas Design+", "Dbase")
-)
+DB_DIR = str(DBASE_DIR)
 KS_SDB_PATH = os.path.join(DB_DIR, "KS.sdb")
 
 

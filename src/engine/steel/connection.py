@@ -1,8 +1,8 @@
 """강구조 볼트 및 용접 접합부 설계 엔진 (KDS 14 31 25)
 
-Ground Truth:
-  - decompiled_src/core_routines/steel/steel__CHK_USBC_*.c (CSTLCodeCheck::CHK_USBC)
-  - decompiled_src/core_routines/steel/steel__CHK_USWE_*.c (CSTLCodeCheck::CHK_USWE)
+설계 기준:
+  - KDS 14 31 25 : 2024 강구조 연결 설계기준 (볼트 및 용접 접합부)
+  - KDS 14 31 10 : 2024 강구조설계기준 (하중저항계수설계법)
 """
 
 from dataclasses import dataclass, field
