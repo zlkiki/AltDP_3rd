@@ -4,7 +4,7 @@
 
 > [!IMPORTANT]
 > **🚨 필수 선행 열람 규약 (Mandatory Protocol)**:
-> 새로운 세션 시작이나 작업 착수 시, 모든 세부 개발 프로토콜과 행동 규약의 단일 진실 공급원(SSOT)인 **[`docs/10_agent_development_protocols.md`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)** 및 Goal 마이크로 공정 지침인 **[`docs/16_goal_micro_execution_protocol.md`](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md)**를 **반드시 함께 열람(`view_file`)**해야 합니다.
+> 새로운 세션 시작이나 작업 착수 시, 특히 **수직 구현계획(Vertical Slice) 수립 및 요구사항 문서 작성/검토 시**, 모든 세부 개발 프로토콜과 행동 규약의 단일 진실 공급원(SSOT)인 **[`docs/10_agent_development_protocols.md`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)**, Goal 마이크로 공정 지침인 **[`docs/16_goal_micro_execution_protocol.md`](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md)**, 그리고 4-Pane 워크스페이스 및 웹 UI/UX 연동 표준인 **[`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)**를 **반드시 함께 열람(`view_file`)**해야 합니다.
 
 ---
 
@@ -57,10 +57,12 @@
    - 완료 주장 시 텍스트 보고 금지. 반드시 4대 물리적 증거(원본 발췌, 3자 오차표, raw 로그, git diff) 첨부 (`docs/16`).
 4. **2단계 5정밀 마이크로 공정 준수**:
    - 부재 개발 시 Step 1~5(엔진 $\rightarrow$ 폼 $\rightarrow$ 캔버스 $\rightarrow$ 계산서 $\rightarrow$ 통합) 단독 완수 후 즉시 정지(Stop Protocol) (`docs/16`).
+   - 각 Step 구현 시 **[`docs/07 PART 4`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)**의 UI/UX 결합 사양(Step 2 서브탭 폼 & 서브 모달 4종, Step 3 세로 적층형 2단 뷰포트, Step 4 순백색 A4 8단계 KaTeX 계산서, Step 5 4열 100ms 동기화)을 1:1 완벽 준수.
 5. **소스 재활용 & 토큰 효율성 (Engineering Precision)**:
    - 검증된 기존 계산 로직, 공통 모듈, 단면 DB 파서, UI 컴포넌트 적극 재활용 (중복 구현 금지).
-6. **요구사항 라이프사이클 (경량화 & 분할)**:
+6. **요구사항 라이프사이클 (경량화 & 분할 & UI/UX 사전 검토 의무)**:
    - 요구사항 문서 생성 요청 시 별도 Plan 아티팩트 없이 `요구사항/요구사항XX.md` 직접 작성.
+   - **수직 슬라이스 구현계획 수립 시 UI/UX 선행 반영 의무**: 부재 구현계획(요구사항 작성) 수립 시 백엔드 수식뿐 아니라 UI/UX 레이어가 필연적으로 관여되므로, **[`docs/07 제21절`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)**의 6대 UI/UX 체크리스트(사이드바, 부재매니저, 4대 서브탭, 세로 적층 2단 뷰포트, 순백색 A4 계산서, 100ms 동기화)를 **반드시 선행 확인(`view_file`)하고 요구사항 명세에 누락 없이 반영**.
    - 대규모 작업(파일 10개 이상/3개 이상 레이어)은 사전 확인 후 하위 Phase로 분할 제안.
    - 완료 아카이빙(`요구사항/@@OLD/`) 및 `README.md` 갱신은 사용자 명시적 요청 시에만 수행.
 7. **Goal 주도형 단계적 연속 구현 (Goal-Driven Partitioned Execution)**:
@@ -87,10 +89,12 @@
 ## 4. 상세 기술 문서 및 프로토콜 레퍼런스 (SSOT)
 
 * 🚦 **[16. Goal 마이크로 공정 표준 실행 지침](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md)** (5대 정밀 공정, 단독 완수 원칙, TDD, Proof-First)
+* 💻 **[07. Web UI/UX 및 원본앱 역공학 통합 사양](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)** (4-Pane 워크스페이스, 세로 적층 뷰포트, 순백색 A4 계산서, Step 1~5 UI/UX 결합 표준)
+* 📖 **[10. 상세 개발 프로토콜 및 KDS 연동 가이드](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)** (모델 전략, Self-Healing, 상세 규약)
 * 📋 **[04. 원본앱 61종 전체 모듈 종합 카탈로그 및 4대 자산 인벤토리](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md)** (단일 진실 공급원 SSOT)
 * 🎯 **[12. 전 기능 포팅 마스터플랜 (Master Plan)](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**
-* 📖 **[10. 상세 개발 프로토콜 및 KDS 연동 가이드](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)** (모델 전략, Self-Healing, 상세 규약)
 * 📐 **[01. 전체 시스템 아키텍처 & 파일 인벤토리](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md)** | 🗂️ **[09. 추출 바이너리 및 심볼 자산 명세서](file:///f:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md)**
 * 🔍 **[02. 바이너리 역공학 명세](file:///f:/PyProject/AltDP_3rd/docs/02_binary_reverse_engineering_specification.md)** | 📚 **[03. 단면 형강 DB 명세](file:///f:/PyProject/AltDP_3rd/docs/03_section_db_specification.md)** | 📦 **[구 문서 요약(04, 05, 13) 보관](file:///f:/PyProject/AltDP_3rd/docs/@@OLD/)**
-* 🚀 **[06. Python 독립 엔진 사양](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md)** | 💻 **[07. Web UI/UX 및 원본앱 역공학 통합 사양](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)** | 📑 **[14. KDS 구조계산서 명세서](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md)** | 🔬 **[15. FEM 해석 및 외부 솔버 역공학 사양](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)**
+* 🚀 **[06. Python 독립 엔진 사양](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md)** | 📑 **[14. KDS 구조계산서 명세서](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md)** | 🔬 **[15. FEM 해석 및 외부 솔버 역공학 사양](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md)**
 * 📐 **[101. FEM 솔버 이론 및 정식화 명세서](file:///f:/PyProject/AltDP_3rd/docs/fem/101_fem_engine_theoretical_manual_and_formulation.md)** | 📊 **[102. 기존 솔버 비교 분석 및 벤치마크](file:///f:/PyProject/AltDP_3rd/docs/fem/102_fem_solver_comparative_analysis_and_benchmark.md)** | 🧪 **[08. Pytest 테스트 가이드](file:///f:/PyProject/AltDP_3rd/docs/08_pytest_testing_guide.md)**
+
