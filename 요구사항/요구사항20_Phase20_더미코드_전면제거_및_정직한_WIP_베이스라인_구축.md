@@ -5,15 +5,15 @@
 ### 1.1. 상위 기술 문서(SSOT) 연동 및 설계 철학
 * **단일 진실 공급원(SSOT) 참조**:
   - [`docs/01_system_architecture.md`](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md) (전체 시스템 아키텍처 및 5대 계층)
-  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) (독립 4-Pane 레이아웃, 3버튼 액션 파이프라인, Midas 원본 리본/폼뷰/다이얼로그 통합 명세)
+  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) (독립 4-Pane 레이아웃, 3버튼 액션 파이프라인, 원본앱 리본/폼뷰/다이얼로그 통합 명세)
   - [`docs/10_agent_development_protocols.md`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md) (개발 프로토콜 및 오차 한계 규약)
   - [`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md) (Phase 1~6 기완료 자산 보호 및 전 기능 로드맵)
   - [`docs/14_structural_calculation_report_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md) (KDS 3대 보고서 모드 및 5대 장구분 표준 목차)
   - [`docs/16_goal_micro_execution_protocol.md`](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md) (2단계 5정밀 마이크로 공정 및 Proof-First Mandate)
-* **문서 성격**: Midas Design+ 61종 전체 부재의 실무급 1:1 웹 마이그레이션에 앞서, 시스템 전반에 잠재된 **기만적 가짜 연산 코드(Mock/Stub 강도치 150/100, 임의 OK 판정), 불완전한 폼 잔존/뭉뚱그림, 계산서 하드코딩 정적 텍스트 및 데드코드를 전면 척결**하고, `docs/07` 및 `docs/14` 규격에 부합하는 투명하고 정직한 **`[미구현 (WIP)]` 4-Pane 베이스라인**을 확립하기 위한 핵심 독립 전술 요구사항 명세서입니다.
+* **문서 성격**: 원본앱 61종 전체 부재의 실무급 1:1 웹 마이그레이션에 앞서, 시스템 전반에 잠재된 **기만적 가짜 연산 코드(Mock/Stub 강도치 150/100, 임의 OK 판정), 불완전한 폼 잔존/뭉뚱그림, 계산서 하드코딩 정적 텍스트 및 데드코드를 전면 척결**하고, `docs/07` 및 `docs/14` 규격에 부합하는 투명하고 정직한 **`[미구현 (WIP)]` 4-Pane 베이스라인**을 확립하기 위한 핵심 독립 전술 요구사항 명세서입니다.
 * **4대 포팅 참조 우선순위 준수**:
   - `1순위`: 원본 추출 소스 (`decompiled_src/core_routines/*.c`, `symbols/*.txt`, `original_src/`)
-  - `2순위`: Midas Design+ 공식 기술 매뉴얼 및 Help 자산 (`decompiled_src/manuals/`)
+  - `2순위`: 원본앱 공식 기술 매뉴얼 및 Help 자산 (`decompiled_src/manuals/`)
   - `3순위`: kcsc2md 공인 예제집 (`F:/PyProject/KCSC2MD/output/예제집/`) - 오차 $\le 0.10\%$ 3자 삼각대조
   - `4순위`: kcsc2md 국가건설기준 (`F:/PyProject/KCSC2MD/output/kds_md/`) - KDS 14 20/31/41 (Patch-First 원칙)
 
@@ -23,15 +23,15 @@
    - `To-Be`: 가짜 숫자 연산을 100% 영구 삭제하고, KDS 엔진 스키마가 미연동된 모듈 호출 시 `status: "NOT_YET_IMPLEMENTED"`, `code: "WIP_MODULE"` 표준 JSON 응답 반환.
 2. **`docs/12` 기완료 검증 엔진 계층의 절대적 보호**:
    - `As-Is`: WIP 청산 과정에서 이미 Phase 1~6을 통해 완성·검증된 핵심 엔진(RC 보/기둥/벽/슬래브/기초/옹벽, 철골 보/기둥/가새/접합부/베이스플레이트, SRC/ALU/보강 및 5대 FEM 부재)까지 미구현으로 취급될 위험.
-   - `To-Be`: 기완료된 순수 파이썬 KDS 엔진은 100% 온전히 보호하고, **"엔진은 있으나 Midas 1:1 전용 서브탭 폼(`DLG_*.ini`) 및 VDraw 상세 캔버스가 개발 대기 중인 상태"**와 **"전용 엔진 자체가 미구현인 상태"**를 명확히 구분하여 정직하게 표기.
+   - `To-Be`: 기완료된 순수 파이썬 KDS 엔진은 100% 온전히 보호하고, **"엔진은 있으나 원본앱 1:1 전용 서브탭 폼(`DLG_*.ini`) 및 VDraw 상세 캔버스가 개발 대기 중인 상태"**와 **"전용 엔진 자체가 미구현인 상태"**를 명확히 구분하여 정직하게 표기.
 3. **`docs/07` 독립 4-Pane 레이아웃 무결성 확보**:
    - `As-Is`: 2열(입력폼)과 3열(캔버스) 순서 혼선 및 `Left-Sub`의 핵심 기능인 부재 리스트 매니저(`pane-member-list`)와의 연동 누락.
    - `To-Be`: `docs/07`의 정식 아키텍처인 **[사이드바] - [Left-Sub: 부재리스트 + 사용자입력부] - [Center: 2D/3D 그래픽뷰] - [Right: KDS 계산서(순백색 #ffffff 고정)]** 4-Pane 구조를 엄격히 준수.
 4. **`docs/14` KDS 3대 보고서 & 5대 장구분 체계 준수**:
    - `As-Is`: AltBU 잔재인 "8단계 KaTeX 수식 전개식" 등 타 프로젝트 용어가 혼입되어 `docs/14` 명세와 충돌.
-   - `To-Be`: Midas 원본 및 `docs/14`의 정식 규격인 **"5대 장구분 (1. 일반조건, 2. 재질/단면, 3. 설계하중, 4. 단면안전성, 5. 종합판정)"** 및 **"3대 보고서 모드 (요약/상세/입력데이터)"** 표준 양식으로 완전 일치화. 하드코딩된 정적 텍스트를 전면 청산하고 미계산 시 순백색 A4 WIP 시트 렌더링.
-5. **Midas 61종 모듈 3단계 티어(Tier) 메타데이터 전수 주입 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md))**:
-   - `docs/13`의 Midas 원본 6대 대분류 탭(RC, STEEL, SRC, ALU, RFM, FEM/기타)에 기반하여 61종 전체 모듈에 3단계 티어(`Tier 1: 9종 핵심`, `Tier 2: 26종 주요`, `Tier 3: 26종 특수`) 속성 전수 주입.
+   - `To-Be`: 원본앱 및 `docs/14`의 정식 규격인 **"5대 장구분 (1. 일반조건, 2. 재질/단면, 3. 설계하중, 4. 단면안전성, 5. 종합판정)"** 및 **"3대 보고서 모드 (요약/상세/입력데이터)"** 표준 양식으로 완전 일치화. 하드코딩된 정적 텍스트를 전면 청산하고 미계산 시 순백색 A4 WIP 시트 렌더링.
+5. **원본앱 61종 모듈 3단계 티어(Tier) 메타데이터 전수 주입 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md))**:
+   - `docs/13`의 원본앱 6대 대분류 탭(RC, STEEL, SRC, ALU, RFM, FEM/기타)에 기반하여 61종 전체 모듈에 3단계 티어(`Tier 1: 9종 핵심`, `Tier 2: 26종 주요`, `Tier 3: 26종 특수`) 속성 전수 주입.
 
 ---
 
@@ -41,18 +41,18 @@
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│ Top Master Toolbar : AltDP_3rd Midas Design+ KDS Suite [단위계: SI (kN, mm) ▼] [테마: 🌙/☀️] [💾 적용] [⚡ 검토] [✨ 설계] [상태: 61종 온라인 🟢] │
+│ Top Master Toolbar : AltDP_3rd 원본앱 KDS Suite [단위계: SI (kN, mm) ▼] [테마: 🌙/☀️] [💾 적용] [⚡ 검토] [✨ 설계] [상태: 61종 온라인 🟢] │
 ├────────────────────────┬───────────────────────────────────────────────────────────────┬───────────────────────────────────────────────┤
 │ [Left Sidebar]         │ [Left-Sub: Member & Input]    │ [Center: 2D Graphic View]     │ [Right: KDS Report Dock]                      │
 │ 📂 설계 모듈 탐색기    │ ┌───────────────────────────┐ │ ┌───────────────────────────┐ │ ┌───────────────────────────────────────────┐ │
 │  • 카테고리 (RC/Steel)  │ │ 부재 리스트 (+추가/복제)  │ │ │ 2D VDraw Canvas WIP       │ │ │ KDS A4 구조계산서 WIP 시트                │ │
 │  • 트리 레벨 (1~3)     │ ├───────────────────────────┤ │ │                           │ │ │ 📄 [상시 순백색 #ffffff 용지 고정]        │ │
 │  • 고정핀 (📌)         │ │ 사용자 입력부 (Input Form)│ │ │   📐 2D VDraw 단면/배근도 │ │ │                                           │ │
-│ ┌────────────────────┐ │ │ [Midas 전용 WIP 안내 카드]│ │ │   그래픽 표시 준비 중     │ │ │ 1. 일반 설계 조건: KDS 14 20 40           │ │
+│ ┌────────────────────┐ │ │ [원본앱 전용 WIP 안내 카드]│ │ │   그래픽 표시 준비 중     │ │ │ 1. 일반 설계 조건: KDS 14 20 40           │ │
 │ │RC 콘크리트        ▼│ │ │ 🛠️ [Tier 1] RC 지하외벽   │ │ │   (WIP 플레이스홀더)      │ │ │ 2. 재질 및 단면: 제원 준비 중             │ │
 │ │ • 보 (정상 검증)   │ │ │    (IDD_RCS_BWALL_DLG)    │ │ │                           │ │ │ 3. 설계 하중: 토압/수압 대기 중           │ │
 │ │ • 기둥 (정상 검증) │ │ │ • 기준: KDS 14 20 40      │ │ │ [부재: RC 지하외벽 BWall] │ │ │ 4. 단면 안전성: 검토 대기 중              │ │
-│ │ • 지하외벽 (WIP)───┼─┼►│ • Midas 1:1 서브탭 예정   │ │ └───────────────────────────┘ │ │ 5. 종합 판정: [미구현 (WIP)]              │ │
+│ │ • 지하외벽 (WIP)───┼─┼►│ • 원본앱 1:1 서브탭 예정   │ │ └───────────────────────────┘ │ │ 5. 종합 판정: [미구현 (WIP)]              │ │
 │ │ • 옹벽 (WIP)       │ │ │ • Tier 1 로드맵 순차 탑재 │ │                               │ │                                           │ │
 │ └────────────────────┘ │ └───────────────────────────┘ │                               │ └───────────────────────────────────────────┘ │
 ├────────────────────────┴───────────────────────────────────────────────────────────────┴───────────────────────────────────────────────┤
@@ -80,7 +80,7 @@ class WIPModuleDetail(BaseModel):
     tier: str                   # "Tier 1", "Tier 2", "Tier 3"
     standard: str               # "KDS 14 20 40 : 2022"
     engine_status: str          # "VERIFIED" (엔진완료) | "WIP" (엔진준비중)
-    notice: str = "Midas Design+ 1:1 서브탭 및 VDraw 드로잉 명세에 따라 전용 폼과 계산서가 순차 탑재됩니다."
+    notice: str = "원본앱 1:1 서브탭 및 VDraw 드로잉 명세에 따라 전용 폼과 계산서가 순차 탑재됩니다."
 
 class WIPResponse(BaseModel):
     success: bool = False
@@ -94,14 +94,14 @@ class WIPResponse(BaseModel):
   1. 기완료 검증 엔진(RC 보/기둥/벽체/기초/슬래브, 철골 보/기둥/가새/접합부, 5대 FEM 등)은 실제 KDS 수치 연산(`calculate`)을 수행하여 결과 반환.
   2. 전용 연산 엔진이 아직 미구현되었거나 더미 상태인 모듈은 가짜 숫자 반환을 전면 차단하고 `WIPResponse`를 즉각 반환.
 
-### 3.2. 프론트엔드 Midas 전용 WIP 안내 카드 (`docs/07`, `docs/13`)
+### 3.2. 프론트엔드 원본앱 전용 WIP 안내 카드 (`docs/07`, `docs/13`)
 * **구현 위치**: `src/web/static/js/forms/wip_card.js` (Left-Sub의 `pane-input-form` 영역)
 * **표시 구성 요소**:
   1. **티어 뱃지**: `[Tier 1 핵심 부재]` (골드/오렌지), `[Tier 2 주요 부재]` (블루/시안), `[Tier 3 특수]` (퍼플/그레이).
-  2. **부재 명칭 및 Midas 원본 DLG 코드**: (예: `RC 지하외벽`, `IDD_RCS_BASEMENT_WALL_DLG`).
+  2. **부재 명칭 및 원본앱 DLG 코드**: (예: `RC 지하외벽`, `IDD_RCS_BASEMENT_WALL_DLG`).
   3. **적용 KDS 국가건설기준**: (예: `KDS 14 20 40 콘크리트구조 지하외벽 설계기준`).
-  4. **지원 예정 서브탭 안내**: Midas 원본 1:1 대응 탭 (`[재질 및 단면]`, `[배근 상세]`, `[설계 하중]`, `[토압/수압 조건]`).
-  5. **액션 버튼 상호작용 (`docs/07`)**: 상단 툴바의 `[⚡ 검토]` 또는 `[✨ 설계]` 버튼 클릭 시, "⚠️ 본 부재는 Midas 1:1 서브탭 폼 및 전용 계산서 개발 준비 중입니다." 토스트 알림 연동.
+  4. **지원 예정 서브탭 안내**: 원본앱 1:1 대응 탭 (`[재질 및 단면]`, `[배근 상세]`, `[설계 하중]`, `[토압/수압 조건]`).
+  5. **액션 버튼 상호작용 (`docs/07`)**: 상단 툴바의 `[⚡ 검토]` 또는 `[✨ 설계]` 버튼 클릭 시, "⚠️ 본 부재는 원본앱 1:1 서브탭 폼 및 전용 계산서 개발 준비 중입니다." 토스트 알림 연동.
 
 ### 3.3. 2D Canvas VDraw WIP 플레이스홀더 (`docs/07`, `docs/13`)
 * **구현 위치**: `src/web/static/js/renderer2d.js` (Center의 `pane-graphic-view` 영역)
@@ -113,13 +113,13 @@ class WIPResponse(BaseModel):
 * **동작 사양**:
   - **상시 순백색 `#ffffff` A4 용지 규격 레이아웃 유지 (`docs/07` 제1절)**.
   - 하드코딩된 가짜 처짐/강도치("ALL O.K", "8.2mm 만족" 등)를 전면 청산.
-  - `docs/14` 표준 5대 장구분 헤더를 유지한 채 본문에 **"📄 Midas Design+ 5대 장구분 KDS 전개식 구조계산서 작성 준비 중 (WIP)"** 정직한 워터마크 및 준비 상태 표시.
+  - `docs/14` 표준 5대 장구분 헤더를 유지한 채 본문에 **"📄 원본앱 5대 장구분 KDS 전개식 구조계산서 작성 준비 중 (WIP)"** 정직한 워터마크 및 준비 상태 표시.
 
 ---
 
-## 4. Midas Design+ 61종 전체 모듈 3단계 티어(Tier) 전수 분류표 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md))
+## 4. 원본앱 61종 전체 모듈 3단계 티어(Tier) 전수 분류표 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md))
 
-Midas Design+ 원본 리본 메뉴(`Menu.ini`) 및 대화상자 리소스(`DLG_*.ini`), 외부 솔버(`docs/15`)에 기반하여 **총 61종 전체 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**을 단 1종의 누락이나 축약("등 N종" 표현 전면 금지) 없이 3단계 티어로 전수 분류하여 엄격히 관리합니다:
+원본앱 리본 메뉴(`Menu.ini`) 및 대화상자 리소스(`DLG_*.ini`), 외부 솔버(`docs/15`)에 기반하여 **총 61종 전체 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**을 단 1종의 누락이나 축약("등 N종" 표현 전면 금지) 없이 3단계 티어로 전수 분류하여 엄격히 관리합니다:
 
 ### 4.1. Tier 1: 최우선 플래그십 핵심 부재 (9종)
 실무 빈도가 가장 높고 구조설계의 근간을 이루는 최우선 부재 (현재 엔진 100% 검증 완료, `docs/07` 4-Pane UI 연동 대상):
@@ -200,8 +200,8 @@ flowchart TD
     Req20["요구사항 20: Phase 20 더미 척결 및 정직한 WIP 베이스라인 구축 (마스터)"]
     
     P1["20-1: 백엔드 가짜 숫자(150/100) 전면 삭제 및 WIPResponse 디스패처 구축"]
-    P2["20-2: Midas 61종 모듈 3단계 티어(Tier 1/2/3) 메타데이터 전수 주입"]
-    P3["20-3: 프론트엔드 입력부 잔존폼 방어 및 Midas 전용 WIP 안내 카드 구축"]
+    P2["20-2: 원본앱 61종 모듈 3단계 티어(Tier 1/2/3) 메타데이터 전수 주입"]
+    P3["20-3: 프론트엔드 입력부 잔존폼 방어 및 원본앱 전용 WIP 안내 카드 구축"]
     P4["20-4: 2D VDraw Canvas WIP 및 KDS A4 계산서 하드코딩 청산"]
     P5["20-5: docs/07 기반 4-Pane 통합 E2E 검증 & 콘솔 에러 0건 검수창구 확립"]
 
@@ -213,7 +213,7 @@ flowchart TD
 | 하위 Phase | 세부 요구사항 문서 | 핵심 개발 영역 | 주요 담당 산출물 및 정합성 목표 |
 |:---:|---|---|---|
 | **Phase 20-1** | [`요구사항 20-1`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-1_Phase20-1_백엔드_더미연산_제거_및_WIP_디스패처_구축.md) | 백엔드 API & 디스패처 | • 가짜 연산(150/100) 영구 삭제, `WIPResponse` 표준 스키마<br>• `docs/12` 기완료 검증 엔진 100% 보호 및 `dispatch.py` 분기 |
-| **Phase 20-2** | [`요구사항 20-2`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-2_Phase20-2_Midas_61종_3단계_티어_메타_전수_주입.md) | 카탈로그 & 메타데이터 | • Midas 61종 카탈로그에 `Tier 1/2/3`, `standard`, `midas_dlg` 전수 주입<br>• `GET /api/modules` 티어별 통계 집계 엔드포인트 제공 |
+| **Phase 20-2** | [`요구사항 20-2`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-2_Phase20-2_원본앱_61종_3단계_티어_메타_전수_주입.md) | 카탈로그 & 메타데이터 | • 원본앱 61종 카탈로그에 `Tier 1/2/3`, `standard`, `midas_dlg` 전수 주입<br>• `GET /api/modules` 티어별 통계 집계 엔드포인트 제공 |
 | **Phase 20-3** | [`요구사항 20-3`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-3_Phase20-3_프론트엔드_입력부_WIP_안내카드_및_폼_방어.md) | Left-Sub (사용자입력부) | • `docs/07` 4-Pane 레이아웃 연동 및 이전 폼 잔존 방지 클린업<br>• `WIPCardRenderer`: 글래스모피즘 카드, 3버튼 액션 파이프라인 방어 |
 | **Phase 20-4** | [`요구사항 20-4`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-4_Phase20-4_2D_VDraw_캔버스_WIP_및_A4_계산서_하드코딩_청산.md) | Center 캔버스 & Right 리포트 | • 2D VDraw Canvas WIP 플레이스홀더 (그리드+부재명)<br>• `docs/14` 5대 장구분 준수, 계산서 하드코딩 청산, 순백색 `#ffffff` A4 WIP 시트 |
 | **Phase 20-5** | [`요구사항 20-5`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-5_Phase20-5_4열_통합_E2E_검증_및_콘솔에러_0건_검수창구_확립.md) | 4-Pane 통합 E2E & 무결성 | • 61종 순회 클릭 시 F12 콘솔 에러 0건(404, TypeError 등) 입증<br>• 플래그십-WIP 이중 검증 및 전체 `pytest` 100% 통과 (Exit Code 0) |

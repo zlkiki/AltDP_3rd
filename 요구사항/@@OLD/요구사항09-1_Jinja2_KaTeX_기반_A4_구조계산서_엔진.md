@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경 및 목적
-* Midas Design+의 MFC 기반 `CMSOffice` 및 `CMSWorkRec` 모듈이 수행하던 구조계산서 생성 시스템을 순수 Python 기반(Jinja2 템플릿 엔진 + KaTeX LaTeX 수식 + A4 CSS Paged Media)의 웹 구조계산서 엔진(`src/report/generator.py`)으로 전환합니다.
+* 원본앱의 MFC 기반 `CMSOffice` 및 `CMSWorkRec` 모듈이 수행하던 구조계산서 생성 시스템을 순수 Python 기반(Jinja2 템플릿 엔진 + KaTeX LaTeX 수식 + A4 CSS Paged Media)의 웹 구조계산서 엔진(`src/report/generator.py`)으로 전환합니다.
 * 인허가 관청 및 구조감리 제출용 A4 표준 규격(여백 20mm/15mm, 머리글/바닥글, 쪽번호 자동 매김, `.avoid-break`, `.page-break`)을 준수하는 공통 베이스 템플릿(`src/report/templates/base_report.html`)을 구축합니다.
 * 공학 수식 전개에 필요한 Jinja2 커스텀 필터(KaTeX LaTeX 렌더링, 소수점/지수 포맷팅, 부재 DCR 색상 배지, 단위 변환기)를 개발하여 일관된 고품질 계산서 기반을 제공합니다.
 

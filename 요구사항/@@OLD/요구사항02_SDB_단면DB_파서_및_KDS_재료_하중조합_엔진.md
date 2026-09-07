@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-Midas Design+의 모든 부재 설계(RC, Steel, SRC, Connection 등)는 표준 단면 데이터베이스(`.sdb`), KDS 규준에 정의된 재료 구성방정식($f_{ck}, f_y, E_c, E_s$), 그리고 극한한계상태(ULS)/사용성한계상태(SLS) 하중조합에 기반합니다. 본 요구사항은 AltDP_3rd의 전 부재 설계 엔진이 공통으로 참조할 핵심 데이터 계층과 기초 인프라를 구축하는 단계입니다.
+원본앱의 모든 부재 설계(RC, Steel, SRC, Connection 등)는 표준 단면 데이터베이스(`.sdb`), KDS 규준에 정의된 재료 구성방정식($f_{ck}, f_y, E_c, E_s$), 그리고 극한한계상태(ULS)/사용성한계상태(SLS) 하중조합에 기반합니다. 본 요구사항은 AltDP_3rd의 전 부재 설계 엔진이 공통으로 참조할 핵심 데이터 계층과 기초 인프라를 구축하는 단계입니다.
 
 ### 1.2. 목적
 1. `original_src/Midas Design+/Dbase/` 내 33개 표준 단면 DB 파일(`KS08.sdb`, `AISC.sdb`, `JIS.sdb`, `DIN.sdb`, `GB.sdb` 등)의 바이너리/SQLite 구조를 100% 파싱하여 단면 기하성질을 무손실 메모리 DB로 로드.

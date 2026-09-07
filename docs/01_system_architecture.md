@@ -2,7 +2,7 @@
 
 ## 1. 아키텍처 개요
 
-**AltDP_3rd**는 데스크톱 기반의 Midas Design+를 현대적인 클라우드/웹 네이티브 환경으로 전환한 **5대 계층(Layer) 모듈형 아키텍처**를 채택합니다.
+**AltDP_3rd**는 데스크톱 기반의 원본앱를 현대적인 클라우드/웹 네이티브 환경으로 전환한 **5대 계층(Layer) 모듈형 아키텍처**를 채택합니다.
 
 ```mermaid
 graph TD
@@ -115,10 +115,10 @@ AltDP_3rd/
 │   ├── 01_system_architecture.md
 │   ├── 02_binary_reverse_engineering_specification.md
 │   ├── 03_section_db_specification.md
-│   ├── 04_master_midas_modules_comprehensive_catalog.md # 전수 61종 모듈 카탈로그 & 4대 SSOT
+│   ├── 04_master_original_app_modules_comprehensive_catalog.md # 전수 61종 모듈 카탈로그 & 4대 SSOT
 │   ├── @@OLD/                      # 구 사양서 보관 (04_rc, 05_steel, 13_ui)
 │   ├── 06_python_engine_architecture_specification.md
-│   ├── 07_web_application_ui_ux_specification.md # Web UI/UX 및 Midas 원본 통합 명세
+│   ├── 07_web_application_ui_ux_specification.md # Web UI/UX 및 원본앱 통합 명세
 │   ├── 08_pytest_testing_guide.md
 │   ├── 09_decompiled_source_and_symbol_inventory.md
 │   ├── 10_agent_development_protocols.md
@@ -130,8 +130,8 @@ AltDP_3rd/
 │   │   ├── 101_fem_engine_theoretical_manual_and_formulation.md
 │   │   └── 102_fem_solver_comparative_analysis_and_benchmark.md
 │   └── README.md
-├── original_src/                   # 원본 Midas Design+ 설치본 (Read-Only)
-│   └── Midas Design+/
+├── original_src/                   # 원본 원본앱 설치본 (Read-Only)
+│   └── 원본앱/
 │       ├── Dbase/*.sdb             # 형강 데이터베이스 (KS, AISC 등 33개)
 │       └── DgnSolver/              # 유한요소/구조해석 솔버 (FES.EXE, mfsolver.exe, Iterative.exe)
 ├── requirements.txt                # 파이썬 의존성 패키지

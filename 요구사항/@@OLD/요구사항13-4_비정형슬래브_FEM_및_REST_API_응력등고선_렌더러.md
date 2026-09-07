@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경 및 목적
-* Midas Design+의 슬래브 모듈(`CHK_URSL`, `CHK_SLAB`)은 직접설계법(DDM)이나 등가골조법(EFM)을 적용하기 어려운 불규칙 기둥 배치, 대형 개구부, 편심 코너 슬래브에 대해 2D 평판 FEM을 통해 휨모멘트 및 펀칭 전단을 산정합니다.
+* 원본앱의 슬래브 모듈(`CHK_URSL`, `CHK_SLAB`)은 직접설계법(DDM)이나 등가골조법(EFM)을 적용하기 어려운 불규칙 기둥 배치, 대형 개구부, 편심 코너 슬래브에 대해 2D 평판 FEM을 통해 휨모멘트 및 펀칭 전단을 산정합니다.
 * 비정형 슬래브 2D FEM 해석 모듈을 완성하고, 5대 FEM 해석을 호출하는 FastAPI REST API 라우트(`src/api/routes/fem.py`)와 웹 브라우저 Canvas 2D 실시간 응력 등고선(Stress Contour) 렌더러(`stress_contour.js`)를 구축합니다.
 
 ### 1.2. 참조 Ground Truth 자산

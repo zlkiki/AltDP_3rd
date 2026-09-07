@@ -29,7 +29,7 @@ class WIPModuleDetail(BaseModel):
     tier: str                   # "Tier 1", "Tier 2", "Tier 3"
     standard: str               # "KDS 14 20 40 : 2022"
     engine_status: str          # "VERIFIED" (엔진완료) | "WIP" (엔진준비중)
-    notice: str = "Midas Design+ 1:1 서브탭 및 VDraw 드로잉 명세에 따라 전용 폼과 계산서가 순차 탑재됩니다."
+    notice: str = "원본앱 1:1 서브탭 및 VDraw 드로잉 명세에 따라 전용 폼과 계산서가 순차 탑재됩니다."
 
 class WIPResponse(BaseModel):
     success: bool = False

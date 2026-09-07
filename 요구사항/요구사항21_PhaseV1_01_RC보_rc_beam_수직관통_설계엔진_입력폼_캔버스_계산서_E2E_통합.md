@@ -3,12 +3,12 @@
 ## 1. 개요 및 61종 마스터플랜 매핑 (Master Plan Alignment)
 
 ### 1.1. 모듈 개요 및 SSOT 매핑
-본 문서는 **[`docs/04_master_midas_modules_comprehensive_catalog.md`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md)**(61종 전수 모듈 인벤토리) 및 **[`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**(Phase V1~V6 수직 포팅 마스터플랜)에 따라, 최우선 기반 부재군인 **Tier 1 플래그십 핵심 부재 No. 1**인 **RC 보 (`rc_beam`)**를 5대 공정(Step 1~5)으로 수직 관통(Vertical Slice)하여 100% 작동 가능한 상용 엔지니어링 웹 모듈로 개발하기 위한 **총괄 마스터 명세서**입니다.
+본 문서는 **[`docs/04_master_original_app_modules_comprehensive_catalog.md`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md)**(61종 전수 모듈 인벤토리) 및 **[`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**(Phase V1~V6 수직 포팅 마스터플랜)에 따라, 최우선 기반 부재군인 **Tier 1 플래그십 핵심 부재 No. 1**인 **RC 보 (`rc_beam`)**를 5대 공정(Step 1~5)으로 수직 관통(Vertical Slice)하여 100% 작동 가능한 상용 엔지니어링 웹 모듈로 개발하기 위한 **총괄 마스터 명세서**입니다.
 
 * **모듈 식별자**: `rc_beam` (카탈로그 번호 No. 1, Tier 1 플래그십)
 * **4대 포팅 참조 우선순위 (SSOT Hierarchy)**:
   1. `[1순위 추출 소스]`: `decompiled_src/core_routines/rc/` (`rc__CHK_BBBE_*.c`, `CHK_BBBE_beam.c`, `DPLUS_RCS.dll`, `symbols/DPLUS_RCS.dll_symbols.txt`)
-  2. `[2순위 원본 리소스]`: `original_src/Midas Design+/Language/Korean/` (`DLG_DPLUS_RCS.ini`, `Menu.ini`, Midas Design+ 공식 기술 매뉴얼 보 편)
+  2. `[2순위 원본 리소스]`: `original_src/Midas Design+/Language/Korean/` (`DLG_DPLUS_RCS.ini`, `Menu.ini`, 원본앱 공식 기술 매뉴얼 보 편)
   3. `[3순위 학회 예제집]`: `F:/PyProject/KCSC2MD/output/예제집/` (한국콘크리트학회 2020 콘크리트구조설계기준 예제집 `3.1 단철근/복철근 휨`, `4.1 전단설계`, `4.3 비틀림`, `6.1 사용성 처짐/균열`)
   4. `[4순위 국가건설기준]`: `F:/PyProject/KCSC2MD/output/kds_md/` (KDS 14 20 10 재료/일반, KDS 14 20 20 휨, KDS 14 20 22 전단/비틀림, KDS 14 20 30 사용성)
 
@@ -22,7 +22,7 @@
 | 공정 단계 | 권장 AI 모델 | 하위 명세서 링크 | 핵심 산출물 및 주요 업무 | DoD 검증 기준 |
 |:---:|:---:|---|---|:---:|
 | **Step 1** | 🧠 **High** | [**요구사항 21-1**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21-1_PhaseV1_01_Step1_RC보_KDS계산엔진_및_Pydantic스키마.md) | • KDS 14 20 20/22/30 보 해석 엔진 (`src/engine/rc/beam.py`)<br>• 단/복철근 및 T형 플랜지 등가응력블록 휨 수렴 해석<br>• 전단($V_c, V_s$), 비틀림($T_{cr}, T_n, A_l$), Branson $I_e$ 장단기 처짐 | `pytest` 100% PASS<br>(오차 $\le 0.10\%$) |
-| **Step 2** | ⚙️ **Medium** | [**요구사항 21-2**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21-2_PhaseV1_01_Step2_RC보_Midas_1대1_서브탭_입력폼_및_모달.md) | • Midas 원본 `IDD_RCS_BEAM_PMODE_DLG` 1:1 서브탭 폼 (`form_rc_beam.js`)<br>• 단부(I/J)/중앙(M) 다단 배근 테이블 및 스터럽 입력<br>• 배근 상세 모달(`IDD_RCS_BEAM_REBAR_DLG`) 및 T형 단면 모달 | 브라우저 DOM 정상<br>콘솔 에러 0건 |
+| **Step 2** | ⚙️ **Medium** | [**요구사항 21-2**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21-2_PhaseV1_01_Step2_RC보_원본앱_1대1_서브탭_입력폼_및_모달.md) | • 원본앱 `IDD_RCS_BEAM_PMODE_DLG` 1:1 서브탭 폼 (`form_rc_beam.js`)<br>• 단부(I/J)/중앙(M) 다단 배근 테이블 및 스터럽 입력<br>• 배근 상세 모달(`IDD_RCS_BEAM_REBAR_DLG`) 및 T형 단면 모달 | 브라우저 DOM 정상<br>콘솔 에러 0건 |
 | **Step 3** | ⚙️ **Medium** | [**요구사항 21-3**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21-3_PhaseV1_01_Step3_RC보_2D_VDraw_캔버스_배근도_및_부재력도_인터랙션.md) | • 상단 뷰포트: 보 경간($L$) 종단면 배근도 & $M/V$ 부재력 포락선<br>• 하단 뷰포트: 단부 I, 중앙 M, 단부 J 3개 횡단면도, 135° 갈고리 스터럽<br>• 피복 옵셋, 치수선, 철근태그, 휠 줌/팬/Fit/호버 툴팁 | Canvas 그래픽스 렌더링<br>인터랙션 무결성 |
 | **Step 4** | 🧠 **High** | [**요구사항 21-4**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21-4_PhaseV1_01_Step4_RC보_A4_5대장구분_8단계_KaTeX_구조계산서.md) | • 원본 5대 장구분 계승 (개요-부재력-휨-전단/비틀림-사용성처짐균열)<br>• 8단계 Step-by-Step KaTeX 수식 전개식 (`redcr_rc_beam.js`)<br>• 순백색(`#ffffff`) A4 용지 인쇄 프리뷰 및 `  →  O.K / N.G` 판정 | A4 인쇄 레이아웃<br>KaTeX 수식 무결성 |
 | **Step 5** | ⚙️ **Medium** | [**요구사항 21-5**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21-5_PhaseV1_01_Step5_RC보_4열통합_E2E검증_및_실사용UI_온라인전환.md) | • 1열(트리)-2열(캔버스)-3열(폼)-4열(계산서) 4열 연동<br>• 파라미터 수정 시 **100ms 이내 실시간 3-View 동시 동기화**<br>• `catalog.js`에서 `rc_beam`의 `is_wip: false` 정식 온라인 전환 | E2E 전수 테스트 Pass<br>콘솔 에러 0건 |
@@ -38,7 +38,7 @@
 /goal
 docs 16을 확인하고, 요구사항 21과 하위 21-1의 Step 1을 구현해줘.
 
-# [Step 2: Midas 1:1 서브탭 입력폼 및 모달 단독 실행 - Medium 모델 권장]
+# [Step 2: 원본앱 1:1 서브탭 입력폼 및 모달 단독 실행 - Medium 모델 권장]
 /goal
 docs 16을 확인하고, 요구사항 21과 하위 21-2의 Step 2를 구현해줘.
 
@@ -64,7 +64,7 @@ docs 16을 확인하고, 요구사항 21의 Step 1부터 Step 5까지 순차적�
 ## 4. 마스터 종합 검증 및 수용 기준 (Acceptance Criteria)
 
 - [ ] **[Step 1 수치 무결성]**: `tests/engine/test_rc_beam.py` 100% 통과 (콘크리트학회 예제집 3.1, 4.1, 4.3, 6.1 대비 오차 $\le 0.10\%$).
-- [ ] **[Step 2 입력폼 1:1]**: Midas 원본 `IDD_RCS_BEAM_PMODE_DLG` 4대 서브탭(단면/재료, 철근배근, 부재력, 사용성) 및 상세 배근 모달 정상 렌더링.
+- [ ] **[Step 2 입력폼 1:1]**: 원본앱 `IDD_RCS_BEAM_PMODE_DLG` 4대 서브탭(단면/재료, 철근배근, 부재력, 사용성) 및 상세 배근 모달 정상 렌더링.
 - [ ] **[Step 3 2D 캔버스]**: 상단 종단면 부재력선 오버레이 + 하단 단부(I/J)/중앙(M) 3개 횡단면 135° 내진 갈고리 스터럽 그래픽스 렌더링 검증.
 - [ ] **[Step 4 A4 계산서]**: 5대 장구분 및 8단계 KaTeX 수식 전개, `  →  O.K / N.G` 판정 화살표, A4 인쇄 프리뷰 레이아웃 완비.
 - [ ] **[Step 5 4열 통합]**: 파라미터 변경 시 100ms 이내 실시간 3-View 동기화, 콘솔 에러 0건, `is_wip: false` 정식 온라인 전환.

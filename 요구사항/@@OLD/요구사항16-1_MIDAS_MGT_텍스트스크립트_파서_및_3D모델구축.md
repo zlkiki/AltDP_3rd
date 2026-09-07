@@ -27,7 +27,7 @@
     - $0.15 \le |\vec{v}_z| / \|\vec{v}\| < 0.85 \rightarrow$ **가새 (Brace)**
   - 평판 요소 및 벽체 요소(`*ELEMENT, WALL`) $\rightarrow$ **전단벽 (Wall)**
 * **층(Story) 자동 바인딩**: 절점의 $Z$ 좌표를 기준으로 해당 부재가 속한 층(Floor/Story)을 자동 판정.
-* **단면 DB 매핑**: Midas SDB 형강 규격명(`H 400x200x8/13` 등)을 AltDP 단면 DB(`src/engine/db/section_db.py`)와 100% 매핑.
+* **단면 DB 매핑**: 원본앱 SDB 형강 규격명(`H 400x200x8/13` 등)을 AltDP 단면 DB(`src/engine/db/section_db.py`)와 100% 매핑.
 
 ---
 

@@ -8,7 +8,7 @@
 * **담당 소스 파일**: `src/engine/rc/column.py`, `tests/engine/test_rc_column.py`
 * **4대 포팅 참조 우선순위 (SSOT Hierarchy)**:
   1. `[1순위 추출 소스]`: `decompiled_src/core_routines/` C루틴 심볼 (`solver__CHK_BCCO_*.c`, `CDBSolverTool`, `DPLUS_RCS.dll`, `DPLUS_DB.dll`)
-  2. `[2순위 원본 매뉴얼]`: Midas Design+ 기술 매뉴얼 RC Column 장 (P-M 수치적분, Bresler 간이/엄밀식, 모멘트확대계수법)
+  2. `[2순위 원본 매뉴얼]`: 원본앱 기술 매뉴얼 RC Column 장 (P-M 수치적분, Bresler 간이/엄밀식, 모멘트확대계수법)
   3. `[3순위 학회 예제집]`: 콘크리트구조학회(2020) 기준 예제집
      - `예제 5.1`: 4변 대칭 단주 P-M 상관곡선 작성 및 축력-휨 강도 검토
      - `예제 5.2`: 원형 띠철근/나선철근 기둥 축하중 및 P-M 곡선 검토

@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경 및 목적
-* Midas Design+는 단일 부재 계산서 출력 외에 건물 전체의 수십~수백 개 부재를 한 권의 책으로 묶어 인쇄하는 **종합 계산서 일괄 출력(Batch Print)** 및 MS Excel 다중 시트 통합 내보내기 기능을 갖추고 있습니다.
+* 원본앱는 단일 부재 계산서 출력 외에 건물 전체의 수십~수백 개 부재를 한 권의 책으로 묶어 인쇄하는 **종합 계산서 일괄 출력(Batch Print)** 및 MS Excel 다중 시트 통합 내보내기 기능을 갖추고 있습니다.
 * 표지(Cover Page), 자동 목차(Table of Contents), 일련 페이지 번호(Header/Footer)를 포함하는 일괄 PDF 바인더(`binder.py`)를 구현하고, 다중 시트 Excel 익스포터(`excel_exporter.py`)와 FastAPI 리포트 엔드포인트(`src/api/routes/report.py`)를 완성합니다.
 
 ### 1.2. 참조 Ground Truth 자산

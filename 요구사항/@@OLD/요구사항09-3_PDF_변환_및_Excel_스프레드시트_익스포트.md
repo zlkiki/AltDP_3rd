@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경 및 목적
-* Midas Design+의 `CMSExcel` 모듈 기능을 순수 Python의 `openpyxl` 라이브러리로 완전 재구현하여 다중 시트 구조계산서 Excel 스프레드시트 내보내기 엔진(`src/report/excel_exporter.py`)을 구축합니다.
+* 원본앱의 `CMSExcel` 모듈 기능을 순수 Python의 `openpyxl` 라이브러리로 완전 재구현하여 다중 시트 구조계산서 Excel 스프레드시트 내보내기 엔진(`src/report/excel_exporter.py`)을 구축합니다.
 * HTML 계산서를 고해상도 PDF로 렌더링하거나 브라우저 원클릭 인쇄(Window.print)를 지원하는 PDF 익스포트 파이프라인(`src/report/pdf_exporter.py`)을 구현합니다.
 * 웹 프론트엔드 및 외부 시스템에서 실시간으로 구조계산서 HTML, PDF, Excel을 호출 및 다운로드할 수 있는 통합 FastAPI REST 엔드포인트(`src/api/routes/report.py`)를 개발하고 `server.py`에 등록합니다.
 

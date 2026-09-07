@@ -235,7 +235,7 @@ $$\text{상부 철근(Hogging)}: \begin{cases} M_{ux}^* = M_{xx} - |M_{xy}| & (\
 
 ---
 
-## 5. 원본 Midas Design+ 역공학 심볼 및 바이너리 매핑 테이블
+## 5. 원본 원본앱 역공학 심볼 및 바이너리 매핑 테이블
 
 | AltDP_3rd Python 모듈 | 원본 바이너리 / DLL | 원본 C++ 클래스 및 심볼 (Ground Truth) | 역공학 역할 및 치환 사양 |
 |---|---|---|---|

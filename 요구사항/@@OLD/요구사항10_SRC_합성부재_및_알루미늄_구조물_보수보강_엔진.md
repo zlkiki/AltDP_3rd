@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-철골철근콘크리트(SRC) 및 콘크리트 충전강관(CFT) 등 합성구조는 고층 건물과 대경간 구조물에서 초고강도와 연성을 확보하기 위해 널리 사용됩니다. 또한 알루미늄 합금 압출재 구조와 탄소섬유판(CFRP)/강판을 활용한 기존 건축물의 구조성능 보수·보강(Retrofit) 역시 현대 구조설계의 중요한 축입니다. Midas Design+는 `DPLUS_SRC.dll`, `DPLUS_ALU.dll`, `DPLUS_RFM.dll`을 통해 이들 특수 설계를 지원합니다.
+철골철근콘크리트(SRC) 및 콘크리트 충전강관(CFT) 등 합성구조는 고층 건물과 대경간 구조물에서 초고강도와 연성을 확보하기 위해 널리 사용됩니다. 또한 알루미늄 합금 압출재 구조와 탄소섬유판(CFRP)/강판을 활용한 기존 건축물의 구조성능 보수·보강(Retrofit) 역시 현대 구조설계의 중요한 축입니다. 원본앱는 `DPLUS_SRC.dll`, `DPLUS_ALU.dll`, `DPLUS_RFM.dll`을 통해 이들 특수 설계를 지원합니다.
 
 ### 1.2. 목적
 1. 원본 C++ 바이너리(`DPLUS_SRC.dll` 505 심볼, `DPLUS_ALU.dll` 329 심볼, `DPLUS_RFM.dll` 529 심볼)를 분석하여, 순수 Python 합성구조/알루미늄/보강 엔진(`src/engine/src_composite/`, `alu/`, `rfm/`) 구현.

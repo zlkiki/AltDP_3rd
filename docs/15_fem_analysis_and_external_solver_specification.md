@@ -2,13 +2,13 @@
 
 ## 1. 개요 및 역공학 분석 요약 (Executive Summary)
 
-**Midas Design+**(`Design+.exe`)는 단면 검토 및 수식 기반의 간이 설계뿐만 아니라, 복잡한 2차원 평면·기초·접합부의 거동을 정밀 해석하기 위해 **유한요소해석(FEM, Finite Element Method) 엔진 및 외부 독립 솔버 프로세스**를 내장하고 있습니다.
+**원본앱**(`원본앱(Design+.exe)`)는 단면 검토 및 수식 기반의 간이 설계뿐만 아니라, 복잡한 2차원 평면·기초·접합부의 거동을 정밀 해석하기 위해 **유한요소해석(FEM, Finite Element Method) 엔진 및 외부 독립 솔버 프로세스**를 내장하고 있습니다.
 
 원본 바이너리(`original_src/Midas Design+/`) 및 C++ 심볼 자산(`decompiled_src/`)에 대한 정밀 역공학 결과, 다음과 같은 **3대 외부 실행 솔버**, **상용 2D/3D 자동 메싱 엔진(CM2)**, 그리고 **MIDAS Gen 외부 패밀리 연동 모듈**이 확인되었습니다:
 
 ```mermaid
 flowchart TD
-    subgraph Host ["Midas Design+ 호스트 프로세스 (Design+.exe)"]
+    subgraph Host ["원본앱 호스트 프로세스 (Design+.exe)"]
         UI["MFC 다이얼로그 / 입력 뷰 (CURBUPModeDlg, CUSBPPModeDlg, CESBPPModeDlg)"]
         MeshMgr["메시 매니저 (dgn::lib::IDgnAutoMeshUtil in DGN_lib.dll)"]
         DBMgr["데이터 컨버터 (CDBSolverTool & CDBManagerTool in DPLUS_DB.dll)"]
@@ -45,7 +45,7 @@ flowchart TD
 
 ## 2. FEM 해석이 포함된 원본 5대 설계 모듈 상세 분석
 
-Midas Design+의 수식 기반 검토(`CHK_*`) 중 아래 5개 모듈은 **2D 평판(Plate/Shell) 유한요소 해석 및 비선형 지반/접촉 스프링 솔버**를 필수로 활용합니다.
+원본앱의 수식 기반 검토(`CHK_*`) 중 아래 5개 모듈은 **2D 평판(Plate/Shell) 유한요소 해석 및 비선형 지반/접촉 스프링 솔버**를 필수로 활용합니다.
 
 | 부재 및 설계 도메인 | 핵심 C++ 심볼 / CHK_ 루틴 | 원본 UI 다이얼로그 클래스 | FEM 적용 목적 및 역학 모델 |
 |---|---|---|---|
@@ -65,7 +65,7 @@ Midas Design+의 수식 기반 검토(`CHK_*`) 중 아래 5개 모듈은 **2D �
    - **기반 기술**: Intel Visual Fortran (`libifcoremd.dll`, `libmmd.dll`, `dformd.dll`) + MSVC C++ 연계.
    - **특징**: MIDAS Gen 및 MIDAS Civil의 범용 3D 유한요소 솔버를 그대로 패키징한 엔진.
    - **처리 요소**: 3D Frame/Beam, 2D/3D Plate(4절점 사각형 / 3절점 삼각형 후판/박판 요소), 3D Solid 요소.
-   - **연동 방식**: Design+.exe가 임시 파일(`*.dat` / `*.mfs`)을 생성하고 `CreateProcess("DgnSolver\\FES.EXE ...")`로 백그라운드 호출 후, 결과 텍스트/바이너리를 파싱.
+   - **연동 방식**: 원본앱(Design+.exe)가 임시 파일(`*.dat` / `*.mfs`)을 생성하고 `CreateProcess("DgnSolver\\FES.EXE ...")`로 백그라운드 호출 후, 결과 텍스트/바이너리를 파싱.
 
 2. **`mfsolver.exe` (Midas Foundation Solver, 2.5 MB)**:
    - **기반 기술**: 기초(Foundation) 및 지하벽체 해석 전용으로 경량화된 독립 FEM 솔버.
@@ -82,7 +82,7 @@ Midas Design+의 수식 기반 검토(`CHK_*`) 중 아래 5개 모듈은 **2D �
 
 ### 3.2. 상용 자동 메싱 엔진 (`CM2 MeshTools`, Computing Objects)
 
-Midas Design+ 루트 디렉토리에는 프랑스 **Computing Objects** 사의 상용 메싱 엔진인 **CM2 MeshTools** DLL 12종이 내장되어 있습니다:
+원본앱 루트 디렉토리에는 프랑스 **Computing Objects** 사의 상용 메싱 엔진인 **CM2 MeshTools** DLL 12종이 내장되어 있습니다:
 
 * `cm2quadmesh_x64_48.dll`, `cm2surf_remesh_q4_x64_48.dll`: 임의 다각형 영역 4절점 사각형(Quad) 고품질 메셔
 * `cm2triamesh_x64_48.dll`, `cm2surf_remesh_t3_x64_48.dll`: 비정형 영역 3절점 삼각형(Tri) Delaunay 메셔
@@ -96,7 +96,7 @@ Midas Design+ 루트 디렉토리에는 프랑스 **Computing Objects** 사의 �
 ### 3.3. MIDAS Gen 연동 플러그인 (`DgnPlugIn/`)
 
 * **`GEN_DgnCalc_KR.dll`, `GEN_DgnCalc_US.dll`**: MIDAS Gen 3D 구조해석 모델로부터 직접 하중조합 및 부재력을 전달받아 검토하는 인터페이스.
-* **`AnalysisDB.dll`, `GEN_UmdDataBase.dll`**: MIDAS Gen/UMD의 3D FEM 해석 데이터베이스(`.mgb`, `.db`)를 직접 파싱하여 층별/골조별 최악 하중조합 부재력을 Design+로 임포트.
+* **`AnalysisDB.dll`, `GEN_UmdDataBase.dll`**: MIDAS Gen/UMD의 3D FEM 해석 데이터베이스(`.mgb`, `.db`)를 직접 파싱하여 층별/골조별 최악 하중조합 부재력을 원본앱로 임포트.
 
 ---
 
@@ -159,7 +159,7 @@ flowchart LR
 
 ## 5. Ghidra 핀포인트 선별 역공학 전략 (Pinpoint Extraction Targets)
 
-42.5MB의 거대 Fortran 바이너리(`FES.EXE`) 전체를 디컴파일하는 대신, **Midas Design+ 호스트 앱과 솔버 간의 데이터 브릿지 및 핵심 판정 파라미터**를 Ghidra로 핀포인트 선별 추출하여 0.1% 오차 무결성을 완성합니다.
+42.5MB의 거대 Fortran 바이너리(`FES.EXE`) 전체를 디컴파일하는 대신, **원본앱 호스트 앱과 솔버 간의 데이터 브릿지 및 핵심 판정 파라미터**를 Ghidra로 핀포인트 선별 추출하여 0.1% 오차 무결성을 완성합니다.
 
 ```mermaid
 flowchart LR
@@ -183,7 +183,7 @@ flowchart LR
 2. **지반 비선형 반복 솔버 수렴 조건 (`Iterative.exe`)**:
    - 지반 인장 분리(Tension Separation) 판정 임계값 ($q_i \le 0$), 비선형 강성 갱신 계수 및 수렴 허용오차 ($\epsilon \le 10^{-4}$).
 3. **베이스플레이트 등가 지압 스프링 산정식 (`CUSBPPModeDlg` / `CESBPPModeDlg`)**:
-   - 콘크리트 지압면을 1방향 압축 스프링 매트릭스로 치환할 때 Midas가 적용한 등가 두께/강성 파라미터($k_{conc} = E_c / t_{eff}$).
+   - 콘크리트 지압면을 1방향 압축 스프링 매트릭스로 치환할 때 원본앱이 적용한 등가 두께/강성 파라미터($k_{conc} = E_c / t_{eff}$).
 4. **지하외벽 탄성 지지 경계조건 (`CURBUPModeDlg` in `DPLUS_RCS.dll`)**:
    - 슬래브, 층간 보, 측벽과의 접촉부 회전 구속도($K_{\theta}$) 및 변위 구속 조건.
 
@@ -203,8 +203,8 @@ flowchart TD
         Timo["Timoshenko 탄성판 처짐/모멘트 엄밀해 (Navier/Levy 해)"]
     end
 
-    subgraph Ver2 ["2. Midas Design+ 원본 결과 1:1 대조 (Ground Truth)"]
-        MidasOut["Design+가 출력한 절점 변위, Mxx, Myy, 접지압"]
+    subgraph Ver2 ["2. 원본앱 결과 1:1 대조 (Ground Truth)"]
+        MidasOut["원본앱가 출력한 절점 변위, Mxx, Myy, 접지압"]
     end
 
     subgraph Ver3 ["3. 글로벌 공인 오픈소스 솔버 교차 검증"]
@@ -218,14 +218,14 @@ flowchart TD
 
 1. **탄성역학 이론해(Analytical Exact Solution) 검증**:
    - 단순 지지 및 고정 지지 조건 사각판 균일하중 재하에 대한 Timoshenko 판 휨 엄밀해와 비교 $\rightarrow$ 오차 **0.01% 미만** 달성.
-2. **Midas Design+ 원본 결과 1:1 대조 (Ground Truth)**:
-   - 동일 치수/하중의 독립기초, 매트기초, 지하외벽, 베이스플레이트에 대해 원본 Design+가 산출한 침하량, 휨모멘트($M_x, M_y$), 전단력, 접지압과 1:1 비교 $\rightarrow$ **오차 0.1% 미만** 통과.
+2. **원본앱 결과 1:1 대조 (Ground Truth)**:
+   - 동일 치수/하중의 독립기초, 매트기초, 지하외벽, 베이스플레이트에 대해 원본 원본앱가 산출한 침하량, 휨모멘트($M_x, M_y$), 전단력, 접지압과 1:1 비교 $\rightarrow$ **오차 0.1% 미만** 통과.
 3. **오픈소스 공인 구조해석 엔진(OpenSees 등)과의 교차 검증**.
 
 ---
 
 ## 7. 결론 및 마이그레이션 효과
 
-* Midas Design+의 FEM 해석은 **독립/매트기초, 2방향 지하외벽, 베이스플레이트 정밀접촉, 엔드플레이트, 이형 슬래브**의 5대 핵심 모듈에서 작동합니다.
+* 원본앱의 FEM 해석은 **독립/매트기초, 2방향 지하외벽, 베이스플레이트 정밀접촉, 엔드플레이트, 이형 슬래브**의 5대 핵심 모듈에서 작동합니다.
 * 무거운 외부 Fortran 바이너리(`FES.EXE`)와 상용 CM2 메셔를 걷어내고, **Ghidra 핀포인트 추출 파라미터 + 순수 Python SciPy Sparse Matrix 기반 초고속 FEM 솔버(0.01~0.05초 연산)**를 구축함으로써, 플랫폼 종속성 없는 **Zero-Dependency 실시간 웹 부재설계 환경**을 완성합니다.
 

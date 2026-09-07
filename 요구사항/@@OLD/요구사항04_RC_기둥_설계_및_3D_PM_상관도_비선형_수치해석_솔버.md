@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-철근콘크리트(RC) 기둥(Column)은 축압축력과 일축/이축 휨모멘트를 동시에 지지하는 핵심 압축부재입니다. Midas Design+의 가장 강력하고 복잡한 수치해석 핵심 루틴인 `CRCSCodeCheck::CHK_BCCO`와 `mfsolver.exe`의 파이버 단면 수치적분(Fiber Section Integration) 엔진은 중립축 위치와 회전각을 수치적으로 탐색하여 P-M 상관곡선을 생성합니다.
+철근콘크리트(RC) 기둥(Column)은 축압축력과 일축/이축 휨모멘트를 동시에 지지하는 핵심 압축부재입니다. 원본앱의 가장 강력하고 복잡한 수치해석 핵심 루틴인 `CRCSCodeCheck::CHK_BCCO`와 `mfsolver.exe`의 파이버 단면 수치적분(Fiber Section Integration) 엔진은 중립축 위치와 회전각을 수치적으로 탐색하여 P-M 상관곡선을 생성합니다.
 
 ### 1.2. 목적
 1. `decompiled_src/core_routines/solver/`의 `solver__CHK_BCCO_*.c`, `solver__CHK_BCGR_*.c` 소스코드를 리버스 엔지니어링하여, 순수 Python 기반의 **파이버 단면 3차원 P-M 상관도 비선형 수치해석 솔버(`src/engine/solver/pm_diagram.py`, `fiber_section.py`)** 구현.
@@ -95,7 +95,7 @@ src/
 
 ## 6. 검증 및 수용 기준 (Acceptance Criteria)
 
-- [x] **P-M 상관곡선 수치 일치성**: `decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c` 원본 값 및 MIDAS Design+ 결과 대비 상관곡선 오차 0.1% 미만.
+- [x] **P-M 상관곡선 수치 일치성**: `decompiled_src/core_routines/solver/CHK_BCCO_column_pm.c` 원본 값 및 원본앱 결과 대비 상관곡선 오차 0.1% 미만.
 - [x] **단면 수렴성 및 속도**: 파이버 100개 기준 단일 P-M 상관곡선(100개 포인트) 생성 시간 50ms 이내 완료.
 - [x] **KDS 장주/이축휨 검증**: 세장비 $k L_u / r > 22$ 구간 모멘트 확대 및 Bresler 식 DCR 계산 무결성 100%.
 - [x] **초고속 단위 테스트 통과**: `pytest tests/engine/test_fiber_section.py test_pm_diagram.py test_rc_column.py tests/api/test_rc_column_api.py` (100% 통과).

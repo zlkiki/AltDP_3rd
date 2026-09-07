@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경 및 목적
-* Midas Design+ 원본 바이너리 자산인 **`DPLUS_EC.dll` (Eurocode)**, **`GEN_DgnCalc_US.dll` (US ACI/AISC)**, **`DPLUS_IS.dll` (Indian Standard)**을 순수 Python 어댑터 패턴으로 구축합니다.
+* 원본앱 바이너리 자산인 **`DPLUS_EC.dll` (Eurocode)**, **`GEN_DgnCalc_US.dll` (US ACI/AISC)**, **`DPLUS_IS.dll` (Indian Standard)**을 순수 Python 어댑터 패턴으로 구축합니다.
 * 글로벌 프로젝트 지원을 위한 **SI $\leftrightarrow$ MKS $\leftrightarrow$ US Imperial ($\text{kip, in, ft, ksi}$)** 실시간 단위 변환 파이프라인을 완성합니다.
 
 ---

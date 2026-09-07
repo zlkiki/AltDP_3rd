@@ -1,9 +1,9 @@
-# AltDP_3rd FEM 솔버 vs Midas 원본 솔버 심층 비교 분석 및 벤치마크 보고서 (Comparative Analysis & Benchmark Report)
+# AltDP_3rd FEM 솔버 vs 원본앱 솔버 심층 비교 분석 및 벤치마크 보고서 (Comparative Analysis & Benchmark Report)
 
 > **Document ID**: `docs/fem/102_fem_solver_comparative_analysis_and_benchmark.md`  
 > **Target Audience**: 전산구조역학 연구자, 구조설계 총괄 기술사(PE), 소프트웨어 아키텍트  
 > **Comparison Targets**: 
-> 1. **Midas Design+ 원본 엔진 패밀리** (`FES.EXE`, `mfsolver.exe`, `Iterative.exe`, `CM2 MeshTools`)
+> 1. **원본앱 엔진 패밀리** (`FES.EXE`, `mfsolver.exe`, `Iterative.exe`, `CM2 MeshTools`)
 > 2. **글로벌 표준 이론해** (Timoshenko & Woinowsky-Krieger closed-form, NAFEMS Benchmark)
 > 3. **AltDP_3rd 순수 Python/SciPy FEM 엔진** (`src/engine/fem/`)
 
@@ -11,13 +11,13 @@
 
 ## 1. 개요 및 비교 대상 아키텍처 (Executive Summary & Architecture)
 
-Midas Design+ 원본은 1990~2000년대 전통적인 Windows 데스크톱 아키텍처에 기반하여, 대용량 Fortran 컴파일 바이너리(`FES.EXE`, 42.5MB) 및 독립 프로세스를 자식 프로세스(`CreateProcess`)로 띄우고 디스크 파일 입출력(`*.dat`, `*.mfs`)을 매개로 통신하는 방식을 채택하고 있습니다.
+원본앱은 1990~2000년대 전통적인 Windows 데스크톱 아키텍처에 기반하여, 대용량 Fortran 컴파일 바이너리(`FES.EXE`, 42.5MB) 및 독립 프로세스를 자식 프로세스(`CreateProcess`)로 띄우고 디스크 파일 입출력(`*.dat`, `*.mfs`)을 매개로 통신하는 방식을 채택하고 있습니다.
 
 반면, **AltDP_3rd**는 현대적인 클라우드/웹 네이티브 환경 및 순수 메모리 연산에 최적화된 **Zero-Dependency & In-Memory Sparse Cholesky** 아키텍처를 구축하였습니다.
 
 ```mermaid
 flowchart TD
-    subgraph Legacy ["기존 Midas Design+ 솔버 파이프라인 (Legacy Architecture)"]
+    subgraph Legacy ["기존 원본앱 솔버 파이프라인 (Legacy Architecture)"]
         UI_MFC["MFC C++ Host (Design+.exe)"]
         CM2_DLL["상용 메싱 CM2 DLL (12종)"]
         DISK_IN["디스크 입력 파일 생성 (*.dat, *.mfs)"]
@@ -48,7 +48,7 @@ flowchart TD
 
 ### 2.1. 평판 휨 요소 (Plate Bending Elements)
 
-| 항목 | Midas Design+ 원본 (`FES.EXE`) | AltDP_3rd FEM 코어 (`src/engine/fem/`) | 공학적 차이 및 학술적 평가 |
+| 항목 | 원본앱 (`FES.EXE`) | AltDP_3rd FEM 코어 (`src/engine/fem/`) | 공학적 차이 및 학술적 평가 |
 |---|---|---|---|
 | **4절점 사각 요소 (Quad4)** | **Mindlin 4-Node Plate**<br>(Intel Fortran 기반 정식화) | **MITC4 / DKMQ 12-DOF**<br>(Bathe & Dvorkin 1985, Katili 1993) | 두 방식 모두 4개 변 중점의 공변 전단 변형률(Covariant Strain Tying)을 사용하여 **전단 잠김(Shear Locking)이 완벽히 배제**됨. 동일한 2x2 Gauss 수치적분 채택으로 강성행렬이 수학적으로 동일. |
 | **3절점 삼각 요소 (Tri3)** | **3-Node Thin/Thick Plate** | **DKT (Discrete Kirchhoff Triangle) 9-DOF**<br>(Batoz 1982) | DKT는 전 세계 판 휨 삼각 요소 중 가장 신뢰성이 입증된 표준 요소로, 임의 다각형/개구부 주변의 비정형 메시 분할 시 고차 수렴성을 보장함. |
@@ -59,7 +59,7 @@ flowchart TD
 
 ### 2.2. 비선형 상보성 및 지반-구조물 접촉 해석 (Nonlinear Contact & SSI)
 
-| 모듈 및 물리 현상 | Midas 원본 (`Iterative.exe` / `mfsolver.exe`) | AltDP_3rd (`foundation_fem.py`, `baseplate_fem.py`) | 수학적 수렴 구조 비교 |
+| 모듈 및 물리 현상 | 원본앱 (`Iterative.exe` / `mfsolver.exe`) | AltDP_3rd (`foundation_fem.py`, `baseplate_fem.py`) | 수학적 수렴 구조 비교 |
 |---|---|---|---|
 | **매트기초 지반 인장 분리 (Lift-off)** | - 지반 스프링: $K_{si} = k_s A_i$<br>- 인장 절점 판정 후 `Iterative.exe` 재실행 | - **Active-Set 상보성 반복 솔버**<br>- $w_i > 0 \implies k_s \leftarrow 0$<br>- $w_i \le 0 \implies k_s \leftarrow k_s A_i$ | 동일한 Winkler-Signorini 상보 조건을 풀이함. AltDP_3rd는 프로세스 재시작 없이 메모리 내에서 CSR 강성만 업데이트하므로 수렴 속도가 15배 이상 빠름. |
 | **베이스플레이트 비선형 접촉** | - 콘크리트 압축 지압 영역 + 앵커볼트 인장 영역의 선형화 반복 | - **Unilateral Signorini Contact Model**<br>- 콘크리트: $k_c = E_c / (2t_p)$ (압축 전용)<br>- 앵커: $k_b = E_s A_b / L_e$ (인장 전용) | 하부 콘크리트 지압과 상부 볼트 장력의 상보적 평형을 뉴턴-랩슨 수준의 안정도로 10회 이내 수렴. |
@@ -70,7 +70,7 @@ flowchart TD
 
 ## 3. 정량적 수치 벤치마크 및 오차 검증 (Quantitative Verification & Benchmarks)
 
-전산역학 표준 벤치마크 문제에 대해 **이론 엄밀해(Analytical Exact)**, **Midas 원본 솔버**, 그리고 **AltDP_3rd Python 솔버**의 수치를 정량 비교 검증하였습니다.
+전산역학 표준 벤치마크 문제에 대해 **이론 엄밀해(Analytical Exact)**, **원본앱 솔버**, 그리고 **AltDP_3rd Python 솔버**의 수치를 정량 비교 검증하였습니다.
 
 ### 벤치마크 1: 4변 고정 사각판 균일 하중 재하 (Clamped Square Plate under Uniform Pressure)
 * **제원**: 치수 $a = b = 2.0\text{ m}$, 두께 $t = 0.1\text{ m}$, $E = 2.0 \times 10^7\text{ kPa}$, $\nu = 0.2$, 등분포 하중 $q = 10.0\text{ kPa}$.
@@ -83,7 +83,7 @@ flowchart TD
 - Midas FES.EXE      : 0.11608 mm (오차 -0.03%)
 - AltDP_3rd (MITC4)   : 0.11605 mm (오차 -0.06%)
 ```
-> **판정**: 이론해 대비 오차 **0.06%**, Midas 원본 대비 오차 **0.03%**로 완벽한 일치성 확인.
+> **판정**: 이론해 대비 오차 **0.06%**, 원본앱 대비 오차 **0.03%**로 완벽한 일치성 확인.
 
 ---
 
@@ -111,7 +111,7 @@ pie title 지반 유효 접촉 면적비 (Active Area Ratio)
 * **제원**: 플레이트 $600 \times 600 \times 35\text{ mm}$, $F_y = 355\text{ MPa}$, 콘크리트 $f_{ck} = 27\text{ MPa}$, 앵커볼트 4-M30 ($L_e = 500\text{ mm}$).
 * **하중 조건**: 축력 $P = 200\text{ kN}$, 휨모멘트 $M_x = 150\text{ kNm}$.
 
-| 검토 항목 | Midas Design+ 원본 (`CUSBPPModeDlg`) | AltDP_3rd (`baseplate_fem.py`) | 상대 오차 |
+| 검토 항목 | 원본앱 (`CUSBPPModeDlg`) | AltDP_3rd (`baseplate_fem.py`) | 상대 오차 |
 |---|:---:|:---:|:---:|
 | **콘크리트 최대 지압응력 ($f_c$)** | 11.45 MPa | 11.41 MPa | **0.35%** |
 | **허용 지압응력 ($\phi f_p$)** | 14.92 MPa | 14.92 MPa | **0.00%** |
@@ -125,7 +125,7 @@ pie title 지반 유효 접촉 면적비 (Active Area Ratio)
 
 ```text
 +---------------------------------------------------------------------------------------+
-| 성능 지표                 | Midas Design+ 원본          | AltDP_3rd 순수 Python        |
+| 성능 지표                 | 원본앱          | AltDP_3rd 순수 Python        |
 +---------------------------------------------------------------------------------------+
 | 바이너리 크기             | 42.5 MB (FES.EXE + DLL 12종)| 0 MB (Zero-Dependency)       |
 | 실행 프로세스 수          | 2개 (Host + FES.EXE 자식)   | 1개 (단일 In-Memory 프로세스)|
@@ -142,5 +142,5 @@ pie title 지반 유효 접촉 면적비 (Active Area Ratio)
 ## 5. 결론 및 공학적 보증 (Engineering Conclusion & Guarantee)
 
 1. **수학적 무결성**: AltDP_3rd의 판 휨(MITC4/DKMQ/DKT) 및 비선형 접촉 솔버는 전산역학계의 골드 스탠다드 논문(Bathe, Batoz, Katili)의 지배 방정식을 엄밀하게 정식화하여 구현되었습니다.
-2. **0.1% 이내의 정밀도 보증**: NAFEMS 표준 판 휨 벤치마크 및 Midas Design+ 원본 수치 결과와의 1:1 교차 비교에서 모든 변위, 응력, 부재력이 **0.1% 미만의 오차 범위 내에서 일치**함을 확인하였습니다.
+2. **0.1% 이내의 정밀도 보증**: NAFEMS 표준 판 휨 벤치마크 및 원본앱 수치 결과와의 1:1 교차 비교에서 모든 변위, 응력, 부재력이 **0.1% 미만의 오차 범위 내에서 일치**함을 확인하였습니다.
 3. **완전한 플랫폼 자립**: 무거운 레거시 Fortran 바이너리와 상용 CM2 C++ DLL을 100% 제거하고 순수 Python/SciPy로 최적화함으로써, **현대적인 고속 웹 구조설계 플랫폼으로의 완벽한 기술적 전환**을 달성하였습니다.

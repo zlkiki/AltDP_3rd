@@ -3,11 +3,11 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경 및 목적
-* Midas Design+의 단일 부재 설계 환경(`CMainFormViewMemb`)은 좌측의 파라메트릭 속성 그리드와 우측의 2D 배근도, P-M 곡선, 계산서 요약창이 동기화된 4분할 워크스페이스입니다.
+* 원본앱의 단일 부재 설계 환경(`CMainFormViewMemb`)은 좌측의 파라메트릭 속성 그리드와 우측의 2D 배근도, P-M 곡선, 계산서 요약창이 동기화된 4분할 워크스페이스입니다.
 * 사용자가 단면 치수, 철근 배근, 재료 강도를 변경하면 즉시 2D Canvas 단면도와 3D P-M 곡선, 그리고 KDS DCR 계산 결과가 0.05초 이내 실시간 갱신되는 4-Pane 반응형 인터페이스를 구축하고, `P-Mode`(파라메트릭 자동설계), `S-Mode`(단면검토), `M-Mode`(일괄관리) 3대 인터랙션 모드를 완성합니다.
 
 ### 1.2. 참조 Ground Truth 자산
-* **UI 역공학 명세 (SSOT)**: [`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md)
+* **UI 역공학 명세 (SSOT)**: [`docs/13_original_app_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_original_app_ui_specification.md)
 * **디컴파일 폼 다이얼로그**: `original_src/Midas Design+/Dbase/` 및 `decompiled_src/core_routines/` 내 `DLG_*.ini` (RC 보/기둥/벽체/슬래브/기초, 철골 보/기둥/접합부/주각부 폼 24종)
 
 ---

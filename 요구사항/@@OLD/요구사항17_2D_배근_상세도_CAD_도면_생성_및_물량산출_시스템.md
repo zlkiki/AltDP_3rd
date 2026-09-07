@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-Midas Design+ 원본 4대 메인 폼뷰 중 **도면 생성 뷰(`CMainFormViewDraw`)**와 **물량 산출 뷰(`CMainFormViewQntt`)**는 설계 완료 후 실무 납품을 완성하는 핵심 파이프라인입니다 ([docs/13](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md) 참조).
+원본앱 4대 메인 폼뷰 중 **도면 생성 뷰(`CMainFormViewDraw`)**와 **물량 산출 뷰(`CMainFormViewQntt`)**는 설계 완료 후 실무 납품을 완성하는 핵심 파이프라인입니다 ([docs/13](file:///f:/PyProject/AltDP_3rd/docs/13_original_app_ui_specification.md) 참조).
 
 ### 1.2. 개발 목적
 1. **2D 배근 상세도 CAD (DXF/DWG) 내보내기 엔진 (`src/report/cad_exporter.py`)**:

@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-Midas Design+의 핵심 경쟁력은 3차원 골조 해석 프로그램인 **MIDAS Gen / MIDAS Building**과의 직접 연동 기능입니다 (`DgnPlugIn/` 디렉토리 내 `AnalysisDB.dll`, `GEN_UmdDataBase.dll`, `GEN_DgnCalc_KR.dll` 등). 사용자는 Gen에서 전체 구조해석을 수행한 후, 수만 개의 하중조합 부재력을 일일이 수동 입력하지 않고 파일 임포트를 통해 Design+로 가져와 단면 검토를 수행합니다.
+원본앱의 핵심 경쟁력은 3차원 골조 해석 프로그램인 **MIDAS Gen / MIDAS Building**과의 직접 연동 기능입니다 (`DgnPlugIn/` 디렉토리 내 `AnalysisDB.dll`, `GEN_UmdDataBase.dll`, `GEN_DgnCalc_KR.dll` 등). 사용자는 Gen에서 전체 구조해석을 수행한 후, 수만 개의 하중조합 부재력을 일일이 수동 입력하지 않고 파일 임포트를 통해 원본앱로 가져와 단면 검토를 수행합니다.
 
 ### 1.2. 개발 목적
 1. **MIDAS 텍스트 모델/부재력 파일 (`.mgt`) 파서 구축**:
@@ -51,7 +51,7 @@ flowchart TD
 
 | Phase | 세부 요구사항 문서 | 주요 구현 및 산출물 | 검증 타겟 |
 |:---:|---|---|---|
-| **Phase 16-1** | [`요구사항16-1_MIDAS_MGT_텍스트스크립트_파서_및_3D모델구축.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항16-1_MIDAS_MGT_텍스트스크립트_파서_및_3D모델구축.md) | `src/engine/interop/mgt_parser.py`, `model_schema.py` | `*NODE`, `*ELEMENT` 파싱, 3D 부재/층 자동 분류 |
+| **Phase 16-1** | [`요구사항16-1_MIDAS MGT_텍스트스크립트_파서_및_3D모델구축.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항16-1_MIDAS MGT_텍스트스크립트_파서_및_3D모델구축.md) | `src/engine/interop/mgt_parser.py`, `model_schema.py` | `*NODE`, `*ELEMENT` 파싱, 3D 부재/층 자동 분류 |
 | **Phase 16-2** | [`요구사항16-2_부재력_DB_파서_및_최악하중_Governing_LCB_자동선별.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항16-2_부재력_DB_파서_및_최악하중_Governing_LCB_자동선별.md) | `src/engine/interop/mgb_parser.py`, `governing_lcb.py` | 6자유도 부재력 추출, 지배 LCB 자동 필터링 |
 | **Phase 16-3** | [`요구사항16-3_Gen연동_REST_API_및_다중부재_일괄설계_파이프라인.md`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항16-3_Gen연동_REST_API_및_다중부재_일괄설계_파이프라인.md) | `src/api/routes/interop.py`, `batch_checker.py` | 대용량 부재 일괄 설계 API, 층별 요약 JSON |
 

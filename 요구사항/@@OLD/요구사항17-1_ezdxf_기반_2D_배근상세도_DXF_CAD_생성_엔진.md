@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경 및 목적
-* Midas Design+ 원본 4대 메인 폼뷰 중 도면 뷰(`CMainFormViewDraw`)의 CAD 생성 기능을 순수 Python `ezdxf` 라이브러리를 이용하여 웹 마이그레이션합니다.
+* 원본앱 4대 메인 폼뷰 중 도면 뷰(`CMainFormViewDraw`)의 CAD 생성 기능을 순수 Python `ezdxf` 라이브러리를 이용하여 웹 마이그레이션합니다.
 * RC 보/기둥/벽체/기초 단면 배근도, 입면 배근도 및 배근 일람표(Schedule Table)를 AutoCAD 호환 표준 `.dxf` 벡터 도면으로 자동 생성합니다.
 
 ---

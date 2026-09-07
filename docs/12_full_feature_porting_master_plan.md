@@ -1,8 +1,8 @@
-# 12. Midas Design+ 61종 전수 모듈 수직 포팅 마스터플랜 (Vertical Porting Master Plan)
+# 12. 원본앱 61종 전수 모듈 수직 포팅 마스터플랜 (Vertical Porting Master Plan)
 
 ## 1. 마스터플랜 개요 및 패러다임 전환 (Executive Summary)
 
-본 문서는 **Midas Design+ (`Design+.exe`)** 원본 바이너리(20개 DLL, 47,110개 심볼)와 47종 핵심 C 수도코드, 공식 매뉴얼, 그리고 KDS 국가건설기준 자산을 바탕으로, **총 61종 전수 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**을 순수 **Python 3.13 + FastAPI + Modern Web(HTML5 Canvas/KaTeX)** 스택으로 100% 웹 마이그레이션하기 위한 **최상위 실행 마스터플랜**입니다.
+본 문서는 **원본앱 (`원본앱(Design+.exe)`)** 원본 바이너리(20개 DLL, 47,110개 심볼)와 47종 핵심 C 수도코드, 공식 매뉴얼, 그리고 KDS 국가건설기준 자산을 바탕으로, **총 61종 전수 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**을 순수 **Python 3.13 + FastAPI + Modern Web(HTML5 Canvas/KaTeX)** 스택으로 100% 웹 마이그레이션하기 위한 **최상위 실행 마스터플랜**입니다.
 
 ### 🔄 패러다임 전환: 수평적 인프라 $\rightarrow$ 부재별 5대 공정 수직 개발 (Vertical End-to-End)
 - **과거 방식의 한계 (수평적 레이어 개발)**: 백엔드 엔진, 프론트엔드 UI, 계산서 등을 분리하여 수평 개발할 경우 더미 코드와 WIP가 누적되고, 실사용 가능한 완결성이 지연되는 문제 발생.
@@ -13,7 +13,7 @@
 │ AltDP_3rd 부재별 5대 정밀 수직 관통 개발 파이프라인 (docs/16 규약 연동)                         │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ [Step 1: KDS 엔진] ──► [Step 2: 1:1 입력폼] ──► [Step 3: 2D 캔버스] ──► [Step 4: A4 계산서] ──► [Step 5: E2E 통합] │
-│ (0.1% 오차 TDD)        (Midas 원본 DLG)         (VDraw 갈고리/치수)      (5대장 KaTeX 수식)       (100ms 무에러) │
+│ (0.1% 오차 TDD)        (원본앱 DLG)         (VDraw 갈고리/치수)      (5대장 KaTeX 수식)       (100ms 무에러) │
 └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -28,7 +28,7 @@
 | **단면 DB & 재료/하중** | • 33개 형강 DB 및 단면 기하성질 산정 (`src/engine/db/`)<br>• KDS 14 20/31 콘크리트·강재 모델 (`materials.py`), LCB 다축 포락 (`load_comb.py`) | **완료** |
 | **수치 솔버 코어** | • 200 파이버 수치적분 3D P-M 상관곡면 솔버 (`src/engine/solver/pm_diagram.py`)<br>• DKMQ/DKT 2D 평판 휨 요소 및 Winkler 지반/접촉 솔버 코어 (`src/engine/fem/`) | **완료** |
 | **4열 웹 워크스페이스** | • 1열(트리메뉴) - 2열(VDraw 캔버스) - 3열(파라메트릭 입력) - 4열(A4 구조계산서)<br>• 반응형 글래스모피즘 UI, 테마 시스템, ProjectStore 상태 관리 | **완료** |
-| **모듈 디스패처 & WIP 체계** | • Phase 20 더미 코드 전면 청산 및 정직한 WIP 디스패처/안내 카드 구축<br>• 61종 전수 모듈 3단계 티어 메타데이터 체계 확립 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md)) | **완료** |
+| **모듈 디스패처 & WIP 체계** | • Phase 20 더미 코드 전면 청산 및 정직한 WIP 디스패처/안내 카드 구축<br>• 61종 전수 모듈 3단계 티어 메타데이터 체계 확립 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md)) | **완료** |
 | **4대 SSOT 검증 파이프라인** | • Ghidra C 루틴(1순위) $\leftrightarrow$ 매뉴얼/DLG(2순위) $\leftrightarrow$ 학회 예제집(3순위) $\leftrightarrow$ KDS 원문(4순위)<br>• 3자 삼각대조 0.10% 오차 검증 및 kcsc2md Self-Healing 프로토콜 | **완료** |
 
 ---
@@ -40,7 +40,7 @@
 | 공정 단계 | 권장 모델 | 공정 명칭 | 핵심 산출물 및 작업 내용 | 필수 검증 기준 (DoD) |
 |:---:|:---:|---|---|:---:|
 | **Step 1** | 🧠 High | **KDS 계산 엔진 & Pydantic 스키마** | • KDS 14 20 / 14 31 표준 수식 순수 Python 구현<br>• Pydantic 입출력 스키마 정의 (`src/engine/<domain>/`)<br>• P-M / FEM 수치 솔버 연동 | `pytest` 100% Pass<br>(학회 예제집 대비 **오차 $\le 0.10\%$**) |
-| **Step 2** | ⚙️ Medium | **Midas 1:1 서브탭 입력폼 & 모달** | • 원본 `DLG_*.ini` 1:1 매핑 서브탭 폼 구현<br>• 버튼(`...`) 클릭 서브대화창 웹 모달 구현 (`dialogs.js`)<br>• 재료/단면(.sdb) 선택 모달 및 유효성 검증 | 브라우저 DOM 렌더링 확인<br>콘솔 에러 0건 |
+| **Step 2** | ⚙️ Medium | **원본앱 1:1 서브탭 입력폼 & 모달** | • 원본 `DLG_*.ini` 1:1 매핑 서브탭 폼 구현<br>• 버튼(`...`) 클릭 서브대화창 웹 모달 구현 (`dialogs.js`)<br>• 재료/단면(.sdb) 선택 모달 및 유효성 검증 | 브라우저 DOM 렌더링 확인<br>콘솔 에러 0건 |
 | **Step 3** | ⚙️ Medium | **2D VDraw 캔버스 배근/단면 그래픽스** | • VDraw 원본 드로잉 기하 알고리즘 이식 (`renderer2d.js`)<br>• 135° 스터럽 절곡, 피복 옵셋, 솔리드 원형 주철근<br>• 치수선, 철근 배근 지시선 태그, P-M 상호작용 차트 | Canvas 그래픽스 렌더링 확인<br>축척/줌/팬 인터랙션 |
 | **Step 4** | 🧠 High | **A4 5대 장구분 8단계 KaTeX 구조계산서** | • 원본 `DgnReportBase.ini` 5대 장구분 완벽 계승<br>• 8단계 Step-by-Step 수식 전개식 (LaTeX/KaTeX)<br>• 단면도/P-M 그림 삽입, `  →  O.K / N.G` 판정 화살표 | A4 인쇄 프리뷰 확인<br>공학 계산서 레이아웃 검증 |
 | **Step 5** | ⚙️ Medium | **4열 통합 E2E 검증 & 실사용 UI 확립** | • 1열(트리) - 2열(캔버스) - 3열(폼) - 4열(계산서) 4열 연동<br>• 파라미터 입력 시 **100ms 이내 실시간 3-View 동시 동기화**<br>• WIP 해제 및 정식 온라인(`is_wip: false`) 전환 | E2E 전수 테스트 Pass<br>브라우저 콘솔 에러 0건 |
@@ -49,7 +49,7 @@
 
 ## 4. 61종 전수 모듈 수직 개발 스프린트 로드맵 (Phases V1 ~ V6)
 
-전체 61종 모듈([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md))은 실무 활용도 및 의존성 계층에 따라 6대 수직 스프린트로 분할 실행됩니다:
+전체 61종 모듈([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md))은 실무 활용도 및 의존성 계층에 따라 6대 수직 스프린트로 분할 실행됩니다:
 
 ```mermaid
 flowchart LR
@@ -157,9 +157,9 @@ flowchart LR
 단일 모듈(부재)의 수직 개발 완료 보고를 위해 충족해야 할 **5대 무결성 기준**:
 
 1. **수치 무결성 ($\le 0.10\%$)**:
-   - 학회 공인 예제집 및 Midas 원본 대비 **계산 오차율 0.10% 이하 엄수**.
+   - 학회 공인 예제집 및 원본앱 대비 **계산 오차율 0.10% 이하 엄수**.
    - `pytest tests/engine/` 단위/통합 테스트 100% Pass (Exit Code 0).
-2. **Midas 원본 1:1 입력 체계**:
+2. **원본앱 1:1 입력 체계**:
    - 원본 `DLG_*.ini`의 입력 항목 및 서브 대화창(`...`) 모달 브라우저 렌더링 검증 완료.
 3. **2D Canvas VDraw 정밀 드로잉**:
    - 135° 스터럽 갈고리, 피복두께 옵셋, 솔리드 주철근, 치수선 및 철근 태그 렌더링 검증.

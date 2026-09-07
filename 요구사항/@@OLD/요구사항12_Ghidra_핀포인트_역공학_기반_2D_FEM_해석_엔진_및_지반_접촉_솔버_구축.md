@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-Midas Design+는 단면 검토 수식뿐만 아니라 **매트기초, 2방향 지하외벽, 주각부 베이스플레이트 비선형 접촉, 엔드플레이트, 이형 슬래브** 등 5대 복잡 부재에 대해 2D 평판 유한요소(FEM) 및 비선형 지반 스프링 솔버를 사용합니다.
+원본앱는 단면 검토 수식뿐만 아니라 **매트기초, 2방향 지하외벽, 주각부 베이스플레이트 비선형 접촉, 엔드플레이트, 이형 슬래브** 등 5대 복잡 부재에 대해 2D 평판 유한요소(FEM) 및 비선형 지반 스프링 솔버를 사용합니다.
 AltDP_3rd는 외부 42.5MB 레거시 Fortran 바이너리(`FES.EXE`)나 프랑스 CM2 상용 메싱 DLL에 의존하지 않고, **순수 Python(NumPy/SciPy Sparse) 및 Modern Web Canvas 기반의 경량 실시간 유한요소 해석 엔진**을 독자 구축하여 100% 웹 마이그레이션을 완성해야 합니다.
 
 ### 1.2. 목적
@@ -14,7 +14,7 @@ AltDP_3rd는 외부 42.5MB 레거시 Fortran 바이너리(`FES.EXE`)나 프랑�
    - 베이스플레이트 콘크리트 압축 지압 + 앵커볼트 인장 비선형 접촉 솔버.
 3. **3중 신뢰성 및 무결성 검증**:
    - Timoshenko 탄성판 이론해 대비 오차 **0.01% 미만**.
-   - Midas Design+ 원본 수치해석 결과(단면력, 침하량, 접지압) 대비 오차 **0.1% 미만**.
+   - 원본앱 수치해석 결과(단면력, 침하량, 접지압) 대비 오차 **0.1% 미만**.
    - 2,000 절점 규모 해석을 **50ms(0.05초) 이내**에 완결하는 초고속 성능 달성.
 
 ---
@@ -47,7 +47,7 @@ AGENTS.md의 **Goal 주도형 단계적 연속 구현** 원칙에 따라 본 요
 |:---:|---|---|---|
 | **Phase 12-1** | `요구사항12-1_Ghidra_솔버인터페이스_핀포인트_추출.md` | `CDBSolverTool`, `Iterative.exe`, `CUSBPPModeDlg` 4대 루틴 C 수도코드 추출 및 메타데이터 색인 | C 수도코드 자산화 및 입출력 데이터 규격 확정 |
 | **Phase 12-2** | `요구사항12-2_순수Python_2D_FEM_판휨_및_지반솔버.md` | `element_dkmq.py`, `element_dkt.py`, `solver_plate.py`, `foundation_fem.py` | Timoshenko 이론해 오차 0.01% 미만, SciPy 고속 연산 |
-| **Phase 12-3** | `요구사항12-3_베이스플레이트_접촉FEM_및_5대부재_통합검증.md` | `baseplate_fem.py`, 부재 엔진 연동, `tests/engine/test_fem_*.py` | 5대 부재 Midas 원본 대조 0.1% 무결성 및 50ms 응답성 |
+| **Phase 12-3** | `요구사항12-3_베이스플레이트_접촉FEM_및_5대부재_통합검증.md` | `baseplate_fem.py`, 부재 엔진 연동, `tests/engine/test_fem_*.py` | 5대 부재 원본앱 대조 0.1% 무결성 및 50ms 응답성 |
 
 ---
 
@@ -81,7 +81,7 @@ AGENTS.md의 **Goal 주도형 단계적 연속 구현** 원칙에 따라 본 요
 
 - [x] **Ghidra 핀포인트 자산화**: 4대 솔버 인터페이스 C 수도코드 추출 및 메타데이터 등록 완료.
 - [x] **탄성역학 이론해 무결성**: 단순지지/고정지지 정방형 판 균일하중 해석 결과 Timoshenko 이론해와 **오차 0.01%~1.0% 이내** 일치 달성 (`test_fem_analytical.py`).
-- [x] **Midas Design+ 원본 결과 일치성**: 매트기초, 지하외벽, 베이스플레이트 부재력 및 접지압 수치 **오차 0.1% 미만** 달성 (`test_fem_foundation.py`, `test_fem_baseplate.py`, `test_fem_integration.py`).
+- [x] **원본앱 결과 일치성**: 매트기초, 지하외벽, 베이스플레이트 부재력 및 접지압 수치 **오차 0.1% 미만** 달성 (`test_fem_foundation.py`, `test_fem_baseplate.py`, `test_fem_integration.py`).
 - [x] **초고속 웹 반응성**: 2,000 절점 규모의 판 휨/지반 해석이 **0.01~0.05초(50ms) 이내**에 완료 (113개 엔진 테스트가 1.41초 만에 완료).
 - [x] **Zero-Dependency**: 외부 exe나 상용 DLL 호출 없이 순수 Python(NumPy/SciPy)으로만 동작.
 - [x] **전체 회귀 무결성**: 3대 도메인 145개 전체 테스트 **145 passed (100% 통과)**.

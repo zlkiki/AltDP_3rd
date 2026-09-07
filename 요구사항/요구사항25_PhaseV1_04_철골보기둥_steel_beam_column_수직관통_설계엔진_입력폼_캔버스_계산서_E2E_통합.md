@@ -30,8 +30,8 @@
     - $\frac{P_u}{\phi_c P_n} < 0.2 \implies \frac{P_u}{2 \phi_c P_n} + \left(\frac{M_{ux}}{\phi_b M_{nx}} + \frac{M_{uy}}{\phi_b M_{ny}}\right) \le 1.0$
 * **DoD 검증**: 강구조학회 예제집 3.1, 4.1, 5.1 대비 계산 오차 $\le 0.10\%$ (`pytest tests/engine/test_steel_beam.py` 및 `test_steel_column.py` 100% PASS).
 
-### Step 2: Midas 1:1 서브탭 입력폼 & 모달 (`src/web/static/js/components/form_steel_beam_column.js`)
-* **Midas 원본 `IDD_STL_BEAMCOLUMN_INPUT_DLG` 1:1 계승 서브탭 구성**:
+### Step 2: 원본앱 1:1 서브탭 입력폼 & 모달 (`src/web/static/js/components/form_steel_beam_column.js`)
+* **원본앱 `IDD_STL_BEAMCOLUMN_INPUT_DLG` 1:1 계승 서브탭 구성**:
   - **Tab 1 [단면/재료]**: 강재 규격(SS275, SM355, SM460 등), 단면 타입(H, Box, Pipe), 단면 DB 선택 모달 연동.
   - **Tab 2 [부재길이/지지]**: 부재 길이($L$), 강축/약축 $K_x, K_y$, 횡비지지길이($L_b$), 횡구속 조건.
   - **Tab 3 [설계계수]**: 모멘트 구배계수($C_b$, 수동 입력 또는 $M_{max}, M_A, M_B, M_C$ 자동 산출), 2차 모멘트 확대계수($B_1, B_2$).
@@ -42,14 +42,14 @@
 * **DoD 검증**: 브라우저 DOM 렌더링 정상, 단면 DB 변경 시 기하성질 자동 반영, 콘솔 에러 0건.
 
 ### Step 3: 2D VDraw 캔버스 배근/단면 그래픽스 (`src/web/static/js/visual/vector_steel_beam_column.js`)
-* **Midas VDraw 강재 단면 드로잉 알고리즘 이식**:
+* **원본앱 VDraw 강재 단면 드로잉 알고리즘 이식**:
   - **상단 뷰포트 (부재 입면 및 좌굴형상)**: 부재 길이($L$), 지지점 및 가새 횡지지점 위치 표기, 모멘트 다이어그램($M_x, M_y$) 및 횡비틀림 좌굴 모드 시각화.
   - **하단 뷰포트 (H/Box 형강 상세 단면도)**: 플랜지/웨브 필릿 라운딩($r$) 반영 단면 정밀 렌더링, 치수선($H, B, t_w, t_f$), 도심축($x-x, y-y$), 단면 특성치 텍스트 박스, 응력집중 하이라이트.
 * **인터랙션 기능**: 줌/팬, Fit, 단면 요소 마우스 호버 시 치수/국부좌굴 여유도 툴팁.
 * **DoD 검증**: Canvas 그래픽스 정확 렌더링, 콘솔 에러 0건.
 
 ### Step 4: A4 5대 장구분 8단계 KaTeX 구조계산서 (`src/web/static/js/report/redcr_steel_beam_column.js`)
-* **Midas 원본 5대 장구분 계승**:
+* **원본앱 5대 장구분 계승**:
   - **1. 설계 개요 및 형강 단면 제원**: 강종, 공칭항복강도, KS 표준 단면 규격, 단면 기하특성치($A, I, Z, S, r, J, C_w$).
   - **2. 단면 조밀성 판정 (Width-to-Thickness Ratio)**: 플랜지/웨브 판폭두께비 KaTeX 산정 $\rightarrow$ 조밀/비조밀/세장 판정 $\rightarrow$ `  →  O.K`.
   - **3. 휨강도 검토 (Flexural Strength)**: $M_p = F_y Z_x \rightarrow L_b$ vs $L_p, L_r \rightarrow \text{LTB 좌굴강도 } M_n \rightarrow \phi_b M_n$ $\rightarrow$ `  →  O.K / N.G`.
@@ -67,7 +67,7 @@
 ## 3. 검증 및 수용 기준 (Acceptance Criteria)
 
 - [ ] **수치 무결성**: 강구조설계예제집 3.1, 4.1, 5.1 대비 오차 $\le 0.10\%$ (`pytest tests/engine/test_steel_*.py` 통과).
-- [ ] **1:1 입력폼**: Midas 원본 `IDD_STL_BEAMCOLUMN_INPUT_DLG` 4대 서브탭 브라우저 렌더링 확인.
+- [ ] **1:1 입력폼**: 원본앱 `IDD_STL_BEAMCOLUMN_INPUT_DLG` 4대 서브탭 브라우저 렌더링 확인.
 - [ ] **2D 캔버스**: H/Box 형강 단면 정밀 외곽선, 필릿 라운딩, 치수선 렌더링 확인.
 - [ ] **A4 계산서**: 5대 장구분 8단계 KaTeX 판폭두께비, LTB, 압축좌굴, P-M 상호작용 수식 출력 확인.
 - [ ] **4열 통합**: 100ms 이내 3-View 동시 동기화 및 콘솔 에러 0건.

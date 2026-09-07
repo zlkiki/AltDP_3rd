@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-Midas Design+ 원본 바이너리에 탑재된 **성능기반 내진설계 모듈(`IDS_RIBBON_BARR_PBD`)**과 **유로코드(`DPLUS_EC.dll`)**, **미국 규준(`GEN_DgnCalc_US.dll`)**, **인도 규준(`DPLUS_IS.dll`)**을 웹 아키텍처로 확장 구축합니다.
+원본앱 바이너리에 탑재된 **성능기반 내진설계 모듈(`IDS_RIBBON_BARR_PBD`)**과 **유로코드(`DPLUS_EC.dll`)**, **미국 규준(`GEN_DgnCalc_US.dll`)**, **인도 규준(`DPLUS_IS.dll`)**을 웹 아키텍처로 확장 구축합니다.
 
 ### 1.2. 개발 목적
 1. **성능기반설계 (PBD) 및 소성힌지 평가 엔진 (`src/engine/pbd/`)**:

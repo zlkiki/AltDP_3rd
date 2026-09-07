@@ -3,11 +3,11 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경 및 목적
-* Midas Design+는 단일 부재 설계 외에 건물 전체의 수백 개 부재를 한눈에 관리하는 **3대 종합 관리 폼뷰**(`CMainFormViewList`, `CMainFormViewDraw`, `CMainFormViewQntt`)를 제공합니다.
+* 원본앱는 단일 부재 설계 외에 건물 전체의 수백 개 부재를 한눈에 관리하는 **3대 종합 관리 폼뷰**(`CMainFormViewList`, `CMainFormViewDraw`, `CMainFormViewQntt`)를 제공합니다.
 * 다중 부재 일괄 스프레드시트 검토 뷰(List View), 2D 배근 상세도 및 일람표 CAD 뷰어(Draw View), 그리고 콘크리트/거푸집/철근/형강 자동 물량 산출 대시보드(Qntt View)를 완성하여 상용 엔지니어링 프로그램 수준의 통합 웹 UI/UX를 달성합니다.
 
 ### 1.2. 참조 Ground Truth 자산
-* **UI 역공학 명세 (SSOT)**: [`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md)
+* **UI 역공학 명세 (SSOT)**: [`docs/13_original_app_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_original_app_ui_specification.md)
 * **디컴파일 심볼**: `decompiled_src/DPLUS_VDraw.dll_symbols.txt` (`CMainFormViewList`, `CMainFormViewDraw`, `CMainFormViewQntt`)
 
 ---

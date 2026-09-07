@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-Midas Design+ 바이너리(`original_src/Midas Design+/`)로부터 핵심 공학 알고리즘을 반복적이고 무손실로 추출하기 위해서는, 수작업 GUI 분석 대신 Ghidra Headless Analyzer(`analyzeHeadless.bat`)를 파이썬 CLI에서 프로그래밍 방식으로 제어하는 자동화 파이프라인이 필수적입니다.
+원본앱 바이너리(`original_src/Midas Design+/`)로부터 핵심 공학 알고리즘을 반복적이고 무손실로 추출하기 위해서는, 수작업 GUI 분석 대신 Ghidra Headless Analyzer(`analyzeHeadless.bat`)를 파이썬 CLI에서 프로그래밍 방식으로 제어하는 자동화 파이프라인이 필수적입니다.
 
 ### 1.2. 목적
 1. Windows OS 및 Java 21(`C:\Program Files\Eclipse Adoptium\jdk-21.0.12.101-hotspot`) 환경에서 구동되는 Ghidra Headless 연동 자동화 스크립트 작성.

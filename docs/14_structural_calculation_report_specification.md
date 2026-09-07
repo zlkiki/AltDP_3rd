@@ -1,12 +1,12 @@
 # KDS 구조계산서 및 검토보고서 종합 명세서 (14_structural_calculation_report_specification.md)
 
-본 문서는 Midas Design+ 원본 바이너리(`original_src/`), 언어 및 리포트 리소스(`DgnLanguage/Korean/GENDgnReportKR.ini`, `CVLDgnReportKR.ini`, `DgnReportBase.ini`, `DLG_DPLUS_DGN.ini`) 및 AltDP 웹 리포트 엔진에서 추출된 **요약 보고서(Summary Report)**, **상세 보고서(Detail Report)**, **사용자 입력 정보 보고서(Input Data Report)**, **보고서 생성 옵션** 및 **부재별 KDS 표준 수식 체계**를 총체적으로 집대성한 기술 명세서(Report SSOT)입니다.
+본 문서는 원본앱 바이너리(`original_src/`), 언어 및 리포트 리소스(`DgnLanguage/Korean/GENDgnReportKR.ini`, `CVLDgnReportKR.ini`, `DgnReportBase.ini`, `DLG_DPLUS_DGN.ini`) 및 AltDP 웹 리포트 엔진에서 추출된 **요약 보고서(Summary Report)**, **상세 보고서(Detail Report)**, **사용자 입력 정보 보고서(Input Data Report)**, **보고서 생성 옵션** 및 **부재별 KDS 표준 수식 체계**를 총체적으로 집대성한 기술 명세서(Report SSOT)입니다.
 
 ---
 
 ## 1. 구조계산서 3대 보고서 유형 체계
 
-원본 Midas Design+ 및 AltDP_3rd는 엔지니어링 목적에 따라 **3가지 전용 보고서 모드**를 지원합니다.
+원본 원본앱 및 AltDP_3rd는 엔지니어링 목적에 따라 **3가지 전용 보고서 모드**를 지원합니다.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐

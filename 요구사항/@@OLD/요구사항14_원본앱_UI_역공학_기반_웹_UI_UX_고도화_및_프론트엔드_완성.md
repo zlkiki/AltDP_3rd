@@ -1,9 +1,9 @@
-﻿# 요구사항 14: Midas Design+ 원본 UI 역공학 기반 웹 UI/UX 고도화 및 프론트엔드 완성 (docs 13 $\rightarrow$ docs 07)
+﻿# 요구사항 14: 원본앱 UI 역공학 기반 웹 UI/UX 고도화 및 프론트엔드 완성 (docs 13 $\rightarrow$ docs 07)
 
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-[`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md)에는 원본 Midas Design+의 MFC 리본 바, **4대 메인 폼뷰**(`CMainFormViewMemb`, `CMainFormViewList`, `CMainFormViewDraw`, `CMainFormViewQntt`), **3대 인터랙션 모드**(`P-Mode`, `S-Mode`, `M-Mode`), 그리고 부재별 다이얼로그 폼(`DLG_*.ini`)이 정밀하게 역공학 분석되어 있습니다. 본 요구사항은 이를 웹 UI/UX 종합 명세서([`docs/07`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md))에 완전 융합/고도화하고, 이를 바탕으로 **AltDP_3rd의 실질적인 반응형 웹 프론트엔드를 완성**하는 것입니다.
+[`docs/13_original_app_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_original_app_ui_specification.md)에는 원본 원본앱의 MFC 리본 바, **4대 메인 폼뷰**(`CMainFormViewMemb`, `CMainFormViewList`, `CMainFormViewDraw`, `CMainFormViewQntt`), **3대 인터랙션 모드**(`P-Mode`, `S-Mode`, `M-Mode`), 그리고 부재별 다이얼로그 폼(`DLG_*.ini`)이 정밀하게 역공학 분석되어 있습니다. 본 요구사항은 이를 웹 UI/UX 종합 명세서([`docs/07`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md))에 완전 융합/고도화하고, 이를 바탕으로 **AltDP_3rd의 실질적인 반응형 웹 프론트엔드를 완성**하는 것입니다.
 
 ### 1.2. 개발 목적
 1. **[`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) 명세서 고도화**:
@@ -63,7 +63,7 @@ flowchart TD
 
 ### 3.2. 프론트엔드 스타일 & 디자인 시스템 (`src/web/static/css/`)
 * `design_tokens.css` : Dark Slate / Clean Light 테마 CSS 변수, DCR 컬러 스펙트럼(Safe/Warn/Danger).
-* `ribbon.css` : Midas Design+ 스타일 모던 리본 바 탭 및 패널 스타일링.
+* `ribbon.css` : 원본앱 스타일 모던 리본 바 탭 및 패널 스타일링.
 * `views.css` : 4대 폼뷰 레이아웃 및 4-Pane 드래그 리사이저 스타일.
 
 ### 3.3. 프론트엔드 스크립트 모듈 (`src/web/static/js/`)

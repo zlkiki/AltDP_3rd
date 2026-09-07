@@ -1,16 +1,16 @@
-# Midas Design+ 원본 UI/UX 역공학 종합 분석 명세서 (13_midas_design_plus_original_ui_specification.md)
+# 원본앱 UI/UX 역공학 종합 분석 명세서 (13_original_app_ui_specification.md)
 
-본 문서는 Midas Design+ 원본 바이너리(`original_src/`), 디컴파일 소스 및 심볼(`decompiled_src/`), 언어 및 다이얼로그 리소스(`Language/Korean/`, `DgnLanguage/Korean/`)에서 추출된 MFC/BCGControlBar 윈도우 프레임워크, 리본 메뉴 구성, 4대 메인 폼뷰, 3대 인터랙션 모드, 부재별 다이얼로그 폼, 2D/3D 드로잉 엔진 및 원본 계산서 출력 체계를 총체적으로 역공학 분석한 기술 명세서(Ground Truth SSOT)입니다.
+본 문서는 원본앱 바이너리(`original_src/`), 디컴파일 소스 및 심볼(`decompiled_src/`), 언어 및 다이얼로그 리소스(`Language/Korean/`, `DgnLanguage/Korean/`)에서 추출된 MFC/BCGControlBar 윈도우 프레임워크, 리본 메뉴 구성, 4대 메인 폼뷰, 3대 인터랙션 모드, 부재별 다이얼로그 폼, 2D/3D 드로잉 엔진 및 원본 계산서 출력 체계를 총체적으로 역공학 분석한 기술 명세서(Ground Truth SSOT)입니다.
 
 ---
 
-## 1. Midas Design+ 원본 윈도우 프레임워크 구조
+## 1. 원본앱 윈도우 프레임워크 구조
 
-원본 Midas Design+(`Design+.exe`)은 **MFC (Microsoft Foundation Classes)** 및 **BCGControlBar Pro (v31.2, `BCGCBPRO3120u141.dll`)** 라이브러리를 기반으로 구축된 SDI (Single Document Interface) 엔지니어링 데스크톱 프로그램입니다.
+원본 원본앱(`원본앱(Design+.exe)`)은 **MFC (Microsoft Foundation Classes)** 및 **BCGControlBar Pro (v31.2, `BCGCBPRO3120u141.dll`)** 라이브러리를 기반으로 구축된 SDI (Single Document Interface) 엔지니어링 데스크톱 프로그램입니다.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│ Midas Design+ 원본 윈도우 프레임워크 (`CMainFrame` : `CBCGPFrameWnd`)                                      │
+│ 원본앱 윈도우 프레임워크 (`CMainFrame` : `CBCGPFrameWnd`)                                      │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ 1. 상단 리본 바 (Ribbon Bar - `CBCGPRibbonBar`): 메인/모드/부재/하중/설정/도구 탭 네비게이션             │
 │ 2. 퀵 액세스 툴바 (QAT): 신규, 열기, 저장, 실행취소(Undo), 재실행(Redo), 일괄출력                         │
@@ -63,7 +63,7 @@
 
 ## 3. 원본 4대 메인 폼뷰 (`CMainFormView*`) 구조
 
-Midas Design+은 선택된 부재와 작업 단계에 따라 4가지 전용 폼뷰 클래스를 동적으로 전환합니다.
+원본앱은 선택된 부재와 작업 단계에 따라 4가지 전용 폼뷰 클래스를 동적으로 전환합니다.
 
 1. **`CMainFormViewMemb` (단면 상세 설계/검토 뷰)**:
    - 선택된 단일 부재의 파라메트릭 입력, 2D 단면 배근도 렌더링, P-M 상관도 및 안전율(DCR) 검토.

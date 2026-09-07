@@ -11,7 +11,7 @@
   - `src/web/static/js/pm_chart.js` (200 파이버 P-M 상관곡선 차트 렌더러)
 * **1순위/2순위 그래픽스 SSOT**:
   - `decompiled_src/DPLUS_VDraw.dll_symbols.txt` (`CODADrawTool`, `CVDrawView`)
-  - 원본 Midas Design+ 기둥 그래픽스 뷰 (상단: 기둥 횡단면 배근도 / 하단: KDS P-M 다이어그램)
+  - 원본 원본앱 기둥 그래픽스 뷰 (상단: 기둥 횡단면 배근도 / 하단: KDS P-M 다이어그램)
 
 ---
 

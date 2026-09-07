@@ -1,10 +1,10 @@
-# 04. Midas Design+ 61종 전체 모듈 종합 카탈로그 및 4대 자산 인벤토리 (SSOT)
+# 04. 원본앱 61종 전체 모듈 종합 카탈로그 및 4대 자산 인벤토리 (SSOT)
 
 ---
 
 ## 1. 개요 및 관리 목적
 
-본 문서는 **Midas Design+ (`Design+.exe`)** 원본 바이너리 및 리소스([`original_src/Midas Design+/`](file:///f:/PyProject/AltDP_3rd/original_src/Midas%20Design+/)), 디컴파일 C 수도코드 및 심볼([`decompiled_src/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/)), 그리고 관련 기술 사양서([`docs/06_python_engine_architecture_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md), [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md))에 정의된 **총 61종 전수 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**의 정의를 단 1종의 누락이나 축약 없이 총망라하여, **4대 참조 우선순위 자산(1순위 추출 소스, 2순위 매뉴얼/리소스, 3순위 kcsc2md 예제집, 4순위 KDS 구조기준)**과 구현 대상 파이썬 엔진 파일을 1:1로 매핑한 **전체 총괄 단일 진실 공급원(Master Inventory SSOT)**입니다.
+본 문서는 **원본앱 (`원본앱(Design+.exe)`)** 원본 바이너리 및 리소스([`original_src/Midas Design+/`](file:///f:/PyProject/AltDP_3rd/original_src/Midas%20Design+/)), 디컴파일 C 수도코드 및 심볼([`decompiled_src/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/)), 그리고 관련 기술 사양서([`docs/06_python_engine_architecture_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md), [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md))에 정의된 **총 61종 전수 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**의 정의를 단 1종의 누락이나 축약 없이 총망라하여, **4대 참조 우선순위 자산(1순위 추출 소스, 2순위 매뉴얼/리소스, 3순위 kcsc2md 예제집, 4순위 KDS 구조기준)**과 구현 대상 파이썬 엔진 파일을 1:1로 매핑한 **전체 총괄 단일 진실 공급원(Master Inventory SSOT)**입니다.
 
 > [!IMPORTANT]
 > **🚨 4대 포팅 참조 우선순위 계층 (SSOT Priority Hierarchy)**:
@@ -155,4 +155,4 @@
 | **Tier 1 (최우선 기반 부재군)** | • **RC 6종**: `rc_beam`, `rc_column`, `rc_shear_wall`, `rc_retaining_wall`, `rc_slab`, `rc_iso_footing`<br>• **Steel 3종**: `steel_beam_column`, `steel_baseplate`, `steel_bolt_conn` | **9종** | **엔진 100% 완료 (`src/engine/`)**<br>docs 07 반응형 4-Pane UI 완성 대상 |
 | **Tier 2 (확장 및 FEM 연동군)** | • **RC 6종**: `rc_gencolumn`, `rc_comb_wall`, `rc_basement_wall`, `rc_comb_footing`, `rc_strip_footing`, `rc_pile_footing`<br>• **Steel 7종**: `steel_brace`, `steel_endplate`, `steel_welding`, `steel_crane_girder`, `steel_purlin_girt`, `steel_web_opening`, `steel_embedplate`<br>• **SRC 4종**: `src_composite_beam`, `src_baseplate`, `src_column`, `src_cft_column`<br>• **ALU 1종**: `alu_beam_col`<br>• **FEM 5종**: `foundation_fem`, `wall_2way_fem`, `baseplate_fem`, `endplate_fem`, `slab_fem`<br>• **CAD/물량 2종**: `cad_draw_dxf`, `quantity_excel`<br>• **앵커 1종**: `rc_anchor_bolt` | **26종** | **엔진 100% 완료 (`src/engine/`)**<br>docs 07 4대 폼뷰 및 계산서 연동 대상 |
 | **Tier 3 (고급 특수/일괄/연동군)** | • **RC 8종**: `rc_buttress`, `rc_stair`, `rc_corbel`, `rc_beam_table`, `rc_slab_table`, `rc_batch_beam`, `rc_batch_column`, `rc_batch_wall`<br>• **Steel 5종**: `steel_stair`, `steel_corweb_beam`, `steel_tool_unbrace`, `steel_tool_brace_str`, `steel_tool_link_stiff`, `steel_tool_vbrace_str` (툴 통합 5종)<br>• **ALU 1종**: `alu_beam_col_gen`<br>• **RFM 3종**: `rfm_slab`, `rfm_beam`, `rfm_column`<br>• **PBD 3종**: `pbd_rc_beam`, `pbd_rc_column`, `pbd_rc_wall`<br>• **Gen연동 1종**: `gen_mgt_interop`<br>• **글로벌 4종**: `ec_rc_member`, `ec_steel_member`, `is_rc_member`, `us_member` | **26종** | **Phase 9 ~ 11 단계적 전개**<br>Zero-Dependency 모듈식 포팅 |
-| **총계** | **Midas Design+ 원본 61종 전체 부재/해석/연동 모듈 전수** | **61종** | **1종의 누락이나 축약 없이 100% 명세 구축** |
+| **총계** | **원본앱 61종 전체 부재/해석/연동 모듈 전수** | **61종** | **1종의 누락이나 축약 없이 100% 명세 구축** |

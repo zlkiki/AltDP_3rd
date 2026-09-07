@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경
-구조설계 소프트웨어의 최종 산출물은 인허가 관청 및 감리자에게 제출되는 **A4 표준 구조계산서(Structural Calculation Report)**입니다. Midas Design+는 MFC 기반의 `CMSOffice`, `CMSExcel`, `CMSWorkRec` 모듈을 통해 MS Word 및 Excel 형식으로 계산서를 출력했습니다.
+구조설계 소프트웨어의 최종 산출물은 인허가 관청 및 감리자에게 제출되는 **A4 표준 구조계산서(Structural Calculation Report)**입니다. 원본앱는 MFC 기반의 `CMSOffice`, `CMSExcel`, `CMSWorkRec` 모듈을 통해 MS Word 및 Excel 형식으로 계산서를 출력했습니다.
 
 ### 1.2. 목적
 1. 원본 C++ `CMSOffice` 심볼군의 수식 전개 포맷과 계산서 레이아웃을 순수 Python 기반(Jinja2 + KaTeX LaTeX + CSS Paged Media / WeasyPrint)의 웹 구조계산서 엔진(`src/report/generator.py`)으로 전환.

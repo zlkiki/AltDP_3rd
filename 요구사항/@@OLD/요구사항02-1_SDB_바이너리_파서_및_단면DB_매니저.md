@@ -3,7 +3,7 @@
 ## 1. 개요 및 목적 (Overview & Goals)
 
 ### 1.1. 배경 및 목적
-* Midas Design+의 단면 데이터베이스 파일(`original_src/Midas Design+/Dbase/*.sdb`, 총 33종)은 강구조 및 합성부재 설계의 기본 자산입니다.
+* 원본앱의 단면 데이터베이스 파일(`original_src/Midas Design+/Dbase/*.sdb`, 총 33종)은 강구조 및 합성부재 설계의 기본 자산입니다.
 * `KS.sdb`, `KS21.sdb`, `AISC.sdb`, `JIS.sdb`, `DIN.sdb` 등 전 규격 바이너리 포맷을 완벽히 디코딩하고, SQLite 메모리 DB 및 빠른 검색 캐시를 갖춘 Python 독립 단면 매니저(`SectionDBManager`)를 구축합니다.
 
 ### 1.2. 참조 Ground Truth 자산

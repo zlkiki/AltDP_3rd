@@ -1,7 +1,7 @@
 # 요구사항 12-1: Ghidra 솔버 인터페이스 핀포인트 추출 및 Ground Truth 자산화
 
 ## 1. 개요 및 목적 (Overview)
-본 단계는 Midas Design+의 FEM 해석 및 외부 솔버 연동과 관련된 핵심 인터페이스 4대 루틴을 Ghidra로 핀포인트 디컴파일하여 C 수도코드 및 구조체 메타데이터를 `decompiled_src/core_routines/solver/`에 Ground Truth 자산으로 등록하는 작업입니다.
+본 단계는 원본앱의 FEM 해석 및 외부 솔버 연동과 관련된 핵심 인터페이스 4대 루틴을 Ghidra로 핀포인트 디컴파일하여 C 수도코드 및 구조체 메타데이터를 `decompiled_src/core_routines/solver/`에 Ground Truth 자산으로 등록하는 작업입니다.
 
 ---
 

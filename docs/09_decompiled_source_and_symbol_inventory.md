@@ -2,7 +2,7 @@
 
 ## 1. 역공학 자산 개요 (Overview)
 
-Midas Design+ 원본 바이너리(`original_src/Midas Design+/`)로부터 추출된 역공학 자산(`decompiled_src/`)은 총 **20개 DLL 모듈, 47,110개의 MSVC 데코레이션 C++ Exported Symbol, 1,000개 이상의 핵심 C++ 클래스**로 구성되어 있습니다.
+원본앱 바이너리(`original_src/Midas Design+/`)로부터 추출된 역공학 자산(`decompiled_src/`)은 총 **20개 DLL 모듈, 47,110개의 MSVC 데코레이션 C++ Exported Symbol, 1,000개 이상의 핵심 C++ 클래스**로 구성되어 있습니다.
 
 추가로 Ghidra Headless 자동 추출 파이프라인([scripts/ghidra_extract.py](file:///f:/PyProject/AltDP_3rd/scripts/ghidra_extract.py))을 통해 노이즈(MFC GUI)를 제거하고 **순수 공학 설계 알고리즘 C 수도코드 47종([decompiled_src/core_routines/](file:///f:/PyProject/AltDP_3rd/decompiled_src/core_routines/))**을 영구 자산화하였습니다.
 
@@ -30,7 +30,7 @@ Midas Design+ 원본 바이너리(`original_src/Midas Design+/`)로부터 추출
 | **`MIDAS_util.dll`** | 752 | 32 | `CTBGrid`, `CTBBrowserWndStlSection`, `CTBBrowserFRPMatl`, `CTBSortCtrl` | 스프레드시트형 그리드 컨트롤, 재료 및 단면 브라우저 |
 | **`DGN_lib.dll`** | 1,267 | 3 | `CMSExcel`, `CMSWorkRec`, `ChartData` | MS Excel 입출력 및 차트 데이터 처리 엔진 |
 | **기타 모듈** | 1,009 | 2 | `IDGN_core.dll`, `IDGN_lib.dll`, `IDGN_db.dll`, `DPLUS_DWG.dll`, `DPLUS_Draw.dll` | 내부 코어 라이브러리 및 CAD 드로잉 브릿지 |
-| **합계** | **47,110** | **1,000+** | - | **Midas Design+ 전체 부재설계 및 해석 시스템 100% 매핑** |
+| **합계** | **47,110** | **1,000+** | - | **원본앱 전체 부재설계 및 해석 시스템 100% 매핑** |
 
 ---
 
