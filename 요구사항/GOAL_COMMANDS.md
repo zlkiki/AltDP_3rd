@@ -6,7 +6,7 @@
 > **💡 `/goal` 실행 규약 (AGENTS.md 제7절 연동)**
 > * 단일 컨텍스트 폭주 및 모델의 조기 탈진을 방지하기 위해, 모든 프롬프트는 **"마스터 요구사항 + 하위 세부 Phase(또는 Step)"** 단위로 정밀하게 분할되어 있습니다.
 > * 하나의 하위 Phase가 완료되면 `pytest` 100% 통과, 4대 증거 제출, Git 커밋 및 푸시가 자동으로 완수되므로, 사용자는 다음 순번의 커맨드를 복사하여 순차적으로 실행하시면 됩니다.
-> * 작업 완료 시 [`docs/PROJECT_PROGRESS.md`](file:///f:/PyProject/AltDP_3rd/docs/PROJECT_PROGRESS.md) 외부 기억 파일이 자동으로 동기화됩니다.
+> * 작업 완료 시 [`요구사항/PROJECT_PROGRESS.md`](file:///f:/PyProject/AltDP_3rd/요구사항/PROJECT_PROGRESS.md) 외부 기억 파일이 자동으로 동기화됩니다.
 
 ---
 

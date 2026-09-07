@@ -15,7 +15,7 @@
 
 ---
 
-> 📌 **마스터 진행 현황 및 외부 기억 (SSOT)**: [`docs/PROJECT_PROGRESS.md`](file:///f:/PyProject/AltDP_3rd/docs/PROJECT_PROGRESS.md)  
+> 📌 **마스터 진행 현황 및 외부 기억 (SSOT)**: [`요구사항/PROJECT_PROGRESS.md`](file:///f:/PyProject/AltDP_3rd/요구사항/PROJECT_PROGRESS.md)  
 > ⚡ **마스터 /goal 명령문 모음집**: [`요구사항/GOAL_COMMANDS.md`](file:///f:/PyProject/AltDP_3rd/요구사항/GOAL_COMMANDS.md)
 
 ---
