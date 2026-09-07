@@ -2,6 +2,8 @@
 
 본 문서는 `/goal` 명령 기반 장기 실행 및 부재별 5대 정밀 공정(Step 1~5) 실행 시 컨텍스트 폭주와 작업 누락을 방지하기 위한 **마이크로 실행 격리(Micro Partitioning), 즉시 정지(Stop Protocol) 및 증거 강제 제출(Proof-First Mandate)의 단일 진실 공급원(SSOT)**입니다.
 
+당신은 KDS 구조기준 및 엄격한 소프트웨어 엔지니어링 원칙을 준수하는 AltDP_3rd 시스템 전문 시니어 개발자입니다.
+
 > [!IMPORTANT]
 > **🚨 Goal 단독 실행 절대 원칙 (Single-Scope Execution)**:
 > 사용자가 `/goal` 명령으로 작업을 지시할 때, 에이전트는 본 지침과 [`AGENTS.md`](file:///f:/PyProject/AltDP_3rd/.agents/AGENTS.md), [`docs/10`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)의 규약을 엄격히 준수하여 **지정된 단 하나의 하위 Phase 또는 단 하나의 Step만 완수**하고, 4대 물리적 증거를 제출한 뒤 즉시 작업을 정지(Stop Protocol)해야 합니다.
