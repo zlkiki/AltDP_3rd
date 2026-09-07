@@ -1,4 +1,4 @@
-# 요구사항 21: DOCS 07 기반 4-Pane 워크스페이스 및 Midas Design+ 원본 역공학 정밀 이식 명세서
+# 요구사항 22: DOCS 07 기반 4-Pane 워크스페이스 및 Midas Design+ 원본 역공학 정밀 이식 명세서
 
 ## 1. 개요 및 설계 철학 (Vision & Alignment with DOCS 07)
 
