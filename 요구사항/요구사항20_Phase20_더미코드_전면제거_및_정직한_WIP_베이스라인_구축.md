@@ -27,9 +27,9 @@
 3. **`docs/07` 독립 4-Pane 레이아웃 무결성 확보**:
    - `As-Is`: 2열(입력폼)과 3열(캔버스) 순서 혼선 및 `Left-Sub`의 핵심 기능인 부재 리스트 매니저(`pane-member-list`)와의 연동 누락.
    - `To-Be`: `docs/07`의 정식 아키텍처인 **[사이드바] - [Left-Sub: 부재리스트 + 사용자입력부] - [Center: 2D/3D 그래픽뷰] - [Right: KDS 계산서(순백색 #ffffff 고정)]** 4-Pane 구조를 엄격히 준수.
-4. **`docs/14` KDS 3대 보고서 & 5대 장구분 체계 준수**:
-   - `As-Is`: AltBU 잔재인 "8단계 KaTeX 수식 전개식" 등 타 프로젝트 용어가 혼입되어 `docs/14` 명세와 충돌.
-   - `To-Be`: 원본앱 및 `docs/14`의 정식 규격인 **"5대 장구분 (1. 일반조건, 2. 재질/단면, 3. 설계하중, 4. 단면안전성, 5. 종합판정)"** 및 **"3대 보고서 모드 (요약/상세/입력데이터)"** 표준 양식으로 완전 일치화. 하드코딩된 정적 텍스트를 전면 청산하고 미계산 시 순백색 A4 WIP 시트 렌더링.
+4. **`docs/14` KDS 3대 보고서 & 5대 장구분 체계 준수 및 레거시 임시 뷰어(`redcr_common_renderer.js`) 청산**:
+   - `As-Is`: AltBU 잔재인 "8단계 KaTeX 수식 전개식" 등 타 프로젝트 용어가 혼입되어 `docs/14` 명세와 충돌하고, 전용 계산서가 없는 부재에 대해 AltDP_2nd 시절의 뭉뚱그림 4-Pillar 카드형 뷰어(`redcr_common_renderer.js`)가 호출되어 A4 용지 규격을 위반하고 가짜/임의 테이블을 조립할 위험.
+   - `To-Be`: `redcr_common_renderer.js`의 기만적 카드 뷰 및 데드코드를 전면 청산/제거하고, 원본앱 및 `docs/14`의 정식 규격인 **"5대 장구분 (1. 일반조건, 2. 재질/단면, 3. 설계하중, 4. 단면안전성, 5. 종합판정)"** 및 **"3대 보고서 모드 (요약/상세/입력데이터)"** 표준 양식으로 완전 일치화. 하드코딩된 정적 텍스트를 전면 청산하고 미계산/미구현 시 순백색 A4 WIP 시트로 일원화.
 5. **원본앱 61종 모듈 3단계 티어(Tier) 메타데이터 전수 주입 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md))**:
    - `docs/13`의 원본앱 6대 대분류 탭(RC, STEEL, SRC, ALU, RFM, FEM/기타)에 기반하여 61종 전체 모듈에 3단계 티어(`Tier 1: 9종 핵심`, `Tier 2: 26종 주요`, `Tier 3: 26종 특수`) 속성 전수 주입.
 
@@ -108,8 +108,11 @@ class WIPResponse(BaseModel):
 * **동작 사양**:
   - 전용 VDraw 캔버스 렌더러가 미연동된 부재 선택 시, 캔버스 뷰포트를 클리어하고 부드러운 다크 엔지니어링 그리드(격자선) 위에 중앙 엠블럼과 부재명, **"📐 2D VDraw 단면 및 배근도 그래픽 준비 중 (WIP)"** 텍스트를 렌더링하여 런타임 에러 완전 방어.
 
-### 3.4. KDS A4 구조계산서 5대 장구분 WIP 시트 (`docs/07`, `docs/14`)
-* **구현 위치**: `src/web/static/js/report_view.js` (Right의 `pane-right-report` 영역)
+### 3.4. KDS A4 구조계산서 5대 장구분 WIP 시트 및 `redcr_common_renderer.js` 청산 (`docs/07`, `docs/14`)
+* **구현 위치**: `src/web/static/js/report_view.js` (또는 `result_renderer.js`, Right의 `pane-right-report` 영역)
+* **레거시 범용 뷰어(`redcr_common_renderer.js`) 전면 청산**:
+  - AltDP_2nd 시절 부재별 계산서 부재를 때우기 위해 도입된 뭉뚱그림 4-Pillar 카드형 레이아웃(`four-pillar-container`)과 자체 캔버스 임베딩(`pillar-section-canvas`), 키 탐색 기반 가짜 테이블 조립 로직을 전면 청산/제거.
+  - `result_renderer.js`에서 부재별 전용 리포터 부재 시 `RedcrCommonRenderer`를 호출하던 폴백 분기를 `docs/14` 5대 장구분 기반 순백색 A4 WIP 시트로 완전 일원화.
 * **동작 사양**:
   - **상시 순백색 `#ffffff` A4 용지 규격 레이아웃 유지 (`docs/07` 제1절)**.
   - 하드코딩된 가짜 처짐/강도치("ALL O.K", "8.2mm 만족" 등)를 전면 청산.
@@ -215,7 +218,7 @@ flowchart TD
 | **Phase 20-1** | [`요구사항 20-1`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-1_Phase20-1_백엔드_더미연산_제거_및_WIP_디스패처_구축.md) | 백엔드 API & 디스패처 | • 가짜 연산(150/100) 영구 삭제, `WIPResponse` 표준 스키마<br>• `docs/12` 기완료 검증 엔진 100% 보호 및 `dispatch.py` 분기 |
 | **Phase 20-2** | [`요구사항 20-2`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-2_Phase20-2_원본앱_61종_3단계_티어_메타_전수_주입.md) | 카탈로그 & 메타데이터 | • 원본앱 61종 카탈로그에 `Tier 1/2/3`, `standard`, `midas_dlg` 전수 주입<br>• `GET /api/modules` 티어별 통계 집계 엔드포인트 제공 |
 | **Phase 20-3** | [`요구사항 20-3`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-3_Phase20-3_프론트엔드_입력부_WIP_안내카드_및_폼_방어.md) | Left-Sub (사용자입력부) | • `docs/07` 4-Pane 레이아웃 연동 및 이전 폼 잔존 방지 클린업<br>• `WIPCardRenderer`: 글래스모피즘 카드, 3버튼 액션 파이프라인 방어 |
-| **Phase 20-4** | [`요구사항 20-4`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-4_Phase20-4_2D_VDraw_캔버스_WIP_및_A4_계산서_하드코딩_청산.md) | Center 캔버스 & Right 리포트 | • 2D VDraw Canvas WIP 플레이스홀더 (그리드+부재명)<br>• `docs/14` 5대 장구분 준수, 계산서 하드코딩 청산, 순백색 `#ffffff` A4 WIP 시트 |
+| **Phase 20-4** | [`요구사항 20-4`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-4_Phase20-4_2D_VDraw_캔버스_WIP_및_A4_계산서_하드코딩_청산.md) | Center 캔버스 & Right 리포트 | • 2D VDraw Canvas WIP 플레이스홀더 (그리드+부재명)<br>• `docs/14` 5대 장구분 준수, 계산서 하드코딩 청산, 순백색 `#ffffff` A4 WIP 시트<br>• 레거시 4-Pillar 카드형 `redcr_common_renderer.js` 청산 및 폴백 일원화 |
 | **Phase 20-5** | [`요구사항 20-5`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-5_Phase20-5_4열_통합_E2E_검증_및_콘솔에러_0건_검수창구_확립.md) | 4-Pane 통합 E2E & 무결성 | • 61종 순회 클릭 시 F12 콘솔 에러 0건(404, TypeError 등) 입증<br>• 플래그십-WIP 이중 검증 및 전체 `pytest` 100% 통과 (Exit Code 0) |
 
 ---
@@ -225,5 +228,5 @@ flowchart TD
 1. **더미 연산 제로**: 백엔드 API 어디에도 미연동 부재에 대해 하드코딩된 가짜 강도치나 임의 OK 응답이 존재하지 않아야 함.
 2. **`docs/12` 기완료 엔진 100% 보호**: RC 보, 기둥, 기초 등 이미 검증된 KDS 엔진은 기존 오차 $\le 0.10\%$ 연산 결과가 일체의 회귀 결함 없이 정상 출력되어야 함.
 3. **`docs/07` 4-Pane 동기화 일관성**: 미구현 부재 선택 시 [사이드바 탐색기] $\leftrightarrow$ [Left-Sub 입력부 WIP 카드] $\leftrightarrow$ [Center 2D Canvas WIP] $\leftrightarrow$ [Right 순백색 A4 계산서 WIP 시트]가 100ms 이내에 오염 없이 동기화되어야 함.
-4. **`docs/14` 계산서 표준 일치**: 계산서 영역에 "8단계 KaTeX" 등 타 규격 표현이나 가짜 결과 텍스트가 0건이어야 하며, 5대 장구분 표준 목차를 준수해야 함.
+4. **`docs/14` 계산서 표준 일치 & 레거시 청산**: 계산서 영역에 "8단계 KaTeX" 등 타 규격 표현, 가짜 결과 텍스트 및 `redcr_common_renderer.js` 기반 4-Pillar 카드형 레이아웃이 0건이어야 하며, 5대 장구분 표준 목차 및 순백색 A4 규격을 100% 준수해야 함.
 5. **콘솔 에러 0건**: 61종 트리메뉴를 임의 순서로 고속 순회 클릭하여도 브라우저 개발자 도구에 404 Not Found나 `Uncaught TypeError`가 단 1건도 발생하지 않아야 함.
