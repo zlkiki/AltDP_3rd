@@ -111,7 +111,7 @@ AltDP_3rd/
 │       ├── rc/                     # Group 2: RC 5대 부재 설계식 (보, 기둥, 벽체, 슬래브, 기초, 옹벽)
 │       ├── steel/                  # Group 3 & 4: 철골보, 기둥, 가새, 접합부, 베이스플레이트, 엔드플레이트
 │       └── db/                     # Group 5: 단면 기하 성질 DB
-├── docs/                           # 공식 기술 문서 (SSOT 01 ~ 17)
+├── docs/                           # 공식 기술 문서 (SSOT 01 ~ 16, fem 101/102)
 │   ├── 01_system_architecture.md
 │   ├── 02_binary_reverse_engineering_specification.md
 │   ├── 03_section_db_specification.md
@@ -126,8 +126,10 @@ AltDP_3rd/
 │   ├── 13_midas_design_plus_original_ui_specification.md
 │   ├── 14_structural_calculation_report_specification.md
 │   ├── 15_fem_analysis_and_external_solver_specification.md
-│   ├── 16_fem_engine_theoretical_manual_and_formulation.md
-│   ├── 17_fem_solver_comparative_analysis_and_benchmark.md
+│   ├── 16_goal_micro_execution_protocol.md
+│   ├── fem/                        # FEM 솔버 상세 이론 및 벤치마크 (101, 102)
+│   │   ├── 101_fem_engine_theoretical_manual_and_formulation.md
+│   │   └── 102_fem_solver_comparative_analysis_and_benchmark.md
 │   └── README.md
 ├── original_src/                   # 원본 Midas Design+ 설치본 (Read-Only)
 │   └── Midas Design+/
