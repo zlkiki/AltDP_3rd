@@ -1,0 +1,124 @@
+# 요구사항 20-2: Phase 20-2 Midas 61종 3단계 티어 메타 전수 주입 및 카탈로그 고도화 명세서
+
+## 1. 개요 및 목적 (Background & Objectives)
+* **상위 기술 문서(SSOT)**:
+  - [`요구사항 20 (Phase 20 마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20_Phase20_더미코드_전면제거_및_정직한_WIP_베이스라인_구축.md) 제4절 및 제5절
+  - [`docs/17_master_midas_modules_comprehensive_catalog.md`](file:///f:/PyProject/AltDP_3rd/docs/17_master_midas_modules_comprehensive_catalog.md) (Midas Design+ 61종 전체 모듈 종합 카탈로그)
+  - [`docs/01_system_architecture.md`](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md) (단면 DB 및 부재 카탈로그 구조)
+  - [`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md) (Phase 1~6 기완료 부재 현황)
+  - [`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md) (`Menu.ini` 6대 탭 및 `DLG_*.ini` 리소스)
+* **목적**: Midas Design+ 원본 6대 대분류에 기반한 **61종 전체 설계/검토 모듈 카탈로그에 3단계 티어(Tier 1: 9종 핵심, Tier 2: 26종 주요, Tier 3: 26종 특수), KDS 표준 코드 및 Midas 원본 DLG 심볼을 단 1종의 누락/뭉뚱그림 없이 전수 주입**하고, `docs/12` 기완료 엔진 현황(`engine_status: VERIFIED/WIP`)을 일치시켜 단일 진실 공급원(SSOT) 카탈로그를 완성합니다.
+
+---
+
+## 2. 세부 개발 사양 (Detailed Specifications)
+
+### 2.1. 61종 카탈로그 메타데이터 스키마 확장
+* **구현 파일**: `app/engines/__init__.py`, `src/web/static/js/catalog.js`, `src/api/routes/schema.py`
+* **메타데이터 필수 필드 규격**:
+  - `key`: 부재 식별 유니크 키 (예: `rc/beam/rc_beam`)
+  - `name`: Midas 한국어 공식 명칭 (예: `보 (RC Beam)`)
+  - `midas_dlg`: Midas 원본 리소스 심볼 (예: `IDD_RCS_BEAM_PMODE_DLG`)
+  - `category`: 대분류 (`rc`, `steel`, `src`, `alu`, `rfm`, `fem`)
+  - `tier`: 우선순위 등급 (`Tier 1`, `Tier 2`, `Tier 3`)
+  - `standard`: 관련 KDS 국가건설기준 (예: `KDS 14 20 00 : 2022`)
+  - `engine_status`: KDS 엔진 상태 (`VERIFIED` 기완료 / `WIP` 연동준비중)
+
+---
+
+### 2.2. Midas 61종 3단계 티어 및 Midas 원본 DLG 1:1 전수 인벤토리 매핑표
+
+#### A. Tier 1 (9종 최우선 플래그십 핵심 부재 - 엔진 기완료)
+| No | 부재 Key | 공식 부재 명칭 | Midas 원본 리소스 ID | KDS 설계기준 | 엔진 상태 |
+|:---:|---|---|---|---|:---:|
+| 1 | `rc/beam/rc_beam` | RC 보 (Beam) | `IDD_RCS_BEAM_PMODE_DLG` | KDS 14 20 10 / 22 | `VERIFIED` |
+| 2 | `rc/column/rc_column` | RC 기둥 (Column) | `IDD_RCS_COLUMN_PMODE_DLG` | KDS 14 20 10 | `VERIFIED` |
+| 3 | `rc/wall/rc_shear_wall` | RC 전단벽 (Shear Wall) | `IDD_RCS_WALL_PMODE_DLG` | KDS 14 20 40 | `VERIFIED` |
+| 4 | `rc/retaining_wall/rc_retaining_wall` | RC 옹벽 (Retaining Wall) | `IDD_RCS_RETAINING_WALL_INPUT_DLG` | KDS 14 20 40 / KDS 11 80 05 | `VERIFIED` |
+| 5 | `rc/slab/rc_slab` | RC 슬래브 (Slab) | `IDD_RCS_SLAB_PMODE_DLG` | KDS 14 20 40 | `VERIFIED` |
+| 6 | `rc/footing/rc_iso_footing` | RC 독립기초 (Isolated Footing) | `IDD_RCS_FOOT_PMODE_DLG` | KDS 14 20 50 | `VERIFIED` |
+| 7 | `steel/beam/steel_beam_column` | 철골 보/기둥 (Beam & Column) | `IDD_STL_BEAMCOLUMN_INPUT_DLG` | KDS 14 31 10 | `VERIFIED` |
+| 8 | `steel/baseplate/steel_baseplate` | 철골 주각부 (Base Plate) | `IDD_STL_USBP_PMODE_DLG` | KDS 14 31 25 | `VERIFIED` |
+| 9 | `steel/conn/steel_bolt_conn` | 철골 볼트 접합부 (Bolt Connection) | `IDD_STL_BOLTCONNECTION_INPUT_DLG` | KDS 14 31 25 | `VERIFIED` |
+
+#### B. Tier 2 (26종 실무 주요 부재 및 기초/합성/FEM 연동군)
+| No | 부재 Key | 공식 부재 명칭 | Midas 원본 리소스 ID | KDS 설계기준 | 엔진 상태 |
+|:---:|---|---|---|---|:---:|
+| 10 | `rc/column/rc_gencolumn` | RC 임의형상 기둥 | `IDD_RCS_URGC_PMODE_DLG` | KDS 14 20 10 | `VERIFIED` |
+| 11 | `rc/wall/rc_comb_wall` | RC 이형 코어벽체 | `IDD_RCS_COMBINED_WALL_INPUT_DLG` | KDS 14 20 40 | `VERIFIED` |
+| 12 | `rc/wall/rc_basement_wall` | RC 지하외벽 | `IDD_RCS_BASEWALL_INPUT_DLG` | KDS 14 20 40 | `VERIFIED` |
+| 13 | `rc/footing/rc_comb_footing` | RC 복합기초 | `IDD_RCS_COMBINED_FOOTING_INPUT_DLG` | KDS 14 20 50 | `VERIFIED` |
+| 14 | `rc/footing/rc_strip_footing` | RC 줄기초 | `IDD_RCS_STRIPFOOT_INPUT_DLG` | KDS 14 20 50 | `VERIFIED` |
+| 15 | `rc/footing/rc_pile_footing` | RC 말뚝기초 | `IDD_RCS_FOUNDATION_INPUT_DLG` | KDS 14 20 50 | `VERIFIED` |
+| 16 | `rc/special/rc_anchor_bolt` | 콘크리트용 앵커볼트 | `IDD_DGN_ANCH_BOLT_DLG` | KDS 14 20 54 | `VERIFIED` |
+| 17 | `steel/brace/steel_brace` | 철골 가새 | `IDD_STL_BEAMCOL_SMODE_INPUT_SECT1_DLG` | KDS 14 31 10 | `VERIFIED` |
+| 18 | `steel/conn/steel_endplate` | 모멘트 엔드플레이트 접합부 | `IDD_STL_FORCE_INPUT_FINEND_DLG` | KDS 14 31 25 | `VERIFIED` |
+| 19 | `steel/conn/steel_welding` | 철골 용접 접합부 | `IDD_STL_WELDING_INPUT_DLG` | KDS 14 31 25 | `VERIFIED` |
+| 20 | `steel/special/steel_crane_girder` | 크레인 주행보 | `IDD_STL_CRANEGIRDER_INPUT_DLG` | KDS 14 31 10 | `VERIFIED` |
+| 21 | `steel/special/steel_purlin_girt` | 중도리 / 띠장 | `IDD_STL_USPG_PMODE_DLG` | KDS 14 31 10 | `VERIFIED` |
+| 22 | `steel/special/steel_web_opening` | 웨브 개공보 | `IDD_STL_WEBOPEN_PMODE_DLG` | KDS 14 31 10 | `VERIFIED` |
+| 23 | `steel/conn/steel_embedplate` | 임베디드 플레이트 (매립판) | `IDD_STL_EMBPLATE_INPUT_DLG` | KDS 14 31 25 | `VERIFIED` |
+| 24 | `src/beam/src_composite_beam` | 합성보 (Composite Beam) | `IDD_SRC_COMP_BEAM_PMODE_DLG` | KDS 14 31 35 | `VERIFIED` |
+| 25 | `src/baseplate/src_baseplate` | SRC 주각부 베이스플레이트 | `IDD_SRC_BASE_PLATE` | KDS 14 31 35 | `VERIFIED` |
+| 26 | `src/column/src_column` | 매립형 SRC 기둥 | `IDD_SRC_COLUMN_INPUT_DLG` | KDS 14 31 35 | `VERIFIED` |
+| 27 | `src/column/src_cft_column` | 콘크리트 충전강관(CFT) 기둥 | `IDD_SRC_UCFT_PMODE_DLG` | KDS 14 31 35 | `VERIFIED` |
+| 28 | `alu/member/alu_beam_col` | 알루미늄 보 / 기둥 | `IDD_GUAAG_PMODE_MAIN_DLG` | KDS 14 31 40 | `VERIFIED` |
+| 29 | `fem/foundation/foundation_fem` | RC 전면 매트기초 FEM | `DgnSolver/FES.EXE` (`docs/15`) | KDS 14 20 50 | `VERIFIED` |
+| 30 | `fem/wall/wall_2way_fem` | RC 지하외벽 2방향 FEM | `DgnSolver/FES.EXE` (`docs/15`) | KDS 14 20 40 | `VERIFIED` |
+| 31 | `fem/baseplate/baseplate_fem` | 주각부 비선형 접촉 FEM | `DgnSolver/Iterative.exe` (`docs/15`) | KDS 14 31 25 | `VERIFIED` |
+| 32 | `fem/endplate/endplate_fem` | 엔드플레이트 항복선 FEM | `DgnSolver/Iterative.exe` (`docs/15`) | KDS 14 31 25 | `VERIFIED` |
+| 33 | `fem/slab/slab_fem` | 이형/개구부 슬래브 FEM | `DgnSolver/FES.EXE` (`docs/15`) | KDS 14 20 40 | `VERIFIED` |
+| 34 | `report/draw/cad_draw_dxf` | 2D 배근 상세도 CAD (DXF) | `CMainFormViewDraw` (`docs/12`) | KDS 14 20 52 | `VERIFIED` |
+| 35 | `report/qntt/quantity_excel` | KDS 표준 물량산출 (Excel) | `CMainFormViewQntt` (`docs/12`) | KDS 14 20 00 | `VERIFIED` |
+
+#### C. Tier 3 (26종 특수/상세/일괄/연동/글로벌 모듈)
+| No | 부재 Key | 공식 부재 명칭 | Midas 원본 리소스 ID | KDS 설계기준 | 엔진 상태 |
+|:---:|---|---|---|---|:---:|
+| 36 | `rc/special/rc_buttress` | 버트레스 (부벽식 지주) | `IDD_RCS_BUTTRESS_SMODE_INPUT_DLG` | KDS 14 20 40 | `WIP` |
+| 37 | `rc/special/rc_stair` | RC 계단실 경사슬래브 | `IDD_RCS_URST_PMODE_DLG` | KDS 14 20 40 | `WIP` |
+| 38 | `rc/special/rc_corbel` | 코벨 / 브라켓 | `IDD_RCS_CORBEL_DLG` | KDS 14 20 22 | `WIP` |
+| 39 | `rc/table/rc_beam_table` | RC 보 강도 테이블 | `IDD_RCS_BEAM_MLIST_DLG` | KDS 14 20 10 | `WIP` |
+| 40 | `rc/table/rc_slab_table` | RC 슬래브 강도 테이블 | `IDD_RCS_SLAB_LIST` | KDS 14 20 40 | `WIP` |
+| 41 | `rc/batch/rc_batch_beam` | 일괄 보 (다중 부재) | `IDD_RCS_BATCH_BEAM_BUILD_DLG` | KDS 14 20 10 | `WIP` |
+| 42 | `rc/batch/rc_batch_column` | 일괄 기둥 (다축 최적화) | `IDD_RCS_BATCH_COLM_BUILD_DLG` | KDS 14 20 10 | `WIP` |
+| 43 | `rc/batch/rc_batch_wall` | 일괄 벽체 (시공성 고려) | `IDD_RCS_BATCHWALL_INPUT_DLG` | KDS 14 20 40 | `WIP` |
+| 44 | `steel/special/steel_stair` | 철골 계단 | `IDD_STL_STAIR_INPUT_DLG` | KDS 14 31 10 | `WIP` |
+| 45 | `steel/special/steel_corweb_beam` | 파형웨브보 | `IDD_STL_BEAMCOL_INPUT_DLG` | KDS 14 31 10 | `WIP` |
+| 46 | `steel/tool/steel_tool_unbrace` | 비지지길이 자동 산정 툴 | `IDD_STL_TOOL_UNBRACE_LENGTH` | KDS 14 31 10 | `WIP` |
+| 47 | `steel/tool/steel_tool_brace_str` | 브레이스 소요강도 산정 툴 | `IDD_STL_TOOL_BRACE_STRENGTH` | KDS 14 31 10 | `WIP` |
+| 48 | `steel/tool/steel_tool_link_stiff`| 전단링크 스티프너 산정 툴 | `IDD_STL_TOOL_LINK_STIFFENER` | KDS 14 31 10 | `WIP` |
+| 49 | `steel/tool/steel_tool_vbrace_str`| V브레이스 보강도 산정 툴 | `IDD_STL_TOOL_BEAMSTR_VBRACE` | KDS 14 31 10 | `WIP` |
+| 50 | `alu/member/alu_beam_col_gen` | 알루미늄 임의형상 보/기둥 | `IDD_GUAMT_PMODE_MAIN_DLG` | KDS 14 31 40 | `WIP` |
+| 51 | `rfm/slab/rfm_slab` | RC 슬래브 보강 (CFRP/강판) | `IDD_UFSL_PMODE_DLG` | KDS 14 20 90 | `WIP` |
+| 52 | `rfm/beam/rfm_beam` | RC 보 보강 (CFRP/강판) | `IDD_UFBE_PMODE_DLG` | KDS 14 20 90 | `WIP` |
+| 53 | `rfm/column/rfm_column` | RC 기둥 보강 (재킷팅) | `IDD_UFCO_PMODE_DLG` | KDS 14 20 90 | `WIP` |
+| 54 | `pbd/rc/pbd_rc_beam` | RC 보 성능기반설계 (소성힌지) | `IDS_RIBBON_MENU_PBD_RCS_BEAM` | KDS 41 17 00 | `WIP` |
+| 55 | `pbd/rc/pbd_rc_column` | RC 기둥 성능기반설계 (P-M-M) | `IDS_RIBBON_MENU_PBD_RCS_COLUMN` | KDS 41 17 00 | `WIP` |
+| 56 | `pbd/rc/pbd_rc_wall` | RC 전단벽 성능기반설계 (전단) | `IDS_RIBBON_MENU_PBD_RCS_WALL` | KDS 41 17 00 | `WIP` |
+| 57 | `interop/gen/gen_mgt_interop` | MIDAS Gen 3D 모델 연동 | `DgnPlugIn/AnalysisDB.dll` | KDS 41 10 15 | `WIP` |
+| 58 | `intl/ec/ec_rc_member` | Eurocode 콘크리트 부재 | `DLG_DPLUS_EC.ini` | EN 1992-1-1 | `WIP` |
+| 59 | `intl/ec/ec_steel_member` | Eurocode 강구조 부재 | `DLG_DPLUS_EC.ini` | EN 1993-1-1 | `WIP` |
+| 60 | `intl/is/is_rc_member` | 인도 IS 456 콘크리트 부재 | `DLG_DPLUS_IS.ini` | IS 456:2000 | `WIP` |
+| 61 | `intl/us/us_member` | 미국 ACI/AISC 부재 | `DLG_DPLUS_DGN.ini` | ACI 318 / AISC 360 | `WIP` |
+
+---
+
+### 2.3. 티어별 통계 API 엔드포인트
+* `GET /api/modules`: 61종 전체 카탈로그 및 `summary: { total: 61, tier1: 9, tier2: 26, tier3: 26, verified: 35, wip: 26 }` 통계 제공.
+
+---
+
+## 3. 세부 작업 5단계 공정 (Step 1 ~ Step 5)
+
+1. **Step 1 [High]**: [`docs/17`](file:///f:/PyProject/AltDP_3rd/docs/17_master_midas_modules_comprehensive_catalog.md) 기반 61종 전수 인벤토리와 Midas DLG 심볼 1:1 매핑 딕셔너리 구축.
+2. **Step 2 [Medium]**: `app/engines/__init__.py` 및 `src/api/routes/schema.py` 메타데이터 파이프라인 확장.
+3. **Step 3 [Medium]**: 프론트엔드 `catalog.js`에 백엔드 티어 및 Midas DLG 메타데이터 동기화.
+4. **Step 4 [Medium]**: `GET /api/modules` 엔드포인트에 3단계 티어 및 검증 상태 집계 로직 탑재.
+5. **Step 5 [High]**: `tests/api/test_catalog_tiers.py` 작성 및 61종 전수 주입 무결성 검증 (오차 0건, 100% PASS).
+
+---
+
+## 4. 완료 검증 기준 (Acceptance Criteria)
+* `/api/modules` 응답의 61종 모든 부재 객체에 `tier`, `standard`, `midas_dlg`, `engine_status`가 100% 누락 없이 존재할 것.
+* Tier 1(9종), Tier 2(26종), Tier 3(26종)의 합이 정확히 61종으로 일치할 것.
+* `pytest tests/api/test_catalog_tiers.py` 통과 (Exit Code 0).

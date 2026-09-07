@@ -1,0 +1,123 @@
+=== Domain: RC (Count: 72) ===
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_BARR_RCS                      = 콘크리트
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_PANL_RCS_CONC                 = 철근 콘크리트 부재
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_SLAB                 = 슬래브
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_BEAM                 = 보
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_COLUMN               = 기둥
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_GENCOLUMN            = 임의 형상 기둥
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_SHEAR_WALL           = 전단벽
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_COMB_WALL            = 이형 벽체
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_BASEMENT_WALL        = 지하외벽
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_RETAIN_WALL          = 옹벽
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_ANCHOR_BOLT          = 앵커볼트
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_BUTTRESS             = 버트레스
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_STAIR                = 계단
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_CORBEL               = 코벨 / 브라켓
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_PANL_RCS_FOOTING              = 기초
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_FOUNDATION           = 기초
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_ISO_FOOTING          = 독립 기초
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_COMB_FOOTING         = 복합 기초
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_STRIP_FOOTING        = 줄 기초
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_PANL_RCS_TABLE                = 강도 테이블
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_BEAM_LIST            = 보 테이블
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_SLAB_LIST            = 슬래브 테이블
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_PANL_RCS_BATCH_BEAM           = 일괄 보
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_BATCH_BEAM           = 일괄 보
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_BEAM_SMARTDGN_OPT    = 일괄 설계 설정
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_BEAM_SMARTDGN_BLD    = 건물 정보 설정
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_BEAM_SMARTDGN_ALL    = 시공성 고려 설계 ( 전체 )
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_PANL_RCS_BATCH_COLUMN         = 일괄 기둥
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_BATCH_COLUMN         = 일괄 기둥
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_COLUMN_SMARTDGN_OPT  = 일괄 설계 설정
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_COLUMN_SMARTDGN_BLD  = 건물 정보 설정
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_COLUMN_SMARTDGN_ALL  = 시공성 고려 설계 ( 전체 )
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_PANL_RCS_BATCHWALL            = 일괄 벽체
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_BATCH_WALL           = 일괄 벽체
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_WALL_SMARTDGN_OPT    = 일괄 설계 설정
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_WALL_SMARTDGN_BLD    = 건물 정보 설정
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_RCS_WALL_SMARTDGN_ALL    = 시공성 고려 설계 ( 전체 )
+  [RIBBON MENU - SRC MEMBER] IDS_RIBBON_BARR_SRC                      = 합성부재
+  [RIBBON MENU - SRC MEMBER] IDS_RIBBON_PANL_SRC                      = 합성부재
+  [RIBBON MENU - SRC MEMBER] IDS_RIBBON_MENU_SRC_COMPOSITE_BEAM       = 합성보
+  [RIBBON MENU - SRC MEMBER] IDS_RIBBON_MENU_SRC_BASE_PLATE           = 주각부
+  [RIBBON MENU - SRC MEMBER] IDS_RIBBON_MENU_SRC_COLUMN               = SRC 기둥
+  [RIBBON MENU - SRC MEMBER] IDS_RIBBON_MENU_SRC_CFT_COLUMN           = CFT 기둥
+  [RIBBON MENU - REINFORCEMENT MEMBER] IDS_RIBBON_BARR_RFM                      = 보강
+  [RIBBON MENU - REINFORCEMENT MEMBER] IDS_RIBBON_PANL_RFM_CONC                 = RC 보강
+  [RIBBON MENU - REINFORCEMENT MEMBER] IDS_RIBBON_MENU_RFM_SLAB                 = 슬래브
+  [RIBBON MENU - REINFORCEMENT MEMBER] IDS_RIBBON_MENU_RFM_BEAM                 = 보
+  [RIBBON MENU - REINFORCEMENT MEMBER] IDS_RIBBON_MENU_RFM_COLUMN               = 기둥
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_BARR_PBD                      = 성능기반설계
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_PANL_PBD_CONC                 = 철근 콘크리트 부재
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_PBD_RCS_BEAM             = 보
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_PBD_RCS_COLUMN           = 기둥
+  [RIBBON MENU - RC MEMBER] IDS_RIBBON_MENU_PBD_RCS_WALL             = 전단벽
+  [IDR_DPLUSTYPE MENU] MENU_POPUP_RCS                           = 콘크리트(&R)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_SLAB                          = 슬래브(&S)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_BEAM                          = 보(&B)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_COLUMN                        = 기둥(&C)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_GENCOLUMN                     = 임의 형상 기둥(&G)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_SHEAR_WALL                    = 전단벽(&W)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_COMB_WALL                     = 이형 벽체
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_BASEMENT_WALL                 = 지하외벽(&M)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_RETAIN_WALL                   = 옹벽
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_ANCHOR_BOLT                   = 앵커볼트
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_BUTTRESS                      = 버트레스(&T)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_STAIR                         = 계단(&R)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_CORBEL                        = 코벨/브라켓(&O)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_BEAM_LIST                     = 보 테이블(&M)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_SLAB_LIST                     = 슬래브 테이블(&A)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_BATCH_WALL                    = 일괄 벽체(&H)
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_WALL_SMARTDGN_OPT             = 시공성 고려한 설계 옵션...
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_WALL_SMARTDGN_BLD             = 건물 정보 설정...
+  [IDR_DPLUSTYPE MENU] ID_DGN_RCS_WALL_SMARTDGN_ALL             = 시공성 고려한 설계 수행 ( 전체 )
+
+=== Domain: STEEL (Count: 22) ===
+  [RIBBON MENU - STEEL MEMBER] IDS_RIBBON_BARR_STL                      = 철골
+  [RIBBON MENU - STEEL MEMBER] IDS_RIBBON_PANL_STL                      = 철골 부재
+  [RIBBON MENU - STEEL MEMBER] IDS_RIBBON_MENU_STL_BEAM_COLUMN          = 보 / 기둥
+  [RIBBON MENU - STEEL MEMBER] IDS_RIBBON_MENU_STL_BASE_PLATE           = 주각부
+  [RIBBON MENU - STEEL MEMBER] IDS_RIBBON_MENU_STL_BOLT_CONNECTION      = 볼트 접합부
+  [RIBBON MENU - STEEL MEMBER] IDS_RIBBON_MENU_STL_MOMENT_BOLT          = 모멘트 볼트 접합부
+  [RIBBON MENU - STEEL MEMBER] IDS_RIBBON_MENU_STL_CRANE_GIRDER         = 크레인 주행보
+  [RIBBON MENU - STEEL MEMBER] IDS_RIBBON_MENU_STL_PURLIN_GIRT          = 중도리 / 띠장
+  [RIBBON MENU - STEEL MEMBER] IDS_RIBBON_MENU_STL_WELDING              = 용접
+  [RIBBON MENU - STEEL MEMBER] IDS_RIBBON_MENU_STL_EMBEDPLATE           = 임베디드 플레이트
+  [RIBBON MENU - STEEL MEMBER] IDS_RIBBON_MENU_STL_STAIR                = 계단
+  [RIBBON MENU - STEEL MEMBER] IDS_RIBBON_MENU_STL_CORWEB_BEAM          = 파형웨브보
+  [RIBBON MENU - OPTION] IDS_RIBBON_MENU_OPT_STLOPT               = 철골 설정
+  [IDR_DPLUSTYPE MENU] MENU_POPUP_STL                           = 철골(&S)
+  [IDR_DPLUSTYPE MENU] ID_DGN_STEEL_BEAM_COLUMN                 = 보 && 기둥(&B)
+  [IDR_DPLUSTYPE MENU] ID_DGN_STEEL_BASE_PLATE                  = 베이스 플레이트(&P)
+  [IDR_DPLUSTYPE MENU] ID_DGN_STEEL_BOLT_CONNECTION             = 볼트 접합부(&C)
+  [IDR_DPLUSTYPE MENU] ID_DGN_STEEL_CRANE_GIRDER                = 크레인 주행보(&G)
+  [IDR_DPLUSTYPE MENU] ID_DGN_STEEL_PURLIN_GIRT                 = 중도리 && 띠장(&U)
+  [IDR_DPLUSTYPE MENU] ID_DGN_STEEL_WELDING                     = 용접(&W)
+  [IDR_DPLUSTYPE MENU] ID_DGN_STEEL_EMBEDPLATE                  = 임베디드 플레이트(&E)
+  [IDR_DPLUSTYPE MENU] ID_DGN_STEEL_STAIR                       = 철골 계단(&S)
+
+=== Domain: SRC (Count: 5) ===
+  [IDR_DPLUSTYPE MENU] MENU_POPUP_SRC                           = 합성부재(&C)
+  [IDR_DPLUSTYPE MENU] ID_DGN_SRC_COMPOSITE_BEAM                = 합성보(&C)
+  [IDR_DPLUSTYPE MENU] ID_DGN_SRC_BASE_PLATE                    = 베이스 플레이트(&B)
+  [IDR_DPLUSTYPE MENU] ID_DGN_SRC_COLUMN                        = 기둥(매립형)(&S)
+  [IDR_DPLUSTYPE MENU] ID_DGN_SRC_CFT_COLUMN                    = 콘크리트 충전 강관(&F)
+
+=== Domain: ALU (Count: 8) ===
+  [RIBBON MENU - ALUMINUM MEMBER] IDS_RIBBON_BARR_ALU                      = 알루미늄
+  [RIBBON MENU - ALUMINUM MEMBER] IDS_RIBBON_PANL_ALU                      = 알루미늄 부재
+  [RIBBON MENU - ALUMINUM MEMBER] IDS_RIBBON_MENU_ALU_BEAMCOL              = 보 / 기둥
+  [RIBBON MENU - ALUMINUM MEMBER] IDS_RIBBON_MENU_ALU_BEAMCOLGEN           = 임의형상 보 / 기둥
+  [RIBBON MENU - OPTION] IDS_RIBBON_MENU_OPT_ALUOPT               = 알루미늄 설정
+  [IDR_DPLUSTYPE MENU] MENU_POPUP_ALU                           = 알루미늄(&A)
+  [IDR_DPLUSTYPE MENU] ID_DGN_ALU_BEAMCOL                       = 보 && 기둥(&B)
+  [IDR_DPLUSTYPE MENU] ID_DGN_ALU_BEAMCOLGEN                    = 임의 형상 보 && 기둥(&C)
+
+=== Domain: RFM (Count: 0) ===
+
+=== Domain: FEM_ETC (Count: 2) ===
+  [Main Input Page] ID_USBP_BASEPLATE                        = 주각부
+  [Main Input Page] ID_USBP_EMBEDPLATE                       = 임베디드 플레이트
+
+=== Domain: PBD (Count: 0) ===
+

@@ -11,7 +11,7 @@
   - [`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md) (Midas 원본 리본 메뉴, 4대 폼뷰, 3대 인터랙션 모드, `DLG_*.ini`)
   - [`docs/14_structural_calculation_report_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md) (KDS 3대 보고서 모드 및 5대 장구분 표준 목차)
   - [`docs/16_goal_micro_execution_protocol.md`](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md) (2단계 5정밀 마이크로 공정 및 Proof-First Mandate)
-* **문서 성격**: Midas Design+ 54종 전체 부재의 실무급 1:1 웹 마이그레이션에 앞서, 시스템 전반에 잠재된 **기만적 가짜 연산 코드(Mock/Stub 강도치 150/100, 임의 OK 판정), 불완전한 폼 잔존/뭉뚱그림, 계산서 하드코딩 정적 텍스트 및 데드코드를 전면 척결**하고, `docs/07` 및 `docs/14` 규격에 부합하는 투명하고 정직한 **`[미구현 (WIP)]` 4-Pane 베이스라인**을 확립하기 위한 핵심 독립 전술 요구사항 명세서입니다.
+* **문서 성격**: Midas Design+ 61종 전체 부재의 실무급 1:1 웹 마이그레이션에 앞서, 시스템 전반에 잠재된 **기만적 가짜 연산 코드(Mock/Stub 강도치 150/100, 임의 OK 판정), 불완전한 폼 잔존/뭉뚱그림, 계산서 하드코딩 정적 텍스트 및 데드코드를 전면 척결**하고, `docs/07` 및 `docs/14` 규격에 부합하는 투명하고 정직한 **`[미구현 (WIP)]` 4-Pane 베이스라인**을 확립하기 위한 핵심 독립 전술 요구사항 명세서입니다.
 * **4대 포팅 참조 우선순위 준수**:
   - `1순위`: 원본 추출 소스 (`decompiled_src/core_routines/*.c`, `symbols/*.txt`, `original_src/`)
   - `2순위`: Midas Design+ 공식 기술 매뉴얼 및 Help 자산 (`decompiled_src/manuals/`)
@@ -31,8 +31,8 @@
 4. **`docs/14` KDS 3대 보고서 & 5대 장구분 체계 준수**:
    - `As-Is`: AltBU 잔재인 "8단계 KaTeX 수식 전개식" 등 타 프로젝트 용어가 혼입되어 `docs/14` 명세와 충돌.
    - `To-Be`: Midas 원본 및 `docs/14`의 정식 규격인 **"5대 장구분 (1. 일반조건, 2. 재질/단면, 3. 설계하중, 4. 단면안전성, 5. 종합판정)"** 및 **"3대 보고서 모드 (요약/상세/입력데이터)"** 표준 양식으로 완전 일치화. 하드코딩된 정적 텍스트를 전면 청산하고 미계산 시 순백색 A4 WIP 시트 렌더링.
-5. **Midas 54종 모듈 3단계 티어(Tier) 메타데이터 전수 주입**:
-   - `docs/13`의 Midas 원본 6대 대분류 탭(RC, STEEL, SRC, ALU, RFM, FEM/기타)에 기반하여 54종 전체 모듈에 3단계 티어(`Tier 1: 10종 핵심`, `Tier 2: 18종 주요`, `Tier 3: 26종 특수`) 속성 전수 주입.
+5. **Midas 61종 모듈 3단계 티어(Tier) 메타데이터 전수 주입 ([`docs/17`](file:///f:/PyProject/AltDP_3rd/docs/17_master_midas_modules_comprehensive_catalog.md))**:
+   - `docs/13`의 Midas 원본 6대 대분류 탭(RC, STEEL, SRC, ALU, RFM, FEM/기타)에 기반하여 61종 전체 모듈에 3단계 티어(`Tier 1: 9종 핵심`, `Tier 2: 26종 주요`, `Tier 3: 26종 특수`) 속성 전수 주입.
 
 ---
 
@@ -42,7 +42,7 @@
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│ Top Master Toolbar : AltDP_3rd Midas Design+ KDS Suite [단위계: SI (kN, mm) ▼] [테마: 🌙/☀️] [💾 적용] [⚡ 검토] [✨ 설계] [상태: 54종 온라인 🟢] │
+│ Top Master Toolbar : AltDP_3rd Midas Design+ KDS Suite [단위계: SI (kN, mm) ▼] [테마: 🌙/☀️] [💾 적용] [⚡ 검토] [✨ 설계] [상태: 61종 온라인 🟢] │
 ├────────────────────────┬───────────────────────────────────────────────────────────────┬───────────────────────────────────────────────┤
 │ [Left Sidebar]         │ [Left-Sub: Member & Input]    │ [Center: 2D Graphic View]     │ [Right: KDS Report Dock]                      │
 │ 📂 설계 모듈 탐색기    │ ┌───────────────────────────┐ │ ┌───────────────────────────┐ │ ┌───────────────────────────────────────────┐ │
@@ -118,45 +118,79 @@ class WIPResponse(BaseModel):
 
 ---
 
-## 4. Midas Design+ 54종 모듈 3단계 티어(Tier) 분류표 (`docs/12`, `docs/13`)
+## 4. Midas Design+ 61종 전체 모듈 3단계 티어(Tier) 전수 분류표 ([`docs/17`](file:///f:/PyProject/AltDP_3rd/docs/17_master_midas_modules_comprehensive_catalog.md))
 
-Midas Design+ 원본 리본 메뉴(`Menu.ini`)의 6대 대분류에 기반하여 54종 전체 모듈을 실무 중요도와 완성도에 따라 아래와 같이 3단계로 엄격히 분류하여 관리합니다:
+Midas Design+ 원본 리본 메뉴(`Menu.ini`) 및 대화상자 리소스(`DLG_*.ini`), 외부 솔버(`docs/15`)에 기반하여 **총 61종 전체 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**을 단 1종의 누락이나 축약("등 N종" 표현 전면 금지) 없이 3단계 티어로 전수 분류하여 엄격히 관리합니다:
 
-### 4.1. Tier 1: 최우선 플래그십 핵심 부재 (10종)
-실무 빈도가 가장 높고 전 구조물의 80% 이상을 차지하는 최우선 완성 부재:
-1. `rc_beam`: RC 보 (`IDD_RCS_BEAM_PMODE_DLG`, 단근/복근/T형/처짐/균열)
-2. `rc_column`: RC 기둥 (`IDD_RCS_COLUMN_PMODE_DLG`, 3D P-M 다이어그램, 2축 휨)
-3. `rc_wall`: RC 전단벽 (`IDD_RCS_WALL_PMODE_DLG`, 특수경계요소, 전단강도)
-4. `rc_footing_iso`: RC 독립기초 (`IDD_RCS_FOOT_PMODE_DLG`, 지내력, 휨, 1방향/2방향 펀칭)
-5. `rc_retaining_wall`: RC 옹벽 (`IDD_RCS_RETAINING_WALL_INPUT_DLG`, 전도, 활동, 지내력, 저판/벽체 배근)
-6. `steel_beam`: 철골 보 (`IDD_STL_BEAMCOLUMN_INPUT_DLG`, 조밀단면, LTB 횡좌굴, 처짐)
-7. `steel_column`: 철골 기둥 (`IDD_STL_BEAMCOLUMN_INPUT_DLG`, 축력-휨 P-M 상호작용, 좌굴)
-8. `steel_brace`: 철골 가새 (`IDD_STL_BRACE_INPUT_DLG`, 인장/압축 좌굴, 내진성능)
-9. `steel_baseplate`: 철골 주각부 베이스플레이트 (`IDD_STL_BASEPLATE_DLG`, 앵커 인장/전단, 지압)
-10. `steel_connection`: 철골 보-기둥 접합부 (`IDD_STL_CONN_BEAMCOL_DLG`, 전단/모멘트 고장력볼트, 용접)
+### 4.1. Tier 1: 최우선 플래그십 핵심 부재 (9종)
+실무 빈도가 가장 높고 구조설계의 근간을 이루는 최우선 부재 (현재 엔진 100% 검증 완료, `docs/07` 4-Pane UI 연동 대상):
+1. `rc_beam`: RC 보 (`IDD_RCS_BEAM_PMODE_DLG`, KDS 14 20 10/22, `src/engine/rc/beam.py`)
+2. `rc_column`: RC 기둥 (`IDD_RCS_COLUMN_PMODE_DLG`, KDS 14 20 10, 200 파이버 P-M, `src/engine/rc/column.py`)
+3. `rc_shear_wall`: RC 전단벽 (`IDD_RCS_WALL_PMODE_DLG`, KDS 14 20 40, 면내전단/경계요소, `src/engine/rc/wall.py`)
+4. `rc_retaining_wall`: RC 옹벽 (`IDD_RCS_RETAINING_WALL_INPUT_DLG`, KDS 14 20 40 / KDS 11 80 05, `src/engine/rc/retaining_wall.py`)
+5. `rc_slab`: RC 슬래브 (`IDD_RCS_SLAB_PMODE_DLG`, KDS 14 20 40, 1방향/2방향 DDM/EFM, `src/engine/rc/slab.py`)
+6. `rc_iso_footing`: RC 독립기초 (`IDD_RCS_FOOT_PMODE_DLG`, KDS 14 20 50, 지내력/펀칭/휨, `src/engine/rc/footing.py`)
+7. `steel_beam_column`: 철골 보/기둥 (`IDD_STL_BEAMCOLUMN_INPUT_DLG`, KDS 14 31 10, LTB/좌굴/P-M, `src/engine/steel/beam.py`, `column.py`)
+8. `steel_baseplate`: 철골 주각부 베이스플레이트 (`IDD_STL_USBP_PMODE_DLG`, KDS 14 31 25, 지압/소요두께, `src/engine/steel/baseplate.py`)
+9. `steel_bolt_conn`: 철골 볼트 접합부 (`IDD_STL_BOLTCONNECTION_INPUT_DLG`, KDS 14 31 25, 마찰/지압/블록전단, `src/engine/steel/connection.py`)
 
-### 4.2. Tier 2: 실무 주요 부재 및 기초/합성/FEM (18종)
-1. `rc_slab`: RC 1방향/2방향 슬래브 (`IDD_RCS_SLAB_PMODE_DLG`, DDM/EFM)
-2. `rc_basement_wall`: RC 지하외벽 (`IDD_RCS_BASEMENT_WALL_DLG`, 2방향 FEM 토압/수압)
-3. `rc_footing_comb`: RC 복합기초 (`IDD_RCS_FOOT_COMB_DLG`)
-4. `rc_footing_pile`: RC 말뚝기초 (`IDD_RCS_FOOT_PILE_DLG`, 파일 반력, 캡 전단/휨)
-5. `rc_footing_mat`: RC 전면 매트기초 (FEM 평판 휨 + 윙클러 스프링, `docs/15`)
-6. `rc_column_irregular`: RC 이형/다각형 기둥 (임의단면 200파이버 해석)
-7. `rc_wall_irregular`: RC 특수 형상 전단벽
-8. `steel_endplate`: 철골 모멘트 엔드플레이트 (2D 항복선 FEM 해석, `docs/15`)
-9. `steel_web_opening`: 철골 웨브 개구부 보
-10. `steel_crane_girder`: 철골 크레인 주행보
-11. `steel_truss`: 철골 트러스 부재
-12. `src_column`: SRC/CFT 합성기둥 (매립형/충전형 P-M 해석)
-13. `src_beam`: SRC 합성보 (데크플레이트, 전단연결재)
-14. `src_baseplate`: SRC 주각부 베이스플레이트
-15. `alu_beam`: 알루미늄 보 (HAZ 열영향부 검토)
-16. `alu_column`: 알루미늄 기둥
-17. `rfm_beam_carbon`: 탄소섬유판(CFRP) 보수보강 보
-18. `rfm_column_jacket`: 강판/CFRP 자켓 기둥 보강
+### 4.2. Tier 2: 실무 주요 부재 및 기초/합성/FEM 연동군 (26종)
+실무 다빈도 확장 부재 및 외부 2D FEM 해석 솔버 연동 부재:
+10. `rc_gencolumn`: RC 임의형상 기둥 (`IDD_RCS_URGC_PMODE_DLG`, KDS 14 20 10, 다각형 파이버 P-M)
+11. `rc_comb_wall`: RC 이형 코어벽체 (`IDD_RCS_COMBINED_WALL_*`, KDS 14 20 40, L/T/ㄷ형 3차원 P-M)
+12. `rc_basement_wall`: RC 지하외벽 (`IDD_RCS_BASEWALL_INPUT_DLG`, KDS 14 20 40, 토압/수압 1way/2way 휨)
+13. `rc_comb_footing`: RC 복합기초 (`IDD_RCS_COMBINED_FOOTING_*`, KDS 14 20 50, 2주 이상 복합기초 평형)
+14. `rc_strip_footing`: RC 줄기초 (`IDD_RCS_STRIPFOOT_INPUT_DLG`, KDS 14 20 50, 벽체 하부 단위폭 휨/전단)
+15. `rc_pile_footing`: RC 말뚝기초 (`IDD_RCS_FOUNDATION_INPUT_*`, KDS 14 20 50, 말뚝반력 분배/캡 설계)
+16. `rc_anchor_bolt`: 콘크리트용 앵커볼트 (`IDD_DGN_ANCH_BOLT_DLG`, KDS 14 20 54, 인장파열/콘파괴/전단)
+17. `steel_brace`: 철골 가새 (`IDD_STL_BEAMCOL_SMODE_*`, KDS 14 31 10, 인장 순단면 파단/압축 좌굴)
+18. `steel_endplate`: 철골 모멘트 엔드플레이트 (`IDD_STL_FORCE_INPUT_FINEND_DLG`, KDS 14 31 25, 항복선 판두께)
+19. `steel_welding`: 철골 용접 접합부 (`IDD_STL_WELDING_INPUT_DLG`, KDS 14 31 25, 필릿/그루브 유효목두께)
+20. `steel_crane_girder`: 철골 크레인 주행보 (`IDD_STL_CRANEGIRDER_INPUT_DLG`, KDS 14 31 10, 휠하중/충격/피로)
+21. `steel_purlin_girt`: 철골 중도리/띠장 (`IDD_STL_USPG_PMODE_DLG`, KDS 14 31 10, 냉간성형 C/Z 2축휨)
+22. `steel_web_opening`: 철골 웨브 개공보 (`IDD_STL_WEBOPEN_PMODE_DLG`, KDS 14 31 10, Vierendeel 휨-전단)
+23. `steel_embedplate`: 철골 매립판 (`IDD_STL_EMBPLATE_INPUT_DLG`, KDS 14 31 25, 스터드 앵커 콘파괴)
+24. `src_composite_beam`: SRC 합성보 (`IDD_SRC_COMP_BEAM_PMODE_DLG`, KDS 14 31 35, 슬래브 완전/부분 합성)
+25. `src_baseplate`: SRC 주각부 베이스플레이트 (`IDD_SRC_BASE_PLATE`, KDS 14 31 35, 매립/노출 지압)
+26. `src_column`: 매립형 SRC 기둥 (`IDD_SRC_COLUMN_INPUT_DLG`, KDS 14 31 35, 형강 매립 P-M 곡선)
+27. `src_cft_column`: 충전형 CFT 기둥 (`IDD_SRC_UCFT_PMODE_DLG`, KDS 14 31 35, 강관 충전 구속효과 P-M)
+28. `alu_beam_col`: 알루미늄 보/기둥 (`IDD_GUAAG_PMODE_MAIN_DLG`, KDS 14 31 40, 압출형재 휨/좌굴/HAZ)
+29. `foundation_fem`: RC 매트기초 FEM (`docs/15`, KDS 14 20 50, DKMQ 후판휨 + 윙클러 지반스프링 인장분리)
+30. `wall_2way_fem`: RC 지하외벽 2방향 FEM (`docs/15`, KDS 14 20 40, 토압/수압 2방향 판휨 및 다층 지지)
+31. `baseplate_fem`: 주각부 접촉 FEM (`docs/15`, KDS 14 31 25, 콘크리트 압축-앵커 인장 비선형 접촉)
+32. `endplate_fem`: 엔드플레이트 항복선 FEM (`docs/15`, KDS 14 31 25, 2D 볼트 배치별 소성 항복선 수치해석)
+33. `slab_fem`: 이형/개구부 슬래브 FEM (`docs/15`, KDS 14 20 40, 비정형 단면 판휨 및 응력집중)
+34. `cad_draw_dxf`: 2D 배근 CAD 도면 생성 (`DPLUS_VDraw.dll`, KDS 14 20 52, ezdxf 기반 DXF CAD 파일)
+35. `quantity_excel`: KDS 표준 물량산출 (`DGN_lib.dll`, KDS 14 20 00, 콘크리트/거푸집/철근 톤수 Excel)
 
-### 4.3. Tier 3: 특수 목적/상세 검토/인터페이스 모듈 (26종)
-단면 기하성질 산정(SDB), 앵커볼트 상세, 버트레스, 계단, 코벨/브라켓, 임베디드 플레이트, 파형웨브보, 풍/지진 하중 생성기, MIDAS Gen MGT/MGB 인터페이스 등 잔여 26종 모듈.
+### 4.3. Tier 3: 특수 목적 / 상세 검토 / 일괄 관리 / 글로벌 어댑터군 (26종)
+특수 구조상세, 일괄 설계 툴, 성능기반설계(PBD), 3D 모델 연동 및 해외 규준 모듈:
+36. `rc_buttress`: RC 버트레스 지주 (`IDD_RCS_BUTTRESS_SMODE_*`, KDS 14 20 40, 부벽식 지주 휨/전단)
+37. `rc_stair`: RC 계단 (`IDD_RCS_URST_PMODE_DLG`, KDS 14 20 40, 계단실 경사 슬래브 휨/전단)
+38. `rc_corbel`: RC 코벨/브라켓 (`IDD_RCS_CORBEL_*`, KDS 14 20 22, 기둥 돌출부 전단마찰 및 인장타이)
+39. `rc_beam_table`: RC 보 강도 테이블 (`IDD_RCS_BEAM_MLIST_DLG`, KDS 14 20 10, 단면/배근 일괄표)
+40. `rc_slab_table`: RC 슬래브 강도 테이블 (`IDD_RCS_SLAB_LIST`, KDS 14 20 40, 영역별 두께/배근 일괄표)
+41. `rc_batch_beam`: RC 보 일괄설계 (`IDD_RCS_BATCH_BEAM_BUILD_*`, KDS 14 20 10, 프로젝트 전 부재 일괄)
+42. `rc_batch_column`: RC 기둥 일괄설계 (`IDD_RCS_BATCH_COLM_BUILD_*`, KDS 14 20 10, 건물 전체 다축 일괄)
+43. `rc_batch_wall`: RC 벽체 일괄설계 (`IDD_RCS_BATCHWALL_INPUT_DLG`, KDS 14 20 40, 시공성 고려 일괄)
+44. `steel_stair`: 철골 계단 (`IDD_STL_STAIR_INPUT_DLG`, KDS 14 31 10, 스트링거 거더 및 디딤판)
+45. `steel_corweb_beam`: 철골 파형웨브보 (`IDD_STL_BEAMCOL_*`, KDS 14 31 10, 파형웨브 전단좌굴/휨)
+46. `steel_tool_unbrace`: 비지지길이 산정 툴 (`IDD_STL_TOOL_UNBRACE_*`, KDS 14 31 10, 가새점 자동 산정)
+47. `steel_tool_brace_str`: 브레이스 소요강도 툴 (`IDD_STL_TOOL_BRACE_*`, KDS 14 31 10, 좌굴방지 강도/강성)
+48. `steel_tool_link_stiff`: 전단링크 스티프너 툴 (`IDD_STL_TOOL_STIFF_*`, KDS 14 31 10, EBF 링크 보강)
+49. `steel_tool_vbrace_str`: V브레이스 보강도 툴 (`IDD_STL_TOOL_VBRACE_*`, KDS 14 31 10, 불평형 하중)
+50. `alu_beam_col_gen`: 알루미늄 임의형상 보/기둥 (`IDD_GUAMT_PMODE_MAIN_DLG`, KDS 14 31 40, 비정형 다축)
+51. `rfm_slab`: RC 슬래브 보수보강 (`IDD_UFSL_PMODE_DLG`, KDS 14 20 90, 하부 CFRP/강판 휨보강)
+52. `rfm_beam`: RC 보 보수보강 (`IDD_UFBE_PMODE_DLG`, KDS 14 20 90, CFRP 휨/전단 U-재킷팅)
+53. `rfm_column`: RC 기둥 보수보강 (`IDD_UFCO_PMODE_DLG`, KDS 14 20 90, 강판/CFRP 구속압축도 증진)
+54. `pbd_rc_beam`: RC 보 성능기반설계 (`IDS_RIBBON_MENU_PBD_RCS_BEAM`, KDS 41 17 00, $M-\theta$ 소성힌지)
+55. `pbd_rc_column`: RC 기둥 성능기반설계 (`IDS_RIBBON_MENU_PBD_RCS_COLUMN`, KDS 41 17 00, P-M-M 소성힌지)
+56. `pbd_rc_wall`: RC 전단벽 성능기반설계 (`IDS_RIBBON_MENU_PBD_RCS_WALL`, KDS 41 17 00, 전단 소성 백본)
+57. `gen_mgt_interop`: MIDAS Gen 3D 모델 연동 (`DgnPlugIn/`, KDS 41 10 15, .mgt 파서 & Governing LCB)
+58. `ec_rc_member`: Eurocode 콘크리트 부재 (`DPLUS_EC.dll`, EN 1992-1-1, 부분안전계수 기반 휨/압축)
+59. `ec_steel_member`: Eurocode 강구조 부재 (`DPLUS_EC.dll`, EN 1993-1-1, Class 1~4 단면 및 부재강도)
+60. `is_rc_member`: 인도 IS 456 콘크리트 부재 (`DPLUS_IS.dll`, IS 456:2000, 한계상태설계법 LSM)
+61. `us_member`: 미국 ACI/AISC 부재 (`GEN_DgnCalc_US.dll`, ACI 318-19 / AISC 360-16, imperial 단위계)
 
 ---
 
@@ -167,7 +201,7 @@ flowchart TD
     Req20["요구사항 20: Phase 20 더미 척결 및 정직한 WIP 베이스라인 구축 (마스터)"]
     
     P1["20-1: 백엔드 가짜 숫자(150/100) 전면 삭제 및 WIPResponse 디스패처 구축"]
-    P2["20-2: Midas 54종 모듈 3단계 티어(Tier 1/2/3) 메타데이터 전수 주입"]
+    P2["20-2: Midas 61종 모듈 3단계 티어(Tier 1/2/3) 메타데이터 전수 주입"]
     P3["20-3: 프론트엔드 입력부 잔존폼 방어 및 Midas 전용 WIP 안내 카드 구축"]
     P4["20-4: 2D VDraw Canvas WIP 및 KDS A4 계산서 하드코딩 청산"]
     P5["20-5: docs/07 기반 4-Pane 통합 E2E 검증 & 콘솔 에러 0건 검수창구 확립"]
@@ -180,10 +214,10 @@ flowchart TD
 | 하위 Phase | 세부 요구사항 문서 | 핵심 개발 영역 | 주요 담당 산출물 및 정합성 목표 |
 |:---:|---|---|---|
 | **Phase 20-1** | [`요구사항 20-1`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-1_Phase20-1_백엔드_더미연산_제거_및_WIP_디스패처_구축.md) | 백엔드 API & 디스패처 | • 가짜 연산(150/100) 영구 삭제, `WIPResponse` 표준 스키마<br>• `docs/12` 기완료 검증 엔진 100% 보호 및 `dispatch.py` 분기 |
-| **Phase 20-2** | [`요구사항 20-2`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-2_Phase20-2_Midas_54종_3단계_티어_메타_전수_주입.md) | 카탈로그 & 메타데이터 | • Midas 54종 카탈로그에 `Tier 1/2/3`, `standard`, `midas_dlg` 전수 주입<br>• `GET /api/modules` 티어별 통계 집계 엔드포인트 제공 |
+| **Phase 20-2** | [`요구사항 20-2`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-2_Phase20-2_Midas_61종_3단계_티어_메타_전수_주입.md) | 카탈로그 & 메타데이터 | • Midas 61종 카탈로그에 `Tier 1/2/3`, `standard`, `midas_dlg` 전수 주입<br>• `GET /api/modules` 티어별 통계 집계 엔드포인트 제공 |
 | **Phase 20-3** | [`요구사항 20-3`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-3_Phase20-3_프론트엔드_입력부_WIP_안내카드_및_폼_방어.md) | Left-Sub (사용자입력부) | • `docs/07` 4-Pane 레이아웃 연동 및 이전 폼 잔존 방지 클린업<br>• `WIPCardRenderer`: 글래스모피즘 카드, 3버튼 액션 파이프라인 방어 |
 | **Phase 20-4** | [`요구사항 20-4`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-4_Phase20-4_2D_VDraw_캔버스_WIP_및_A4_계산서_하드코딩_청산.md) | Center 캔버스 & Right 리포트 | • 2D VDraw Canvas WIP 플레이스홀더 (그리드+부재명)<br>• `docs/14` 5대 장구분 준수, 계산서 하드코딩 청산, 순백색 `#ffffff` A4 WIP 시트 |
-| **Phase 20-5** | [`요구사항 20-5`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-5_Phase20-5_4열_통합_E2E_검증_및_콘솔에러_0건_검수창구_확립.md) | 4-Pane 통합 E2E & 무결성 | • 54종 순회 클릭 시 F12 콘솔 에러 0건(404, TypeError 등) 입증<br>• 플래그십-WIP 이중 검증 및 전체 `pytest` 100% 통과 (Exit Code 0) |
+| **Phase 20-5** | [`요구사항 20-5`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항20-5_Phase20-5_4열_통합_E2E_검증_및_콘솔에러_0건_검수창구_확립.md) | 4-Pane 통합 E2E & 무결성 | • 61종 순회 클릭 시 F12 콘솔 에러 0건(404, TypeError 등) 입증<br>• 플래그십-WIP 이중 검증 및 전체 `pytest` 100% 통과 (Exit Code 0) |
 
 ---
 
@@ -193,4 +227,4 @@ flowchart TD
 2. **`docs/12` 기완료 엔진 100% 보호**: RC 보, 기둥, 기초 등 이미 검증된 KDS 엔진은 기존 오차 $\le 0.10\%$ 연산 결과가 일체의 회귀 결함 없이 정상 출력되어야 함.
 3. **`docs/07` 4-Pane 동기화 일관성**: 미구현 부재 선택 시 [사이드바 탐색기] $\leftrightarrow$ [Left-Sub 입력부 WIP 카드] $\leftrightarrow$ [Center 2D Canvas WIP] $\leftrightarrow$ [Right 순백색 A4 계산서 WIP 시트]가 100ms 이내에 오염 없이 동기화되어야 함.
 4. **`docs/14` 계산서 표준 일치**: 계산서 영역에 "8단계 KaTeX" 등 타 규격 표현이나 가짜 결과 텍스트가 0건이어야 하며, 5대 장구분 표준 목차를 준수해야 함.
-5. **콘솔 에러 0건**: 54종 트리메뉴를 임의 순서로 고속 순회 클릭하여도 브라우저 개발자 도구에 404 Not Found나 `Uncaught TypeError`가 단 1건도 발생하지 않아야 함.
+5. **콘솔 에러 0건**: 61종 트리메뉴를 임의 순서로 고속 순회 클릭하여도 브라우저 개발자 도구에 404 Not Found나 `Uncaught TypeError`가 단 1건도 발생하지 않아야 함.
