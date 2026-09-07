@@ -520,14 +520,17 @@
 }
 
 /* ========================================================= */
-/* 4-Split Workspace Body & Splitters                        */
+/* 4-Pane Workspace Layout & 4 Independent Resizers (Req 21-1)*/
 /* ========================================================= */
-.workspace-body {
+.workspace-4pane, .workspace-body {
     display: flex;
+    flex-direction: row;
     flex: 1;
     height: 100%;
+    width: 100%;
     overflow: hidden;
     background: var(--bg-primary);
+    position: relative;
 }
 
 .split-pane {
@@ -536,17 +539,95 @@
     overflow: hidden;
 }
 
+/* 4-Pane Core Layout Columns */
+/* 1. Left Sidebar */
+.pane-sidebar, .sidebar {
+    width: 280px;
+    min-width: 200px;
+    max-width: 480px;
+    flex: 0 0 280px;
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 20;
+}
+
+/* 2. Left-Sub Pane (Member List + Input Form) */
+.pane-left-sub, .left-sub-pane {
+    width: 380px;
+    min-width: 240px;
+    flex: 0 0 380px;
+    flex-direction: column;
+    background: var(--bg-primary);
+    border-right: 1px solid var(--border);
+    overflow: hidden;
+    z-index: 10;
+}
+
+/* Pane 1: Top Member List */
+.subpane-member-list, .member-pane {
+    height: 160px;
+    min-height: 80px;
+    max-height: 400px;
+    flex: 0 0 160px;
+    flex-direction: column;
+    background: var(--bg-secondary);
+    overflow: hidden;
+}
+
+/* Pane 2: Bottom Input Form */
+.subpane-input-form, .input-pane {
+    flex: 1 1 0%;
+    min-height: 100px;
+    flex-direction: column;
+    background: var(--bg-card);
+    overflow-y: auto;
+}
+
+/* 3. Center Graphic Viewport (2D/3D Multi-Viewport) */
+.pane-center-graphic, .graphic-pane {
+    flex: 1 1 0%;
+    min-width: 250px;
+    flex-direction: column;
+    background: var(--bg-card);
+    overflow: hidden;
+}
+
+/* 4. Right KDS Calculation Report */
+.pane-right-report, .right-report-pane {
+    flex: 1 1 0%;
+    min-width: 320px;
+    flex-direction: column;
+    background: var(--bg-secondary);
+    border-left: 1px solid var(--border);
+    overflow: hidden;
+}
+
+/* Legacy wrapper fallback for backward compatibility */
+.left-main-pane {
+    flex: 1 1 0%;
+    flex-direction: row;
+    min-width: 320px;
+}
+
 /* Horizontal Splitters (col-resize) */
 .resizer-h {
     width: 6px;
     min-width: 6px;
+    max-width: 6px;
+    flex: 0 0 6px;
     background: var(--bg-primary);
     border-left: 1px solid var(--border);
     border-right: 1px solid var(--border);
     cursor: col-resize;
     position: relative;
-    transition: background 0.15s ease;
-    z-index: 10;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    z-index: 30;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .resizer-h:hover, body.resizing-col .resizer-h {
@@ -570,13 +651,17 @@
 .resizer-v {
     height: 6px;
     min-height: 6px;
+    max-height: 6px;
+    flex: 0 0 6px;
     background: var(--bg-primary);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     cursor: row-resize;
     position: relative;
-    transition: background 0.15s ease;
-    z-index: 10;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    z-index: 30;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .resizer-v:hover, body.resizing-row .resizer-v {
@@ -596,52 +681,24 @@
     border-radius: 1px;
 }
 
-/* Left Main Area */
-.left-main-pane {
-    flex: 0.60 1 0%;
-    flex-direction: row;
-    min-width: 320px;
+/* Global Dragging State Guards */
+body.resizing-col, body.resizing-col * {
+    cursor: col-resize !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
 }
 
-/* Left-Sub Area */
-.left-sub-pane {
-    flex: 0.50 1 0%;
-    flex-direction: column;
-    min-width: 220px;
-    border-right: 1px solid var(--border);
+body.resizing-row, body.resizing-row * {
+    cursor: row-resize !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
 }
 
-/* Pane 1: Top Member List */
-.member-pane {
-    flex: 0.35 1 0%;
-    min-height: 120px;
-    flex-direction: column;
-    background: var(--bg-secondary);
-}
-
-/* Pane 2: Bottom Input Form */
-.input-pane {
-    flex: 0.65 1 0%;
-    min-height: 140px;
-    flex-direction: column;
-    background: var(--bg-card);
-}
-
-/* Pane 3: Left-Right Graphic View */
-.graphic-pane {
-    flex: 0.50 1 0%;
-    min-width: 200px;
-    flex-direction: column;
-    background: var(--bg-card);
-}
-
-/* Pane 4: Right Main Report */
-.right-report-pane {
-    flex: 0.40 1 0%;
-    min-width: 300px;
-    flex-direction: column;
-    background: var(--bg-secondary);
-    border-left: 1px solid var(--border);
+body.resizing-col canvas,
+body.resizing-col iframe,
+body.resizing-row canvas,
+body.resizing-row iframe {
+    pointer-events: none !important;
 }
 
 /* ========================================================= */

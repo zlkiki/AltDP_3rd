@@ -39,16 +39,25 @@
     .member-pane,
     .input-pane,
     .graphic-pane,
+    .pane-sidebar,
+    .pane-left-sub,
+    .pane-center-graphic,
+    #sidebar-nav,
+    #left-sub-pane,
+    #center-pane,
     #pane-left-main,
     #pane-left-sub,
     #pane-member-list,
     #pane-input-form,
-    #pane-graphic-view {
+    #pane-graphic-view,
+    .resizer-h,
+    .resizer-v {
         display: none !important;
     }
 
     /* 3. [출력 대상]: 우측 기준검토부 & A4 계산서만 100% 전체 폭으로 렌더링 */
     .workspace,
+    .workspace-4pane,
     .workspace-body {
         display: block !important;
         width: 100% !important;
@@ -61,6 +70,8 @@
     }
 
     .right-report-pane,
+    .pane-right-report,
+    #right-pane,
     #pane-right-report {
         display: block !important;
         width: 100% !important;

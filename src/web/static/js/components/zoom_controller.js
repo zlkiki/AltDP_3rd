@@ -76,7 +76,7 @@
         }
 
         fitToWidth() {
-            const container = document.getElementById('pane-right-report');
+            const container = document.getElementById('right-pane') || document.getElementById('pane-right-report');
             if (!container) return;
             const containerWidth = container.clientWidth - 40;
             const targetWidth = 794; // A4 fixed width in px

@@ -10,14 +10,18 @@
  */
 
 (function () {
-    // MemberDesign_Project_20260825_1408.json 기준 시스템 기본 레이아웃
+    // Requirement 21-1 DOCS 07 표준 4-Pane 시스템 기본 레이아웃
     const SYSTEM_DEFAULT_LAYOUT = {
-        mainSplitRatio: 0.481,   // Left Area (48.1%) : Right Report (51.9%)
-        leftSplitHRatio: 0.524,  // Left-Left (52.4%) : Left-Right Graphic (47.6%)
-        leftSplitVRatio: 0.35,   // Top MemberList (35%) : Bottom InputForm (65%)
-        sidebarWidth: 250,
-        sidebarCollapsed: false, // 첫 실행 시 좌측 메뉴가 보이도록 활성화
-        sidebarPinned: false     // unpinned (자동 숨김 모드) 상태로 시작
+        sidebarWidth: 280,      // 200px <= W_sb <= 480px (기본값: 280px)
+        leftSubWidth: 380,      // 20% <= W_sub <= 50% 가용폭 (기본값: 380px)
+        memberHeight: 160,      // 80px <= H_memb <= 400px (기본값: 160px)
+        centerRightRatio: 0.50, // 25% <= W_center <= 75% 중앙/우측 비율 (기본값: 50:50)
+        sidebarCollapsed: false,
+        sidebarPinned: true,
+        // 하위 호환성 유지용 레거시 필드
+        mainSplitRatio: 0.50,
+        leftSplitHRatio: 0.50,
+        leftSplitVRatio: 0.35
     };
 
     const DEFAULT_META = {
