@@ -1,73 +1,70 @@
-# 요구사항 23: Phase V1-2 RC 기둥 (rc_column) 5대 공정 수직 관통 명세서
+# 요구사항 23: Phase V1-2 RC 기둥 (rc_column) 수직 관통 마스터 명세서
 
-## 1. 개요 및 모듈 개요 (Module Overview)
+## 1. 개요 및 61종 마스터플랜 매핑 (Master Plan Alignment)
 
 ### 1.1. 모듈 개요 및 SSOT 매핑
-본 문서는 **[`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**의 Phase V1(Tier 1 플래그십 5대 핵심 부재) 중 두 번째 모듈인 **RC 기둥 (`rc_column`)**을 부재 단위 수직 관통(Vertical Slice)하여 **Step 1(엔진)부터 Step 5(E2E 통합)**까지 100% 작동 가능한 상용 엔지니어링 모듈로 완성하기 위한 상세 요구사항 명세서입니다.
+본 문서는 **[`docs/04_master_midas_modules_comprehensive_catalog.md`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md)**(61종 전수 모듈 인벤토리) 및 **[`docs/12_full_feature_porting_master_plan.md`](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**(Phase V1~V6 수직 포팅 마스터플랜)에 따라, Tier 1 플래그십 핵심 부재인 **RC 기둥 (`rc_column`)**을 5대 공정(Step 1~5)으로 수직 관통(Vertical Slice)하여 100% 작동 가능한 완성형 상용 웹 모듈로 개발하기 위한 **총괄 마스터 명세서**입니다.
 
-* **모듈 식별자**: `rc_column` (카탈로그 번호 No. 2)
-* **국가건설기준 (4순위)**: KDS 14 20 10 (재료), KDS 14 20 20 (축력 및 휨), KDS 14 20 22 (기둥 전단)
-* **공식 학회 예제집 (3순위)**: 콘크리트구조학회(2020) 예제집 `5.1 단주 축력-휨 P-M 상관곡선`, `5.2 원형/나선철근 기둥`, `5.3 장주 횡구속/비구속 모멘트확대법`
-* **원본 DLG 리소스 (2순위)**: `IDD_RCS_COLUMN_PMODE_DLG`, `IDD_URCF_PMODE_DLG`
-* **원본 추출 C 루틴 (1순위)**: `solver__CHK_BCCO_*.c`, `DPLUS_RCS.dll`, `DPLUS_DB.dll` (파이버 솔버)
-
----
-
-## 2. 5대 정밀 수직 공정 세부 명세 (Step 1 ~ Step 5)
-
-### Step 1: KDS 계산 엔진 & Pydantic 스키마 (`src/engine/rc/column.py`)
-* **Pydantic 데이터 스키마 구축**:
-  - `RCColumnSection`: 단면 형태(사각/원형), 단면 치수($b \times h$ 또는 $D$), 층고/부재길이($L_u$), 유효길이계수($k_x, k_y$), $f_{ck}, f_y, f_{yt}$, 띠철근/나선철근 구분.
-  - `RCColumnRebar`: 4면 균등배치 또는 각 변별 주철근 배치, 전단 띠철근(지름, 다리수, 간격 $s$).
-  - `RCColumnLoads`: 3축 부재력 ($P_u, M_{ux}, M_{uy}$), 단부 모멘트비 ($M_1/M_2$), 횡구속(Braced)/비구속(Unbraced) 골조 플래그.
-  - `RCColumnResult`: 순수 압축내력($P_0, \phi P_{n,max}$), 균형파괴점($P_b, M_b$), 순수 휨내력($M_0$), 3D P-M 곡선 데이터포인트(200 파이버 적분), 이축휨 브레슬러(Bresler) 상호작용 지수, 모멘트확대계수($\delta_{ns}, \delta_s$), 전단 DCR 및 최종 판정(`OK`/`NG`).
-* **KDS 수치 계산 정밀 구현**:
-  - 최대 설계축강도: $\phi P_{n,max} = 0.80 \phi [0.85 f_{ck} (A_g - A_{st}) + f_y A_{st}]$ (띠철근 $\phi = 0.65$).
-  - 파이버 수치적분 솔버 연동: 200개 단면 요소로 분할하여 중립축 회전각($\theta$) 및 곡률에 따른 P-M 3차원 상관곡면 생성.
-  - 장주 효과(KDS 14 20 20): 세장비 판정 ($k l_u / r \le 34 - 12(M_1/M_2)$), 탄성 좌굴하중 $P_c = \pi^2 E I / (k l_u)^2$, 모멘트 확대 $M_c = \delta_{ns} M_2$.
-  - 이축휨 검토: Bresler 상호작용식 $\frac{1}{P_n} = \frac{1}{P_{nx}} + \frac{1}{P_{ny}} - \frac{1}{P_0}$ 또는 파이버 3D 곡면 직접 내삽 판정.
-* **DoD 검증**: 콘크리트학회 예제집 5.1/5.2 대비 계산 오차 $\le 0.10\%$ (`pytest tests/engine/test_rc_column.py` 100% PASS).
-
-### Step 2: Midas 1:1 서브탭 입력폼 & 모달 (`src/web/static/js/components/form_rc_column.js`)
-* **Midas 원본 `IDD_RCS_COLUMN_PMODE_DLG` 1:1 계승 서브탭 구성**:
-  - **Tab 1 [단면/재료]**: 기둥 형상(사각/원형), $B, H$ 또는 $D$, 콘크리트 강도($f_{ck}$), 철근 강도($f_y, f_{yt}$), 피복두께.
-  - **Tab 2 [철근배근]**: 주철근 배치 방식(균등배열, 코너철근+변철근), 철근 호칭경(D19~D35) 및 개수, 띠철근/나선철근 간격 $s$.
-  - **Tab 3 [설계하중/부재력]**: 축하중($P_u$), 양단 모멘트($M_{ux}, M_{uy}$), 다중 하중조합(LCB) 그리드.
-  - **Tab 4 [세장비/골조]**: 층고($L$), $k_x, k_y$, 골조 횡구속 여부, 지속하중 비($\beta_{dns}$).
-* **상세 대화창(`...`) 서브 모달**:
-  - `[기둥 철근 배열 상세 모달]`: 2변/4변 대칭, 단면 코너보강, 복합 띠철근(크로스타이) 상세 설정.
-  - `[P-M 뷰어 확장 모달]`: 3D P-M 상관곡면 확대 인터랙티브 뷰.
-* **DoD 검증**: 브라우저 DOM 렌더링 정상, 폼 변경 시 이벤트 전파 및 유효성 검사, 콘솔 에러 0건.
-
-### Step 3: 2D VDraw 캔버스 배근/단면 그래픽스 (`src/web/static/js/visual/vector_rc_column.js`)
-* **Midas VDraw 기둥 드로잉 및 P-M 차트 이식**:
-  - **상단 뷰포트 (기둥 횡단면 배근도)**: 콘크리트 외곽선(사각/원형), 외곽 폐합 띠철근 및 내부 다이아몬드/크로스타이 띠철근, 주철근 원형 솔리드 심볼, 피복 옵셋선, 치수선, 철근 태그(예: `12-D25`).
-  - **하단 뷰포트 (P-M 상관곡선 차트)**: KDS 설계 P-M 곡선(공칭강도 $P_n-M_n$ 및 설계강도 $\phi P_n-\phi M_n$), 최대 축강도 수평선($\phi P_{n,max}$), 균형파괴점($B$), 설계하중점($P_u, M_u$) 플롯 및 안전/위험 영역 시각화.
-* **인터랙션 기능**: 줌/팬, Fit, 하중점 마우스 호버 시 DCR 및 여유도 툴팁 표시.
-* **DoD 검증**: 단면 배근 및 P-M 곡선 정확 렌더링 확인, 콘솔 에러 0건.
-
-### Step 4: A4 5대 장구분 8단계 KaTeX 구조계산서 (`src/web/static/js/report/redcr_rc_column.js`)
-* **Midas 원본 5대 장구분 계승**:
-  - **1. 설계 개요 및 기둥 단면 제원**: 부재명, 재료 강도, 단면 치수, 유효길이, 철근비($\rho_g = A_{st}/A_g$, 1%~8% 검토).
-  - **2. 설계 부재력 및 세장비 검토**: $P_u, M_{ux}, M_{uy}$, 세장비 한계 검토, 모멘트확대계수($\delta_{ns}$) 산정 전개식.
-  - **3. 축력-휨 P-M 강도 검토**: 8단계 KaTeX 전개식 ($P_0$ $\rightarrow$ $\phi P_{n,max}$ $\rightarrow$ 하중편심 $e = M_u/P_u$ $\rightarrow$ 파이버 수치해석 $\phi P_n(\phi M_n)$ 도출 $\rightarrow$ $\text{DCR} \le 1.000$ $\rightarrow$ `  →  O.K / N.G` 판정).
-  - **4. 이축휨 상호작용 검토**: Bresler 역수식 또는 등가 1축 모멘트 산정 KaTeX 전개식 $\rightarrow$ `  →  O.K / N.G` 판정.
-  - **5. 기둥 전단강도 검토**: 축압축력에 의한 전단강도 증대 $V_c = \frac{1}{6} \left(1 + \frac{P_u}{14 A_g}\right) \lambda \sqrt{f_{ck}} b_w d$ $\rightarrow$ $\phi V_n$ vs $V_u$ $\rightarrow$ `  →  O.K / N.G` 판정.
-* **DoD 검증**: A4 인쇄 프리뷰 레이아웃, P-M 곡선 이미지 삽입, KaTeX 수식 무결성 확인.
-
-### Step 5: 4열 통합 E2E 검증 & 실사용 UI 확립
-* **4-Pane 실시간 연동**:
-  - 기둥 치수나 철근 입력 변경 시 100ms 이내에 캔버스 배근도와 P-M 곡선 차트, A4 계산서 동시 갱신.
-* **WIP 해제**: `src/web/static/js/catalog.js` 및 메타데이터에서 `rc_column`의 `is_wip: false`로 정식 온라인 전환.
-* **DoD 검증**: E2E 통합 테스트 Pass, 콘솔 에러 0건.
+* **모듈 식별자**: `rc_column` (카탈로그 번호 No. 2, Tier 1 플래그십)
+* **4대 포팅 참조 우선순위 (SSOT Hierarchy)**:
+  1. `[1순위 추출 소스]`: `decompiled_src/core_routines/` (`solver__CHK_BCCO_*.c`, `CDBSolverTool`, `DPLUS_RCS.dll`, `DPLUS_DB.dll`)
+  2. `[2순위 원본 리소스]`: `original_src/Midas Design+/Language/Korean/` (`DLG_DPLUS_RCS.ini`, `Menu.ini`, 공식 매뉴얼)
+  3. `[3순위 학회 예제집]`: `F:/PyProject/KCSC2MD/output/예제집/` (콘크리트구조학회 2020 예제집 5.1/5.2/5.3)
+  4. `[4순위 국가건설기준]`: `F:/PyProject/KCSC2MD/output/kds_md/` (KDS 14 20 10, KDS 14 20 20, KDS 14 20 22)
 
 ---
 
-## 3. 검증 및 수용 기준 (Acceptance Criteria)
+## 2. 5대 마이크로 공정 하위 요구사항 세분화 인덱스 (`docs/16` 규약 연동)
 
-- [ ] **수치 무결성**: 콘크리트학회 예제집 5.1 기둥 P-M 상관도 대비 오차 $\le 0.10\%$ (`pytest tests/engine/test_rc_column.py` 통과).
-- [ ] **1:1 입력폼**: Midas 원본 `IDD_RCS_COLUMN_PMODE_DLG` 4대 서브탭 브라우저 렌더링 확인.
-- [ ] **2D 캔버스 & P-M**: 기둥 배근도 및 200 파이버 P-M 상관곡선/하중점 플롯 확인.
-- [ ] **A4 계산서**: 5대 장구분 8단계 KaTeX 수식 전개 및 `  →  O.K / N.G` 판정 표기 확인.
-- [ ] **4열 통합**: 100ms 이내 3-View 동시 동기화 및 콘솔 에러 0건.
-- [ ] **증거 제출**: `docs/16` 4대 물리적 증거 첨부 및 1단위 Git 커밋/푸시 완료.
+본 마스터 요구사항은 `docs/10` 제2절(Scope Partitioning) 및 `docs/16`(Goal 마이크로 공정 표준 실행 지침)에 따라 **단일 책임과 독립 실행이 가능한 5개의 세부 하위 명세서**로 분할되어 관리됩니다:
+
+| 공정 단계 | 권장 AI 모델 | 하위 명세서 링크 | 핵심 산출물 및 주요 업무 | DoD 검증 기준 |
+|:---:|:---:|---|---|:---:|
+| **Step 1** | 🧠 **High** | [**요구사항 23-1**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항23-1_PhaseV1_02_Step1_RC기둥_KDS계산엔진_및_파이버PM_Pydantic스키마.md) | • KDS 14 20 20 축휨/전단 파이썬 엔진 (`src/engine/rc/column.py`)<br>• 200 파이버 단면 수치적분 P-M 솔버 연동<br>• 장주 모멘트확대($\delta_{ns}, \delta_s$) 및 Bresler 이축휨 | `pytest` 100% PASS<br>(오차 $\le 0.10\%$) |
+| **Step 2** | ⚙️ **Medium** | [**요구사항 23-2**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항23-2_PhaseV1_02_Step2_RC기둥_Midas_1대1_서브탭_입력폼_및_모달.md) | • Midas 원본 `IDD_RCS_COLUMN_PMODE_DLG` 1:1 서브탭 폼 (`form_rc_column.js`)<br>• 배근 상세 설정 서브대화창 모달 (`IDD_RCS_COLM_REBAR_DLG`)<br>• P-M 상관곡선 인터랙티브 뷰어 확장 모달 | 브라우저 DOM 정상<br>콘솔 에러 0건 |
+| **Step 3** | ⚙️ **Medium** | [**요구사항 23-3**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항23-3_PhaseV1_02_Step3_RC기둥_2D_VDraw_캔버스_배근도_및_PM곡선_인터랙션.md) | • 상단: 사각/원형 단면, 135° 절곡 띠대근, 솔리드 주철근, 치수선, 태그<br>• 하단: KDS 200 파이버 $\phi P_n-\phi M_n$ 상관곡선 및 설계하중점 플롯<br>• 마우스 휠 줌/팬/Fit 및 하중점 마우스 호버 DCR 툴팁 | Canvas 그래픽스 렌더링<br>인터랙션 무결성 |
+| **Step 4** | 🧠 **High** | [**요구사항 23-4**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항23-4_PhaseV1_02_Step4_RC기둥_A4_5대장구분_8단계_KaTeX_구조계산서.md) | • 원본 5대 장구분 완벽 계승 (개요-부재력-PM-이축휨-전단)<br>• 8단계 Step-by-Step KaTeX 수식 전개식 (`redcr_rc_column.js`)<br>• 순백색(`#ffffff`) A4 용지 인쇄 프리뷰 및 `  →  O.K / N.G` 판정 | A4 인쇄 레이아웃<br>KaTeX 수식 무결성 |
+| **Step 5** | ⚙️ **Medium** | [**요구사항 23-5**](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항23-5_PhaseV1_02_Step5_RC기둥_4열통합_E2E검증_및_실사용UI_온라인전환.md) | • 1열(트리)-2열(캔버스)-3열(폼)-4열(계산서) 4열 연동<br>• 파라미터 입력 시 **100ms 이내 실시간 3-View 동시 동기화**<br>• `catalog.js`에서 `rc_column`의 `is_wip: false` 정식 온라인 전환 | E2E 전수 테스트 Pass<br>콘솔 에러 0건 |
+
+---
+
+## 3. 실행 및 커맨드 가이드 (`docs/16` 준수)
+
+사용자 및 에이전트는 아래의 표준 명령어를 통해 각 Step을 독립적으로 안전하게 실행합니다:
+
+```markdown
+# [Step 1: KDS 엔진 및 파이버 P-M 단독 실행 - High 모델 권장]
+/goal
+docs 16을 확인하고, 요구사항 23과 하위 23-1의 Step 1을 구현해줘.
+
+# [Step 2: Midas 1:1 서브탭 폼 및 모달 단독 실행 - Medium 모델 권장]
+/goal
+docs 16을 확인하고, 요구사항 23과 하위 23-2의 Step 2를 구현해줘.
+
+# [Step 3: 2D VDraw 캔버스 및 P-M 다이어그램 단독 실행 - Medium 모델 권장]
+/goal
+docs 16을 확인하고, 요구사항 23과 하위 23-3의 Step 3을 구현해줘.
+
+# [Step 4: A4 5대장구분 8단계 KaTeX 계산서 단독 실행 - High 모델 권장]
+/goal
+docs 16을 확인하고, 요구사항 23과 하위 23-4의 Step 4를 구현해줘.
+
+# [Step 5: 4열 통합 E2E 검증 및 온라인 오픈 단독 실행 - Medium 모델 권장]
+/goal
+docs 16을 확인하고, 요구사항 23과 하위 23-5의 Step 5를 구현해줘.
+
+# [Phase V1-02 전체 연속 완수 지시 시]
+/goal
+docs 16을 확인하고, 요구사항 23의 Step 1부터 Step 5까지 순차적으로 구현해줘.
+```
+
+---
+
+## 4. 마스터 종합 검증 및 수용 기준 (Acceptance Criteria)
+
+- [ ] **[Step 1]**: `tests/engine/test_rc_column.py` 100% 통과 (학회 예제집 5.1/5.2/5.3 대비 오차 $\le 0.10\%$).
+- [ ] **[Step 2]**: 원본 `IDD_RCS_COLUMN_PMODE_DLG` 4대 서브탭 및 배근/P-M 모달 정상 렌더링.
+- [ ] **[Step 3]**: 2D 캔버스 단면도 및 200 파이버 P-M 상관곡선/설계하중점 인터랙티브 플롯 정상 작동.
+- [ ] **[Step 4]**: A4 5대 장구분 8단계 KaTeX 수식 전개식 계산서 렌더링 및 인쇄 프리뷰 완비.
+- [ ] **[Step 5]**: 4열 워크스페이스 실시간 100ms 동기화 검증 및 `is_wip: false` 정식 온라인 전환.
+- [ ] **[증거 제출]**: `docs/16` 4대 물리적 증거(원본 발췌, 3자 오차표, raw 로그, git diff) 첨부 및 1단위 Git 푸시 완료.
