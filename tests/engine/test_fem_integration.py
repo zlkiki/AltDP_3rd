@@ -1,7 +1,7 @@
 """
 tests/engine/test_fem_integration.py
 ====================================
-End-to-End Integration Tests for 5 FEM Domains against Midas Design+ Ground Truth.
+End-to-End Integration Tests for 5 FEM Domains against Analytical Benchmark Ground Truth.
 """
 
 import pytest
