@@ -15,11 +15,11 @@
 * **4대 포팅 참조 우선순위 (SSOT Hierarchy)**:
   1. `[1순위 추출 소스]`: `decompiled_src/core_routines/` C루틴 심볼 (`steel__CHK_USBP_*.c`, `solver_baseplate_*`, `DPLUS_STEEL.dll`, `DPLUS_DB.dll`)
   2. `[2순위 원본 매뉴얼]`: 원본앱 기술 매뉴얼 Steel Baseplate 편 (`IDD_STL_USBP_PMODE_DLG`, `IDD_STL_USBP_SECT_DLG`, `IDD_STL_USBP_PLAT_DLG`)
-  3. `[3순위 학회 예제집]`: 한국강구조학회·한국건축구조기술사회 『KDS 41 31 00 : 2019에 따른 강구조설계 예제집』
+  3. `[3순위 학회 예제집]`: 한국강구조학회·한국건축구조기술사회 『KDS 41 31 00 : 2019에 따른 강구조설계 예제집』 (오류 시 Patch-First 선 치유 원칙)
      - `제13장 예제 13.6.7`: 주각부 설계 - 축력이 지배하는 고정단 H형강 기둥 주각부 ($H\text{-}428\times 407\times 20\times 35$, SM355, 콘크리트 $f_{ck}=24\text{ MPa}$, 플레이트 $700\times 700\times 55\text{ mm}$, 페데스탈 $800\times 800\text{ mm}$, 지압강도 $\phi_c P_p = 7,430\text{ kN}$, 8-M24 앵커)
      - `제11장 예제 11.12`: 중심축하중을 받는 각형강관 기둥의 베이스플레이트 설계 ($300\times 300\times 12$ 각관, $450\times 450\times 24\text{ mm}$ 플레이트)
      - `제6장 예제 6.1, 6.2`: 대편심 모멘트 지배 주각부 (인장측 앵커볼트 인장력 $T_u$ 발생 및 콘크리트 파열 검토)
-  4. `[4순위 국가건설기준]`:
+  4. `[4순위 국가건설기준]`: (오류 시 Patch-First 선 치유 원칙)
      - `KDS 14 31 25`: 강구조 연결 및 접합설계기준 (4.5 주각부 설계)
      - `KDS 14 20 54`: 콘크리트용 앵커 설계기준 (선설치 및 후설치 앵커볼트 인장·전단 강도)
      - `AISC Design Guide 1`: Base Plate and Anchor Rod Design (2nd Edition)

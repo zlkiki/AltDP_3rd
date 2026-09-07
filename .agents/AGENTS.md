@@ -17,11 +17,12 @@
   2. `2순위`: **매뉴얼 및 도움말** (`decompiled_src/manuals/`, 원본앱 공식 기술 매뉴얼)
      - 공식 설계 이론, 약산/엄밀 해석 옵션, 파라미터 정의, 벤치마크 예제.
   3. `3순위`: **kcsc2md 공식 예제집** (`F:/PyProject/KCSC2MD/output/예제집/`)
-     - 콘크리트구조 학회기준 예제집(2020) & 강구조설계예제집(2019) 등 공인 예제집 기반 **계산 오차 $\le 0.10\%$ 검증용 실무 벤치마크 정답 데이터**.
+     - 콘크리트구조 학회기준 예제집(2020) & 강구조설계예제집(2019) 등 공인 예제집 기반 **계산 오차 $\le 0.10\%$ 검증용 실무 벤치마크 정답 데이터** (예제집 오류 발견 시 `kcsc2md` 선 치유(Patch-First) 원칙 적용).
   4. `4순위`: **kcsc2md 국가건설기준** (`F:/PyProject/KCSC2MD/output/kds_md/`)
      - KDS 14 20 00 / 14 31 00 / 41 00 00 국토교통부 표준 원문 & LaTeX 수식 (기준서 오류 발견 시 `patch_kds_md.py` 선 치유(Patch-First) 원칙 적용).
 * **무결성 3자 삼각 대조 원칙**:
   - `[원본 소스/매뉴얼]` $\leftrightarrow$ `[kcsc2md 예제집]` $\leftrightarrow$ `[AltDP_3rd 엔진]` 3자 삼각 대조로 오차 $\le 0.10\%$ 엄수.
+  - 기준서 및 공식 예제집 오류 발견 시 `kcsc2md` 선 치유(Patch-First) 원칙 적용.
   - 외부 파일시스템이나 런타임 DLL/Dongle에 의존하지 않는 독립(Zero-Dependency) 패키지 유지.
 
 ---
@@ -52,7 +53,7 @@
    - Wibu Dongle/MFC DLL 의존 없는 독립 Python 패키지 개발.
 2. **KDS 기준 & 0.1% 오차 무결성 (3자 삼각 대조)**:
    - `[원본 소스/매뉴얼]` $\leftrightarrow$ `[kcsc2md 예제집]` $\leftrightarrow$ `[AltDP_3rd 엔진]` 교차 대조 (0.10% 이하 오차).
-   - 기준서 오류 발견 시 `kcsc2md` 선 치유(Patch-First) 원칙 적용.
+   - 기준서 및 공식 예제집 오류 발견 시 `kcsc2md` 선 치유(Patch-First) 원칙 적용.
 3. **증거 강제 제출 규약 (Proof-First Mandate)**:
    - 완료 주장 시 텍스트 보고 금지. 반드시 4대 물리적 증거(원본 발췌, 3자 오차표, raw 로그, git diff) 첨부 (`docs/16`).
 4. **2단계 5정밀 마이크로 공정 준수**:

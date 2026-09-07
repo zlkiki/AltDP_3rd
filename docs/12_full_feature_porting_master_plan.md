@@ -29,7 +29,7 @@
 | **수치 솔버 코어** | • 200 파이버 수치적분 3D P-M 상관곡면 솔버 (`src/engine/solver/pm_diagram.py`)<br>• DKMQ/DKT 2D 평판 휨 요소 및 Winkler 지반/접촉 솔버 코어 (`src/engine/fem/`) | **완료** |
 | **4열 웹 워크스페이스** | • 1열(트리메뉴) - 2열(VDraw 캔버스) - 3열(파라메트릭 입력) - 4열(A4 구조계산서)<br>• 반응형 글래스모피즘 UI, 테마 시스템, ProjectStore 상태 관리 | **완료** |
 | **모듈 디스패처 & WIP 체계** | • Phase 20 더미 코드 전면 청산 및 정직한 WIP 디스패처/안내 카드 구축<br>• 61종 전수 모듈 3단계 티어 메타데이터 체계 확립 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_original_app_modules_comprehensive_catalog.md)) | **완료** |
-| **4대 SSOT 검증 파이프라인** | • Ghidra C 루틴(1순위) $\leftrightarrow$ 매뉴얼/DLG(2순위) $\leftrightarrow$ 학회 예제집(3순위) $\leftrightarrow$ KDS 원문(4순위)<br>• 3자 삼각대조 0.10% 오차 검증 및 kcsc2md Self-Healing 프로토콜 | **완료** |
+| **4대 SSOT 검증 파이프라인** | • Ghidra C 루틴(1순위) $\leftrightarrow$ 매뉴얼/DLG(2순위) $\leftrightarrow$ 학회 예제집(3순위) $\leftrightarrow$ KDS 원문(4순위)<br>• 3자 삼각대조 0.10% 오차 검증 및 kcsc2md Self-Healing 선 치유 프로토콜 (기준서 및 예제집) | **완료** |
 
 ---
 

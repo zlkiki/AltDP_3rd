@@ -10,8 +10,8 @@
 > **🚨 4대 포팅 참조 우선순위 계층 (SSOT Priority Hierarchy)**:
 > 1. **🥇 [1순위 (최우선)] 추출된 원본 소스**: `decompiled_src/core_routines/*.c` (47종 핵심 C루틴), `symbols/*.txt` (20개 DLL, 47,110 심볼)
 > 2. **🥈 [2순위] 매뉴얼 및 원본 리소스**: `original_src/Midas Design+/Language/Korean/` (`Menu.ini`, `DLG_*.ini`), 공식 기술 매뉴얼
-> 3. **🥉 [3순위] kcsc2md 공식 예제집**: `F:/PyProject/KCSC2MD/output/예제집/` (콘크리트구조학회 2020 & 강구조설계 2019 공인 예제집 0.1% 오차 검증 데이터)
-> 4. **📚 [4순위] kcsc2md 국가건설기준**: `F:/PyProject/KCSC2MD/output/kds_md/` (KDS 14 20 00 / 14 31 00 / 41 00 00 국토교통부 표준 원문 & LaTeX 수식)
+> 3. **🥉 [3순위] kcsc2md 공식 예제집**: `F:/PyProject/KCSC2MD/output/예제집/` (콘크리트구조학회 2020 & 강구조설계 2019 공인 예제집 0.1% 오차 검증 데이터, 오류 발견 시 `kcsc2md` 선 치유(Patch-First) 원칙 적용)
+> 4. **📚 [4순위] kcsc2md 국가건설기준**: `F:/PyProject/KCSC2MD/output/kds_md/` (KDS 14 20 00 / 14 31 00 / 41 00 00 국토교통부 표준 원문 & LaTeX 수식, 기준서 오류 발견 시 `patch_kds_md.py` 선 치유(Patch-First) 원칙 적용)
 
 ---
 

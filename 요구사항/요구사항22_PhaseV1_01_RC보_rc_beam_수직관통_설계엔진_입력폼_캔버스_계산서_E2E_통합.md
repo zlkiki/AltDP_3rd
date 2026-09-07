@@ -9,8 +9,8 @@
 * **4대 포팅 참조 우선순위 (SSOT Hierarchy)**:
   1. `[1순위 추출 소스]`: `decompiled_src/core_routines/rc/` (`rc__CHK_BBBE_*.c`, `CHK_BBBE_beam.c`, `DPLUS_RCS.dll`, `symbols/DPLUS_RCS.dll_symbols.txt`)
   2. `[2순위 원본 리소스]`: `original_src/Midas Design+/Language/Korean/` (`DLG_DPLUS_RCS.ini`, `Menu.ini`, 원본앱 공식 기술 매뉴얼 보 편)
-  3. `[3순위 학회 예제집]`: `F:/PyProject/KCSC2MD/output/예제집/` (한국콘크리트학회 2020 콘크리트구조설계기준 예제집 `3.1 단철근/복철근 휨`, `4.1 전단설계`, `4.3 비틀림`, `6.1 사용성 처짐/균열`)
-  4. `[4순위 국가건설기준]`: `F:/PyProject/KCSC2MD/output/kds_md/` (KDS 14 20 10 재료/일반, KDS 14 20 20 휨, KDS 14 20 22 전단/비틀림, KDS 14 20 30 사용성)
+  3. `[3순위 학회 예제집]`: `F:/PyProject/KCSC2MD/output/예제집/` (한국콘크리트학회 2020 콘크리트구조설계기준 예제집 `3.1 단철근/복철근 휨`, `4.1 전단설계`, `4.3 비틀림`, `6.1 사용성 처짐/균열`, 오류 시 Patch-First 선 치유 원칙)
+  4. `[4순위 국가건설기준]`: `F:/PyProject/KCSC2MD/output/kds_md/` (KDS 14 20 10 재료/일반, KDS 14 20 20 휨, KDS 14 20 22 전단/비틀림, KDS 14 20 30 사용성, 오류 시 Patch-First 선 치유 원칙)
 
 ---
 

@@ -9,8 +9,8 @@
 * **4대 포팅 참조 우선순위 (SSOT Hierarchy)**:
   1. `[1순위 추출 소스]`: `decompiled_src/core_routines/` (`solver__CHK_BCCO_*.c`, `CDBSolverTool`, `DPLUS_RCS.dll`, `DPLUS_DB.dll`)
   2. `[2순위 원본 리소스]`: `original_src/Midas Design+/Language/Korean/` (`DLG_DPLUS_RCS.ini`, `Menu.ini`, 공식 매뉴얼)
-  3. `[3순위 학회 예제집]`: `F:/PyProject/KCSC2MD/output/예제집/` (콘크리트구조학회 2020 예제집 5.1/5.2/5.3)
-  4. `[4순위 국가건설기준]`: `F:/PyProject/KCSC2MD/output/kds_md/` (KDS 14 20 10, KDS 14 20 20, KDS 14 20 22)
+  3. `[3순위 학회 예제집]`: `F:/PyProject/KCSC2MD/output/예제집/` (콘크리트구조학회 2020 예제집 5.1/5.2/5.3, 오류 시 Patch-First 선 치유 원칙)
+  4. `[4순위 국가건설기준]`: `F:/PyProject/KCSC2MD/output/kds_md/` (KDS 14 20 10, KDS 14 20 20, KDS 14 20 22, 오류 시 Patch-First 선 치유 원칙)
 
 ---
 

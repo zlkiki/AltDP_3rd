@@ -14,8 +14,8 @@
 * **4대 포팅 참조 우선순위 준수**:
   - `1순위`: 원본 추출 소스 (`decompiled_src/core_routines/*.c`, `symbols/*.txt`, `original_src/`)
   - `2순위`: 원본앱 공식 기술 매뉴얼 및 Help 자산 (`decompiled_src/manuals/`)
-  - `3순위`: kcsc2md 공인 예제집 (`F:/PyProject/KCSC2MD/output/예제집/`) - 오차 $\le 0.10\%$ 3자 삼각대조
-  - `4순위`: kcsc2md 국가건설기준 (`F:/PyProject/KCSC2MD/output/kds_md/`) - KDS 14 20/31/41 (Patch-First 원칙)
+  - `3순위`: kcsc2md 공인 예제집 (`F:/PyProject/KCSC2MD/output/예제집/`) - 오차 $\le 0.10\%$ 3자 삼각대조 (오류 발견 시 Patch-First 선 치유 원칙)
+  - `4순위`: kcsc2md 국가건설기준 (`F:/PyProject/KCSC2MD/output/kds_md/`) - KDS 14 20/31/41 (오류 발견 시 Patch-First 선 치유 원칙)
 
 ### 1.2. 해결 대상 핵심 결함 및 정합성 조율 (As-Is vs To-Be)
 1. **백엔드 기만적 더미 연산 및 임의 기본값 척결**:
