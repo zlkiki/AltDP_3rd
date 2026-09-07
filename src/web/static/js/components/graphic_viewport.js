@@ -352,22 +352,28 @@
      */
     _subscribeEvents() {
       if (window.EventBus) {
-        window.EventBus.subscribe('member:selected', (e) => {
-          const data = e.detail || e;
-          this.setMember(data.type || data.moduleKey || 'rc_beam', data.data || data);
-        });
+        const sub = (typeof window.EventBus.subscribe === 'function')
+          ? window.EventBus.subscribe.bind(window.EventBus)
+          : (typeof window.EventBus.on === 'function' ? window.EventBus.on.bind(window.EventBus) : null);
 
-        window.EventBus.subscribe('calculation:completed', (e) => {
-          const res = e.detail || e;
-          this.setCalculationResult(res);
-        });
+        if (sub) {
+          sub('member:selected', (e) => {
+            const data = e.detail || e;
+            this.setMember(data.type || data.moduleKey || 'rc_beam', data.data || data);
+          });
 
-        window.EventBus.subscribe('input:changed', (e) => {
-          const d = e.detail || e;
-          if (d && d.data) {
-            this.updateMemberData(d.data);
-          }
-        });
+          sub('calculation:completed', (e) => {
+            const res = e.detail || e;
+            this.setCalculationResult(res);
+          });
+
+          sub('input:changed', (e) => {
+            const d = e.detail || e;
+            if (d && d.data) {
+              this.updateMemberData(d.data);
+            }
+          });
+        }
       }
     }
 

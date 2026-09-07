@@ -28,6 +28,7 @@
         leftSubWidth: 380,      // 20% <= W <= 50% of workspace
         memberHeight: 160,      // 80px <= H <= 400px
         centerRightRatio: 0.50, // 25% <= ratio <= 75% (50:50)
+        viewportStackRatio: 0.50, // 15% <= ratio <= 85% (상단:하단 50:50)
         sidebarCollapsed: false,
         sidebarPinned: true
     };
@@ -114,6 +115,14 @@
             return document.getElementById('right-pane') || document.getElementById('pane-right-report');
         }
 
+        getGeomCard() {
+            return document.getElementById('viewport-card-geometry');
+        }
+
+        getMechCard() {
+            return document.getElementById('viewport-card-mechanics');
+        }
+
         // ==========================================
         // Initialization & Event Binding
         // ==========================================
@@ -148,6 +157,7 @@
             const leftH = document.getElementById('resizer-left-h');
             const leftV = document.getElementById('resizer-left-v');
             const mainH = document.getElementById('resizer-main-h');
+            const centerV = document.getElementById('resizer-center-v');
 
             const attachStart = (el, type) => {
                 if (!el) return;
@@ -160,6 +170,7 @@
             attachStart(leftH, 'left-h');
             attachStart(leftV, 'left-v');
             attachStart(mainH, 'main-h');
+            attachStart(centerV, 'center-v');
         }
 
         bindTopControls() {
@@ -262,6 +273,8 @@
             const memberList = this.getMemberList();
             const centerPane = this.getCenterPane();
             const rightPane = this.getRightPane();
+            const geomCard = this.getGeomCard();
+            const mechCard = this.getMechCard();
 
             if (ws) this.workspaceWidth = ws.getBoundingClientRect().width;
             if (sidebar) this.startSidebarWidth = sidebar.getBoundingClientRect().width;
@@ -269,8 +282,10 @@
             if (memberList) this.startMemberHeight = memberList.getBoundingClientRect().height;
             if (centerPane) this.startCenterWidth = centerPane.getBoundingClientRect().width;
             if (rightPane) this.startRightWidth = rightPane.getBoundingClientRect().width;
+            if (geomCard) this.startGeomHeight = geomCard.getBoundingClientRect().height;
+            if (mechCard) this.startMechHeight = mechCard.getBoundingClientRect().height;
 
-            document.body.classList.add(type === 'left-v' ? 'resizing-row' : 'resizing-col');
+            document.body.classList.add((type === 'left-v' || type === 'center-v') ? 'resizing-row' : 'resizing-col');
 
             window.addEventListener('pointermove', this.onPointerMove, { passive: false });
             window.addEventListener('pointerup', this.onPointerUp);
@@ -337,6 +352,23 @@
                         rightPane.style.flex = `${(1 - ratio).toFixed(3)} 1 0%`;
                     }
                 }
+            } else if (this.activeResizer === 'center-v') {
+                // Resizer 5: Center-Vertical (Pane 3 상하 2단 분할: 15% <= ratio <= 85%)
+                const totalH = this.startGeomHeight + this.startMechHeight;
+                if (totalH > 100) {
+                    const minGeomH = Math.max(80, Math.round(totalH * 0.15));
+                    const maxGeomH = Math.round(totalH * 0.85);
+                    const newGeomH = Math.max(minGeomH, Math.min(maxGeomH, Math.round(this.startGeomHeight + deltaY)));
+                    const ratio = Number((newGeomH / totalH).toFixed(3));
+
+                    this.currentLayout.viewportStackRatio = ratio;
+                    const geomCard = this.getGeomCard();
+                    const mechCard = this.getMechCard();
+                    if (geomCard && mechCard) {
+                        geomCard.style.flex = `${ratio} 1 0%`;
+                        mechCard.style.flex = `${(1 - ratio).toFixed(3)} 1 0%`;
+                    }
+                }
             }
 
             this.triggerCanvasRedraw();
@@ -381,6 +413,7 @@
                 leftSubWidth = DEFAULT_LAYOUT.leftSubWidth,
                 memberHeight = DEFAULT_LAYOUT.memberHeight,
                 centerRightRatio = DEFAULT_LAYOUT.centerRightRatio,
+                viewportStackRatio = DEFAULT_LAYOUT.viewportStackRatio,
                 sidebarCollapsed = false,
                 sidebarPinned = true
             } = layout;
@@ -390,6 +423,7 @@
                 leftSubWidth: Math.max(240, leftSubWidth),
                 memberHeight: Math.max(80, Math.min(400, memberHeight)),
                 centerRightRatio: Math.max(0.25, Math.min(0.75, centerRightRatio)),
+                viewportStackRatio: Math.max(0.15, Math.min(0.85, viewportStackRatio !== undefined ? viewportStackRatio : 0.50)),
                 sidebarCollapsed: Boolean(sidebarCollapsed),
                 sidebarPinned: sidebarPinned !== false
             };
@@ -399,6 +433,8 @@
             const memberList = this.getMemberList();
             const centerPane = this.getCenterPane();
             const rightPane = this.getRightPane();
+            const geomCard = this.getGeomCard();
+            const mechCard = this.getMechCard();
 
             if (sidebar) {
                 sidebar.style.width = `${this.currentLayout.sidebarWidth}px`;
@@ -420,6 +456,12 @@
                 const ratio = this.currentLayout.centerRightRatio;
                 centerPane.style.flex = `${ratio} 1 0%`;
                 rightPane.style.flex = `${(1 - ratio).toFixed(3)} 1 0%`;
+            }
+
+            if (geomCard && mechCard) {
+                const vRatio = this.currentLayout.viewportStackRatio;
+                geomCard.style.flex = `${vRatio} 1 0%`;
+                mechCard.style.flex = `${(1 - vRatio).toFixed(3)} 1 0%`;
             }
 
             this.applySidebarState(this.currentLayout);
@@ -494,6 +536,9 @@
         triggerCanvasRedraw() {
             if (window.CanvasRenderer && typeof window.CanvasRenderer.redrawCurrent === 'function') {
                 window.CanvasRenderer.redrawCurrent();
+            }
+            if (window.GraphicViewport && typeof window.GraphicViewport.redrawAll === 'function') {
+                window.GraphicViewport.redrawAll();
             }
         }
     }

@@ -8,41 +8,45 @@ let allModules = [];
 let currentCategoryFilter = 'all';
 let currentSchema = null;
 let debounceTimer = null;
-let pinnedModules = JSON.parse(localStorage.getItem('altdp_pinned_modules') || '["rc/beam/base", "rc/column/base", "steel/member/beam", "steel/connection/baseplate"]');
+let pinnedModules = JSON.parse(localStorage.getItem('AltDP_favorites') || localStorage.getItem('altdp_pinned_modules') || '[]');
 
 async function initApp() {
-    // 1. Initialize Components
-    if (window.ThemeManager) window.ThemeManager.init();
-    if (window.LayoutResizer) window.LayoutResizer.init();
-    if (window.MemberManager) window.MemberManager.init();
-    if (window.GraphicViewport) window.GraphicViewport.init();
-    if (window.ModuleDispatcher) {
-        window.ModuleDispatcher.init({
-            canvas: document.getElementById('canvas-geometry') || document.getElementById('sectionCanvas'),
-            pmCanvas: document.getElementById('canvas-mechanics') || document.getElementById('pmChartCanvas'),
-            formContainer: document.getElementById('dynamic-form'),
-            reportContainer: document.getElementById('result-container')
-        });
-    }
-    if (window.SidebarNav) {
-        window.SidebarNav.init({
-            containerId: 'module-accordion',
-            pillsContainerId: 'sidebar-cat-pills',
-            pinBtnId: 'btn-pin-sidebar',
-            searchInputId: 'quick-search',
-            sidebarId: 'sidebar-nav'
-        });
-    } else if (window.TreeMenu) {
-        window.TreeMenu.init('module-accordion', 'sidebar-cat-pills');
-    }
+    // 1. Initialize Components (Fail-safe isolation)
+    try { if (window.ThemeManager) window.ThemeManager.init(); } catch (e) { console.error('[init] ThemeManager failed:', e); }
+    try { if (window.LayoutResizer) window.LayoutResizer.init(); } catch (e) { console.error('[init] LayoutResizer failed:', e); }
+    try { if (window.MemberManager) window.MemberManager.init(); } catch (e) { console.error('[init] MemberManager failed:', e); }
+    try { if (window.GraphicViewport) window.GraphicViewport.init(); } catch (e) { console.error('[init] GraphicViewport failed:', e); }
+    try {
+        if (window.ModuleDispatcher) {
+            window.ModuleDispatcher.init({
+                canvas: document.getElementById('canvas-geometry') || document.getElementById('sectionCanvas'),
+                pmCanvas: document.getElementById('canvas-mechanics') || document.getElementById('pmChartCanvas'),
+                formContainer: document.getElementById('dynamic-form'),
+                reportContainer: document.getElementById('result-container')
+            });
+        }
+    } catch (e) { console.error('[init] ModuleDispatcher failed:', e); }
+    try {
+        if (window.SidebarNav) {
+            window.SidebarNav.init({
+                containerId: 'module-accordion',
+                pillsContainerId: 'sidebar-cat-pills',
+                pinBtnId: 'btn-pin-sidebar',
+                searchInputId: 'quick-search',
+                sidebarId: 'sidebar-nav'
+            });
+        } else if (window.TreeMenu) {
+            window.TreeMenu.init('module-accordion', 'sidebar-cat-pills');
+        }
+    } catch (e) { console.error('[init] SidebarNav failed:', e); }
 
     // 2. Setup Controls
-    setupUnitSelector();
-    setupSidebarCategoryPills();
-    setupTreeLevelButtons();
-    setupSearch();
-    setupProjectIO();
-    setupGlobalShortcuts();
+    try { setupUnitSelector(); } catch (e) { console.error('[init] setupUnitSelector failed:', e); }
+    try { setupSidebarCategoryPills(); } catch (e) { console.error('[init] setupSidebarCategoryPills failed:', e); }
+    try { setupTreeLevelButtons(); } catch (e) { console.error('[init] setupTreeLevelButtons failed:', e); }
+    try { setupSearch(); } catch (e) { console.error('[init] setupSearch failed:', e); }
+    try { setupProjectIO(); } catch (e) { console.error('[init] setupProjectIO failed:', e); }
+    try { setupGlobalShortcuts(); } catch (e) { console.error('[init] setupGlobalShortcuts failed:', e); }
 
     // 3. Subscribe to Store Hydration & Member Events
     if (window.ProjectStore) {

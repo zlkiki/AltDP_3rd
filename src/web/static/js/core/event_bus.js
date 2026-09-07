@@ -22,6 +22,13 @@ class EventBus {
     }
 
     /**
+     * Alias for on()
+     */
+    subscribe(event, callback) {
+        return this.on(event, callback);
+    }
+
+    /**
      * Unsubscribe from an event
      * @param {string} event 
      * @param {Function} callback 

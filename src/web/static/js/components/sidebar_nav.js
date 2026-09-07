@@ -25,14 +25,14 @@ class SidebarNav {
         this.isPinned = localStorage.getItem('AltDP_sidebar_pinned') !== 'false'; // default true
         this.autoHideTimer = null;
 
-        // 즐겨찾기 모듈 목록 (localStorage 'AltDP_favorites' SSOT)
+        // 즐겨찾기 모듈 목록 (사용자가 명시적으로 등록한 모듈만 영속화, 기본값 빈 배열 [])
         const savedFavs = localStorage.getItem('AltDP_favorites') || localStorage.getItem('altdp_pinned_modules');
-        this.favorites = savedFavs ? JSON.parse(savedFavs) : [
-            'rc/beam/base',
-            'rc/column/base',
-            'steel/member/beam',
-            'steel/connection/baseplate'
-        ];
+        try {
+            this.favorites = savedFavs ? JSON.parse(savedFavs) : [];
+            if (!Array.isArray(this.favorites)) this.favorites = [];
+        } catch (_) {
+            this.favorites = [];
+        }
 
         // 트리 접힘 상태
         this.collapsedGroups = JSON.parse(localStorage.getItem('altdp_collapsed_groups') || '[]');
@@ -222,15 +222,26 @@ class SidebarNav {
     }
 
     /**
+     * 모듈 키 정규화 (alias -> canonical key)
+     */
+    _canonicalKey(key) {
+        if (!key) return '';
+        const allMods = window.allModules || [];
+        const found = allMods.find(m => m.key === key || (m.aliases && m.aliases.includes(key)));
+        return found ? found.key : key;
+    }
+
+    /**
      * 즐겨찾기 토글 및 영속화
      */
     toggleFavorite(moduleKey, e) {
         if (e) e.stopPropagation();
-        const idx = this.favorites.indexOf(moduleKey);
+        const cKey = this._canonicalKey(moduleKey);
+        const idx = this.favorites.findIndex(k => this._canonicalKey(k) === cKey);
         if (idx >= 0) {
             this.favorites.splice(idx, 1);
         } else {
-            this.favorites.push(moduleKey);
+            this.favorites.push(cKey);
         }
 
         localStorage.setItem('AltDP_favorites', JSON.stringify(this.favorites));
@@ -239,7 +250,9 @@ class SidebarNav {
     }
 
     isFavorite(moduleKey) {
-        return this.favorites.includes(moduleKey);
+        if (!moduleKey || !this.favorites || this.favorites.length === 0) return false;
+        const cKey = this._canonicalKey(moduleKey);
+        return this.favorites.some(k => this._canonicalKey(k) === cKey);
     }
 
     /**

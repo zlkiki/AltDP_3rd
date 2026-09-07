@@ -42,6 +42,9 @@ def test_index_html_pane3_vertical_viewport_stack():
     assert 'id="dcrValue"' in html
     assert 'id="dcrBar"' in html
 
+    # Resizer 5: 2-Tier Vertical Split Resizer
+    assert 'id="resizer-center-v"' in html
+
     # Script tag
     assert "/static/js/components/graphic_viewport.js" in html
 
@@ -92,6 +95,7 @@ def test_canvas_css_phase21_4_styles():
     assert ".viewport-actions" in css
     assert ".btn-tool" in css
     assert ".btn-tool.active" in css
+    assert ".resizer-viewport-v" in css
     assert ".canvas-wrapper" in css
     assert ".canvas-tooltip" in css
     assert ".dcr-summary-card" in css
