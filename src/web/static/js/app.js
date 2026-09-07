@@ -15,10 +15,11 @@ async function initApp() {
     if (window.ThemeManager) window.ThemeManager.init();
     if (window.LayoutResizer) window.LayoutResizer.init();
     if (window.MemberManager) window.MemberManager.init();
+    if (window.GraphicViewport) window.GraphicViewport.init();
     if (window.ModuleDispatcher) {
         window.ModuleDispatcher.init({
-            canvas: document.getElementById('sectionCanvas'),
-            pmCanvas: document.getElementById('pmChartCanvas'),
+            canvas: document.getElementById('canvas-geometry') || document.getElementById('sectionCanvas'),
+            pmCanvas: document.getElementById('canvas-mechanics') || document.getElementById('pmChartCanvas'),
             formContainer: document.getElementById('dynamic-form'),
             reportContainer: document.getElementById('result-container')
         });
@@ -57,14 +58,27 @@ async function initApp() {
                 event === 'MEMBER_DELETED' || 
                 event === 'MEMBER_DUPLICATED' || 
                 event === 'MEMBER_SELECTED' || 
-                event === 'MEMBER_UPDATED' ||
-                event === 'MEMBER_RESULT_UPDATED' ||
-                event === 'MEMBER_INPUTS_UPDATED' ||
-                event === 'MEMBER_RENAMED' ||
-                event === 'MODULE_CHANGED' ||
+                event === 'MEMBER_UPDATED' || 
+                event === 'MEMBER_RESULT_UPDATED' || 
+                event === 'MEMBER_INPUTS_UPDATED' || 
+                event === 'MEMBER_RENAMED' || 
+                event === 'MODULE_CHANGED' || 
                 event === 'CALCULATION_DONE'
             ) {
                 renderSidebar();
+                // Real-time GraphicViewport Sync
+                if (window.GraphicViewport) {
+                    if (event === 'MEMBER_SELECTED' && payload?.member) {
+                        window.GraphicViewport.setMember(payload.member.moduleKey, payload.member.inputs);
+                        if (payload.member.results) {
+                            window.GraphicViewport.setCalculationResult(payload.member.results);
+                        }
+                    } else if (event === 'CALCULATION_DONE' && (payload?.results || payload?.result)) {
+                        window.GraphicViewport.setCalculationResult(payload.results || payload.result);
+                    } else if ((event === 'MEMBER_INPUTS_UPDATED' || event === 'MEMBER_UPDATED') && payload?.inputs) {
+                        window.GraphicViewport.updateMemberData(payload.inputs);
+                    }
+                }
             }
         });
     }

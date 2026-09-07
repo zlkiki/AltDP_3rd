@@ -176,24 +176,45 @@
             <div class="resizer-h" id="resizer-left-h" data-direction="horizontal" title="좌우 드래그로 Left-Sub 패널 너비 조절"></div>
 
             <!-- 3. Center Graphic Pane (2D/3D Multi-Viewport) -->
+            <!-- 3. Center Graphic Pane (2D/3D Multi-Viewport) -->
             <section class="split-pane graphic-pane pane-center-graphic" id="center-pane" data-legacy-id="pane-graphic-view">
-                <div class="pane-header">
-                    <div class="pane-title">
-                        <span>그래픽 정보부 (Graphic View)</span>
+                <div id="center-pane-container" class="center-viewport-stack">
+                    <!-- 상단 뷰포트: 형상 및 단면 상세 (Top Viewport) -->
+                    <div id="viewport-card-geometry" class="viewport-card">
+                        <div class="viewport-toolbar">
+                            <span class="viewport-title">📐 형상 및 단면 상세 (Cross-Section &amp; Detailing)</span>
+                            <div class="viewport-actions">
+                                <span class="canvas-caption-mini" id="canvas-caption" style="margin-right:6px;">400 x 600 mm</span>
+                                <button id="btn-fit-geom" class="btn-tool" title="화면 맞춤">⛶ Fit</button>
+                                <button id="btn-zoom-in-geom" class="btn-tool" title="확대">+</button>
+                                <button id="btn-zoom-out-geom" class="btn-tool" title="축소">-</button>
+                                <button id="btn-toggle-dim" class="btn-tool active" title="치수선 켜기/끄기">📏 Dim</button>
+                            </div>
+                        </div>
+                        <div class="canvas-wrapper" id="canvas-wrap-geometry">
+                            <canvas id="canvas-geometry" width="600" height="400"></canvas>
+                            <canvas id="sectionCanvas" width="600" height="400" style="display:none;"></canvas>
+                        </div>
                     </div>
-                    <div class="graphic-toolbar">
-                        <span class="canvas-caption-mini" id="canvas-caption">400 x 600 mm</span>
-                        <button class="mini-btn" id="btn-toggle-pm" title="3D P-M 곡선 토글">📈 3D P-M</button>
-                        <button class="mini-btn" id="btn-fit-canvas" title="단면도 크기 맞춤">🔍 리셋</button>
-                    </div>
-                </div>
-                <div class="canvas-viewport">
-                    <div class="canvas-wrap" id="canvas-wrap">
-                        <canvas id="sectionCanvas" width="360" height="360"></canvas>
-                        <canvas id="pmChartCanvas" width="360" height="360" style="display:none;"></canvas>
-                        <div id="dcrCard" class="dcr-summary-card" style="display:none;">
-                            <span id="dcrValue">0.00</span>
-                            <div id="dcrBar" class="dcr-gauge-bar"></div>
+
+                    <!-- 하단 뷰포트: 공학 역학 다이어그램 (Bottom Viewport) -->
+                    <div id="viewport-card-mechanics" class="viewport-card">
+                        <div class="viewport-toolbar">
+                            <span class="viewport-title">📊 공학 역학 다이어그램 (Mechanics &amp; P-M Diagram)</span>
+                            <div class="viewport-actions">
+                                <button id="btn-fit-mech" class="btn-tool" title="화면 맞춤">⛶ Fit</button>
+                                <button id="btn-toggle-3d" class="btn-tool" title="3D 곡면 전환">🌐 3D</button>
+                                <button id="btn-toggle-pm" class="btn-tool" style="display:none;" title="3D P-M 곡선 토글">📈 3D P-M</button>
+                                <button id="btn-toggle-dcr-bar" class="btn-tool active" title="DCR 바 토글">📶 DCR</button>
+                            </div>
+                        </div>
+                        <div class="canvas-wrapper" id="canvas-wrap-mechanics">
+                            <canvas id="canvas-mechanics" width="600" height="400"></canvas>
+                            <canvas id="pmChartCanvas" width="600" height="400" style="display:none;"></canvas>
+                            <div id="dcrCard" class="dcr-summary-card">
+                                <span id="dcrValue">0.00</span>
+                                <div id="dcrBar" class="dcr-gauge-bar"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -280,6 +301,7 @@
     <script src="/static/js/components/member_manager.js?v=20.8"></script>
     <script src="/static/js/components/form_combobox.js?v=20.8"></script>
     <script src="/static/js/components/form_generator.js?v=20.8"></script>
+    <script src="/static/js/components/graphic_viewport.js?v=21.4"></script>
 
     <!-- 5. Optimal Designer Layer -->
     <script src="/static/js/designer/auto_designer.js?v=20.8"></script>

@@ -6,7 +6,9 @@
 
 class PMChartRenderer {
     constructor(canvasId) {
-        this.canvas = document.getElementById(canvasId);
+        this.canvas = document.getElementById(canvasId) || 
+                      document.getElementById('canvas-mechanics') || 
+                      document.getElementById('pmChartCanvas');
         if (!this.canvas) {
             console.warn(`PMChartRenderer: Canvas with id '${canvasId}' not found.`);
             return;
