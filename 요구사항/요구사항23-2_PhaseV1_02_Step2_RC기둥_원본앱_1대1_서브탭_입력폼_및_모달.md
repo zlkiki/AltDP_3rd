@@ -6,9 +6,13 @@
 
 * **부재 및 모듈 식별자**: `rc_column` (카탈로그 No. 2, Tier 1 플래그십)
 * **담당 소스 파일**:
-  - `src/web/static/js/components/form_rc_column.js` (신규 1:1 서브탭 폼 컴포넌트)
-  - `src/web/static/js/dialogs.js` (기둥 전용 배근 상세 모달 및 P-M 확장 모달 등록)
-  - `src/web/static/js/form_dispatcher.js` (WIP 분기 해제 및 폼 마운트)
+  - `src/web/static/js/components/form_rc_column.js` (또는 `modules/rc_column/form_rc_column.js`, 신규 1:1 서브탭 폼 컴포넌트)
+  - `src/web/static/js/core/modal_manager.js` (기둥 전용 배근 상세 모달 및 P-M 확장 모달 등록)
+  - `src/web/static/js/core/dispatcher.js` (`ModuleDispatcher` WIP 해제 및 기둥 폼 마운트)
+  - `src/web/static/js/components/member_manager.js` (Pane 1 다중 부재 매니저 연동 및 인스턴스 바인딩)
+* **워크스페이스 배치 (Left-Sub Pane)**:
+  - 상단 **Pane 1**: 다중 부재 매니저 (`member_manager.js`, 기둥 인스턴스 `1F-C1`, `1F-C2` 등 CRUD 및 요약 그리드)
+  - 하단 **Pane 2**: 파라메트릭 사용자 입력부 (`form_rc_column.js`, 2단 헤더 + 4대 서브탭 + 3버튼 액션 툴바)
 * **2순위 원본 리소스 SSOT**:
   - `original_src/Midas Design+/Language/Korean/DLG_DPLUS_RCS.ini`
   - 대화상자 리소스: `IDD_RCS_COLUMN_PMODE_DLG`, `IDD_URCF_PMODE_DLG`
@@ -18,14 +22,16 @@
 
 ## 2. 원본앱 1:1 4대 서브탭 UI 구조
 
-`form_rc_column.js`는 원본 원본앱의 다이얼로그 계층을 1:1로 웹 탭 인터페이스로 완벽히 재현합니다:
+`form_rc_column.js`는 원본 원본앱의 다이얼로그 계층을 1:1로 웹 탭 인터페이스로 완벽히 재현하며, 하단에 3버튼 통합 액션 툴바(`[💾 적용] [⚡ 검토] [✨ 설계]`)를 제공합니다:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│ [RC 기둥 설계/검토 입력창: IDD_RCS_COLUMN_PMODE_DLG]                                   │
+│ [Left-Sub Pane 2: RC 기둥 설계/검토 입력창 IDD_RCS_COLUMN_PMODE_DLG]                   │
 ├───────────────┬───────────────┬───────────────────────┬────────────────────────────────┤
 │ Tab 1: 단면/재료 │ Tab 2: 철근배근 │ Tab 3: 부재력/하중조합 │ Tab 4: 세장비/골조조건           │
-└───────────────┴───────────────┴───────────────────────┴────────────────────────────────┘
+├───────────────┴───────────────┴───────────────────────┴────────────────────────────────┤
+│ [💾 적용 (Apply)]           [⚡ 검토 (Check)]                  [✨ 설계 (Design)]       │
+└────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### 2.1. Tab 1: 단면 및 재료 (Section & Material)
@@ -114,8 +120,9 @@
 
 ## 5. 완료 정의 (DoD: Definition of Done)
 
-- [ ] `src/web/static/js/components/form_rc_column.js` 모듈 구현 완료
+- [ ] `src/web/static/js/components/form_rc_column.js` (또는 `modules/rc_column/form_rc_column.js`) 모듈 구현 완료
 - [ ] 원본앱 4대 서브탭이 100% 정상 브라우저 DOM 렌더링됨
-- [ ] 배근 상세 모달 및 P-M 확대 모달 클릭 시 팝업 정상 작동
-- [ ] 폼 입력값 변경 시 `ProjectStore`로 정확한 데이터가 전달됨
+- [ ] 배근 상세 모달(`modal_manager.js`) 및 P-M 확대 모달 클릭 시 팝업 정상 작동
+- [ ] Pane 1(다중 부재 매니저)에서 기둥 부재 인스턴스 전환 시 폼 데이터 동기화
+- [ ] 3버튼(`적용/검토/설계`) 액션 툴바 정상 동작 및 `ProjectStore` 상태 전파
 - [ ] 브라우저 콘솔 에러 0건 유지

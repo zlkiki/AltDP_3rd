@@ -6,32 +6,38 @@
 
 * **부재 및 모듈 식별자**: `rc_column` (카탈로그 No. 2, Tier 1 플래그십)
 * **담당 소스 파일**:
-  - `src/web/static/js/visual/vector_rc_column.js` (신규 RC 기둥 2D 렌더러 모듈)
+  - `src/web/static/js/visual/vector_rc_column.js` (또는 `modules/rc_column/vector_rc_column.js`, 신규 RC 기둥 2D 렌더러 모듈)
   - `src/web/static/js/renderer2d.js` (기둥 뷰포트 디스패치 등록)
   - `src/web/static/js/pm_chart.js` (200 파이버 P-M 상관곡선 차트 렌더러)
+* **워크스페이스 배치 (Center Pane 3)**:
+  - **Center Pane**: 세로 적층형 다중 뷰포트 그래픽 정보부 (`#pane-graphic-view`)
+  - 상단 뷰포트: 기둥 횡단면 상세 및 배근도 (배근 치수, 피복, 갈고리 대근)
+  - 하단 뷰포트: KDS 200 파이버 P-M 상관곡선 및 설계하중점 인터랙티브 다이어그램
 * **1순위/2순위 그래픽스 SSOT**:
   - `decompiled_src/DPLUS_VDraw.dll_symbols.txt` (`CODADrawTool`, `CVDrawView`)
   - 원본 원본앱 기둥 그래픽스 뷰 (상단: 기둥 횡단면 배근도 / 하단: KDS P-M 다이어그램)
 
 ---
 
-## 2. 2D 캔버스 듀얼 뷰포트(Dual Viewport) 분할 구조
+## 2. 2D 캔버스 듀얼 뷰포트(Dual Viewport) 분할 구조 (세로 적층형)
 
-RC 기둥 캔버스는 상/하 2개의 전문 뷰포트로 분할 렌더링됩니다:
+DOCS 07 및 요구사항 21 제4절에 따라, RC 기둥 캔버스는 Center Pane 내에서 상/하 2개의 전문 뷰포트로 세로 적층 분할 렌더링됩니다:
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│ [캔버스 뷰포트 A: 기둥 횡단면도 (Cross-Section & Rebar Layout)]                         │
+│ [Center Pane 3 - 상단 뷰포트: 기둥 횡단면도 (Cross-Section & Rebar Layout)]            │
 │  - 콘크리트 외곽 사각/원형 윤곽선 (B x H 또는 D)                                      │
 │  - 외곽 폐합 띠철근 (135° 절곡 갈고리) 및 내부 크로스타이/다이아몬드 대근                │
 │  - 원형 솔리드 주철근 심볼 (정확한 기하 좌표 배치)                                     │
 │  - 치수선 (치수 보조선, 화살표, 수치 레이블) 및 철근 태그 지시선 (Leader Line)        │
+│  - 독립 줌(Zoom), 팬(Pan), [Fit] 맞춤, 치수선 토글 툴바 제공                          │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
-│ [캔버스 뷰포트 B: 200 파이버 KDS P-M 상관곡선 (Interactive P-M Diagram)]               │
+│ [Center Pane 3 - 하단 뷰포트: 200 파이버 KDS P-M 상관곡선 (Interactive P-M Diagram)]   │
 │  - 공칭강도 곡선 (Pn - Mn) 점선 및 설계강도 곡선 (phi_Pn - phi_Mn) 실선                │
 │  - 최대 설계축강도 수평 한계선 (phi_Pn,max)                                            │
 │  - 균형파괴점 (Balanced Point B), 순수 휨점 (M0), 순수 인장점 (P_tens) 마커            │
 │  - 계수 설계하중점 (Pu, Mux, Muy) 플롯 및 안전/초과 시각화                              │
+│  - 하중점 마우스 호버 시 DCR 및 축력/모멘트 인터랙티브 툴팁                            │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 

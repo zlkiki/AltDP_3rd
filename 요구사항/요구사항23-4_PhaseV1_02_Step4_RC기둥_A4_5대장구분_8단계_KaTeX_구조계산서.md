@@ -6,28 +6,38 @@
 
 * **부재 및 모듈 식별자**: `rc_column` (카탈로그 No. 2, Tier 1 플래그십)
 * **담당 소스 파일**:
-  - `src/web/static/js/report/redcr_rc_column.js` (신규 기둥 계산서 렌더러 모듈)
-  - `src/web/static/js/report_view.js` (계산서 디스패처 등록)
+  - `src/web/static/js/report/redcr_rc_column.js` (또는 `modules/rc_column/redcr_rc_column.js`, 신규 기둥 계산서 렌더러 모듈)
+  - `src/web/static/js/core/report_engine.js` (계산서 공통 KaTeX 렌더러, 머릿말 주입, 인쇄/PDF 제어기)
   - `src/report/generator.py` (A4 인쇄용 HTML/PDF 템플릿 엔진)
+* **워크스페이스 배치 (Right Pane 4)**:
+  - **Right Pane**: KDS 표준 구조계산서 (`#pane-right-report`)
+  - **상시 순백색(`#ffffff`) A4 고정 용지 원칙**: 다크 모드에서도 실제 관공서 인쇄물 호환을 위해 순백색 배경과 고대비 텍스트 유지.
+  - **계산서 상단 제어 툴바**:
+    * 보고서 유형 라디오: `(•) 상세 보고서 (Detail)   ( ) 요약 보고서 (Summary)`
+    * 출력 옵션 토글: `[☑ 사용자 입력 데이터 상세 포함]   [☑ 단면도/P-M 그래픽 임베딩]`
+    * 커스텀 설정: `[머릿말/회사명 설정 ⚙️]` (프로젝트명, 회사명, 검토/승인자 서명란 모달 연동)
+    * 출력 액션: `[🖨️ 인쇄 (Print)]  [📄 PDF 저장]  [📊 Excel 내보내기]`
 * **1순위/2순위 계산서 SSOT**:
-  - `original_src/Midas Design+/Dbase/DgnReportBase.ini`
+  - `original_src/Midas Design+/Dbase/DgnReportBase.ini`, `GENDgnReportKR.ini`
   - 원본 계산서 5대 대단원 장구분 및 Step-by-Step 수식 전개 방식 완벽 계승
 
 ---
 
-## 2. A4 구조계산서 레이아웃 및 5대 장구분 구성
+## 2. A4 구조계산서 레이아웃 및 장구분 구성
 
-모든 계산서는 인쇄 시 표준 A4 용지 규격(순백색 `#ffffff` 배경, 20mm 표준 여백)에 최적화되며 아래 5개 대단원으로 구성됩니다:
+모든 계산서는 인쇄 시 표준 A4 용지 규격(순백색 `#ffffff` 배경, 20mm 표준 여백)에 최적화되며 아래 장구분으로 구성됩니다 (`[입력 데이터 상세 포함]` 옵션 ON 시 제2장 활성화):
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
 │ [RC COLUMN STRUCTURAL CALCULATION REPORT - KDS 14 20 00]                               │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
 │ 1. 설계 기본 정보 및 단면 제원 (Design Information & Section Geometry)                  │
-│ 2. 설계 부재력 및 세장비 검토 (Factored Loads & Slenderness Effect)                     │
-│ 3. 축력-휨 P-M 상관강도 검토 (Axial & Flexural P-M Interaction Check)                   │
-│ 4. 이축휨 상호작용 검토 (Biaxial Bending Interaction Check)                             │
-│ 5. 기둥 전단강도 검토 (Shear Strength Check with Axial Force)                          │
+│ 2. 사용자 입력 데이터 상세 (Input Data Specification - 옵션 체크 시 포함)                │
+│ 3. 설계 부재력 및 세장비 검토 (Factored Loads & Slenderness Effect)                     │
+│ 4. 축력-휨 P-M 상관강도 검토 (Axial & Flexural P-M Interaction Check)                   │
+│ 5. 이축휨 상호작용 검토 (Biaxial Bending Interaction Check)                             │
+│ 6. 기둥 전단강도 검토 (Shear Strength Check with Axial Force)                          │
+│ 7. 종합 판정 (Summary & Verdict:   →  O.K /   →  N.G)                                  │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -115,8 +125,10 @@
 
 ## 5. 완료 정의 (DoD: Definition of Done)
 
-- [ ] `src/web/static/js/report/redcr_rc_column.js` 모듈 구현 완료
-- [ ] 5대 장구분 및 8단계 KaTeX 수식 전개식이 오류 없이 완벽히 렌더링됨
+- [ ] `src/web/static/js/report/redcr_rc_column.js` (또는 `modules/rc_column/redcr_rc_column.js`) 모듈 구현 완료
+- [ ] 7대 장구분 및 8단계 KaTeX 수식 전개식이 오류 없이 완벽히 렌더링됨
+- [ ] 상세/요약 모드 라디오 토글 및 `[☑ 입력 데이터 상세 포함]` 체크 시 제2장 동적 토글 정상 작동
 - [ ] 단면 배근도 및 P-M 다이어그램 그림이 계산서 본문에 정상 임베딩됨
-- [ ] A4 인쇄 프리뷰 시 페이지 잘림이나 깨짐 없이 순백색(#ffffff)으로 깔끔하게 출력됨
+- [ ] `[머릿말/회사명 설정 ⚙️]` 모달 연동 및 프로젝트/회사 정보 동적 주입 확인
+- [ ] A4 인쇄 프리뷰 시 페이지 잘림이나 깨짐 없이 상시 순백색(#ffffff) 고정으로 깔끔하게 출력됨
 - [ ] 브라우저 콘솔 에러 0건 유지
