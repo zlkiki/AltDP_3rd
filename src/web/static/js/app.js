@@ -23,7 +23,15 @@ async function initApp() {
             reportContainer: document.getElementById('result-container')
         });
     }
-    if (window.TreeMenu) {
+    if (window.SidebarNav) {
+        window.SidebarNav.init({
+            containerId: 'module-accordion',
+            pillsContainerId: 'sidebar-cat-pills',
+            pinBtnId: 'btn-pin-sidebar',
+            searchInputId: 'quick-search',
+            sidebarId: 'sidebar-nav'
+        });
+    } else if (window.TreeMenu) {
         window.TreeMenu.init('module-accordion', 'sidebar-cat-pills');
     }
 
@@ -301,7 +309,15 @@ async function selectMemberInModule(modKey, memberId) {
     await selectModule(modKey, memberId);
 }
 
+window.selectMemberInModule = selectMemberInModule;
+window.selectModule = selectModule;
+
 function renderSidebar(filterQuery = '') {
+    if (window.SidebarNav && typeof window.SidebarNav.render === 'function') {
+        window.SidebarNav.render(allModules, filterQuery);
+        return;
+    }
+
     const container = document.getElementById('module-accordion');
     if (!container) return;
     container.innerHTML = '';
