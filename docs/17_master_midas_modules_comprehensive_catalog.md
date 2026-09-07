@@ -4,7 +4,7 @@
 
 ## 1. 개요 및 관리 목적
 
-본 문서는 **Midas Design+ (`Design+.exe`)** 원본 바이너리 및 리소스([`original_src/Midas Design+/`](file:///f:/PyProject/AltDP_3rd/original_src/Midas%20Design+/)), 디컴파일 C 수도코드 및 심볼([`decompiled_src/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/)), 그리고 관련 기술 사양서([`docs/04_rc_design_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/04_rc_design_specification.md), [`docs/05_steel_design_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/05_steel_design_specification.md), [`docs/06_python_engine_architecture_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md), [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md))에 정의된 **총 61종 전수 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**의 정의를 단 1종의 누락이나 축약 없이 총망라하여, **4대 참조 우선순위 자산(1순위 추출 소스, 2순위 매뉴얼/리소스, 3순위 kcsc2md 예제집, 4순위 KDS 구조기준)**과 구현 대상 파이썬 엔진 파일을 1:1로 매핑한 **전체 총괄 단일 진실 공급원(Master Inventory SSOT)**입니다.
+본 문서는 **Midas Design+ (`Design+.exe`)** 원본 바이너리 및 리소스([`original_src/Midas Design+/`](file:///f:/PyProject/AltDP_3rd/original_src/Midas%20Design+/)), 디컴파일 C 수도코드 및 심볼([`decompiled_src/`](file:///f:/PyProject/AltDP_3rd/decompiled_src/)), 그리고 관련 기술 사양서([`docs/06_python_engine_architecture_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md), [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md))에 정의된 **총 61종 전수 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**의 정의를 단 1종의 누락이나 축약 없이 총망라하여, **4대 참조 우선순위 자산(1순위 추출 소스, 2순위 매뉴얼/리소스, 3순위 kcsc2md 예제집, 4순위 KDS 구조기준)**과 구현 대상 파이썬 엔진 파일을 1:1로 매핑한 **전체 총괄 단일 진실 공급원(Master Inventory SSOT)**입니다.
 
 > [!IMPORTANT]
 > **🚨 4대 포팅 참조 우선순위 계층 (SSOT Priority Hierarchy)**:
@@ -16,7 +16,7 @@
 ---
 
 ## 2. 콘크리트 (RC) 모듈군 전수 인벤토리 (21종)
-*상세 사양서 단일 진실 공급원: [`docs/04_rc_design_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/04_rc_design_specification.md)*
+*설계 기준 및 연산 단일 진실 공급원: 4대 포팅 참조 우선순위 자산 (1순위 추출 C 소스, 2순위 매뉴얼, 3순위 kcsc2md 예제집, 4순위 KDS 원문) 직접 연계 (구 요약문서 `docs/04`는 `docs/@@OLD/` 보관)*
 
 | No | 부재 분류 | 모듈 식별자 (`type`) | 원본 리소스/메뉴 ID | [1순위] 추출 소스/심볼 | [2순위] 원본 DLG 리소스 | [3순위] kcsc2md 예제집 | [4순위] KDS 조항 | 티어 | 핵심 설계 기능 및 구현 대상 파일 |
 |:---:|---|---|---|---|---|---|---|:---:|---|
@@ -45,7 +45,7 @@
 ---
 
 ## 3. 철골 (Steel) 모듈군 전수 인벤토리 (16종)
-*상세 사양서 단일 진실 공급원: [`docs/05_steel_design_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/05_steel_design_specification.md)*
+*설계 기준 및 연산 단일 진실 공급원: 4대 포팅 참조 우선순위 자산 (1순위 추출 C 소스, 2순위 매뉴얼, 3순위 kcsc2md 예제집, 4순위 KDS 원문) 직접 연계 (구 요약문서 `docs/05`는 `docs/@@OLD/` 보관)*
 
 | No | 부재 분류 | 모듈 식별자 (`type`) | 원본 리소스/메뉴 ID | [1순위] 추출 소스/심볼 | [2순위] 원본 DLG 리소스 | [3순위] kcsc2md 예제집 | [4순위] KDS 조항 | 티어 | 핵심 설계 기능 및 구현 대상 파일 |
 |:---:|---|---|---|---|---|---|---|:---:|---|

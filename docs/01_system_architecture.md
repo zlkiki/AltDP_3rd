@@ -115,8 +115,7 @@ AltDP_3rd/
 │   ├── 01_system_architecture.md
 │   ├── 02_binary_reverse_engineering_specification.md
 │   ├── 03_section_db_specification.md
-│   ├── 04_rc_design_specification.md
-│   ├── 05_steel_design_specification.md
+│   ├── @@OLD/                      # 구 요약 사양서 (04_rc, 05_steel 보관)
 │   ├── 06_python_engine_architecture_specification.md
 │   ├── 07_web_application_ui_ux_specification.md
 │   ├── 08_pytest_testing_guide.md
