@@ -256,6 +256,28 @@
     border: 1px solid rgba(148, 163, 184, 0.2);
 }
 
+/* Req 21-3: DCR 상태 2단계 폰트 컬러 글자 표기 (칩/배경색 없음) */
+.dcr-status-text {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.dcr-status-text.dcr-text-ok {
+    color: #10b981;
+}
+
+.dcr-status-text.dcr-text-ng {
+    color: #ef4444;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.dcr-status-text.dcr-text-ready {
+    color: var(--text-muted);
+}
+
 /* ========================================================= */
 /* Dynamic Form UI                                           */
 /* ========================================================= */

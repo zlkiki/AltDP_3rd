@@ -1,15 +1,17 @@
 // web/js/components/form_generator.js
 /**
  * Schema-driven Dynamic Form Generator (Ultra-slim Orchestrator)
+ * - 4 High-Access SubTabs: [단면/재료], [배근/상세], [설계하중], [설계옵션] (Req 21-3 & DOCS 07)
  * - Delegates Combobox, Strict Dropdowns & AutoFill to FormCombobox (form_combobox.js)
- * - 4-Pillar Section Grouping: Geometry, Materials, Reinforcement, Design Forces
- * - Action Toolbar: [⚡ 검토], [✨ 설계]
+ * - Original App 1:1 Sub-Dialogs (...) Integration (CommonDialogs / ModalManager)
+ * - Action Toolbar: [💾 적용 (Apply)], [⚡ 검토 (Check)], [✨ 설계 (Design)]
  * - Bidirectional Canonical SI <-> Display Unit conversion
  */
 
 window.FormGenerator = {
     _currentSchema: null,
     _currentModuleKey: '',
+    _activeSubTab: 'geom_mat', // 'geom_mat', 'reinf', 'force', 'option'
 
     init() {
         if (window.FormCombobox) {
@@ -50,23 +52,58 @@ window.FormGenerator = {
 
         formElement.appendChild(actionBar);
 
-        // 2. Group properties into 4 Pillars
-        const groups = {
-            geom: { title: '1. 단면 제원 (Section Geometry)', icon: '📐', fields: [] },
-            mat:  { title: '2. 재료 강도 (Materials)', icon: '🧱', fields: [] },
-            reinf:{ title: '3. 배근 및 상세 (Reinforcement & Details)', icon: '🔩', fields: [] },
-            force:{ title: '4. 설계 하중 및 단면력 (Design Forces)', icon: '⚡', fields: [] }
+        // 2. SubTab Navigation Bar (Req 21-3 & DOCS 07 제4.2절)
+        const subTabBar = document.createElement('div');
+        subTabBar.className = 'sub-tab-bar';
+        subTabBar.innerHTML = `
+            <button type="button" class="sub-tab-btn ${this._activeSubTab === 'geom_mat' ? 'active' : ''}" data-tab="geom_mat" title="단면 제원 및 KS 표준 재료 강도">📐 단면/재료</button>
+            <button type="button" class="sub-tab-btn ${this._activeSubTab === 'reinf' ? 'active' : ''}" data-tab="reinf" title="철근 배근, 스터럽, 볼트 상세">🔩 배근/상세</button>
+            <button type="button" class="sub-tab-btn ${this._activeSubTab === 'force' ? 'active' : ''}" data-tab="force" title="설계 하중, 단면력, 하중조합">⚡ 설계하중</button>
+            <button type="button" class="sub-tab-btn ${this._activeSubTab === 'option' ? 'active' : ''}" data-tab="option" title="설계 환경, 비지지길이, 특수 옵션">⚙️ 설계옵션</button>
+        `;
+        formElement.appendChild(subTabBar);
+
+        // SubTab Tab Switching Event
+        subTabBar.querySelectorAll('.sub-tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetTab = btn.dataset.tab;
+                this._activeSubTab = targetTab;
+                subTabBar.querySelectorAll('.sub-tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                formElement.querySelectorAll('.sub-tab-pane').forEach(pane => {
+                    if (pane.dataset.tab === targetTab) {
+                        pane.classList.add('active');
+                        pane.style.display = 'flex';
+                    } else {
+                        pane.classList.remove('active');
+                        pane.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 3. Group properties into 4 SubTabs
+        const tabGroups = {
+            geom_mat: { title: '단면 제원 및 재료 강도 (Section & Materials)', icon: '📐', fields: [] },
+            reinf:    { title: '배근 및 상세 (Reinforcement & Details)', icon: '🔩', fields: [] },
+            force:    { title: '설계 하중 및 단면력 (Design Forces & Loads)', icon: '⚡', fields: [] },
+            option:   { title: '설계 옵션 및 해석 가정 (Design Options)', icon: '⚙️', fields: [] }
         };
 
         Object.keys(properties).forEach(fieldName => {
-            const pillar = this.categorizeField(fieldName);
-            groups[pillar].fields.push(fieldName);
+            const tabKey = this.categorizeField(fieldName);
+            tabGroups[tabKey].fields.push(fieldName);
         });
 
-        // 3. Render Section Cards
-        Object.keys(groups).forEach(pillarKey => {
-            const grp = groups[pillarKey];
-            if (grp.fields.length === 0) return;
+        // 4. Render 4 SubTab Panes
+        Object.keys(tabGroups).forEach(tabKey => {
+            const grp = tabGroups[tabKey];
+            const pane = document.createElement('div');
+            pane.className = `sub-tab-pane ${this._activeSubTab === tabKey ? 'active' : ''}`;
+            pane.dataset.tab = tabKey;
+            pane.style.display = this._activeSubTab === tabKey ? 'flex' : 'none';
 
             const card = document.createElement('div');
             card.className = 'form-section-card';
@@ -82,14 +119,41 @@ window.FormGenerator = {
             const body = document.createElement('div');
             body.className = 'form-section-body';
 
-            grp.fields.forEach(fieldName => {
-                const prop = properties[fieldName];
-                const fieldGroup = this.createFieldElement(fieldName, prop, formElement, onValueChange);
-                body.appendChild(fieldGroup);
-            });
+            if (grp.fields.length === 0) {
+                if (tabKey === 'option') {
+                    // Option Tab Fallback with Quick Sub-Dialog Triggers
+                    body.innerHTML = `
+                        <div style="padding: 12px; background: rgba(30, 41, 59, 0.4); border-radius: 6px; border: 1px dashed var(--border); font-size: 11.5px; color: var(--text-muted);">
+                            <div style="font-weight: 600; margin-bottom: 6px; color: var(--text-main);">⚙️ KDS 공학 설계 보조 모달 바로가기</div>
+                            <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+                                <button type="button" class="mini-btn" id="btn-opt-dlg-beff" style="text-align: left;">📐 T형/L형 보 플랜지 유효폭(beff) 산정</button>
+                                <button type="button" class="mini-btn" id="btn-opt-dlg-sway" style="text-align: left;">🏛️ 기둥 장주 모멘트확대계수(δns, δs) 산정</button>
+                                <button type="button" class="mini-btn" id="btn-opt-dlg-lcb" style="text-align: left;">⚡ KDS 41 10 15 기본 하중조합 생성기</button>
+                            </div>
+                        </div>
+                    `;
+                    setTimeout(() => {
+                        const b1 = body.querySelector('#btn-opt-dlg-beff');
+                        const b2 = body.querySelector('#btn-opt-dlg-sway');
+                        const b3 = body.querySelector('#btn-opt-dlg-lcb');
+                        if (b1) b1.onclick = () => this._openBeffDialog(formElement, onValueChange);
+                        if (b2) b2.onclick = () => this._openColumnSwayDialog(formElement, onValueChange);
+                        if (b3) b3.onclick = () => this._openLoadCombinationDialog(formElement, onValueChange);
+                    }, 50);
+                } else {
+                    body.innerHTML = '<div style="padding: 10px; font-size: 11px; color: var(--text-muted);">해당 서브탭 항목이 없습니다.</div>';
+                }
+            } else {
+                grp.fields.forEach(fieldName => {
+                    const prop = properties[fieldName];
+                    const fieldGroup = this.createFieldElement(fieldName, prop, formElement, onValueChange);
+                    body.appendChild(fieldGroup);
+                });
+            }
 
             card.appendChild(body);
-            formElement.appendChild(card);
+            pane.appendChild(card);
+            formElement.appendChild(pane);
         });
     },
 
@@ -111,6 +175,9 @@ window.FormGenerator = {
         label.title = `${prop.description || fieldName} (${fieldName})`;
         group.appendChild(label);
 
+        const controlWrap = document.createElement('div');
+        controlWrap.className = 'input-control-wrap';
+
         const fieldType = prop.type;
         let defaultValue = prop.default !== undefined ? prop.default : '';
 
@@ -129,7 +196,9 @@ window.FormGenerator = {
             const strictConfig = window.FormCombobox.getStrictDropdownConfig(fieldName, defaultValue, this._currentModuleKey);
             if (strictConfig) {
                 const selectEl = window.FormCombobox.createStrictDropdown(fieldName, defaultValue, strictConfig, formElement, onValueChange);
-                group.appendChild(selectEl);
+                controlWrap.appendChild(selectEl);
+                this._attachSubDialogButton(fieldName, controlWrap, formElement, onValueChange);
+                group.appendChild(controlWrap);
                 return group;
             }
 
@@ -137,7 +206,9 @@ window.FormGenerator = {
             const comboConfig = window.FormCombobox.getComboboxConfig(fieldName, defaultValue, this._currentModuleKey, formElement);
             if (comboConfig) {
                 const comboEl = window.FormCombobox.createCombobox(fieldName, defaultValue, comboConfig, formElement, onValueChange);
-                group.appendChild(comboEl);
+                controlWrap.appendChild(comboEl);
+                this._attachSubDialogButton(fieldName, controlWrap, formElement, onValueChange);
+                group.appendChild(controlWrap);
                 return group;
             }
         }
@@ -150,7 +221,8 @@ window.FormGenerator = {
             input.name = fieldName;
             input.checked = Boolean(defaultValue);
             input.addEventListener('change', () => onValueChange(fieldName));
-            group.appendChild(input);
+            controlWrap.appendChild(input);
+            group.appendChild(controlWrap);
             return group;
         }
 
@@ -171,30 +243,165 @@ window.FormGenerator = {
             input.placeholder = `${cleanDesc} (${unitStr})`;
         }
         input.addEventListener('input', () => onValueChange(fieldName));
-        group.appendChild(input);
+        controlWrap.appendChild(input);
 
+        // Attach 1:1 Sub-Dialog Trigger Button (...) if applicable
+        this._attachSubDialogButton(fieldName, controlWrap, formElement, onValueChange);
+
+        group.appendChild(controlWrap);
         return group;
+    },
+
+    /**
+     * Attaches 원본앱 1:1 서브 대화창 (...) 버튼
+     */
+    _attachSubDialogButton(fieldName, controlWrap, formElement, onValueChange) {
+        const lk = fieldName.toLowerCase();
+        let btn = null;
+
+        // 1. 보 플랜지 유효폭 모달 (IDD_RCS_BEAM_BEFF_DLG)
+        if (['b', 'bw', 'b_f', 'flange_w', 'b_eff'].includes(lk)) {
+            btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'btn-more-dlg';
+            btn.innerText = '...';
+            btn.title = 'T형/L형 보 플랜지 유효폭(beff) 자동 산정 (IDD_RCS_BEAM_BEFF_DLG)';
+            btn.onclick = (e) => {
+                e.preventDefault();
+                this._openBeffDialog(formElement, onValueChange, fieldName);
+            };
+        }
+        // 2. 기둥 장주 모멘트확대계수 모달 (IDD_RCS_COLUMN_SWAY_DLG)
+        else if (['kl_r', 'lu', 'unbraced_len', 'k', 'delta_ns', 'delta_s'].includes(lk)) {
+            btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'btn-more-dlg';
+            btn.innerText = '...';
+            btn.title = '기둥 장주 모멘트확대계수(δns, δs) 자동 산정 (IDD_RCS_COLUMN_SWAY_DLG)';
+            btn.onclick = (e) => {
+                e.preventDefault();
+                this._openColumnSwayDialog(formElement, onValueChange, fieldName);
+            };
+        }
+        // 3. KS 형강 DB 선택기 (IDD_STEEL_SECTION_DB_DLG)
+        else if (['section_name', 'shape', 'shape_type', 'steel_section'].includes(lk)) {
+            btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'btn-more-dlg';
+            btn.innerText = '...';
+            btn.title = 'KS 표준 철골 형강 단면 DB 선택기 (IDD_STEEL_SECTION_DB_DLG)';
+            btn.onclick = (e) => {
+                e.preventDefault();
+                this._openSectionDbDialog(formElement, onValueChange, fieldName);
+            };
+        }
+        // 4. KDS 하중조합 생성기 (IDD_LOAD_COMBINATION_DLG)
+        else if (['mu', 'vu', 'pu', 'tu', 'moment', 'p_u', 'm_u', 'v_u'].includes(lk)) {
+            btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'btn-more-dlg';
+            btn.innerText = '...';
+            btn.title = 'KDS 41 10 15 극한하중조합 일괄 산출 (IDD_LOAD_COMBINATION_DLG)';
+            btn.onclick = (e) => {
+                e.preventDefault();
+                this._openLoadCombinationDialog(formElement, onValueChange, fieldName);
+            };
+        }
+
+        if (btn) {
+            controlWrap.appendChild(btn);
+        }
+    },
+
+    _openBeffDialog(formElement, onValueChange, targetFieldName = 'b') {
+        if (!window.CommonDialogs) return;
+        const curData = this.getFormData(formElement);
+        window.CommonDialogs.openBeamBeffDialog(curData, (res) => {
+            if (res && res.beff) {
+                const targetInp = formElement.querySelector(`[name="${targetFieldName}"]`) || formElement.querySelector('[name="b"]');
+                if (targetInp) {
+                    targetInp.value = res.beff;
+                    onValueChange(targetFieldName);
+                }
+            }
+        });
+    },
+
+    _openColumnSwayDialog(formElement, onValueChange, targetFieldName = 'delta_ns') {
+        if (!window.CommonDialogs) return;
+        const curData = this.getFormData(formElement);
+        window.CommonDialogs.openColumnSwayDialog(curData, (res) => {
+            if (res) {
+                const targetInp = formElement.querySelector(`[name="${targetFieldName}"]`);
+                if (targetInp) {
+                    targetInp.value = res.delta ?? res.kl_r;
+                    onValueChange(targetFieldName);
+                }
+            }
+        });
+    },
+
+    _openSectionDbDialog(formElement, onValueChange, targetFieldName = 'section_name') {
+        if (!window.CommonDialogs) return;
+        const curData = this.getFormData(formElement);
+        window.CommonDialogs.openSectionDb(curData.section_name || 'H-400×200×8×13', (secData) => {
+            if (secData) {
+                const nameInp = formElement.querySelector(`[name="${targetFieldName}"]`) || formElement.querySelector('[name="section_name"]');
+                if (nameInp) nameInp.value = secData.name;
+
+                const hInp = formElement.querySelector('[name="h"]') || formElement.querySelector('[name="H"]');
+                if (hInp && secData.h) hInp.value = secData.h;
+
+                const bInp = formElement.querySelector('[name="b"]') || formElement.querySelector('[name="B"]') || formElement.querySelector('[name="bf"]');
+                const bVal = secData.bf ?? secData.b;
+                if (bInp && bVal) bInp.value = bVal;
+
+                const twInp = formElement.querySelector('[name="tw"]') || formElement.querySelector('[name="t_w"]');
+                if (twInp && secData.tw) twInp.value = secData.tw;
+
+                const tfInp = formElement.querySelector('[name="tf"]') || formElement.querySelector('[name="t_f"]');
+                if (tfInp && secData.tf) tfInp.value = secData.tf;
+
+                onValueChange(targetFieldName);
+            }
+        });
+    },
+
+    _openLoadCombinationDialog(formElement, onValueChange, targetFieldName = 'mu') {
+        if (!window.CommonDialogs) return;
+        const curData = this.getFormData(formElement);
+        window.CommonDialogs.openLoadCombination(curData, (res) => {
+            if (res) {
+                const muInp = formElement.querySelector('[name="mu"]') || formElement.querySelector('[name="m_u"]');
+                if (muInp && res.governingMu) muInp.value = res.governingMu;
+
+                const vuInp = formElement.querySelector('[name="vu"]') || formElement.querySelector('[name="v_u"]');
+                if (vuInp && res.governingVu) vuInp.value = res.governingVu;
+
+                onValueChange(targetFieldName);
+            }
+        });
     },
 
     categorizeField(fieldName) {
         const lk = fieldName.toLowerCase();
-        // 1. Geometry (Dimensions, Spans, Thickness, Width, Height)
-        if (['b', 'bw', 'h', 'h1', 'b1', 'd', 'tw', 'tf', 'cover', 'cx', 'cy', 't_steel', 'slab_thick', 'pile_dia', 'pile_cap_dia', 'edge_dist', 'r', 'b_f', 'h_f', 'bf', 'b_top', 'h_top', 'col_b', 'col_h', 'col_d', 'col_bf', 'lw', 'thickness', 't', 'cc', 'c_c', 'span', 'span_x', 'span_y', 'span_horiz', 'l', 'lx', 'ly', 'lb', 'l_clear', 'ln', 'height_story', 'h_story', 'len', 'tread_r', 'tread_t', 'width', 'depth', 'flange_w', 'flange_t', 'web_t', 'd_eff', 'open_size', 'open_width', 'clear_spacing', 'wheel_spacing', 'section_name', 'shape', 'shape_type', 'section_type'].includes(lk)) {
-            return 'geom';
+        // 1. Option Tab
+        if (['kl_r', 'lu', 'k', 'unbraced_len', 'delta_ns', 'delta_s', 'sway', 'ductility', 'seismic_category', 'deflection_limit', 'crack_env', 'exposure'].includes(lk)) {
+            return 'option';
         }
-        // 2. Materials (Concrete fck, Steel Fy, Rebar fy, E)
-        if (['fck', 'fci', 'fy', 'fys', 'fyt', 'fy_steel', 'fy_rebar', 'fu', 'fyk', 'fpu', 'fps', 'e', 'es', 'ec', 'f_ck', 'fck_c', 'fy_h', 'fy_v', 'fy_main', 'fy_sub', 'steel_grade', 'material', 'grade', 'steel_type', 'rebar_grade', 'plate_grade', 'beam_grade', 'qa_soil', 'fb', 'ft', 'fv', 'f_y', 'f_u', 'mat', 'anchor_grade', 'bolt_grade'].includes(lk)) {
-            return 'mat';
+        // 2. Geometry & Materials Tab
+        if (['b', 'bw', 'h', 'h1', 'b1', 'd', 'tw', 'tf', 'cover', 'cx', 'cy', 't_steel', 'slab_thick', 'pile_dia', 'pile_cap_dia', 'edge_dist', 'r', 'b_f', 'h_f', 'bf', 'b_top', 'h_top', 'col_b', 'col_h', 'col_d', 'col_bf', 'lw', 'thickness', 't', 'cc', 'c_c', 'span', 'span_x', 'span_y', 'span_horiz', 'l', 'lx', 'ly', 'lb', 'l_clear', 'ln', 'height_story', 'h_story', 'len', 'tread_r', 'tread_t', 'width', 'depth', 'flange_w', 'flange_t', 'web_t', 'd_eff', 'open_size', 'open_width', 'clear_spacing', 'wheel_spacing', 'section_name', 'shape', 'shape_type', 'section_type', 'fck', 'fci', 'fy', 'fys', 'fyt', 'fy_steel', 'fy_rebar', 'fu', 'fyk', 'fpu', 'fps', 'e', 'es', 'ec', 'f_ck', 'fck_c', 'fy_h', 'fy_v', 'fy_main', 'fy_sub', 'steel_grade', 'material', 'grade', 'steel_type', 'rebar_grade', 'plate_grade', 'beam_grade', 'qa_soil', 'fb', 'ft', 'fv', 'f_y', 'f_u', 'mat', 'anchor_grade', 'bolt_grade'].includes(lk)) {
+            return 'geom_mat';
         }
-        // 3. Reinforcement & Details
+        // 3. Reinforcement & Details Tab
         if (lk.includes('dia') || lk.includes('bar') || lk.includes('rebar') || lk.includes('stirrup') || lk.includes('bolt') || lk.includes('layer') || ['top_num', 'bot_num', 'stirrup_legs', 'legs', 'db', 'dt', 'main_num', 'tie_num', 'anchor_num', 'nx', 'ny', 'side_num', 'vert_curtains', 'stirrup_spacing', 'bar_spacing', 'rebar_spacing', 'top_rebar_num', 'bot_rebar_num', 'diag_rebar_num', 'num_bolts', 'num_shear_planes', 'bolt_num', 'num_tension_bolts'].includes(lk)) {
             return 'reinf';
         }
-        // 4. Design Forces & Loads
+        // 4. Design Forces & Loads Tab
         if (['mu', 'vu', 'pu', 'tu', 'mux', 'muy', 'muz', 'mx_serv', 'my_serv', 'm_serv', 'p_serv', 'p1', 'p2', 'p_allow', 'v_u', 'p_u', 'axial_force', 'p_serv_tot', 'f_tension', 'f_shear', 't_u', 'wheel_load', 'pe_eff', 'qa', 'll', 'dl', 'dead_load_finish', 'finish_load', 'live_load', 'qsurf', 'qsurface', 'soil_pressure', 'w_dead', 'w_live', 'w_total', 'load'].includes(lk)) {
             return 'force';
         }
-        return 'geom';
+        return 'geom_mat';
     },
 
     getFormData(formElement) {

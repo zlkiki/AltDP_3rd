@@ -169,14 +169,16 @@
             const table = document.createElement('table');
             table.className = 'member-table';
 
-            // Header
+            // Header (Req 21-3: 부재명 | 단면 치수 | 주요 배근/형강 규격 | 소요력 | DCR 상태)
             table.innerHTML = `
                 <thead>
                     <tr>
-                        <th style="width: 32px; text-align: center;">선택</th>
-                        <th style="min-width: 70px;">부재명</th>
-                        <th>단면 요약</th>
-                        <th style="text-align: right; width: 75px;">DCR</th>
+                        <th style="width: 26px; text-align: center;">선택</th>
+                        <th style="min-width: 65px;">부재명</th>
+                        <th style="min-width: 80px;">단면 치수</th>
+                        <th style="min-width: 95px;">주요 배근 / 형강</th>
+                        <th style="min-width: 75px;">소요력</th>
+                        <th style="text-align: right; width: 75px;">DCR 상태</th>
                     </tr>
                 </thead>
             `;
@@ -189,20 +191,26 @@
                 tr.className = `member-row ${isActive ? 'active' : ''}`;
                 tr.dataset.memberId = m.id;
 
-                // Section Summary Text
+                // 1. Section Summary Text
                 const secText = this._extractSectionSummary(m.inputs);
 
-                // DCR Badge
+                // 2. Rebar / Steel Spec Summary Text
+                const rebarText = this._extractRebarSummary(m.inputs);
+
+                // 3. Design Force Summary Text
+                const forceText = this._extractForceSummary(m.inputs);
+
+                // 4. DCR Text (Req 21-3: 칩/배경색 제거, 폰트 컬러로만 표기)
                 const dcr = Number(m.dcr || 0.0);
-                let badgeClass = 'ready';
-                let badgeText = 'READY';
+                let dcrClass = 'dcr-text-ready';
+                let dcrText = '- READY';
 
                 if (m.status === 'PASS') {
-                    badgeClass = 'pass';
-                    badgeText = `${dcr.toFixed(3)} OK`;
+                    dcrClass = 'dcr-text-ok';
+                    dcrText = `${dcr.toFixed(3)} OK`;
                 } else if (m.status === 'FAIL') {
-                    badgeClass = 'fail';
-                    badgeText = `${dcr.toFixed(3)} NG`;
+                    dcrClass = 'dcr-text-ng';
+                    dcrText = `${dcr.toFixed(3)} NG`;
                 }
 
                 tr.innerHTML = `
@@ -215,8 +223,14 @@
                     <td style="color: var(--text-muted); font-family: var(--font-mono); font-size: 11px;">
                         ${secText}
                     </td>
+                    <td style="color: var(--text-dim); font-family: var(--font-mono); font-size: 11px;">
+                        ${rebarText}
+                    </td>
+                    <td style="color: var(--text-dim); font-family: var(--font-mono); font-size: 11px;">
+                        ${forceText}
+                    </td>
                     <td style="text-align: right;">
-                        <span class="dcr-badge ${badgeClass}">${badgeText}</span>
+                        <span class="dcr-status-text ${dcrClass}" data-member-id="${m.id}">${dcrText}</span>
                     </td>
                 `;
 
@@ -233,6 +247,24 @@
                     if (e.target.tagName === 'INPUT') return; // radio or text edit handled separately
                     this._selectMemberById(modKey, m.id);
                 });
+
+                // NG Text Click -> Scroll to Report calculation failure point
+                const dcrSpan = tr.querySelector('.dcr-status-text.dcr-text-ng');
+                if (dcrSpan) {
+                    dcrSpan.style.cursor = 'pointer';
+                    dcrSpan.title = '클릭 시 계산서 검토 불합격 위치로 이동합니다';
+                    dcrSpan.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        this._selectMemberById(modKey, m.id);
+                        const rightPane = document.getElementById('right-pane');
+                        if (rightPane) {
+                            const ngElement = rightPane.querySelector('.calc-fail, .verdict-fail, .fail');
+                            if (ngElement) {
+                                ngElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                        }
+                    });
+                }
 
                 // Double Click Name -> Inline Edit
                 const nameDisplay = tr.querySelector('.name-display');
@@ -330,6 +362,69 @@
             if (inputs.b_f && inputs.h_f) return `B${fmt(inputs.b_f)} L${fmt(inputs.h_f)} ${u}`;
             if (inputs.D) return `D${fmt(inputs.D)} ${u}`;
             if (inputs.thickness || inputs.thk || inputs.t) return `t${fmt(inputs.thickness || inputs.thk || inputs.t)} ${u}`;
+            return '-';
+        }
+
+        _extractRebarSummary(inputs = {}) {
+            if (!inputs || typeof inputs !== 'object') return '-';
+            // 1. RC Beam: Top / Bottom Rebar
+            if (inputs.top_num && inputs.top_dia && inputs.bot_num && inputs.bot_dia) {
+                return `상 ${inputs.top_num}-D${inputs.top_dia}, 하 ${inputs.bot_num}-D${inputs.bot_dia}`;
+            }
+            if (inputs.top_num && inputs.top_dia) {
+                return `상 ${inputs.top_num}-D${inputs.top_dia}`;
+            }
+            if (inputs.bot_num && inputs.bot_dia) {
+                return `하 ${inputs.bot_num}-D${inputs.bot_dia}`;
+            }
+            // 2. RC Column: Main Rebar
+            if (inputs.main_num && inputs.main_dia) {
+                return `${inputs.main_num}-D${inputs.main_dia}`;
+            }
+            if (inputs.nx && inputs.ny && inputs.main_dia) {
+                return `${(inputs.nx * 2 + (inputs.ny - 2) * 2)}-D${inputs.main_dia}`;
+            }
+            // 3. RC Slab / Wall / Footing: Diameter @ Spacing
+            if (inputs.dia && inputs.spacing) {
+                return `D${inputs.dia}@${inputs.spacing}`;
+            }
+            if (inputs.bar_dia && inputs.bar_spacing) {
+                return `D${inputs.bar_dia}@${inputs.bar_spacing}`;
+            }
+            // 4. Steel Section Name
+            if (inputs.section_name) {
+                return inputs.steel_grade || 'SM355';
+            }
+            if (inputs.shape) {
+                return inputs.shape;
+            }
+            // 5. Bolt Connections
+            if (inputs.num_bolts && inputs.bolt_dia) {
+                return `${inputs.num_bolts}-M${inputs.bolt_dia}`;
+            }
+            return '-';
+        }
+
+        _extractForceSummary(inputs = {}) {
+            if (!inputs || typeof inputs !== 'object') return '-';
+            const forces = [];
+            const mu = inputs.mu ?? inputs.mux ?? inputs.m_u;
+            const vu = inputs.vu ?? inputs.v_u;
+            const pu = inputs.pu ?? inputs.p_u;
+
+            if (mu !== undefined && mu !== null && Number(mu) !== 0) {
+                forces.push(`Mu ${Number(mu).toFixed(0)}`);
+            }
+            if (vu !== undefined && vu !== null && Number(vu) !== 0) {
+                forces.push(`Vu ${Number(vu).toFixed(0)}`);
+            }
+            if (pu !== undefined && pu !== null && Number(pu) !== 0) {
+                forces.push(`Pu ${Number(pu).toFixed(0)}`);
+            }
+
+            if (forces.length > 0) {
+                return forces.join(', ');
+            }
             return '-';
         }
     }
