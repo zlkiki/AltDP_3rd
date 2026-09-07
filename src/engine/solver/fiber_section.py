@@ -2,7 +2,7 @@
 
 Implements nonlinear fiber section discretization and stress-strain integration
 for RC columns and arbitrary cross-sections under axial load and biaxial bending.
-Complies with KDS 14 20 20 / ACI 318 and reverse engineered Midas Design+ solver logic.
+Complies with KDS 14 20 20 / ACI 318 and fiber discretization numerical integration.
 """
 
 from dataclasses import dataclass, field

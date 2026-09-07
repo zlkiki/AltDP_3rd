@@ -1,6 +1,6 @@
 /**
  * AltDP_3rd 5-Chapter KDS Structural Calculation Report Renderer (report_renderer.js)
- * Conforms to Midas Design+ DgnReportBase.ini / GENDgnReportKR.ini specification
+ * Conforms to KDS Standard 5-Section Structural Calculation Report Specification
  */
 class ReportRenderer {
     constructor() {

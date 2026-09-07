@@ -1,5 +1,5 @@
 // web/js/report/redcr/FootingReportGenerator.js
-// RC 독립기초 / 복합기초 / 말뚝기초 상세 계산서 생성기 — MIDAS Gen / KDS 스타일 (re-DCR 직이식)
+// RC 독립기초 / 복합기초 / 말뚝기초 상세 계산서 생성기 — KDS 14 20 00 독립기초/복합기초/말뚝기초 표준 계산서
 
 (function() {
 const kN = (n) => (Number(n || 0) / 1e3).toFixed(1);

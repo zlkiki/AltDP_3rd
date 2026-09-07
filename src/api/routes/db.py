@@ -33,7 +33,7 @@ async def list_sections(
     query: Optional[str] = Query(default="", description="Search query string"),
     limit: int = Query(default=50, ge=1, le=200)
 ):
-    """Search sections from Midas .sdb databases."""
+    """Search sections from standard .sdb databases."""
     try:
         parser = get_parser(db)
         results = parser.search(query) if query else parser.sections

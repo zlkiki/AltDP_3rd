@@ -1,5 +1,5 @@
-// web/js/redcr/WallCheckReportGenerator.js
-// RC 전단벽 설계/검토 상세 보고서 HTML 생성 — KDS 14 20 20 / KDS 14 20 22 (re-DCR 직이식)
+// web/js/report/redcr/WallCheckReportGenerator.js
+// RC 전단벽 설계/검토 상세 보고서 HTML 생성 — KDS 14 20 20 / KDS 14 20 22 표준 계산서
 
 (function() {
 const FONT_UI = "'Segoe UI', Arial, sans-serif";

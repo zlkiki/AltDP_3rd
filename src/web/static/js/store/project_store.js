@@ -1,7 +1,7 @@
 // web/js/store/project_store.js
 /**
  * AltDP Member Designer - Central Project Store (SSOT)
- * re-DCR (STRIX) Zustand / Snapshot Architecture Port
+ * Zustand / Snapshot Architecture Project Store
  * 
  * - Single Source of Truth for Layout, Members, Inputs, and Analysis Results
  * - Clean Startup by Default
@@ -408,7 +408,7 @@
         }
 
         // ==========================================
-        // Export & Import (re-DCR Snapshot Pattern)
+        // Export & Import (JSON Snapshot Pattern)
         // ==========================================
         async exportProject() {
             const snapshot = {

@@ -1,5 +1,5 @@
 // web/js/redcr/SteelReportGenerator.js
-// MIDAS Gen style steel detailed calculation report — KDS 14 31 10 : 2024 (LRFD) (re-DCR 직이식)
+// KDS 14 31 10 : 2024 (LRFD) Steel Detailed Calculation Report
 
 (function() {
 const FONT_UI = "'Segoe UI','Segoe UI Variable','Malgun Gothic','맑은 고딕',Arial,sans-serif";

@@ -266,7 +266,7 @@
     background: #ffffff !important;
 }
 
-/* Calculation & Step Blocks (re-DCR sheetFormulas) */
+/* Calculation & Step Blocks (Standard Engineering Formulas) */
 .calc-block {
     margin: 6px 0 10px !important;
     font-family: var(--font-mono), Consolas, monospace !important;

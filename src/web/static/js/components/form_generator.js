@@ -50,7 +50,7 @@ window.FormGenerator = {
 
         formElement.appendChild(actionBar);
 
-        // 2. Group properties into re-DCR 4 Pillars
+        // 2. Group properties into 4 Pillars
         const groups = {
             geom: { title: '1. 단면 제원 (Section Geometry)', icon: '📐', fields: [] },
             mat:  { title: '2. 재료 강도 (Materials)', icon: '🧱', fields: [] },

@@ -924,7 +924,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. MIDAS Gen .mgt Import Button
+    // 4. 3D Frame .mgt Import Button
     const btnGen = document.getElementById('btn-import-gen');
     const genInput = document.getElementById('gen-file-importer');
     if (btnGen && genInput) {
@@ -941,12 +941,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 const resData = await resp.json();
                 if (resp.ok) {
-                    alert(`MIDAS Gen 모델 임포트 완료!\n절점: ${resData.total_nodes}개, 요소: ${resData.total_elements}개, 층: ${resData.total_stories}개`);
+                    alert(`3D 골조 모델 임포트 완료!\n절점: ${resData.total_nodes}개, 요소: ${resData.total_elements}개, 층: ${resData.total_stories}개`);
                 } else {
-                    alert(`Gen 임포트 실패: ${resData.detail || '오류'}`);
+                    alert(`3D 골조 임포트 실패: ${resData.detail || '오류'}`);
                 }
             } catch (err) {
-                alert(`Gen 모델 로드 에러: ${err.message}`);
+                alert(`3D 골조 모델 로드 에러: ${err.message}`);
             }
             genInput.value = '';
         });

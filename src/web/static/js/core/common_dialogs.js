@@ -1,6 +1,6 @@
 /**
  * AltDP_3rd Common Sub-Dialogs (common_dialogs.js)
- * Implements Midas Design+ sub-dialog templates
+ * Implements Parametric Engineering Sub-Dialog Templates
  */
 const CommonDialogs = {
     /**

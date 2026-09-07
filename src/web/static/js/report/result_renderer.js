@@ -13,7 +13,7 @@ window.ResultRenderer = {
     currentInputs: null,
     viewMode: 'pillars', // 'pillars' | 'print_preview'
 
-    // 모듈별 전용 re-DCR 직이식 렌더러 레지스트리 (1:1 완벽 일치 모듈만 등록, 나머지는 공용 4-Pillar Universal Engine 자동 적용)
+    // 모듈별 전용 상세 계산서 렌더러 레지스트리 (1:1 완벽 일치 모듈만 등록, 나머지는 공용 4-Pillar Universal Engine 자동 적용)
     moduleRegistry: {
         // RC 1:1 매칭 전용 계산서
         'rc/beam/base': 'beam',

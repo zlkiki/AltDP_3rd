@@ -1,6 +1,6 @@
 /**
  * AltDP_3rd ModalManager
- * Manages modal lifecycles for Midas Design+ sub-dialogs
+ * Manages modal lifecycles for Parametric Engineering Sub-Dialogs
  */
 class ModalManager {
     constructor() {

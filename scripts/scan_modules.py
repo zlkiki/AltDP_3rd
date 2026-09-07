@@ -35,9 +35,9 @@ for sec, k, v in menu_items:
     if any(tag in k for tag in ['_MENU_RCS_', '_MENU_STEEL_', '_MENU_SRC_', '_MENU_ALU_', '_MENU_RFM_', '_MENU_PBD_', '_MENU_FES_']):
         design_members.append((sec, k, v))
 
-with open('scanned_midas_catalog.txt', 'w', encoding='utf-8') as out:
+with open('scanned_modules_catalog.txt', 'w', encoding='utf-8') as out:
     out.write(f'=== Total Design Members Found in Menu.ini: {len(design_members)} ===\n\n')
     for sec, k, v in design_members:
         out.write(f'{sec:35} | {k:35} | {v}\n')
 
-print(f'Successfully wrote {len(design_members)} design members to scanned_midas_catalog.txt')
+print(f'Successfully wrote {len(design_members)} design members to scanned_modules_catalog.txt')

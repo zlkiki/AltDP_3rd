@@ -1,7 +1,7 @@
 // web/js/store/unit_manager.js
 /**
  * AltDP Member Designer - Universal Dimensional Analysis Unit Manager
- * Ported & adapted from re-DCR unitSystem.js
+ * Universal Unit System and Conversion Manager
  * Supports real-time bidirectional conversion between SI, SI-M, MKS, and US Imperial units.
  */
 

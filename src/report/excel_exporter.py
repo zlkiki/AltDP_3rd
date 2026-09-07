@@ -1,6 +1,6 @@
 """Excel Structural Calculation Report Exporter for AltDP_3rd.
 
-Adheres to Midas Design+ CMSExcel format. Utilizes openpyxl to generate
+Adheres to Multi-Tab Engineering Spreadsheet Format. Utilizes openpyxl to generate
 professional multi-sheet structural design calculation workbooks.
 """
 

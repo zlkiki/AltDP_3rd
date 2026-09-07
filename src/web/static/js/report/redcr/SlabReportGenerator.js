@@ -1,5 +1,5 @@
 // web/js/report/redcr/SlabReportGenerator.js
-// RC 1방향/2방향 슬래브 상세 계산서 생성기 — MIDAS Gen / KDS 스타일 (re-DCR 직이식)
+// RC 1방향/2방향 슬래브 상세 계산서 생성기 — KDS 14 20 00 콘크리트 슬래브 표준 계산서
 
 (function() {
 const kN = (n) => (Number(n || 0) / 1e3).toFixed(1);

@@ -1,6 +1,6 @@
 /**
- * AltDP_3rd TreeMenu Component (1열 WorkTree 1:1 이식)
- * Implements 6 top-level categories and strictly ordered original module lists
+ * AltDP_3rd TreeMenu Component (1열 WorkTree 네비게이터)
+ * Implements 6 top-level categories and structured standard module lists
  */
 class TreeMenu {
     constructor() {
@@ -10,7 +10,7 @@ class TreeMenu {
         this.activeMemberId = null;
         this.currentLevel = 3;
 
-        // 원본 6대 탭 및 모듈 순서 완벽 고정
+        // KDS 6대 탭 및 표준 모듈 카테고리 순서 고정
         this.ORIGINAL_CATEGORIES = [
             { id: 'rc', name: '콘크리트(RCS)', icon: '🧱' },
             { id: 'steel', name: '철골(STEEL)', icon: '🏗️' },

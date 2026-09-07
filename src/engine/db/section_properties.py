@@ -1,7 +1,7 @@
 """Section Geometric and Plastic Properties Calculation Engine.
 
 Implements structural section mechanics based on KDS 14 31 10, AISC 360,
-and Midas CSteelSectDB algorithms for:
+and standard structural mechanics algorithms for:
 - H-Section (I-Beam / Wide Flange)
 - Box / Rectangular Hollow Section (RHS / SHS)
 - Pipe / Circular Hollow Section (CHS)
@@ -136,7 +136,7 @@ class SectionPropertiesCalculator:
 
         # Torsion Constant J (cm4)
         # Saint-Venant approximation: (2*B*tf^3 + hw*tw^3)/3 + alpha*D^4 (fillet junction)
-        # AISC/Midas formula
+        # AISC standard formula
         alpha_d = -0.042 + 0.2204 * (tw / tf) + 0.1355 * (r / tf) - 0.0865 * (tw * r / (tf ** 2))
         d_val = ((tf + r) ** 2 + tw * (r + tw / 4.0)) / (2.0 * r + tf) if (2.0 * r + tf) > 0 else tf
         j_fillet = 2.0 * alpha_d * (d_val ** 4) if r > 0 else 0.0

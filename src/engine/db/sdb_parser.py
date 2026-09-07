@@ -1,6 +1,6 @@
 """Section Database (.sdb) Parser for AltDP_3rd.
 
-Parses Midas 'MDSW-SDB' binary databases (KS, AISC, JIS, DIN, etc.)
+Parses standard 'MDSW-SDB' binary databases (KS, AISC, JIS, DIN, etc.)
 and provides structured section properties for structural member design.
 """
 
@@ -38,7 +38,7 @@ class SectionRecord:
 
 
 class SDBParser:
-    """Parser for Midas Section Database (*.sdb) files."""
+    """Parser for Standard Section Database (*.sdb) files."""
 
     def __init__(self, sdb_path: str, db_name: Optional[str] = None):
         self.sdb_path = sdb_path

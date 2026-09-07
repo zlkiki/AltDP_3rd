@@ -1,7 +1,7 @@
 // web/js/report/redcr_common_renderer.js
 /**
  * 54종 단위부재 공통 범용 4대 영역 렌더러 (Universal 4-Pillar Layout Engine)
- * re-DCR sheetFormulas.js 기반으로 4대 영역(입력 요약 - 기준 수식 - 비주얼 단면 - 종합 검토표)을 자동 조립
+ * 4대 표준 영역(입력 요약 - 기준 수식 - 비주얼 단면 - 종합 검토표)을 자동 조립
  * [object Object] 방지 및 공학 수식/스마트 데이터 테이블 렌더링 지원
  */
 
@@ -602,7 +602,7 @@ window.RedcrCommonRenderer = {
     },
 
     /**
-     * 54종 전 단위부재 공통 표준화 KDS A4 계산서 렌더러 (MIDAS Gen / re-DCR 일치 포맷)
+     * 54종 전 단위부재 공통 표준화 KDS A4 계산서 렌더러 (KDS A4 표준 공학 포맷)
      */
     renderA4Sheet(container, resultData, currentModulePath, inputParams) {
         if (!container || !resultData) return;
