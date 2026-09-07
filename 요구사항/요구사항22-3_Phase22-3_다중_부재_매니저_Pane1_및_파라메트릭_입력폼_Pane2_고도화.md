@@ -1,0 +1,77 @@
+# 요구사항 22-3: Phase 22-3 다중 부재 매니저 Pane 1 및 파라메트릭 입력폼 Pane 2 고도화 명세서
+
+## 1. 개요 및 목적 (Background & Objectives)
+* **상위 기술 문서 (SSOT)**:
+  - [`요구사항 22 (마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항22_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제3절
+  - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) 제4.1절, 제4.2절
+  - [`docs/03_section_db_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/03_section_db_specification.md) (단면 형강 DB)
+* **목적**: Left-Sub 패널 내에서 여러 부재 인스턴스를 추가·복제·관리하는 **다중 부재 매니저(Pane 1)**와, 부재별 고유 제원·배근·하중·옵션을 정밀하게 제어하는 **파라메트릭 입력폼(Pane 2)** 및 원본앱 1:1 서브 대화창 모달 시스템을 완성합니다.
+
+---
+
+## 2. 세부 개발 사양 (Detailed Specifications)
+
+### 2.1. Pane 1: 다중 부재 매니저 (`member_manager.js`)
+* **대상 파일**: `src/web/static/js/components/member_manager.js`, `src/web/static/css/components.css`
+* **위치**: Left-Sub 상단 (높이: $80\text{px} \sim 400\text{px}$ 가변 조절, `resizer-left-v` 연동)
+* **주요 기능**:
+  1. **부재 인스턴스 액션 툴바**:
+     - `[+ 추가]`: 현재 활성 모듈의 기본 템플릿 부재 신규 추가 (`1F-B1`, `1F-B2` 자동 명명).
+     - `[복제]`: 현재 선택된 부재의 모든 제원·배근·하중을 복사하여 신규 부재 생성.
+     - `[삭제]`: 선택된 부재 삭제 (단, 최소 1개 부재는 유지).
+  2. **인라인 부재명 변경**: 부재명 더블클릭 시 인라인 인풋(`input.edit-member-name`)으로 즉시 편집 및 엔터/포커스아웃 시 저장.
+  3. **실시간 요약 스프레드시트 테이블**:
+     | 부재명 | 단면 치수 ($b \times h$) | 주요 배근 / 형강 규격 | 소요력 ($M_u, V_u$) | DCR 상태 (글자 표기) |
+     |:---:|:---:|:---:|:---:|:---:|
+     | **1F-B1** | $400 \times 600$ | 상 4-D25, 하 4-D25 | $210 \text{ kN}\cdot\text{m}$ | **0.807 OK** (녹색) |
+     | **1F-B2** | $500 \times 700$ | 상 6-D25, 하 6-D25 | $450 \text{ kN}\cdot\text{m}$ | **1.052 NG** (빨간색) |
+  4. **고속 부재 전환**: 테이블 행 클릭 시 10ms 이내에 하단 입력폼, 중앙 그래픽, 우측 계산서가 해당 부재 데이터로 즉각 전환 동기화.
+
+### 2.2. Pane 2: 파라메트릭 사용자 입력부 (`form_generator.js`, `form_combobox.js`)
+* **대상 파일**: `src/web/static/js/components/form_generator.js`, `src/web/static/js/components/form_combobox.js`
+* **2단 적층형 헤더**:
+  - 1행: `⚙️ 사용자 입력부 (Input) [현재부재명]`
+  - 2행: 브레드크럼 배너 (`RC › 보 (Beam) › 직사각형 보`)
+* **부재 고유 4대 서브탭 구성**:
+  1. **[단면 / 재료 탭]**: 단면 치수($b, h, t_w, t_f$), KS 표준 강종 콤보박스($f_{ck}=24, 27, 30\text{ MPa}$, $f_y=400, 500, 600\text{ MPa}$, $SM355$ 등), 피복두께.
+  2. **[배근 / 상세 탭]**: 주철근 직경/단수/간격(D10~D35), 스터럽/대근 직경 및 배근 간격, 철골 볼트 규격/수량/배열.
+  3. **[설계 하중 탭]**: 계수 축력($P_u$), 휨모멘트($M_u$), 전단력($V_u$), KDS 하중조합 테이블 연동.
+  4. **[설계 옵션 탭]**: 처짐/균열 환경계수, 연성요구조건(특수/중간/보통모멘트골조), 비지지길이($kL/r$).
+* **KS 표준 콤보박스 위젯 (`form_combobox.js`)**:
+  - 규격 철근, 콘크리트 강도, 강재 단면 DB 검색형 드롭다운 컴포넌트.
+
+### 2.3. 원본앱 1:1 서브 대화창(`...`) 모달 시스템 (`modal_manager.js`)
+* **대상 파일**: `src/web/static/js/core/modal_manager.js`, `src/web/static/css/modal.css`
+* **4대 핵심 서브 모달 팝업**:
+  1. `IDD_RCS_BEAM_BEFF_DLG`: 슬래브 두께, 경간길이, 양측/편측 플랜지 입력으로 유효폭($b_{eff}$) 자동 산정.
+  2. `IDD_RCS_COLUMN_SWAY_DLG`: 횡구속/비횡구속 여부, 상하단 회전단 제원 기반 모멘트확대계수($\delta_{ns}, \delta_s$) 산정.
+  3. `IDD_STEEL_SECTION_DB_DLG`: KS 형강 DB(`.sdb`) 실시간 검색, 단면성능치($A, I_x, I_y, Z_x, Z_y$) 미리보기 및 1클릭 폼 주입.
+  4. `IDD_LOAD_COMBINATION_DLG`: KDS 41 10 15 기본 하중조합 일괄 자동 생성.
+
+### 2.4. 3버튼 통합 액션 툴바
+* **[💾 적용 (Apply)]**: 인풋 폼의 모든 변경값을 전역 `ProjectStore`에 즉시 반영하고, 중앙 2D 그래픽 및 상단 부재 요약 그리드 실시간 갱신.
+* **[⚡ 검토 (Check)]**: 적용 선행 후 KDS 구조 엔진 API를 호출하여 우측 계산서 및 부재 목록 DCR 글자(`OK`/`NG`) 갱신.
+* **[✨ 설계 (Design)]**: 적용 선행 후 소요 강도를 만족하는 최적 배근/단면을 자동 탐색하여 입력폼에 역주입.
+
+---
+
+## 3. 세부 작업 5단계 공정 (Step 1 ~ Step 5)
+* **Step 1: 다중 부재 매니저 그리드 렌더러 구현 (`member_manager.js`)**
+  - 부재 목록 테이블 CRUD UI 및 인라인 이름 편집기 구현.
+* **Step 2: 4대 서브탭 폼 빌더 및 KS 콤보박스 구현 (`form_generator.js`, `form_combobox.js`)**
+  - 단면/배근/하중/옵션 4대 서브탭 렌더링 및 KS 표준 재료 드롭다운 바인딩.
+* **Step 3: 원본 1:1 서브 대화창 모달 시스템 구현 (`modal_manager.js`)**
+  - 유효폭, 장주, 단면DB, 하중조합 팝업 레이아웃 및 폼 데이터 양방향 바인딩.
+* **Step 4: 3버튼 파이프라인(`적용/검토/설계`) 및 ProjectStore 연동**
+  - 버튼 클릭 시 데이터 검증, 스토어 반영, API 호출, 4열 동시 업데이트 트리거.
+* **Step 5: DOM 렌더링 검증 및 Git 커밋**
+  - 부재 추가/복제, 서브탭 전환, 모달 팝업, 3버튼 작동 검증 후 커밋/푸시.
+
+---
+
+## 4. 수용 기준 및 1:1 체크리스트 (Acceptance Criteria)
+- [ ] Pane 1에서 부재 추가/복제/삭제 및 인라인 이름 편집이 오류 없이 동작하는가?
+- [ ] 부재 요약 테이블에서 단면, 배근, 소요력, DCR 글자가 실시간으로 갱신되는가?
+- [ ] Pane 2에 4대 고유 서브탭이 제공되며, 탭 전환 시 입력 데이터가 손실 없이 유지되는가?
+- [ ] 서브 대화창 버튼(`...`) 클릭 시 해당 모달(유효폭, 단면DB 등)이 정확히 팝업되고 계산값이 폼에 역주입되는가?
+- [ ] `[💾 적용]`, `[⚡ 검토]`, `[✨ 설계]` 3버튼 파이프라인이 누락 없이 작동하는가?
