@@ -99,7 +99,7 @@ graph TD
 * **유니버설 계산 디스패처 & 고급 특화기능**:
   - `POST /api/design/{cat}/{grp}/{mod}` 유니버설 디스패처로 RC, Steel, PC, Misc 54종 전수 연결
   - 원클릭 2D CAD 배근상세도 `.dxf` 다운로드 및 다중시트 KDS 물량산출 `.xlsx` 다운로드
-  - MIDAS Gen `.mgt` 3D 모델 업로드 및 자동 부재 바인딩 연동
+  - 3D 골조 해석모델(`.mgt`) 업로드 및 `FrameModel3D` 기반 자동 부재 바인딩 연동
 
 ### 🎯 7. 성능기반 내진설계 (PBD) 및 소성힌지 엔진 (`src/engine/pbd/`)
 * **KDS 41 17 00 / ASCE 41-17 기반 비선형 소성힌지**: RC(보, 기둥, 전단벽) 및 철골(보, 기둥, 가새) $M-\theta, V-\gamma$ 백본곡선 다선형 좌표열 생성.
@@ -129,35 +129,18 @@ AltDP_3rd/
 │       ├── steel/                  # 철골 부재/접합부/주각부 (17건)
 │       └── db/                     # 형강 단면 기하학적 성질 (12건)
 ├── docs/                           # 공식 기술 문서 모음 (17종 SSOT)
-│   ├── 01_system_architecture.md
-│   ├── 02_binary_reverse_engineering_specification.md
-│   ├── 03_section_db_specification.md
-│   ├── 04_rc_design_specification.md
-│   ├── 05_steel_design_specification.md
-│   ├── 06_python_engine_architecture_specification.md
-│   ├── 07_web_application_ui_ux_specification.md
-│   ├── 08_pytest_testing_guide.md
-│   ├── 09_decompiled_source_and_symbol_inventory.md
-│   ├── 10_agent_development_protocols.md
-│   ├── 12_full_feature_porting_master_plan.md
-│   ├── 13_original_app_ui_specification.md
-│   ├── 14_structural_calculation_report_specification.md
-│   ├── 15_fem_analysis_and_external_solver_specification.md
-│   ├── 16_fem_engine_theoretical_manual_and_formulation.md
-│   ├── 17_fem_solver_comparative_analysis_and_benchmark.md
-│   └── README.md
-├── original_src/                   # 원본 바이너리 및 33종 .sdb 데이터베이스
+├── original_src/                   # 원본 바이너리 및 참고 데이터베이스
 ├── scripts/                        # Ghidra Headless 자동 추출 파이프라인
-│   ├── ExportTargetFunctions.java  # Ghidra Decompiler AST C Export 스크립트
-│   └── ghidra_extract.py           # 파이썬 CLI 자동화 래퍼
-├── src/                            # AltDP_3rd 신규 소스코드
+├── src/                            # AltDP_3rd 신규 소스코드 (독립 런타임 자산)
 │   ├── api/                        # FastAPI 웹 API 계층 (부재별 라우트 & 스키마)
+│   ├── core/                       # 시스템 SSOT 경로(paths.py) 및 환경 설정
+│   ├── data/                       # 프로젝트 내장 33종 국제표준 형강 단면 DB (dbase/*.sdb)
 │   ├── engine/                     # 코어 공학 계산 엔진 (rc, steel, src, alu, rfm, solver, fem, pbd, international, interop, project, db)
 │   ├── report/                     # A4 표준 구조계산서 생성기 (HTML/PDF/Excel/CAD DXF)
 │   └── web/                        # 반응형 웹 UI & Canvas 2D 배근도 및 응력 등고선
 ├── tests/                          # 3대 도메인 자동화 테스트 스위트 (engine, api, report, ui, e2e)
 └── 요구사항/                       # 단계별 요구사항 및 로드맵
-    └── @@OLD/                      # 아카이빙된 완료 요구사항 (요구사항 01 ~ 19)
+    └── @@OLD/                      # 아카이빙된 완료 요구사항 (요구사항 01 ~ 19, 27)
 ```
 
 ---
@@ -189,7 +172,7 @@ python -m uvicorn src.api.server:app --reload --host 127.0.0.1 --port 8000
 ## 5. 테스트 및 무결성 검증 (Tests)
 
 ```bash
-# 전체 테스트 스위트 실행 (총 256개 테스트 100% 정상 통과)
+# 전체 테스트 스위트 실행 (총 263개 테스트 100% 정상 통과)
 pytest
 
 # 엔진 계산 모듈 고속 검증
@@ -203,15 +186,19 @@ pytest tests/report/
 
 # Web UI/UX 및 4분할 뷰포트 검증
 pytest tests/ui/
+
+# 전계층 E2E 통합 파이프라인 검증
+pytest tests/e2e/
 ```
 
 | 테스트 도메인 | 테스트 대상 | 통과 현황 | 소요 시간 |
 |---|---|:---:|:---:|
-| **엔진 & 솔버 & PBD** | RC/Steel/SRC/ALU 부재설계, FEM 솔버, PBD 소성힌지, 글로벌규준/다단위계 | **147 / 147** | **1.95s** |
-| **REST API 라우트** | 부재설계, 유니버설 디스패처, 스키마, FEM, MGT, 글로벌/단위변환, Excel/CAD | **47 / 47** | **1.35s** |
-| **도면 & 구조계산서** | ezdxf 2D CAD 배근도, 다중시트 Excel 물량집계, HTML/PDF 계산서 | **32 / 32** | **0.80s** |
-| **웹 UI/UX 프론트** | 4-Pane 뷰포트, Canvas/Vector 렌더러, A4 KDS 계산서, 3D P-M/CAD/물량/Gen 연동 | **30 / 30** | **0.90s** |
-| **합계** | **전체 시스템 회귀 검증** | **256 / 256 (100% 무결성)** | **초고속 검증 (< 5.0s)** |
+| **엔진 & 솔버 & PBD** | RC/Steel/SRC/ALU 부재설계, FEM 솔버, PBD 소성힌지, 글로벌규준/다단위계, 3D 골조(FrameModel3D) | **159 / 159** | **1.88s** |
+| **REST API 라우트** | 부재설계, 유니버설 디스패처, 스키마, FEM, 3D MGT, 글로벌/단위변환, Excel/CAD | **59 / 59** | **2.52s** |
+| **도면 & 구조계산서** | ezdxf 2D CAD 배근도, 다중시트 Excel 물량집계, HTML/PDF 계산서 | **23 / 23** | **0.73s** |
+| **웹 UI/UX 프론트** | 4-Pane 뷰포트, Canvas/Vector 렌더러, A4 KDS 계산서, 3D P-M/CAD/물량/MGT 연동 | **18 / 18** | **1.95s** |
+| **E2E 통합 파이프라인** | 단면 로드 → 해석/설계 → 도면/계산서 풀 파이프라인 | **4 / 4** | **0.50s** |
+| **합계** | **전체 시스템 회귀 검증** | **263 / 263 (100% 무결성)** | **초고속 검증 (< 5.0s)** |
 
 
 
