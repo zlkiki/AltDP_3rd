@@ -6,7 +6,18 @@
 
 ## 1. KDS 국가건설기준 및 kcsc2md 자산화 상세 연동 규약
 
-### 1.1. 연동 자산 인벤토리
+### 1.1. 4대 포팅 참조 우선순위 계층 (SSOT Hierarchy)
+포팅 및 수치 검증 시 아래 4대 참조 계층을 절대적 우선순위로 적용합니다:
+1. **1순위 (최우선)**: **추출된 원본 소스** (`decompiled_src/core_routines/*.c`, `symbols/*.txt`, `binaries/`)
+   - 원본 프로그램의 실제 연산, 분기 조건, 내부 수치 처리의 절대적 1순위 Ground Truth.
+2. **2순위**: **매뉴얼 및 도움말** (`decompiled_src/manuals/`, 원본앱 공식 기술 매뉴얼, `original_src/Midas Design+/`)
+   - 공식 설계 이론, 약산/엄밀 해석 옵션, 파라미터 정의, 벤치마크 예제.
+3. **3순위**: **kcsc2md 공식 예제집** (`F:/PyProject/KCSC2MD/output/예제집/`)
+   - 콘크리트구조 학회기준 예제집(2020) & 강구조설계예제집(2019) 등 공인 예제집 기반 계산 오차 $\le 0.10\%$ 검증용 실무 벤치마크 정답 데이터 (오류 발견 시 `kcsc2md` 선 치유(Patch-First) 원칙 적용).
+4. **4순위**: **kcsc2md 국가건설기준** (`F:/PyProject/KCSC2MD/output/kds_md/`)
+   - KDS 14 20 00 / 14 31 00 / 41 00 00 국토교통부 표준 원문 & LaTeX 수식 (기준서 오류 발견 시 `patch_kds_md.py` 선 치유(Patch-First) 원칙 적용).
+
+### 1.2. 연동 자산 인벤토리
 1. **고품질 마크다운 기준서 (`f:/PyProject/kcsc2md/output/kds_md/`)**:
    - 국토교통부 원본 HWPX와 1:1 수식 주입(`LaTeX`)이 완료된 분할 마크다운으로 설계식의 절대적 Ground Truth 기준입니다.
 2. **추출 이미지 자산 (`f:/PyProject/kcsc2md/output/KDS_ImageExtracted/`)**:
@@ -22,13 +33,13 @@
    python ../kcsc2md/.agents/skills/hwpx-inspector/scripts/extract_formula.py --code "14 20 10" --keyword "alpha1"
    ```
 
-### 1.2. 우선 치유(Patch-First) 및 Self-Healing 환류 프로토콜
+### 1.3. 우선 치유(Patch-First) 및 Self-Healing 환류 프로토콜
 - `AltDP_3rd` 엔진 개발 및 KDS/예제집 검증 중 국가건설기준(4순위) 및 공식 예제집(3순위) 마크다운의 수식/표 오탈자, 풀이 오류 또는 누락을 발견한 경우, `AltDP_3rd` 코드를 임의로 우회 수정하지 않고 먼저 `kcsc2md`의 Self-Healing 패치 도구(`patch_kds_md.py` 등)를 통해 원본 마크다운 자산을 영구 치유(선 치유)한 후 최신화된 기준 및 예제 데이터를 반영합니다.
 
-### 1.3. 0.1% 오차 무결성 검증 (Cross-Validation)
+### 1.4. 0.1% 오차 무결성 검증 (Cross-Validation)
 - 원본 원본앱 계산 결과, `kcsc2md` 공식 예제집 해답, 신규 AltDP_3rd 엔진 계산치를 삼각 대조하여 **오차 0.1% 미만의 무결성**을 입증합니다.
 
-### 1.4. Zero-Dependency 런타임 원칙
+### 1.5. Zero-Dependency 런타임 원칙
 - `kcsc2md` 자산과 도구는 개발/검증/빌드 타임의 Ground Truth 레퍼런스로 활용하며, `AltDP_3rd`의 프로덕션 런타임 코드는 외부 파일시스템에 의존하지 않는 독립 파이썬 패키지를 유지합니다.
 
 ---

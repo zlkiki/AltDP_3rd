@@ -61,17 +61,15 @@
    - 각 Step 구현 시 **[`docs/07 PART 4`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)**의 UI/UX 결합 사양(Step 2 서브탭 폼 & 서브 모달 4종, Step 3 세로 적층형 2단 뷰포트, Step 4 순백색 A4 8단계 KaTeX 계산서, Step 5 4열 100ms 동기화)을 1:1 완벽 준수.
 5. **소스 재활용 & 토큰 효율성 (Engineering Precision)**:
    - 검증된 기존 계산 로직, 공통 모듈, 단면 DB 파서, UI 컴포넌트 적극 재활용 (중복 구현 금지).
-6. **요구사항 라이프사이클 (경량화 & 분할 & UI/UX 사전 검토 의무)**:
-   - 요구사항 문서 생성 요청 시 별도 Plan 아티팩트 없이 `요구사항/요구사항XX.md` 직접 작성.
-   - **수직 슬라이스 구현계획 수립 시 UI/UX 선행 반영 의무**: 부재 구현계획(요구사항 작성) 수립 시 백엔드 수식뿐 아니라 UI/UX 레이어가 필연적으로 관여되므로, **[`docs/07 제21절`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md)**의 6대 UI/UX 체크리스트(사이드바, 부재매니저, 4대 서브탭, 세로 적층 2단 뷰포트, 순백색 A4 계산서, 100ms 동기화)를 **반드시 선행 확인(`view_file`)하고 요구사항 명세에 누락 없이 반영**.
-   - 대규모 작업(파일 10개 이상/3개 이상 레이어)은 사전 확인 후 하위 Phase로 분할 제안.
-   - 완료 아카이빙(`요구사항/@@OLD/`) 및 `README.md` 갱신은 사용자 명시적 요청 시에만 수행.
-7. **Goal 주도형 단계적 연속 구현 (Goal-Driven Partitioned Execution)**:
-   - `/goal` 전체 지시 시 단일 컨텍스트 폭주 방지를 위해 하위 Phase 문서(`요구사항XX-1`, `XX-2`) 단위로 순차 실행.
-   - 각 하위 Phase의 체크리스트 및 `pytest` 100% 통과 즉시 다음 Phase로 중단 없이 자율 진입하여 마스터 요구사항 완수.
-8. **버그 수정 및 개별 이슈 대응 (1이슈 1Phase 원칙)**:
-   - 버그 픽스 및 결함 조치는 원인 규명과 영향도 검증을 위해 1이슈 1Phase 격리 원칙 적용.
-   - 경미한 연관 버그는 최대 1~3개 묶음 가능하나, 일반 요구사항 내 버그 수정도 독립 실행 단위로 분리 검증.
+6. **요구사항 라이프사이클 (경량화 & UI/UX 사전 검토 의무)** ([`docs/10 제2절`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)):
+   - 요구사항 생성 시 별도 Plan 아티팩트 없이 `요구사항/요구사항XX.md` 직접 작성.
+   - **수직 슬라이스 작성 시 UI/UX 선행 반영 의무**: [`docs/07 제21절`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) 6대 체크리스트(사이드바, 부재매니저, 4대 서브탭, 2단 뷰포트, 순백색 A4, 100ms 동기화) 선행 확인(`view_file`) 및 필수 반영.
+   - 대규모 작업(파일 10개 이상/3개 이상 레이어) 사전 확인 후 하위 Phase 분할 제안. 완료 아카이빙 및 README 갱신은 사용자 명시 요청 시에만 수행.
+7. **Goal 주도형 단계적 연속 구현** ([`docs/10 제3절`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md), [`docs/16`](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md)):
+   - `/goal` 마스터 지시 시 단일 컨텍스트 폭주 방지를 위해 하위 Phase 문서(`요구사항XX-1` 등) 단위로 순차 실행.
+   - 각 하위 Phase 체크리스트 및 `pytest` 100% 통과 즉시 다음 Phase로 중단 없이 자율 진입하여 마스터 요구사항 완수.
+8. **버그 수정 및 개별 이슈 대응 (1이슈 1Phase 원칙)** ([`docs/10 제4절`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)):
+   - 결함 원인 규명 및 영향도 검증을 위해 1이슈 1Phase 격리 해결 원칙 적용 (경미한 연관 버그는 1~3개 묶음 허용, 일반 요구사항 내 버그 픽스도 독립 실행 단위로 분리 검증).
 9. **도메인별 3대 Pytest 검증 및 실행 판단 기준**:
    - **🔴 테스트 필수 (Must Test)**: 설계 엔진(`src/engine/`), API 라우트(`src/api/`), P-M 솔버, 버그 픽스, 의존성(`requirements.txt`) 수정 시.
      * 설계 엔진: `pytest tests/engine/` (0.5~1.0s)
@@ -79,9 +77,9 @@
      * 계산서 출력: `pytest tests/report/` (0.5s)
      * 전체 검증: `pytest`
    - **🟢 테스트 생략 (Skip Test)**: `docs/` 기술 문서, `요구사항/` 기획 문서, `README.md`, `AGENTS.md` 등 순수 마크다운(`.md`) 작성/수정 및 주석/스타일링 작업 시 테스트 실행을 전면 생략하여 리소스 낭비 방지 ([`docs/08_pytest_testing_guide.md`](file:///f:/PyProject/AltDP_3rd/docs/08_pytest_testing_guide.md) 준수).
-10. **수퍼 파일(Superfile) 주의 및 점진적 리팩토링 (Pragmatic Anti-Superfile)**:
-    - **주의하되 강제 제한 지양**: 수치 계산, 데이터 모델, 오케스트레이션 등의 단일 책임 분리를 염두에 두고 수퍼파일에 주의하되, 포팅 및 구현 과정에서 파일 라인 수를 강제로 제한하지 않음 (포팅 흐름 단절 및 불필요한 오버엔지니어링 방지).
-    - **사후 리팩토링 원칙**: 포팅 과정에서 수퍼파일이 발생할 경우 무리하게 조기 분할하지 않으며, 부재 기능 완성 및 오차 검증 완료 후 추후 리팩토링 단계에서 체계적으로 분할 정리.
+10. **수퍼 파일 주의 및 점진적 리팩토링 (Pragmatic Anti-Superfile)** ([`docs/10 제5절`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)):
+    - **포팅 우선 (인위적 라인수 제한 지양)**: 포팅 흐름 단절 및 오버엔지니어링 방지를 위해 파일 라인 수 강제 제한을 지양하며, 설계 알고리즘 완성 및 0.10% 오차 검증을 최우선 완수.
+    - **사후 리팩토링**: 포팅 중 발생한 수퍼파일은 조기 분할하지 않고, 부재 기능 완성 및 오차 검증 완료 후 추후 리팩토링 단계에서 체계적으로 분할 정리.
 11. **단위 작업 = 1 커밋 & 원격 푸시 완수**:
     - 단위 작업(Phase/Step) 완료 즉시 1개의 Git 커밋을 생성하고 원격(`git push origin main`)까지 완료.
 12. **외부 기억 파일 유지보수 및 세션/모델 핸드오버 규약 (External Memory Mandate)**:
