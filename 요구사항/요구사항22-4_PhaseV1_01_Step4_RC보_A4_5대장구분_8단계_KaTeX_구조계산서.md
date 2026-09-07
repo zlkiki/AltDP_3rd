@@ -1,4 +1,4 @@
-# 요구사항 21-4: Phase V1-1 Step 4 RC 보 A4 5대 장구분 8단계 KaTeX 구조계산서 명세서
+# 요구사항 22-4: Phase V1-1 Step 4 RC 보 A4 5대 장구분 8단계 KaTeX 구조계산서 명세서
 
 ## 1. 개요 및 계산서 SSOT 매핑
 

@@ -1,8 +1,8 @@
-# 요구사항 22-4: Phase 22-4 세로 적층형 다중 뷰포트 그래픽 정보부 Pane 3 구축 명세서
+# 요구사항 21-4: Phase 21-4 세로 적층형 다중 뷰포트 그래픽 정보부 Pane 3 구축 명세서
 
 ## 1. 개요 및 목적 (Background & Objectives)
 * **상위 기술 문서 (SSOT)**:
-  - [`요구사항 22 (마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항22_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제4절
+  - [`요구사항 21 (마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제4절
   - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) 제4.3절
   - [`docs/09_decompiled_source_and_symbol_inventory.md`](file:///f:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md) (`DPLUS_VDraw.dll` 드로잉 엔진 분석)
 * **목적**: 4-Pane 레이아웃에서 종방향(세로)으로 길게 확보되는 중앙 Center Pane의 특성을 극대화하여, **상단(단면 및 형상 상세)**과 **하단(공학 역학 및 P-M 상관도 다이어그램)**으로 분할된 **세로 적층형 다중 뷰포트(Vertical Multi-Card Viewport)**를 구축하고, RC/Steel/접합부/기초/PC 전 부재군의 2D 그래픽 시각화를 완성합니다.

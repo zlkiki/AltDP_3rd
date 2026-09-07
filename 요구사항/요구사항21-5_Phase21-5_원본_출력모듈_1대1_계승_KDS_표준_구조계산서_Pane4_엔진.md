@@ -1,8 +1,8 @@
-# 요구사항 22-5: Phase 22-5 원본 출력모듈 1:1 계승 KDS 표준 구조계산서 Pane 4 엔진 명세서
+# 요구사항 21-5: Phase 21-5 원본 출력모듈 1:1 계승 KDS 표준 구조계산서 Pane 4 엔진 명세서
 
 ## 1. 개요 및 목적 (Background & Objectives)
 * **상위 기술 문서 (SSOT)**:
-  - [`요구사항 22 (마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항22_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제5절
+  - [`요구사항 21 (마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제5절
   - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) 제4.4절
   - [`docs/14_structural_calculation_report_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md) (KDS 8단계 수식 유도식 명세)
   - 원본앱 출력 모듈: `IDD_DGN_CHECK_MODE_DLG`, `DgnReportBase.ini`, `GENDgnReportKR.ini`

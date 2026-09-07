@@ -1,8 +1,8 @@
-# 요구사항 22-1: Phase 22-1 DOCS 07 4-Pane 워크스페이스 레이아웃 및 4대 독립 리사이저 명세서
+# 요구사항 21-1: Phase 21-1 DOCS 07 4-Pane 워크스페이스 레이아웃 및 4대 독립 리사이저 명세서
 
 ## 1. 개요 및 목적 (Background & Objectives)
 * **상위 기술 문서 (SSOT)**:
-  - [`요구사항 22 (마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항22_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제1절, 제6절
+  - [`요구사항 21 (마스터)`](file:///f:/PyProject/AltDP_3rd/요구사항/요구사항21_원본앱_모듈별_이질성_수용_및_초고접근성_UI_UX_명세.md) 제1절, 제6절
   - [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md) 제1절, 제2절, 제5절
   - [`docs/10_agent_development_protocols.md`](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)
 * **목적**: DOCS 07에 정의된 표준 4-Pane(탐색기/사이드바 ↔ 부재매니저/입력폼 ↔ 2D/3D 그래픽 ↔ KDS 계산서) 올인원 워크스페이스 레이아웃을 웹에 물리적으로 정렬하고, 상호 연쇄 간섭 없이 부드럽게 크기를 조절하는 4대 독립 리사이저 엔진(`layout_resizer.js`)을 확립합니다.
@@ -102,7 +102,7 @@
   - 각 리사이저 드래그 시 인접 패널만 매끄럽게 리사이징되는지 4개 지점 전수 수동/자동 검증.
   - 캔버스/계산서 왜곡 없는 리플로우(Reflow) 보장.
 * **Step 5: E2E 통합 확인 및 Git 커밋**
-  - 콘솔 에러 0건 확인 및 `feat(req22-1): 4-Pane 레이아웃 및 4대 독립 리사이저 엔진 완수` 커밋/푸시.
+  - 콘솔 에러 0건 확인 및 `feat(req21-1): 4-Pane 레이아웃 및 4대 독립 리사이저 엔진 완수` 커밋/푸시.
 
 ---
 
