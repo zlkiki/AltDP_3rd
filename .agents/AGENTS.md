@@ -30,17 +30,17 @@
 
 | 도메인 / 부재 | 바이너리 심볼 레퍼런스 | 기술 문서 (SSOT) | 주요 구현 파일 (`src/`) |
 |---|---|---|---|
-| **RC 보 / 기둥 / 전단벽** | `decompiled_src/DPLUS_RCS.dll_symbols.txt` | [`docs/17 (4대 SSOT)`](file:///f:/PyProject/AltDP_3rd/docs/17_master_midas_modules_comprehensive_catalog.md) | `src/engine/rc/beam.py`, `column.py`, `wall.py` |
-| **RC 슬래브 / 기초 / 옹벽** | `decompiled_src/DPLUS_RCS.dll_symbols.txt` | [`docs/17 (4대 SSOT)`](file:///f:/PyProject/AltDP_3rd/docs/17_master_midas_modules_comprehensive_catalog.md) | `src/engine/rc/slab.py`, `footing.py`, `retaining_wall.py` |
-| **철골 보 / 기둥 / 가새 / 개구부** | `decompiled_src/DPLUS_STEEL.dll_symbols.txt` | [`docs/17 (4대 SSOT)`](file:///f:/PyProject/AltDP_3rd/docs/17_master_midas_modules_comprehensive_catalog.md) | `src/engine/steel/beam.py`, `column.py`, `brace.py`, `web_opening.py`, `compactness.py` |
-| **철골 접합부 / 베이스플레이트 / 엔드플레이트** | `decompiled_src/DPLUS_STEEL.dll_symbols.txt` | [`docs/17 (4대 SSOT)`](file:///f:/PyProject/AltDP_3rd/docs/17_master_midas_modules_comprehensive_catalog.md) | `src/engine/steel/connection.py`, `baseplate.py`, `endplate.py` |
+| **RC 보 / 기둥 / 전단벽** | `decompiled_src/DPLUS_RCS.dll_symbols.txt` | [`docs/04 (4대 SSOT)`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md) | `src/engine/rc/beam.py`, `column.py`, `wall.py` |
+| **RC 슬래브 / 기초 / 옹벽** | `decompiled_src/DPLUS_RCS.dll_symbols.txt` | [`docs/04 (4대 SSOT)`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md) | `src/engine/rc/slab.py`, `footing.py`, `retaining_wall.py` |
+| **철골 보 / 기둥 / 가새 / 개구부** | `decompiled_src/DPLUS_STEEL.dll_symbols.txt` | [`docs/04 (4대 SSOT)`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md) | `src/engine/steel/beam.py`, `column.py`, `brace.py`, `web_opening.py`, `compactness.py` |
+| **철골 접합부 / 베이스플레이트 / 엔드플레이트** | `decompiled_src/DPLUS_STEEL.dll_symbols.txt` | [`docs/04 (4대 SSOT)`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md) | `src/engine/steel/connection.py`, `baseplate.py`, `endplate.py` |
 | **SRC / 알루미늄 / 보수보강** | `decompiled_src/DPLUS_SRC.dll_symbols.txt`, `DPLUS_ALU.dll_symbols.txt` | [`docs/06_python_engine_architecture_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/06_python_engine_architecture_specification.md) | `src/engine/src_composite/`, `src/engine/alu/`, `src/engine/rfm/` |
 | **단면 형강 DB (.sdb) & 재료 / 하중조합** | `original_src/Midas Design+/Dbase/` | [`docs/03_section_db_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/03_section_db_specification.md) | `src/engine/db/sdb_parser.py`, `section_db.py`, `materials.py`, `load_comb.py` |
 | **P-M 상관도 & 수치 솔버** | `decompiled_src/DPLUS_DB.dll_symbols.txt` | [`docs/01_system_architecture.md`](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md) | `src/engine/solver/pm_diagram.py`, `fiber_section.py` |
 | **2D FEM 평판 휨 & 지반/접촉 솔버** | `original_src/Midas Design+/DgnSolver/` | [`docs/15_fem_analysis_and_external_solver_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/15_fem_analysis_and_external_solver_specification.md) | `src/engine/fem/` (`element_dkmq.py`, `solver_plate.py`, `foundation_fem.py`, `baseplate_fem.py`) |
 | **Web UI & 2D/3D 캔버스** | `decompiled_src/DPLUS_VDraw.dll_symbols.txt` | [`docs/07_web_application_ui_ux_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/07_web_application_ui_ux_specification.md), [`docs/13_midas_design_plus_original_ui_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/13_midas_design_plus_original_ui_specification.md) | `src/web/`, `src/web/static/js/renderer2d.js`, `pm_chart.js`, `app.js` |
 | **A4 구조계산서 출력 (HTML/PDF/Excel)** | `CMSOffice`, `CMSExcel` 심볼 | [`docs/14_structural_calculation_report_specification.md`](file:///f:/PyProject/AltDP_3rd/docs/14_structural_calculation_report_specification.md) | `src/report/generator.py`, `src/report/templates/` |
-| **전체 61종 모듈 카탈로그 & 4대 자산 SSOT** | `Menu.ini`, `DLG_*.ini`, 20개 DLL | [`docs/17_master_midas_modules_comprehensive_catalog.md`](file:///f:/PyProject/AltDP_3rd/docs/17_master_midas_modules_comprehensive_catalog.md) | `docs/17_master_midas_modules_comprehensive_catalog.md`, `src/web/static/js/catalog.js` |
+| **전체 61종 모듈 카탈로그 & 4대 자산 SSOT** | `Menu.ini`, `DLG_*.ini`, 20개 DLL | [`docs/04_master_midas_modules_comprehensive_catalog.md`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md) | `docs/04_master_midas_modules_comprehensive_catalog.md`, `src/web/static/js/catalog.js` |
 | **FastAPI REST API 라우트** | - | [`docs/01_system_architecture.md`](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md) | `src/api/routes/` (`rc.py`, `steel.py`, `rc_foundation.py`, `rc_wall_slab.py`, `special.py`, `fem.py`, `db.py`, `report.py`, `interop.py`, `quantity.py`, `international.py`) |
 
 ---
@@ -87,7 +87,7 @@
 ## 4. 상세 기술 문서 및 프로토콜 레퍼런스 (SSOT)
 
 * 🚦 **[16. Goal 마이크로 공정 표준 실행 지침](file:///f:/PyProject/AltDP_3rd/docs/16_goal_micro_execution_protocol.md)** (5대 정밀 공정, 단독 완수 원칙, TDD, Proof-First)
-* 📋 **[17. Midas Design+ 61종 전체 모듈 종합 카탈로그 및 4대 자산 인벤토리](file:///f:/PyProject/AltDP_3rd/docs/17_master_midas_modules_comprehensive_catalog.md)** (단일 진실 공급원 SSOT)
+* 📋 **[04. Midas Design+ 61종 전체 모듈 종합 카탈로그 및 4대 자산 인벤토리](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md)** (단일 진실 공급원 SSOT)
 * 🎯 **[12. 전 기능 포팅 마스터플랜 (Master Plan)](file:///f:/PyProject/AltDP_3rd/docs/12_full_feature_porting_master_plan.md)**
 * 📖 **[10. 상세 개발 프로토콜 및 KDS 연동 가이드](file:///f:/PyProject/AltDP_3rd/docs/10_agent_development_protocols.md)** (모델 전략, Self-Healing, 상세 규약)
 * 📐 **[01. 전체 시스템 아키텍처 & 파일 인벤토리](file:///f:/PyProject/AltDP_3rd/docs/01_system_architecture.md)** | 🗂️ **[09. 추출 바이너리 및 심볼 자산 명세서](file:///f:/PyProject/AltDP_3rd/docs/09_decompiled_source_and_symbol_inventory.md)**

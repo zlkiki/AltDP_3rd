@@ -31,7 +31,7 @@
 4. **`docs/14` KDS 3대 보고서 & 5대 장구분 체계 준수**:
    - `As-Is`: AltBU 잔재인 "8단계 KaTeX 수식 전개식" 등 타 프로젝트 용어가 혼입되어 `docs/14` 명세와 충돌.
    - `To-Be`: Midas 원본 및 `docs/14`의 정식 규격인 **"5대 장구분 (1. 일반조건, 2. 재질/단면, 3. 설계하중, 4. 단면안전성, 5. 종합판정)"** 및 **"3대 보고서 모드 (요약/상세/입력데이터)"** 표준 양식으로 완전 일치화. 하드코딩된 정적 텍스트를 전면 청산하고 미계산 시 순백색 A4 WIP 시트 렌더링.
-5. **Midas 61종 모듈 3단계 티어(Tier) 메타데이터 전수 주입 ([`docs/17`](file:///f:/PyProject/AltDP_3rd/docs/17_master_midas_modules_comprehensive_catalog.md))**:
+5. **Midas 61종 모듈 3단계 티어(Tier) 메타데이터 전수 주입 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md))**:
    - `docs/13`의 Midas 원본 6대 대분류 탭(RC, STEEL, SRC, ALU, RFM, FEM/기타)에 기반하여 61종 전체 모듈에 3단계 티어(`Tier 1: 9종 핵심`, `Tier 2: 26종 주요`, `Tier 3: 26종 특수`) 속성 전수 주입.
 
 ---
@@ -118,7 +118,7 @@ class WIPResponse(BaseModel):
 
 ---
 
-## 4. Midas Design+ 61종 전체 모듈 3단계 티어(Tier) 전수 분류표 ([`docs/17`](file:///f:/PyProject/AltDP_3rd/docs/17_master_midas_modules_comprehensive_catalog.md))
+## 4. Midas Design+ 61종 전체 모듈 3단계 티어(Tier) 전수 분류표 ([`docs/04`](file:///f:/PyProject/AltDP_3rd/docs/04_master_midas_modules_comprehensive_catalog.md))
 
 Midas Design+ 원본 리본 메뉴(`Menu.ini`) 및 대화상자 리소스(`DLG_*.ini`), 외부 솔버(`docs/15`)에 기반하여 **총 61종 전체 모듈(RC 21종, Steel 16종, SRC 4종, ALU 2종, RFM 3종, FEM 5종, PBD 3종, CAD/물량/연동 3종, 글로벌 4종)**을 단 1종의 누락이나 축약("등 N종" 표현 전면 금지) 없이 3단계 티어로 전수 분류하여 엄격히 관리합니다:
 

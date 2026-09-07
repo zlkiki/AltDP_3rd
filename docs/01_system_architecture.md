@@ -115,6 +115,7 @@ AltDP_3rd/
 │   ├── 01_system_architecture.md
 │   ├── 02_binary_reverse_engineering_specification.md
 │   ├── 03_section_db_specification.md
+│   ├── 04_master_midas_modules_comprehensive_catalog.md # 전수 61종 모듈 카탈로그 & 4대 SSOT
 │   ├── @@OLD/                      # 구 요약 사양서 (04_rc, 05_steel 보관)
 │   ├── 06_python_engine_architecture_specification.md
 │   ├── 07_web_application_ui_ux_specification.md
