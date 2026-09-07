@@ -499,22 +499,24 @@
     box-shadow: 0 0 4px rgba(239, 68, 68, 0.5);
 }
 
-.tree-dcr-badge {
-    font-size: 9.5px;
+.tree-dcr-badge,
+.tree-dcr-text {
+    font-size: 10.5px;
     font-family: var(--font-mono);
     font-weight: 700;
-    padding: 0 4px;
-    border-radius: 3px;
+    margin-left: auto;
+    background: transparent !important;
+    padding: 0;
 }
 
-.tree-dcr-badge.pass {
-    background: rgba(16, 185, 129, 0.15);
-    color: #34d399;
+.tree-dcr-badge.pass,
+.tree-dcr-text.pass {
+    color: #10b981; /* 녹색 글자 (OK) */
 }
 
-.tree-dcr-badge.fail {
-    background: rgba(239, 68, 68, 0.15);
-    color: #f87171;
+.tree-dcr-badge.fail,
+.tree-dcr-text.fail {
+    color: #ef4444; /* 빨간색 글자 (NG) */
 }
 
 /* ========================================================= */

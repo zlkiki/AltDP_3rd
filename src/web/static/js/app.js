@@ -330,20 +330,18 @@ function renderSidebar(filterQuery = '') {
             const item = document.createElement('div');
             item.className = `member-tree-item ${isMemActive ? 'active' : ''}`;
             
-            // DCR 상태 점 및 뱃지
-            let statusDot = '<span class="tree-status-dot ready"></span>';
-            let dcrBadge = '';
+            // DCR 상태 표기 (칩/배경색 제거, 2단계 녹색 OK / 빨간색 NG 글자로만 표기)
+            let dcrText = '';
             if (m.result) {
                 const dcr = Number(m.result.governing_dcr) || Number(m.result.max_dcr) || Number(m.result.dcr) || 0.0;
                 const isPass = (m.result.status === 'OK' || m.result.status === 'PASS') && dcr <= 1.0;
-                statusDot = `<span class="tree-status-dot ${isPass ? 'pass' : 'fail'}"></span>`;
-                dcrBadge = `<span class="tree-dcr-badge ${isPass ? 'pass' : 'fail'}">${dcr.toFixed(2)}</span>`;
+                const verdict = isPass ? 'OK' : 'NG';
+                dcrText = `<span class="tree-dcr-text ${isPass ? 'pass' : 'fail'}">${dcr.toFixed(2)} ${verdict}</span>`;
             }
 
             item.innerHTML = `
-                ${statusDot}
                 <span class="tree-member-name" title="${m.name}">${m.name}</span>
-                ${dcrBadge}
+                ${dcrText}
             `;
             item.addEventListener('click', (e) => {
                 e.stopPropagation();
