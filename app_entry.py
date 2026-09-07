@@ -12,8 +12,15 @@ def main():
     port = 8000
     host = "127.0.0.1"
     
+    if sys.platform == "win32":
+        try:
+            sys.stdout.reconfigure(encoding='utf-8')
+            sys.stderr.reconfigure(encoding='utf-8')
+        except Exception:
+            pass
+
     print("=======================================================================")
-    print("  🚀 AltDP_3rd - Web-based Structural Member Design Platform")
+    print("  [AltDP_3rd] Web-based Structural Member Design Platform")
     print("     KDS 14 20 00 / KDS 14 31 00 Engineering System")
     print("=======================================================================")
     print(f"[*] Starting server at http://{host}:{port}")

@@ -71,7 +71,7 @@ class ModuleDispatcher {
             if (found) return found;
         }
         return { key: moduleKey, id: moduleKey, name: moduleKey, engine_status: 'WIP', tier: 'Tier 3' };
-    },
+    }
 
     /**
      * Determines whether the module is currently WIP
@@ -87,7 +87,7 @@ class ModuleDispatcher {
             return true;
         }
         return false;
-    },
+    }
 
     /**
      * Cleans up input pane form to prevent leftover listeners and stale DOM
@@ -111,7 +111,7 @@ class ModuleDispatcher {
         } else if (target) {
             target.innerHTML = '';
         }
-    },
+    }
 
     /**
      * Switch active member module

@@ -533,31 +533,45 @@ function isModuleWIP(moduleKey) {
 window.isModuleWIP = isModuleWIP;
 
 async function selectModule(key, targetMemberId = null) {
-    if (window.ProjectStore) {
-        window.ProjectStore.setActiveModule(key);
-        if (targetMemberId) {
-            window.ProjectStore.selectMember(key, targetMemberId);
-        }
-    }
-
-    renderSidebar();
-
-    const [cat, grp, modId] = key.split('/');
-    const isWip = isModuleWIP(key);
-    let modMeta = null;
-    if (window.CatalogManager && typeof window.CatalogManager.getModule === 'function') {
-        modMeta = window.CatalogManager.getModule(key);
-    }
-    if (!modMeta && window.allModules) {
-        modMeta = window.allModules.find(m => m.key === key || m.id === key);
-    }
-
+    if (!key) return;
     try {
-        const res = await fetch(`/api/schema/${cat}/${grp}/${modId}`);
-        const data = await res.json();
-        currentSchema = data.schema || {};
-        if (!modMeta && data.info) {
-            modMeta = data.info;
+        if (window.ProjectStore) {
+            window.ProjectStore.setActiveModule(key);
+            if (targetMemberId) {
+                window.ProjectStore.selectMember(key, targetMemberId);
+            }
+        }
+
+        renderSidebar();
+
+        const parts = key.split('/');
+        const cat = parts[0] || 'rc';
+        const grp = parts[1] || 'beam';
+        const modId = parts[2] || 'base';
+
+        const isWip = isModuleWIP(key);
+        let modMeta = null;
+        if (window.CatalogManager && typeof window.CatalogManager.getModule === 'function') {
+            modMeta = window.CatalogManager.getModule(key);
+        }
+        if (!modMeta && window.allModules) {
+            modMeta = window.allModules.find(m => m.key === key || m.id === key);
+        }
+
+        let currentSchema = {};
+        try {
+            const res = await fetch(`/api/schema/${cat}/${grp}/${modId}`);
+            if (res.ok) {
+                const data = await res.json();
+                currentSchema = data.schema || {};
+                if (!modMeta && data.info) {
+                    modMeta = data.info;
+                }
+            } else {
+                console.warn(`[App] Schema not found for ${key} (${res.status}), treating as WIP.`);
+            }
+        } catch (fetchErr) {
+            console.warn(`[App] Schema fetch error for ${key}:`, fetchErr);
         }
 
         // Update Breadcrumb Banner
@@ -565,7 +579,7 @@ async function selectModule(key, targetMemberId = null) {
         const catName = catMap[cat] || cat.toUpperCase();
         const bannerEl = document.getElementById('stage-breadcrumb-banner');
         if (bannerEl) {
-            const modTitle = (modMeta && modMeta.name) || (data.info && data.info.name) || key;
+            const modTitle = (modMeta && modMeta.name) || key;
             bannerEl.innerHTML = `
                 <span class="bc-cat-tag">${cat.toUpperCase()}</span>
                 <span class="bc-sep">›</span>
@@ -578,9 +592,9 @@ async function selectModule(key, targetMemberId = null) {
 
         // Extract default inputs from schema properties
         const defaultInputs = {};
-        const props = currentSchema.properties || {};
+        const props = (currentSchema && currentSchema.properties) || {};
         Object.keys(props).forEach(pk => {
-            if (props[pk].default !== undefined) {
+            if (props[pk] && props[pk].default !== undefined) {
                 defaultInputs[pk] = props[pk].default;
             }
         });
@@ -606,7 +620,7 @@ async function selectModule(key, targetMemberId = null) {
             }
 
             // Render WIP Informative Card in Left-Sub Form container
-            if (window.WIPCardRenderer) {
+            if (window.WIPCardRenderer && formEl) {
                 window.WIPCardRenderer.render(formEl, modMeta || { key, name: key, tier: 'Tier 3', engine_status: 'WIP' });
             }
 
@@ -654,15 +668,17 @@ async function selectModule(key, targetMemberId = null) {
         }
 
         // Render dynamic form with [Apply], [Check] & [Design] actions
-        window.FormGenerator.renderForm(
-            currentSchema, 
-            formEl, 
-            onFormChange, 
-            () => triggerCalculate(), 
-            () => triggerAutoDesign(),
-            key,
-            () => triggerApply()
-        );
+        if (window.FormGenerator && typeof window.FormGenerator.renderForm === 'function') {
+            window.FormGenerator.renderForm(
+                currentSchema, 
+                formEl, 
+                onFormChange, 
+                () => triggerCalculate(), 
+                () => triggerAutoDesign(),
+                key,
+                () => triggerApply()
+            );
+        }
 
         // Notify dispatcher for custom module packs
         if (window.ModuleDispatcher) {
@@ -679,7 +695,7 @@ async function selectModule(key, targetMemberId = null) {
 
         renderSidebar();
     } catch (err) {
-        console.error('Failed to load schema:', err);
+        console.error('Failed in selectModule:', err);
     }
 }
 
