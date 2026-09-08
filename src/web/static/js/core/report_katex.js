@@ -183,7 +183,7 @@
                  .replace(/\^([a-zA-Z0-9])/g, '<sup>$1</sup>');
 
             const modeClass = displayMode ? 'math-display-fallback' : 'math-inline-fallback';
-            return `<span class="${modeClass}" style="font-family:'Times New Roman', Cambria, Georgia, serif;${displayMode ? 'display:block;text-align:center;margin:6px 0;' : ''}">${s}</span>`;
+            return `<span class="${modeClass}" style="font-family:'Times New Roman', Cambria, Georgia, serif;${displayMode ? 'display:block;text-align:left;margin:6px 0;' : ''}">${s}</span>`;
         },
 
         /**

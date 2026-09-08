@@ -798,17 +798,43 @@ table.trial-tbl td {
     margin: 4px 0;
     font-size: 12px;
     line-height: 1.5;
+    text-align: left !important;
+}
+
+/* Force KaTeX display equations to be left-aligned in calculation sheet */
+.pure-white-sheet .katex-display,
+.katex-formula-step .katex-display {
+    text-align: left !important;
+    margin: 4px 0 !important;
+}
+
+.pure-white-sheet .katex-display > .katex,
+.katex-formula-step .katex-display > .katex {
+    text-align: left !important;
+    text-align-last: left !important;
 }
 
 .katex-formula-step .formula-subst {
     padding-left: 12px;
     color: #334155;
+    text-align: left !important;
 }
 
 .katex-formula-step .formula-eval {
     padding-left: 12px;
     font-weight: 700;
     color: #0f172a;
+    text-align: left !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.katex-formula-step .formula-eval .katex-display {
+    display: inline-block !important;
+    margin: 0 !important;
 }
 
 .verdict-ok {
@@ -865,7 +891,7 @@ table.trial-tbl td {
 .math-display-fallback {
     display: block;
     margin: 4px 0;
-    text-align: center;
+    text-align: left !important;
 }
 
 .math-frac {
