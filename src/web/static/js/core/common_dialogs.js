@@ -136,6 +136,137 @@ const CommonDialogs = {
     },
 
     /**
+     * 1-1. RC 보 배근 상세 및 간격제한 설정 모달 (IDD_RCS_BEAM_REBAR_DLG)
+     * Conforms to Requirement 22-2 & 원본 DLG_DPLUS_RCS.ini
+     */
+    openBeamRebarDialog(current = {}, onApply) {
+        const mainHook = current.mainHook || '90';
+        const stirrupHook = current.stirrupHook || '135';
+        const stirrupLegs = current.stirrupLegs || 2;
+        const maxAggSize = current.maxAggSize || 25;
+        const spliceType = current.spliceType || 'none'; // 'none', 'half', 'full'
+        const differRebar = current.differRebar ?? false;
+        const sameRebarTopBot = current.sameRebarTopBot ?? false;
+        const checkClearSpacing = current.checkClearSpacing ?? true;
+        const barDia = current.barDia || 'D25';
+        const db = parseFloat(barDia.replace(/[^0-9]/g, '')) || 25;
+        const reqClear = Math.max(25, db, Math.round(1.33 * maxAggSize));
+
+        const html = `
+            <div class="eng-dialog-grid">
+                <div class="dialog-field-group">
+                    <label>주철근 단부 갈고리 (Main Hook):</label>
+                    <select id="dlg-rebar-main-hook" class="form-input">
+                        <option value="90" ${mainHook === '90' ? 'selected' : ''}>90° 표준 갈고리 (Standard 90°)</option>
+                        <option value="180" ${mainHook === '180' ? 'selected' : ''}>180° 반원형 갈고리 (180° Hook)</option>
+                    </select>
+                </div>
+                <div class="dialog-field-group">
+                    <label>스터럽 갈고리 (Stirrup Hook):</label>
+                    <select id="dlg-rebar-stirrup-hook" class="form-input">
+                        <option value="135" ${stirrupHook === '135' ? 'selected' : ''}>135° 내진 갈고리 (Seismic 135°)</option>
+                        <option value="90" ${stirrupHook === '90' ? 'selected' : ''}>90° 표준 갈고리 (Standard 90°)</option>
+                    </select>
+                </div>
+                <div class="dialog-field-group">
+                    <label>스터럽 다리수 구성 (Stirrup Legs):</label>
+                    <select id="dlg-rebar-stirrup-legs" class="form-input">
+                        <option value="2" ${stirrupLegs == 2 ? 'selected' : ''}>2각 (외곽 폐합 스터럽 1개)</option>
+                        <option value="4" ${stirrupLegs == 4 ? 'selected' : ''}>4각 (외곽 폐합 1개 + 내부 U형 묶음)</option>
+                    </select>
+                </div>
+                <div class="dialog-field-group">
+                    <label>굵은골재 최대치수 (da):</label>
+                    <div style="display:flex;align-items:center;gap:4px;">
+                        <input type="number" id="dlg-rebar-max-agg" value="${maxAggSize}" class="form-input" min="10" max="50">
+                        <span class="unit-tag">mm</span>
+                    </div>
+                </div>
+                <div class="dialog-field-group" style="grid-column: span 2;">
+                    <label>주철근 이음 조건 (Splice Type):</label>
+                    <div style="display:flex;gap:16px;margin-top:4px;">
+                        <label style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;">
+                            <input type="radio" name="dlg-rebar-splice" value="none" ${spliceType === 'none' ? 'checked' : ''}> 이음하지 않음
+                        </label>
+                        <label style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;">
+                            <input type="radio" name="dlg-rebar-splice" value="half" ${spliceType === 'half' ? 'checked' : ''}> 반수 이음 (50%)
+                        </label>
+                        <label style="display:inline-flex;align-items:center;gap:4px;cursor:pointer;">
+                            <input type="radio" name="dlg-rebar-splice" value="full" ${spliceType === 'full' ? 'checked' : ''}> 전수 이음 (100%)
+                        </label>
+                    </div>
+                </div>
+                <div class="dialog-field-group" style="grid-column: span 2; display:flex; flex-direction:column; gap:6px;">
+                    <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;">
+                        <input type="checkbox" id="dlg-rebar-differ" ${differRebar ? 'checked' : ''}> 배근 열마다 다른 철근 사용 허용
+                    </label>
+                    <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;">
+                        <input type="checkbox" id="dlg-rebar-same-topbot" ${sameRebarTopBot ? 'checked' : ''}> 상-하부 동일 철근 일괄 적용
+                    </label>
+                    <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;">
+                        <input type="checkbox" id="dlg-rebar-check-spacing" ${checkClearSpacing ? 'checked' : ''}> 순간격 제한치 자동 검토
+                    </label>
+                </div>
+            </div>
+            <div class="dialog-calc-preview" style="margin-top: 12px; background: rgba(56, 189, 248, 0.08); padding: 10px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.2);">
+                <div class="preview-title" style="font-weight:700; color:#38bdf8; font-size:12px;">⚡ KDS 14 20 50 철근 순간격 검토 기준</div>
+                <div id="dlg-rebar-spacing-req" style="font-size:13px; font-weight:700; color:#0284c7; margin-top:2px;">
+                    소요 최소 순간격: s_clear ≥ ${reqClear} mm
+                </div>
+                <div style="font-size:11px; color:#64748b; margin-top:2px;">
+                    조건: max(25 mm, db=${db} mm, 1.33 × da=${Math.round(1.33 * maxAggSize)} mm)
+                </div>
+            </div>
+        `;
+
+        if (!window.ModalManager) return;
+        window.ModalManager.open({
+            title: 'RC 보 배근 상세 및 간격제한 설정',
+            dialogId: 'IDD_RCS_BEAM_REBAR_DLG',
+            width: '560px',
+            content: html,
+            onConfirm: (modalEl) => {
+                const mainHookVal = modalEl.querySelector('#dlg-rebar-main-hook')?.value || mainHook;
+                const stirrupHookVal = modalEl.querySelector('#dlg-rebar-stirrup-hook')?.value || stirrupHook;
+                const stirrupLegsVal = parseInt(modalEl.querySelector('#dlg-rebar-stirrup-legs')?.value) || 2;
+                const maxAggSizeVal = parseFloat(modalEl.querySelector('#dlg-rebar-max-agg')?.value) || maxAggSize;
+                const spliceTypeVal = modalEl.querySelector('input[name="dlg-rebar-splice"]:checked')?.value || spliceType;
+                const differRebarVal = modalEl.querySelector('#dlg-rebar-differ')?.checked || false;
+                const sameRebarTopBotVal = modalEl.querySelector('#dlg-rebar-same-topbot')?.checked || false;
+                const checkClearSpacingVal = modalEl.querySelector('#dlg-rebar-check-spacing')?.checked || false;
+
+                const result = {
+                    mainHook: mainHookVal,
+                    stirrupHook: stirrupHookVal,
+                    stirrupLegs: stirrupLegsVal,
+                    maxAggSize: maxAggSizeVal,
+                    spliceType: spliceTypeVal,
+                    differRebar: differRebarVal,
+                    sameRebarTopBot: sameRebarTopBotVal,
+                    checkClearSpacing: checkClearSpacingVal,
+                    minClearSpacing: Math.max(25, db, Math.round(1.33 * maxAggSizeVal))
+                };
+
+                if (onApply) onApply(result);
+            }
+        });
+
+        setTimeout(() => {
+            const modalEl = document.getElementById('app-modal-overlay');
+            if (!modalEl) return;
+            const updateSpacing = () => {
+                const agg = parseFloat(modalEl.querySelector('#dlg-rebar-max-agg')?.value) || maxAggSize;
+                const minReq = Math.max(25, db, Math.round(1.33 * agg));
+                const resEl = modalEl.querySelector('#dlg-rebar-spacing-req');
+                if (resEl) {
+                    resEl.innerText = `소요 최소 순간격: s_clear ≥ ${minReq} mm`;
+                }
+            };
+            modalEl.querySelector('#dlg-rebar-max-agg')?.addEventListener('input', updateSpacing);
+        }, 50);
+    },
+
+    /**
      * 2. 기둥 장주 모멘트확대계수(δns, δs) 산정 모달 (IDD_RCS_COLUMN_SWAY_DLG)
      * KDS 14 20 20 제4.2.3조 기준
      */

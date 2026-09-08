@@ -13,16 +13,82 @@ class RCBeamModule {
     }
 
     /**
-     * Returns default engineering input data for RC beam
+     * Returns default engineering input data for RC beam conforming to KDS 14 20
      */
     getDefaultData() {
         return {
+            shape: 'RECTANGULAR',
             b: 400,
             h: 600,
-            cover: 50,
+            length: 6000,
+            cover: 40,
+            cover_top: 40,
+            bf: 1200,
+            hf: 150,
             fck: 27,
             fy: 400,
-            fys: 400,
+            fyt: 400,
+            support: 'SIMPLE',
+
+            // Rebar Detailed Stations
+            rebar: {
+                end_i: {
+                    top_layer1: '4-D25',
+                    top_layer2: '2-D25',
+                    bot_layer1: '3-D22',
+                    bot_layer2: '0',
+                    stirrup_dia: 'D10',
+                    stirrup_space: 150,
+                    stirrup_legs: 2
+                },
+                center_m: {
+                    top_layer1: '2-D22',
+                    top_layer2: '0',
+                    bot_layer1: '4-D25',
+                    bot_layer2: '2-D25',
+                    stirrup_dia: 'D10',
+                    stirrup_space: 250,
+                    stirrup_legs: 2
+                },
+                end_j: {
+                    top_layer1: '4-D25',
+                    top_layer2: '2-D25',
+                    bot_layer1: '3-D22',
+                    bot_layer2: '0',
+                    stirrup_dia: 'D10',
+                    stirrup_space: 150,
+                    stirrup_legs: 2
+                },
+                torsion_side_bar: 'D13',
+                torsion_side_count: 4,
+                mainHook: '90',
+                stirrupHook: '135',
+                maxAggSize: 25,
+                spliceType: 'none',
+                differRebar: false,
+                sameRebarTopBot: false,
+                checkClearSpacing: true
+            },
+
+            // Design Factored Loads
+            loads: {
+                end_i: { Mu_pos: 0.0, Mu_neg: 240.0, Vu: 180.0, Tu: 15.0 },
+                center_m: { Mu_pos: 240.0, Mu_neg: 0.0, Vu: 40.0, Tu: 5.0 },
+                end_j: { Mu_pos: 0.0, Mu_neg: 240.0, Vu: 180.0, Tu: 15.0 }
+            },
+
+            // Serviceability & Deflection
+            serviceability: {
+                Ma_pos: 140.0,
+                Ma_neg: 140.0,
+                Msus: 90.0,
+                sustained_ratio: 0.5,
+                defl_limit: 'L/240',
+                exposure: 'wet',
+                seismic: 'OMF'
+            },
+
+            // Legacy shortcuts for backward compatibility
             topBars: '4-D25',
             botBars: '4-D25',
             stirrup: 'D10 @ 150',
@@ -45,7 +111,11 @@ class RCBeamModule {
     }
 
     onParamChange(payload) {
-        if (payload && payload.key) this.data[payload.key] = payload.value;
+        if (payload && payload.data) {
+            Object.assign(this.data, payload.data);
+        } else if (payload && payload.key) {
+            this.data[payload.key] = payload.value;
+        }
         if (this.context) {
             this.renderGraphics(this.context.canvas, this.context.pmCanvas, this.data, null);
             this.renderReport(this.context.reportContainer, this.data, null, {});
@@ -56,41 +126,56 @@ class RCBeamModule {
      * Render Pane 2 4-Subtab Input Form
      */
     renderForm(container, data = this.data, bus = window.EventBus) {
-        if (!container || !window.FormBuilder) return;
+        if (!container) return;
         const curData = data || this.data;
 
-        const schema = {
-            fields: [
-                { tab: 'section', key: 'b', label: '단면 폭 (b)', default: curData.b, unit: 'mm' },
-                { tab: 'section', key: 'h', label: '단면 높이 (h)', default: curData.h, unit: 'mm' },
-                { tab: 'section', key: 'fck', label: '콘크리트 강도 (fck)', default: curData.fck, unit: 'MPa' },
-                { tab: 'section', key: 'hasTFlange', label: 'T형 플랜지 상세', default: '설정', hasDialog: true, onOpenDialog: (cur, cb) => {
-                    if (window.CommonDialogs && window.CommonDialogs.openBeamSectionDetail) {
-                        window.CommonDialogs.openBeamSectionDetail(cur, cb);
-                    }
-                }},
-                { tab: 'rebar', key: 'cover', label: '피복 두께 (dc)', default: curData.cover, unit: 'mm' },
-                { tab: 'rebar', key: 'topBars', label: '상부 주철근', default: curData.topBars, type: 'text' },
-                { tab: 'rebar', key: 'botBars', label: '하부 주철근', default: curData.botBars, type: 'text' },
-                { tab: 'rebar', key: 'stirrup', label: '전단 스터럽', default: curData.stirrup, type: 'text' },
-                { tab: 'load', key: 'mu', label: '계수 모멘트 (Mu)', default: curData.mu, unit: 'kN·m' },
-                { tab: 'load', key: 'vu', label: '계수 전단력 (Vu)', default: curData.vu, unit: 'kN' },
-                { tab: 'load', key: 'lcbDlg', label: '하중조합 생성기', default: '설정...', hasDialog: true, onOpenDialog: (cur, cb) => {
-                    if (window.CommonDialogs && window.CommonDialogs.openLoadCombination) {
-                        window.CommonDialogs.openLoadCombination(cur, cb);
-                    }
-                }},
-                { tab: 'option', key: 'seismic', label: '내진 등급', type: 'select', options: [{ value: 'special', label: '특수 모멘트 골조' }, { value: 'normal', label: '보통 모멘트 골조' }] }
-            ]
-        };
+        // 1. Specialized 1:1 RC Beam Form Component (Req 22-2)
+        if (window.RCBeamForm && typeof window.RCBeamForm.render === 'function') {
+            window.RCBeamForm.render(container, curData, (updatedData) => {
+                Object.assign(this.data, updatedData);
+                if (this.context) {
+                    this.renderGraphics(this.context.canvas, this.context.pmCanvas, this.data, null);
+                    this.renderReport(this.context.reportContainer, this.data, null, {});
+                }
+            });
+            return;
+        }
 
-        window.FormBuilder.build(container, schema, curData, (k, v) => {
-            if (k) curData[k] = v;
-            if (this.context) {
-                this.renderGraphics(this.context.canvas, this.context.pmCanvas, curData, null);
-                this.renderReport(this.context.reportContainer, curData, null, {});
-            }
-        });
+        // 2. Fallback to generic FormBuilder
+        if (window.FormBuilder) {
+            const schema = {
+                fields: [
+                    { tab: 'section', key: 'b', label: '단면 폭 (b)', default: curData.b, unit: 'mm' },
+                    { tab: 'section', key: 'h', label: '단면 높이 (h)', default: curData.h, unit: 'mm' },
+                    { tab: 'section', key: 'fck', label: '콘크리트 강도 (fck)', default: curData.fck, unit: 'MPa' },
+                    { tab: 'section', key: 'hasTFlange', label: 'T형 플랜지 상세', default: '설정', hasDialog: true, onOpenDialog: (cur, cb) => {
+                        if (window.CommonDialogs && window.CommonDialogs.openBeamBeffDialog) {
+                            window.CommonDialogs.openBeamBeffDialog(cur, cb);
+                        }
+                    }},
+                    { tab: 'rebar', key: 'cover', label: '피복 두께 (dc)', default: curData.cover, unit: 'mm' },
+                    { tab: 'rebar', key: 'topBars', label: '상부 주철근', default: curData.topBars, type: 'text' },
+                    { tab: 'rebar', key: 'botBars', label: '하부 주철근', default: curData.botBars, type: 'text' },
+                    { tab: 'rebar', key: 'stirrup', label: '전단 스터럽', default: curData.stirrup, type: 'text' },
+                    { tab: 'load', key: 'mu', label: '계수 모멘트 (Mu)', default: curData.mu, unit: 'kN·m' },
+                    { tab: 'load', key: 'vu', label: '계수 전단력 (Vu)', default: curData.vu, unit: 'kN' },
+                    { tab: 'load', key: 'lcbDlg', label: '하중조합 생성기', default: '설정...', hasDialog: true, onOpenDialog: (cur, cb) => {
+                        if (window.CommonDialogs && window.CommonDialogs.openLoadCombination) {
+                            window.CommonDialogs.openLoadCombination(cur, cb);
+                        }
+                    }},
+                    { tab: 'option', key: 'seismic', label: '내진 등급', type: 'select', options: [{ value: 'special', label: '특수 모멘트 골조' }, { value: 'normal', label: '보통 모멘트 골조' }] }
+                ]
+            };
+
+            window.FormBuilder.build(container, schema, curData, (k, v) => {
+                if (k) curData[k] = v;
+                if (this.context) {
+                    this.renderGraphics(this.context.canvas, this.context.pmCanvas, curData, null);
+                    this.renderReport(this.context.reportContainer, curData, null, {});
+                }
+            });
+        }
     }
 
     /**
