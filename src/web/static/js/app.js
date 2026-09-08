@@ -173,13 +173,7 @@ function setupGlobalShortcuts() {
                 searchInput.select();
             }
         }
-        // Ctrl + B -> Toggle sidebar
-        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b') {
-            e.preventDefault();
-            if (window.ProjectStore) {
-                window.ProjectStore.toggleSidebar();
-            }
-        }
+        // Ctrl + B is handled centrally in LayoutResizer.bindTopControls()
         // Ctrl + S -> Export project
         if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
             e.preventDefault();

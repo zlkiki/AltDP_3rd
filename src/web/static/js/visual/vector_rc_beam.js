@@ -1233,6 +1233,192 @@
     return interactiveElements;
   };
 
+  // ===========================================================================
+  // 4. KDS Report Pure White A4 Embedding Snapshot Generator
+  // Conforms to Requirement 22 / 22-3 Bugfix: 1:1 Graphic Viewport Synchronization
+  // ===========================================================================
+  VectorRCBeam.generateReportSnapshot = function (rawData = {}, result = {}, width = 540, height = 160) {
+    if (typeof document === 'undefined') return '';
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return '';
+
+    const beam = extractBeamData(rawData);
+
+    // 1. Pure White Clean Background for A4 Print Paper
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, width, height);
+
+    // 2. 3 Stations: End-I, Center-M, End-J
+    const slotKeys = [
+      { key: 'end_i', label: '[End-I] 좌단부', color: '#0284c7' },
+      { key: 'center_m', label: '[Center-M] 중앙부', color: '#059669' },
+      { key: 'end_j', label: '[End-J] 우단부', color: '#0284c7' }
+    ];
+
+    const slotW = width / 3;
+    const margin = 14;
+    const availSlotW = slotW - margin * 2;
+    const availSlotH = height - 58;
+    const maxDim = Math.max(beam.b, beam.h, beam.shape === 'T_BEAM' ? beam.bf : 0);
+    const scale = Math.min(availSlotW / maxDim, availSlotH / beam.h);
+
+    const drawB = beam.b * scale;
+    const drawH = beam.h * scale;
+    const centerY = height / 2 + 6;
+
+    slotKeys.forEach((slot, idx) => {
+      const centerX = slotW * idx + slotW / 2;
+      const st = beam.stations[slot.key];
+      const secX0 = centerX - drawB / 2;
+      const secY0 = centerY - drawH / 2;
+
+      // Station Badge
+      ctx.save();
+      const badgeY = 6;
+      ctx.font = 'bold 10px "Inter", "Pretendard", sans-serif';
+      const textW = ctx.measureText(slot.label).width + 12;
+      ctx.fillStyle = '#f1f5f9';
+      ctx.strokeStyle = slot.color;
+      ctx.lineWidth = 1.0;
+      ctx.strokeRect(centerX - textW / 2, badgeY, textW, 17);
+      ctx.fillRect(centerX - textW / 2, badgeY, textW, 17);
+
+      ctx.fillStyle = slot.color;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(slot.label, centerX, badgeY + 8.5);
+      ctx.restore();
+
+      // Concrete Body
+      ctx.save();
+      ctx.fillStyle = '#f8fafc';
+      ctx.strokeStyle = '#334155';
+      ctx.lineWidth = 1.5;
+      if (beam.shape === 'T_BEAM') {
+        const drawBf = beam.bf * scale;
+        const drawHf = beam.hf * scale;
+        const tfX0 = centerX - drawBf / 2;
+        ctx.beginPath();
+        ctx.moveTo(tfX0, secY0);
+        ctx.lineTo(tfX0 + drawBf, secY0);
+        ctx.lineTo(tfX0 + drawBf, secY0 + drawHf);
+        ctx.lineTo(secX0 + drawB, secY0 + drawHf);
+        ctx.lineTo(secX0 + drawB, secY0 + drawH);
+        ctx.lineTo(secX0, secY0 + drawH);
+        ctx.lineTo(secX0, secY0 + drawHf);
+        ctx.lineTo(tfX0, secY0 + drawHf);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      } else {
+        ctx.fillRect(secX0, secY0, drawB, drawH);
+        ctx.strokeRect(secX0, secY0, drawB, drawH);
+      }
+
+      // Centerline
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.4)';
+      ctx.lineWidth = 0.8;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(centerX, secY0 - 4); ctx.lineTo(centerX, secY0 + drawH + 4);
+      ctx.moveTo(secX0 - 4, centerY); ctx.lineTo(secX0 + drawB + 4, centerY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.restore();
+
+      // Closed Stirrup
+      const coverPx = beam.cover * scale;
+      const stirX = secX0 + coverPx;
+      const stirY = secY0 + coverPx;
+      const stirW = drawB - coverPx * 2;
+      const stirH = drawH - coverPx * 2;
+      if (stirW > 4 && stirH > 4) {
+        ctx.save();
+        ctx.strokeStyle = '#d97706'; // Vibrant amber-orange stirrup
+        ctx.lineWidth = 1.3;
+        ctx.strokeRect(stirX, stirY, stirW, stirH);
+        ctx.restore();
+      }
+
+      // Main Rebars
+      const renderRebarRow = (layer, yPos) => {
+        if (!layer || layer.count <= 0) return;
+        const count = layer.count;
+        const diaPx = Math.max(layer.dia * scale, 3.2);
+        const innerL = stirX + diaPx / 2 + 1;
+        const innerR = stirX + stirW - diaPx / 2 - 1;
+        const step = count > 1 ? (innerR - innerL) / (count - 1) : 0;
+
+        ctx.save();
+        ctx.fillStyle = '#1d4ed8'; // Blue rebar
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 0.8;
+        for (let i = 0; i < count; i++) {
+          const rx = count === 1 ? (innerL + innerR) / 2 : innerL + step * i;
+          ctx.beginPath();
+          ctx.arc(rx, yPos, diaPx / 2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+        }
+        ctx.restore();
+      };
+
+      // Top rebars (Layer 1 & 2)
+      const top1Dia = Math.max(st.top1.dia * scale, 3.2);
+      const top1Y = stirY + top1Dia / 2 + 1;
+      renderRebarRow(st.top1, top1Y);
+      if (st.top2 && st.top2.count > 0) {
+        const top2Y = top1Y + top1Dia + 25 * scale;
+        renderRebarRow(st.top2, top2Y);
+      }
+
+      // Bottom rebars (Layer 1 & 2)
+      const bot1Dia = Math.max(st.bot1.dia * scale, 3.2);
+      const bot1Y = stirY + stirH - bot1Dia / 2 - 1;
+      renderRebarRow(st.bot1, bot1Y);
+      if (st.bot2 && st.bot2.count > 0) {
+        const bot2Y = bot1Y - bot1Dia - 25 * scale;
+        renderRebarRow(st.bot2, bot2Y);
+      }
+
+      // Rebar Callouts Top/Bottom
+      ctx.save();
+      ctx.font = '500 9px "Consolas", "Courier New", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#0f172a';
+      const topTag = st.top2 && st.top2.count > 0 ? `${st.top1.str}+${st.top2.str}` : st.top1.str;
+      ctx.fillText(`상: ${topTag}`, centerX, secY0 - 5);
+
+      const botTag = st.bot2 && st.bot2.count > 0 ? `${st.bot1.str}+${st.bot2.str}` : st.bot1.str;
+      ctx.fillText(`하: ${botTag}`, centerX, secY0 + drawH + 12);
+
+      // Stirrup tag
+      ctx.fillStyle = '#b45309';
+      ctx.font = '500 8.5px "Consolas", monospace';
+      ctx.fillText(st.stirrup.text, centerX, secY0 + drawH + 22);
+      ctx.restore();
+
+      // Dimension line
+      ctx.save();
+      ctx.strokeStyle = '#64748b';
+      ctx.fillStyle = '#475569';
+      ctx.font = '8.5px "Inter", sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText(`${beam.h}`, secX0 - 4, centerY + 3);
+      ctx.restore();
+    });
+
+    // Outer subtle border
+    ctx.strokeStyle = '#cbd5e1';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(0, 0, width, height);
+
+    return canvas.toDataURL('image/png');
+  };
+
   // ---------------------------------------------------------------------------
   // Global Export
   // ---------------------------------------------------------------------------

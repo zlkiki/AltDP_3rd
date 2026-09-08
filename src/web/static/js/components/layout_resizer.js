@@ -127,6 +127,13 @@
         // Initialization & Event Binding
         // ==========================================
         init() {
+            if (this.isInitialized) {
+                // Already initialized, re-apply layout and return to prevent duplicate listeners
+                this.applyLayout(this.currentLayout);
+                return;
+            }
+            this.isInitialized = true;
+
             this.bindResizerEvents();
             this.bindTopControls();
             this.bindSidebarSmartEvents();
@@ -153,6 +160,9 @@
         }
 
         bindResizerEvents() {
+            if (this._resizersBound) return;
+            this._resizersBound = true;
+
             const sidebarH = document.getElementById('resizer-sidebar-h');
             const leftH = document.getElementById('resizer-left-h');
             const leftV = document.getElementById('resizer-left-v');
@@ -178,10 +188,17 @@
         }
 
         bindTopControls() {
+            if (this._topControlsBound) return;
+            this._topControlsBound = true;
+
             // Sidebar toggle button (Ctrl+B or header button)
             const toggleBtn = document.getElementById('btn-toggle-sidebar');
             if (toggleBtn) {
-                toggleBtn.addEventListener('click', () => this.toggleSidebar());
+                toggleBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.toggleSidebar();
+                });
             }
 
             // Keyboard shortcut Ctrl+B
@@ -535,7 +552,20 @@
         }
 
         toggleSidebar() {
-            this.currentLayout.sidebarCollapsed = !this.currentLayout.sidebarCollapsed;
+            const sidebar = this.getSidebar();
+            let isCurrentlyHidden = false;
+            if (sidebar) {
+                isCurrentlyHidden = sidebar.classList.contains('collapsed') || 
+                                    sidebar.classList.contains('auto-hidden') || 
+                                    sidebar.style.display === 'none' ||
+                                    sidebar.offsetWidth === 0;
+            } else {
+                isCurrentlyHidden = Boolean(this.currentLayout.sidebarCollapsed);
+            }
+
+            // If it was hidden, new state is open (collapsed = false).
+            // If it was visible, new state is closed (collapsed = true).
+            this.currentLayout.sidebarCollapsed = !isCurrentlyHidden;
             this.savePersistedLayout(this.currentLayout);
             this.applySidebarState(this.currentLayout);
             if (window.ProjectStore && typeof window.ProjectStore.setSidebarCollapsed === 'function') {

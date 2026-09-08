@@ -585,33 +585,39 @@
                             <h2 class="chapter-heading" data-title-detail="재질 및 단면 제원 (Material & Section Properties)" data-title-summary="재질 및 단면 제원 (Material & Section Properties)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
                                 <span class="chapter-num">제 3장</span>. <span class="chapter-title">재질 및 단면 제원 (Material & Section Properties)</span>
                             </h2>
-                            <div style="display:flex;gap:16px;align-items:flex-start;">
-                                <table class="chk-table" style="flex:1;border-collapse:collapse;font-size:11px;">
+                            <div style="display:flex;flex-direction:column;gap:10px;">
+                                <table class="chk-table" style="width:100%;border-collapse:collapse;font-size:11px;">
                                     <tr>
-                                        <td class="inp-label" style="width:40%;">전단면적 ($A_g$)</td>
-                                        <td class="inp-val">${((m.b ?? 400) * (m.h ?? 600)).toLocaleString()} mm²</td>
+                                        <td class="inp-label" style="width:20%;background:#f8fafc;font-weight:600;">단면 폭 ($b$)</td>
+                                        <td style="width:30%;font-weight:600;color:#0f172a;">${m.b ?? 400} mm</td>
+                                        <td class="inp-label" style="width:20%;background:#f8fafc;font-weight:600;">단면 높이 ($h$)</td>
+                                        <td style="width:30%;font-weight:600;color:#0f172a;">${m.h ?? 600} mm</td>
                                     </tr>
                                     <tr>
-                                        <td class="inp-label">단면2차모멘트 ($I_g$)</td>
+                                        <td class="inp-label" style="background:#f8fafc;font-weight:600;">전단면적 ($A_g$)</td>
+                                        <td class="inp-val">${((m.b ?? 400) * (m.h ?? 600)).toLocaleString()} mm²</td>
+                                        <td class="inp-label" style="background:#f8fafc;font-weight:600;">단면2차모멘트 ($I_g$)</td>
                                         <td class="inp-val">${(((m.b ?? 400) * Math.pow(m.h ?? 600, 3)) / 12).toExponential(3)} mm⁴</td>
                                     </tr>
                                     <tr>
-                                        <td class="inp-label">유효깊이 ($d$)</td>
+                                        <td class="inp-label" style="background:#f8fafc;font-weight:600;">유효깊이 ($d$)</td>
                                         <td class="inp-val">${(m.h ?? 600) - (m.cover ?? 40)} mm</td>
+                                        <td class="inp-label" style="background:#f8fafc;font-weight:600;">피복 두께 ($d_c$)</td>
+                                        <td class="inp-val">${m.cover ?? 40} mm</td>
                                     </tr>
                                     <tr>
-                                        <td class="inp-label">콘크리트 탄성계수 ($E_c$)</td>
+                                        <td class="inp-label" style="background:#f8fafc;font-weight:600;">콘크리트 탄성계수 ($E_c$)</td>
                                         <td class="inp-val">25,050 MPa</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="inp-label">파괴계수 ($f_r$)</td>
+                                        <td class="inp-label" style="background:#f8fafc;font-weight:600;">파괴계수 ($f_r$)</td>
                                         <td class="inp-val">3.09 MPa</td>
                                     </tr>
                                 </table>
-                                <!-- 2D 단면 SVG 그래픽 임베딩 -->
-                                <div class="report-svg-slot" style="${this.includeGraphics ? 'width:180px;text-align:center;' : 'display:none;'}">
-                                    ${this._generateSectionSvg(m)}
-                                    <div style="font-size:10.5px;color:#64748b;margin-top:4px;">[단면 배근 상세도]</div>
+                                <!-- 2D 단면 실제 그래픽 임베딩 (3열 그래픽 표시부와 1:1 동기화) -->
+                                <div class="report-svg-slot report-graphic-slot" style="${this.includeGraphics ? 'width:100%;text-align:center;margin-top:2px;' : 'display:none;'}">
+                                    ${this._generateSectionGraphic(m, r, modKey)}
+                                    <div style="font-size:10.5px;color:#64748b;margin-top:5px;font-weight:500;">
+                                        [단면 배근 상세도: ${m.b ?? 400}×${m.h ?? 600} mm (End-I / Center-M / End-J 3단 배근 1:1 그래픽)]
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -846,27 +852,73 @@
         }
 
         /**
-         * Generate 2D Section SVG
+         * Generate 2D Section Graphic (1:1 Synchronized with Graphic Viewport Pane 3)
+         * Conforms to Requirement 22 / 22-3 Bugfix
          */
-        _generateSectionSvg(m) {
+        _generateSectionGraphic(m, r = {}, modKey = 'rc/beam') {
             const b = m.b || 400;
             const h = m.h || 600;
-            const scale = 120 / Math.max(b, h);
+
+            // 1. RC Beam Flagship: 1:1 VectorRCBeam 3-Station Detailing Snapshot
+            const isRcBeam = modKey === 'rc_beam' || modKey === 'rc/beam' || (m.topBars || m.top_rebar || m.rebar);
+            if (isRcBeam && window.VectorRCBeam && typeof window.VectorRCBeam.generateReportSnapshot === 'function') {
+                const imgData = window.VectorRCBeam.generateReportSnapshot(m, r, 540, 160);
+                if (imgData) {
+                    return `
+                        <div class="report-graphic-wrap" style="width:100%;max-width:540px;margin:0 auto;text-align:center;">
+                            <img src="${imgData}" alt="RC 보 3단 단면 배근도" class="report-embed-img" style="width:100%;height:auto;max-height:165px;border:1px solid #cbd5e1;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,0.05);display:block;margin:0 auto;" />
+                        </div>
+                    `;
+                }
+            }
+
+            // 2. Active Viewport Canvas Snapshot Fallback (from Pane 3)
+            const activeCanvas = document.getElementById('canvas-geometry') || 
+                                 document.getElementById('sectionCanvas') ||
+                                 document.getElementById('canvas-station-2');
+            if (activeCanvas && typeof activeCanvas.toDataURL === 'function' && activeCanvas.width > 0) {
+                try {
+                    const snap = activeCanvas.toDataURL('image/png');
+                    if (snap && snap.length > 100) {
+                        return `
+                            <div class="report-graphic-wrap" style="width:100%;max-width:480px;margin:0 auto;text-align:center;">
+                                <img src="${snap}" alt="단면 그래픽 스냅샷" class="report-embed-img" style="max-width:100%;max-height:165px;border:1px solid #cbd5e1;border-radius:4px;display:block;margin:0 auto;" />
+                            </div>
+                        `;
+                    }
+                } catch (e) {
+                    console.warn('[ReportEngine] Canvas snapshot error:', e);
+                }
+            }
+
+            // 3. Fallback High-Quality Parametric SVG (with actual dimensions & rebar details)
+            const scale = 110 / Math.max(b, h);
             const w = b * scale;
             const ht = h * scale;
-            const cx = 80;
-            const cy = 70;
+            const cx = 130;
+            const cy = 68;
 
             return `
-                <svg width="160" height="140" viewBox="0 0 160 140" class="report-embed-svg" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:4px;">
-                    <rect x="${cx - w/2}" y="${cy - ht/2}" width="${w}" height="${ht}" fill="#f1f5f9" stroke="#334155" stroke-width="1.5" />
-                    <rect x="${cx - w/2 + 5}" y="${cy - ht/2 + 5}" width="${w - 10}" height="${ht - 10}" fill="none" stroke="#f59e0b" stroke-width="1.2" />
-                    <circle cx="${cx - w/2 + 8}" cy="${cy - ht/2 + 8}" r="3.5" fill="#2563eb" stroke="#ffffff" stroke-width="0.5" />
-                    <circle cx="${cx + w/2 - 8}" cy="${cy - ht/2 + 8}" r="3.5" fill="#2563eb" stroke="#ffffff" stroke-width="0.5" />
-                    <circle cx="${cx - w/2 + 8}" cy="${cy + ht/2 - 8}" r="3.5" fill="#2563eb" stroke="#ffffff" stroke-width="0.5" />
-                    <circle cx="${cx + w/2 - 8}" cy="${cy + ht/2 - 8}" r="3.5" fill="#2563eb" stroke="#ffffff" stroke-width="0.5" />
-                </svg>
+                <div class="report-graphic-wrap" style="width:100%;max-width:320px;margin:0 auto;text-align:center;">
+                    <svg width="260" height="136" viewBox="0 0 260 136" class="report-embed-svg" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:4px;">
+                        <rect x="${cx - w/2}" y="${cy - ht/2}" width="${w}" height="${ht}" fill="#f8fafc" stroke="#334155" stroke-width="1.5" />
+                        <rect x="${cx - w/2 + 4}" y="${cy - ht/2 + 4}" width="${Math.max(w - 8, 2)}" height="${Math.max(ht - 8, 2)}" fill="none" stroke="#d97706" stroke-width="1.2" />
+                        <!-- Concrete dimensions & callouts -->
+                        <text x="${cx}" y="${cy - ht/2 - 5}" font-size="9" fill="#0f172a" text-anchor="middle" font-family="Consolas, monospace">b = ${b} mm</text>
+                        <text x="${cx - w/2 - 6}" y="${cy}" font-size="9" fill="#0f172a" text-anchor="end" font-family="Consolas, monospace">h = ${h}</text>
+                        <!-- Corner rebars -->
+                        <circle cx="${cx - w/2 + 7}" cy="${cy - ht/2 + 7}" r="3.5" fill="#1d4ed8" stroke="#ffffff" stroke-width="0.5" />
+                        <circle cx="${cx + w/2 - 7}" cy="${cy - ht/2 + 7}" r="3.5" fill="#1d4ed8" stroke="#ffffff" stroke-width="0.5" />
+                        <circle cx="${cx - w/2 + 7}" cy="${cy + ht/2 - 7}" r="3.5" fill="#1d4ed8" stroke="#ffffff" stroke-width="0.5" />
+                        <circle cx="${cx + w/2 - 7}" cy="${cy + ht/2 - 7}" r="3.5" fill="#1d4ed8" stroke="#ffffff" stroke-width="0.5" />
+                    </svg>
+                </div>
             `;
+        }
+
+        // Backward compatibility
+        _generateSectionSvg(m) {
+            return this._generateSectionGraphic(m);
         }
 
         /**

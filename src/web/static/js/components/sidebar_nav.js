@@ -227,19 +227,10 @@ class SidebarNav {
     }
 
     /**
-     * Ctrl + B 단축키 토글 지원
+     * Ctrl + B 단축키 토글 지원 (layout_resizer.js 중앙 처리 위임)
      */
     _setupShortcuts() {
-        window.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b') {
-                e.preventDefault();
-                if (window.LayoutResizer && typeof window.LayoutResizer.toggleSidebar === 'function') {
-                    window.LayoutResizer.toggleSidebar();
-                } else if (window.ProjectStore && typeof window.ProjectStore.toggleSidebar === 'function') {
-                    window.ProjectStore.toggleSidebar();
-                }
-            }
-        });
+        // Ctrl+B is handled centrally by LayoutResizer to prevent multiple concurrent toggle invocations
     }
 
     /**
