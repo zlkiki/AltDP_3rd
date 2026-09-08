@@ -184,11 +184,12 @@ window.ResultRenderer = {
         this.currentModulePath = modulePath || '';
         this.currentInputs = inputParams || {};
 
-        if (window.ReportEngine && typeof window.ReportEngine.init === 'function') {
+        if (window.ReportEngine && typeof window.ReportEngine.render === 'function') {
             window.ReportEngine.currentMemberData = inputParams;
             window.ReportEngine.currentCalcResult = resultData;
             window.ReportEngine.currentModuleKey = modulePath;
-            window.ReportEngine.init();
+            window.ReportEngine.render(container, inputParams, resultData, modulePath);
+            return;
         }
 
         const isWip = !resultData || 

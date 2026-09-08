@@ -97,7 +97,7 @@
 
 ## 4. 검증 및 수용 기준 (DoD)
 
-- [ ] eport_engine.js로 계산서 엔진 단일화 및 레거시 eport_renderer.js 완전 배제.
+- [ ] `report_engine.js`로 계산서 엔진 단일화 및 레거시 `report_renderer.js` 완전 배제.
 - [ ] 사용자 입력부 [⚡ 검토] 및 [✨ 자동설계] 클릭 시 레거시가 아닌 정식 KaTeX 계산서 즉시 출력.
 - [ ] 5대 장구분 및 8단계 KaTeX 수식 전개식 렌더링 검증.
 - [ ] 모든 검토 항목의   →  O.K / N.G 상태 표시 정상 출력.

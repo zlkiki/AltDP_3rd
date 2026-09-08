@@ -331,11 +331,13 @@
                 const modKey = state.activeContext.moduleKey;
                 const activeMember = window.ProjectStore.getActiveMember(modKey);
                 const resultContainer = document.getElementById('result-container');
-                if (resultContainer && window.ResultRenderer) {
-                    if (activeMember && activeMember.result) {
-                        window.ResultRenderer.render(resultContainer, activeMember.result, modKey, activeMember.inputs);
-                    } else {
-                        window.ResultRenderer.render(resultContainer, null, modKey, activeMember ? activeMember.inputs : {});
+                if (resultContainer) {
+                    const inputs = activeMember ? activeMember.inputs : {};
+                    const res = activeMember ? activeMember.result : null;
+                    if (window.ReportEngine && typeof window.ReportEngine.render === 'function') {
+                        window.ReportEngine.render(resultContainer, inputs, res, modKey);
+                    } else if (window.ResultRenderer) {
+                        window.ResultRenderer.render(resultContainer, res, modKey, inputs);
                     }
                 }
             }

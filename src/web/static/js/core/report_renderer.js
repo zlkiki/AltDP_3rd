@@ -37,6 +37,8 @@ class ReportRenderer {
                 </div>
             `;
         }
+    }
+
     /**
      * Legacy 5-Chapter Architecture Reference (Unified into ReportEngine KaTeX Sheet):
      * - 제 1장. 설계 개요 및 적용 기준 (Design Overview)

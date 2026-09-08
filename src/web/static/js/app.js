@@ -122,9 +122,13 @@ function setupUnitSelector() {
         if (window.ProjectStore) {
             const modKey = window.ProjectStore.getState().activeContext.moduleKey;
             const activeMember = window.ProjectStore.getActiveMember(modKey);
-            if (activeMember && activeMember.result && window.ResultRenderer) {
-                const resultContainer = document.getElementById('result-container');
-                window.ResultRenderer.render(resultContainer, activeMember.result, modKey, activeMember.inputs);
+            const resultContainer = document.getElementById('result-container');
+            if (activeMember && activeMember.result && resultContainer) {
+                if (window.ReportEngine && typeof window.ReportEngine.render === 'function') {
+                    window.ReportEngine.render(resultContainer, activeMember.inputs, activeMember.result, modKey);
+                } else if (window.ResultRenderer) {
+                    window.ResultRenderer.render(resultContainer, activeMember.result, modKey, activeMember.inputs);
+                }
             }
         }
 
@@ -683,15 +687,19 @@ async function selectModule(key, targetMemberId = null) {
                 caption.textContent = `2D VDraw (WIP: ${(modMeta && modMeta.name) || key})`;
             }
 
-            // Render pure white (#ffffff) A4 5-chapter KDS WIP standard calculation sheet
+            // Render pure white (#ffffff) A4 KDS standard calculation sheet via ReportEngine
             const resultContainer = document.getElementById('result-container');
-            if (resultContainer && window.ResultRenderer && typeof window.ResultRenderer.render === 'function') {
-                window.ResultRenderer.render(
-                    resultContainer, 
-                    { status: 'NOT_YET_IMPLEMENTED', code: 'WIP_MODULE' }, 
-                    key, 
-                    {}
-                );
+            if (resultContainer) {
+                if (window.ReportEngine && typeof window.ReportEngine.render === 'function') {
+                    window.ReportEngine.render(resultContainer, {}, { status: 'NOT_YET_IMPLEMENTED', code: 'WIP_MODULE' }, key);
+                } else if (window.ResultRenderer && typeof window.ResultRenderer.render === 'function') {
+                    window.ResultRenderer.render(
+                        resultContainer, 
+                        { status: 'NOT_YET_IMPLEMENTED', code: 'WIP_MODULE' }, 
+                        key, 
+                        {}
+                    );
+                }
             }
 
             // Render member list in top panel to keep list interaction safe
@@ -756,11 +764,13 @@ window.syncActiveMemberToForm = function (doCalculate = false) {
         triggerCalculate();
     } else {
         const resultContainer = document.getElementById('result-container');
-        if (resultContainer && window.ResultRenderer) {
-            if (activeMember && activeMember.result) {
-                window.ResultRenderer.render(resultContainer, activeMember.result, modKey, activeMember.inputs);
-            } else {
-                window.ResultRenderer.render(resultContainer, null, modKey, activeMember ? activeMember.inputs : null);
+        if (resultContainer) {
+            const inputs = activeMember ? activeMember.inputs : {};
+            const result = activeMember ? activeMember.result : null;
+            if (window.ReportEngine && typeof window.ReportEngine.render === 'function') {
+                window.ReportEngine.render(resultContainer, inputs, result, modKey);
+            } else if (window.ResultRenderer) {
+                window.ResultRenderer.render(resultContainer, result, modKey, inputs);
             }
         }
     }
@@ -900,10 +910,14 @@ async function triggerCalculate() {
                 window.ProjectStore.updateMemberResult(modKey, activeMember.id, data.result);
             }
 
-            // Render Result & Report Sheets (Always Pure White Background)
+            // Render Result & Report Sheets (Always Pure White Background via ReportEngine)
             const resultContainer = document.getElementById('result-container');
-            if (window.ResultRenderer) {
-                window.ResultRenderer.render(resultContainer, data.result, modKey, formData);
+            if (resultContainer) {
+                if (window.ReportEngine && typeof window.ReportEngine.render === 'function') {
+                    window.ReportEngine.render(resultContainer, formData, data.result, modKey);
+                } else if (window.ResultRenderer) {
+                    window.ResultRenderer.render(resultContainer, data.result, modKey, formData);
+                }
             }
 
             // Immediately update Member List Table & Explorer Sidebar
