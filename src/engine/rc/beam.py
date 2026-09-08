@@ -314,8 +314,8 @@ def calculate_stress_block_factors(fck: float) -> Tuple[float, float, float]:
     """Calculate equivalent rectangular stress block factors (alpha1, beta1, ecu).
     
     Conforms to KDS 14 20 20:2022 Table 4.1-2:
-    - alpha1 (eta): 0.85 (fck <= 40 MPa), reduced for high-strength
-    - beta1: 0.80 (fck <= 28~50 MPa) or standard 0.85 with reduction
+    - alpha1 (eta * 0.85): 0.85 (fck <= 40 MPa), reduced for high-strength
+    - beta1: 0.80 (fck <= 50 MPa), 0.76 (60 MPa), 0.74 (70 MPa), 0.72 (80 MPa), 0.70 (>=90 MPa)
     - ecu: 0.0033 (fck <= 40 MPa)
     """
     # Ultimate compressive strain ecu
@@ -324,17 +324,26 @@ def calculate_stress_block_factors(fck: float) -> Tuple[float, float, float]:
     else:
         ecu = max(0.0028, 0.0033 - 0.0001 * ((fck - 40.0) / 10.0))
         
-    # Stress intensity factor alpha1 (eta * 0.85 / 0.85 = eta)
+    # Stress intensity factor alpha1 (eta * 0.85)
     if fck <= 40.0:
         alpha1 = 0.85
     else:
-        alpha1 = max(0.65, 0.85 - 0.0015 * (fck - 40.0))
+        eta = max(0.84, 1.00 - 0.003 * (fck - 40.0))
+        alpha1 = eta * 0.85
         
-    # Depth factor beta1 (standard KDS 14 20 20: beta1 = 0.80 for fck <= 50 MPa)
-    if fck <= 28.0:
-        beta1 = 0.85
+    # Depth factor beta1 (standard KDS 14 20 20:2022 Table 4.1-2: beta1 = 0.80 for fck <= 50 MPa)
+    if fck <= 50.0:
+        beta1 = 0.80
+    elif fck <= 60.0:
+        beta1 = 0.80 - 0.004 * (fck - 50.0)
+    elif fck <= 70.0:
+        beta1 = 0.76 - 0.002 * (fck - 60.0)
+    elif fck <= 80.0:
+        beta1 = 0.74 - 0.002 * (fck - 70.0)
+    elif fck <= 90.0:
+        beta1 = 0.72 - 0.002 * (fck - 80.0)
     else:
-        beta1 = max(0.65, 0.85 - 0.007 * (fck - 28.0))
+        beta1 = 0.70
         
     return (alpha1, beta1, ecu)
 
@@ -354,10 +363,14 @@ def calculate_rc_beam_flexure(
     bf: Optional[float] = None,
     hf: Optional[float] = None,
     is_flange_in_compression: bool = False,
-    Es: float = 200000.0
+    Es: float = 200000.0,
+    beta1_override: Optional[float] = None,
+    alpha1_override: Optional[float] = None
 ) -> FlexureResult:
     """Rigorous non-linear equilibrium solver for singly/doubly/T-beam flexural capacity (KDS 14 20 20)."""
-    alpha1, beta1, ecu = calculate_stress_block_factors(fck)
+    alpha1_std, beta1_std, ecu = calculate_stress_block_factors(fck)
+    alpha1 = alpha1_override if alpha1_override is not None else alpha1_std
+    beta1 = beta1_override if beta1_override is not None else beta1_std
     ey = fy / Es
     
     # Effective compression width
@@ -526,8 +539,10 @@ def calculate_rc_beam_shear(
     phi_Vn = phi_v * Vn
     dcr = Vu / phi_Vn if phi_Vn > 0 else (0.0 if Vu == 0.0 else 999.0)
     
-    # Maximum stirrup spacing s_max
-    if Vs > (1.0 / 3.0) * math.sqrt(fck) * b * d / 1e3:
+    # Maximum stirrup spacing s_max (KDS 14 20 22 4.4.3: based on required Vs)
+    Vs_req = max((Vu - phi_v * Vc) / phi_v, 0.0) if phi_v > 0 else 0.0
+    Vs_spacing_basis = Vs_req if Vs_req > 0 else Vs
+    if Vs_spacing_basis > (1.0 / 3.0) * math.sqrt(fck) * b * d / 1e3:
         s_max = min(d / 4.0, 300.0)
     else:
         s_max = min(d / 2.0, 600.0)

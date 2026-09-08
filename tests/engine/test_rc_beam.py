@@ -41,7 +41,8 @@ def test_rc_beam_singly_flexure_benchmark():
     """콘크리트학회 예제집 예제 3.1 단철근 보 휨강도 검증 (오차 <= 0.10% 엄수).
     
     b = 300, h = 500, fck = 24, fy = 400, 3-D25 (As = 1520.1 mm²)
-    예제집 정답: a = 99.4 mm, c = 116.9 mm, phi = 0.85, phi_Mn = 217.4 kN·m (d = 470.31 mm)
+    예제집 정답: a = 99.4 mm, c = 116.9 mm (구판 beta1=0.85), phi = 0.85, phi_Mn = 217.4 kN·m (d = 470.31 mm)
+    KDS 14 20 20:2022 (beta1=0.80): a = 99.4 mm, c = 124.2 mm, phi_Mn = 217.4 kN·m
     """
     b = 300.0
     h = 500.0
@@ -49,29 +50,40 @@ def test_rc_beam_singly_flexure_benchmark():
     fy = 400.0
     As = 1520.1  # 3-D25
     
-    # 1. Benchmark geometry with textbook effective depth d = 470.31 mm (cover to centroid = 29.69 mm)
+    # 1. Legacy ACI/KCI 2007 benchmark (beta1 = 0.85)
     d_bm = 470.31
     dt_bm = 470.31
-    res = calculate_rc_beam_flexure(
+    res_legacy = calculate_rc_beam_flexure(
         b=b, h=h, d=d_bm, dt=dt_bm, d_prime=50.0,
-        As=As, As_prime=0.0, fck=fck, fy=fy, Mu=217.4
+        As=As, As_prime=0.0, fck=fck, fy=fy, Mu=217.4,
+        beta1_override=0.85
     )
     
     # 3자 삼각대조 오차 검증 (오차 <= 0.10%)
     # a: 예제집 99.4 mm vs 계산치 99.4 mm
-    assert abs(res.a - 99.4) / 99.4 <= 0.0010, f"Error in a: {res.a} vs 99.4"
+    assert abs(res_legacy.a - 99.4) / 99.4 <= 0.0010, f"Error in a: {res_legacy.a} vs 99.4"
     # c: 예제집 116.9 mm vs 계산치 116.9 mm
-    assert abs(res.c - 116.9) / 116.9 <= 0.0010, f"Error in c: {res.c} vs 116.9"
+    assert abs(res_legacy.c - 116.9) / 116.9 <= 0.0010, f"Error in c: {res_legacy.c} vs 116.9"
     # phi: 0.85 인장지배 단면
-    assert res.phi == 0.85
+    assert res_legacy.phi == 0.85
     # phi_Mn: 예제집 217.4 kN·m vs 계산치 217.4 kN·m
-    assert abs(res.phi_Mn - 217.4) / 217.4 <= 0.0010, f"Error in phi_Mn: {res.phi_Mn} vs 217.4"
-    assert res.status == "OK"
+    assert abs(res_legacy.phi_Mn - 217.4) / 217.4 <= 0.0010, f"Error in phi_Mn: {res_legacy.phi_Mn} vs 217.4"
+    assert res_legacy.status == "OK"
 
-    # 2. Also verify standard 435mm effective depth (h=500, cover=65mm)
+    # 2. Modern KDS 14 20 20:2022 Table 4.1-2 benchmark (default beta1 = 0.80)
+    res_kds = calculate_rc_beam_flexure(
+        b=b, h=h, d=d_bm, dt=dt_bm, d_prime=50.0,
+        As=As, As_prime=0.0, fck=fck, fy=fy, Mu=217.4
+    )
+    assert abs(res_kds.a - 99.4) / 99.4 <= 0.0010
+    assert abs(res_kds.c - 124.2) / 124.2 <= 0.0010
+    assert abs(res_kds.phi_Mn - 217.4) / 217.4 <= 0.0010
+
+    # 3. Also verify standard 435mm effective depth (h=500, cover=65mm)
     res_435 = calculate_rc_beam_flexure(
         b=b, h=h, d=435.0, dt=435.0, d_prime=50.0,
-        As=As, As_prime=0.0, fck=fck, fy=fy, Mu=190.0
+        As=As, As_prime=0.0, fck=fck, fy=fy, Mu=190.0,
+        beta1_override=0.85
     )
     assert res_435.a == 99.4
     assert res_435.c == 116.9
@@ -105,10 +117,11 @@ def test_rc_beam_doubly_flexure_benchmark():
     assert res_yield.phi == 0.85
     assert res_yield.status == "OK"
     
-    # 2. Rigorous non-linear quadratic equilibrium case (d' = 65 mm)
+    # 2. Rigorous non-linear quadratic equilibrium case (d' = 65 mm, legacy beta1=0.85)
     res_non_yield = calculate_rc_beam_flexure(
         b=b, h=h, d=d, dt=dt, d_prime=65.0,
-        As=As, As_prime=As_prime, fck=fck, fy=fy, Mu=480.0
+        As=As, As_prime=As_prime, fck=fck, fy=fy, Mu=480.0,
+        beta1_override=0.85
     )
     # Compression strain eps_sp = 0.0018 < eps_y = 0.002, correctly detected
     assert res_non_yield.is_compression_yielding is False
@@ -442,3 +455,165 @@ def test_rc_beam_overloaded_moment_and_shear():
     assert res.shear_dcr > 1.0
     assert res.is_safe is False
     assert "[NG]" in res.summary
+
+
+# ============================================================================
+# 5. 한국콘크리트학회 2020 학회기준 예제집 원본 PDF 실측 벤치마크 (오차 <= 0.10% 엄수)
+# Ground Truth Source: 콘크리트구조 학회기준 예제집(2020)_OCR.pdf
+# ============================================================================
+
+@pytest.mark.engine
+def test_rc_beam_kci2020_pdf_benchmark_singly_flexure_ex4_1():
+    """KCI 2020 예제집 제4장 예제 4.1 단철근 직사각형 보 휨강도 검증 (PDF p.62-63).
+    
+    b = 250 mm, d = 440 mm, h = 480 mm, fck = 30 MPa, fy = 400 MPa, 3-D22 (As = 1161 mm²)
+    예제집 원문 실측 정답:
+    - 등가응력블록 깊이 a = 72.8 mm
+    - 중립축 깊이 c = 91.1 mm (포물선-직선 기준) / 91.0 mm (KDS 등가직사각형 응력블록 beta1=0.80)
+    - 인장철근 변형률 eps_t = 0.013 > 0.005 -> phi = 0.85
+    - 설계휨강도 phi_Mn = 159.3 kN·m
+    """
+    res = calculate_rc_beam_flexure(
+        b=250.0, h=480.0, d=440.0, dt=440.0, d_prime=40.0,
+        As=1161.0, As_prime=0.0, fck=30.0, fy=400.0, Mu=159.3
+    )
+    # a: 72.80 mm vs 72.85 mm (오차 <= 0.10%)
+    assert abs(res.a - 72.80) / 72.80 <= 0.0010
+    # phi: 0.850
+    assert res.phi == 0.85
+    # phi_Mn: 159.31 kN·m vs 159.3 kN·m (오차 <= 0.10%)
+    err_phi_mn = abs(res.phi_Mn - 159.3) / 159.3
+    assert err_phi_mn <= 0.0010, f"Error in phi_Mn: {res.phi_Mn} vs 159.3 (err={err_phi_mn*100:.3f}%)"
+    assert res.status == "OK"
+
+
+@pytest.mark.engine
+def test_rc_beam_kci2020_pdf_benchmark_doubly_flexure_ex4_3():
+    """KCI 2020 예제집 제4장 예제 4.3 복철근 직사각형 보 휨강도 검증 (PDF p.68-70).
+    
+    b = 300 mm, d = 570 mm, dt = 600 mm, d' = 64 mm, fck = 30 MPa, fy = 400 MPa
+    인장철근 8-D25 (As = 4054 mm²), 압축철근 2-D10 (As' = 142.7 mm²)
+    예제집 원문 실측 정답:
+    - 중립축 깊이 c = 256.2 mm
+    - 인장철근 변형률 eps_t = 0.00443 (전이구간) -> phi = 0.812
+    - 압축철근 변형률 eps_sp = 0.00248 > 0.002 (압축철근 항복)
+    - 공칭휨강도 Mn = 760.1 kN·m
+    - 설계휨강도 phi_Mn = 617.2 kN·m (또는 617.1 kN·m)
+    """
+    res = calculate_rc_beam_flexure(
+        b=300.0, h=650.0, d=570.0, dt=600.0, d_prime=64.0,
+        As=4054.0, As_prime=142.7, fck=30.0, fy=400.0, Mu=600.0
+    )
+    # c: 256.24 mm vs 256.2 mm
+    assert abs(res.c - 256.2) / 256.2 <= 0.0010
+    # Compression yielding
+    assert res.is_compression_yielding is True
+    # phi: 0.812
+    assert abs(res.phi - 0.812) / 0.812 <= 0.0010
+    # phi_Mn: 617.12 kN·m vs 617.2 kN·m (오차 0.013% <= 0.10%)
+    err_phi_mn = abs(res.phi_Mn - 617.2) / 617.2
+    assert err_phi_mn <= 0.0010, f"Error in phi_Mn: {res.phi_Mn} vs 617.2 (err={err_phi_mn*100:.3f}%)"
+    assert res.status == "OK"
+
+
+@pytest.mark.engine
+def test_rc_beam_kci2020_pdf_benchmark_t_beam_ex4_5():
+    """KCI 2020 예제집 제4장 예제 4.5 T형 단면보 휨강도 검증 (PDF p.78-80).
+    
+    bw = 250 mm, be = 760 mm, hf = 100 mm, d = 500 mm, fck = 30 MPa, fy = 400 MPa
+    4-D25 (As = 2027 mm²)
+    예제집 원문 실측 정답:
+    - 등가응력블록 깊이 a = 41.8 mm <= hf = 100 mm (직사각형 보 거동)
+    - 강도감소계수 phi = 0.85
+    - 설계휨강도 phi_Mn = 330.0 kN·m
+    """
+    res = calculate_rc_beam_flexure(
+        b=250.0, h=570.0, d=500.0, dt=500.0, d_prime=50.0,
+        As=2027.0, As_prime=0.0, fck=30.0, fy=400.0, Mu=305.2,
+        shape=BeamShape.TEE, bf=760.0, hf=100.0, is_flange_in_compression=True
+    )
+    # a: 41.80 mm vs 41.8 mm
+    assert abs(res.a - 41.8) / 41.8 <= 0.0010
+    assert res.phi == 0.85
+    # phi_Mn: 330.17 kN·m vs 330.0 kN·m (오차 0.052% <= 0.10%)
+    err_phi_mn = abs(res.phi_Mn - 330.0) / 330.0
+    assert err_phi_mn <= 0.0010, f"Error in phi_Mn: {res.phi_Mn} vs 330.0 (err={err_phi_mn*100:.3f}%)"
+    assert res.status == "OK"
+
+
+@pytest.mark.engine
+def test_rc_beam_kci2020_pdf_benchmark_shear_ex6_1():
+    """KCI 2020 예제집 제6장 예제 6.1 전단강도 Vc, Vs, phi_Vn 검증 (PDF p.148-150).
+    
+    bw = 330 mm, d = 508 mm, fck = 21 MPa, fyt = 500 MPa, D13 @ 250 (Av = 253 mm²)
+    예제집 원문 실측 정답:
+    - Vc = 127.99 kN, phi_Vc = 96.0 kN (phi = 0.75)
+    - Vs = 257.04 kN
+    - phi_Vn = 0.75 * (127.99 + 257.04) = 288.77 kN
+    """
+    res = calculate_rc_beam_shear(
+        b=330.0, d=508.0, fck=21.0, fyt=500.0, Av=253.0, s=250.0, Vu=261.5
+    )
+    # Vc: 128.04 kN vs 127.99 kN (오차 0.039% <= 0.10%)
+    assert abs(res.Vc - 127.99) / 127.99 <= 0.0010
+    # Vs: 257.05 kN vs 257.04 kN (오차 0.004% <= 0.10%)
+    assert abs(res.Vs - 257.04) / 257.04 <= 0.0010
+    # phi_Vn: 288.81 kN vs 288.77 kN (오차 0.014% <= 0.10%)
+    assert abs(res.phi_Vn - 288.77) / 288.77 <= 0.0010
+    assert res.status == "OK"
+
+
+@pytest.mark.engine
+def test_rc_beam_kci2020_pdf_benchmark_torsion_ex7_1():
+    """KCI 2020 예제집 제7장 예제 7.1 비틀림 Tth, Al_req 검증 (PDF p.184-186).
+    
+    b = 270 mm, h = 440 mm, d = 375 mm, fck = 27 MPa, fy = 400 MPa, fyt = 400 MPa
+    Tu = 19.53 kN·m, Vu = 87.7 kN, Vc = 87.7 kN, side_cover = 45 mm (x0=180, y0=350)
+    예제집 원문 실측 정답:
+    - phi_Tth = 3.23 kN·m (Tth = 4.31 kN·m)
+    - ph = 1060 mm, Ao = 53550 mm²
+    - At/s = 0.6078 mm²/mm
+    - 소요 종방향 철근량 Al_req = 644.3 mm²
+    """
+    res = calculate_rc_beam_torsion(
+        b=270.0, h=440.0, d=375.0, fck=27.0, fy=400.0, fyt=400.0,
+        Av=142.6, s=150.0, side_bar_area=650.0, side_cover=45.0,
+        Tu=19.53, Vu=87.7, Vc_kN=87.7
+    )
+    # Tth: 3.23 kN·m vs 3.23 kN·m (오차 <= 0.10%)
+    assert abs(res.Tth - 3.23) / 3.23 <= 0.0010
+    # Al_req: 644.3 mm² vs 644.3 mm² (오차 <= 0.10%)
+    assert abs(res.Al_req - 644.3) / 644.3 <= 0.0010
+
+
+@pytest.mark.engine
+def test_rc_beam_kci2020_pdf_benchmark_deflection_ex3_1():
+    """KCI 2020 예제집 제3장 예제 3.1 처짐 Branson Ie 및 단기처짐 검증 (PDF p.40-42).
+    
+    L = 8000 mm, b = 400 mm, h = 600 mm, d = 535 mm, d' = 65 mm, fck = 28 MPa, fy = 400 MPa
+    As = 1521 mm² (3-D25), As' = 1521 mm² (3-D25)
+    Md = 70 kN·m, Msus = 95 kN·m, Ma = 120 kN·m
+    예제집 원문 실측 정답:
+    - Ig = 7.20e9 mm4 = 720000 cm4
+    - Mcr = 80.0 kN·m
+    - Icr = 2.18e9 mm4 = 218000 cm4 (단면해석치 217901 cm4)
+    - 즉시처짐 delta_immediate = 8.08 mm
+    """
+    res = calculate_rc_beam_serviceability(
+        b=400.0, h=600.0, d=535.0, d_prime=65.0,
+        As=1521.0, As_prime=1521.0,
+        fck=28.0, fy=400.0,
+        Ma=120.0, Msus=95.0, length=8000.0,
+        support=SupportCondition.SIMPLE,
+        clear_cover=40.0, stirrup_db=10.0, num_tension_bars=3
+    )
+    # Ig: 720000 cm4 vs 720000 cm4 (0.00%)
+    assert abs(res.I_g - 720000.0) / 720000.0 <= 0.0010
+    # Mcr: 80.01 kN·m vs 80.0 kN·m (0.01%)
+    assert abs(res.Mcr - 80.0) / 80.0 <= 0.0010
+    # Icr: 217901 cm4 vs 218000 cm4 (0.045% <= 0.10%)
+    assert abs(res.I_cr - 218000.0) / 218000.0 <= 0.0010
+    # delta_immediate: 8.08 mm vs 8.08 mm (0.00% <= 0.10%)
+    assert abs(res.delta_immediate - 8.08) / 8.08 <= 0.0010
+    assert res.status == "OK"
+
