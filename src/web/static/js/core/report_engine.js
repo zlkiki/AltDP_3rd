@@ -904,6 +904,9 @@
             };
 
             performMathRender();
+            if (window.ZoomController && typeof window.ZoomController.reapply === 'function') {
+                window.ZoomController.reapply();
+            }
 
             // If KaTeX CDN scripts are still loading asynchronously, re-trigger once ready
             if (!window.katex || !window.renderMathInElement) {

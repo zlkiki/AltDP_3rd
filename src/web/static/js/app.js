@@ -17,6 +17,7 @@ async function initApp() {
     try { if (window.MemberManager) window.MemberManager.init(); } catch (e) { console.error('[init] MemberManager failed:', e); }
     try { if (window.GraphicViewport) window.GraphicViewport.init(); } catch (e) { console.error('[init] GraphicViewport failed:', e); }
     try { if (window.ReportEngine) window.ReportEngine.init(); } catch (e) { console.error('[init] ReportEngine failed:', e); }
+    try { if (window.ZoomController) window.ZoomController.init(); } catch (e) { console.error('[init] ZoomController failed:', e); }
     try {
         if (window.ModuleDispatcher) {
             window.ModuleDispatcher.init({
@@ -807,9 +808,18 @@ function updateCanvasOnly() {
     const formData = window.FormGenerator ? window.FormGenerator.getFormData(formEl) : {};
     const modMeta = allModules.find(m => m.key === modKey) || {};
 
-    const canvas = document.getElementById('sectionCanvas');
-    if (canvas && window.CanvasRenderer) {
-        window.CanvasRenderer.draw(canvas, modMeta.geomType || 'rc_rect', formData, modKey);
+    // 1. Remove legacy vector-svg-overlay if present to ensure 1단 Canvas is never covered
+    const oldOverlay = document.getElementById('vector-svg-overlay');
+    if (oldOverlay && oldOverlay.parentNode) {
+        oldOverlay.parentNode.removeChild(oldOverlay);
+    }
+
+    const isRCBeam = modKey === 'rc/beam/base' || modKey === 'rc_beam' || modKey.includes('beam');
+    if (!isRCBeam) {
+        const canvas = document.getElementById('sectionCanvas');
+        if (canvas && window.CanvasRenderer) {
+            window.CanvasRenderer.draw(canvas, modMeta.geomType || 'rc_rect', formData, modKey);
+        }
     }
 
     // Direct 100ms reactive synchronization with GraphicViewport & ModuleDispatcher
@@ -1061,6 +1071,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnDxf = document.getElementById('btn-open-dxf');
     if (btnDxf) {
         btnDxf.addEventListener('click', async () => {
+            if (btnDxf.disabled) {
+                if (window.showToast) window.showToast('⚠️ CAD 도면 기능은 추후 고도화 예정입니다.', 'info');
+                return;
+            }
             const state = window.ProjectStore ? window.ProjectStore.getState() : null;
             const currentMem = state?.activeContext?.memberId && state?.members ? state.members[state.activeContext.memberId] : null;
             const b = currentMem?.inputs?.b || 400.0;
@@ -1092,6 +1106,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnQuantity = document.getElementById('btn-open-quantity');
     if (btnQuantity) {
         btnQuantity.addEventListener('click', () => {
+            if (btnQuantity.disabled) {
+                if (window.showToast) window.showToast('⚠️ 물량 산출 기능은 추후 고도화 예정입니다.', 'info');
+                return;
+            }
             window.location.href = '/api/v1/project/quantity/export-excel';
         });
     }
@@ -1144,7 +1162,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnGen = document.getElementById('btn-import-gen');
     const genInput = document.getElementById('gen-file-importer');
     if (btnGen && genInput) {
-        btnGen.addEventListener('click', () => genInput.click());
+        btnGen.addEventListener('click', () => {
+            if (btnGen.disabled) {
+                if (window.showToast) window.showToast('⚠️ Gen 가져오기 기능은 추후 고도화 예정입니다.', 'info');
+                return;
+            }
+            genInput.click();
+        });
         genInput.addEventListener('change', async (e) => {
             const file = e.target.files[0];
             if (!file) return;

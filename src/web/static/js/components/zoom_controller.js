@@ -53,17 +53,38 @@
                     this.fitToWidth();
                 });
             }
+
+            // Ctrl + Mouse Wheel Zoom
+            const container = document.getElementById('result-container') || document.getElementById('right-pane');
+            if (container) {
+                container.addEventListener('wheel', (e) => {
+                    if (e.ctrlKey) {
+                        e.preventDefault();
+                        const delta = e.deltaY < 0 ? this.step : -this.step;
+                        this.setScale(this.currentScale + delta);
+                    }
+                }, { passive: false });
+            }
+        }
+
+        getTarget() {
+            return document.getElementById('main-result-viewport') ||
+                document.querySelector('.a4-sheet-container') ||
+                document.querySelector('.report-sheet-container') ||
+                document.querySelector('.kds-report-sheet') ||
+                document.querySelector('.pure-white-sheet');
         }
 
         setScale(scale) {
-            this.currentScale = Math.max(this.minScale, Math.min(this.maxScale, scale));
-            const target = document.getElementById('main-result-viewport') || document.querySelector('.a4-sheet-container');
+            this.currentScale = Math.round(Math.max(this.minScale, Math.min(this.maxScale, scale)) * 100) / 100;
+            const target = this.getTarget();
             const label = document.getElementById('zoom-level-label');
             const slider = document.getElementById('report-zoom-slider');
 
             if (target) {
                 target.style.transform = `scale(${this.currentScale})`;
                 target.style.transformOrigin = 'top center';
+                target.style.transition = 'transform 0.12s ease';
             }
 
             if (label) {
@@ -75,11 +96,15 @@
             }
         }
 
+        reapply() {
+            this.setScale(this.currentScale);
+        }
+
         fitToWidth() {
-            const container = document.getElementById('right-pane') || document.getElementById('pane-right-report');
+            const container = document.getElementById('result-container') || document.getElementById('right-pane') || document.getElementById('pane-right-report');
             if (!container) return;
-            const containerWidth = container.clientWidth - 40;
-            const targetWidth = 794; // A4 fixed width in px
+            const containerWidth = container.clientWidth - 48;
+            const targetWidth = 794; // A4 fixed standard width in px
             if (containerWidth > 0) {
                 const fitScale = Math.max(this.minScale, Math.min(1.2, containerWidth / targetWidth));
                 this.setScale(fitScale);

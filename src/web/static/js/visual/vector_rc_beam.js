@@ -145,12 +145,39 @@
   }
 
   // ---------------------------------------------------------------------------
+  // Helper: Theme Palette Detector (Dark / Light)
+  // ---------------------------------------------------------------------------
+  function getThemePalette() {
+    const isDark = (typeof document !== 'undefined' && document.body)
+      ? document.body.getAttribute('data-theme') !== 'light'
+      : true;
+
+    return {
+      isDark,
+      bg: isDark ? '#0f172a' : '#ffffff',
+      concGradStart: isDark ? '#1e293b' : '#f8fafc',
+      concGradEnd: isDark ? '#0f172a' : '#e2e8f0',
+      concStroke: isDark ? '#475569' : '#94a3b8',
+      centerLine: isDark ? 'rgba(148, 163, 184, 0.25)' : 'rgba(100, 116, 139, 0.35)',
+      dimStroke: isDark ? '#94a3b8' : '#64748b',
+      dimText: isDark ? '#cbd5e1' : '#334155',
+      badgeBg: isDark ? 'rgba(15, 23, 42, 0.85)' : 'rgba(241, 245, 249, 0.95)',
+      calloutTop: isDark ? '#cbd5e1' : '#1e293b',
+      calloutBot: isDark ? '#cbd5e1' : '#1e293b',
+      stirrupBadge: isDark ? '#f59e0b' : '#d97706',
+      longitudinalFill: isDark ? '#1e293b' : '#f1f5f9',
+      longitudinalStroke: isDark ? '#475569' : '#94a3b8'
+    };
+  }
+
+  // ---------------------------------------------------------------------------
   // Helper: Draw Dimension Line (Horizontal / Vertical)
   // ---------------------------------------------------------------------------
   function drawCADDimension(ctx, x1, y1, x2, y2, text, offset = 22, isVertical = false) {
+    const pal = getThemePalette();
     ctx.save();
-    ctx.strokeStyle = '#94a3b8';
-    ctx.fillStyle = '#cbd5e1';
+    ctx.strokeStyle = pal.dimStroke;
+    ctx.fillStyle = pal.dimText;
     ctx.lineWidth = 1.0;
     ctx.font = '10px "Inter", "Pretendard", sans-serif';
     ctx.textAlign = 'center';
@@ -239,9 +266,10 @@
   VectorRCBeam.renderLongitudinalView = function (ctx, width, height, rawData = {}, showDimensions = true) {
     const interactiveElements = [];
     const beam = extractBeamData(rawData);
+    const pal = getThemePalette();
 
-    // 1. Engineering Slate Dark Canvas Background
-    ctx.fillStyle = '#0b1120';
+    // 1. Engineering Slate Dark/Light Canvas Background
+    ctx.fillStyle = pal.bg;
     ctx.fillRect(0, 0, width, height);
 
     // Margins
@@ -614,9 +642,10 @@
   VectorRCBeam.renderCrossSections = function (ctx, width, height, rawData = {}, result = {}, is3DMode = false) {
     const interactiveElements = [];
     const beam = extractBeamData(rawData);
+    const pal = getThemePalette();
 
-    // 1. Clean Deep Engineering Slate Background
-    ctx.fillStyle = '#0b1120';
+    // 1. Clean Deep Engineering Slate Background (Theme-Aware)
+    ctx.fillStyle = pal.bg;
     ctx.fillRect(0, 0, width, height);
 
     // 3 Stations: [End-I] | [Center-M] | [End-J]
@@ -907,9 +936,10 @@
   VectorRCBeam.renderStationSection = function (ctx, width, height, stationKey = 'center_m', rawData = {}, result = {}, showDimensions = true) {
     const interactiveElements = [];
     const beam = extractBeamData(rawData);
+    const pal = getThemePalette();
 
-    // 1. Clean Deep Engineering Slate Background
-    ctx.fillStyle = '#0b1120';
+    // 1. Clean Deep Engineering Slate Background (Theme-Aware)
+    ctx.fillStyle = pal.bg;
     ctx.fillRect(0, 0, width, height);
 
     const stationMeta = {
@@ -940,7 +970,7 @@
     // -----------------------------------------------------------
     ctx.save();
     ctx.font = '600 11px "Inter", "Pretendard", sans-serif';
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+    ctx.fillStyle = pal.badgeBg;
     ctx.strokeStyle = meta.color;
     ctx.lineWidth = 1.0;
     const badgeText = `${meta.label} [${meta.code}]`;
@@ -958,10 +988,10 @@
     // -----------------------------------------------------------
     ctx.save();
     const concGrad = ctx.createLinearGradient(secX0, secY0, secX0 + drawB, secY0 + drawH);
-    concGrad.addColorStop(0, '#1e293b');
-    concGrad.addColorStop(1, '#0f172a');
+    concGrad.addColorStop(0, pal.concGradStart);
+    concGrad.addColorStop(1, pal.concGradEnd);
     ctx.fillStyle = concGrad;
-    ctx.strokeStyle = '#475569';
+    ctx.strokeStyle = pal.concStroke;
     ctx.lineWidth = 2.0;
 
     if (beam.shape === 'T_BEAM') {
@@ -986,7 +1016,7 @@
     }
 
     // Subtle Centerlines
-    ctx.strokeStyle = 'rgba(148, 163, 184, 0.2)';
+    ctx.strokeStyle = pal.centerLine;
     ctx.lineWidth = 1;
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
@@ -1162,8 +1192,8 @@
     // -----------------------------------------------------------
     ctx.save();
     ctx.font = '11px "Inter", "Pretendard", sans-serif';
-    ctx.fillStyle = '#cbd5e1';
-    ctx.strokeStyle = '#64748b';
+    ctx.fillStyle = pal.calloutTop;
+    ctx.strokeStyle = pal.dimStroke;
     ctx.lineWidth = 1.0;
 
     // Top Tag
@@ -1175,10 +1205,11 @@
     // Bottom Tag
     const botTagText = st.bot2.count > 0 ? `하부: ${st.bot1.str} (2단:${st.bot2.str})` : `하부: ${st.bot1.str}`;
     const botTagY = secY0 + drawH + 24;
+    ctx.fillStyle = pal.calloutBot;
     ctx.fillText(botTagText, centerX, botTagY);
 
     // Stirrup Tag (Right side with badge)
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = pal.stirrupBadge;
     ctx.textAlign = 'left';
     ctx.fillText(`늑근: ${st.stirrup.text} (${st.legs}L)`, secX0 + drawB + 10, centerY);
     ctx.restore();

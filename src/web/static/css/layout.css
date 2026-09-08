@@ -103,11 +103,23 @@
     z-index: 50;
 }
 
-.sidebar.collapsed {
+.sidebar.collapsed,
+.sidebar.auto-hidden {
     width: 0 !important;
     min-width: 0 !important;
+    max-width: 0 !important;
+    flex: 0 0 0px !important;
     overflow: hidden !important;
-    border-right: none;
+    border-right: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.sidebar.collapsed + .resizer-sidebar,
+.sidebar.auto-hidden + .resizer-sidebar {
+    display: none !important;
 }
 
 .sidebar-header {

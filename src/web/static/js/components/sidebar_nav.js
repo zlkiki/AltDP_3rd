@@ -112,18 +112,28 @@ class SidebarNav {
                 }
                 if (this.sidebarEl.classList.contains('auto-hidden')) {
                     this.sidebarEl.classList.remove('auto-hidden');
+                    this.sidebarEl.style.display = 'flex';
+                    const resizerSidebar = document.getElementById('resizer-sidebar-h');
+                    if (resizerSidebar) resizerSidebar.style.display = 'block';
+                    const toggleBtn = document.getElementById('btn-toggle-sidebar');
+                    if (toggleBtn) toggleBtn.innerHTML = '◀';
                 }
             });
 
-            // 마우스 이탈 시 고정핀 OFF 상태이면 3초 후 자동 축소
+            // 마우스 이탈 시 고정핀 OFF 상태이면 1.5초 후 자동 축소
             this.sidebarEl.addEventListener('mouseleave', () => {
                 if (this.isPinned) return; // 고정 ON이면 숨기지 않음
                 if (this.autoHideTimer) clearTimeout(this.autoHideTimer);
                 this.autoHideTimer = setTimeout(() => {
                     if (!this.isPinned && this.sidebarEl) {
                         this.sidebarEl.classList.add('auto-hidden');
+                        this.sidebarEl.style.display = 'none';
+                        const resizerSidebar = document.getElementById('resizer-sidebar-h');
+                        if (resizerSidebar) resizerSidebar.style.display = 'none';
+                        const toggleBtn = document.getElementById('btn-toggle-sidebar');
+                        if (toggleBtn) toggleBtn.innerHTML = '▶';
                     }
-                }, 3000);
+                }, 1500);
             });
         }
     }
@@ -134,16 +144,27 @@ class SidebarNav {
         this._updatePinBtnUI();
 
         if (this.sidebarEl) {
+            const resizerSidebar = document.getElementById('resizer-sidebar-h');
+            const toggleBtn = document.getElementById('btn-toggle-sidebar');
             if (this.isPinned) {
                 if (this.autoHideTimer) clearTimeout(this.autoHideTimer);
                 this.sidebarEl.classList.remove('auto-hidden');
+                this.sidebarEl.classList.remove('collapsed');
+                this.sidebarEl.style.display = 'flex';
+                if (resizerSidebar) resizerSidebar.style.display = 'block';
+                if (toggleBtn) toggleBtn.innerHTML = '◀';
+                if (window.showToast) window.showToast("📌 사이드바가 상시 고정되었습니다.", "info");
             } else {
-                // 고정 해제 즉시 타이머 가동하지 않고, 마우스 이탈 시 가동
+                if (window.showToast) window.showToast("📍 사이드바 자동 숨김 모드 활성화 (마우스 이탈 시 접힘)", "info");
             }
         }
 
         if (window.ProjectStore && typeof window.ProjectStore.setSidebarPinned === 'function') {
             window.ProjectStore.setSidebarPinned(this.isPinned);
+        }
+        if (window.LayoutResizer && window.LayoutResizer.currentLayout) {
+            window.LayoutResizer.currentLayout.sidebarPinned = this.isPinned;
+            window.LayoutResizer.savePersistedLayout(window.LayoutResizer.currentLayout);
         }
     }
 

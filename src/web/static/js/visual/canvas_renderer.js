@@ -127,6 +127,15 @@ window.CanvasRenderer = {
         const isLight = document.body.getAttribute('data-theme') === 'light';
 
         const wrap = canvas.parentElement;
+        // Do not inject overlay inside GraphicViewport cards (canvas-wrap-1)
+        if (wrap && wrap.id === 'canvas-wrap-1') {
+            const existingOverlay = document.getElementById('vector-svg-overlay');
+            if (existingOverlay && existingOverlay.parentNode) {
+                existingOverlay.parentNode.removeChild(existingOverlay);
+            }
+            return;
+        }
+
         let svgContainer = document.getElementById('vector-svg-overlay');
         if (!svgContainer && wrap) {
             svgContainer = document.createElement('div');

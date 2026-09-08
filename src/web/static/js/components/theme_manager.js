@@ -33,8 +33,14 @@
             this.applyTheme(theme);
 
             // Re-render canvas with new theme background if needed
+            if (window.GraphicViewport && typeof window.GraphicViewport.redrawAll === 'function') {
+                window.GraphicViewport.redrawAll();
+            }
             if (window.CanvasRenderer && typeof window.CanvasRenderer.redrawCurrent === 'function') {
                 window.CanvasRenderer.redrawCurrent();
+            }
+            if (window.EventBus && typeof window.EventBus.emit === 'function') {
+                window.EventBus.emit('theme:changed', { theme });
             }
         }
 

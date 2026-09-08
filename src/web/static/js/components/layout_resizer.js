@@ -510,17 +510,26 @@
                     : '📍 사이드바 자동 숨김 모드 (3초 무조작 시 자동 숨김 - 클릭 시 고정)';
             }
 
+            const resizerSidebar = document.getElementById('resizer-sidebar-h');
             if (layout.sidebarCollapsed) {
                 sidebar.classList.add('collapsed');
+                sidebar.classList.remove('auto-hidden');
                 sidebar.style.width = '0px';
                 sidebar.style.minWidth = '0px';
+                sidebar.style.maxWidth = '0px';
                 sidebar.style.flex = '0 0 0px';
+                sidebar.style.display = 'none';
+                if (resizerSidebar) resizerSidebar.style.display = 'none';
                 if (toggleBtn) toggleBtn.innerHTML = '▶';
             } else {
                 sidebar.classList.remove('collapsed');
+                sidebar.classList.remove('auto-hidden');
+                sidebar.style.display = 'flex';
                 sidebar.style.width = `${this.currentLayout.sidebarWidth}px`;
                 sidebar.style.minWidth = `${this.currentLayout.sidebarWidth}px`;
+                sidebar.style.maxWidth = '';
                 sidebar.style.flex = `0 0 ${this.currentLayout.sidebarWidth}px`;
+                if (resizerSidebar) resizerSidebar.style.display = 'block';
                 if (toggleBtn) toggleBtn.innerHTML = '◀';
             }
         }

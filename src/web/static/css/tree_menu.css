@@ -197,28 +197,22 @@
  * 5. 스마트 자동 숨김 (Auto-Hide) & 고정핀 (📌) 인터랙션
  * ------------------------------------------------------------- */
 .sidebar.auto-hidden {
-    width: 38px !important;
-    min-width: 38px !important;
-    cursor: pointer;
-    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    flex: 0 0 0px !important;
+    overflow: hidden !important;
+    border-right: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), flex-basis 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sidebar.auto-hidden .sidebar-header,
 .sidebar.auto-hidden .group-accordion {
-    opacity: 0.2;
-    pointer-events: none;
-}
-
-.sidebar.auto-hidden:hover {
-    width: 250px !important;
-    min-width: 250px !important;
-}
-
-.sidebar.auto-hidden:hover .sidebar-header,
-.sidebar.auto-hidden:hover .group-accordion {
-    opacity: 1.0;
-    pointer-events: auto;
+    display: none !important;
 }
 
 .pin-header-btn {

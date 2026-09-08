@@ -74,10 +74,10 @@
                         <option value="US">US (kip, in, ksi)</option>
                     </select>
                 </div>
-                <!-- Phase 19-5 특화 고급 기능 버튼군 -->
-                <button class="nav-btn btn-special-feature" id="btn-open-dxf" title="현재 부재 2D CAD 배근상세도 DXF 다운로드">📐 CAD 도면</button>
-                <button class="nav-btn btn-special-feature" id="btn-open-quantity" title="전 부재 KDS 표준 물량산출 대시보드">📊 물량 산출</button>
-                <button class="nav-btn btn-special-feature" id="btn-import-gen" title="MGT / Gen 텍스트 모델 업로드 및 일괄 설계">📂 Gen 가져오기</button>
+                <!-- Phase 19-5 특화 고급 기능 버튼군 (추후 고도화 예정 - 현재 비활성화) -->
+                <button class="nav-btn btn-special-feature" id="btn-open-dxf" disabled style="opacity:0.45;cursor:not-allowed;" title="📐 CAD 도면 (KDS 설계 엔진 안정화 후 추후 고도화 예정)">📐 CAD 도면</button>
+                <button class="nav-btn btn-special-feature" id="btn-open-quantity" disabled style="opacity:0.45;cursor:not-allowed;" title="📊 물량 산출 (KDS 표준 물량산출 대시보드 추후 고도화 예정)">📊 물량 산출</button>
+                <button class="nav-btn btn-special-feature" id="btn-import-gen" disabled style="opacity:0.45;cursor:not-allowed;" title="📂 Gen 가져오기 (MGT/Gen 텍스트 모델 일괄 설계 추후 고도화 예정)">📂 Gen 가져오기</button>
                 <input type="file" id="gen-file-importer" accept=".mgt,.txt" style="display:none;">
                 <button class="nav-btn icon-btn btn-icon" id="btn-theme-toggle" title="테마 변경 (🌙/☀️)">🌙</button>
                 <button id="btnThemeToggle" style="display:none;" title="테마 변경 호환 버튼"></button>
@@ -99,7 +99,7 @@
                         <div class="sidebar-io-actions">
                             <button class="mini-io-btn btn-export" id="btn-export-project" title="프로젝트 전체 JSON 파일로 저장">💾 저장</button>
                             <button class="mini-io-btn btn-import" id="btn-import-project" title="프로젝트 JSON 파일 불러오기">📂 불러오기</button>
-                            <button class="mini-io-btn btn-import" id="btn-import-gen" title="3D 골조 .mgt 모델 임포트">🏗️ 3D MGT</button>
+                            <button class="mini-io-btn btn-import" id="btn-sidebar-import-gen" disabled style="opacity:0.45;cursor:not-allowed;" title="🏗️ 3D MGT (3D 골조 모델 임포트 추후 고도화 예정)">🏗️ 3D MGT</button>
                             <input type="file" id="file-importer" accept=".json" style="display:none">
                             <input type="file" id="gen-file-importer" accept=".mgt,.txt" style="display:none">
                             <button class="pin-header-btn" id="btn-pin-sidebar" title="사이드바 고정/오버레이 전환">📌</button>
@@ -226,17 +226,14 @@
                                 <button id="btn-toggle-dim-2" class="btn-tool active" title="치수선 켜기/끄기">📏 Dim</button>
                                 <button id="btn-toggle-3d" class="btn-tool" style="display:none;" title="3D 전환">🌐 3D</button>
                                 <button id="btn-toggle-pm" class="btn-tool" style="display:none;" title="3D P-M 곡선 보기">🌐 3D P-M</button>
-                                <button id="btn-toggle-dcr-bar" class="btn-tool active" title="DCR 바 토글">📶 DCR</button>
+                                <button id="btn-toggle-dcr-bar" style="display:none;"></button>
                             </div>
                         </div>
                         <div class="canvas-wrapper" id="canvas-wrap-2">
                             <canvas id="canvas-station-2" width="600" height="350"></canvas>
                             <canvas id="canvas-mechanics" width="600" height="350" style="display:none;"></canvas>
                             <canvas id="pmChartCanvas" width="600" height="350" style="display:none;"></canvas>
-                            <div id="dcrCard" class="dcr-summary-card">
-                                <span id="dcrValue">0.00</span>
-                                <div id="dcrBar" class="dcr-gauge-bar"></div>
-                            </div>
+                            <div id="dcrCard" class="dcr-summary-card" style="display:none;"><span id="dcrValue"></span><div id="dcrBar"></div></div>
                         </div>
                     </div>
 
@@ -271,8 +268,14 @@
                     <div class="pane-title">
                         <span>기준 검토 내용 &amp; KDS 계산서</span>
                     </div>
-                    <div class="report-top-actions">
-                        <!-- Zoom & Print controls injected by zoom_controller.js -->
+                    <div class="report-top-actions" id="report-zoom-actions">
+                        <div class="zoom-btn-group" title="계산서 화면 배율 제어 (Ctrl+마우스휠 지원)">
+                            <button id="btn-zoom-out" class="zoom-btn" title="계산서 축소 (-)">−</button>
+                            <span id="zoom-level-label" class="zoom-label" title="현재 배율">100%</span>
+                            <button id="btn-zoom-in" class="zoom-btn" title="계산서 확대 (+)">+</button>
+                            <button id="btn-zoom-reset" class="zoom-btn" title="100% 기본 배율 복원">1:1</button>
+                            <button id="btn-zoom-fit" class="zoom-btn btn-fit-width" title="용지 폭 맞춤 (Fit)">⛶ 폭맞춤</button>
+                        </div>
                     </div>
                 </div>
 
