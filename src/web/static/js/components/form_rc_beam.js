@@ -1028,11 +1028,17 @@ class RCBeamFormComponent {
                 };
             }
 
-            // 2. Render KDS Report into Pane 4
-            const targetMod = window.ModuleDispatcher ? window.ModuleDispatcher.resolveModule('rc_beam') : null;
+            // 2. Render KDS Report into Pane 4 (Pure White KaTeX A4 Sheet)
             const reportContainer = document.getElementById('result-container') || document.querySelector('.report-content');
-            if (targetMod && typeof targetMod.renderReport === 'function' && reportContainer) {
-                targetMod.renderReport(reportContainer, this.data, calcResult, {});
+            if (reportContainer) {
+                if (window.ReportEngine && typeof window.ReportEngine.render === 'function') {
+                    window.ReportEngine.render(reportContainer, this.data, calcResult, 'rc_beam');
+                } else {
+                    const targetMod = window.ModuleDispatcher ? window.ModuleDispatcher.resolveModule('rc_beam') : null;
+                    if (targetMod && typeof targetMod.renderReport === 'function') {
+                        targetMod.renderReport(reportContainer, this.data, calcResult, {});
+                    }
+                }
             }
 
             // 3. Update DCR Badge in Pane 3
@@ -1211,6 +1217,7 @@ class RCBeamFormComponent {
             this._updateFormInputsFromData();
             this._updateSpacingPreview();
             this._handleApply(true); // Save to memory & update canvas
+            await this._handleCheck(); // Recalculate and update KaTeX report & DCR immediately
 
             this._showNotification(`✨ 자동설계 완료: 중앙(${botBarsCent}${botLayer2Cent !== '0' ? '+' + botLayer2Cent : ''}), 단부(${topBarsEnd}${topLayer2End !== '0' ? '+' + topLayer2End : ''}), 스터럽(@${stirrup_spacing_end}) 반영됨`, 'success');
         } catch (err) {

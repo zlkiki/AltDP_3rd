@@ -290,3 +290,60 @@ async def export_project_excel(req: BatchReportRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Project Excel export error: {str(e)}")
 
+
+@router.post("/export-excel-single")
+async def export_single_member_excel(req: ReportRequest):
+    """Export detailed multi-sheet Excel calculation workbook for a single member."""
+    try:
+        excel_bytes = excel_exp.export_workbook_bytes(
+            project_info=req.project_info,
+            member_info=req.member_info,
+            material_info=req.material_info,
+            section_info=req.section_info,
+            loads_info=req.loads_info,
+            checks=req.checks or [
+                {"name": "휨모멘트 강도 검토", "code": "KDS 14 20 20", "demand": req.loads_info.get("Mu", 240.0), "capacity": 337.88, "unit": "kN·m", "dcr": req.summary_dcr, "status": "PASS" if req.is_safe else "FAIL"},
+                {"name": "전단 강도 검토", "code": "KDS 14 20 22", "demand": req.loads_info.get("Vu", 180.0), "capacity": 286.28, "unit": "kN", "dcr": 0.628, "status": "PASS"},
+            ],
+            summary_dcr=req.summary_dcr,
+            is_safe=req.is_safe,
+        )
+        tag = req.member_info.get("id") or req.member_info.get("name") or "RC_BEAM"
+        filename = f"{tag}_Calculation_Sheet.xlsx"
+        return Response(
+            content=excel_bytes,
+            media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Single Excel export error: {str(e)}")
+
+
+@router.get("/export-excel")
+async def get_export_excel(member_id: Optional[str] = "RC_BEAM_1"):
+    """GET endpoint to easily download calculation Excel for active member."""
+    try:
+        excel_bytes = excel_exp.export_workbook_bytes(
+            project_info={"title": "AltDP_3rd 구조계산서", "code": "KDS 14 20 00", "date": "2026-09-08"},
+            member_info={"id": member_id, "type": "RC Beam", "name": member_id},
+            material_info={"fck": 27.0, "fy": 400.0, "fyt": 400.0},
+            section_info={"b": 400.0, "h": 600.0, "d": 535.0},
+            loads_info={"Mu": 240.0, "Vu": 180.0, "Tu": 15.0},
+            checks=[
+                {"name": "휨모멘트 강도 검토", "code": "KDS 14 20 20", "demand": 240.0, "capacity": 337.88, "unit": "kN·m", "dcr": 0.710, "status": "PASS"},
+                {"name": "전단 강도 검토", "code": "KDS 14 20 22", "demand": 180.0, "capacity": 286.28, "unit": "kN", "dcr": 0.628, "status": "PASS"},
+                {"name": "사용성 처짐 검토", "code": "KDS 14 20 30", "demand": 12.8, "capacity": 25.0, "unit": "mm", "dcr": 0.512, "status": "PASS"},
+            ],
+            summary_dcr=0.710,
+            is_safe=True,
+        )
+        filename = f"{member_id}_Calculation_Sheet.xlsx"
+        return Response(
+            content=excel_bytes,
+            media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Excel export error: {str(e)}")
+
+

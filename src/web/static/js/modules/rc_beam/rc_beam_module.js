@@ -184,7 +184,7 @@ class RCBeamModule {
     }
 
     /**
-     * Render Pane 3 Top/Bottom Vertical Dual Canvas (Conforms to Req 22-3)
+     * Render Pane 3 Top/Middle/Bottom Vertical Station Canvases (Conforms to Req 22-3)
      */
     renderGraphics(geomCanvas, mechCanvas, data = this.data, result = null) {
         const curData = data || this.data;
@@ -201,15 +201,28 @@ class RCBeamModule {
             return;
         }
 
-        // 2. Direct Canvas Drawing via VectorRCBeam (Top: Longitudinal, Bottom: Cross-Sections)
+        // 2. Direct Canvas Drawing via VectorRCBeam (Station 1: End-I, Station 2: Center-M, Station 3: End-J)
+        const c1 = document.getElementById('canvas-station-1') || geomCanvas;
+        const c2 = document.getElementById('canvas-station-2') || mechCanvas;
+        const c3 = document.getElementById('canvas-station-3');
+
         if (window.VectorRCBeam) {
-            if (geomCanvas) {
-                const ctx = geomCanvas.getContext('2d');
-                window.VectorRCBeam.renderLongitudinalView(ctx, geomCanvas.width, geomCanvas.height, curData, true);
+            if (c1 && typeof window.VectorRCBeam.renderStationSection === 'function') {
+                const ctx1 = c1.getContext('2d');
+                window.VectorRCBeam.renderStationSection(ctx1, c1.width, c1.height, 'end_i', curData, result || {}, true);
+            } else if (c1) {
+                const ctx1 = c1.getContext('2d');
+                window.VectorRCBeam.renderCrossSections(ctx1, c1.width, c1.height, curData, result || {}, false);
             }
-            if (mechCanvas) {
-                const ctx = mechCanvas.getContext('2d');
-                window.VectorRCBeam.renderCrossSections(ctx, mechCanvas.width, mechCanvas.height, curData, result || {}, false);
+
+            if (c2 && typeof window.VectorRCBeam.renderStationSection === 'function') {
+                const ctx2 = c2.getContext('2d');
+                window.VectorRCBeam.renderStationSection(ctx2, c2.width, c2.height, 'center_m', curData, result || {}, true);
+            }
+
+            if (c3 && typeof window.VectorRCBeam.renderStationSection === 'function') {
+                const ctx3 = c3.getContext('2d');
+                window.VectorRCBeam.renderStationSection(ctx3, c3.width, c3.height, 'end_j', curData, result || {}, true);
             }
             return;
         }
@@ -236,19 +249,22 @@ class RCBeamModule {
         return this.renderGraphics(canvas, null, this.data, null);
     }
 
-
     renderReport(container, data = this.data, result = null, options = {}) {
-        if (!container || !window.ReportRenderer) return;
+        if (!container) return;
         const curData = data || this.data;
 
-        window.ReportRenderer.render(container, {
-            ...curData,
-            type: 'RC Beam'
-        }, result || {
-            dcrFlex: curData.mu / 335.2,
-            dcrShear: curData.vu / 232.8,
-            status: (curData.mu / 335.2 <= 1.0 && curData.vu / 232.8 <= 1.0) ? 'OK' : 'NG'
-        });
+        if (window.ReportEngine && typeof window.ReportEngine.render === 'function') {
+            window.ReportEngine.render(container, curData, result, 'rc_beam');
+        } else if (window.ReportRenderer && typeof window.ReportRenderer.render === 'function') {
+            window.ReportRenderer.render(container, {
+                ...curData,
+                type: 'RC Beam'
+            }, result || {
+                dcrFlex: curData.mu / 335.2,
+                dcrShear: curData.vu / 232.8,
+                status: (curData.mu / 335.2 <= 1.0 && curData.vu / 232.8 <= 1.0) ? 'OK' : 'NG'
+            });
+        }
     }
 
     /**

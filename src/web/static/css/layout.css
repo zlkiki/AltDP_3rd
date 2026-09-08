@@ -558,7 +558,7 @@
 /* 2. Left-Sub Pane (Member List + Input Form) */
 .pane-left-sub, .left-sub-pane {
     width: 380px;
-    min-width: 240px;
+    min-width: 320px;
     flex: 0 0 380px;
     flex-direction: column;
     background: var(--bg-primary);

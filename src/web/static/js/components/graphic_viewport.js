@@ -21,6 +21,8 @@
 
       // 1. Viewport DOM elements
       this.container = null;
+      this.stationCards = [];
+      this.stationCanvases = [];
       this.geomCard = null;
       this.mechCard = null;
       this.canvasGeom = null;
@@ -30,34 +32,24 @@
       this.tooltip = null;
       this.captionEl = null;
 
-      // 2. Viewport States (Independent Transform Matrices)
-      this.geomState = {
-        scale: 1.0,
-        panX: 0,
-        panY: 0,
-        isDragging: false,
-        startX: 0,
-        startY: 0,
-        showDimensions: true,
-        interactiveElements: [] // Array of { type, x, y, r, title, detail }
-      };
+      // 2. Viewport States (Independent Transform Matrices for 1~3 tiers)
+      this.stationStates = [
+        { scale: 1.0, panX: 0, panY: 0, isDragging: false, startX: 0, startY: 0, showDimensions: true, interactiveElements: [] },
+        { scale: 1.0, panX: 0, panY: 0, isDragging: false, startX: 0, startY: 0, showDimensions: true, interactiveElements: [] },
+        { scale: 1.0, panX: 0, panY: 0, isDragging: false, startX: 0, startY: 0, showDimensions: true, interactiveElements: [] }
+      ];
 
-      this.mechState = {
-        scale: 1.0,
-        panX: 0,
-        panY: 0,
-        isDragging: false,
-        startX: 0,
-        startY: 0,
-        is3DMode: false,
-        showDCR: true,
-        interactiveElements: [] // Array of { type, x, y, r, title, detail }
-      };
+      // Backward compatibility aliases
+      this.geomState = this.stationStates[0];
+      this.mechState = this.stationStates[1];
+      this.mechState.is3DMode = false;
+      this.mechState.showDCR = true;
 
       // 3. Cached Data
       this.currentMemberType = 'rc_beam';
       this.currentMemberData = null;
       this.currentCalcResult = null;
+      this.stationCount = 3;
     }
 
     /**
@@ -67,19 +59,25 @@
       if (this.initialized) return;
 
       this.container = document.getElementById('center-pane-container');
-      this.geomCard = document.getElementById('viewport-card-geometry');
-      this.mechCard = document.getElementById('viewport-card-mechanics');
-      this.canvasGeom = document.getElementById('canvas-geometry');
-      this.canvasMech = document.getElementById('canvas-mechanics');
+      this.stationCards = [
+        document.getElementById('viewport-card-1'),
+        document.getElementById('viewport-card-2'),
+        document.getElementById('viewport-card-3')
+      ];
+      this.stationCanvases = [
+        document.getElementById('canvas-station-1'),
+        document.getElementById('canvas-station-2'),
+        document.getElementById('canvas-station-3')
+      ];
+
+      this.geomCard = document.getElementById('viewport-card-geometry') || this.stationCards[0];
+      this.mechCard = document.getElementById('viewport-card-mechanics') || this.stationCards[1];
+      this.canvasGeom = document.getElementById('canvas-geometry') || this.stationCanvases[0];
+      this.canvasMech = document.getElementById('canvas-mechanics') || this.stationCanvases[1];
       this.captionEl = document.getElementById('canvas-caption');
 
-      if (!this.canvasGeom || !this.canvasMech) {
-        console.warn('[GraphicViewport] Canvas elements not found in DOM.');
-        return;
-      }
-
-      this.ctxGeom = this.canvasGeom.getContext('2d');
-      this.ctxMech = this.canvasMech.getContext('2d');
+      if (this.canvasGeom) this.ctxGeom = this.canvasGeom.getContext('2d');
+      if (this.canvasMech) this.ctxMech = this.canvasMech.getContext('2d');
 
       // Create Engineering Tooltip Element
       this._createTooltip();
@@ -87,9 +85,16 @@
       // Bind Toolbar Action Buttons
       this._bindToolbarActions();
 
-      // Bind Interactive Mouse & Wheel Events
-      this._bindCanvasInteractions(this.canvasGeom, 'geom');
-      this._bindCanvasInteractions(this.canvasMech, 'mech');
+      // Bind Interactive Mouse & Wheel Events for Station Canvases & Legacy Canvases
+      this.stationCanvases.forEach((canvas, idx) => {
+        if (canvas) this._bindCanvasInteractions(canvas, idx + 1);
+      });
+      if (this.canvasGeom && !this.stationCanvases.includes(this.canvasGeom)) {
+        this._bindCanvasInteractions(this.canvasGeom, 'geom');
+      }
+      if (this.canvasMech && !this.stationCanvases.includes(this.canvasMech)) {
+        this._bindCanvasInteractions(this.canvasMech, 'mech');
+      }
 
       // Setup High-DPI & Resize Observer
       this._setupResizeObserver();
@@ -101,10 +106,32 @@
       this._setupLegacyBridge();
 
       this.initialized = true;
-      console.log('[GraphicViewport] Initialized successfully with 2-tier vertical stack.');
+      console.log('[GraphicViewport] Initialized successfully with multi-card vertical stack.');
 
       // Initial redraw if data exists
       this.redrawAll();
+    }
+
+    /**
+     * Set dynamic station card visibility and title
+     */
+    setStationCount(count = 3, configs = []) {
+      this.stationCount = Math.max(1, Math.min(3, count));
+      for (let i = 1; i <= 3; i++) {
+        const card = document.getElementById(`viewport-card-${i}`);
+        const resizer = document.getElementById(`resizer-center-v${i - 1}`);
+        const isVisible = i <= this.stationCount;
+        if (card) card.style.display = isVisible ? 'flex' : 'none';
+        if (resizer) resizer.style.display = (isVisible && i > 1) ? 'block' : 'none';
+
+        if (isVisible && configs[i - 1]) {
+          const cfg = configs[i - 1];
+          const titleEl = document.getElementById(`title-viewport-${i}`);
+          if (titleEl && cfg.title) titleEl.textContent = cfg.title;
+          const captionEl = document.getElementById(`canvas-caption-${i}`);
+          if (captionEl && cfg.caption) captionEl.textContent = cfg.caption;
+        }
+      }
     }
 
     /**
@@ -128,35 +155,58 @@
      * Bind Toolbar Action Buttons
      */
     _bindToolbarActions() {
-      // Top Geometry Viewport Actions
+      // 1. Station 1 / Geometry Viewport Actions
+      [1, 2, 3].forEach((idx) => {
+        const btnFit = document.getElementById(`btn-fit-${idx}`);
+        if (btnFit) btnFit.addEventListener('click', () => this.fitViewport(idx));
+
+        const btnZoomIn = document.getElementById(`btn-zoom-in-${idx}`);
+        if (btnZoomIn) btnZoomIn.addEventListener('click', () => this.zoomStep(idx, 1.25));
+
+        const btnZoomOut = document.getElementById(`btn-zoom-out-${idx}`);
+        if (btnZoomOut) btnZoomOut.addEventListener('click', () => this.zoomStep(idx, 0.8));
+
+        const btnToggleDim = document.getElementById(`btn-toggle-dim-${idx}`);
+        if (btnToggleDim) {
+          btnToggleDim.addEventListener('click', () => {
+            const st = this.stationStates[idx - 1];
+            if (st) {
+              st.showDimensions = !st.showDimensions;
+              btnToggleDim.classList.toggle('active', st.showDimensions);
+              this._triggerRedraw(idx);
+            }
+          });
+        }
+      });
+
+      // Legacy Toolbar Actions
       const btnFitGeom = document.getElementById('btn-fit-geom');
-      if (btnFitGeom) btnFitGeom.addEventListener('click', () => this.fitViewport('geom'));
+      if (btnFitGeom) btnFitGeom.addEventListener('click', () => this.fitViewport(1));
 
       const btnZoomInGeom = document.getElementById('btn-zoom-in-geom');
-      if (btnZoomInGeom) btnZoomInGeom.addEventListener('click', () => this.zoomStep('geom', 1.25));
+      if (btnZoomInGeom) btnZoomInGeom.addEventListener('click', () => this.zoomStep(1, 1.25));
 
       const btnZoomOutGeom = document.getElementById('btn-zoom-out-geom');
-      if (btnZoomOutGeom) btnZoomOutGeom.addEventListener('click', () => this.zoomStep('geom', 0.8));
+      if (btnZoomOutGeom) btnZoomOutGeom.addEventListener('click', () => this.zoomStep(1, 0.8));
 
-      const btnToggleDim = document.getElementById('btn-toggle-dim');
-      if (btnToggleDim) {
-        btnToggleDim.addEventListener('click', () => {
+      const btnToggleDimLegacy = document.getElementById('btn-toggle-dim');
+      if (btnToggleDimLegacy) {
+        btnToggleDimLegacy.addEventListener('click', () => {
           this.geomState.showDimensions = !this.geomState.showDimensions;
-          btnToggleDim.classList.toggle('active', this.geomState.showDimensions);
-          this.renderGeometry();
+          btnToggleDimLegacy.classList.toggle('active', this.geomState.showDimensions);
+          this._triggerRedraw(1);
         });
       }
 
-      // Bottom Mechanics Viewport Actions
       const btnFitMech = document.getElementById('btn-fit-mech');
-      if (btnFitMech) btnFitMech.addEventListener('click', () => this.fitViewport('mech'));
+      if (btnFitMech) btnFitMech.addEventListener('click', () => this.fitViewport(2));
 
       const btnToggle3D = document.getElementById('btn-toggle-3d');
       if (btnToggle3D) {
         btnToggle3D.addEventListener('click', () => {
           this.mechState.is3DMode = !this.mechState.is3DMode;
           btnToggle3D.classList.toggle('active', this.mechState.is3DMode);
-          this.renderMechanics();
+          this._triggerRedraw(2);
         });
       }
 
@@ -178,7 +228,7 @@
      */
     _bindCanvasInteractions(canvas, type) {
       if (!canvas) return;
-      const state = type === 'geom' ? this.geomState : this.mechState;
+      const state = this._getState(type);
 
       // 1. Mouse Down (Start Pan)
       canvas.addEventListener('mousedown', (e) => {
@@ -226,11 +276,22 @@
       }, { passive: false });
     }
 
+    _getState(type) {
+      if (typeof type === 'number') {
+        const idx = Math.max(0, Math.min(2, type - 1));
+        return this.stationStates[idx];
+      }
+      if (type === 'geom' || type === 'station-1') return this.stationStates[0];
+      if (type === 'mech' || type === 'station-2') return this.stationStates[1];
+      if (type === 'station-3') return this.stationStates[2];
+      return this.stationStates[0];
+    }
+
     /**
      * Zoom centered at specific coordinate
      */
     zoomAt(type, factor, cx, cy) {
-      const state = type === 'geom' ? this.geomState : this.mechState;
+      const state = this._getState(type);
       const newScale = Math.min(Math.max(state.scale * factor, 0.2), 6.0);
 
       // Adjust pan so the cursor point remains stationary in canvas space
@@ -245,7 +306,14 @@
      * Step zoom by factor centered at canvas midpoint
      */
     zoomStep(type, factor) {
-      const canvas = type === 'geom' ? this.canvasGeom : this.canvasMech;
+      let canvas = null;
+      if (typeof type === 'number') {
+        canvas = this.stationCanvases[type - 1] || document.getElementById(`canvas-station-${type}`);
+      } else if (type === 'geom') {
+        canvas = this.canvasGeom || this.stationCanvases[0];
+      } else if (type === 'mech') {
+        canvas = this.canvasMech || this.stationCanvases[1];
+      }
       if (!canvas) return;
       const rect = canvas.getBoundingClientRect();
       this.zoomAt(type, factor, rect.width / 2, rect.height / 2);
@@ -255,7 +323,7 @@
      * Reset Viewport to fit content (Scale 1.0, Pan 0, 0)
      */
     fitViewport(type) {
-      const state = type === 'geom' ? this.geomState : this.mechState;
+      const state = this._getState(type);
       state.scale = 1.0;
       state.panX = 0;
       state.panY = 0;
@@ -317,6 +385,7 @@
      */
     _setupResizeObserver() {
       const resizeHandler = () => {
+        this.stationCanvases.forEach((c) => this._updateCanvasResolution(c));
         this._updateCanvasResolution(this.canvasGeom);
         this._updateCanvasResolution(this.canvasMech);
         this.redrawAll();
@@ -330,6 +399,7 @@
       }
 
       // Initial setup
+      this.stationCanvases.forEach((c) => this._updateCanvasResolution(c));
       this._updateCanvasResolution(this.canvasGeom);
       this._updateCanvasResolution(this.canvasMech);
     }
@@ -427,15 +497,13 @@
      * Update Caption Text
      */
     _updateCaption() {
-      if (!this.captionEl) return;
       const d = this.currentMemberData || {};
-      if (d.b && d.h) {
-        this.captionEl.textContent = `${d.b} x ${d.h} mm`;
-      } else if (d.B && d.H) {
-        this.captionEl.textContent = `${d.B} x ${d.H} mm`;
-      } else if (d.section_name) {
-        this.captionEl.textContent = d.section_name;
-      }
+      const capText = (d.b && d.h) ? `${d.b} x ${d.h} mm` : ((d.B && d.H) ? `${d.B} x ${d.H} mm` : (d.section_name || ''));
+      if (this.captionEl && capText) this.captionEl.textContent = capText;
+      [1, 2, 3].forEach((idx) => {
+        const el = document.getElementById(`canvas-caption-${idx}`);
+        if (el && capText) el.textContent = capText;
+      });
     }
 
     /**
@@ -463,16 +531,85 @@
      * Redraw specific viewport
      */
     _triggerRedraw(type) {
-      if (type === 'geom') this.renderGeometry();
-      else this.renderMechanics();
+      if (this.currentMemberType === 'rc_beam') {
+        if (type === 1 || type === 'geom') this.renderStation(1, 'end_i');
+        else if (type === 2 || type === 'mech') this.renderStation(2, 'center_m');
+        else if (type === 3) this.renderStation(3, 'end_j');
+        else this.redrawAll();
+      } else {
+        if (type === 'geom' || type === 1) this.renderGeometry();
+        else this.renderMechanics();
+      }
     }
 
     /**
-     * Redraw Both Viewports
+     * Redraw Both/All Viewports
      */
     redrawAll() {
-      this.renderGeometry();
-      this.renderMechanics();
+      const memberType = this.currentMemberType || 'rc_beam';
+      const data = this.currentMemberData || {};
+
+      if (memberType === 'rc_beam') {
+        const cap = (data.b && data.h) ? `${data.b} x ${data.h} mm` : '400 x 600 mm';
+        this.setStationCount(3, [
+          { title: '📐 단부( i ) 단면 배근도 (End-I Section)', caption: cap },
+          { title: '📐 중앙( m ) 단면 배근도 (Center-M Section)', caption: cap },
+          { title: '📐 단부( j ) 단면 배근도 (End-J Section)', caption: cap }
+        ]);
+        this.renderStation(1, 'end_i');
+        this.renderStation(2, 'center_m');
+        this.renderStation(3, 'end_j');
+      } else {
+        this.setStationCount(2, [
+          { title: '📐 단면 형상 및 배근도 (Geometry)', caption: this.captionEl?.textContent || '' },
+          { title: '📐 역학 해석 및 P-M 상관도 (Mechanics)', caption: 'KDS 기준' }
+        ]);
+        this.renderGeometry();
+        this.renderMechanics();
+      }
+    }
+
+    /**
+     * Render Dedicated Station Section Canvas
+     */
+    renderStation(stationIndex, stationKey) {
+      const canvas = this.stationCanvases[stationIndex - 1] || document.getElementById(`canvas-station-${stationIndex}`);
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const rect = canvas.parentElement ? canvas.parentElement.getBoundingClientRect() : canvas.getBoundingClientRect();
+      const w = rect.width || canvas.width / (window.devicePixelRatio || 1) || 500;
+      const h = rect.height || canvas.height / (window.devicePixelRatio || 1) || 300;
+
+      const stIdx = Math.max(0, Math.min(2, stationIndex - 1));
+      const state = this.stationStates[stIdx];
+
+      ctx.save();
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      const dpr = window.devicePixelRatio || 1;
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, w, h);
+
+      // Apply Pan & Zoom Transform
+      ctx.translate(state.panX, state.panY);
+      ctx.translate(w / 2, h / 2);
+      ctx.scale(state.scale, state.scale);
+      ctx.translate(-w / 2, -h / 2);
+
+      state.interactiveElements = [];
+
+      const data = this.currentMemberData || { b: 400, h: 600, cover: 40 };
+      const result = this.currentCalcResult || {};
+
+      if (window.VectorRCBeam && typeof window.VectorRCBeam.renderStationSection === 'function') {
+        const hits = window.VectorRCBeam.renderStationSection(ctx, w, h, stationKey, data, result, state.showDimensions);
+        if (Array.isArray(hits)) {
+          state.interactiveElements = hits;
+        }
+      } else {
+        this._renderDefaultGrid(ctx, w, h, `${stationKey} 단면 상세도`);
+      }
+
+      ctx.restore();
     }
 
     /**

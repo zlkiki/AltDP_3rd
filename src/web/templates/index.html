@@ -77,6 +77,8 @@
                 <!-- Phase 19-5 특화 고급 기능 버튼군 -->
                 <button class="nav-btn btn-special-feature" id="btn-open-dxf" title="현재 부재 2D CAD 배근상세도 DXF 다운로드">📐 CAD 도면</button>
                 <button class="nav-btn btn-special-feature" id="btn-open-quantity" title="전 부재 KDS 표준 물량산출 대시보드">📊 물량 산출</button>
+                <button class="nav-btn btn-special-feature" id="btn-import-gen" title="MGT / Gen 텍스트 모델 업로드 및 일괄 설계">📂 Gen 가져오기</button>
+                <input type="file" id="gen-file-importer" accept=".mgt,.txt" style="display:none;">
                 <button class="nav-btn icon-btn btn-icon" id="btn-theme-toggle" title="테마 변경 (🌙/☀️)">🌙</button>
                 <button id="btnThemeToggle" style="display:none;" title="테마 변경 호환 버튼"></button>
                 <button class="nav-btn btn-sm btn-save-default" id="btn-save-layout" title="레이아웃 비율 저장">📌 저장</button>
@@ -183,45 +185,78 @@
             <!-- 3. Center Graphic Pane (2D/3D Multi-Viewport) -->
             <section class="split-pane graphic-pane pane-center-graphic" id="center-pane" data-legacy-id="pane-graphic-view">
                 <div id="center-pane-container" class="center-viewport-stack">
-                    <!-- 상단 뷰포트: 형상 및 단면 상세 (Top Viewport) -->
-                    <div id="viewport-card-geometry" class="viewport-card">
+                    <!-- 1단 뷰포트: 단부( i ) 단면 (또는 상단 형상/단면) -->
+                    <div id="viewport-card-1" class="viewport-card viewport-station-card">
+                        <div id="viewport-card-geometry" style="display:none;"></div>
                         <div class="viewport-toolbar">
-                            <span class="viewport-title">📐 형상 및 단면 상세 (Cross-Section &amp; Detailing)</span>
+                            <span class="viewport-title" id="title-viewport-1">📐 단부( i ) 단면 배근도 (End-I Section)</span>
                             <div class="viewport-actions">
-                                <span class="canvas-caption-mini" id="canvas-caption" style="margin-right:6px;">400 x 600 mm</span>
-                                <button id="btn-fit-geom" class="btn-tool" title="화면 맞춤">⛶ Fit</button>
-                                <button id="btn-zoom-in-geom" class="btn-tool" title="확대">+</button>
-                                <button id="btn-zoom-out-geom" class="btn-tool" title="축소">-</button>
-                                <button id="btn-toggle-dim" class="btn-tool active" title="치수선 켜기/끄기">📏 Dim</button>
+                                <span class="canvas-caption-mini" id="canvas-caption-1" style="margin-right:6px;">400 x 600 mm</span>
+                                <button id="btn-fit-1" class="btn-tool btn-fit-geom" title="화면 맞춤">⛶ Fit</button>
+                                <button id="btn-zoom-in-1" class="btn-tool btn-zoom-in-geom" title="확대">+</button>
+                                <button id="btn-zoom-out-1" class="btn-tool btn-zoom-out-geom" title="축소">-</button>
+                                <button id="btn-toggle-dim-1" class="btn-tool active btn-toggle-dim" title="치수선 켜기/끄기">📏 Dim</button>
+                                <button id="btn-fit-geom" style="display:none;"></button>
+                                <button id="btn-zoom-in-geom" style="display:none;"></button>
+                                <button id="btn-zoom-out-geom" style="display:none;"></button>
+                                <button id="btn-toggle-dim" style="display:none;"></button>
                             </div>
                         </div>
-                        <div class="canvas-wrapper" id="canvas-wrap-geometry">
-                            <canvas id="canvas-geometry" width="600" height="400"></canvas>
-                            <canvas id="sectionCanvas" width="600" height="400" style="display:none;"></canvas>
+                        <div class="canvas-wrapper" id="canvas-wrap-1">
+                            <canvas id="canvas-station-1" width="600" height="350"></canvas>
+                            <canvas id="canvas-geometry" width="600" height="350" style="display:none;"></canvas>
+                            <canvas id="sectionCanvas" width="600" height="350" style="display:none;"></canvas>
                         </div>
                     </div>
 
-                    <!-- Resizer 5: Center-Vertical (Pane 3 상하 2단 분할 리사이저) -->
-                    <div class="resizer-v resizer-viewport-v" id="resizer-center-v" data-direction="vertical" title="상하 드래그로 단면 상세 ↔ 역학 다이어그램 높이 조절"></div>
+                    <!-- Resizer 5-1: Center-Vertical 1 -->
+                    <div class="resizer-v resizer-viewport-v" id="resizer-center-v1" data-direction="vertical" title="상하 드래그로 뷰포트 높이 조절"><span id="resizer-center-v" style="display:none;"></span></div>
 
-                    <!-- 하단 뷰포트: 공학 역학 다이어그램 (Bottom Viewport) -->
-                    <div id="viewport-card-mechanics" class="viewport-card">
+                    <!-- 2단 뷰포트: 중앙( m ) 단면 (또는 역학/P-M 다이어그램) -->
+                    <div id="viewport-card-2" class="viewport-card viewport-station-card">
+                        <div id="viewport-card-mechanics" style="display:none;"></div>
                         <div class="viewport-toolbar">
-                            <span class="viewport-title">📊 공학 역학 다이어그램 (Mechanics &amp; P-M Diagram)</span>
+                            <span class="viewport-title" id="title-viewport-2">📐 중앙( m ) 단면 배근도 (Center-M Section)</span>
                             <div class="viewport-actions">
-                                <button id="btn-fit-mech" class="btn-tool" title="화면 맞춤">⛶ Fit</button>
-                                <button id="btn-toggle-3d" class="btn-tool" title="3D 곡면 전환">🌐 3D</button>
-                                <button id="btn-toggle-pm" class="btn-tool" style="display:none;" title="3D P-M 곡선 토글">📈 3D P-M</button>
+                                <span class="canvas-caption-mini" id="canvas-caption-2" style="margin-right:6px;">400 x 600 mm</span>
+                                <button id="btn-fit-2" class="btn-tool btn-fit-mech" title="화면 맞춤">⛶ Fit</button>
+                                <button id="btn-fit-mech" style="display:none;"></button>
+                                <button id="btn-zoom-in-2" class="btn-tool" title="확대">+</button>
+                                <button id="btn-zoom-out-2" class="btn-tool" title="축소">-</button>
+                                <button id="btn-toggle-dim-2" class="btn-tool active" title="치수선 켜기/끄기">📏 Dim</button>
+                                <button id="btn-toggle-3d" class="btn-tool" style="display:none;" title="3D 전환">🌐 3D</button>
+                                <button id="btn-toggle-pm" class="btn-tool" style="display:none;" title="3D P-M 곡선 보기">🌐 3D P-M</button>
                                 <button id="btn-toggle-dcr-bar" class="btn-tool active" title="DCR 바 토글">📶 DCR</button>
                             </div>
                         </div>
-                        <div class="canvas-wrapper" id="canvas-wrap-mechanics">
-                            <canvas id="canvas-mechanics" width="600" height="400"></canvas>
-                            <canvas id="pmChartCanvas" width="600" height="400" style="display:none;"></canvas>
+                        <div class="canvas-wrapper" id="canvas-wrap-2">
+                            <canvas id="canvas-station-2" width="600" height="350"></canvas>
+                            <canvas id="canvas-mechanics" width="600" height="350" style="display:none;"></canvas>
+                            <canvas id="pmChartCanvas" width="600" height="350" style="display:none;"></canvas>
                             <div id="dcrCard" class="dcr-summary-card">
                                 <span id="dcrValue">0.00</span>
                                 <div id="dcrBar" class="dcr-gauge-bar"></div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Resizer 5-2: Center-Vertical 2 -->
+                    <div class="resizer-v resizer-viewport-v" id="resizer-center-v2" data-direction="vertical" title="상하 드래그로 뷰포트 높이 조절"></div>
+
+                    <!-- 3단 뷰포트: 단부( j ) 단면 -->
+                    <div id="viewport-card-3" class="viewport-card viewport-station-card">
+                        <div class="viewport-toolbar">
+                            <span class="viewport-title" id="title-viewport-3">📐 단부( j ) 단면 배근도 (End-J Section)</span>
+                            <div class="viewport-actions">
+                                <span class="canvas-caption-mini" id="canvas-caption-3" style="margin-right:6px;">400 x 600 mm</span>
+                                <button id="btn-fit-3" class="btn-tool" title="화면 맞춤">⛶ Fit</button>
+                                <button id="btn-zoom-in-3" class="btn-tool" title="확대">+</button>
+                                <button id="btn-zoom-out-3" class="btn-tool" title="축소">-</button>
+                                <button id="btn-toggle-dim-3" class="btn-tool active" title="치수선 켜기/끄기">📏 Dim</button>
+                            </div>
+                        </div>
+                        <div class="canvas-wrapper" id="canvas-wrap-3">
+                            <canvas id="canvas-station-3" width="600" height="350"></canvas>
                         </div>
                     </div>
                 </div>
@@ -268,8 +303,8 @@
                     <div class="toolbar-actions">
                         <button id="btn-report-header-settings" class="btn-tool" title="머릿말/회사명/서명란 설정">⚙️ 머릿말 설정</button>
                         <button id="btn-report-print" class="btn-primary-sm" title="브라우저 인쇄 (A4 순백색)">🖨️ 인쇄</button>
-                        <button id="btn-report-pdf" class="btn-tool" title="WeasyPrint 고화질 PDF 다운로드">📄 PDF</button>
                         <button id="btn-report-excel" class="btn-tool" title="OpenPyXL 엑셀 내보내기">📊 Excel</button>
+                        <button id="btn-report-pdf" style="display:none;" title="PDF (Hidden for original app parity)"></button>
                     </div>
                 </div>
 

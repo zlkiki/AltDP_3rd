@@ -28,9 +28,9 @@
 | 공정 단계 | 권장 모델 | 공정 명칭 | 핵심 산출물 및 작업 내용 | 필수 검증 기준 (DoD) | 연동 SSOT |
 |:---:|:---:|---|---|:---:|:---:|
 | **Step 1** | 🧠 **High** | **KDS 계산 엔진 & Pydantic 스키마** | KDS 14 20/31 수식 순수 파이썬 구현, P-M/FEM 솔버 연동, 입출력 스키마 | `pytest` 100% PASS<br>(오차 $\le 0.10\%$) | [`docs/10`](10_agent_development_protocols.md) |
-| **Step 2** | ⚙️ **Medium** | **원본앱 1:1 서브탭 입력폼 & 모달** | 원본 `DLG_*.ini` 1:1 서브탭 폼, 재료/단면(.sdb) 모달, 유효성 검증 | 브라우저 DOM 정상<br>콘솔 에러 0건 | [`docs/07 PART 4`](07_web_application_ui_ux_specification.md) |
-| **Step 3** | ⚙️ **Medium** | **2D Canvas 배근도/치수선/그래픽스** | VDraw 기하 알고리즘 이식, 주근/늑근 배근도, 치수선, 철근태그 렌더링 | Canvas 그래픽스 정상<br>줌/팬 인터랙션 | [`docs/07 PART 4`](07_web_application_ui_ux_specification.md) |
-| **Step 4** | 🧠 **High** | **A4 8단계 KaTeX 수식 전개식 계산서** | 5대 장구분 완벽 계승, 8단계 수식 전개식, 순백색(`#ffffff`) A4 템플릿 | A4 인쇄 프리뷰 정상<br>공학 계산서 레이아웃 | [`docs/14`](14_structural_calculation_report_specification.md) |
+| **Step 2** | ⚙️ **Medium** | **원본앱 1:1 서브탭 입력폼 & 모달** | 원본 `DLG_*.ini` 기반 모듈 정의 서브탭(1~5개 가변), 리사이즈 반응형 레이아웃 방어(`min-width: 320px`, 컨트롤 `110px`), 재료/단면 모달 | 브라우저 DOM 정상<br>콘솔 에러 0건 | [`docs/07 PART 4`](07_web_application_ui_ux_specification.md) |
+| **Step 3** | ⚙️ **Medium** | **2D Canvas 배근도/치수선/그래픽스** | **동적 가변 1~3단 세로 적층형 뷰포트** (모듈별 원본 명칭 정의, 세로 분할 캔버스 최적 렌더링, 잔존 모듈 배제), 줌/팬/Fit 인터랙션 | Canvas 그래픽스 정상<br>줌/팬 인터랙션 | [`docs/07 PART 4`](07_web_application_ui_ux_specification.md) |
+| **Step 4** | 🧠 **High** | **A4 8단계 KaTeX 수식 전개식 계산서** | 5대 장구분 완벽 계승, 8단계 수식 전개식, 순백색(`#ffffff`) A4 템플릿, `report_engine.js` 단일화, **[🖨️ 인쇄] & [📊 Excel 내보내기] 연동 (PDF 버튼 제거)** | A4 인쇄 프리뷰 정상<br>Excel 다운로드 정상 | [`docs/14`](14_structural_calculation_report_specification.md) |
 | **Step 5** | ⚙️ **Medium** | **E2E 통합 테스트 & 실사용 UI 최종 검증** | 4열 통합(트리-폼-캔버스-계산서) 100ms 실시간 동기화, 콘솔에러 0건 | E2E 테스트 PASS &<br>브라우저 육안 확인 | [`docs/07 PART 4`](07_web_application_ui_ux_specification.md) |
 
 ---

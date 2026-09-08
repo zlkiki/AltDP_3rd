@@ -900,6 +900,308 @@
     return interactiveElements;
   };
 
+  // ===========================================================================
+  // 3. Station Dedicated Cross-Section (renderStationSection)
+  // Conforms to Req 22 / 22-3 Bugfix: 3-tier vertical stacked station view
+  // ===========================================================================
+  VectorRCBeam.renderStationSection = function (ctx, width, height, stationKey = 'center_m', rawData = {}, result = {}, showDimensions = true) {
+    const interactiveElements = [];
+    const beam = extractBeamData(rawData);
+
+    // 1. Clean Deep Engineering Slate Background
+    ctx.fillStyle = '#0b1120';
+    ctx.fillRect(0, 0, width, height);
+
+    const stationMeta = {
+      end_i: { key: 'end_i', label: '단부( i ) 단면 배근도', code: 'End-I', color: '#38bdf8' },
+      center_m: { key: 'center_m', label: '중앙( m ) 단면 배근도', code: 'Center-M', color: '#34d399' },
+      end_j: { key: 'end_j', label: '단부( j ) 단면 배근도', code: 'End-J', color: '#38bdf8' }
+    };
+    const meta = stationMeta[stationKey] || stationMeta.center_m;
+    const st = beam.stations[stationKey] || beam.stations.center_m;
+
+    // Cross-Section Scale: Center in canvas with generous margins for CAD dimensions and callout tags
+    const padX = 75;
+    const padY = 48;
+    const availW = Math.max(width - padX * 2, 80);
+    const availH = Math.max(height - padY * 2, 80);
+    const maxDim = Math.max(beam.b, beam.h, beam.shape === 'T_BEAM' ? beam.bf : 0);
+    const scale = Math.min(availW / maxDim, availH / beam.h);
+
+    const drawB = beam.b * scale;
+    const drawH = beam.h * scale;
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const secX0 = centerX - drawB / 2;
+    const secY0 = centerY - drawH / 2;
+
+    // -----------------------------------------------------------
+    // A. Subtle Station Badge (Top-Left corner)
+    // -----------------------------------------------------------
+    ctx.save();
+    ctx.font = '600 11px "Inter", "Pretendard", sans-serif';
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+    ctx.strokeStyle = meta.color;
+    ctx.lineWidth = 1.0;
+    const badgeText = `${meta.label} [${meta.code}]`;
+    const textW = ctx.measureText(badgeText).width + 16;
+    ctx.strokeRect(12, 10, textW, 22);
+    ctx.fillRect(12, 10, textW, 22);
+    ctx.fillStyle = meta.color;
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(badgeText, 20, 21);
+    ctx.restore();
+
+    // -----------------------------------------------------------
+    // B. Concrete Outline (Rectangular or T-Beam)
+    // -----------------------------------------------------------
+    ctx.save();
+    const concGrad = ctx.createLinearGradient(secX0, secY0, secX0 + drawB, secY0 + drawH);
+    concGrad.addColorStop(0, '#1e293b');
+    concGrad.addColorStop(1, '#0f172a');
+    ctx.fillStyle = concGrad;
+    ctx.strokeStyle = '#475569';
+    ctx.lineWidth = 2.0;
+
+    if (beam.shape === 'T_BEAM') {
+      const drawBf = beam.bf * scale;
+      const drawHf = beam.hf * scale;
+      const tfX0 = centerX - drawBf / 2;
+      ctx.beginPath();
+      ctx.moveTo(tfX0, secY0);
+      ctx.lineTo(tfX0 + drawBf, secY0);
+      ctx.lineTo(tfX0 + drawBf, secY0 + drawHf);
+      ctx.lineTo(secX0 + drawB, secY0 + drawHf);
+      ctx.lineTo(secX0 + drawB, secY0 + drawH);
+      ctx.lineTo(secX0, secY0 + drawH);
+      ctx.lineTo(secX0, secY0 + drawHf);
+      ctx.lineTo(tfX0, secY0 + drawHf);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+    } else {
+      ctx.fillRect(secX0, secY0, drawB, drawH);
+      ctx.strokeRect(secX0, secY0, drawB, drawH);
+    }
+
+    // Subtle Centerlines
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.2)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 4]);
+    ctx.beginPath();
+    ctx.moveTo(centerX, secY0 - 10); ctx.lineTo(centerX, secY0 + drawH + 10);
+    ctx.moveTo(secX0 - 10, centerY); ctx.lineTo(secX0 + drawB + 10, centerY);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.restore();
+
+    // -----------------------------------------------------------
+    // C. Closed Stirrup with 135-Degree Seismic Hooks
+    // -----------------------------------------------------------
+    const coverPx = beam.cover * scale;
+    const stirX = secX0 + coverPx;
+    const stirY = secY0 + coverPx;
+    const stirW = Math.max(drawB - coverPx * 2, 10);
+    const stirH = Math.max(drawH - coverPx * 2, 10);
+    const stirDia = st.stirrup.dia;
+
+    ctx.save();
+    ctx.strokeStyle = '#f59e0b';
+    ctx.lineWidth = 2.0;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+
+    // 1. Closed rectangular loop
+    ctx.strokeRect(stirX, stirY, stirW, stirH);
+
+    // 2. 135-degree seismic hooks at top-left and top-right corners
+    const hookLen = Math.max(12, stirDia * scale * 1.6);
+    const hookRad = (135 * Math.PI) / 180;
+    const hookDx = Math.cos(hookRad) * hookLen;
+    const hookDy = Math.sin(hookRad) * hookLen;
+
+    ctx.beginPath();
+    ctx.moveTo(stirX, stirY);
+    ctx.lineTo(stirX - hookDx, stirY + hookDy);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(stirX + stirW, stirY);
+    ctx.lineTo(stirX + stirW + hookDx, stirY + hookDy);
+    ctx.stroke();
+
+    // Cross-tie for 4-leg stirrups
+    if (st.legs >= 4) {
+      ctx.setLineDash([3, 2]);
+      ctx.beginPath();
+      ctx.moveTo(centerX, stirY);
+      ctx.lineTo(centerX, stirY + stirH);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+    ctx.restore();
+
+    // -----------------------------------------------------------
+    // D. Multi-Layer Rebars (Top 1/2 & Bottom 1/2) & Torsion Bars
+    // -----------------------------------------------------------
+    const clearStepY = Math.max(25 * scale, 14);
+    const rebarDiaBase = Math.max(st.top1.dia, st.bot1.dia, 22);
+    const rebarR = Math.max((rebarDiaBase / 2) * scale, 5.0);
+
+    const innerPad = 4;
+    const barXMin = stirX + innerPad;
+    const barXMax = stirX + stirW - innerPad;
+    const barW = barXMax - barXMin;
+
+    // (1) Top Layer 1 Rebars
+    if (st.top1.count > 0) {
+      const yTop1 = stirY + innerPad + rebarR;
+      for (let bIdx = 0; bIdx < st.top1.count; bIdx++) {
+        const x = (st.top1.count === 1) ? centerX : barXMin + (bIdx / (st.top1.count - 1)) * barW;
+        drawRebarDot(ctx, x, yTop1, rebarR, true);
+
+        interactiveElements.push({
+          type: 'rebar_top1',
+          x: x,
+          y: yTop1,
+          r: rebarR + 4,
+          title: `${meta.label} - 상부 1단 #${bIdx + 1}`,
+          detail: `규격: D${st.top1.dia} | 총 배근: ${st.top1.str} (d' = ${beam.cover}mm)`
+        });
+      }
+    }
+
+    // (2) Top Layer 2 Rebars
+    if (st.top2.count > 0) {
+      const yTop2 = stirY + innerPad + rebarR + clearStepY;
+      for (let bIdx = 0; bIdx < st.top2.count; bIdx++) {
+        const x = (st.top2.count === 1) ? centerX : barXMin + (bIdx / (st.top2.count - 1)) * barW;
+        drawRebarDot(ctx, x, yTop2, rebarR * 0.9, true);
+
+        interactiveElements.push({
+          type: 'rebar_top2',
+          x: x,
+          y: yTop2,
+          r: rebarR + 4,
+          title: `${meta.label} - 상부 2단 #${bIdx + 1}`,
+          detail: `규격: D${st.top2.dia} | 2단 배근: ${st.top2.str} (순간격 25mm)`
+        });
+      }
+    }
+
+    // (3) Bottom Layer 1 Rebars
+    if (st.bot1.count > 0) {
+      const yBot1 = stirY + stirH - innerPad - rebarR;
+      for (let bIdx = 0; bIdx < st.bot1.count; bIdx++) {
+        const x = (st.bot1.count === 1) ? centerX : barXMin + (bIdx / (st.bot1.count - 1)) * barW;
+        drawRebarDot(ctx, x, yBot1, rebarR, false);
+
+        interactiveElements.push({
+          type: 'rebar_bot1',
+          x: x,
+          y: yBot1,
+          r: rebarR + 4,
+          title: `${meta.label} - 하부 1단 #${bIdx + 1}`,
+          detail: `규격: D${st.bot1.dia} | 총 배근: ${st.bot1.str} (d = ${beam.h - beam.cover}mm)`
+        });
+      }
+    }
+
+    // (4) Bottom Layer 2 Rebars
+    if (st.bot2.count > 0) {
+      const yBot2 = stirY + stirH - innerPad - rebarR - clearStepY;
+      for (let bIdx = 0; bIdx < st.bot2.count; bIdx++) {
+        const x = (st.bot2.count === 1) ? centerX : barXMin + (bIdx / (st.bot2.count - 1)) * barW;
+        drawRebarDot(ctx, x, yBot2, rebarR * 0.9, false);
+
+        interactiveElements.push({
+          type: 'rebar_bot2',
+          x: x,
+          y: yBot2,
+          r: rebarR + 4,
+          title: `${meta.label} - 하부 2단 #${bIdx + 1}`,
+          detail: `규격: D${st.bot2.dia} | 2단 배근: ${st.bot2.str} (순간격 25mm)`
+        });
+      }
+    }
+
+    // (5) Torsion Side Rebars
+    if (beam.torsionSideCount > 0) {
+      const numSideRows = Math.floor(beam.torsionSideCount / 2);
+      const ySideTop = stirY + innerPad + rebarR + clearStepY + 10;
+      const ySideBot = stirY + stirH - innerPad - rebarR - clearStepY - 10;
+      const sideStep = (ySideBot - ySideTop) / Math.max(numSideRows, 1);
+
+      for (let sIdx = 0; sIdx < numSideRows; sIdx++) {
+        const sy = ySideTop + sIdx * sideStep;
+        drawRebarDot(ctx, barXMin, sy, rebarR * 0.75, false);
+        drawRebarDot(ctx, barXMax, sy, rebarR * 0.75, false);
+
+        interactiveElements.push({
+          type: 'torsion_side',
+          x: barXMin,
+          y: sy,
+          r: rebarR + 3,
+          title: `${meta.label} - 측면 비틀림 철근`,
+          detail: `규격: D${beam.torsionSideBar.dia || 13} (피복 유지)`
+        });
+        interactiveElements.push({
+          type: 'torsion_side',
+          x: barXMax,
+          y: sy,
+          r: rebarR + 3,
+          title: `${meta.label} - 측면 비틀림 철근`,
+          detail: `규격: D${beam.torsionSideBar.dia || 13} (피복 유지)`
+        });
+      }
+    }
+
+    // -----------------------------------------------------------
+    // E. Rebar Callout Tags & Leader Lines
+    // -----------------------------------------------------------
+    ctx.save();
+    ctx.font = '11px "Inter", "Pretendard", sans-serif';
+    ctx.fillStyle = '#cbd5e1';
+    ctx.strokeStyle = '#64748b';
+    ctx.lineWidth = 1.0;
+
+    // Top Tag
+    const topTagText = st.top2.count > 0 ? `상부: ${st.top1.str} (2단:${st.top2.str})` : `상부: ${st.top1.str}`;
+    const topTagY = secY0 - 10;
+    ctx.textAlign = 'center';
+    ctx.fillText(topTagText, centerX, topTagY);
+
+    // Bottom Tag
+    const botTagText = st.bot2.count > 0 ? `하부: ${st.bot1.str} (2단:${st.bot2.str})` : `하부: ${st.bot1.str}`;
+    const botTagY = secY0 + drawH + 24;
+    ctx.fillText(botTagText, centerX, botTagY);
+
+    // Stirrup Tag (Right side with badge)
+    ctx.fillStyle = '#f59e0b';
+    ctx.textAlign = 'left';
+    ctx.fillText(`늑근: ${st.stirrup.text} (${st.legs}L)`, secX0 + drawB + 10, centerY);
+    ctx.restore();
+
+    // -----------------------------------------------------------
+    // F. CAD Dimension Lines
+    // -----------------------------------------------------------
+    if (showDimensions) {
+      // Width b (at bottom below bottom tag)
+      drawCADDimension(ctx, secX0, secY0 + drawH, secX0 + drawB, secY0 + drawH, `b = ${beam.b}`, 40, false);
+      // Height h (at left)
+      drawCADDimension(ctx, secX0, secY0, secX0, secY0 + drawH, `h = ${beam.h}`, -36, true);
+      // T-Beam Flange Dimensions
+      if (beam.shape === 'T_BEAM') {
+        const drawBf = beam.bf * scale;
+        const tfX0 = centerX - drawBf / 2;
+        drawCADDimension(ctx, tfX0, secY0, tfX0 + drawBf, secY0, `bf = ${beam.bf}`, -24, false);
+      }
+    }
+
+    return interactiveElements;
+  };
+
   // ---------------------------------------------------------------------------
   // Global Export
   // ---------------------------------------------------------------------------

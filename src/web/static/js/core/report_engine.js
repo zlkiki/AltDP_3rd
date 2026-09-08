@@ -99,7 +99,6 @@
                     <div class="toolbar-actions">
                         <button id="btn-report-header-settings" class="btn-tool" title="머릿말/회사명/서명란 설정">⚙️ 머릿말 설정</button>
                         <button id="btn-report-print" class="btn-primary-sm" title="브라우저 인쇄 (A4 순백색)">🖨️ 인쇄</button>
-                        <button id="btn-report-pdf" class="btn-tool" title="WeasyPrint 고화질 PDF 다운로드">📄 PDF</button>
                         <button id="btn-report-excel" class="btn-tool" title="OpenPyXL 엑셀 내보내기">📊 Excel</button>
                     </div>
                 `;
@@ -151,14 +150,6 @@
             if (btnPrint) {
                 btnPrint.addEventListener('click', () => {
                     this.print();
-                });
-            }
-
-            // Button: PDF Export
-            const btnPdf = toolbar.querySelector('#btn-report-pdf');
-            if (btnPdf) {
-                btnPdf.addEventListener('click', () => {
-                    this.exportPdf();
                 });
             }
 
@@ -383,21 +374,71 @@
         }
 
         /**
-         * Export PDF via backend WeasyPrint
-         */
-        exportPdf() {
-            const memberId = this.headerConfig.memberTag || 'MEMBER';
-            const endpoint = `/api/report/export-pdf?member_id=${encodeURIComponent(memberId)}`;
-            window.open(endpoint, '_blank');
-        }
-
-        /**
          * Export Excel via backend OpenPyXL
          */
-        exportExcel() {
-            const memberId = this.headerConfig.memberTag || 'MEMBER';
-            const endpoint = `/api/report/export-excel?member_id=${encodeURIComponent(memberId)}`;
-            window.open(endpoint, '_blank');
+        async exportExcel() {
+            const memberId = this.headerConfig.memberTag || 'RC_BEAM_1';
+            const m = this.currentMemberData || {};
+            const r = this.currentCalcResult || {};
+
+            const payload = {
+                member_type: this.currentModuleKey || 'rc_beam',
+                project_info: {
+                    title: this.headerConfig.projectName || 'AltDP_3rd 구조계산서',
+                    code: 'KDS 14 20 00 / KDS 14 31 00',
+                    date: this.headerConfig.date || new Date().toISOString().slice(0, 10),
+                    author: this.headerConfig.engineer || 'AltDP Engineer'
+                },
+                member_info: {
+                    id: memberId,
+                    type: m.shape === 'TEE' ? 'RC T-Beam' : 'RC Beam',
+                    name: memberId
+                },
+                material_info: {
+                    fck: Number(m.fck || 27.0),
+                    fy: Number(m.fy || 400.0),
+                    fyt: Number(m.fyt || 400.0)
+                },
+                section_info: {
+                    b: Number(m.b || 400.0),
+                    h: Number(m.h || 600.0),
+                    d: Number(m.h ? m.h - 65 : 535.0)
+                },
+                loads_info: {
+                    Mu: Number(r.Mu || m.mu || 240.0),
+                    Vu: Number(r.Vu || m.vu || 180.0),
+                    Tu: Number(r.Tu || 15.0)
+                },
+                summary_dcr: Number(r.governing_dcr || r.flexure_dcr || 0.710),
+                is_safe: Boolean(r.is_safe ?? true)
+            };
+
+            try {
+                const response = await fetch('/api/v1/report/export-excel-single', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = `${memberId}_Calculation_Sheet.xlsx`;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    a.remove();
+                } else {
+                    // Fallback to GET endpoint
+                    window.open(`/api/v1/report/export-excel?member_id=${encodeURIComponent(memberId)}`, '_blank');
+                }
+            } catch (err) {
+                console.warn('[ReportEngine] Direct Excel POST failed, falling back to GET:', err);
+                window.open(`/api/v1/report/export-excel?member_id=${encodeURIComponent(memberId)}`, '_blank');
+            }
         }
 
         /**

@@ -158,6 +158,8 @@
             const leftV = document.getElementById('resizer-left-v');
             const mainH = document.getElementById('resizer-main-h');
             const centerV = document.getElementById('resizer-center-v');
+            const centerV1 = document.getElementById('resizer-center-v1');
+            const centerV2 = document.getElementById('resizer-center-v2');
 
             const attachStart = (el, type) => {
                 if (!el) return;
@@ -171,6 +173,8 @@
             attachStart(leftV, 'left-v');
             attachStart(mainH, 'main-h');
             attachStart(centerV, 'center-v');
+            attachStart(centerV1, 'center-v1');
+            attachStart(centerV2, 'center-v2');
         }
 
         bindTopControls() {
@@ -285,7 +289,15 @@
             if (geomCard) this.startGeomHeight = geomCard.getBoundingClientRect().height;
             if (mechCard) this.startMechHeight = mechCard.getBoundingClientRect().height;
 
-            document.body.classList.add((type === 'left-v' || type === 'center-v') ? 'resizing-row' : 'resizing-col');
+            const card1 = document.getElementById('viewport-card-1') || geomCard;
+            const card2 = document.getElementById('viewport-card-2') || mechCard;
+            const card3 = document.getElementById('viewport-card-3');
+            if (card1) this.startCard1Height = card1.getBoundingClientRect().height;
+            if (card2) this.startCard2Height = card2.getBoundingClientRect().height;
+            if (card3) this.startCard3Height = card3.getBoundingClientRect().height;
+
+            const isRowResize = (type === 'left-v' || type === 'center-v' || type === 'center-v1' || type === 'center-v2');
+            document.body.classList.add(isRowResize ? 'resizing-row' : 'resizing-col');
 
             window.addEventListener('pointermove', this.onPointerMove, { passive: false });
             window.addEventListener('pointerup', this.onPointerUp);
@@ -311,10 +323,10 @@
                     sidebar.style.flex = `0 0 ${newW}px`;
                 }
             } else if (this.activeResizer === 'left-h') {
-                // Resizer 3: Left-Horizontal (Left-Sub Width: 20% <= W <= 50% of workspace)
+                // Resizer 3: Left-Horizontal (Left-Sub Width: 20% <= W <= 50% of workspace, min 320px for form usability)
                 const ws = this.getWorkspace();
                 const totalW = ws ? ws.getBoundingClientRect().width : (this.workspaceWidth || 1200);
-                const minW = Math.max(240, Math.round(totalW * 0.20));
+                const minW = Math.max(320, Math.round(totalW * 0.20));
                 const maxW = Math.round(totalW * 0.50);
                 const newW = Math.max(minW, Math.min(maxW, Math.round(this.startLeftSubWidth + deltaX)));
 
@@ -368,6 +380,20 @@
                         geomCard.style.flex = `${ratio} 1 0%`;
                         mechCard.style.flex = `${(1 - ratio).toFixed(3)} 1 0%`;
                     }
+                }
+            } else if (this.activeResizer === 'center-v1') {
+                const card1 = document.getElementById('viewport-card-1') || this.getGeomCard();
+                if (card1) {
+                    const newH = Math.max(100, Math.round(this.startCard1Height + deltaY));
+                    card1.style.height = `${newH}px`;
+                    card1.style.flex = `0 0 ${newH}px`;
+                }
+            } else if (this.activeResizer === 'center-v2') {
+                const card2 = document.getElementById('viewport-card-2') || this.getMechCard();
+                if (card2) {
+                    const newH = Math.max(100, Math.round(this.startCard2Height + deltaY));
+                    card2.style.height = `${newH}px`;
+                    card2.style.flex = `0 0 ${newH}px`;
                 }
             }
 

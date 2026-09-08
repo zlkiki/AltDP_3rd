@@ -736,6 +736,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 8px;
+    flex-wrap: wrap;
 }
 
 .form-group-row label {
@@ -745,6 +746,14 @@
     white-space: nowrap;
     min-width: 85px;
     flex-shrink: 0;
+}
+
+.input-control-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1 1 110px;
+    min-width: 100px;
 }
 
 .form-input {
