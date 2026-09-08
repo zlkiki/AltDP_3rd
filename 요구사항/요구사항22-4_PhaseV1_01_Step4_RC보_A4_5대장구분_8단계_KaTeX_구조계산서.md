@@ -97,9 +97,27 @@
 
 ## 4. 검증 및 수용 기준 (DoD)
 
-- [ ] `report_engine.js`로 계산서 엔진 단일화 및 레거시 `report_renderer.js` 완전 배제.
-- [ ] 사용자 입력부 [⚡ 검토] 및 [✨ 자동설계] 클릭 시 레거시가 아닌 정식 KaTeX 계산서 즉시 출력.
-- [ ] 5대 장구분 및 8단계 KaTeX 수식 전개식 렌더링 검증.
-- [ ] 모든 검토 항목의   →  O.K / N.G 상태 표시 정상 출력.
-- [ ] 순백색(#ffffff) A4 용지 인쇄 프리뷰 레이아웃 및 [🖨️ 인쇄], [📊 Excel 내보내기] 연동 정상 확인 (불필요한 PDF 버튼 제거).
-- [ ] KaTeX 수식 문법 에러 및 콘솔 에러 0건.
+- [x] `report_engine.js`로 계산서 엔진 단일화 및 레거시 `report_renderer.js` 완전 배제.
+- [x] 사용자 입력부 [⚡ 검토] 및 [✨ 자동설계] 클릭 시 레거시가 아닌 정식 KaTeX 계산서 즉시 출력.
+- [x] 5대 장구분 및 8단계 KaTeX 수식 전개식 렌더링 검증.
+- [x] 모든 검토 항목의   →  O.K / N.G 상태 표시 정상 출력.
+- [x] 순백색(#ffffff) A4 용지 인쇄 프리뷰 레이아웃 및 [🖨️ 인쇄], [📊 Excel 내보내기] 연동 정상 확인 (불필요한 PDF 버튼 제거).
+- [x] KaTeX 수식 문법 에러 및 콘솔 에러 0건.
+
+---
+
+## 5. 자체 테스트 및 검증 결과 (Verification Results)
+
+* **테스트 스위트**: [`tests/ui/test_phase22_4_rc_beam_report.py`](../tests/ui/test_phase22_4_rc_beam_report.py)
+* **테스트 실행 명령**: `pytest tests/ui/test_phase22_4_rc_beam_report.py`
+* **검증 결과**: **7 passed in 1.36s (100% 통과)**
+* **세부 단위 테스트 항목**:
+  1. `test_redcr_rc_beam_js_serving`: `redcr_rc_beam.js` 서빙 및 5대 장구분, 8단계 핵심 KaTeX 수식 무결성 검증 - **PASS**
+  2. `test_index_html_contains_redcr_rc_beam`: `index.html` 스크립트 로드 태그 검증 - **PASS**
+  3. `test_report_engine_delegates_to_redcr_rc_beam`: `report_engine.js` 디스패처 분기 연동 검증 - **PASS**
+  4. `test_redcr_rc_beam_formula_substitution_steps`: 기준식 $\rightarrow$ 대입식 $\rightarrow$ 결과값 3단계 완전 전개 검증 - **PASS**
+  5. `test_report_excel_button_disabled`: Excel 버튼 disabled 및 안내 툴팁 검증 - **PASS**
+  6. `test_report_table_layout_and_column_widths`: fixed table layout 및 colgroup 열너비 균형 검증 - **PASS**
+  7. `test_report_zoom_fit_width_on_init`: 초기 로드 시 74% 폭맞춤(fitToWidth) 기본보기 검증 - **PASS**
+* **전체 시스템 회귀 테스트**: `pytest` 349 / 349 PASS (100% 무결점 통과)
+
