@@ -1,13 +1,15 @@
 """RC Beam Complete Design Engine (KDS 14 20 00 / 20 / 22 / 30).
 
-Provides full flexural (singly/doubly reinforced), shear, torsion,
+Provides full flexural (singly/doubly reinforced, rectangular/T-beam), shear, torsion,
 shear-torsion interaction verification, Branson deflection, crack width evaluation,
-and DCR evaluation for reinforced concrete beams.
+and DCR evaluation for reinforced concrete beams conforming to KDS 14 20.
 """
 
 from dataclasses import dataclass, field
+from enum import Enum
 import math
-from typing import Optional, Dict, Any
+from typing import Optional, List, Dict, Any, Tuple
+from pydantic import BaseModel, Field, ConfigDict
 
 from src.engine.db.materials import (
     ConcreteMaterial,
@@ -15,11 +17,886 @@ from src.engine.db.materials import (
     get_phi_flexure,
     get_phi_shear
 )
+from src.engine.rc.rebar_layout import REBAR_DB
 
+
+# ============================================================================
+# 1. Pydantic v2 Enums and Input/Output Schemas (KDS 14 20 00 Standard)
+# ============================================================================
+
+class BeamShape(str, Enum):
+    """Beam cross-section geometry shape."""
+    RECTANGULAR = "RECTANGULAR"  # 직사각형 보
+    TEE = "TEE"                  # T형 보
+
+
+class SupportCondition(str, Enum):
+    """Beam support boundary condition for deflection multiplier."""
+    SIMPLE = "SIMPLE"            # 단순 지지 (alpha = 5/48, xi = 2.0)
+    CONTINUOUS_ONE = "CONT_ONE"  # 일단 연속 (alpha = 0.08)
+    CONTINUOUS_BOTH = "CONT_BOTH"# 양단 연속 (alpha = 0.05)
+    CANTILEVER = "CANTILEVER"    # 캔틸레버 (alpha = 0.25)
+
+
+class RCBeamSection(BaseModel):
+    """RC Beam Section Geometry and Material Specifications."""
+    model_config = ConfigDict(extra="ignore")
+    
+    shape: BeamShape = BeamShape.RECTANGULAR
+    b: float = Field(..., gt=0, description="보 복부 폭 bw (mm)")
+    h: float = Field(..., gt=0, description="보 전체 높이 (mm)")
+    length: float = Field(..., gt=0, description="보 유효 경간 L (mm)")
+    cover: float = Field(40.0, gt=0, description="인장측 외곽 순피복 두께 (mm)")
+    cover_top: float = Field(40.0, gt=0, description="압축측 외곽 순피복 두께 (mm)")
+    
+    # T형 보 전용 파라미터 (shape == TEE 일 때 유효)
+    bf: Optional[float] = Field(None, gt=0, description="플랜지 유효폭 be (mm)")
+    hf: Optional[float] = Field(None, gt=0, description="슬래브/플랜지 두께 (mm)")
+    
+    # 재료 물성치
+    fck: float = Field(..., gt=0, description="콘크리트 설계기준압축강도 (MPa)")
+    fy: float = Field(..., gt=0, description="주철근 설계기준항복강도 (MPa)")
+    fyt: float = Field(..., gt=0, description="스터럽/비틀림철근 설계기준항복강도 (MPa)")
+    support: SupportCondition = SupportCondition.SIMPLE
+
+
+class RebarRow(BaseModel):
+    """Individual horizontal row/layer of longitudinal bars."""
+    model_config = ConfigDict(extra="ignore")
+    
+    bar_dia: str = Field(..., description="철근 호칭경 (예: 'D22', 'D25')")
+    count: int = Field(..., gt=0, description="해당 단의 철근 개수")
+    layer: int = Field(1, ge=1, le=3, description="배근 단수 (1단, 2단, 3단)")
+
+
+class SectionRebarGroup(BaseModel):
+    """Rebar arrangement for a specific beam cross-section (End-I, Center-M, End-J)."""
+    model_config = ConfigDict(extra="ignore")
+    
+    top_bars: List[RebarRow] = Field(default_factory=list, description="상부 철근 목록")
+    bot_bars: List[RebarRow] = Field(default_factory=list, description="하부 철근 목록")
+    stirrup_bar: str = Field("D10", description="스터럽 철근 규격")
+    stirrup_spacing: float = Field(200.0, gt=0, description="스터럽 배근 간격 s (mm)")
+    stirrup_legs: int = Field(2, ge=2, description="스터럽 수직 다리수 (n legs)")
+
+
+class RCBeamRebar(BaseModel):
+    """Complete rebar detailing for all three critical beam stations."""
+    model_config = ConfigDict(extra="ignore")
+    
+    end_i: SectionRebarGroup = Field(..., description="End-I 단부 배근")
+    center_m: SectionRebarGroup = Field(..., description="Center-M 중앙부 배근")
+    end_j: SectionRebarGroup = Field(..., description="End-J 단부 배근")
+    torsion_side_bar: Optional[str] = Field("D13", description="비틀림 종방향 측면 철근 규격")
+    torsion_side_count: int = Field(0, ge=0, description="측면 비틀림 철근 단면당 총 개수")
+
+
+class RCBeamPositionLoads(BaseModel):
+    """Factored design forces and service load moments at a specific beam station."""
+    model_config = ConfigDict(extra="ignore")
+    
+    Mu_pos: float = Field(0.0, description="정모멘트 설계계수하중 (kN·m)")
+    Mu_neg: float = Field(0.0, description="부모멘트 설계계수하중 (kN·m)")
+    Vu: float = Field(0.0, description="설계 계수전단력 (kN)")
+    Tu: float = Field(0.0, description="설계 계수비틀림모멘트 (kN·m)")
+    Ma_pos: float = Field(0.0, description="정모멘트 사용하중 모멘트 (kN·m, 처짐용)")
+    Ma_neg: float = Field(0.0, description="부모멘트 사용하중 모멘트 (kN·m, 처짐용)")
+    Msus: float = Field(0.0, description="지속하중에 의한 사용모멘트 (kN·m, 장기처짐용)")
+
+
+class RCBeamLoads(BaseModel):
+    """Design load sets across the three critical stations."""
+    model_config = ConfigDict(extra="ignore")
+    
+    end_i: RCBeamPositionLoads
+    center_m: RCBeamPositionLoads
+    end_j: RCBeamPositionLoads
+    deflection_limit_ratio: float = Field(240.0, gt=0, description="처짐 허용비 L / N (기본 240)")
+
+
+class FlexureResult(BaseModel):
+    """Flexural capacity and ductility evaluation results (KDS 14 20 20)."""
+    model_config = ConfigDict(extra="ignore")
+    
+    Mu: float
+    phi_Mn: float
+    d: float
+    c: float
+    a: float
+    epsilon_t: float
+    phi: float
+    is_compression_yielding: bool
+    As_req: float
+    As_prov: float
+    rho: float
+    rho_min: float
+    rho_max: float
+    dcr: float
+    status: str  # "OK" | "NG"
+
+
+class ShearResult(BaseModel):
+    """Shear capacity and stirrup spacing evaluation results (KDS 14 20 22)."""
+    model_config = ConfigDict(extra="ignore")
+    
+    Vu: float
+    Vc: float
+    Vs: float
+    Vn: float
+    phi_Vn: float
+    phi: float = 0.75
+    s_max: float
+    Av_min: float
+    Av_prov: float
+    dcr: float
+    status: str  # "OK" | "NG"
+
+
+class TorsionResult(BaseModel):
+    """Torsion capacity and interaction evaluation results (KDS 14 20 22)."""
+    model_config = ConfigDict(extra="ignore")
+    
+    Tu: float
+    Tth: float
+    Tcr: float
+    Tn: float
+    phi_Tn: float
+    phi: float = 0.75
+    cross_section_check: str  # 콘크리트 압축파괴 방지 판정
+    Al_req: float
+    Al_prov: float
+    dcr: float
+    status: str  # "OK" | "NG"
+
+
+class ServiceabilityResult(BaseModel):
+    """Serviceability deflection (Branson Ie) and direct crack width results (KDS 14 20 30)."""
+    model_config = ConfigDict(extra="ignore")
+    
+    Mcr: float
+    I_g: float
+    I_cr: float
+    I_e: float
+    delta_immediate: float  # 즉시처짐 (mm)
+    lambda_delta: float     # 장기처짐 계수
+    delta_long_term: float  # 장기처짐 (mm)
+    delta_total: float      # 총 처짐 (mm)
+    delta_allow: float      # 허용 처짐 (mm)
+    crack_width: float      # 직접 계산 균열폭 (mm)
+    crack_allow: float      # 허용 균열폭 (mm)
+    dcr_defl: float
+    dcr_crack: float
+    status: str  # "OK" | "NG"
+
+
+class RCBeamSectionResult(BaseModel):
+    """Combined verification results at a single beam station."""
+    model_config = ConfigDict(extra="ignore")
+    
+    pos_flexure: FlexureResult
+    neg_flexure: FlexureResult
+    shear: ShearResult
+    torsion: TorsionResult
+
+
+class RCBeamResult(BaseModel):
+    """Comprehensive design and verification result across all 3 stations."""
+    model_config = ConfigDict(extra="ignore")
+    
+    end_i: RCBeamSectionResult
+    center_m: RCBeamSectionResult
+    end_j: RCBeamSectionResult
+    serviceability: ServiceabilityResult
+    max_dcr: float
+    governing_mode: str
+    status: str  # "OK" | "NG"
+
+    @property
+    def is_safe(self) -> bool:
+        return self.status == "OK"
+
+
+# ============================================================================
+# 2. Rebar Geometry and Database Helpers
+# ============================================================================
+
+# Extended KS Deformed Bar Properties (KS D 3504)
+REBAR_EXTENDED_DB: Dict[str, Dict[str, float]] = {
+    "D10": {"db": 9.53, "area": 71.33, "weight": 0.560},
+    "D13": {"db": 12.7, "area": 126.7, "weight": 0.995},
+    "D16": {"db": 15.9, "area": 198.6, "weight": 1.560},
+    "D19": {"db": 19.1, "area": 286.5, "weight": 2.250},
+    "D22": {"db": 22.2, "area": 387.1, "weight": 3.040},
+    "D25": {"db": 25.4, "area": 506.7, "weight": 3.980},
+    "D29": {"db": 28.6, "area": 642.4, "weight": 5.040},
+    "D32": {"db": 31.8, "area": 794.2, "weight": 6.230},
+    "D35": {"db": 35.8, "area": 956.6, "weight": 7.510},
+}
+
+
+def get_rebar_area(bar_dia: str) -> float:
+    """Retrieve KS standard single bar cross-sectional area (mm2)."""
+    dia_clean = bar_dia.upper().strip()
+    if dia_clean in REBAR_EXTENDED_DB:
+        return REBAR_EXTENDED_DB[dia_clean]["area"]
+    if dia_clean in REBAR_DB:
+        return REBAR_DB[dia_clean]["area"]
+    # Fallback to nominal diameter calculation
+    num_part = "".join(filter(str.isdigit, dia_clean))
+    d_val = float(num_part) if num_part else 22.0
+    return math.pi * (d_val ** 2) / 4.0
+
+
+def get_rebar_db(bar_dia: str) -> float:
+    """Retrieve KS standard nominal bar diameter db (mm)."""
+    dia_clean = bar_dia.upper().strip()
+    if dia_clean in REBAR_EXTENDED_DB:
+        return REBAR_EXTENDED_DB[dia_clean]["db"]
+    if dia_clean in REBAR_DB:
+        return REBAR_DB[dia_clean]["db"]
+    num_part = "".join(filter(str.isdigit, dia_clean))
+    return float(num_part) if num_part else 22.0
+
+
+def calculate_rebar_group_properties(
+    bars: List[RebarRow],
+    h: float,
+    clear_cover: float,
+    stirrup_db: float,
+    is_top: bool = False
+) -> Tuple[float, float, float, float]:
+    """Calculate total steel area, effective depth d, dt (outermost layer), and centroid distance from surface.
+    
+    Returns:
+        (total_area, effective_d, dt, centroid_from_surface)
+    """
+    if not bars:
+        return (0.0, max(h - clear_cover, 1.0), max(h - clear_cover, 1.0), clear_cover)
+    
+    total_area = 0.0
+    weighted_y = 0.0
+    outermost_y = None
+    
+    # Layer spacing: clear vertical gap between layers = max(25mm, max bar diameter)
+    max_db = max(get_rebar_db(row.bar_dia) for row in bars)
+    layer_gap = max(25.0, max_db)
+    
+    for row in bars:
+        area_single = get_rebar_area(row.bar_dia)
+        row_area = area_single * row.count
+        db = get_rebar_db(row.bar_dia)
+        
+        # Layer 1 centroid: clear_cover + stirrup_db + db / 2
+        layer_idx = max(row.layer, 1)
+        y_dist = clear_cover + stirrup_db + (db / 2.0) + (layer_idx - 1) * (db + layer_gap)
+        
+        if outermost_y is None or (layer_idx == 1 and y_dist < outermost_y):
+            outermost_y = clear_cover + stirrup_db + (db / 2.0)
+            
+        total_area += row_area
+        weighted_y += row_area * y_dist
+        
+    if outermost_y is None:
+        outermost_y = clear_cover + stirrup_db + (max_db / 2.0)
+        
+    centroid_from_surface = weighted_y / total_area if total_area > 0 else clear_cover
+    effective_d = max(h - centroid_from_surface, 1.0)
+    dt = max(h - outermost_y, 1.0)
+    
+    return (total_area, effective_d, dt, centroid_from_surface)
+
+
+# ============================================================================
+# 3. KDS 14 20 Core Numerical Algorithms
+# ============================================================================
+
+def calculate_stress_block_factors(fck: float) -> Tuple[float, float, float]:
+    """Calculate equivalent rectangular stress block factors (alpha1, beta1, ecu).
+    
+    Conforms to KDS 14 20 20:2022 Table 4.1-2:
+    - alpha1 (eta): 0.85 (fck <= 40 MPa), reduced for high-strength
+    - beta1: 0.80 (fck <= 28~50 MPa) or standard 0.85 with reduction
+    - ecu: 0.0033 (fck <= 40 MPa)
+    """
+    # Ultimate compressive strain ecu
+    if fck <= 40.0:
+        ecu = 0.0033
+    else:
+        ecu = max(0.0028, 0.0033 - 0.0001 * ((fck - 40.0) / 10.0))
+        
+    # Stress intensity factor alpha1 (eta * 0.85 / 0.85 = eta)
+    if fck <= 40.0:
+        alpha1 = 0.85
+    else:
+        alpha1 = max(0.65, 0.85 - 0.0015 * (fck - 40.0))
+        
+    # Depth factor beta1 (standard KDS 14 20 20: beta1 = 0.80 for fck <= 50 MPa)
+    if fck <= 28.0:
+        beta1 = 0.85
+    else:
+        beta1 = max(0.65, 0.85 - 0.007 * (fck - 28.0))
+        
+    return (alpha1, beta1, ecu)
+
+
+def calculate_rc_beam_flexure(
+    b: float,
+    h: float,
+    d: float,
+    dt: float,
+    d_prime: float,
+    As: float,
+    As_prime: float,
+    fck: float,
+    fy: float,
+    Mu: float,
+    shape: BeamShape = BeamShape.RECTANGULAR,
+    bf: Optional[float] = None,
+    hf: Optional[float] = None,
+    is_flange_in_compression: bool = False,
+    Es: float = 200000.0
+) -> FlexureResult:
+    """Rigorous non-linear equilibrium solver for singly/doubly/T-beam flexural capacity (KDS 14 20 20)."""
+    alpha1, beta1, ecu = calculate_stress_block_factors(fck)
+    ey = fy / Es
+    
+    # Effective compression width
+    b_eff = bf if (shape == BeamShape.TEE and is_flange_in_compression and bf and bf > b) else b
+    hf_val = hf if (shape == BeamShape.TEE and is_flange_in_compression and hf) else 0.0
+    
+    As = max(As, 0.0)
+    As_prime = max(As_prime, 0.0)
+    
+    if As <= 0.0:
+        return FlexureResult(
+            Mu=Mu, phi_Mn=0.0, d=d, c=0.0, a=0.0, epsilon_t=0.05, phi=0.85,
+            is_compression_yielding=False, As_req=0.0, As_prov=0.0,
+            rho=0.0, rho_min=0.0, rho_max=0.0, dcr=999.0 if Mu > 0 else 0.0, status="NG"
+        )
+        
+    T_tension = As * fy
+    
+    # ------------------------------------------------------------------------
+    # T-Beam Flange Check (KDS 14 20 20 4.1.3)
+    # ------------------------------------------------------------------------
+    is_flange_overhang_active = False
+    C_cf = 0.0
+    
+    if shape == BeamShape.TEE and is_flange_in_compression and bf and bf > b and hf_val > 0:
+        # Check if depth of stress block exceeds flange thickness hf
+        # Assume rectangular behavior with b_eff first
+        a_rect = T_tension / (alpha1 * fck * b_eff) if (alpha1 * fck * b_eff) > 0 else 0.0
+        if a_rect > hf_val:
+            is_flange_overhang_active = True
+            C_cf = alpha1 * fck * (bf - b) * hf_val
+            
+    # ------------------------------------------------------------------------
+    # Neutral Axis Equilibrium: Cc(c) + Cs(c) = T
+    # ------------------------------------------------------------------------
+    if As_prime > 0.0:
+        # Step 1: Assume compression steel yields (fs' = fy)
+        Cs_yield = As_prime * (fy - alpha1 * fck)
+        if is_flange_overhang_active:
+            # Overhang takes C_cf, web takes C_cw = alpha1 * fck * b * a
+            C_cw_yield = T_tension - Cs_yield - C_cf
+            a_yield = C_cw_yield / (alpha1 * fck * b) if (alpha1 * fck * b) > 0 else 0.0
+        else:
+            C_c_yield = T_tension - Cs_yield
+            a_yield = C_c_yield / (alpha1 * fck * b_eff) if (alpha1 * fck * b_eff) > 0 else 0.0
+            
+        c_yield = a_yield / beta1 if beta1 > 0 else 0.0
+        eps_sp_yield = ecu * (c_yield - d_prime) / c_yield if c_yield > 0 else 0.0
+        
+        if eps_sp_yield >= ey and a_yield > 0:
+            a = a_yield
+            c = c_yield
+            fs_prime = fy
+            is_compression_yielding = True
+        else:
+            # Step 2: Compression steel does not yield, solve quadratic equilibrium for c
+            # C_c = alpha1 * fck * beta1 * b_calc * c
+            # C_s = As_prime * [Es * ecu * (c - d') / c - alpha1 * fck]
+            b_calc = b if is_flange_overhang_active else b_eff
+            extra_C = C_cf if is_flange_overhang_active else 0.0
+            
+            # alpha1 * fck * beta1 * b_calc * c^2 + (As_prime * Es * ecu - alpha1 * fck * As_prime + extra_C - T_tension) * c - As_prime * Es * ecu * d_prime = 0
+            A_q = alpha1 * fck * beta1 * b_calc
+            B_q = As_prime * Es * ecu - alpha1 * fck * As_prime + extra_C - T_tension
+            C_q = - As_prime * Es * ecu * d_prime
+            
+            disc = max(B_q ** 2 - 4.0 * A_q * C_q, 0.0)
+            c = (-B_q + math.sqrt(disc)) / (2.0 * A_q) if A_q > 0 else 1.0
+            a = beta1 * c
+            eps_sp = ecu * (c - d_prime) / c if c > 0 else 0.0
+            fs_prime = min(max(Es * eps_sp, -fy), fy)
+            is_compression_yielding = (abs(fs_prime) >= fy * 0.999)
+    else:
+        if is_flange_overhang_active:
+            a = (T_tension - C_cf) / (alpha1 * fck * b) if (alpha1 * fck * b) > 0 else 0.0
+        else:
+            a = T_tension / (alpha1 * fck * b_eff) if (alpha1 * fck * b_eff) > 0 else 0.0
+        c = a / beta1 if beta1 > 0 else 0.0
+        fs_prime = 0.0
+        is_compression_yielding = False
+        
+    # ------------------------------------------------------------------------
+    # Net Tensile Strain epsilon_t and Strength Reduction Factor phi
+    # ------------------------------------------------------------------------
+    epsilon_t = ecu * (dt - c) / c if c > 0 else 0.05
+    phi = get_phi_flexure(epsilon_t, ey)
+    
+    # ------------------------------------------------------------------------
+    # Nominal and Design Flexural Capacity Mn, phi_Mn
+    # ------------------------------------------------------------------------
+    if is_flange_overhang_active:
+        C_cw = alpha1 * fck * b * a
+        Cs_val = As_prime * (fs_prime - alpha1 * fck) if As_prime > 0 else 0.0
+        Mn_Nmm = (
+            C_cf * (d - hf_val / 2.0) +
+            C_cw * (d - a / 2.0) +
+            Cs_val * (d - d_prime)
+        )
+    elif As_prime > 0.0:
+        Cc_val = alpha1 * fck * b_eff * a
+        Cs_val = As_prime * (fs_prime - alpha1 * fck)
+        Mn_Nmm = Cc_val * (d - a / 2.0) + Cs_val * (d - d_prime)
+    else:
+        Mn_Nmm = T_tension * (d - a / 2.0)
+        
+    Mn = max(Mn_Nmm / 1e6, 0.0)  # kN·m
+    phi_Mn = phi * Mn            # kN·m
+    dcr = Mu / phi_Mn if phi_Mn > 0 else (0.0 if Mu == 0.0 else 999.0)
+    
+    # ------------------------------------------------------------------------
+    # Reinforcement Ratios and Limits (KDS 14 20 20 4.2)
+    # ------------------------------------------------------------------------
+    rho = As / (b * d) if (b * d) > 0 else 0.0
+    rho_min = max(0.25 * math.sqrt(fck) / fy, 1.4 / fy)
+    rho_max = 0.85 * beta1 * (fck / fy) * (ecu / (ecu + 0.004))
+    
+    # Required steel area approximation
+    jd = max(d - a / 2.0, 0.7 * d)
+    As_req = (Mu * 1e6) / (phi * fy * jd) if (phi * fy * jd) > 0 else 0.0
+    
+    status = "OK" if (dcr <= 1.001 and epsilon_t >= 0.004) else "NG"
+    
+    return FlexureResult(
+        Mu=round(Mu, 2),
+        phi_Mn=round(phi_Mn, 2),
+        d=round(d, 1),
+        c=round(c, 1),
+        a=round(a, 1),
+        epsilon_t=round(epsilon_t, 5),
+        phi=round(phi, 3),
+        is_compression_yielding=is_compression_yielding,
+        As_req=round(As_req, 1),
+        As_prov=round(As, 1),
+        rho=round(rho, 4),
+        rho_min=round(rho_min, 4),
+        rho_max=round(rho_max, 4),
+        dcr=round(dcr, 3),
+        status=status
+    )
+
+
+def calculate_rc_beam_shear(
+    b: float,
+    d: float,
+    fck: float,
+    fyt: float,
+    Av: float,
+    s: float,
+    Vu: float,
+    lambda_factor: float = 1.0
+) -> ShearResult:
+    """Rigorous shear capacity and stirrup spacing check (KDS 14 20 22)."""
+    phi_v = 0.75
+    
+    # Concrete shear strength Vc
+    Vc_N = (1.0 / 6.0) * lambda_factor * math.sqrt(fck) * b * d
+    Vc = Vc_N / 1e3  # kN
+    
+    # Stirrup shear strength Vs
+    Vs_N = (Av * fyt * d) / s if s > 0 else 0.0
+    Vs_max_N = (2.0 / 3.0) * math.sqrt(fck) * b * d
+    Vs_N = min(Vs_N, Vs_max_N)
+    Vs = Vs_N / 1e3
+    
+    Vn = Vc + Vs
+    phi_Vn = phi_v * Vn
+    dcr = Vu / phi_Vn if phi_Vn > 0 else (0.0 if Vu == 0.0 else 999.0)
+    
+    # Maximum stirrup spacing s_max
+    if Vs > (1.0 / 3.0) * math.sqrt(fck) * b * d / 1e3:
+        s_max = min(d / 4.0, 300.0)
+    else:
+        s_max = min(d / 2.0, 600.0)
+        
+    # Minimum shear reinforcement Av_min
+    Av_min = max(0.0625 * math.sqrt(fck) * (b * s) / fyt, 0.35 * (b * s) / fyt) if s > 0 else 0.0
+    
+    is_spacing_ok = (s <= s_max * 1.001)
+    status = "OK" if (dcr <= 1.0 and is_spacing_ok) else "NG"
+    
+    return ShearResult(
+        Vu=round(Vu, 2),
+        Vc=round(Vc, 2),
+        Vs=round(Vs, 2),
+        Vn=round(Vn, 2),
+        phi_Vn=round(phi_Vn, 2),
+        phi=phi_v,
+        s_max=round(s_max, 1),
+        Av_min=round(Av_min, 1),
+        Av_prov=round(Av, 1),
+        dcr=round(dcr, 3),
+        status=status
+    )
+
+
+def calculate_rc_beam_torsion(
+    b: float,
+    h: float,
+    d: float,
+    fck: float,
+    fy: float,
+    fyt: float,
+    Av: float,
+    s: float,
+    side_bar_area: float,
+    side_cover: float,
+    Tu: float,
+    Vu: float,
+    Vc_kN: float,
+    lambda_factor: float = 1.0
+) -> TorsionResult:
+    """Rigorous torsion capacity, threshold check, and combined stress verification (KDS 14 20 22)."""
+    phi_t = 0.75
+    Acp = b * h
+    pcp = 2.0 * (b + h)
+    
+    # Threshold torsion Tth and cracking torsion Tcr
+    Tth_Nmm = 0.0625 * lambda_factor * math.sqrt(fck) * (Acp ** 2) / pcp
+    Tcr_Nmm = 0.25 * lambda_factor * math.sqrt(fck) * (Acp ** 2) / pcp
+    Tth = Tth_Nmm / 1e6  # kN·m
+    Tcr = Tcr_Nmm / 1e6  # kN·m
+    
+    Tu_abs = abs(Tu)
+    is_torsion_ignored = (Tu_abs <= phi_t * Tth)
+    
+    # Closed stirrup dimensions Aoh, ph, Ao
+    boh = max(b - 2.0 * side_cover, 10.0)
+    hoh = max(h - 2.0 * side_cover, 10.0)
+    Aoh = boh * hoh
+    ph = 2.0 * (boh + hoh)
+    Ao = 0.85 * Aoh
+    
+    if not is_torsion_ignored and Tu_abs > 0:
+        Tn_req_Nmm = (Tu_abs / phi_t) * 1e6
+        # At/s for single leg: Tn = (2 * Ao * At * fyt / s) * cot(45)
+        At_over_s_req = Tn_req_Nmm / (2.0 * Ao * fyt * 1.0)
+        Al_req = At_over_s_req * ph * (fyt / fy) * 1.0
+        Al_min = max((0.42 * math.sqrt(fck) * Acp / fy) - (At_over_s_req * ph * (fyt / fy)), 0.0)
+        
+        # Provided torsion stirrup capacity
+        At_prov = Av / 2.0
+        Tn_Nmm = (2.0 * Ao * At_prov * fyt * 1.0) / s if s > 0 else 0.0
+        Tn = Tn_Nmm / 1e6
+        phi_Tn = phi_t * Tn
+        torsion_dcr = Tu_abs / phi_Tn if phi_Tn > 0 else 999.0
+        
+        # Combined shear-torsion cross section dimension check
+        vu = (Vu * 1e3) / (b * d)
+        tu = (Tu_abs * 1e6 * ph) / (1.7 * (Aoh ** 2))
+        combined_stress = math.sqrt(vu ** 2 + tu ** 2)
+        combined_limit = phi_t * ((Vc_kN * 1e3 / (b * d)) + (2.0 / 3.0) * math.sqrt(fck))
+        combined_dcr = combined_stress / combined_limit if combined_limit > 0 else 999.0
+        cross_section_check = "OK (Cross section adequate)" if combined_dcr <= 1.0 else "NG (Section enlargement required)"
+        
+        total_dcr = max(torsion_dcr, combined_dcr)
+        status = "OK" if total_dcr <= 1.0 else "NG"
+    else:
+        Tn = 0.0
+        phi_Tn = 0.0
+        Al_req = 0.0
+        total_dcr = 0.0
+        cross_section_check = "OK (Torsion negligible)"
+        status = "OK"
+        
+    return TorsionResult(
+        Tu=round(Tu, 2),
+        Tth=round(Tth, 2),
+        Tcr=round(Tcr, 2),
+        Tn=round(Tn, 2),
+        phi_Tn=round(phi_Tn, 2),
+        phi=phi_t,
+        cross_section_check=cross_section_check,
+        Al_req=round(Al_req, 1),
+        Al_prov=round(side_bar_area, 1),
+        dcr=round(total_dcr, 3),
+        status=status
+    )
+
+
+def calculate_rc_beam_serviceability(
+    b: float,
+    h: float,
+    d: float,
+    d_prime: float,
+    As: float,
+    As_prime: float,
+    fck: float,
+    fy: float,
+    Ma: float,
+    Msus: float,
+    length: float,
+    support: SupportCondition,
+    clear_cover: float,
+    stirrup_db: float,
+    num_tension_bars: int,
+    defl_ratio: float = 240.0,
+    time_duration_months: int = 60,
+    w_lim: float = 0.30
+) -> ServiceabilityResult:
+    """Rigorous Branson Ie deflection and direct crack width evaluation (KDS 14 20 30)."""
+    # Concrete Elastic Modulus Ec = 8500 * (fcu)^(1/3)
+    fcu = fck + 4.0 if fck <= 40.0 else fck + 6.0
+    Ec = 8500.0 * (fcu ** (1.0 / 3.0))
+    Es = 200000.0
+    n_ratio = Es / Ec
+    
+    # Gross section properties
+    Ig_mm4 = (b * (h ** 3)) / 12.0
+    yt = h / 2.0
+    fr = 0.63 * 1.0 * math.sqrt(fck)
+    Mcr_Nmm = (fr * Ig_mm4) / yt
+    Mcr = Mcr_Nmm / 1e6  # kN·m
+    
+    # Cracked transformed section: solve for neutral axis kd
+    A_kd = 0.5 * b
+    B_kd = n_ratio * As + max((n_ratio - 1.0) * As_prime, 0.0)
+    C_kd = - (n_ratio * As * d + max((n_ratio - 1.0) * As_prime * d_prime, 0.0))
+    disc_kd = max(B_kd ** 2 - 4.0 * A_kd * C_kd, 0.0)
+    kd = (-B_kd + math.sqrt(disc_kd)) / (2.0 * A_kd) if A_kd > 0 else 0.3 * d
+    
+    # Cracked moment of inertia Icr
+    Icr_mm4 = (b * (kd ** 3)) / 3.0 + n_ratio * As * ((d - kd) ** 2)
+    if As_prime > 0 and kd > d_prime:
+        Icr_mm4 += (n_ratio - 1.0) * As_prime * ((kd - d_prime) ** 2)
+        
+    Ma_abs = abs(Ma)
+    if Ma_abs <= Mcr or Mcr == 0.0:
+        Ie_mm4 = Ig_mm4
+    else:
+        m_ratio = (Mcr / Ma_abs) ** 3
+        Ie_mm4 = m_ratio * Ig_mm4 + (1.0 - m_ratio) * Icr_mm4
+        Ie_mm4 = min(Ie_mm4, Ig_mm4)
+        
+    # Support deflection coefficient alpha
+    if support == SupportCondition.SIMPLE:
+        alpha_defl = 5.0 / 48.0
+    elif support == SupportCondition.CONTINUOUS_ONE:
+        alpha_defl = 0.08
+    elif support == SupportCondition.CONTINUOUS_BOTH:
+        alpha_defl = 0.05
+    elif support == SupportCondition.CANTILEVER:
+        alpha_defl = 0.25
+    else:
+        alpha_defl = 5.0 / 48.0
+        
+    # Immediate elastic deflection delta_i
+    delta_immediate = (alpha_defl * (Ma_abs * 1e6) * (length ** 2)) / (Ec * Ie_mm4) if (Ec * Ie_mm4) > 0 else 0.0
+    
+    # Long-term multiplier lambda_delta (xi = 2.0 for 5+ years)
+    xi_factor = 2.0 if time_duration_months >= 60 else (1.4 if time_duration_months >= 12 else (1.2 if time_duration_months >= 6 else 1.0))
+    rho_prime = As_prime / (b * d) if (b * d) > 0 else 0.0
+    lambda_delta = xi_factor / (1.0 + 50.0 * rho_prime)
+    
+    # Sustained deflection
+    sustained_ratio = (abs(Msus) / Ma_abs) if (Ma_abs > 0 and abs(Msus) > 0) else 0.70
+    delta_sustained = delta_immediate * sustained_ratio
+    delta_long_term = lambda_delta * delta_sustained
+    delta_total = delta_immediate + delta_long_term
+    
+    delta_allow = length / defl_ratio if defl_ratio > 0 else 25.0
+    dcr_defl = delta_total / delta_allow if delta_allow > 0 else 0.0
+    
+    # Direct crack width check (KDS 14 20 30 4.2)
+    jd = d - kd / 3.0
+    fs_service = (Ma_abs * 1e6) / (As * jd) if (As * jd) > 0 else 0.0
+    fs_service = min(fs_service, 0.6 * fy)
+    
+    # Outermost bar centroid distance to bottom face dc
+    main_db = 22.0
+    dc = clear_cover + stirrup_db + (main_db / 2.0)
+    n_bars = max(num_tension_bars, 2)
+    A_eff = (2.0 * dc * b) / n_bars
+    beta_crack = (h - kd) / (d - kd) if (d - kd) > 0 else 1.2
+    
+    eps_s_service = fs_service / Es
+    crack_width = 1.08 * beta_crack * eps_s_service * ((dc * A_eff) ** (1.0 / 3.0)) if (dc * A_eff) > 0 else 0.0
+    dcr_crack = crack_width / w_lim if w_lim > 0 else 0.0
+    
+    status = "OK" if (dcr_defl <= 1.0 and dcr_crack <= 1.0) else "NG"
+    
+    return ServiceabilityResult(
+        Mcr=round(Mcr, 2),
+        I_g=round(Ig_mm4 / 1e4, 1),    # cm4
+        I_cr=round(Icr_mm4 / 1e4, 1),  # cm4
+        I_e=round(Ie_mm4 / 1e4, 1),    # cm4
+        delta_immediate=round(delta_immediate, 2),
+        lambda_delta=round(lambda_delta, 3),
+        delta_long_term=round(delta_long_term, 2),
+        delta_total=round(delta_total, 2),
+        delta_allow=round(delta_allow, 2),
+        crack_width=round(crack_width, 3),
+        crack_allow=round(w_lim, 2),
+        dcr_defl=round(dcr_defl, 3),
+        dcr_crack=round(dcr_crack, 3),
+        status=status
+    )
+
+
+# ============================================================================
+# 4. Master Design Orchestration Function (calculate_rc_beam_design)
+# ============================================================================
+
+def calculate_rc_beam_design(
+    section: RCBeamSection,
+    rebar: RCBeamRebar,
+    loads: RCBeamLoads
+) -> RCBeamResult:
+    """Master high-level verification orchestrator across 3 stations (End-I, Center-M, End-J)."""
+    b = section.b
+    h = section.h
+    fck = section.fck
+    fy = section.fy
+    fyt = section.fyt
+    
+    # Station rebar groups and loads
+    stations = [
+        ("end_i", rebar.end_i, loads.end_i),
+        ("center_m", rebar.center_m, loads.center_m),
+        ("end_j", rebar.end_j, loads.end_j),
+    ]
+    
+    station_results = {}
+    max_dcr = 0.0
+    governing_mode = "Flexure"
+    
+    # Torsion side bar area
+    side_bar_area = 0.0
+    if rebar.torsion_side_count > 0 and rebar.torsion_side_bar:
+        side_bar_area = rebar.torsion_side_count * get_rebar_area(rebar.torsion_side_bar)
+        
+    for name, rgroup, ploads in stations:
+        stirrup_db = get_rebar_db(rgroup.stirrup_bar)
+        stirrup_area = rgroup.stirrup_legs * get_rebar_area(rgroup.stirrup_bar)
+        
+        # 1. Positive Moment Flexure (Bottom steel in tension, top in compression)
+        As_bot, d_bot, dt_bot, _ = calculate_rebar_group_properties(
+            rgroup.bot_bars, h, section.cover, stirrup_db, is_top=False
+        )
+        As_top, _, _, dp_top = calculate_rebar_group_properties(
+            rgroup.top_bars, h, section.cover_top, stirrup_db, is_top=True
+        )
+        
+        pos_flex = calculate_rc_beam_flexure(
+            b=b, h=h, d=d_bot, dt=dt_bot, d_prime=dp_top,
+            As=As_bot, As_prime=As_top, fck=fck, fy=fy,
+            Mu=ploads.Mu_pos, shape=section.shape, bf=section.bf, hf=section.hf,
+            is_flange_in_compression=True
+        )
+        
+        # 2. Negative Moment Flexure (Top steel in tension, bottom in compression)
+        # Note: In negative bending, flange of T-beam is in tension, so compression width is bw = b
+        neg_flex = calculate_rc_beam_flexure(
+            b=b, h=h, d=h - dp_top, dt=h - section.cover_top - stirrup_db - (get_rebar_db(rgroup.top_bars[0].bar_dia) / 2.0 if rgroup.top_bars else 10.0),
+            d_prime=h - d_bot, As=As_top, As_prime=As_bot, fck=fck, fy=fy,
+            Mu=ploads.Mu_neg, shape=BeamShape.RECTANGULAR, bf=None, hf=None,
+            is_flange_in_compression=False
+        )
+        
+        # 3. Shear
+        d_shear = min(d_bot, h - dp_top)
+        shear_res = calculate_rc_beam_shear(
+            b=b, d=d_shear, fck=fck, fyt=fyt,
+            Av=stirrup_area, s=rgroup.stirrup_spacing, Vu=ploads.Vu
+        )
+        
+        # 4. Torsion
+        torsion_res = calculate_rc_beam_torsion(
+            b=b, h=h, d=d_shear, fck=fck, fy=fy, fyt=fyt,
+            Av=stirrup_area, s=rgroup.stirrup_spacing,
+            side_bar_area=side_bar_area, side_cover=section.cover,
+            Tu=ploads.Tu, Vu=ploads.Vu, Vc_kN=shear_res.Vc
+        )
+        
+        # Track governing DCR
+        for mode_name, dcr_val in [
+            (f"{name} Pos Flexure", pos_flex.dcr),
+            (f"{name} Neg Flexure", neg_flex.dcr),
+            (f"{name} Shear", shear_res.dcr),
+            (f"{name} Torsion", torsion_res.dcr)
+        ]:
+            if dcr_val > max_dcr:
+                max_dcr = dcr_val
+                governing_mode = mode_name
+                
+        station_results[name] = RCBeamSectionResult(
+            pos_flexure=pos_flex,
+            neg_flexure=neg_flex,
+            shear=shear_res,
+            torsion=torsion_res
+        )
+        
+    # 5. Serviceability (Evaluated at Center-M)
+    mid_rgroup = rebar.center_m
+    mid_loads = loads.center_m
+    mid_stirrup_db = get_rebar_db(mid_rgroup.stirrup_bar)
+    mid_As_bot, mid_d_bot, _, _ = calculate_rebar_group_properties(
+        mid_rgroup.bot_bars, h, section.cover, mid_stirrup_db, is_top=False
+    )
+    mid_As_top, _, _, mid_dp_top = calculate_rebar_group_properties(
+        mid_rgroup.top_bars, h, section.cover_top, mid_stirrup_db, is_top=True
+    )
+    num_bot_bars = sum(row.count for row in mid_rgroup.bot_bars)
+    
+    serv_res = calculate_rc_beam_serviceability(
+        b=b, h=h, d=mid_d_bot, d_prime=mid_dp_top,
+        As=mid_As_bot, As_prime=mid_As_top, fck=fck, fy=fy,
+        Ma=mid_loads.Ma_pos if mid_loads.Ma_pos > 0 else (mid_loads.Ma_neg if mid_loads.Ma_neg > 0 else 0.0),
+        Msus=mid_loads.Msus, length=section.length, support=section.support,
+        clear_cover=section.cover, stirrup_db=mid_stirrup_db,
+        num_tension_bars=num_bot_bars, defl_ratio=loads.deflection_limit_ratio
+    )
+    
+    if serv_res.dcr_defl > max_dcr:
+        max_dcr = serv_res.dcr_defl
+        governing_mode = "Deflection"
+    if serv_res.dcr_crack > max_dcr:
+        max_dcr = serv_res.dcr_crack
+        governing_mode = "Crack Width"
+        
+    overall_status = "OK" if max_dcr <= 1.0 else "NG"
+    
+    return RCBeamResult(
+        end_i=station_results["end_i"],
+        center_m=station_results["center_m"],
+        end_j=station_results["end_j"],
+        serviceability=serv_res,
+        max_dcr=round(max_dcr, 3),
+        governing_mode=governing_mode,
+        status=overall_status
+    )
+
+
+# ============================================================================
+# 5. Backward Compatibility Layer (RCBeamInput & design_rc_beam)
+# ============================================================================
 
 @dataclass
 class RCBeamInput:
-    """RC Beam Geometry, Materials, Loading, and Serviceability Input Parameters."""
+    """RC Beam Geometry, Materials, Loading, and Serviceability Input Parameters (Legacy)."""
     name: str = "B1"
     b: float = 400.0           # mm (Section width bw)
     h: float = 600.0           # mm (Section total depth)
@@ -58,8 +935,8 @@ class RCBeamInput:
 
 
 @dataclass
-class RCBeamResult:
-    """RC Beam Design & Verification Output (Strength + Serviceability)."""
+class RCBeamLegacyResult:
+    """RC Beam Design & Verification Output (Legacy Dataclass Format)."""
     # 1. Flexure (KDS 14 20 20)
     d: float                   # mm (Effective tension depth)
     d_prime: float             # mm (Effective compression depth)
@@ -126,8 +1003,8 @@ class RCBeamResult:
     summary: str
 
 
-def design_rc_beam(inp: RCBeamInput) -> RCBeamResult:
-    """Perform full KDS 14 20 00 structural capacity and serviceability check for an RC beam."""
+def design_rc_beam(inp: RCBeamInput) -> RCBeamLegacyResult:
+    """Perform full KDS 14 20 00 structural capacity and serviceability check for an RC beam (Legacy)."""
     b = inp.b
     h = inp.h
     d = max(h - inp.cover, 1.0)
@@ -279,8 +1156,6 @@ def design_rc_beam(inp: RCBeamInput) -> RCBeamResult:
     
     # Cracked transformed section: kd
     n_ratio = Es / Ec
-    # Solve 0.5 * b * (kd)^2 + (n-1)*As'* (kd - d') = n * As * (d - kd)
-    # 0.5 * b * kd^2 + [n*As + (n-1)*As'] * kd - [n*As*d + (n-1)*As'*d'] = 0
     A_kd = 0.5 * b
     B_kd = n_ratio * As + max((n_ratio - 1.0) * As_prime, 0.0)
     C_kd = - (n_ratio * As * d + max((n_ratio - 1.0) * As_prime * d_prime, 0.0))
@@ -305,7 +1180,6 @@ def design_rc_beam(inp: RCBeamInput) -> RCBeamResult:
     
     # 4.2 Immediate and Long-term Deflection
     L = inp.span_length
-    # Elastic deflection: delta_i = 5 * Ma * L^2 / (48 * Ec * Ie) for simply supported beam
     delta_elastic = (5.0 * (Ma_abs * 1e6) * (L ** 2)) / (48.0 * Ec * Ie_mm4) if (Ec * Ie_mm4) > 0 else 0.0
     
     # Time factor xi for sustained load
@@ -331,19 +1205,15 @@ def design_rc_beam(inp: RCBeamInput) -> RCBeamResult:
     deflection_dcr = delta_total / delta_allowable if delta_allowable > 0 else 0.0
     
     # 4.3 Direct Crack Width Check (KDS 14 20 30)
-    # Service steel stress fs = Ma / (As * (d - kd / 3))
     jd = d - kd / 3.0
     fs_service = (Ma_abs * 1e6) / (As * jd) if (As * jd) > 0 else 0.0
     fs_service = min(fs_service, 0.6 * fy)
     
-    # dc: distance from extreme tension fiber to center of closest bar
     dc = inp.cover
     n_bars = max(inp.num_tension_bars, 2)
     A_eff = (2.0 * dc * b) / n_bars
     beta_crack = (h - kd) / (d - kd) if (d - kd) > 0 else 1.2
     
-    # Gergely-Lutz / Frosch crack width equation (mm)
-    # w = 1.08 * beta * (fs / Es) * (dc * A_eff)^(1/3)
     eps_s_service = fs_service / Es
     crack_width = 1.08 * beta_crack * eps_s_service * ((dc * A_eff) ** (1.0 / 3.0)) if (dc * A_eff) > 0 else 0.0
     crack_dcr = crack_width / inp.w_lim if inp.w_lim > 0 else 0.0
@@ -362,7 +1232,7 @@ def design_rc_beam(inp: RCBeamInput) -> RCBeamResult:
         f"Deflection: {deflection_dcr:.3f} (delta={delta_total:.1f}mm), Crack: {crack_dcr:.3f} (w={crack_width:.2f}mm)"
     )
     
-    return RCBeamResult(
+    return RCBeamLegacyResult(
         d=d,
         d_prime=d_prime,
         a=a,

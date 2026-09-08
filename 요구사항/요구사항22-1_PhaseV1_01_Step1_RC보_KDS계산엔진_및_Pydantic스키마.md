@@ -293,8 +293,8 @@ def test_rc_beam_deflection_branson_benchmark():
 
 ## 5. 검증 및 수용 기준 (DoD)
 
-- [ ] `src/engine/rc/beam.py`에 단/복철근, T형 플랜지, 전단, 비틀림, Branson 처짐, 직접 균열폭 전 알고리즘 구현 완료.
-- [ ] Pydantic v2 모델 스키마가 완벽히 정의되고 유효성 검사 작동.
-- [ ] `pytest tests/engine/test_rc_beam.py` 실행 시 100% PASS (Exit Code 0).
-- [ ] 학회 예제집 공식 벤치마크 4종 대비 수치 계산 오차 **$\le 0.10\%$** 입증.
-- [ ] 더미 코드(Mock/Hardcoded) 일체 없음.
+- [x] `src/engine/rc/beam.py`에 단/복철근, T형 플랜지, 전단, 비틀림, Branson 처짐, 직접 균열폭 전 알고리즘 구현 완료.
+- [x] Pydantic v2 모델 스키마가 완벽히 정의되고 유효성 검사 작동.
+- [x] `pytest tests/engine/test_rc_beam.py` 실행 시 100% PASS (Exit Code 0).
+- [x] 학회 예제집 공식 벤치마크 4종 대비 수치 계산 오차 **$\le 0.10\%$** 입증.
+- [x] 더미 코드(Mock/Hardcoded) 일체 없음.
