@@ -570,7 +570,115 @@ const CommonDialogs = {
      */
     openBeamSectionDetail(current = {}, onApply) {
         return this.openBeamBeffDialog(current, onApply);
+    },
+
+    /**
+     * 5. 계산서 머릿말 및 결재란 설정 모달 (IDD_REPORT_HEADER_DLG) - Phase 21-5
+     */
+    openReportHeaderDialog(current = {}, onApply) {
+        const today = new Date().toISOString().slice(0, 10);
+        const projectName = current.projectName || 'AltDP_3rd KDS Automated Engineering';
+        const companyName = current.companyName || '(주)한국구조기술엔지니어링';
+        const companyShort = current.companyShort || 'K-STRUCT';
+        const memberTag = current.memberTag || '1F-B1';
+        const date = current.date || today;
+        const engineer = current.engineer || '홍길동 (작성)';
+        const checker = current.checker || '이몽룡 (검토)';
+        const approver = current.approver || '성춘향 (승인)';
+
+        const html = `
+            <div class="eng-dialog-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:12px;">
+                <div class="dialog-field-group" style="grid-column: span 2;">
+                    <label style="font-weight:600;display:block;margin-bottom:4px;">프로젝트 명칭 (Project Name):</label>
+                    <input type="text" id="dlg-hdr-project" class="form-input" style="width:100%;box-sizing:border-box;padding:6px;border:1px solid #cbd5e1;border-radius:4px;" value="${projectName}">
+                </div>
+                <div class="dialog-field-group">
+                    <label style="font-weight:600;display:block;margin-bottom:4px;">회사명 (정식):</label>
+                    <input type="text" id="dlg-hdr-company" class="form-input" style="width:100%;box-sizing:border-box;padding:6px;border:1px solid #cbd5e1;border-radius:4px;" value="${companyName}">
+                </div>
+                <div class="dialog-field-group">
+                    <label style="font-weight:600;display:block;margin-bottom:4px;">회사 약칭 (Short Name):</label>
+                    <input type="text" id="dlg-hdr-company-short" class="form-input" style="width:100%;box-sizing:border-box;padding:6px;border:1px solid #cbd5e1;border-radius:4px;" value="${companyShort}">
+                </div>
+                <div class="dialog-field-group">
+                    <label style="font-weight:600;display:block;margin-bottom:4px;">부재 태그 (Member ID):</label>
+                    <input type="text" id="dlg-hdr-tag" class="form-input" style="width:100%;box-sizing:border-box;padding:6px;border:1px solid #cbd5e1;border-radius:4px;" value="${memberTag}">
+                </div>
+                <div class="dialog-field-group">
+                    <label style="font-weight:600;display:block;margin-bottom:4px;">검토 일자 (Date):</label>
+                    <input type="date" id="dlg-hdr-date" class="form-input" style="width:100%;box-sizing:border-box;padding:6px;border:1px solid #cbd5e1;border-radius:4px;" value="${date}">
+                </div>
+                <div class="dialog-field-group">
+                    <label style="font-weight:600;display:block;margin-bottom:4px;">작성자 (Engineer):</label>
+                    <input type="text" id="dlg-hdr-engineer" class="form-input" style="width:100%;box-sizing:border-box;padding:6px;border:1px solid #cbd5e1;border-radius:4px;" value="${engineer}">
+                </div>
+                <div class="dialog-field-group">
+                    <label style="font-weight:600;display:block;margin-bottom:4px;">검토자 (Checker):</label>
+                    <input type="text" id="dlg-hdr-checker" class="form-input" style="width:100%;box-sizing:border-box;padding:6px;border:1px solid #cbd5e1;border-radius:4px;" value="${checker}">
+                </div>
+                <div class="dialog-field-group" style="grid-column: span 2;">
+                    <label style="font-weight:600;display:block;margin-bottom:4px;">승인자 (Approver):</label>
+                    <input type="text" id="dlg-hdr-approver" class="form-input" style="width:100%;box-sizing:border-box;padding:6px;border:1px solid #cbd5e1;border-radius:4px;" value="${approver}">
+                </div>
+            </div>
+        `;
+
+        const applyAction = (modalEl) => {
+            const result = {
+                projectName: modalEl.querySelector('#dlg-hdr-project')?.value.trim() || projectName,
+                companyName: modalEl.querySelector('#dlg-hdr-company')?.value.trim() || companyName,
+                companyShort: modalEl.querySelector('#dlg-hdr-company-short')?.value.trim() || companyShort,
+                memberTag: modalEl.querySelector('#dlg-hdr-tag')?.value.trim() || memberTag,
+                date: modalEl.querySelector('#dlg-hdr-date')?.value || date,
+                engineer: modalEl.querySelector('#dlg-hdr-engineer')?.value.trim() || engineer,
+                checker: modalEl.querySelector('#dlg-hdr-checker')?.value.trim() || checker,
+                approver: modalEl.querySelector('#dlg-hdr-approver')?.value.trim() || approver,
+                logoUrl: current.logoUrl || ''
+            };
+            if (typeof onApply === 'function') {
+                onApply(result);
+            }
+        };
+
+        if (window.ModalManager && typeof window.ModalManager.openModal === 'function') {
+            window.ModalManager.openModal({
+                title: '⚙️ 계산서 머릿말 및 결재란 설정 (IDD_REPORT_HEADER_DLG)',
+                bodyHtml: html,
+                width: 520,
+                onApply: applyAction
+            });
+        } else {
+            // ModalManager 없을 경우 fallback
+            const overlay = document.createElement('div');
+            overlay.className = 'modal-backdrop';
+            overlay.id = 'app-modal-overlay';
+            overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;';
+            overlay.innerHTML = `
+                <div class="eng-modal-card" style="background:#ffffff;color:#1e293b;padding:24px;border-radius:8px;width:520px;box-shadow:0 10px 25px rgba(0,0,0,0.3);">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;border-bottom:1px solid #e2e8f0;padding-bottom:8px;">
+                        <h3 style="margin:0;font-size:15px;font-weight:700;color:#0f172a;">⚙️ 계산서 머릿말 및 결재란 설정 (IDD_REPORT_HEADER_DLG)</h3>
+                        <button id="btn-close-hdr-fallback" style="background:none;border:none;font-size:18px;cursor:pointer;">✕</button>
+                    </div>
+                    ${html}
+                    <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:20px;border-top:1px solid #e2e8f0;padding-top:12px;">
+                        <button id="btn-cancel-hdr-fallback" style="padding:6px 14px;border:1px solid #cbd5e1;background:#f8fafc;border-radius:4px;cursor:pointer;">취소</button>
+                        <button id="btn-apply-hdr-fallback" style="padding:6px 16px;background:#2563eb;color:#ffffff;border:none;border-radius:4px;font-weight:700;cursor:pointer;">적용</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+            const close = () => {
+                if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+            };
+            overlay.querySelector('#btn-close-hdr-fallback').onclick = close;
+            overlay.querySelector('#btn-cancel-hdr-fallback').onclick = close;
+            overlay.querySelector('#btn-apply-hdr-fallback').onclick = () => {
+                applyAction(overlay);
+                close;
+            };
+        }
     }
 };
 
 window.CommonDialogs = CommonDialogs;
+

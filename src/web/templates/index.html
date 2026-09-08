@@ -236,8 +236,41 @@
                         <!-- Zoom & Print controls injected by zoom_controller.js -->
                     </div>
                 </div>
+
+                <!-- Report Control Toolbar (Req 21-5 & DOCS 07 Spec) -->
+                <div id="report-control-toolbar" class="report-toolbar">
+                    <!-- 1. 보고서 유형 분기 -->
+                    <div class="toolbar-group">
+                        <span class="group-label">유형:</span>
+                        <label class="radio-label" title="인허가 관공서 및 구조심의 제출용 정밀 수식 전개 계산서">
+                            <input type="radio" name="report-mode" value="detail" checked> 상세 보고서 (Detail)
+                        </label>
+                        <label class="radio-label" title="실무 퀵 검토 및 배근 현장용 1~2페이지 압축 레이아웃">
+                            <input type="radio" name="report-mode" value="summary"> 요약 보고서 (Summary)
+                        </label>
+                    </div>
+
+                    <!-- 2. 출력 옵션 체크박스 -->
+                    <div class="toolbar-group">
+                        <label class="checkbox-label" title="설계자가 입력한 재료/배근/하중 제원 상세 표 수록 여부">
+                            <input type="checkbox" id="chk-report-include-input" checked> 사용자 입력 데이터 상세 포함
+                        </label>
+                        <label class="checkbox-label" title="2D 단면도 및 P-M 곡선 이미지 삽입">
+                            <input type="checkbox" id="chk-report-include-graphics" checked> 그래픽 임베딩
+                        </label>
+                    </div>
+
+                    <!-- 3. 커스텀 설정 및 출력 액션 -->
+                    <div class="toolbar-actions">
+                        <button id="btn-report-header-settings" class="btn-tool" title="머릿말/회사명/서명란 설정">⚙️ 머릿말 설정</button>
+                        <button id="btn-report-print" class="btn-primary-sm" title="브라우저 인쇄 (A4 순백색)">🖨️ 인쇄</button>
+                        <button id="btn-report-pdf" class="btn-tool" title="WeasyPrint 고화질 PDF 다운로드">📄 PDF</button>
+                        <button id="btn-report-excel" class="btn-tool" title="OpenPyXL 엑셀 내보내기">📊 Excel</button>
+                    </div>
+                </div>
+
                 <div class="report-scroll-wrap" id="result-container">
-                    <!-- Dynamic Results & KDS Calculations injected by result_renderer.js -->
+                    <!-- Dynamic Results & KDS Calculations injected by report_engine.js / result_renderer.js -->
                     <div id="resultTable" style="display:none;"></div>
                 </div>
             </aside>
@@ -265,6 +298,7 @@
     <script src="/static/js/core/form_builder.js?v=20.8"></script>
     <script src="/static/js/core/report_katex.js?v=20.8"></script>
     <script src="/static/js/core/report_renderer.js?v=20.8"></script>
+    <script src="/static/js/core/report_engine.js?v=21.5"></script>
 
     <!-- 0.1 Specialized Flagship Member Modules -->
     <script src="/static/js/modules/rc_beam/rc_beam_module.js?v=20.8"></script>

@@ -122,7 +122,7 @@ window.ResultRenderer = {
             </section>
 
             <!-- 제 2장: 재질 및 단면 제원 -->
-            <section style="margin-bottom:24px;">
+            <section class="user-input-section" style="margin-bottom:24px;${window.ReportEngine && !window.ReportEngine.includeInput ? 'display:none;' : ''}">
                 <h2 style="font-size:14px;font-weight:700;color:#1e3a8a;border-bottom:1px solid #cbd5e1;padding-bottom:6px;margin:0 0 10px;">제 2장. 재질 및 단면 제원 (Material & Section Properties)</h2>
                 ${inputRows.length > 0 ? `
                 <table style="width:100%;border-collapse:collapse;font-size:11.5px;">
@@ -183,6 +183,13 @@ window.ResultRenderer = {
         this.currentResult = resultData || null;
         this.currentModulePath = modulePath || '';
         this.currentInputs = inputParams || {};
+
+        if (window.ReportEngine && typeof window.ReportEngine.init === 'function') {
+            window.ReportEngine.currentMemberData = inputParams;
+            window.ReportEngine.currentCalcResult = resultData;
+            window.ReportEngine.currentModuleKey = modulePath;
+            window.ReportEngine.init();
+        }
 
         const isWip = !resultData || 
                       resultData.status === 'NOT_YET_IMPLEMENTED' || 

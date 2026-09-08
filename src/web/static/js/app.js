@@ -16,6 +16,7 @@ async function initApp() {
     try { if (window.LayoutResizer) window.LayoutResizer.init(); } catch (e) { console.error('[init] LayoutResizer failed:', e); }
     try { if (window.MemberManager) window.MemberManager.init(); } catch (e) { console.error('[init] MemberManager failed:', e); }
     try { if (window.GraphicViewport) window.GraphicViewport.init(); } catch (e) { console.error('[init] GraphicViewport failed:', e); }
+    try { if (window.ReportEngine) window.ReportEngine.init(); } catch (e) { console.error('[init] ReportEngine failed:', e); }
     try {
         if (window.ModuleDispatcher) {
             window.ModuleDispatcher.init({

@@ -28,6 +28,8 @@
     .graphic-toolbar,
     .report-top-actions,
     .top-summary-toolbar,
+    .report-toolbar,
+    #report-control-toolbar,
     .input-action-bar,
     .pane-header {
         display: none !important;
