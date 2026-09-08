@@ -837,3 +837,56 @@ table.trial-tbl td {
     display: none !important;
 }
 
+/* Chapter Headings & Dynamic Numbering */
+.chapter-heading {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.chapter-num {
+    font-weight: 800;
+    color: #1565c0;
+}
+
+.chapter-title {
+    font-weight: 700;
+}
+
+/* KaTeX and Math Fallback Layout Refinements */
+.math-inline-rendered,
+.math-inline-fallback {
+    display: inline-block;
+    padding: 0 2px;
+    font-style: normal;
+}
+
+.math-block-rendered,
+.math-display-fallback {
+    display: block;
+    margin: 4px 0;
+    text-align: center;
+}
+
+.math-frac {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.9em;
+    padding: 0 2px;
+}
+
+.math-num {
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 1px;
+}
+
+.math-bar {
+    display: none;
+}
+
+.math-den {
+    padding-top: 1px;
+}
+

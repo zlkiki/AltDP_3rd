@@ -202,6 +202,45 @@
                     sec.style.display = 'none';
                 }
             });
+
+            // Update chapter numbering immediately
+            this.updateChapterNumbering();
+        }
+
+        /**
+         * Dynamically re-sequence chapter numbers (제 1장, 제 2장...) based on current visibility and report mode
+         * @param {HTMLElement} [container]
+         */
+        updateChapterNumbering(container) {
+            const root = container || this.currentContainer || document.getElementById('main-result-viewport') || document.getElementById('result-container');
+            if (!root) return;
+
+            const chapters = root.querySelectorAll('.report-chapter');
+            let seq = 1;
+            chapters.forEach(sec => {
+                const isHidden = sec.style.display === 'none' || sec.classList.contains('hidden');
+                if (!isHidden) {
+                    const heading = sec.querySelector('.chapter-heading') || sec.querySelector('h2');
+                    if (heading) {
+                        const numEl = heading.querySelector('.chapter-num');
+                        const titleEl = heading.querySelector('.chapter-title');
+                        const titleDetail = heading.getAttribute('data-title-detail');
+                        const titleSummary = heading.getAttribute('data-title-summary');
+                        const activeTitle = (this.mode === 'summary' && titleSummary) ? titleSummary : (titleDetail || (titleEl ? titleEl.textContent : ''));
+
+                        if (numEl) {
+                            numEl.textContent = `제 ${seq}장`;
+                        }
+                        if (titleEl && activeTitle) {
+                            titleEl.textContent = activeTitle;
+                        }
+                        if (!numEl && !titleEl) {
+                            heading.textContent = `제 ${seq}장. ${activeTitle}`;
+                        }
+                    }
+                    seq++;
+                }
+            });
         }
 
         /**
@@ -435,9 +474,9 @@
                         </div>
 
                         <!-- 1장: 일반 설계 조건 (General Information) -->
-                        <section class="report-chapter">
-                            <h2 style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
-                                제 1장. 일반 설계 조건 (General Information)
+                        <section class="report-chapter" data-chapter-key="general">
+                            <h2 class="chapter-heading" data-title-detail="일반 설계 조건 (General Information)" data-title-summary="일반 설계 조건 (General Information)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
+                                <span class="chapter-num">제 1장</span>. <span class="chapter-title">일반 설계 조건 (General Information)</span>
                             </h2>
                             <table class="chk-table" style="width:100%;border-collapse:collapse;font-size:11px;">
                                 <tr>
@@ -462,9 +501,9 @@
                         </section>
 
                         <!-- 2장: 사용자 입력 데이터 상세 (Input Data Specification) -->
-                        <section class="report-chapter user-input-section" style="${this.includeInput ? '' : 'display:none;'}">
-                            <h2 style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
-                                제 2장. 사용자 입력 데이터 상세 (Input Data Specification)
+                        <section class="report-chapter user-input-section" data-chapter-key="input" style="${this.includeInput ? '' : 'display:none;'}">
+                            <h2 class="chapter-heading" data-title-detail="사용자 입력 데이터 상세 (Input Data Specification)" data-title-summary="사용자 입력 데이터 상세 (Input Data Specification)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
+                                <span class="chapter-num">제 2장</span>. <span class="chapter-title">사용자 입력 데이터 상세 (Input Data Specification)</span>
                             </h2>
                             <table class="inp-table" style="width:100%;border-collapse:collapse;font-size:11px;">
                                 <tr>
@@ -501,9 +540,9 @@
                         </section>
 
                         <!-- 3장: 재질 및 단면 제원 (Material & Section Properties) -->
-                        <section class="report-chapter">
-                            <h2 style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
-                                제 3장. 재질 및 단면 제원 (Material & Section Properties)
+                        <section class="report-chapter" data-chapter-key="section">
+                            <h2 class="chapter-heading" data-title-detail="재질 및 단면 제원 (Material & Section Properties)" data-title-summary="재질 및 단면 제원 (Material & Section Properties)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
+                                <span class="chapter-num">제 3장</span>. <span class="chapter-title">재질 및 단면 제원 (Material & Section Properties)</span>
                             </h2>
                             <div style="display:flex;gap:16px;align-items:flex-start;">
                                 <table class="chk-table" style="flex:1;border-collapse:collapse;font-size:11px;">
@@ -537,9 +576,9 @@
                         </section>
 
                         <!-- 4장: 소요 설계 하중 (Design Loads & Governing LCB) -->
-                        <section class="report-chapter">
-                            <h2 style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
-                                제 4장. 소요 설계 하중 (Design Loads & Governing LCB)
+                        <section class="report-chapter" data-chapter-key="load">
+                            <h2 class="chapter-heading" data-title-detail="소요 설계 하중 (Design Loads & Governing LCB)" data-title-summary="소요 설계 하중 (Design Loads & Governing LCB)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
+                                <span class="chapter-num">제 4장</span>. <span class="chapter-title">소요 설계 하중 (Design Loads & Governing LCB)</span>
                             </h2>
                             <div style="background:#f0f9ff;border-left:3px solid #0284c7;padding:8px 12px;font-size:11.5px;margin-bottom:8px;">
                                 <b>지배 위험 하중조합 (Governing LCB):</b> ${r.governing_lcb || '1.2D + 1.6L (최대 정모멘트 / 전단력 조합)'}
@@ -565,17 +604,17 @@
                         </section>
 
                         <!-- 5장: 단면 정밀 안전성 검토 (Step-by-Step Code Verification) -->
-                        <section class="report-chapter">
-                            <h2 style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
-                                제 5장. 단면 정밀 안전성 검토 (Step-by-Step Code Verification)
+                        <section class="report-chapter" data-chapter-key="verification">
+                            <h2 class="chapter-heading" data-title-detail="단면 정밀 안전성 검토 (Step-by-Step Code Verification)" data-title-summary="단면 안전성 검토 요약 (Summary Code Verification)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
+                                <span class="chapter-num">제 5장</span>. <span class="chapter-title">${this.mode === 'detail' ? '단면 정밀 안전성 검토 (Step-by-Step Code Verification)' : '단면 안전성 검토 요약 (Summary Code Verification)'}</span>
                             </h2>
                             ${this.mode === 'detail' ? this._renderDetailFormulas(m, mu, vu, phiMn, phiVn, dcrFlex, dcrShear, flexVerdict, shearVerdict) : this._renderSummaryFormulas(mu, vu, phiMn, phiVn, dcrFlex, dcrShear, flexVerdict, shearVerdict)}
                         </section>
 
                         <!-- 6장: 종합 안전성 판정 (Summary & Verdict) -->
-                        <section class="report-chapter">
-                            <h2 style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
-                                제 6장. 종합 안전성 판정 (Executive Summary & Final Verdict)
+                        <section class="report-chapter" data-chapter-key="verdict">
+                            <h2 class="chapter-heading" data-title-detail="종합 안전성 판정 (Executive Summary & Final Verdict)" data-title-summary="종합 안전성 판정 (Executive Summary & Final Verdict)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
+                                <span class="chapter-num">제 6장</span>. <span class="chapter-title">종합 안전성 판정 (Executive Summary & Final Verdict)</span>
                             </h2>
                             <table class="chk-table" style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:12px;">
                                 <thead>
@@ -632,6 +671,9 @@
             `;
 
             container.innerHTML = html;
+
+            // Synchronize chapter numbering based on visibility & mode
+            this.updateChapterNumbering(container);
 
             // Trigger KaTeX rendering if available
             this._renderKaTeXFormulas(container);
@@ -790,28 +832,50 @@
          * Render KaTeX mathematical expressions in container
          */
         _renderKaTeXFormulas(container) {
-            if (window.renderMathInElement && typeof window.renderMathInElement === 'function') {
-                try {
-                    window.renderMathInElement(container, {
-                        delimiters: [
-                            {left: '$$', right: '$$', display: true},
-                            {left: '$', right: '$', display: false}
-                        ],
-                        throwOnError: false
-                    });
-                } catch (e) {
-                    console.warn('[ReportEngine] KaTeX renderMathInElement error:', e);
-                }
-            } else if (window.ReportKaTeX && typeof window.ReportKaTeX.renderToString === 'function') {
-                // Fallback custom parser
-                const mathBlocks = container.querySelectorAll('.formula-row');
-                mathBlocks.forEach(blk => {
-                    const text = blk.textContent;
-                    if (text.startsWith('$$') && text.endsWith('$$')) {
-                        const latex = text.slice(2, -2).trim();
-                        blk.innerHTML = window.ReportKaTeX.renderToString(latex, true);
+            if (!container) return;
+
+            const performMathRender = () => {
+                if (window.ReportKaTeX && typeof window.ReportKaTeX.renderElement === 'function') {
+                    window.ReportKaTeX.renderElement(container);
+                } else if (window.renderMathInElement && typeof window.renderMathInElement === 'function') {
+                    try {
+                        window.renderMathInElement(container, {
+                            delimiters: [
+                                {left: '$$', right: '$$', display: true},
+                                {left: '$', right: '$', display: false}
+                            ],
+                            throwOnError: false
+                        });
+                    } catch (e) {
+                        console.warn('[ReportEngine] KaTeX renderMathInElement error:', e);
                     }
-                });
+                } else if (window.ReportKaTeX && typeof window.ReportKaTeX.renderToString === 'function') {
+                    // Fallback custom parser
+                    const mathBlocks = container.querySelectorAll('.formula-row');
+                    mathBlocks.forEach(blk => {
+                        const text = blk.textContent;
+                        if (text.startsWith('$$') && text.endsWith('$$')) {
+                            const latex = text.slice(2, -2).trim();
+                            blk.innerHTML = window.ReportKaTeX.renderToString(latex, true);
+                        }
+                    });
+                }
+            };
+
+            performMathRender();
+
+            // If KaTeX CDN scripts are still loading asynchronously, re-trigger once ready
+            if (!window.katex || !window.renderMathInElement) {
+                let attempts = 0;
+                const checkInterval = setInterval(() => {
+                    attempts++;
+                    if ((window.katex && window.renderMathInElement) || attempts > 20) {
+                        clearInterval(checkInterval);
+                        if (window.katex) {
+                            performMathRender();
+                        }
+                    }
+                }, 150);
             }
         }
 

@@ -39,12 +39,16 @@ def test_index_html_pane4_and_report_toolbar_elements():
     assert 'id="btn-report-pdf"' in html
     assert 'id="btn-report-excel"' in html
 
-    # 5. Script Inclusion
+    # 5. Script Inclusion & KaTeX CDN
     assert "/static/js/core/report_engine.js" in html
+    assert "/static/js/core/report_katex.js" in html
+    assert "katex.min.css" in html
+    assert "katex.min.js" in html
+    assert "auto-render.min.js" in html
 
 
 def test_report_engine_js_specifications():
-    """Verify report_engine.js implements ReportEngine singleton with 8-step KaTeX and OK/NG verdicts."""
+    """Verify report_engine.js implements ReportEngine singleton with 8-step KaTeX, dynamic chapter numbering and OK/NG verdicts."""
     res = client.get("/static/js/core/report_engine.js")
     assert res.status_code == 200
     js = res.text
@@ -58,9 +62,18 @@ def test_report_engine_js_specifications():
     assert "setIncludeInput" in js
     assert "setIncludeGraphics" in js
     assert "updateHeaderConfig" in js
+    assert "updateChapterNumbering" in js  # Dynamic chapter sequencing system
 
-    # 3. KaTeX 8-Step Formula Pipeline
+    # 3. Dynamic Chapter Headings Structure
+    assert "chapter-heading" in js
+    assert "chapter-num" in js
+    assert "chapter-title" in js
+    assert "data-title-detail" in js
+    assert "data-title-summary" in js
+
+    # 4. KaTeX 8-Step Formula Pipeline
     assert "_renderDetailFormulas" in js
+    assert "_renderKaTeXFormulas" in js
     assert "등가 직사각형 응력블록 깊이" in js
     assert "KDS 14 20 20" in js
     assert "중립축 깊이" in js
@@ -70,20 +83,36 @@ def test_report_engine_js_specifications():
     assert "전단철근 분담 전단강도" in js
     assert "KDS 14 20 22" in js
 
-    # 4. Original App Verdict Badges (  →  O.K /   →  N.G)
+    # 5. Original App Verdict Badges (  →  O.K /   →  N.G)
     assert "  →  O.K" in js
     assert "  →  N.G" in js
     assert "verdict-ok" in js
     assert "verdict-ng" in js
 
-    # 5. Header / Approval Configuration (IDD_REPORT_HEADER_DLG)
+    # 6. Header / Approval Configuration (IDD_REPORT_HEADER_DLG)
     assert "IDD_REPORT_HEADER_DLG" in js
     assert "openHeaderDialog" in js
     assert "headerConfig" in js
 
 
+def test_report_katex_js_specifications():
+    """Verify report_katex.js provides robust KaTeX rendering, inline/block parsing, and offline math fallback."""
+    res = client.get("/static/js/core/report_katex.js")
+    assert res.status_code == 200
+    js = res.text
+
+    assert "const ReportKaTeX" in js or "window.ReportKaTeX" in js
+    assert "renderToString" in js
+    assert "renderElement" in js
+    assert "formatMathFallback" in js
+    assert "_parseAndRenderMathInTree" in js
+    assert "math-frac" in js
+    assert "formulaPhiMn" in js
+    assert "formulaPhiVn" in js
+
+
 def test_report_css_and_print_css_specifications():
-    """Verify report.css and print.css provide constant pure white A4 and print isolation."""
+    """Verify report.css and print.css provide constant pure white A4, dynamic chapter numbering, and print isolation."""
     # 1. report.css
     res_css = client.get("/static/css/report.css")
     assert res_css.status_code == 200
@@ -98,6 +127,9 @@ def test_report_css_and_print_css_specifications():
     assert ".verdict-ok" in css
     assert ".verdict-ng" in css
     assert ".user-input-section.hidden" in css
+    assert ".chapter-heading" in css
+    assert ".chapter-num" in css
+    assert ".math-inline-rendered" in css
 
     # 2. print.css
     res_print = client.get("/static/css/print.css")
