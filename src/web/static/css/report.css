@@ -333,6 +333,7 @@
 /* Check Results Table (KDS 한계상태 종합 판정표) */
 .chk-table {
     border-collapse: collapse !important;
+    table-layout: fixed !important;
     width: 100% !important;
     margin: 6px 0 !important;
     font-size: 11px !important;
@@ -347,6 +348,7 @@
     border: 1px solid #cbd5e1 !important;
     font-size: 11px !important;
     font-weight: 700 !important;
+    word-break: break-word;
 }
 
 .chk-table td {
@@ -354,6 +356,7 @@
     border: 1px solid #cbd5e1 !important;
     color: #1e293b !important;
     font-size: 11px !important;
+    word-break: break-word;
 }
 
 .chk-pass {
@@ -369,6 +372,7 @@
 /* Input Parameters Summary Table */
 .inp-table {
     border-collapse: collapse !important;
+    table-layout: fixed !important;
     width: 100% !important;
     margin: 4px 0 !important;
     font-size: 11px !important;
@@ -379,12 +383,12 @@
     padding: 4px 8px !important;
     border: 1px solid #e2e8f0 !important;
     color: #1e293b !important;
+    word-break: break-word;
 }
 
 .inp-label {
     color: #334155 !important;
     font-weight: 600 !important;
-    width: 60% !important;
     background: #f8fafc !important;
 }
 

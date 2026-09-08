@@ -45,3 +45,66 @@ def test_report_engine_delegates_to_redcr_rc_beam():
     response = client.get("/static/js/core/report_engine.js")
     assert response.status_code == 200
     assert "RedcrRcBeamReport" in response.text
+
+
+def test_redcr_rc_beam_formula_substitution_steps():
+    """Verify KaTeX formulas contain numerical substitution steps (기준식 -> 대입식 -> 결과값)."""
+    response = client.get("/static/js/report/redcr_rc_beam.js")
+    assert response.status_code == 200
+    content = response.text
+    # 3-step formula derivation structure checks
+    assert "formula-row" in content
+    assert "formula-subst" in content
+    assert "formula-eval" in content
+    assert "rhoMax" in content or "rho" in content
+    assert "V_{s," in content or "VsMax" in content or "V_{s" in content
+    assert "Vc" in content or "V_c" in content
+    assert "Tth" in content or "T_{th}" in content
+    assert "phi" in content
+    assert "lambdaDelta" in content or "rhoPrime" in content
+    assert "deltaTotal" in content or "Delta" in content
+    assert "crackWidth" in content or "w =" in content
+
+
+def test_report_excel_button_disabled():
+    """Verify Excel export button is disabled with guidance tooltip."""
+    # Check index.html
+    resp_index = client.get("/")
+    assert resp_index.status_code == 200
+    assert 'id="btn-report-excel"' in resp_index.text
+    assert "disabled" in resp_index.text
+
+    # Check report_engine.js toolbar template
+    resp_engine = client.get("/static/js/core/report_engine.js")
+    assert resp_engine.status_code == 200
+    assert 'id="btn-report-excel" class="btn-tool" disabled' in resp_engine.text
+
+
+def test_report_table_layout_and_column_widths():
+    """Verify report.css removes .inp-label 60% rule and enforces fixed layout with colgroup."""
+    # Check report.css
+    resp_css = client.get("/static/css/report.css")
+    assert resp_css.status_code == 200
+    css = resp_css.text
+    assert "width: 60% !important;" not in css
+    assert "table-layout: fixed !important;" in css
+
+    # Check redcr_rc_beam.js colgroup tags
+    resp_beam = client.get("/static/js/report/redcr_rc_beam.js")
+    assert resp_beam.status_code == 200
+    assert "<colgroup>" in resp_beam.text
+    assert "table-layout:fixed" in resp_beam.text
+
+
+def test_report_zoom_fit_width_on_init():
+    """Verify zoom controller implements fitToWidth on initialization."""
+    resp_zoom = client.get("/static/js/components/zoom_controller.js")
+    assert resp_zoom.status_code == 200
+    assert "fitToWidth()" in resp_zoom.text
+    assert "isFitMode" in resp_zoom.text
+
+    resp_engine = client.get("/static/js/core/report_engine.js")
+    assert resp_engine.status_code == 200
+    assert "hasInitialFitted" in resp_engine.text
+    assert "window.ZoomController.fitToWidth()" in resp_engine.text
+

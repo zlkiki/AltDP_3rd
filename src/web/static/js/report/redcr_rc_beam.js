@@ -112,6 +112,19 @@
             const AlReq = Number((r.Al_req ?? 542.8).toFixed(1));
             const isAlOk = AlProv >= AlReq;
 
+            // 비틀림 단면 파괴 방지 상호작용 상세 변수 (KDS 14 20 22 4.3)
+            const stirrupDia = 10;
+            const bo = Math.max(100, b - 2 * cover - stirrupDia);
+            const ho = Math.max(100, h - 2 * cover - stirrupDia);
+            const Aoh = bo * ho;
+            const ph = 2 * (bo + ho);
+            const At = AvProv / 2; // 1개 가닥 면적
+            const vuStress = (vu * 1e3) / (b * d);
+            const tuStress = (tu * 1e6 * ph) / (1.7 * Math.pow(Aoh, 2));
+            const torsionCombinedStress = Number(Math.sqrt(Math.pow(vuStress, 2) + Math.pow(tuStress, 2)).toFixed(2));
+            const torsionAllowStress = Number((phiShear * ((Vc * 1e3) / (b * d) + (2 / 3) * Math.sqrt(fck))).toFixed(2));
+            const isTorsionStressOk = torsionCombinedStress <= torsionAllowStress;
+
             // 7. 사용성 검토 수치 (8단계 Step 8)
             const Ig = Number((r.Ig ?? ((b * Math.pow(h, 3)) / 12)).toFixed(0));
             const yt = h / 2;
@@ -124,12 +137,18 @@
             const deltaImmediate = Number((r.delta_elastic ?? r.delta_immediate ?? 6.2).toFixed(1));
             const rhoPrime = AsPrime / (b * d);
             const lambdaDelta = Number((r.lambda_delta ?? (2.0 / (1 + 50 * rhoPrime))).toFixed(2));
-            const deltaLong = Number((r.delta_long ?? (lambdaDelta * 3.8)).toFixed(1));
+            const deltaSus = 3.8;
+            const deltaLong = Number((r.delta_long ?? (lambdaDelta * deltaSus)).toFixed(1));
             const deltaTotal = Number((r.delta_total ?? (deltaImmediate + deltaLong)).toFixed(1));
             const deltaAllow = Number((r.delta_allowable ?? (L / 240)).toFixed(1));
             const dcrDefl = Number((r.deflection_dcr ?? (deltaTotal / deltaAllow)).toFixed(3));
             const deflVerdict = dcrDefl <= 1.0 ? '  →  O.K' : '  →  N.G';
 
+            // 균열폭 산정 상세 변수 (KDS 14 20 30 4.1)
+            const fs = Number((0.6 * fy).toFixed(0));
+            const Es = 200000;
+            const dc = cover;
+            const rebarSpace = Math.max(50, Math.round((b - 2 * cover - 2 * stirrupDia - 25) / 3));
             const crackWidth = Number((r.crack_width ?? 0.22).toFixed(2));
             const crackAllow = Number((r.crack_allowable ?? 0.30).toFixed(2));
             const dcrCrack = Number((r.crack_dcr ?? (crackWidth / crackAllow)).toFixed(3));
@@ -174,12 +193,18 @@
                             <h2 class="chapter-heading" data-title-detail="설계 기본 정보 및 단면 제원 (Design Information & Section Geometry)" data-title-summary="설계 기본 정보 및 단면 제원 (Design Information & Section Geometry)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
                                 <span class="chapter-num">제 1장</span>. <span class="chapter-title">설계 기본 정보 및 단면 제원 (Design Information & Section Geometry)</span>
                             </h2>
-                            <table class="chk-table" style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:8px;">
+                            <table class="chk-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;margin-bottom:8px;">
+                                <colgroup>
+                                    <col style="width:20%;">
+                                    <col style="width:30%;">
+                                    <col style="width:20%;">
+                                    <col style="width:30%;">
+                                </colgroup>
                                 <tr>
-                                    <td class="inp-label" style="width:20%;background:#f8fafc;font-weight:600;">적용 설계기준</td>
-                                    <td style="width:30%;">KDS 14 20 00 : 2022 (콘크리트구조설계기준)</td>
-                                    <td class="inp-label" style="width:20%;background:#f8fafc;font-weight:600;">단위계 / 부재 ID</td>
-                                    <td style="width:30%;">SI Unit / <b>${cfg.memberTag || m.name || '1F-B1'}</b></td>
+                                    <td class="inp-label" style="background:#f8fafc;font-weight:600;">적용 설계기준</td>
+                                    <td>KDS 14 20 00 : 2022 (콘크리트구조설계기준)</td>
+                                    <td class="inp-label" style="background:#f8fafc;font-weight:600;">단위계 / 부재 ID</td>
+                                    <td>SI Unit / <b>${cfg.memberTag || m.name || '1F-B1'}</b></td>
                                 </tr>
                                 <tr>
                                     <td class="inp-label" style="background:#f8fafc;font-weight:600;">콘크리트 강도 ($f_{ck}$)</td>
@@ -220,9 +245,14 @@
                                 <div class="step-title-row" style="font-weight:600;color:#1e3a8a;margin-bottom:4px;">
                                     <span>[철근비 상하한 한계 검토 - KDS 14 20 20 (4.1.2)]</span>
                                 </div>
-                                <div class="formula-row">$$\\rho_{\\min} = \\max\\left(\\frac{0.25 \\sqrt{f_{ck}}}{f_y}, \\frac{1.4}{f_y}\\right) = ${rhoMin.toFixed(5)}, \\quad \\rho_{\\max} = 0.85 \\beta_1 \\frac{f_{ck}}{f_y} \\left(\\frac{\\epsilon_{cu}}{\\epsilon_{cu} + 0.004}\\right) = ${rhoMax.toFixed(5)}$$</div>
+                                <div class="formula-row">
+                                    $$\\rho_{\\min} = \\max\\left(\\frac{0.25 \\sqrt{f_{ck}}}{f_y}, \\frac{1.4}{f_y}\\right) = \\max\\left(\\frac{0.25 \\sqrt{${fck.toFixed(1)}}}{${fy.toFixed(0)}}, \\frac{1.4}{${fy.toFixed(0)}}\\right) = \\mathbf{${rhoMin.toFixed(5)}}$$
+                                </div>
+                                <div class="formula-row formula-subst">
+                                    $$\\rho_{\\max} = 0.85 \\beta_1 \\frac{f_{ck}}{f_y} \\left(\\frac{\\epsilon_{cu}}{\\epsilon_{cu} + 0.004}\\right) = 0.85 \\times ${beta1.toFixed(3)} \\times \\frac{${fck.toFixed(1)}}{${fy.toFixed(0)}} \\times \\left(\\frac{${epsCu}}{${epsCu} + 0.004}\\right) = \\mathbf{${rhoMax.toFixed(5)}}$$
+                                </div>
                                 <div class="formula-row formula-eval">
-                                    $$\\rho = \\frac{A_s}{b_w d} = \\frac{${AsProv.toFixed(1)}}{${b} \\times ${d.toFixed(1)}} = \\mathbf{${rho.toFixed(5)}} \\quad \\longrightarrow \\quad \\rho_{\\min} \\le \\rho \\le \\rho_{\\max} \\quad [\\mathbf{${isRhoOk ? 'O.K' : 'N.G'}}]${isRhoOk ? '  →  O.K' : '  →  N.G'}$$
+                                    $$\\rho = \\frac{A_s}{b_w d} = \\frac{${AsProv.toFixed(1)}}{${b} \\times ${d.toFixed(1)}} = \\mathbf{${rho.toFixed(5)}} \\quad \\longrightarrow \\quad \\rho_{\\min} (${rhoMin.toFixed(5)}) \\le \\rho (${rho.toFixed(5)}) \\le \\rho_{\\max} (${rhoMax.toFixed(5)}) \\quad [\\mathbf{${isRhoOk ? 'O.K' : 'N.G'}}]${isRhoOk ? '  →  O.K' : '  →  N.G'}$$
                                 </div>
                             </div>
 
@@ -240,12 +270,18 @@
                             <h2 class="chapter-heading" data-title-detail="사용자 입력 데이터 상세 (User Input Data Specification)" data-title-summary="사용자 입력 데이터 상세 (User Input Data Specification)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
                                 <span class="chapter-num">부록 1</span>. <span class="chapter-title">사용자 입력 데이터 상세 (User Input Data Specification)</span>
                             </h2>
-                            <table class="inp-table" style="width:100%;border-collapse:collapse;font-size:11px;">
+                            <table class="inp-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;">
+                                <colgroup>
+                                    <col style="width:22%;">
+                                    <col style="width:28%;">
+                                    <col style="width:22%;">
+                                    <col style="width:28%;">
+                                </colgroup>
                                 <tr>
-                                    <td class="inp-label" style="width:25%;">상부 주철근 배근 (End-I)</td>
-                                    <td class="inp-val" style="width:25%;">${m.topBars || endIRebar.top_layer1 || '4-D25 (2,027 mm²)'}</td>
-                                    <td class="inp-label" style="width:25%;">하부 주철근 배근 (End-I)</td>
-                                    <td class="inp-val" style="width:25%;">${m.botBars || endIRebar.bot_layer1 || '2-D22 (774 mm²)'}</td>
+                                    <td class="inp-label">상부 주철근 배근 (End-I)</td>
+                                    <td class="inp-val">${m.topBars || endIRebar.top_layer1 || '4-D25 (2,027 mm²)'}</td>
+                                    <td class="inp-label">하부 주철근 배근 (End-I)</td>
+                                    <td class="inp-val">${m.botBars || endIRebar.bot_layer1 || '2-D22 (774 mm²)'}</td>
                                 </tr>
                                 <tr>
                                     <td class="inp-label">상부 주철근 배근 (Center-M)</td>
@@ -270,7 +306,15 @@
                             <div style="background:#f0f9ff;border-left:3px solid #0284c7;padding:7px 12px;font-size:11.5px;margin-bottom:8px;">
                                 <b>지배 하중조합 (Governing LCB):</b> ${r.governing_lcb || '1.2D + 1.6L (최대 정/부모멘트 및 전단/비틀림 복합 극한한계상태)'}
                             </div>
-                            <table class="chk-table" style="width:100%;border-collapse:collapse;font-size:11px;text-align:center;">
+                            <table class="chk-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;text-align:center;">
+                                <colgroup>
+                                    <col style="width:20%;">
+                                    <col style="width:16%;">
+                                    <col style="width:16%;">
+                                    <col style="width:16%;">
+                                    <col style="width:16%;">
+                                    <col style="width:16%;">
+                                </colgroup>
                                 <thead>
                                     <tr style="background:#e2e8f0;">
                                         <th style="padding:6px;">검토 위치 (Station)</th>
@@ -322,8 +366,15 @@
                                     <span class="step-title">3.1 등가 직사각형 응력블록 깊이 ($a$) 및 중립축 깊이 ($c$) 산정</span>
                                     <span class="step-kds-ref">KDS 14 20 20 (4.1.1)</span>
                                 </div>
-                                <div class="formula-row">$$a = \\frac{A_s f_y - A_s' f_s'}{\\alpha_1 f_{ck} b_w} = \\frac{${AsProv.toFixed(1)} \\times ${fy.toFixed(0)} - ${AsPrime.toFixed(1)} \\times ${fy.toFixed(0)}}{0.85 \\times ${fck.toFixed(1)} \\times ${b}} = \\mathbf{${a.toFixed(1)}\\text{ mm}}$$</div>
-                                <div class="formula-row formula-subst">$$c = \\frac{a}{\\beta_1} = \\frac{${a.toFixed(1)}}{${beta1.toFixed(3)}} = \\mathbf{${c.toFixed(1)}\\text{ mm}}$$</div>
+                                <div class="formula-row">
+                                    $$\\beta_1 = 0.85 - 0.007(f_{ck} - 28) = \\mathbf{${beta1.toFixed(3)}} \\quad (${fck <= 28 ? 'f_{ck} \\le 28\\text{ MPa}' : `f_{ck} = ${fck.toFixed(1)}\\text{ MPa}`})$$
+                                </div>
+                                <div class="formula-row formula-subst">
+                                    $$a = \\frac{A_s f_y - A_s' f_s'}{\\alpha_1 f_{ck} b_w} = \\frac{${AsProv.toFixed(1)} \\times ${fy.toFixed(0)} - ${AsPrime.toFixed(1)} \\times ${fy.toFixed(0)}}{0.85 \\times ${fck.toFixed(1)} \\times ${b}} = \\mathbf{${a.toFixed(1)}\\text{ mm}}$$
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$c = \\frac{a}{\\beta_1} = \\frac{${a.toFixed(1)}}{${beta1.toFixed(3)}} = \\mathbf{${c.toFixed(1)}\\text{ mm}}$$
+                                </div>
                             </div>
 
                             <!-- 2. 최외단 인장철근 순변형률 εt 산정 -->
@@ -332,8 +383,11 @@
                                     <span class="step-title">3.2 최외단 인장철근 순인장변형률 ($\\epsilon_t$) 산정</span>
                                     <span class="step-kds-ref">KDS 14 20 20 (4.1.2)</span>
                                 </div>
+                                <div class="formula-row">
+                                    $$\\epsilon_t = \\epsilon_{cu} \\left(\\frac{d - c}{c}\\right)$$
+                                </div>
                                 <div class="formula-row formula-subst">
-                                    $$\\epsilon_t = \\epsilon_{cu} \\left(\\frac{d - c}{c}\\right) = ${epsCu} \\times \\left(\\frac{${d.toFixed(1)} - ${c.toFixed(1)}}{${c.toFixed(1)}}\\right) = \\mathbf{${epsT.toFixed(4)}} \\ge 0.005$$
+                                    $$\\epsilon_t = ${epsCu} \\times \\left(\\frac{${d.toFixed(1)} - ${c.toFixed(1)}}{${c.toFixed(1)}}\\right) = \\mathbf{${epsT.toFixed(4)}} \\ge 0.005 \\quad (\\text{인장지배단면})$$
                                 </div>
                             </div>
 
@@ -344,7 +398,10 @@
                                     <span class="step-kds-ref">KDS 14 20 20 (4.1.3)</span>
                                 </div>
                                 <div class="formula-row">
-                                    $$\\epsilon_t = ${epsT.toFixed(4)} \\ge 0.005 \\quad \\longrightarrow \\quad \\text{인장지배단면 (Tension-Controlled), } \\mathbf{\\phi = ${phiFlex.toFixed(2)}}$$
+                                    $$\\phi = \\begin{cases} 0.85 & (\\epsilon_t \\ge 0.005, \\text{ 인장지배}) \\\\ 0.65 + (\\epsilon_t - 0.002) \\times \\frac{200}{3} & (0.002 \\le \\epsilon_t < 0.005, \\text{ 전이지배}) \\end{cases}$$
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$\\epsilon_t = ${epsT.toFixed(4)} \\ge 0.005 \\quad \\longrightarrow \\quad \\text{인장지배단면 (Tension-Controlled Section), } \\mathbf{\\phi = ${phiFlex.toFixed(2)}}$$
                                 </div>
                             </div>
 
@@ -354,11 +411,14 @@
                                     <span class="step-title">3.4 공칭 및 설계 휨모멘트 강도 ($\\phi M_n$) 산정 및 안전성 검토</span>
                                     <span class="step-kds-ref">KDS 14 20 20 (4.1)</span>
                                 </div>
+                                <div class="formula-row">
+                                    $$M_n = A_s f_y \\left(d - \\frac{a}{2}\\right) + A_s' f_s' \\left(\\frac{a}{2} - d'\\right)$$
+                                </div>
                                 <div class="formula-row formula-subst">
-                                    $$M_n = A_s f_y \\left(d - \\frac{a}{2}\\right) + A_s' f_s' \\left(\\frac{a}{2} - d'\\right) = ${Mn.toFixed(1)}\\text{ kN}\\cdot\\text{m}$$
+                                    $$M_n = \\left[${AsProv.toFixed(1)} \\times ${fy.toFixed(0)} \\times \\left(${d.toFixed(1)} - \\frac{${a.toFixed(1)}}{2}\\right) + ${AsPrime.toFixed(1)} \\times ${fy.toFixed(0)} \\times \\left(\\frac{${a.toFixed(1)}}{2} - ${dPrime.toFixed(1)}\\right)\\right] \\times 10^{-6} = \\mathbf{${Mn.toFixed(1)}\\text{ kN}\\cdot\\text{m}}$$
                                 </div>
                                 <div class="formula-row formula-eval">
-                                    $$\\phi M_n = ${phiFlex.toFixed(2)} \\times ${Mn.toFixed(1)} = \\mathbf{${phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}}$$
+                                    $$\\phi M_n = \\phi \\times M_n = ${phiFlex.toFixed(2)} \\times ${Mn.toFixed(1)} = \\mathbf{${phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}}$$
                                 </div>
                                 <div class="formula-row formula-eval">
                                     $$\\text{DCR}_{flex} = \\frac{M_u}{\\phi M_n} = \\frac{${muPos.toFixed(1)}}{${phiMn.toFixed(1)}} = \\mathbf{${dcrFlex.toFixed(3)}} \\le 1.000 \\quad \\longrightarrow \\quad [\\mathbf{${dcrFlex <= 1.0 ? 'O.K' : 'N.G'}}]${flexVerdict}$$
@@ -383,19 +443,28 @@
                                     <span class="step-title">4.1 콘크리트 분담 전단강도 ($V_c$) 산정</span>
                                     <span class="step-kds-ref">KDS 14 20 22 (4.1.1)</span>
                                 </div>
+                                <div class="formula-row">
+                                    $$V_c = \\frac{1}{6} \\lambda \\sqrt{f_{ck}} b_w d$$
+                                </div>
                                 <div class="formula-row formula-subst">
-                                    $$V_c = \\frac{1}{6} \\lambda \\sqrt{f_{ck}} b_w d = \\frac{1}{6} \\times 1.0 \\times \\sqrt{${fck.toFixed(1)}} \\times ${b} \\times ${d.toFixed(1)} \\times 10^{-3} = \\mathbf{${Vc.toFixed(1)}\\text{ kN}}$$
+                                    $$V_c = \\frac{1}{6} \\times 1.0 \\times \\sqrt{${fck.toFixed(1)}} \\times ${b} \\times ${d.toFixed(1)} \\times 10^{-3} = \\mathbf{${Vc.toFixed(1)}\\text{ kN}}$$
                                 </div>
                             </div>
 
-                            <!-- 2. 전단철근 전단강도 Vs -->
+                            <!-- 2. 전단철근 전단강도 Vs 및 Vs,max -->
                             <div class="katex-formula-step">
                                 <div class="step-title-row">
-                                    <span class="step-title">4.2 전단철근 분담 전단강도 ($V_s$) 산정</span>
+                                    <span class="step-title">4.2 전단철근 분담 전단강도 ($V_s$) 및 최대 보강 한계 ($V_{s,\\max}$)</span>
                                     <span class="step-kds-ref">KDS 14 20 22 (4.1.2)</span>
                                 </div>
+                                <div class="formula-row">
+                                    $$V_s = \\frac{A_v f_{yt} d}{s}, \\quad V_{s,\\max} = \\frac{2}{3} \\sqrt{f_{ck}} b_w d$$
+                                </div>
                                 <div class="formula-row formula-subst">
-                                    $$V_s = \\frac{A_v f_{yt} d}{s} = \\frac{${AvProv.toFixed(1)} \\times ${fyt.toFixed(0)} \\times ${d.toFixed(1)}}{${sStirrup}} \\times 10^{-3} = \\mathbf{${Vs.toFixed(1)}\\text{ kN}} \\le V_{s,\\max} = ${VsMax.toFixed(1)}\\text{ kN}$$
+                                    $$V_s = \\frac{${AvProv.toFixed(1)} \\times ${fyt.toFixed(0)} \\times ${d.toFixed(1)}}{${sStirrup}} \\times 10^{-3} = \\mathbf{${Vs.toFixed(1)}\\text{ kN}}$$
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$V_{s,\\max} = \\frac{2}{3} \\times \\sqrt{${fck.toFixed(1)}} \\times ${b} \\times ${d.toFixed(1)} \\times 10^{-3} = \\mathbf{${VsMax.toFixed(1)}\\text{ kN}} \\quad \\longrightarrow \\quad V_s \\le V_{s,\\max} \\quad [\\mathbf{O.K}]  →  O.K$$
                                 </div>
                             </div>
 
@@ -405,8 +474,11 @@
                                     <span class="step-title">4.3 설계 전단강도 ($\\phi V_n$) 및 전단 안전성 검토</span>
                                     <span class="step-kds-ref">KDS 14 20 22 (4.1)</span>
                                 </div>
-                                <div class="formula-row formula-eval">
-                                    $$\\phi V_n = 0.75 \\times (V_c + V_s) = 0.75 \\times (${Vc.toFixed(1)} + ${Vs.toFixed(1)}) = \\mathbf{${phiVn.toFixed(1)}\\text{ kN}}$$
+                                <div class="formula-row">
+                                    $$\\phi V_n = \\phi (V_c + V_s)$$
+                                </div>
+                                <div class="formula-row formula-subst">
+                                    $$\\phi V_n = ${phiShear} \\times (${Vc.toFixed(1)} + ${Vs.toFixed(1)}) = \\mathbf{${phiVn.toFixed(1)}\\text{ kN}}$$
                                 </div>
                                 <div class="formula-row formula-eval">
                                     $$\\text{DCR}_{shear} = \\frac{V_u}{\\phi V_n} = \\frac{${vu.toFixed(1)}}{${phiVn.toFixed(1)}} = \\mathbf{${dcrShear.toFixed(3)}} \\le 1.000 \\quad \\longrightarrow \\quad [\\mathbf{${dcrShear <= 1.0 ? 'O.K' : 'N.G'}}]${shearVerdict}$$
@@ -420,13 +492,25 @@
                                     <span class="step-kds-ref">KDS 14 20 22 (4.3)</span>
                                 </div>
                                 <div class="formula-row">
-                                    $$T_{th} = 0.0625 \\lambda \\sqrt{f_{ck}} \\left(\\frac{A_{cp}^2}{p_{cp}}\\right) = ${Tth.toFixed(1)}\\text{ kN}\\cdot\\text{m} \\quad \\longrightarrow \\quad T_u = ${tu.toFixed(1)}\\text{ kN}\\cdot\\text{m} > \\phi T_{th} = ${phiTth.toFixed(1)}\\text{ kN}\\cdot\\text{m} \\quad (${isTorsionRequired ? '비틀림 설계 필요' : '비틀림 무시 가능'})$$
+                                    $$T_{th} = 0.0625 \\lambda \\sqrt{f_{ck}} \\left(\\frac{A_{cp}^2}{p_{cp}}\\right), \\quad \\phi T_{th} = 0.75 \\times T_{th}$$
                                 </div>
                                 <div class="formula-row formula-subst">
-                                    $$\\sqrt{\\left(\\frac{V_u}{b_w d}\\right)^2 + \\left(\\frac{T_u p_h}{1.7 A_{oh}^2}\\right)^2} \\le \\phi \\left(\\frac{V_c}{b_w d} + \\frac{2}{3} \\sqrt{f_{ck}}\\right) \\quad \\longrightarrow \\quad [\\mathbf{단면 파괴 방지 O.K}]  →  O.K$$
+                                    $$T_{th} = 0.0625 \\times 1.0 \\times \\sqrt{${fck.toFixed(1)}} \\times \\left(\\frac{${Acp}^2}{${pcp}}\\right) \\times 10^{-6} = \\mathbf{${Tth.toFixed(1)}\\text{ kN}\\cdot\\text{m}}$$
                                 </div>
                                 <div class="formula-row formula-eval">
-                                    $$A_l = \\frac{A_t}{s} p_h \\left(\\frac{f_{yt}}{f_y}\\right) = ${AlReq.toFixed(1)}\\text{ mm}^2 \\le A_{l,prov} = ${AlProv.toFixed(1)}\\text{ mm}^2 \\quad \\longrightarrow \\quad [\\mathbf{종방향 비틀림철근 O.K}]${isAlOk ? '  →  O.K' : '  →  N.G'}$$
+                                    $$\\phi T_{th} = ${phiShear} \\times ${Tth.toFixed(1)} = \\mathbf{${phiTth.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\quad \\longrightarrow \\quad T_u = ${tu.toFixed(1)}\\text{ kN}\\cdot\\text{m} ${isTorsionRequired ? '>' : '\\le'} \\phi T_{th} \\quad (${isTorsionRequired ? '비틀림 설계 필요' : '비틀림 무시 가능'})$$
+                                </div>
+                                <div class="formula-row formula-subst">
+                                    $$\\sqrt{\\left(\\frac{V_u}{b_w d}\\right)^2 + \\left(\\frac{T_u p_h}{1.7 A_{oh}^2}\\right)^2} = \\sqrt{\\left(\\frac{${vu.toFixed(1)} \\times 10^3}{${b} \\times ${d.toFixed(1)}}\\right)^2 + \\left(\\frac{${tu.toFixed(1)} \\times 10^6 \\times ${ph}}{1.7 \\times ${Aoh}^2}\\right)^2} = \\mathbf{${torsionCombinedStress}\\text{ MPa}}$$
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$\\text{허용 한계: } \\phi \\left(\\frac{V_c}{b_w d} + \\frac{2}{3} \\sqrt{f_{ck}}\\right) = \\mathbf{${torsionAllowStress}\\text{ MPa}} \\quad \\longrightarrow \\quad [\\mathbf{단면 파괴 방지 O.K}]${isTorsionStressOk ? '  →  O.K' : '  →  N.G'}$$
+                                </div>
+                                <div class="formula-row formula-subst">
+                                    $$A_l = \\frac{A_t}{s} p_h \\left(\\frac{f_{yt}}{f_y}\\right) = \\frac{${At.toFixed(1)}}{${sStirrup}} \\times ${ph} \\times \\left(\\frac{${fyt.toFixed(0)}}{${fy.toFixed(0)}}\\right) = \\mathbf{${AlReq.toFixed(1)}\\text{ mm}^2}$$
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$A_l (${AlReq.toFixed(1)}\\text{ mm}^2) \\le A_{l,prov} (${AlProv.toFixed(1)}\\text{ mm}^2) \\quad \\longrightarrow \\quad [\\mathbf{종방향 비틀림철근 O.K}]${isAlOk ? '  →  O.K' : '  →  N.G'}$$
                                 </div>
                             </div>
                             ` : `
@@ -449,11 +533,17 @@
                                     <span class="step-title">5.1 Branson 유효단면2차모멘트 ($I_e$) 산정</span>
                                     <span class="step-kds-ref">KDS 14 20 30 (4.2.1)</span>
                                 </div>
-                                <div class="formula-row formula-subst">
-                                    $$M_{cr} = \\frac{f_r I_g}{y_t} = \\frac{${fr.toFixed(2)} \\times ${Ig.toExponential(2)}}{${yt}} \\times 10^{-6} = \\mathbf{${Mcr.toFixed(1)}\\text{ kN}\\cdot\\text{m}}$$
+                                <div class="formula-row">
+                                    $$M_{cr} = \\frac{f_r I_g}{y_t}$$
                                 </div>
                                 <div class="formula-row formula-subst">
-                                    $$I_e = \\left(\\frac{M_{cr}}{M_a}\\right)^3 I_g + \\left[1 - \\left(\\frac{M_{cr}}{M_a}\\right)^3\\right] I_{cr} = \\mathbf{${Ie.toExponential(2)}\\text{ mm}^4} \\le I_g$$
+                                    $$M_{cr} = \\frac{${fr.toFixed(2)} \\times ${Ig.toLocaleString()}}{${yt}} \\times 10^{-6} = \\mathbf{${Mcr.toFixed(1)}\\text{ kN}\\cdot\\text{m}}$$
+                                </div>
+                                <div class="formula-row formula-subst">
+                                    $$I_e = \\left(\\frac{M_{cr}}{M_a}\\right)^3 I_g + \\left[1 - \\left(\\frac{M_{cr}}{M_a}\\right)^3\\right] I_{cr}$$
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$I_e = \\left(\\frac{${Mcr.toFixed(1)}}{${ma.toFixed(1)}}\\right)^3 \\times ${Ig.toExponential(2)} + \\left[1 - \\left(\\frac{${Mcr.toFixed(1)}}{${ma.toFixed(1)}}\\right)^3\\right] \\times ${Icr.toExponential(2)} = \\mathbf{${Ie.toExponential(2)}\\text{ mm}^4} \\le I_g$$
                                 </div>
                             </div>
 
@@ -463,11 +553,14 @@
                                     <span class="step-title">5.2 단기 및 장기 처짐량 (Deflection Check)</span>
                                     <span class="step-kds-ref">KDS 14 20 30 (4.2.2)</span>
                                 </div>
+                                <div class="formula-row">
+                                    $$\\lambda_\\Delta = \\frac{\\xi}{1 + 50\\rho'}, \\quad \\Delta_{long} = \\lambda_\\Delta \\times \\Delta_{sus}, \\quad \\Delta_{total} = \\Delta_i + \\Delta_{long}$$
+                                </div>
                                 <div class="formula-row formula-subst">
-                                    $$\\Delta_i = ${deltaImmediate.toFixed(1)}\\text{ mm}, \\quad \\lambda_\\Delta = \\frac{\\xi}{1 + 50\\rho'} = ${lambdaDelta.toFixed(2)}, \\quad \\Delta_{long} = ${deltaLong.toFixed(1)}\\text{ mm}$$
+                                    $$\\lambda_\\Delta = \\frac{2.0}{1 + 50 \\times ${rhoPrime.toFixed(4)}} = \\mathbf{${lambdaDelta.toFixed(2)}}, \\quad \\Delta_{long} = ${lambdaDelta.toFixed(2)} \\times ${deltaSus.toFixed(1)} = \\mathbf{${deltaLong.toFixed(1)}\\text{ mm}}$$
                                 </div>
                                 <div class="formula-row formula-eval">
-                                    $$\\Delta_{total} = \\Delta_i + \\Delta_{long} = \\mathbf{${deltaTotal.toFixed(1)}\\text{ mm}} \\le \\Delta_{allow} = \\frac{L}{240} = \\mathbf{${deltaAllow.toFixed(1)}\\text{ mm}} \\quad (\\text{DCR} = ${dcrDefl.toFixed(3)}) \\quad \\longrightarrow \\quad [\\mathbf{${dcrDefl <= 1.0 ? 'O.K' : 'N.G'}}]${deflVerdict}$$
+                                    $$\\Delta_{total} = ${deltaImmediate.toFixed(1)} + ${deltaLong.toFixed(1)} = \\mathbf{${deltaTotal.toFixed(1)}\\text{ mm}} \\le \\Delta_{allow} = \\frac{L}{240} = \\frac{${L}}{240} = \\mathbf{${deltaAllow.toFixed(1)}\\text{ mm}} \\quad (\\text{DCR} = ${dcrDefl.toFixed(3)}) \\quad \\longrightarrow \\quad [\\mathbf{${dcrDefl <= 1.0 ? 'O.K' : 'N.G'}}]${deflVerdict}$$
                                 </div>
                             </div>
 
@@ -477,8 +570,14 @@
                                     <span class="step-title">5.3 직접 균열폭 (Direct Crack Width Check)</span>
                                     <span class="step-kds-ref">KDS 14 20 30 (4.1.2)</span>
                                 </div>
+                                <div class="formula-row">
+                                    $$w = 1.08 \\beta \\left(\\frac{f_s}{E_s}\\right) \\sqrt[3]{d_c s}$$
+                                </div>
+                                <div class="formula-row formula-subst">
+                                    $$w = 1.08 \\times 1.2 \\times \\left(\\frac{${fs}}{${Es.toLocaleString()}}\\right) \\times \\sqrt[3]{${dc} \\times ${rebarSpace}} = \\mathbf{${crackWidth.toFixed(2)}\\text{ mm}}$$
+                                </div>
                                 <div class="formula-row formula-eval">
-                                    $$w = 1.08 \\beta \\epsilon_s \\sqrt[3]{d_c A} \\times 10^{-3} = \\mathbf{${crackWidth.toFixed(2)}\\text{ mm}} \\le w_{lim} = \\mathbf{${crackAllow.toFixed(2)}\\text{ mm}} \\quad (\\text{DCR} = ${dcrCrack.toFixed(3)}) \\quad \\longrightarrow \\quad [\\mathbf{${dcrCrack <= 1.0 ? 'O.K' : 'N.G'}}]${crackVerdict}$$
+                                    $$w = ${crackWidth.toFixed(2)}\\text{ mm} \\le w_{lim} = \\mathbf{${crackAllow.toFixed(2)}\\text{ mm}} \\quad (\\text{DCR} = ${dcrCrack.toFixed(3)}) \\quad \\longrightarrow \\quad [\\mathbf{${dcrCrack <= 1.0 ? 'O.K' : 'N.G'}}]${crackVerdict}$$
                                 </div>
                             </div>
                             ` : `
@@ -494,7 +593,15 @@
                             <h2 class="chapter-heading" data-title-detail="종합 안전성 판정 (Executive Summary & Final Verdict)" data-title-summary="종합 안전성 판정 (Executive Summary & Final Verdict)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
                                 <span class="chapter-num">제 6장</span>. <span class="chapter-title">종합 안전성 판정 (Executive Summary & Final Verdict)</span>
                             </h2>
-                            <table class="chk-table" style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:12px;">
+                            <table class="chk-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;margin-bottom:12px;">
+                                <colgroup>
+                                    <col style="width:20%;">
+                                    <col style="width:18%;">
+                                    <col style="width:18%;">
+                                    <col style="width:18%;">
+                                    <col style="width:12%;">
+                                    <col style="width:14%;">
+                                </colgroup>
                                 <thead>
                                     <tr style="background:#e2e8f0;text-align:center;">
                                         <th style="padding:6px;">검토 항목</th>

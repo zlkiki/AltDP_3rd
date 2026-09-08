@@ -15,6 +15,10 @@
 
         init() {
             this.bindControls();
+            // Initial auto-fit on next animation frame
+            requestAnimationFrame(() => {
+                this.fitToWidth();
+            });
         }
 
         bindControls() {
@@ -65,6 +69,13 @@
                     }
                 }, { passive: false });
             }
+
+            // Window resize auto fit if configured
+            window.addEventListener('resize', () => {
+                if (this.isFitMode) {
+                    this.fitToWidth();
+                }
+            });
         }
 
         getTarget() {
@@ -103,10 +114,11 @@
         fitToWidth() {
             const container = document.getElementById('result-container') || document.getElementById('right-pane') || document.getElementById('pane-right-report');
             if (!container) return;
-            const containerWidth = container.clientWidth - 48;
+            const containerWidth = container.clientWidth - 32;
             const targetWidth = 794; // A4 fixed standard width in px
             if (containerWidth > 0) {
-                const fitScale = Math.max(this.minScale, Math.min(1.2, containerWidth / targetWidth));
+                const fitScale = Math.max(this.minScale, Math.min(1.5, Math.floor((containerWidth / targetWidth) * 100) / 100));
+                this.isFitMode = true;
                 this.setScale(fitScale);
             }
         }

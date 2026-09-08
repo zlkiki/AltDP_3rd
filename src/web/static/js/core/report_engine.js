@@ -36,6 +36,7 @@
             this.currentModuleKey = 'rc_beam';
             this.currentContainer = null;
             this.isInitialized = false;
+            this.hasInitialFitted = false;
         }
 
         /**
@@ -99,7 +100,7 @@
                     <div class="toolbar-actions">
                         <button id="btn-report-header-settings" class="btn-tool" title="머릿말/회사명/서명란 설정">⚙️ 머릿말 설정</button>
                         <button id="btn-report-print" class="btn-primary-sm" title="브라우저 인쇄 (A4 순백색)">🖨️ 인쇄</button>
-                        <button id="btn-report-excel" class="btn-tool" title="OpenPyXL 엑셀 내보내기">📊 Excel</button>
+                        <button id="btn-report-excel" class="btn-tool" disabled style="opacity:0.45;cursor:not-allowed;" title="📊 Excel 내보내기 (추후 고도화 예정)">📊 Excel</button>
                     </div>
                 `;
             }
@@ -377,6 +378,11 @@
          * Export Excel via backend OpenPyXL
          */
         async exportExcel() {
+            const btn = document.getElementById('btn-report-excel');
+            if (btn && btn.disabled) {
+                console.info('[ReportEngine] Excel export is currently disabled for further refinement.');
+                return;
+            }
             const memberId = this.headerConfig.memberTag || 'RC_BEAM_1';
             const m = this.currentMemberData || {};
             const r = this.currentCalcResult || {};
@@ -530,12 +536,18 @@
                             <h2 class="chapter-heading" data-title-detail="일반 설계 조건 (General Information)" data-title-summary="일반 설계 조건 (General Information)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
                                 <span class="chapter-num">제 1장</span>. <span class="chapter-title">일반 설계 조건 (General Information)</span>
                             </h2>
-                            <table class="chk-table" style="width:100%;border-collapse:collapse;font-size:11px;">
+                            <table class="chk-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;">
+                                <colgroup>
+                                    <col style="width:20%;">
+                                    <col style="width:30%;">
+                                    <col style="width:20%;">
+                                    <col style="width:30%;">
+                                </colgroup>
                                 <tr>
-                                    <td class="inp-label" style="width:20%;background:#f8fafc;font-weight:600;">적용 기준</td>
-                                    <td style="width:30%;">KDS 14 20 00 콘크리트구조설계기준</td>
-                                    <td class="inp-label" style="width:20%;background:#f8fafc;font-weight:600;">단위계</td>
-                                    <td style="width:30%;">SI Unit (mm, MPa, kN, kN·m)</td>
+                                    <td class="inp-label" style="background:#f8fafc;font-weight:600;">적용 기준</td>
+                                    <td>KDS 14 20 00 콘크리트구조설계기준</td>
+                                    <td class="inp-label" style="background:#f8fafc;font-weight:600;">단위계</td>
+                                    <td>SI Unit (mm, MPa, kN, kN·m)</td>
                                 </tr>
                                 <tr>
                                     <td class="inp-label" style="background:#f8fafc;font-weight:600;">환경 조건</td>
@@ -557,12 +569,18 @@
                             <h2 class="chapter-heading" data-title-detail="사용자 입력 데이터 상세 (Input Data Specification)" data-title-summary="사용자 입력 데이터 상세 (Input Data Specification)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
                                 <span class="chapter-num">제 2장</span>. <span class="chapter-title">사용자 입력 데이터 상세 (Input Data Specification)</span>
                             </h2>
-                            <table class="inp-table" style="width:100%;border-collapse:collapse;font-size:11px;">
+                            <table class="inp-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;">
+                                <colgroup>
+                                    <col style="width:25%;">
+                                    <col style="width:25%;">
+                                    <col style="width:25%;">
+                                    <col style="width:25%;">
+                                </colgroup>
                                 <tr>
-                                    <td class="inp-label" style="width:25%;">콘크리트 강도 ($f_{ck}$)</td>
-                                    <td class="inp-val" style="width:25%;">${m.fck ?? 24} <span class="inp-unit">MPa</span></td>
-                                    <td class="inp-label" style="width:25%;">주철근 항복강도 ($f_y$)</td>
-                                    <td class="inp-val" style="width:25%;">${m.fy ?? 400} <span class="inp-unit">MPa</span></td>
+                                    <td class="inp-label">콘크리트 강도 ($f_{ck}$)</td>
+                                    <td class="inp-val">${m.fck ?? 24} <span class="inp-unit">MPa</span></td>
+                                    <td class="inp-label">주철근 항복강도 ($f_y$)</td>
+                                    <td class="inp-val">${m.fy ?? 400} <span class="inp-unit">MPa</span></td>
                                 </tr>
                                 <tr>
                                     <td class="inp-label">전단철근 항복강도 ($f_{ys}$)</td>
@@ -597,12 +615,18 @@
                                 <span class="chapter-num">제 3장</span>. <span class="chapter-title">재질 및 단면 제원 (Material & Section Properties)</span>
                             </h2>
                             <div style="display:flex;flex-direction:column;gap:10px;">
-                                <table class="chk-table" style="width:100%;border-collapse:collapse;font-size:11px;">
+                                <table class="chk-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;">
+                                    <colgroup>
+                                        <col style="width:20%;">
+                                        <col style="width:30%;">
+                                        <col style="width:20%;">
+                                        <col style="width:30%;">
+                                    </colgroup>
                                     <tr>
-                                        <td class="inp-label" style="width:20%;background:#f8fafc;font-weight:600;">단면 폭 ($b$)</td>
-                                        <td style="width:30%;font-weight:600;color:#0f172a;">${m.b ?? 400} mm</td>
-                                        <td class="inp-label" style="width:20%;background:#f8fafc;font-weight:600;">단면 높이 ($h$)</td>
-                                        <td style="width:30%;font-weight:600;color:#0f172a;">${m.h ?? 600} mm</td>
+                                        <td class="inp-label" style="background:#f8fafc;font-weight:600;">단면 폭 ($b$)</td>
+                                        <td style="font-weight:600;color:#0f172a;">${m.b ?? 400} mm</td>
+                                        <td class="inp-label" style="background:#f8fafc;font-weight:600;">단면 높이 ($h$)</td>
+                                        <td style="font-weight:600;color:#0f172a;">${m.h ?? 600} mm</td>
                                     </tr>
                                     <tr>
                                         <td class="inp-label" style="background:#f8fafc;font-weight:600;">전단면적 ($A_g$)</td>
@@ -641,7 +665,13 @@
                             <div style="background:#f0f9ff;border-left:3px solid #0284c7;padding:8px 12px;font-size:11.5px;margin-bottom:8px;">
                                 <b>지배 위험 하중조합 (Governing LCB):</b> ${r.governing_lcb || '1.2D + 1.6L (최대 정모멘트 / 전단력 조합)'}
                             </div>
-                            <table class="chk-table" style="width:100%;border-collapse:collapse;font-size:11px;text-align:center;">
+                            <table class="chk-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;text-align:center;">
+                                <colgroup>
+                                    <col style="width:25%;">
+                                    <col style="width:25%;">
+                                    <col style="width:25%;">
+                                    <col style="width:25%;">
+                                </colgroup>
                                 <thead>
                                     <tr style="background:#e2e8f0;">
                                         <th>설계 휨모멘트 ($M_u$)</th>
@@ -674,7 +704,15 @@
                             <h2 class="chapter-heading" data-title-detail="종합 안전성 판정 (Executive Summary & Final Verdict)" data-title-summary="종합 안전성 판정 (Executive Summary & Final Verdict)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
                                 <span class="chapter-num">제 6장</span>. <span class="chapter-title">종합 안전성 판정 (Executive Summary & Final Verdict)</span>
                             </h2>
-                            <table class="chk-table" style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:12px;">
+                            <table class="chk-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;margin-bottom:12px;">
+                                <colgroup>
+                                    <col style="width:20%;">
+                                    <col style="width:18%;">
+                                    <col style="width:18%;">
+                                    <col style="width:18%;">
+                                    <col style="width:12%;">
+                                    <col style="width:14%;">
+                                </colgroup>
                                 <thead>
                                     <tr style="background:#e2e8f0;text-align:center;">
                                         <th style="padding:6px;">검토 항목</th>
@@ -967,8 +1005,15 @@
             };
 
             performMathRender();
-            if (window.ZoomController && typeof window.ZoomController.reapply === 'function') {
-                window.ZoomController.reapply();
+            if (window.ZoomController) {
+                if (!this.hasInitialFitted && typeof window.ZoomController.fitToWidth === 'function') {
+                    this.hasInitialFitted = true;
+                    requestAnimationFrame(() => {
+                        window.ZoomController.fitToWidth();
+                    });
+                } else if (typeof window.ZoomController.reapply === 'function') {
+                    window.ZoomController.reapply();
+                }
             }
 
             // If KaTeX CDN scripts are still loading asynchronously, re-trigger once ready
