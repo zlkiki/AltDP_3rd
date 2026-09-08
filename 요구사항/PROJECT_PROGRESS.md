@@ -8,14 +8,16 @@
 
 ## 1. 현재 시스템 스냅샷 (Snapshot)
 
-* **최종 갱신**: `2026-09-08T17:35:00+09:00`
+* **최종 갱신**: `2026-09-08T17:46:00+09:00`
 * **최근 작업**: 
-  - `요구사항 22` & `22-3` 사용자 피드백 2대 잔여 결함 긴급 버그픽스 완수:
-    * **모듈 탐색기 자동 숨겨짐 후 버튼 클릭 미표시 결함 완전 해결**: `SidebarNav`와 `LayoutResizer` 간 중복 타이머(1.5초 vs 3초) 및 이중 핀 리스너 토글 충돌을 `LayoutResizer` SSOT로 완전 일원화. `#btn-toggle-sidebar` 클릭으로 전개 시 모든 진행 중인 `autoHideTimer`를 즉시 올킬(`clearTimeout`)하고, 마우스가 사이드바 내부로 진입 후 이탈하기 전까지는 자동 숨김이 발동하지 않는 `_mouseEnteredAfterOpen` 가드를 신설하여 헤더 클릭 시에도 안정적으로 펼침(`◀`) 상태 유지 완결.
-    * **기준 검토부 `MODKEY` ReferenceError 완전 해결**: `ReportEngine.render` 내부에서 정의되지 않은 `modKey` 변수를 참조하던 결함을 함수 선두의 `const modKey = this.currentModuleKey;` 안전 선언으로 완전 해소하여 ⚡ 검토(Check) 버튼 클릭 시 콘솔 에러 0건 및 12개 장(Chapter), 53개 KaTeX 정밀 수식, 3-Station 단면 배근도 1:1 임베딩 완벽 렌더링 검증 완료.
-* **회귀 테스트**: **`pytest` 342 / 342 PASS (100% 통과, 0 Failures), 브라우저 E2E 실측 검증 완료**
-* **차기 즉시 작업**: **`Phase 22-4`** (권장 모델: 🧠 **High**)
-* **실행 명령문**: `/goal docs 16 확인하고 요구사항 22와 22-4를 구현해줘`
+  - `요구사항 22-4 (Phase V1-01 Step 4)` RC 보 순백색 A4 5대 장구분 8단계 KaTeX 구조계산서 완성:
+    * `redcr_rc_beam.js` 신규 작성 및 `ReportEngine`에 전용 렌더러로 연동 완료.
+    * KDS 14 20 5대 장구분 체계 (1. 설계 기본 정보 및 단면 제원, 2. 설계 부재력 및 하중조합, 3. 휨모멘트 강도 검토, 4. 전단 및 비틀림 강도 검토, 5. 사용성 한계상태 검토, 6. 종합 안전성 판정) 및 8단계 KaTeX 수식 전개 ($a, c, \epsilon_t, \phi M_n, V_c, V_s, \phi V_n, T_{th}, I_e, \Delta, w$) 100% 렌더링 검증 완료.
+    * 3-Station 횡단면 배근 상세도 그래픽 임베딩, 요약/상세 보고서 모드 전환 및 [사용자 입력 데이터 상세 포함] 체크박스 토글 시 동적 장 번호 리넘버링, 원본앱 1:1 `  →  O.K` / `  →  N.G` 판정 뱃지 출력 완비.
+    * 백엔드 `rc_beam_report.html` 및 `generator.py`에 비틀림 검토 파라미터 보강 및 A4 인쇄/엑셀 연동 완비.
+* **회귀 테스트**: **`pytest` 345 / 345 PASS (100% 통과, 0 Failures), 브라우저 E2E 실측 검증 완료**
+* **차기 즉시 작업**: **`Phase 22-5`** (권장 모델: ⚙️ **Medium**)
+* **실행 명령문**: `/goal docs 16 확인하고 요구사항 22와 22-5를 구현해줘`
 
 > **💡 권장 모델 가이드 ([docs/16](../docs/16_goal_micro_execution_protocol.md) 연동)**
 > * 🧠 **High** (Gemini Pro, Claude Sonnet, GPT-4.5 등): 공학 수식, KDS 계산 엔진, KaTeX 수식 전개식, 엄밀한 TDD (오차 $\le 0.10\%$)
@@ -45,7 +47,7 @@
 | [x] | **22-1** | 🧠 **High** | [Step 1: RC보 KDS 계산엔진 & Pydantic 스키마](요구사항22-1_PhaseV1_01_Step1_RC보_KDS계산엔진_및_Pydantic스키마.md) | `/goal docs 16 확인하고 요구사항 22와 22-1을 구현해줘` |
 | [x] | **22-2** | ⚙️ **Medium** | [Step 2: RC보 원본 1:1 서브탭 폼 & 모달](요구사항22-2_PhaseV1_01_Step2_RC보_원본앱_1대1_서브탭_입력폼_및_모달.md) | `/goal docs 16 확인하고 요구사항 22와 22-2를 구현해줘` |
 | [x] | **22-3** | ⚙️ **Medium** | [Step 3: RC보 2D VDraw 캔버스 배근도/부재력](요구사항22-3_PhaseV1_01_Step3_RC보_2D_VDraw_캔버스_배근도_및_부재력도_인터랙션.md) | `/goal docs 16 확인하고 요구사항 22와 22-3을 구현해줘` |
-| [ ] | **22-4** | 🧠 **High** | [Step 4: RC보 순백색 A4 8단계 KaTeX 계산서](요구사항22-4_PhaseV1_01_Step4_RC보_A4_5대장구분_8단계_KaTeX_구조계산서.md) | `/goal docs 16 확인하고 요구사항 22와 22-4를 구현해줘` |
+| [x] | **22-4** | 🧠 **High** | [Step 4: RC보 순백색 A4 8단계 KaTeX 계산서](요구사항22-4_PhaseV1_01_Step4_RC보_A4_5대장구분_8단계_KaTeX_구조계산서.md) | `/goal docs 16 확인하고 요구사항 22와 22-4를 구현해줘` |
 | [ ] | **22-5** | ⚙️ **Medium** | [Step 5: RC보 4열 통합 E2E 및 온라인 전환](요구사항22-5_PhaseV1_01_Step5_RC보_4열통합_E2E검증_및_실사용UI_온라인전환.md) | `/goal docs 16 확인하고 요구사항 22와 22-5를 구현해줘` |
 
 ---

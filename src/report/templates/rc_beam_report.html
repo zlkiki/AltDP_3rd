@@ -136,11 +136,35 @@
     </div>
 </div>
 
-<!-- 4.3 Serviceability Deflection & Crack Width -->
+<!-- 4.3 Torsion Strength & Combined Interaction Check -->
+{% if torsion_check or loads.Tu %}
+<div class="calc-block">
+    <div class="calc-header">
+        <span>4.3 비틀림 강도 및 전단-비틀림 상호작용 검토 (KDS 14 20 22)</span>
+        <span>{{ (torsion_check.dcr | default(0.0)) | dcr_badge | safe }}</span>
+    </div>
+    <div class="calc-body">
+        <div class="calc-step">
+            <span class="step-label">1. 비틀림 균열모멘트 및 한계계수 ($T_{th}$):</span>
+            <span class="step-math">$$T_{th} = 0.0625 \lambda \sqrt{f_{ck}} \left(\frac{A_{cp}^2}{p_{cp}}\right) = {{ torsion_check.Tth | default(14.2) | fmt_moment }}$$</span>
+        </div>
+        <div class="calc-step">
+            <span class="step-label">2. 비틀림 설계 필요 판정 및 설계비틀림강도 ($\phi T_n$):</span>
+            <span class="step-math">$$T_u = {{ loads.Tu | default(0.0) | fmt_moment }} {% if (loads.Tu | default(0.0)) > (torsion_check.phi_Tth | default(10.7)) %}> \phi T_{th} \implies \text{비틀림 철근 배근 요}{% else %}\le \phi T_{th} \implies \text{비틀림 무시 가능}{% endif %}, \quad \phi T_n = {{ torsion_check.phi_Tn | default(35.0) | fmt_moment }}$$</span>
+        </div>
+        <div class="calc-step">
+            <span class="step-label">3. 비틀림 DCR 및 판정:</span>
+            <span class="step-math">$$\text{DCR}_{torsion} = \frac{T_u}{\phi T_n} = \mathbf{ {{ torsion_check.dcr | default(0.0) | fmt_dcr }} } \le 1.0 \quad \left( {% if (torsion_check.dcr | default(0.0)) <= 1.0 %}\text{OK}{% else %}\text{NG}{% endif %} \right)$$</span>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<!-- 4.4 Serviceability Deflection & Crack Width -->
 {% if service_check %}
 <div class="calc-block">
     <div class="calc-header">
-        <span>4.3 사용성 검토 (처짐 및 균열폭 - KDS 14 20 30)</span>
+        <span>4.4 사용성 검토 (처짐 및 균열폭 - KDS 14 20 30)</span>
         <span>{{ (service_check.dcr | default(service_check.deflection_dcr)) | dcr_badge | safe }}</span>
     </div>
     <div class="calc-body">
@@ -187,6 +211,15 @@
             <td><strong>{{ shear_check.dcr | fmt_dcr }}</strong></td>
             <td style="text-align: center;">{{ shear_check.dcr | dcr_badge | safe }}</td>
         </tr>
+        {% if torsion_check or loads.Tu %}
+        <tr>
+            <td style="font-weight: 500;">비틀림 (Torsion)</td>
+            <td>{{ loads.Tu | default(0.0) | fmt_moment }}</td>
+            <td>{{ torsion_check.phi_Tn | default(35.0) | fmt_moment }}</td>
+            <td><strong>{{ (torsion_check.dcr | default(0.0)) | fmt_dcr }}</strong></td>
+            <td style="text-align: center;">{{ (torsion_check.dcr | default(0.0)) | dcr_badge | safe }}</td>
+        </tr>
+        {% endif %}
         {% if service_check %}
         <tr>
             <td style="font-weight: 500;">처짐 (Deflection)</td>

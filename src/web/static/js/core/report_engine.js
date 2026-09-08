@@ -458,6 +458,16 @@
 
             this._ensureToolbar();
 
+            // 1. Specialized Flagship RC Beam KaTeX A4 Report (Requirement 22-4)
+            const isRcBeam = modKey === 'rc_beam' || modKey === 'rc/beam' || String(modKey).startsWith('rc/beam') || String(modKey).includes('rc_beam');
+            if (isRcBeam && window.RedcrRcBeamReport && typeof window.RedcrRcBeamReport.render === 'function') {
+                const beamHtml = window.RedcrRcBeamReport.render(this, container, this.currentMemberData, this.currentCalcResult);
+                container.innerHTML = beamHtml;
+                this.updateChapterNumbering(container);
+                this._renderKaTeXFormulas(container);
+                return;
+            }
+
             const m = this.currentMemberData;
             const r = this.currentCalcResult;
             const cfg = this.headerConfig;
