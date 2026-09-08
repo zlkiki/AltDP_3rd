@@ -8,11 +8,11 @@
 
 ## 1. 현재 시스템 스냅샷 (Snapshot)
 
-* **최종 갱신**: `2026-09-08T15:12:00+09:00`
+* **최종 갱신**: `2026-09-08T17:35:00+09:00`
 * **최근 작업**: 
-  - `요구사항 22` & `22-3` 사용자 피드백 2대 핵심 버그픽스 완수:
-    * **모듈 탐색기 버튼 (`#btn-toggle-sidebar`) 결함 완전 해결**: `LayoutResizer` 내 `isInitialized` 및 `_topControlsBound` 가드 도입으로 중복 리스너 등록에 의한 즉시 원복(false->true->false) 현상 원천 차단, DOM 가시성 기반 `toggleSidebar()` 상태 동기화로 0px 접힘(`▶`) 및 펼침(`◀`) 완벽 작동.
-    * **기준 검토부 그래픽 임베딩 1:1 동기화**: `report_engine.js`의 가짜 4점 사각형 더미 SVG 청산, `vector_rc_beam.js`에 `VectorRCBeam.generateReportSnapshot` 신설하여 3열 그래픽 표시부에 렌더링된 실제 RC 보 3단 단면 배근도([End-I] 좌단부, [Center-M] 중앙부, [End-J] 우단부)를 순백색 A4 계산서 양식으로 고해상도 1:1 동기화 임베딩 및 체크박스 토글 연동 완벽 구현.
+  - `요구사항 22` & `22-3` 사용자 피드백 2대 잔여 결함 긴급 버그픽스 완수:
+    * **모듈 탐색기 자동 숨겨짐 후 버튼 클릭 미표시 결함 완전 해결**: `SidebarNav`와 `LayoutResizer` 간 중복 타이머(1.5초 vs 3초) 및 이중 핀 리스너 토글 충돌을 `LayoutResizer` SSOT로 완전 일원화. `#btn-toggle-sidebar` 클릭으로 전개 시 모든 진행 중인 `autoHideTimer`를 즉시 올킬(`clearTimeout`)하고, 마우스가 사이드바 내부로 진입 후 이탈하기 전까지는 자동 숨김이 발동하지 않는 `_mouseEnteredAfterOpen` 가드를 신설하여 헤더 클릭 시에도 안정적으로 펼침(`◀`) 상태 유지 완결.
+    * **기준 검토부 `MODKEY` ReferenceError 완전 해결**: `ReportEngine.render` 내부에서 정의되지 않은 `modKey` 변수를 참조하던 결함을 함수 선두의 `const modKey = this.currentModuleKey;` 안전 선언으로 완전 해소하여 ⚡ 검토(Check) 버튼 클릭 시 콘솔 에러 0건 및 12개 장(Chapter), 53개 KaTeX 정밀 수식, 3-Station 단면 배근도 1:1 임베딩 완벽 렌더링 검증 완료.
 * **회귀 테스트**: **`pytest` 342 / 342 PASS (100% 통과, 0 Failures), 브라우저 E2E 실측 검증 완료**
 * **차기 즉시 작업**: **`Phase 22-4`** (권장 모델: 🧠 **High**)
 * **실행 명령문**: `/goal docs 16 확인하고 요구사항 22와 22-4를 구현해줘`

@@ -50,6 +50,8 @@
             this.workspaceWidth = 0;
 
             this.autoHideTimer = null;
+            this._mouseEnteredAfterOpen = false;
+            this._smartEventsBound = false;
 
             this.onPointerMove = this.onPointerMove.bind(this);
             this.onPointerUp = this.onPointerUp.bind(this);
@@ -240,18 +242,35 @@
             // Pin toggle button in sidebar header
             const pinBtn = document.getElementById('btn-pin-sidebar');
             if (pinBtn) {
-                pinBtn.addEventListener('click', () => {
-                    this.currentLayout.sidebarPinned = !this.currentLayout.sidebarPinned;
-                    this.savePersistedLayout(this.currentLayout);
-                    this.applySidebarState(this.currentLayout);
-                    if (window.ProjectStore && typeof window.ProjectStore.setSidebarPinned === 'function') {
-                        window.ProjectStore.setSidebarPinned(this.currentLayout.sidebarPinned);
-                    }
+                pinBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    this.togglePin();
                 });
             }
         }
 
+        togglePin() {
+            this.currentLayout.sidebarPinned = !this.currentLayout.sidebarPinned;
+            this.savePersistedLayout(this.currentLayout);
+            this.applySidebarState(this.currentLayout);
+            if (window.ProjectStore && typeof window.ProjectStore.setSidebarPinned === 'function') {
+                window.ProjectStore.setSidebarPinned(this.currentLayout.sidebarPinned);
+            }
+            if (window.SidebarNav) {
+                window.SidebarNav.isPinned = this.currentLayout.sidebarPinned;
+                if (typeof window.SidebarNav._updatePinBtnUI === 'function') {
+                    window.SidebarNav._updatePinBtnUI();
+                }
+            }
+            if (window.showToast) {
+                window.showToast(this.currentLayout.sidebarPinned ? "📌 사이드바가 상시 고정되었습니다." : "📍 사이드바 자동 숨김 모드 활성화 (마우스 이탈 시 접힘)", "info");
+            }
+        }
+
         bindSidebarSmartEvents() {
+            if (this._smartEventsBound) return;
+            this._smartEventsBound = true;
             const sidebar = this.getSidebar();
             if (!sidebar) return;
 
@@ -261,6 +280,11 @@
                     clearTimeout(this.autoHideTimer);
                     this.autoHideTimer = null;
                 }
+                if (window.SidebarNav && window.SidebarNav.autoHideTimer) {
+                    clearTimeout(window.SidebarNav.autoHideTimer);
+                    window.SidebarNav.autoHideTimer = null;
+                }
+                this._mouseEnteredAfterOpen = true;
                 if (!this.currentLayout.sidebarPinned && this.currentLayout.sidebarCollapsed) {
                     this.currentLayout.sidebarCollapsed = false;
                     this.applySidebarState(this.currentLayout);
@@ -270,6 +294,7 @@
             // When mouse leaves sidebar, start 3s countdown to auto-hide if not pinned
             sidebar.addEventListener('mouseleave', () => {
                 if (!this.currentLayout.sidebarPinned) {
+                    if (!this._mouseEnteredAfterOpen) return;
                     if (this.autoHideTimer) clearTimeout(this.autoHideTimer);
                     this.autoHideTimer = setTimeout(() => {
                         this.currentLayout.sidebarCollapsed = true;
@@ -563,9 +588,25 @@
                 isCurrentlyHidden = Boolean(this.currentLayout.sidebarCollapsed);
             }
 
+            // Clear any pending auto-hide timer immediately
+            if (this.autoHideTimer) {
+                clearTimeout(this.autoHideTimer);
+                this.autoHideTimer = null;
+            }
+            if (window.SidebarNav && window.SidebarNav.autoHideTimer) {
+                clearTimeout(window.SidebarNav.autoHideTimer);
+                window.SidebarNav.autoHideTimer = null;
+            }
+
             // If it was hidden, new state is open (collapsed = false).
             // If it was visible, new state is closed (collapsed = true).
-            this.currentLayout.sidebarCollapsed = !isCurrentlyHidden;
+            const willOpen = isCurrentlyHidden;
+            this.currentLayout.sidebarCollapsed = !willOpen;
+            if (willOpen) {
+                // When opening via button, don't auto-hide until user hovers into sidebar and then leaves
+                this._mouseEnteredAfterOpen = false;
+            }
+
             this.savePersistedLayout(this.currentLayout);
             this.applySidebarState(this.currentLayout);
             if (window.ProjectStore && typeof window.ProjectStore.setSidebarCollapsed === 'function') {

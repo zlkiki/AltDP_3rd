@@ -92,53 +92,24 @@ class SidebarNav {
     }
 
     /**
-     * 고정핀(📌) 및 마우스 이탈 시 3초 자동 숨김(Auto-Hide) 인터랙션
+     * 고정핀(📌) 및 마우스 이탈 시 스마트 자동 숨김(Auto-Hide) 인터랙션
+     * (LayoutResizer 중앙 제어와 1:1 완벽 동기화)
      */
     _setupPinAndAutoHide() {
         if (this.pinBtn) {
             this._updatePinBtnUI();
-            this.pinBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.togglePin();
-            });
+            // LayoutResizer.bindTopControls() handles pinBtn centrally to prevent duplicate toggle invocations.
         }
 
-        if (this.sidebarEl) {
-            // 마우스 진입 시 자동 숨김 타이머 취소 및 즉시 전개
-            this.sidebarEl.addEventListener('mouseenter', () => {
-                if (this.autoHideTimer) {
-                    clearTimeout(this.autoHideTimer);
-                    this.autoHideTimer = null;
-                }
-                if (this.sidebarEl.classList.contains('auto-hidden')) {
-                    this.sidebarEl.classList.remove('auto-hidden');
-                    this.sidebarEl.style.display = 'flex';
-                    const resizerSidebar = document.getElementById('resizer-sidebar-h');
-                    if (resizerSidebar) resizerSidebar.style.display = 'block';
-                    const toggleBtn = document.getElementById('btn-toggle-sidebar');
-                    if (toggleBtn) toggleBtn.innerHTML = '◀';
-                }
-            });
-
-            // 마우스 이탈 시 고정핀 OFF 상태이면 1.5초 후 자동 축소
-            this.sidebarEl.addEventListener('mouseleave', () => {
-                if (this.isPinned) return; // 고정 ON이면 숨기지 않음
-                if (this.autoHideTimer) clearTimeout(this.autoHideTimer);
-                this.autoHideTimer = setTimeout(() => {
-                    if (!this.isPinned && this.sidebarEl) {
-                        this.sidebarEl.classList.add('auto-hidden');
-                        this.sidebarEl.style.display = 'none';
-                        const resizerSidebar = document.getElementById('resizer-sidebar-h');
-                        if (resizerSidebar) resizerSidebar.style.display = 'none';
-                        const toggleBtn = document.getElementById('btn-toggle-sidebar');
-                        if (toggleBtn) toggleBtn.innerHTML = '▶';
-                    }
-                }, 1500);
-            });
-        }
+        // LayoutResizer.bindSidebarSmartEvents() centrally handles mouseenter/mouseleave with safe tracking.
     }
 
     togglePin() {
+        if (window.LayoutResizer && typeof window.LayoutResizer.togglePin === 'function') {
+            window.LayoutResizer.togglePin();
+            return;
+        }
+
         this.isPinned = !this.isPinned;
         localStorage.setItem('AltDP_sidebar_pinned', String(this.isPinned));
         this._updatePinBtnUI();

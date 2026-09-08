@@ -454,6 +454,7 @@
             this.currentMemberData = memberData || {};
             this.currentCalcResult = calcResult || {};
             this.currentModuleKey = moduleKey || 'rc_beam';
+            const modKey = this.currentModuleKey;
 
             this._ensureToolbar();
 
