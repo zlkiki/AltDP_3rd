@@ -584,7 +584,8 @@ async function selectModule(key, targetMemberId = null) {
         const grp = parts[1] || 'beam';
         const modId = parts[2] || 'base';
 
-        const isWip = isModuleWIP(key);
+        const hasCustomModule = window.ModuleDispatcher && Boolean(window.ModuleDispatcher.resolveModule(key));
+        const isWip = !hasCustomModule && isModuleWIP(key);
         let modMeta = null;
         if (window.CatalogManager && typeof window.CatalogManager.getModule === 'function') {
             modMeta = window.CatalogManager.getModule(key);
@@ -644,9 +645,9 @@ async function selectModule(key, targetMemberId = null) {
 
         const formEl = document.getElementById('dynamic-form');
 
-        // Check if module is WIP or has empty schema properties
+        // Check if module is WIP or has empty schema properties (only for modules without dedicated pack)
         const hasNoProps = !props || Object.keys(props).length === 0;
-        if (isWip || hasNoProps) {
+        if (!hasCustomModule && (isWip || hasNoProps)) {
             // Unmount and cleanly wipe existing form DOM & event listeners
             if (window.ModuleDispatcher && typeof window.ModuleDispatcher.cleanupForm === 'function') {
                 window.ModuleDispatcher.cleanupForm(formEl);
@@ -799,6 +800,17 @@ function updateCanvasOnly() {
     const canvas = document.getElementById('sectionCanvas');
     if (canvas && window.CanvasRenderer) {
         window.CanvasRenderer.draw(canvas, modMeta.geomType || 'rc_rect', formData, modKey);
+    }
+
+    // Direct 100ms reactive synchronization with GraphicViewport & ModuleDispatcher
+    if (window.GraphicViewport && typeof window.GraphicViewport.updateMemberData === 'function') {
+        window.GraphicViewport.updateMemberData(formData);
+    }
+    if (window.ModuleDispatcher && typeof window.ModuleDispatcher.updateMember === 'function') {
+        const activeMember = window.ProjectStore.getActiveMember(modKey);
+        if (activeMember) {
+            window.ModuleDispatcher.updateMember(activeMember.id, formData);
+        }
     }
 }
 

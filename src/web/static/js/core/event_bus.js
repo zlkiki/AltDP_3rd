@@ -78,9 +78,13 @@ window.APP_EVENTS = {
     MEMBER_ADDED: 'member:added',
     MEMBER_DELETED: 'member:deleted',
     MEMBER_DUPLICATED: 'member:duplicated',
+    MEMBER_UPDATED: 'member:updated',
     PARAM_CHANGED: 'param:changed',
     CALCULATION_DONE: 'calc:done',
     CANVAS_REDRAW: 'canvas:redraw',
     UNIT_CHANGED: 'unit:changed',
-    REPORT_MODE_CHANGED: 'report:mode_changed'
+    REPORT_MODE_CHANGED: 'report:mode_changed',
+    DISPATCHER_SWITCHED: 'dispatcher:switched',
+    DISPATCHER_SWITCH: 'dispatcher:switch'
 };
+

@@ -315,9 +315,23 @@
             if (target) {
                 target.inputs = { ...target.inputs, ...newInputs };
                 target.updatedAt = Date.now();
-                this.notify('MEMBER_INPUTS_UPDATED', { moduleKey, member: target });
+                this.notify('MEMBER_INPUTS_UPDATED', { moduleKey, member: target, inputs: target.inputs });
+                this.notify('MEMBER_UPDATED', { moduleKey, member: target, inputs: target.inputs });
+                if (window.EventBus && window.APP_EVENTS) {
+                    window.EventBus.emit(window.APP_EVENTS.MEMBER_UPDATED || 'member:updated', {
+                        moduleKey,
+                        memberId,
+                        member: target,
+                        inputs: target.inputs
+                    });
+                }
             }
         }
+
+        updateMember(moduleKey, memberId, newInputs) {
+            return this.updateMemberInputs(moduleKey, memberId, newInputs);
+        }
+
 
         updateMemberResult(moduleKey, memberId, resultData) {
             const mod = this.state.modules[moduleKey];
