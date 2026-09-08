@@ -704,4 +704,122 @@
     font-family: inherit;
 }
 
+/* ========================================================= */
+/* Specialized Engineering Input Form (Req 22-2 & DOCS 07)   */
+/* ========================================================= */
+.eng-form-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm, 6px);
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.form-section-header {
+    font-family: var(--font-head, 'Outfit', sans-serif);
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--accent, #38bdf8);
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-light, var(--border));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 0.2px;
+}
+
+.form-group-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.form-group-row label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+    min-width: 85px;
+    flex-shrink: 0;
+}
+
+.form-input {
+    background: var(--bg-input, #0f141f);
+    border: 1px solid var(--border, #2b364c);
+    border-radius: var(--radius-xs, 4px);
+    color: var(--text-main, #f1f5f9);
+    font-size: 11.5px;
+    font-family: var(--font-mono, 'Fira Code', monospace);
+    padding: 5px 8px;
+    width: 100%;
+    outline: none;
+    transition: all 0.15s ease;
+    box-sizing: border-box;
+}
+
+select.form-input {
+    font-family: var(--font-main, 'Inter', sans-serif);
+    cursor: pointer;
+    background-color: var(--bg-input, #0f141f);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+    padding-right: 24px;
+}
+
+select.form-input option {
+    background-color: var(--bg-card, #121722);
+    color: var(--text-main, #f1f5f9);
+}
+
+.form-input:focus {
+    border-color: var(--accent, #3b82f6);
+    box-shadow: 0 0 0 2px var(--accent-glow, rgba(59, 130, 246, 0.2));
+}
+
+.form-input:hover:not(:focus) {
+    border-color: var(--border-light, #3b4863);
+}
+
+.unit-tag {
+    font-size: 10.5px;
+    font-family: var(--font-mono, monospace);
+    color: var(--text-dim, #64748b);
+    background: var(--bg-surface, #20293a);
+    padding: 2px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+}
+
+.radio-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    font-family: var(--font-main, sans-serif);
+    color: var(--text-main, #f1f5f9);
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+    accent-color: var(--accent, #3b82f6);
+    cursor: pointer;
+}
+
+.beam-action-bar {
+    margin-bottom: 8px;
+    border-radius: var(--radius-sm, 6px);
+}
+
+
 

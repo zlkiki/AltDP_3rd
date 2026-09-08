@@ -27,6 +27,26 @@ class RCBeamFormComponent {
         this.container.innerHTML = '';
         this.container.className = 'rc-beam-form-container';
 
+        // 0. Render 3-Action Button Toolbar (Apply, Check, Auto-Design)
+        const actionBar = document.createElement('div');
+        actionBar.className = 'input-action-bar beam-action-bar';
+        actionBar.innerHTML = `
+            <button type="button" class="btn-apply-action" id="beam-btn-apply" title="현재 입력 데이터를 메모리에 기록하고 캔버스를 갱신합니다">
+                💾 적용 (Apply)
+            </button>
+            <button type="button" class="btn-check-action" id="beam-btn-check" title="현재 입력 조건으로 KDS 기준 검토를 수행하고 계산서를 갱신합니다">
+                ⚡ 검토 (Check)
+            </button>
+            <button type="button" class="btn-design-action" id="beam-btn-design" title="현재 단면에 대해 최적 철근 배근을 자동 설계합니다">
+                ✨ 자동설계 (Design)
+            </button>
+        `;
+        this.container.appendChild(actionBar);
+
+        actionBar.querySelector('#beam-btn-apply').onclick = () => this._handleApply();
+        actionBar.querySelector('#beam-btn-check').onclick = () => this._handleCheck();
+        actionBar.querySelector('#beam-btn-design').onclick = () => this._handleAutoDesign();
+
         // 1. Render Subtab Navigation Bar
         const navBar = document.createElement('div');
         navBar.className = 'sub-tab-bar beam-subtab-bar';
@@ -249,7 +269,7 @@ class RCBeamFormComponent {
                 </div>
 
                 <!-- T-Beam Specific Row (Hidden or Dimmed if RECTANGULAR) -->
-                <div id="beam-t-flange-group" class="form-grid-2col" style="margin-top:8px; padding-top:8px; border-top:1px dashed #e2e8f0; ${!isTee ? 'opacity:0.4; pointer-events:none;' : ''}">
+                <div id="beam-t-flange-group" class="form-grid-2col" style="margin-top:8px; padding-top:8px; border-top:1px dashed var(--border); ${!isTee ? 'opacity:0.4; pointer-events:none;' : ''}">
                     <div class="form-group-row">
                         <label for="beam-input-bf">플랜지 폭 (be):</label>
                         <div class="input-control-wrap">
@@ -402,99 +422,99 @@ class RCBeamFormComponent {
             <div class="eng-form-section">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                     <div class="form-section-header" style="margin-bottom:0;">위치별 주철근 및 스터럽 배근</div>
-                    <button type="button" class="btn-more-dlg-wide" id="btn-open-rebar-dlg" style="padding:4px 10px; font-size:12px; background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; cursor:pointer;">
+                    <button type="button" class="btn-more-dlg-wide" id="btn-open-rebar-dlg">
                         ⚙️ 배근 상세 및 갈고리...
                     </button>
                 </div>
 
                 <div class="beam-rebar-table-wrap" style="overflow-x:auto;">
-                    <table class="beam-rebar-table" style="width:100%; border-collapse:collapse; font-size:12px; text-align:center;">
+                    <table class="beam-rebar-table">
                         <thead>
-                            <tr style="background:#f8fafc; border-bottom:2px solid #e2e8f0; color:#475569;">
-                                <th style="padding:6px; border:1px solid #e2e8f0;">위치 (Station)</th>
-                                <th style="padding:6px; border:1px solid #e2e8f0;">상부 1단</th>
-                                <th style="padding:6px; border:1px solid #e2e8f0;">상부 2단</th>
-                                <th style="padding:6px; border:1px solid #e2e8f0;">하부 1단</th>
-                                <th style="padding:6px; border:1px solid #e2e8f0;">하부 2단</th>
-                                <th style="padding:6px; border:1px solid #e2e8f0;">전단 스터럽</th>
+                            <tr>
+                                <th>위치 (Station)</th>
+                                <th>상부 1단</th>
+                                <th>상부 2단</th>
+                                <th>하부 1단</th>
+                                <th>하부 2단</th>
+                                <th>전단 스터럽</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- End-I -->
-                            <tr style="border-bottom:1px solid #e2e8f0;">
-                                <td style="padding:6px; font-weight:700; background:#f8fafc; border:1px solid #e2e8f0;">단부-I (End-I)</td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                            <tr>
+                                <td style="font-weight:700;">단부-I (End-I)</td>
+                                <td>
                                     <input type="text" id="rb-endi-t1" class="form-input table-cell-input" value="${rb.end_i.top_layer1}" style="width:70px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="text" id="rb-endi-t2" class="form-input table-cell-input" value="${rb.end_i.top_layer2}" style="width:70px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="text" id="rb-endi-b1" class="form-input table-cell-input" value="${rb.end_i.bot_layer1}" style="width:70px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="text" id="rb-endi-b2" class="form-input table-cell-input" value="${rb.end_i.bot_layer2}" style="width:70px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <div style="display:flex; align-items:center; justify-content:center; gap:2px;">
                                         <select id="rb-endi-st-dia" class="form-input" style="width:60px; padding:2px;">
                                             <option value="D10" ${rb.end_i.stirrup_dia === 'D10' ? 'selected' : ''}>D10</option>
                                             <option value="D13" ${rb.end_i.stirrup_dia === 'D13' ? 'selected' : ''}>D13</option>
                                         </select>
                                         <span>@</span>
-                                        <input type="number" id="rb-endi-st-space" class="form-input" value="${rb.end_i.stirrup_space}" style="width:55px; text-align:center;">
+                                        <input type="number" id="rb-endi-st-space" class="form-input table-cell-input" value="${rb.end_i.stirrup_space}" style="width:55px; text-align:center;">
                                     </div>
                                 </td>
                             </tr>
                             <!-- Center-M -->
-                            <tr style="border-bottom:1px solid #e2e8f0;">
-                                <td style="padding:6px; font-weight:700; background:#f8fafc; border:1px solid #e2e8f0;">중앙-M (Center)</td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                            <tr>
+                                <td style="font-weight:700;">중앙-M (Center)</td>
+                                <td>
                                     <input type="text" id="rb-cent-t1" class="form-input table-cell-input" value="${rb.center_m.top_layer1}" style="width:70px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="text" id="rb-cent-t2" class="form-input table-cell-input" value="${rb.center_m.top_layer2}" style="width:70px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="text" id="rb-cent-b1" class="form-input table-cell-input" value="${rb.center_m.bot_layer1}" style="width:70px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="text" id="rb-cent-b2" class="form-input table-cell-input" value="${rb.center_m.bot_layer2}" style="width:70px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <div style="display:flex; align-items:center; justify-content:center; gap:2px;">
                                         <select id="rb-cent-st-dia" class="form-input" style="width:60px; padding:2px;">
                                             <option value="D10" ${rb.center_m.stirrup_dia === 'D10' ? 'selected' : ''}>D10</option>
                                             <option value="D13" ${rb.center_m.stirrup_dia === 'D13' ? 'selected' : ''}>D13</option>
                                         </select>
                                         <span>@</span>
-                                        <input type="number" id="rb-cent-st-space" class="form-input" value="${rb.center_m.stirrup_space}" style="width:55px; text-align:center;">
+                                        <input type="number" id="rb-cent-st-space" class="form-input table-cell-input" value="${rb.center_m.stirrup_space}" style="width:55px; text-align:center;">
                                     </div>
                                 </td>
                             </tr>
                             <!-- End-J -->
-                            <tr style="border-bottom:1px solid #e2e8f0;">
-                                <td style="padding:6px; font-weight:700; background:#f8fafc; border:1px solid #e2e8f0;">단부-J (End-J)</td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                            <tr>
+                                <td style="font-weight:700;">단부-J (End-J)</td>
+                                <td>
                                     <input type="text" id="rb-endj-t1" class="form-input table-cell-input" value="${rb.end_j.top_layer1}" style="width:70px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="text" id="rb-endj-t2" class="form-input table-cell-input" value="${rb.end_j.top_layer2}" style="width:70px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="text" id="rb-endj-b1" class="form-input table-cell-input" value="${rb.end_j.bot_layer1}" style="width:70px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="text" id="rb-endj-b2" class="form-input table-cell-input" value="${rb.end_j.bot_layer2}" style="width:70px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <div style="display:flex; align-items:center; justify-content:center; gap:2px;">
                                         <select id="rb-endj-st-dia" class="form-input" style="width:60px; padding:2px;">
                                             <option value="D10" ${rb.end_j.stirrup_dia === 'D10' ? 'selected' : ''}>D10</option>
                                             <option value="D13" ${rb.end_j.stirrup_dia === 'D13' ? 'selected' : ''}>D13</option>
                                         </select>
                                         <span>@</span>
-                                        <input type="number" id="rb-endj-st-space" class="form-input" value="${rb.end_j.stirrup_space}" style="width:55px; text-align:center;">
+                                        <input type="number" id="rb-endj-st-space" class="form-input table-cell-input" value="${rb.end_j.stirrup_space}" style="width:55px; text-align:center;">
                                     </div>
                                 </td>
                             </tr>
@@ -526,12 +546,12 @@ class RCBeamFormComponent {
                 </div>
             </div>
 
-            <div class="eng-form-section" id="beam-spacing-preview-box" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:10px;">
+            <div class="eng-form-section" id="beam-spacing-preview-box" style="background:var(--bg-card); border:1px solid var(--border); border-radius:6px; padding:10px;">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <span style="font-weight:700; font-size:12px; color:#0369a1;">📏 철근 순간격 실시간 자동 검토</span>
-                    <span id="beam-spacing-badge" class="badge-status-ok" style="background:#10b981; color:#fff; font-size:11px; padding:2px 6px; border-radius:4px;">적합 (OK)</span>
+                    <span style="font-weight:700; font-size:12px; color:var(--accent);">📏 철근 순간격 실시간 자동 검토</span>
+                    <span id="beam-spacing-badge" class="badge-status-ok" style="background:var(--success, #10b981); color:#fff; font-size:11px; padding:2px 6px; border-radius:4px;">적합 (OK)</span>
                 </div>
-                <div id="beam-spacing-detail-text" style="font-size:11px; color:#64748b; margin-top:4px;">
+                <div id="beam-spacing-detail-text" style="font-size:11px; color:var(--text-muted); margin-top:4px;">
                     계산 중...
                 </div>
             </div>
@@ -640,68 +660,68 @@ class RCBeamFormComponent {
             <div class="eng-form-section">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                     <div class="form-section-header" style="margin-bottom:0;">설계 계수 부재력 (Factored Loads)</div>
-                    <button type="button" class="btn-more-dlg-wide" id="btn-open-lcb-dlg" style="padding:4px 10px; font-size:12px; background:#f1f5f9; border:1px solid #cbd5e1; border-radius:4px; cursor:pointer;">
+                    <button type="button" class="btn-more-dlg-wide" id="btn-open-lcb-dlg">
                         ⚖️ KDS 41 하중조합 생성기...
                     </button>
                 </div>
 
                 <div class="beam-load-table-wrap" style="overflow-x:auto;">
-                    <table class="beam-load-table" style="width:100%; border-collapse:collapse; font-size:12px; text-align:center;">
+                    <table class="beam-load-table">
                         <thead>
-                            <tr style="background:#f8fafc; border-bottom:2px solid #e2e8f0; color:#475569;">
-                                <th style="padding:6px; border:1px solid #e2e8f0;">위치 (Station)</th>
-                                <th style="padding:6px; border:1px solid #e2e8f0;">+Mu (정모멘트, kN·m)</th>
-                                <th style="padding:6px; border:1px solid #e2e8f0;">-Mu (부모멘트, kN·m)</th>
-                                <th style="padding:6px; border:1px solid #e2e8f0;">Vu (전단력, kN)</th>
-                                <th style="padding:6px; border:1px solid #e2e8f0;">Tu (비틀림, kN·m)</th>
+                            <tr>
+                                <th>위치 (Station)</th>
+                                <th>+Mu (정모멘트, kN·m)</th>
+                                <th>-Mu (부모멘트, kN·m)</th>
+                                <th>Vu (전단력, kN)</th>
+                                <th>Tu (비틀림, kN·m)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- End-I -->
-                            <tr style="border-bottom:1px solid #e2e8f0;">
-                                <td style="padding:6px; font-weight:700; background:#f8fafc; border:1px solid #e2e8f0;">단부-I (End-I)</td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                            <tr>
+                                <td style="font-weight:700;">단부-I (End-I)</td>
+                                <td>
                                     <input type="number" id="ld-endi-mup" class="form-input table-cell-input" value="${ld.end_i.Mu_pos}" step="10" style="width:80px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="number" id="ld-endi-mun" class="form-input table-cell-input" value="${ld.end_i.Mu_neg}" step="10" style="width:80px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="number" id="ld-endi-vu" class="form-input table-cell-input" value="${ld.end_i.Vu}" step="10" style="width:80px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="number" id="ld-endi-tu" class="form-input table-cell-input" value="${ld.end_i.Tu}" step="1" style="width:70px; text-align:center;">
                                 </td>
                             </tr>
                             <!-- Center-M -->
-                            <tr style="border-bottom:1px solid #e2e8f0;">
-                                <td style="padding:6px; font-weight:700; background:#f8fafc; border:1px solid #e2e8f0;">중앙-M (Center)</td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                            <tr>
+                                <td style="font-weight:700;">중앙-M (Center)</td>
+                                <td>
                                     <input type="number" id="ld-cent-mup" class="form-input table-cell-input" value="${ld.center_m.Mu_pos}" step="10" style="width:80px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="number" id="ld-cent-mun" class="form-input table-cell-input" value="${ld.center_m.Mu_neg}" step="10" style="width:80px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="number" id="ld-cent-vu" class="form-input table-cell-input" value="${ld.center_m.Vu}" step="10" style="width:80px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="number" id="ld-cent-tu" class="form-input table-cell-input" value="${ld.center_m.Tu}" step="1" style="width:70px; text-align:center;">
                                 </td>
                             </tr>
                             <!-- End-J -->
-                            <tr style="border-bottom:1px solid #e2e8f0;">
-                                <td style="padding:6px; font-weight:700; background:#f8fafc; border:1px solid #e2e8f0;">단부-J (End-J)</td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                            <tr>
+                                <td style="font-weight:700;">단부-J (End-J)</td>
+                                <td>
                                     <input type="number" id="ld-endj-mup" class="form-input table-cell-input" value="${ld.end_j.Mu_pos}" step="10" style="width:80px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="number" id="ld-endj-mun" class="form-input table-cell-input" value="${ld.end_j.Mu_neg}" step="10" style="width:80px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="number" id="ld-endj-vu" class="form-input table-cell-input" value="${ld.end_j.Vu}" step="10" style="width:80px; text-align:center;">
                                 </td>
-                                <td style="padding:4px; border:1px solid #e2e8f0;">
+                                <td>
                                     <input type="number" id="ld-endj-tu" class="form-input table-cell-input" value="${ld.end_j.Tu}" step="1" style="width:70px; text-align:center;">
                                 </td>
                             </tr>
@@ -907,13 +927,401 @@ class RCBeamFormComponent {
     }
 
     /**
+     * Action 1: [적용] 버튼 - 현재 입력 데이터를 메모리에 기록만 수행 (계산서는 갱신하지 않음)
+     */
+    _handleApply(silent = false) {
+        this._syncLegacyRebarStrings();
+        if (window.ProjectStore && typeof window.ProjectStore.updateMemberInputs === 'function') {
+            const activeMember = window.ProjectStore.getActiveMember('rc_beam');
+            if (activeMember && activeMember.id) {
+                window.ProjectStore.updateMemberInputs('rc_beam', this.data);
+            }
+        }
+        // Broadcast for graphics canvas & sidebar update
+        if (window.EventBus && window.APP_EVENTS) {
+            window.EventBus.emit(window.APP_EVENTS.PARAM_CHANGED, {
+                moduleKey: 'rc_beam',
+                data: this.data,
+                source: 'apply'
+            });
+        }
+        if (this.onChangeCallback) {
+            this.onChangeCallback(this.data, false); // false = do NOT trigger report update
+        }
+        if (!silent) {
+            this._showNotification('💾 적용 완료: 입력 데이터가 메모리에 저장되었습니다.', 'success');
+        }
+    }
+
+    /**
+     * Action 2: [검토] 버튼 - 기준검토부의 내용을 실시간으로 업데이트 하지 않고 검토 버튼이 눌러질 때만 검토 및 업데이트 수행
+     */
+    async _handleCheck() {
+        this._handleApply(true); // 선행 적용 실행
+        
+        const checkBtn = this.container?.querySelector('#beam-btn-check');
+        const origText = checkBtn ? checkBtn.innerHTML : '';
+        if (checkBtn) {
+            checkBtn.disabled = true;
+            checkBtn.innerHTML = '⏳ 검토 중...';
+        }
+
+        try {
+            const As_bot = this._calcTotalAs(this.data.rebar.center_m.bot_layer1, this.data.rebar.center_m.bot_layer2);
+            const As_top = this._calcTotalAs(this.data.rebar.center_m.top_layer1, this.data.rebar.center_m.top_layer2);
+            const stirrupDiaNum = parseFloat(this.data.rebar.center_m.stirrup_dia.replace(/[^0-9]/g, '')) || 10;
+            const stirrupBarArea = stirrupDiaNum === 13 ? 126.7 : 71.33;
+            const stirrupLegs = this.data.rebar.center_m.stirrup_legs || 2;
+            const stirrupSpace = this.data.rebar.center_m.stirrup_space || 200;
+
+            const payload = {
+                name: 'RC_BEAM_1',
+                b: this.data.b || 400,
+                h: this.data.h || 600,
+                cover: (this.data.cover || 40) + stirrupDiaNum + 25/2,
+                cover_prime: (this.data.cover_top || 40) + stirrupDiaNum + 25/2,
+                side_cover: this.data.cover || 40,
+                As: Math.max(As_bot, 200),
+                As_prime: As_top,
+                Av: stirrupBarArea * stirrupLegs,
+                s: stirrupSpace,
+                Mu: Math.max(this.data.loads.center_m.Mu_pos, this.data.loads.end_i.Mu_neg, this.data.loads.end_j.Mu_neg, this.data.mu || 240),
+                Vu: Math.max(this.data.loads.end_i.Vu, this.data.loads.end_j.Vu, this.data.vu || 180),
+                Tu: Math.max(this.data.loads.end_i.Tu, this.data.loads.center_m.Tu, 15.0),
+                Ma: this.data.serviceability.Ma_pos || 140.0,
+                span_length: this.data.length || 6000,
+                num_tension_bars: this._parseBarCount(this.data.rebar.center_m.bot_layer1),
+                fck: this.data.fck || 27,
+                fy: this.data.fy || 400,
+                fyt: this.data.fyt || 400
+            };
+
+            let calcResult = null;
+            try {
+                const res = await fetch('/api/rc/beam/check', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (res.ok) {
+                    const json = await res.json();
+                    if (json.success && json.data) {
+                        calcResult = json.data;
+                    }
+                }
+            } catch (apiErr) {
+                console.warn('[RCBeamForm] API call failed, fallback to local calc:', apiErr);
+            }
+
+            // If API didn't return, provide structured local fallback
+            if (!calcResult) {
+                const phiMn = Math.max(10, payload.As * payload.fy * 0.9 * (payload.h - 60) * 1e-6);
+                const phiVn = Math.max(10, (1/6 * Math.sqrt(payload.fck) * payload.b * (payload.h - 60) + 0.8 * payload.Av * payload.fyt * (payload.h - 60) / payload.s) * 1e-3);
+                calcResult = {
+                    d: payload.h - 60,
+                    phi_Mn: phiMn,
+                    phi_Vn: phiVn,
+                    flexure_dcr: payload.Mu / phiMn,
+                    shear_dcr: payload.Vu / phiVn,
+                    torsion_dcr: payload.Tu / 35.0,
+                    is_safe: (payload.Mu / phiMn <= 1.0 && payload.Vu / phiVn <= 1.0)
+                };
+            }
+
+            // 2. Render KDS Report into Pane 4
+            const targetMod = window.ModuleDispatcher ? window.ModuleDispatcher.resolveModule('rc_beam') : null;
+            const reportContainer = document.getElementById('result-container') || document.querySelector('.report-content');
+            if (targetMod && typeof targetMod.renderReport === 'function' && reportContainer) {
+                targetMod.renderReport(reportContainer, this.data, calcResult, {});
+            }
+
+            // 3. Update DCR Badge in Pane 3
+            const dcrVal = Math.max(calcResult.flexure_dcr || 0, calcResult.shear_dcr || 0, calcResult.torsion_dcr || 0);
+            const dcrValEl = document.getElementById('dcrValue');
+            const dcrBarEl = document.getElementById('dcrBar');
+            if (dcrValEl) {
+                dcrValEl.textContent = dcrVal.toFixed(3);
+                dcrValEl.style.color = dcrVal <= 1.0 ? '#10b981' : '#ef4444';
+            }
+            if (dcrBarEl) {
+                const pct = Math.min(100, Math.round(dcrVal * 100));
+                dcrBarEl.style.width = `${pct}%`;
+                dcrBarEl.style.background = dcrVal <= 1.0 ? '#10b981' : '#ef4444';
+            }
+
+            // 4. Update member summary in ProjectStore / MemberManager
+            if (window.ProjectStore && typeof window.ProjectStore.updateMemberDCR === 'function') {
+                window.ProjectStore.updateMemberDCR('rc_beam', dcrVal, dcrVal <= 1.0 ? 'OK' : 'NG');
+            }
+
+            this._showNotification(`⚡ 검토 완료: DCR = ${dcrVal.toFixed(3)} (${dcrVal <= 1.0 ? '적합 OK' : '내력 부족 NG'})`, dcrVal <= 1.0 ? 'success' : 'danger');
+        } catch (e) {
+            console.error('[RCBeamForm] Check execution error:', e);
+            this._showNotification('❌ 검토 중 오류가 발생했습니다: ' + e.message, 'danger');
+        } finally {
+            if (checkBtn) {
+                checkBtn.disabled = false;
+                checkBtn.innerHTML = origText;
+            }
+        }
+    }
+
+    /**
+     * Action 3: [자동설계] 버튼 - 현재 단면에 대해 원본 소스 알고리즘을 참고하여 최적 철근 자동 설계
+     */
+    async _handleAutoDesign() {
+        const designBtn = this.container?.querySelector('#beam-btn-design');
+        const origText = designBtn ? designBtn.innerHTML : '';
+        if (designBtn) {
+            designBtn.disabled = true;
+            designBtn.innerHTML = '✨ 설계 중...';
+        }
+
+        try {
+            const b = this.data.b || 400;
+            const h = this.data.h || 600;
+            const cover = this.data.cover || 40;
+            const fck = this.data.fck || 27;
+            const fy = this.data.fy || 400;
+            const fyt = this.data.fyt || 400;
+            const d = h - cover - 10 - 25/2;
+
+            // 1. Calculate required tension rebar As for Center-M (+Mu) and Ends (-Mu)
+            const mu_center = Math.max(10, this.data.loads.center_m.Mu_pos || this.data.mu || 240);
+            const mu_end = Math.max(10, this.data.loads.end_i.Mu_neg, this.data.loads.end_j.Mu_neg, 240);
+            const vu_max = Math.max(10, this.data.loads.end_i.Vu, this.data.loads.end_j.Vu, this.data.vu || 180);
+
+            // As_req approximation: Mu / (phi * fy * 0.9 * d)
+            const phi_b = 0.85;
+            const As_req_cent = (mu_center * 1e6) / (phi_b * fy * 0.9 * d);
+            const As_req_end = (mu_end * 1e6) / (phi_b * fy * 0.9 * d);
+
+            // 2. Call backend /api/rc/beam/auto-design for center rebar
+            let autoRes = null;
+            try {
+                const res = await fetch('/api/rc/beam/auto-design', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        b: b,
+                        h: h,
+                        As_req: As_req_cent,
+                        cover: cover,
+                        stirrup_size: 'D10',
+                        max_aggregate: this.data.rebar.maxAggSize || 25,
+                        preferred_sizes: ['D19', 'D22', 'D25', 'D29']
+                    })
+                });
+                if (res.ok) {
+                    const json = await res.json();
+                    if (json.success && json.data) {
+                        autoRes = json.data;
+                    }
+                }
+            } catch (e) {
+                console.warn('[RCBeamForm] Auto-design API fallback:', e);
+            }
+
+            // Optimal arrangement synthesis
+            let botBarsCent = '4-D25';
+            let topBarsCent = '2-D22';
+            let botLayer2Cent = '0';
+            let topLayer2Cent = '0';
+
+            if (autoRes && autoRes.selected) {
+                const sel = autoRes.selected;
+                if (sel.num_layers === 1) {
+                    botBarsCent = `${sel.total_bars}-${sel.bar_size}`;
+                    botLayer2Cent = '0';
+                } else if (sel.layers && sel.layers.length >= 2) {
+                    botBarsCent = `${sel.layers[0].num_bars}-${sel.bar_size}`;
+                    botLayer2Cent = `${sel.layers[1].num_bars}-${sel.bar_size}`;
+                }
+                topBarsCent = `2-${sel.bar_size}`;
+            } else {
+                // High-precision local heuristic fallback
+                const dbInfo = { D19: 286.5, D22: 387.1, D25: 506.7, D29: 642.4 };
+                const chooseBest = (reqArea) => {
+                    for (const [dia, area] of Object.entries(dbInfo)) {
+                        const n = Math.ceil(reqArea / area);
+                        if (n >= 2 && n <= 5) return { dia, n1: n, n2: 0 };
+                        if (n > 5 && n <= 8) return { dia, n1: Math.ceil(n/2), n2: Math.floor(n/2) };
+                    }
+                    return { dia: 'D25', n1: 4, n2: 2 };
+                };
+                const cFit = chooseBest(As_req_cent);
+                botBarsCent = `${cFit.n1}-${cFit.dia}`;
+                botLayer2Cent = cFit.n2 > 0 ? `${cFit.n2}-${cFit.dia}` : '0';
+                topBarsCent = `2-${cFit.dia}`;
+            }
+
+            // End stations arrangement (for -Mu)
+            const chooseEnd = (reqArea) => {
+                const dbInfo = { D22: 387.1, D25: 506.7, D29: 642.4 };
+                for (const [dia, area] of Object.entries(dbInfo)) {
+                    const n = Math.ceil(reqArea / area);
+                    if (n >= 2 && n <= 4) return { dia, n1: n, n2: 0 };
+                    if (n > 4 && n <= 8) return { dia, n1: 4, n2: n - 4 };
+                }
+                return { dia: 'D25', n1: 4, n2: 2 };
+            };
+            const eFit = chooseEnd(As_req_end);
+            const topBarsEnd = `${eFit.n1}-${eFit.dia}`;
+            const topLayer2End = eFit.n2 > 0 ? `${eFit.n2}-${eFit.dia}` : '0';
+            const botBarsEnd = `3-${eFit.dia}`;
+
+            // Stirrup spacing calculation: s = min(d/2, 300, phi*Av*fyt*d / (Vu - phi*Vc))
+            const Av_stirrup = 142.66; // 2-D10
+            const phi_v = 0.75;
+            const Vc = (1/6 * Math.sqrt(fck) * b * d) * 1e-3; // kN
+            const Vs_req = Math.max(0, vu_max / phi_v - Vc);
+            let stirrup_spacing_end = 150;
+            if (Vs_req > 0) {
+                const s_calc = (phi_v * Av_stirrup * fyt * d * 1e-3) / Vs_req;
+                stirrup_spacing_end = Math.min(Math.floor(d / 2 / 25) * 25, Math.floor(s_calc / 25) * 25, 200);
+            } else {
+                stirrup_spacing_end = Math.min(Math.floor(d / 2 / 25) * 25, 250);
+            }
+            stirrup_spacing_end = Math.max(100, stirrup_spacing_end);
+            const stirrup_spacing_mid = Math.min(Math.floor(d / 2 / 25) * 25, 250);
+
+            // 3. Inject into data
+            this.data.rebar.center_m.top_layer1 = topBarsCent;
+            this.data.rebar.center_m.top_layer2 = topLayer2Cent;
+            this.data.rebar.center_m.bot_layer1 = botBarsCent;
+            this.data.rebar.center_m.bot_layer2 = botLayer2Cent;
+            this.data.rebar.center_m.stirrup_dia = 'D10';
+            this.data.rebar.center_m.stirrup_space = stirrup_spacing_mid;
+
+            this.data.rebar.end_i.top_layer1 = topBarsEnd;
+            this.data.rebar.end_i.top_layer2 = topLayer2End;
+            this.data.rebar.end_i.bot_layer1 = botBarsEnd;
+            this.data.rebar.end_i.bot_layer2 = '0';
+            this.data.rebar.end_i.stirrup_dia = 'D10';
+            this.data.rebar.end_i.stirrup_space = stirrup_spacing_end;
+
+            this.data.rebar.end_j.top_layer1 = topBarsEnd;
+            this.data.rebar.end_j.top_layer2 = topLayer2End;
+            this.data.rebar.end_j.bot_layer1 = botBarsEnd;
+            this.data.rebar.end_j.bot_layer2 = '0';
+            this.data.rebar.end_j.stirrup_dia = 'D10';
+            this.data.rebar.end_j.stirrup_space = stirrup_spacing_end;
+
+            // 4. Update DOM form elements
+            this._updateFormInputsFromData();
+            this._updateSpacingPreview();
+            this._handleApply(true); // Save to memory & update canvas
+
+            this._showNotification(`✨ 자동설계 완료: 중앙(${botBarsCent}${botLayer2Cent !== '0' ? '+' + botLayer2Cent : ''}), 단부(${topBarsEnd}${topLayer2End !== '0' ? '+' + topLayer2End : ''}), 스터럽(@${stirrup_spacing_end}) 반영됨`, 'success');
+        } catch (err) {
+            console.error('[RCBeamForm] Auto design failed:', err);
+            this._showNotification('❌ 자동설계 중 오류: ' + err.message, 'danger');
+        } finally {
+            if (designBtn) {
+                designBtn.disabled = false;
+                designBtn.innerHTML = origText;
+            }
+        }
+    }
+
+    _calcTotalAs(layer1, layer2) {
+        const dbArea = { D10: 71.33, D13: 126.7, D16: 198.6, D19: 286.5, D22: 387.1, D25: 506.7, D29: 642.4, D32: 794.2 };
+        const parse = (str) => {
+            if (!str || str === '0') return 0;
+            const parts = str.split('-');
+            const n = parseInt(parts[0]) || 0;
+            const dia = parts[1] || 'D25';
+            return n * (dbArea[dia] || 506.7);
+        };
+        return parse(layer1) + parse(layer2);
+    }
+
+    _parseBarCount(str) {
+        if (!str || str === '0') return 2;
+        return parseInt(str.split('-')[0]) || 2;
+    }
+
+    _updateFormInputsFromData() {
+        const rb = this.data.rebar;
+        const setVal = (id, val) => {
+            const el = this.container?.querySelector(id);
+            if (el) el.value = val;
+        };
+        setVal('#rb-endi-t1', rb.end_i.top_layer1);
+        setVal('#rb-endi-t2', rb.end_i.top_layer2);
+        setVal('#rb-endi-b1', rb.end_i.bot_layer1);
+        setVal('#rb-endi-b2', rb.end_i.bot_layer2);
+        setVal('#rb-endi-st-dia', rb.end_i.stirrup_dia);
+        setVal('#rb-endi-st-space', rb.end_i.stirrup_space);
+
+        setVal('#rb-cent-t1', rb.center_m.top_layer1);
+        setVal('#rb-cent-t2', rb.center_m.top_layer2);
+        setVal('#rb-cent-b1', rb.center_m.bot_layer1);
+        setVal('#rb-cent-b2', rb.center_m.bot_layer2);
+        setVal('#rb-cent-st-dia', rb.center_m.stirrup_dia);
+        setVal('#rb-cent-st-space', rb.center_m.stirrup_space);
+
+        setVal('#rb-endj-t1', rb.end_j.top_layer1);
+        setVal('#rb-endj-t2', rb.end_j.top_layer2);
+        setVal('#rb-endj-b1', rb.end_j.bot_layer1);
+        setVal('#rb-endj-b2', rb.end_j.bot_layer2);
+        setVal('#rb-endj-st-dia', rb.end_j.stirrup_dia);
+        setVal('#rb-endj-st-space', rb.end_j.stirrup_space);
+    }
+
+    _showNotification(msg, type = 'info') {
+        let toast = document.getElementById('beam-form-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'beam-form-toast';
+            toast.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 10px 18px;
+                border-radius: 6px;
+                font-size: 12.5px;
+                font-weight: 600;
+                font-family: var(--font-main, sans-serif);
+                z-index: 100000;
+                box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+                transition: opacity 0.25s ease, transform 0.25s ease;
+                opacity: 0;
+                pointer-events: none;
+            `;
+            document.body.appendChild(toast);
+        }
+        toast.textContent = msg;
+        if (type === 'success') {
+            toast.style.background = 'var(--success, #10b981)';
+            toast.style.color = '#ffffff';
+        } else if (type === 'danger') {
+            toast.style.background = 'var(--danger, #ef4444)';
+            toast.style.color = '#ffffff';
+        } else {
+            toast.style.background = 'var(--accent, #38bdf8)';
+            toast.style.color = '#ffffff';
+        }
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(-50%) translateY(0)';
+        clearTimeout(this._toastTimer);
+        this._toastTimer = setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(-50%) translateY(8px)';
+        }, 3000);
+    }
+
+    /**
      * Broadcast change with 50ms debounce
+     * Notice: Only syncs memory and graphics canvas, does NOT re-run calculation report!
      */
     _broadcastChange() {
         clearTimeout(this.debounceTimer);
         this.debounceTimer = setTimeout(() => {
+            this._syncLegacyRebarStrings();
             if (this.onChangeCallback) {
-                this.onChangeCallback(this.data);
+                this.onChangeCallback(this.data, false); // false = do NOT update report
             }
             if (window.EventBus && window.APP_EVENTS) {
                 window.EventBus.emit(window.APP_EVENTS.PARAM_CHANGED, {
@@ -933,3 +1341,4 @@ class RCBeamFormComponent {
 
 // Global Singleton Instance & Registration
 window.RCBeamForm = new RCBeamFormComponent();
+

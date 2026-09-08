@@ -118,7 +118,10 @@ class RCBeamModule {
         }
         if (this.context) {
             this.renderGraphics(this.context.canvas, this.context.pmCanvas, this.data, null);
-            this.renderReport(this.context.reportContainer, this.data, null, {});
+            // 실시간 계산서 갱신 차단: 검토 버튼 클릭(source === 'check') 시에만 갱신
+            if (payload && payload.source === 'check') {
+                this.renderReport(this.context.reportContainer, this.data, payload.result || null, {});
+            }
         }
     }
 
@@ -131,11 +134,13 @@ class RCBeamModule {
 
         // 1. Specialized 1:1 RC Beam Form Component (Req 22-2)
         if (window.RCBeamForm && typeof window.RCBeamForm.render === 'function') {
-            window.RCBeamForm.render(container, curData, (updatedData) => {
+            window.RCBeamForm.render(container, curData, (updatedData, triggerReport = false) => {
                 Object.assign(this.data, updatedData);
                 if (this.context) {
                     this.renderGraphics(this.context.canvas, this.context.pmCanvas, this.data, null);
-                    this.renderReport(this.context.reportContainer, this.data, null, {});
+                    if (triggerReport) {
+                        this.renderReport(this.context.reportContainer, this.data, null, {});
+                    }
                 }
             });
             return;

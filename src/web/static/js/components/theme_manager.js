@@ -40,6 +40,7 @@
 
         applyTheme(theme) {
             document.body.setAttribute('data-theme', theme);
+            document.body.classList.toggle('light-theme', theme === 'light');
             const toggleBtn = document.getElementById('btn-theme-toggle');
             if (toggleBtn) {
                 toggleBtn.innerText = theme === 'dark' ? '🌙' : '☀️';
