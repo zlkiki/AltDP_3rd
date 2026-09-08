@@ -21,10 +21,10 @@
 | 공정 단계 | 권장 AI 모델 | 하위 명세서 링크 | 핵심 산출물 및 주요 업무 | DoD 검증 기준 |
 |:---:|:---:|---|---|:---:|
 | **Step 1** | 🧠 **High** | [**요구사항 23-1**](요구사항23-1_PhaseV1_02_Step1_RC기둥_KDS계산엔진_및_파이버PM_Pydantic스키마.md) | • KDS 14 20 20 축휨/전단 파이썬 엔진 (`src/engine/rc/column.py`)<br>• 200 파이버 단면 수치적분 P-M 솔버 연동<br>• 장주 모멘트확대($\delta_{ns}, \delta_s$) 및 Bresler 이축휨 | `pytest` 100% PASS<br>(오차 $\le 0.10\%$) |
-| **Step 2** | ⚙️ **Medium** | [**요구사항 23-2**](요구사항23-2_PhaseV1_02_Step2_RC기둥_원본앱_1대1_서브탭_입력폼_및_모달.md) | • 원본앱 `IDD_RCS_COLUMN_PMODE_DLG` 1:1 서브탭 폼 (`form_rc_column.js`)<br>• 배근 상세 설정 서브대화창 모달 (`IDD_RCS_COLM_REBAR_DLG`)<br>• P-M 상관곡선 인터랙티브 뷰어 확장 모달 | 브라우저 DOM 정상<br>콘솔 에러 0건 |
+| **Step 2** | ⚙️ **Medium** | [**요구사항 23-2**](요구사항23-2_PhaseV1_02_Step2_RC기둥_원본앱_1대1_서브탭_입력폼_및_모달.md) | • 원본앱 `IDD_RCS_COLUMN_PMODE_DLG` 1:1 서브탭 폼 (`form_rc_column.js`)<br>• 3대 액션 버튼(`[💾 적용] [⚡ 검토] [✨ 자동설계]`) 파이프라인 (검토 시에만 계산서 갱신)<br>• 배근 상세 모달 (`IDD_RCS_COLM_REBAR_DLG`) 및 P-M 확장 모달, 서브탭 래핑/테마 무결성 | 브라우저 DOM 정상<br>콘솔 에러 0건 |
 | **Step 3** | ⚙️ **Medium** | [**요구사항 23-3**](요구사항23-3_PhaseV1_02_Step3_RC기둥_2D_VDraw_캔버스_배근도_및_PM곡선_인터랙션.md) | • 상단: 사각/원형 단면, 135° 절곡 띠대근, 솔리드 주철근, 치수선, 태그<br>• 하단: KDS 200 파이버 $\phi P_n-\phi M_n$ 상관곡선 및 설계하중점 플롯<br>• 마우스 휠 줌/팬/Fit 및 하중점 마우스 호버 DCR 툴팁 | Canvas 그래픽스 렌더링<br>인터랙션 무결성 |
 | **Step 4** | 🧠 **High** | [**요구사항 23-4**](요구사항23-4_PhaseV1_02_Step4_RC기둥_A4_5대장구분_8단계_KaTeX_구조계산서.md) | • 원본 5대 장구분 완벽 계승 (개요-부재력-PM-이축휨-전단)<br>• 8단계 Step-by-Step KaTeX 수식 전개식 (`redcr_rc_column.js`)<br>• 순백색(`#ffffff`) A4 용지 인쇄 프리뷰 및 `  →  O.K / N.G` 판정 | A4 인쇄 레이아웃<br>KaTeX 수식 무결성 |
-| **Step 5** | ⚙️ **Medium** | [**요구사항 23-5**](요구사항23-5_PhaseV1_02_Step5_RC기둥_4열통합_E2E검증_및_실사용UI_온라인전환.md) | • 4-Pane(사이드바-Left-Sub(부재/폼)-중앙그래픽-순백색A4계산서) 연동<br>• 파라미터 입력 시 **100ms 이내 실시간 3-View 동시 동기화**<br>• `catalog.js`에서 `rc_column`의 `is_wip: false` 정식 온라인 전환 | E2E 전수 테스트 Pass<br>콘솔 에러 0건 |
+| **Step 5** | ⚙️ **Medium** | [**요구사항 23-5**](요구사항23-5_PhaseV1_02_Step5_RC기둥_4열통합_E2E검증_및_실사용UI_온라인전환.md) | • 4-Pane(사이드바-Left-Sub(부재/폼)-중앙그래픽-순백색A4계산서) 연동<br>• 폼 입력 시 캔버스 즉시 동기화 및 **[⚡ 검토] 클릭 시 100ms 이내 계산서/DCR 갱신**<br>• `catalog.js`에서 `rc_column`의 `is_wip: false` 정식 온라인 전환 | E2E 전수 테스트 Pass<br>콘솔 에러 0건 |
 
 ---
 
@@ -63,8 +63,8 @@ docs 16을 확인하고, 요구사항 23의 Step 1부터 Step 5까지 순차적�
 ## 4. 마스터 종합 검증 및 수용 기준 (Acceptance Criteria)
 
 - [ ] **[Step 1 수치 무결성]**: `tests/engine/test_rc_column.py` 100% 통과 (학회 예제집 5.1/5.2/5.3 대비 오차 $\le 0.10\%$).
-- [ ] **[Step 2 입력폼 1:1]**: 원본 `IDD_RCS_COLUMN_PMODE_DLG` 4대 서브탭, 배근/P-M 모달 정상 렌더링 및 Pane 1(다중 부재 매니저) 데이터 연동.
+- [ ] **[Step 2 입력폼 1:1]**: 원본 `IDD_RCS_COLUMN_PMODE_DLG` 4대 서브탭, 3대 액션 버튼(`[💾적용] [⚡검토] [✨자동설계]`), 배근/P-M 모달 정상 렌더링, 서브탭 래핑 및 테마 무결성 확보.
 - [ ] **[Step 3 2D 캔버스]**: 상단 단면 배근도 + 하단 200 파이버 KDS P-M 상관곡선/설계하중점 인터랙티브 플롯 정상 작동.
 - [ ] **[Step 4 A4 계산서]**: 순백색(`#ffffff`) A4 용지 고정, 5대 장구분 8단계 KaTeX 수식 전개식, `  →  O.K / N.G` 판정 화살표, `[입력 데이터 상세 포함]` 토글.
-- [ ] **[Step 5 4-Pane 통합]**: 4-Pane(사이드바-Left-Sub(부재/폼)-Center그래픽-Right계산서) 실시간 100ms 동기화 검증 및 `is_wip: false` 정식 온라인 전환.
+- [ ] **[Step 5 4-Pane 통합]**: 폼 입력 시 캔버스 즉시 동기화, [⚡ 검토] 클릭 시 100ms 이내 계산서/DCR 갱신 검증 및 `is_wip: false` 정식 온라인 전환.
 - [ ] **[증거 제출 규약]**: `docs/16` 4대 물리적 증거(원본 발췌, 3자 오차표, raw 로그, git diff) 첨부 및 1단위 Git 푸시 완료.
