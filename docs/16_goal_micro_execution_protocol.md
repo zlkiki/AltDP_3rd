@@ -41,7 +41,7 @@
 
 1. **4대 SSOT 계층 준수**: `1순위 추출 소스 > 2순위 매뉴얼 > 3순위 공인 예제집 > 4순위 KDS 원문` 우선순위 엄수 ([`docs/10 제1.1절`](10_agent_development_protocols.md)).
 2. **0.10% 오차 한계 엄수**: 학회 공인 예제집 및 원본 프로그램 대비 계산 오차는 반드시 **0.10% 이하($\le 0.10\%$)** 유지 ([`docs/10 제1.4절`](10_agent_development_protocols.md)).
-3. **선 치유(Patch-First) 의무**: 마크다운 기준서(4순위) 및 공식 예제집(3순위) 오류 발견 시 `kcsc2md` 선행 영구 치유 선행 ([`docs/10 제1.3절`](10_agent_development_protocols.md)).
+3. **원문 검증 우선(Source-Verification First) 및 선행 치유 의무**: 학회 예제집(3순위) 및 마크다운 기준서(4순위) 인용 시 반드시 원본 PDF/HWPX 렌더링을 통한 비전 1:1 대조 선행, 오류 발견 시 `kcsc2md` 선행 영구 치유 선행 ([`docs/10 제1.3절`](10_agent_development_protocols.md)).
 4. **공학 완전성 (더미 코드 절대 금지)**: 수식 축약이나 하드코딩 Mock/Stub(예: `phi_mn = 150.0`) 반환 전면 금지, 미구현 시 투명한 WIP 응답 반환.
 5. **3-View 100ms 실시간 동기화**: `ProjectStore` 중심 입력폼-캔버스-계산서 **100ms 이내 동시 반응** 보장 ([`docs/07 PART 4`](07_web_application_ui_ux_specification.md)).
 
@@ -75,9 +75,10 @@
 - 생성 커밋: [커밋 해시] [커밋 메시지]
 - 푸시 상태: origin/main 동기화 완료
 
-### 2. [증거 1] 원본 Ground Truth 실제 조회 및 Self-Healing 내역
+### 2. [증거 1] 원본 Ground Truth 실제 조회 및 원문 검증 우선(Source-Verification) 내역
 - 원본 파일 및 라인: `[파일 경로]` Line XXX
-- 원본 발췌 텍스트 / KCSC2MD 선 치유 패치 커밋 해시: [해시 또는 텍스트]
+- 원문 PDF 렌더링 비전 대조 내역: [예제집 PDF 페이지 번호 및 실측된 공인 수치]
+- KCSC2MD 마크다운 선행 패치 커밋 해시 (오류 발견 시): [해시 또는 '일치 확인']
 
 ### 3. [증거 2] 수학적 3자 삼각대조 오차표
 | 검증 항목 | [3순위] 학회 예제집 | [1·2순위] 원본앱 / KDS | [AltDP_3rd] 엔진 계산치 | 오차율(%) | 판정 (기준 <= 0.10%) |

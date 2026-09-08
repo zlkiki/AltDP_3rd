@@ -12,12 +12,13 @@
    - 원본 프로그램의 실제 연산, 분기 조건, 내부 수치 처리의 절대적 1순위 Ground Truth.
 2. **2순위**: **매뉴얼 및 도움말** (`decompiled_src/manuals/`, 원본앱 공식 기술 매뉴얼, `original_src/Midas Design+/`)
    - 공식 설계 이론, 약산/엄밀 해석 옵션, 파라미터 정의, 벤치마크 예제.
-3. **3순위**: **kcsc2md 공식 예제집** (`F:/PyProject/KCSC2MD/output/예제집/`)
-   - 콘크리트구조 학회기준 예제집(2020) & 강구조설계예제집(2019) 등 공인 예제집 기반 계산 오차 $\le 0.10\%$ 검증용 실무 벤치마크 정답 데이터 (오류 발견 시 `kcsc2md` 선 치유(Patch-First) 원칙 적용).
-4. **4순위**: **kcsc2md 국가건설기준** (`F:/PyProject/KCSC2MD/output/kds_md/`)
-   - KDS 14 20 00 / 14 31 00 / 41 00 00 국토교통부 표준 원문 & LaTeX 수식 (기준서 오류 발견 시 `patch_kds_md.py` 선 치유(Patch-First) 원칙 적용).
+3. **3순위**: **kcsc2md 공식 예제집** (`F:/PyProject/kcsc2md/output/예제집/`)
+   - 콘크리트구조 학회기준 예제집(2020) & 강구조설계예제집(2019) 등 공인 예제집 기반 계산 오차 $\le 0.10\%$ 검증용 실무 벤치마크 정답 데이터 (**인용 전 원문 검증 우선(Source-Verification First)** 원칙 적용).
+4. **4순위**: **kcsc2md 국가건설기준** (`F:/PyProject/kcsc2md/output/kds_md/`)
+   - KDS 14 20 00 / 14 31 00 / 41 00 00 국토교통부 표준 원문 & LaTeX 수식 (기준서 오류 발견 시 HWPX 원문 대조 후 `patch_kds_md.py` 선행 패치).
 
-### 1.2. 연동 자산 인벤토리
+### 1.2. 연동 자산 인벤토리 및 단일 진실 공급원(SSOT) 레퍼런스
+외부 프로젝트 연동 및 조회의 표준 규약은 **[`kcsc2md 외부 연동 가이드`](../../kcsc2md/docs/외부프로젝트_연동_및_조회_가이드.md)**를 단일 진실 공급원(SSOT)으로 삼습니다.
 1. **고품질 마크다운 기준서 (`f:/PyProject/kcsc2md/output/kds_md/`)**:
    - 국토교통부 원본 HWPX와 1:1 수식 주입(`LaTeX`)이 완료된 분할 마크다운으로 설계식의 절대적 Ground Truth 기준입니다.
 2. **추출 이미지 자산 (`f:/PyProject/kcsc2md/output/KDS_ImageExtracted/`)**:
@@ -32,12 +33,22 @@
    ```bash
    python ../kcsc2md/.agents/skills/hwpx-inspector/scripts/extract_formula.py --code "14 20 10" --keyword "alpha1"
    ```
+6. **예제집 초고속 PDF 렌더러 & 검증기 (`pdf-inspector`)**:
+   ```bash
+   python ../kcsc2md/.agents/skills/pdf-inspector/scripts/render_page.py --book "concrete" --page 116
+   ```
 
-### 1.3. 우선 치유(Patch-First) 및 Self-Healing 환류 프로토콜
-- `AltDP_3rd` 엔진 개발 및 KDS/예제집 검증 중 국가건설기준(4순위) 및 공식 예제집(3순위) 마크다운의 수식/표 오탈자, 풀이 오류 또는 누락을 발견한 경우, `AltDP_3rd` 코드를 임의로 우회 수정하지 않고 먼저 `kcsc2md`의 Self-Healing 패치 도구(`patch_kds_md.py` 등)를 통해 원본 마크다운 자산을 영구 치유(선 치유)한 후 최신화된 기준 및 예제 데이터를 반영합니다.
+### 1.3. 원문 검증 우선(Source-Verification First) 5단계 프로토콜
+`output/예제집/*.md`는 OCR 변환 기반 자산이므로 수식 기호 왜곡이나 수치 오탈자가 상존할 수 있습니다. 따라서 예제집을 요구사항이나 단위 테스트에 인용할 때는 마크다운 텍스트를 무단 신뢰하지 않고 다음 5단계를 필수로 거쳐야 합니다:
+
+1. **1단계 (MD/텍스트 색인 탐색)**: `search_example.py --book "concrete" --query "예제명"`을 통해 가벼운 마크다운 텍스트 색인을 검색하여 **대상 페이지 번호(Page Index)**를 0.01초 만에 특정.
+2. **2단계 (초고속 PDF 렌더링)**: `render_page.py --book "concrete" --page <페이지>`로 원본 스캔 PDF(`source/예제집/*.pdf`)의 해당 페이지를 0.05초 만에 고해상도(DPI 150) 이미지로 렌더링.
+3. **3단계 (비전 1:1 대조)**: `view_file`로 렌더링된 PNG 이미지를 직접 육안 확인하여 원문 공인 수치(단면 치수, 배근 상세, 계수 하중, 공칭/설계 강도, 중립축)를 실측 추출.
+4. **4단계 (마크다운 불일치 시 선행 패치)**: `output/예제집/*.md`의 OCR 텍스트에 오탈자나 수치 오류 발견 시, `kcsc2md`의 패치 도구(`patch_md_example.py`)로 원본 마크다운 자산을 먼저 영구 치유(Self-Healing).
+5. **5단계 (AltDP_3rd 엔진 및 테스트 연동)**: 원문 검증이 100% 입증된 정밀 데이터만 `AltDP_3rd`의 요구사항 명세 및 `tests/engine/` 단위 테스트에 반영.
 
 ### 1.4. 0.1% 오차 무결성 검증 (Cross-Validation)
-- 원본 원본앱 계산 결과, `kcsc2md` 공식 예제집 해답, 신규 AltDP_3rd 엔진 계산치를 삼각 대조하여 **오차 0.1% 미만의 무결성**을 입증합니다.
+- 원본 원본앱 계산 결과, `kcsc2md` 공식 예제집 원문 해답, 신규 AltDP_3rd 엔진 계산치를 삼각 대조하여 **오차 0.1% 미만의 무결성**을 입증합니다.
 
 ### 1.5. Zero-Dependency 런타임 원칙
 - `kcsc2md` 자산과 도구는 개발/검증/빌드 타임의 Ground Truth 레퍼런스로 활용하며, `AltDP_3rd`의 프로덕션 런타임 코드는 외부 파일시스템에 의존하지 않는 독립 파이썬 패키지를 유지합니다.

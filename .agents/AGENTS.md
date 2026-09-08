@@ -13,7 +13,7 @@
 * **목표**: 원본앱(`Design+.exe`)의 모든 설계/검토 알고리즘, 단면 DB, P-M 수치해석 및 계산서 시스템을 **순수 Python/Web(KDS 14 20 00 / 14 31 00 / 41 00 00)**으로 100% 웹 마이그레이션.
 * **4대 포팅 참조 우선순위**: **`1순위 추출 소스` > `2순위 매뉴얼/리소스` > `3순위 공인 예제집` > `4순위 국가건설기준`**
   - **3자 삼각 대조**: `[원본 소스/매뉴얼]` ↔ `[kcsc2md 예제집]` ↔ `[AltDP_3rd 엔진]` 3자 삼각 대조로 오차 $\le 0.10\%$ 엄수 및 Zero-Dependency 유지.
-  - **선 치유 의무**: 기준서(4순위) 및 공식 예제집(3순위) 오류 발견 시 `kcsc2md` 선 치유(Patch-First) 원칙 적용.
+  - **원문 검증 우선 (Source-Verification First)**: 학회 예제집(3순위) 및 국가건설기준(4순위) 마크다운 인용 시, 반드시 [`kcsc2md 외부 연동 가이드`](../../kcsc2md/docs/외부프로젝트_연동_및_조회_가이드.md)에 따라 원본 PDF/HWPX 렌더링 및 비전 1:1 대조를 선행 완료한 후 인용. 불일치/오탈자 발견 시 `kcsc2md` 자산 선행 패치(Self-Healing) 완료 후 연동.
   - *(상세 자산 인벤토리, 검색 스크립트 및 세부 프로토콜은 **[`docs/10 제1절`](../docs/10_agent_development_protocols.md)** 참조)*
 
 ---
@@ -41,11 +41,11 @@
 1. **소스 격리 & Zero-Dependency**:
    - `original_src/`, `decompiled_src/`는 Read-Only Ground Truth.
    - Wibu Dongle/MFC DLL 의존 없는 독립 Python 패키지 개발.
-2. **KDS 기준 & 0.1% 오차 무결성 (3자 삼각 대조)**:
+2. **KDS 기준 & 0.1% 오차 무결성 (3자 삼각 대조 & 원문 검증 우선)**:
    - `[원본 소스/매뉴얼]` $\leftrightarrow$ `[kcsc2md 예제집]` $\leftrightarrow$ `[AltDP_3rd 엔진]` 교차 대조 (0.10% 이하 오차).
-   - 기준서 및 공식 예제집 오류 발견 시 `kcsc2md` 선 치유(Patch-First) 원칙 적용.
+   - 예제집/기준서 인용 시 원본 PDF/HWPX 실측 렌더링을 통한 **원문 검증 우선(Source-Verification First)** 및 불일치 시 `kcsc2md` 선행 패치 원칙 적용.
 3. **증거 강제 제출 규약 (Proof-First Mandate)**:
-   - 완료 주장 시 텍스트 보고 금지. 반드시 4대 물리적 증거(원본 발췌, 3자 오차표, raw 로그, git diff) 첨부 (`docs/16`).
+   - 완료 주장 시 텍스트 보고 금지. 반드시 4대 물리적 증거(원본 발췌/PDF 렌더링 대조 증빙, 3자 오차표, raw 로그, git diff) 첨부 (`docs/16`).
 4. **2단계 5정밀 마이크로 공정 준수**:
    - 부재 개발 시 Step 1~5(엔진 $\rightarrow$ 폼 $\rightarrow$ 캔버스 $\rightarrow$ 계산서 $\rightarrow$ 통합) 단독 완수 후 즉시 정지(Stop Protocol) (`docs/16`).
    - 각 Step 구현 시 **[`docs/07 PART 4`](../docs/07_web_application_ui_ux_specification.md)**의 UI/UX 결합 사양(Step 2 서브탭 폼 & 서브 모달 4종, Step 3 세로 적층형 2단 뷰포트, Step 4 순백색 A4 8단계 KaTeX 계산서, Step 5 4열 100ms 동기화)을 1:1 완벽 준수.

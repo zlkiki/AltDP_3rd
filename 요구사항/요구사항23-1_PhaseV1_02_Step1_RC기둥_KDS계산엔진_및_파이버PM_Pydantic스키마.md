@@ -183,17 +183,35 @@ $$\phi V_n = \phi (V_c + V_s), \quad \phi = 0.75$$
 ---
 
 ## 4. 단위 테스트 및 0.10% 오차 검증 데이터셋 (`tests/engine/test_rc_column.py`)
+*(원문 검증 우선(Source-Verification First) 프로토콜에 따라 kcsc2md `source/예제집/콘크리트구조 학회기준 예제집(2020)_OCR.pdf` 원본 렌더링 실측 검증 완료)*
 
-* **테스트 케이스 1 (학회 예제집 5.1 사각 기둥)**:
-  - $b=500\text{ mm}, h=500\text{ mm}$, $f_{ck}=27\text{ MPa}$, $f_y=400\text{ MPa}$, 12-D25 ($A_{st}=6,080\text{ mm}^2$).
-  - $P_0$ 계산치 vs 학회 해답 대조 ($\le 0.10\%$).
-  - 균형파괴점 $P_b, M_b$ 오차 검증 ($\le 0.10\%$).
-* **테스트 케이스 2 (학회 예제집 5.2 원형 나선철근 기둥)**:
-  - $D=600\text{ mm}$, 나선철근 $\phi=0.70$, $P_{n,max}$ 대조.
-* **테스트 케이스 3 (학회 예제집 5.3 장주 모멘트확대)**:
-  - $l_u=6,000\text{ mm}$, $k=1.0$, $P_c, \delta_{ns}, M_c$ 대조.
-* **테스트 케이스 4 (Bresler 이축휨)**:
-  - $P_u=1,200\text{ kN}, M_{ux}=200\text{ kN}\cdot\text{m}, M_{uy}=150\text{ kN}\cdot\text{m}$ DCR 정밀 검증.
+* **테스트 케이스 1 (학회 예제집 5.1 사각형 단주 기둥 설계, 원본 PDF 116~119p 실측 검증)**:
+  - $b=500\text{ mm}, h=500\text{ mm}$, 피복두께 $40\text{ mm}$.
+  - $f_{ck}=27\text{ MPa}, f_y=400\text{ MPa}$.
+  - 배근: **8-D22** ($d_b=22.2\text{ mm}, A_b=387.1\text{ mm}^2, A_{st}=3,097\text{ mm}^2$, 4면 대칭 배치), 띠철근 D10.
+  - 계수 하중: $P_u=1,250\text{ kN}, M_u=375\text{ kN}\cdot\text{m}$ (작용 편심 $e=300\text{ mm}$).
+  - 원문 공인 정답:
+    * 중립축 $c = 192.6\text{ mm}$
+    * 공칭 강도: $P_n = 1,590\text{ kN}, M_n = 477\text{ kN}\cdot\text{m}$
+    * 최외단 인장철근 변형률: $\epsilon_{s3} = 0.00423$ (변화구간 단면)
+    * 강도감소계수: $\phi = 0.799$
+    * 설계 강도: $\phi P_n = 1,270\text{ kN} > P_u (=1,250\text{ kN})$, $\phi M_n = 381\text{ kN}\cdot\text{m} > M_u (=375\text{ kN}\cdot\text{m})$
+  - 오차 검증: AltDP_3rd 200 파이버 P-M 상관곡선 상의 강도와 원문 정답 오차 $\le 0.10\%$.
+
+* **테스트 케이스 2 (학회 예제집 5.3 2축하중을 받는 정사각형 기둥 설계, 원본 PDF 125p 실측 검증)**:
+  - 단면 및 재료: $f_{ck}=35\text{ MPa}, f_y=400\text{ MPa}$.
+  - 계수 하중: $P_u=5,300\text{ kN}, M_{ux}=404\text{ kN}\cdot\text{m}, M_{uy}=168\text{ kN}\cdot\text{m}$.
+  - 압축지배 소요 공칭강도: $P_n = 8,153.8\text{ kN}, M_{nx} = 621.5\text{ kN}\cdot\text{m}, M_{ny} = 258.5\text{ kN}\cdot\text{m}$ ($\phi=0.65$).
+  - Bresler 역수식 상호작용비 및 2축 휨 DCR 정밀 검증 ($\le 0.10\%$).
+
+* **테스트 케이스 3 (학회 예제집 5.4 횡구속 골조에서 기둥의 장주효과, 원본 PDF 130p 실측 검증)**:
+  - 단면: $600 \times 600\text{ mm}$, 순 층간 높이 $l_u = 6,500\text{ mm}$, $k=1.0$ (횡구속 골조).
+  - 재료: $f_{ck}=40\text{ MPa}, f_y=400\text{ MPa}$.
+  - 세장비 한계 $k l_u / r$ 판정 (단주/장주 분기), 오일러 좌굴하중 $P_c$, 모멘트확대계수 $\delta_{ns}$, 확대계수모멘트 $M_c$ 검증 ($\le 0.10\%$).
+
+* **테스트 케이스 4 (원형 나선철근 기둥 및 축력 보정 전단강도)**:
+  - 원형 기둥 $D=600\text{ mm}$, 나선철근 $\phi=0.70$, $P_{n,max} = 0.85 \phi P_0$ 대조.
+  - 전단강도 $V_c$ (축력 보정 효과 $1 + P_u/(14 A_g)$) 및 전단철근 $V_s$ 정밀 검증.
 
 ---
 
@@ -201,5 +219,5 @@ $$\phi V_n = \phi (V_c + V_s), \quad \phi = 0.75$$
 
 - [ ] `src/engine/rc/column.py` 내 모든 스키마 및 알고리즘 구현 완료
 - [ ] `pytest tests/engine/test_rc_column.py` 100% 통과 (Exit Code 0)
-- [ ] 학회 예제집 5.1/5.2/5.3 대비 계산 오차율 $\le 0.10\%$ 달성
+- [ ] 원문 검증 우선 프로토콜에 따른 학회 예제집 5.1/5.3/5.4 실측 원본 정답 대비 계산 오차율 $\le 0.10\%$ 달성
 - [ ] 더미 코드(Mock/Hardcoded) 0건 확인
