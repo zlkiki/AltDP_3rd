@@ -276,8 +276,10 @@
       const mouseY = event.clientY - rect.top;
 
       // Transform mouse coordinate into transformed canvas content space
-      const contentX = (mouseX - state.panX) / state.scale;
-      const contentY = (mouseY - state.panY) / state.scale;
+      const halfW = rect.width / 2;
+      const halfH = rect.height / 2;
+      const contentX = (mouseX - state.panX - halfW) / state.scale + halfW;
+      const contentY = (mouseY - state.panY - halfH) / state.scale + halfH;
 
       let hit = null;
       for (const el of state.interactiveElements) {

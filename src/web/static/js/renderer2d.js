@@ -622,6 +622,12 @@
     const cx = width / 2;
     const cy = height / 2;
 
+    if (mod === 'rc_beam' || (mod.includes('beam') && !mod.includes('steel'))) {
+      if (window.VectorRCBeam && typeof window.VectorRCBeam.renderLongitudinalView === 'function') {
+        return window.VectorRCBeam.renderLongitudinalView(ctx, width, height, data, showDimensions);
+      }
+    }
+
     if (mod.includes('col') || mod === 'rc_column') {
       // -------------------------------------------------------------
       // RC Column Section (둘레배근, 대근, 치수선)
@@ -1248,6 +1254,12 @@
       ctx.restore();
 
     } else {
+      if (mod === 'rc_beam' || (mod.includes('beam') && !mod.includes('steel'))) {
+        if (window.VectorRCBeam && typeof window.VectorRCBeam.renderCrossSections === 'function') {
+          return window.VectorRCBeam.renderCrossSections(ctx, width, height, data, result, is3DMode);
+        }
+      }
+
       // -------------------------------------------------------------
       // RC / Steel Beam Moment (Mu) & Shear (Vu) Envelopes
       // -------------------------------------------------------------

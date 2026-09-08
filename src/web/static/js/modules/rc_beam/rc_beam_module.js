@@ -184,91 +184,47 @@ class RCBeamModule {
     }
 
     /**
-     * Render Pane 3 Top/Bottom Vertical Dual Canvas
+     * Render Pane 3 Top/Bottom Vertical Dual Canvas (Conforms to Req 22-3)
      */
     renderGraphics(geomCanvas, mechCanvas, data = this.data, result = null) {
         const curData = data || this.data;
 
-        // 1. Top Viewport: Cross-section Detailing
+        // 1. If GraphicViewport singleton is available, delegate to it for unified pan/zoom/tooltips
+        if (window.GraphicViewport && window.GraphicViewport.initialized) {
+            window.GraphicViewport.currentMemberType = 'rc_beam';
+            window.GraphicViewport.currentMemberData = curData;
+            if (result) {
+                window.GraphicViewport.setCalculationResult(result);
+            } else {
+                window.GraphicViewport.redrawAll();
+            }
+            return;
+        }
+
+        // 2. Direct Canvas Drawing via VectorRCBeam (Top: Longitudinal, Bottom: Cross-Sections)
+        if (window.VectorRCBeam) {
+            if (geomCanvas) {
+                const ctx = geomCanvas.getContext('2d');
+                window.VectorRCBeam.renderLongitudinalView(ctx, geomCanvas.width, geomCanvas.height, curData, true);
+            }
+            if (mechCanvas) {
+                const ctx = mechCanvas.getContext('2d');
+                window.VectorRCBeam.renderCrossSections(ctx, mechCanvas.width, mechCanvas.height, curData, result || {}, false);
+            }
+            return;
+        }
+
+        // 3. Fallback Primitives
         if (geomCanvas && window.VDrawPrimitives) {
             const ctx = geomCanvas.getContext('2d');
             const w = geomCanvas.width;
             const h = geomCanvas.height;
-
             ctx.clearRect(0, 0, w, h);
             ctx.save();
             ctx.translate(w / 2, h / 2);
-
-            // Scale fit
-            const scale = 220 / Math.max(curData.b, curData.h);
+            const scale = 220 / Math.max(curData.b || 400, curData.h || 600);
             ctx.scale(scale, scale);
-
-            // 1. Concrete body
             window.VDrawPrimitives.drawFrameBody(ctx, curData.b, curData.h);
-
-            // 2. 135-deg hook stirrup
-            window.VDrawPrimitives.drawStirrupWithHooks(ctx, curData.b, curData.h, curData.cover, 10);
-
-            // 3. Rebars (Top 4, Bot 4)
-            const innerLeft = -curData.b / 2 + curData.cover + 10;
-            const innerRight = curData.b / 2 - curData.cover - 10;
-            const topY = -curData.h / 2 + curData.cover + 10;
-            const botY = curData.h / 2 - curData.cover - 10;
-
-            for (let i = 0; i < 4; i++) {
-                const x = innerLeft + (innerRight - innerLeft) * (i / 3);
-                window.VDrawPrimitives.drawSolidRebar(ctx, x, topY, 25);
-                window.VDrawPrimitives.drawSolidRebar(ctx, x, botY, 25);
-            }
-
-            // 4. Dimension lines
-            window.VDrawPrimitives.drawDimensionLine(ctx, -curData.b / 2, curData.h / 2, curData.b / 2, curData.h / 2, `b = ${curData.b}`, 35, false);
-            window.VDrawPrimitives.drawDimensionLine(ctx, curData.b / 2, -curData.h / 2, curData.b / 2, curData.h / 2, `h = ${curData.h}`, 35, true);
-
-            ctx.restore();
-        }
-
-        // 2. Bottom Viewport: Moment / Shear Envelope Diagram
-        if (mechCanvas) {
-            const ctx = mechCanvas.getContext('2d');
-            const w = mechCanvas.width;
-            const h = mechCanvas.height;
-
-            ctx.clearRect(0, 0, w, h);
-            ctx.save();
-            ctx.translate(w / 2, h / 2);
-
-            const spanW = 340;
-            const mu = curData.mu || 240;
-            const vu = curData.vu || 180;
-
-            // Baseline beam
-            ctx.strokeStyle = '#64748b';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(-spanW / 2, 0);
-            ctx.lineTo(spanW / 2, 0);
-            ctx.stroke();
-
-            // Parabolic Moment Diagram
-            ctx.beginPath();
-            ctx.moveTo(-spanW / 2, 0);
-            ctx.quadraticCurveTo(0, 75, spanW / 2, 0);
-            ctx.strokeStyle = '#38bdf8';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-
-            ctx.fillStyle = 'rgba(56, 189, 248, 0.15)';
-            ctx.fill();
-
-            // Labels
-            ctx.font = '11px "Pretendard", sans-serif';
-            ctx.fillStyle = '#f8fafc';
-            ctx.textAlign = 'center';
-            ctx.fillText(`+Mu = ${mu} kN·m`, 0, 90);
-            ctx.fillText(`Vu = ${vu} kN`, -spanW / 2 + 35, -20);
-            ctx.fillText(`Vu = -${vu} kN`, spanW / 2 - 35, -20);
-
             ctx.restore();
         }
     }
