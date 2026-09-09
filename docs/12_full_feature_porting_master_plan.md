@@ -10,10 +10,10 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
-│ AltDP_3rd 부재별 5대 정밀 수직 관통 개발 파이프라인 (docs/16 규약 연동)                         │
+│ AltDP_3rd 부재별 1부재 1마스터 수직 관통 개발 파이프라인 (AGENTS.md & docs/10 규약 연동)        │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ [Step 1: KDS 엔진] ──► [Step 2: 1:1 입력폼] ──► [Step 3: 2D 캔버스] ──► [Step 4: A4 계산서] ──► [Step 5: E2E 통합] │
-│ (0.1% 오차 TDD)        (원본앱 DLG)         (VDraw 갈고리/치수)      (5대장 KaTeX 수식)       (100ms 무에러) │
+│ [Step 1: Core/Tracer] ──► [Step 2: Engine/KDS] ──► [Step 3: Benchmark TDD] ──► [Step 4: UI 4-Pane] │
+│ (Tracer AST/기하규격)       (KDS연산/스키마)        (0.10% 오차 3자대조)      (100ms 무에러/온라인)  │
 └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -33,17 +33,16 @@
 
 ---
 
-## 3. 부재별 5대 정밀 수직 공정 파이프라인 (Vertical 5-Step Micro Pipeline)
+## 3. 부재별 1부재 1마스터 수직 공정 파이프라인 (Vertical Single Master Pipeline)
 
-개별 부재 모듈 개발 시 [`docs/16_goal_micro_execution_protocol.md`](16_goal_micro_execution_protocol.md)에 정의된 5대 마이크로 공정을 순차적으로 완수합니다:
+개별 부재 모듈 개발 시 [`AGENTS.md`](../.agents/AGENTS.md) 및 [`docs/10`](10_agent_development_protocols.md)에 정의된 4단계 핵심 공정을 단일 마스터로 완수합니다:
 
 | 공정 단계 | 권장 모델 | 공정 명칭 | 핵심 산출물 및 작업 내용 | 필수 검증 기준 (DoD) |
 |:---:|:---:|---|---|:---:|
-| **Step 1** | 🧠 High | **KDS 계산 엔진 & Pydantic 스키마** | • KDS 14 20 / 14 31 표준 수식 순수 Python 구현<br>• Pydantic 입출력 스키마 정의 (`src/engine/<domain>/`)<br>• P-M / FEM 수치 솔버 연동 | `pytest` 100% Pass<br>(학회 예제집 대비 **오차 $\le 0.10\%$**) |
-| **Step 2** | ⚙️ Medium | **원본앱 1:1 서브탭 입력폼 & 모달** | • 원본 `DLG_*.ini` 1:1 매핑 서브탭 폼 구현<br>• 버튼(`...`) 클릭 서브대화창 웹 모달 구현 (`dialogs.js`)<br>• 재료/단면(.sdb) 선택 모달 및 유효성 검증 | 브라우저 DOM 렌더링 확인<br>콘솔 에러 0건 |
-| **Step 3** | ⚙️ Medium | **2D VDraw 캔버스 배근/단면 그래픽스** | • VDraw 원본 드로잉 기하 알고리즘 이식 (`renderer2d.js`)<br>• 135° 스터럽 절곡, 피복 옵셋, 솔리드 원형 주철근<br>• 치수선, 철근 배근 지시선 태그, P-M 상호작용 차트 | Canvas 그래픽스 렌더링 확인<br>축척/줌/팬 인터랙션 |
-| **Step 4** | 🧠 High | **A4 5대 장구분 8단계 KaTeX 구조계산서** | • 원본 `DgnReportBase.ini` 5대 장구분 완벽 계승<br>• 8단계 Step-by-Step 수식 전개식 (LaTeX/KaTeX)<br>• 단면도/P-M 그림 삽입, `  →  O.K / N.G` 판정 화살표 | A4 인쇄 프리뷰 확인<br>공학 계산서 레이아웃 검증 |
-| **Step 5** | ⚙️ Medium | **4열 통합 E2E 검증 & 실사용 UI 확립** | • 1열(트리) - 2열(캔버스) - 3열(폼) - 4열(계산서) 4열 연동<br>• 파라미터 입력 시 **100ms 이내 실시간 3-View 동시 동기화**<br>• WIP 해제 및 정식 온라인(`is_wip: false`) 전환 | E2E 전수 테스트 Pass<br>브라우저 콘솔 에러 0건 |
+| **Step 1** | 🧠 High | **AltDP-Core 플랫폼 구축** | • `CalculationTracer` AST 직렬화 엔진 (`src/core/tracer.py`)<br>• 파라메트릭 2D 단면/P-M 기하 규격 (`src/core/geometry.py`)<br>• KaTeX 5대장 8단계 자동계산서 공통 렌더러 컴포넌트 | Tracer AST 직렬화 및<br>KaTeX 공통 뷰어 DOM 렌더링 |
+| **Step 2** | 🧠 High | **KDS 계산 엔진 & Pydantic 스키마** | • KDS 14 20 / 14 31 표준 수식 순수 Python 구현 (`src/engine/`)<br>• Pydantic 입출력 메타데이터 DTO 스키마 정의 (`src/api/schemas/`)<br>• P-M 상관곡선 및 Tracer Step-by-Step 기록 주입 | 계산 결과 및 Tracer AST<br>기하 데이터 일괄 응답 |
+| **Step 3** | 🧠 High | **벤치마크 TDD (3자 삼각 대조)** | • 공인 예제집 벤치마크 JSON 데이터 구축 (`tests/benchmarks/`)<br>• `[원본/매뉴얼]` $\leftrightarrow$ `[KDS 신기준 재계산 예제집]` $\leftrightarrow$ `[AltDP엔진]` 대조 | `pytest` 100% Pass<br>(**오차 $\le 0.10\%$** 무결성) |
+| **Step 4** | ⚙️ Medium | **UI 4-Pane 통합 & 실사용 온라인** | • 4대 서브탭 폼 (Pane 2) + 2단 가변 캔버스 배근/P-M (Pane 3)<br>• 순백색 A4 KaTeX 계산서 (Pane 4) 100ms 실시간 동기화<br>• WIP 해제 및 정식 온라인(`is_wip: false`) 전환 | 4-Pane 인터랙션 무결성<br>브라우저 콘솔 에러 0건 |
 
 ---
 
@@ -63,12 +62,12 @@ flowchart LR
 ---
 
 ### Phase V1 (Sprint 1): Tier 1 플래그십 5대 핵심 부재 수직 완성 - [최우선 과제]
-> **목표**: 실무에서 가장 빈번하게 사용되는 5대 주부재를 5대 공정(Step 1~5)으로 100% 수직 관통 완수.
+> **목표**: 실무에서 가장 빈번하게 사용되는 5대 주부재를 1부재 1마스터 수직 관통으로 100% 완성.
 
-| No | 모듈 식별자 (`type`) | 부재 명칭 | 원본 DLG / 소스 | 핵심 수직 개발 내용 (Step 1 ~ 5) | 상태 |
+| No | 모듈 식별자 (`type`) | 부재 명칭 | 원본 DLG / 소스 | 핵심 수직 개발 내용 | 상태 |
 |:---:|---|---|---|---|:---:|
-| **1** | `rc_beam` | **RC 보** | `IDD_RCS_BEAM_PMODE_DLG`<br>`rc__CHK_BBBE_*.c` | 단/복철근 휨·전단·처짐 + 135° 스터럽 다단배근 캔버스 + A4 8단계 KaTeX 계산서 | 개발 대기 |
-| **2** | `rc_column` | **RC 기둥** | `IDD_RCS_COLUMN_PMODE_DLG`<br>`solver__CHK_BCCO_*.c` | 200 파이버 3D P-M 곡면 + 원형/사각 주철근 배열 캔버스 + 이축휨/장주 계산서 | 개발 대기 |
+| **1** | `rc_beam` | **RC 보** | `IDD_RCS_BEAM_PMODE_DLG`<br>`rc__CHK_BBBE_*.c` | 단/복철근 휨·전단·비틀림·처짐 + 135° 스터럽 다단배근 캔버스 + A4 8단계 KaTeX 계산서 4열 통합 | **100% 완료**<br>(온라인 전환) |
+| **2** | `rc_column` | **RC 기둥** | `IDD_RCS_COLUMN_PMODE_DLG`<br>`solver__CHK_BCCO_*.c` | AltDP-Core Tracer AST + 200 파이버 P-M 상관곡면 + 2단 뷰포트 캔버스 + 학회 5.1/5.2/5.3 TDD | **진행 중**<br>(Phase 23) |
 | **3** | `rc_shear_wall` | **RC 전단벽** | `IDD_RCS_WALL_PMODE_DLG`<br>`rc__CHK_BWUW_*.c` | 전단강도·특수경계요소 판정 + 단부 보강근 캔버스 + 벽체 전단 A4 계산서 | 개발 대기 |
 | **4** | `steel_beam_column` | **철골 보/기둥** | `IDD_STL_BEAMCOLUMN_INPUT_DLG`<br>`steel__CHK_USMC_*.c` | 조밀/비조밀 판정·LTB 좌굴·축휨 P-M + H/Box 단면 치수선 캔버스 + 강재 계산서 | 개발 대기 |
 | **5** | `steel_baseplate` | **철골 주각부** | `IDD_STL_USBP_PMODE_DLG`<br>`steel__CHK_USBP_*.c` | 콘크리트 지압·베이스플레이트 두께·앵커볼트 + 베이스 상세도 + 주각부 계산서 | 개발 대기 |

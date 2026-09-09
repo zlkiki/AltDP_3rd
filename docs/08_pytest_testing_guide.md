@@ -45,9 +45,13 @@ AltDP_3rd는 신속하고 무결한 개발을 위해 테스트 스위트를 **3�
 ```text
 tests/
 ├── conftest.py                     # 공통 픽스처 및 샘플 부재 데이터
+├── benchmarks/                     # 3자 삼각 대조 공인 예제집 0.10% 오차 무결성 TDD
+│   ├── rc_column_benchmark.json    # 학회 예제집 2020 (5.1, 5.2, 5.3) 벤치마크 데이터
+│   └── test_rc_column_benchmark.py # 기둥 P-M, 장주, 이축휨 0.10% 오차 자동 단언
 ├── engine/                         # Layer 1~3 공학 계산 엔진 단위 테스트
 │   ├── test_materials.py           # 재료 물성치 및 KDS 계수 검증
-│   ├── test_rc_beam.py             # RC 보 휨/전단 강도 계산 검증
+│   ├── test_rc_beam.py             # RC 보 휨/전단/처짐 강도 계산 검증
+│   ├── test_rc_beam_serviceability.py # RC 보 사용성 (균열/처짐) 검증
 │   ├── test_rc_column.py           # RC 기둥 및 P-M 상관도 검증
 │   ├── test_rc_footing.py          # 독립기초 펀칭전단 검증
 │   ├── test_rc_slab.py             # 슬래브 1방향/2방향 검증
@@ -62,10 +66,15 @@ tests/
 │   ├── test_rc_column_api.py       # RC 기둥 전용 엔드포인트 검증
 │   ├── test_steel_member_api.py    # 철골 부재 API 검증
 │   └── test_report_routes.py       # 계산서 생성 및 다운로드 API 검증
-└── report/                         # Layer 5 계산서 및 출력 검증
-    ├── test_report_generator.py    # A4 구조계산서 Jinja2/KaTeX 렌더링
-    ├── test_member_reports.py      # 부재별 계산서 및 SVG 벡터 그래픽
-    └── test_excel_exporter.py      # OpenPyXL 엑셀 시트 생성 검증
+├── report/                         # Layer 5 계산서 및 출력 검증
+│   ├── test_report_generator.py    # A4 구조계산서 Jinja2/KaTeX 렌더링
+│   ├── test_member_reports.py      # 부재별 계산서 및 SVG 벡터 그래픽
+│   └── test_excel_exporter.py      # OpenPyXL 엑셀 시트 생성 검증
+├── ui/                             # 4-Pane 워크스페이스 & 프론트엔드 검증
+│   ├── test_phase21_6_polymorphic_dispatcher_and_e2e.py # 4-Pane E2E
+│   └── test_phase22_6_rc_beam_e2e.py # RC 보 4열 통합 E2E
+└── e2e/                            # 전수 파이프라인 통합 테스트
+    └── test_full_pipeline.py       # 엔진-API-리포트 전수 관통 테스트
 ```
 
 ---
@@ -75,19 +84,26 @@ tests/
 코드 변경 시 변경된 도메인의 타겟 테스트를 우선 실행하여 1초 이내에 피드백을 확보합니다.
 
 ```bash
-# 1. 엔지니어링 계산 엔진만 고속 검증 (0.5~1.0초)
+# 1. 벤치마크 예제집 0.10% 오차 무결성 검증 (TDD)
+pytest tests/benchmarks/
+
+# 2. 엔지니어링 계산 엔진만 고속 검증 (0.5~1.0초)
 pytest tests/engine/
 
-# 2. 특정 부재 엔진만 단독 검증 (0.1~0.3초)
+# 3. 특정 부재 엔진만 단독 검증 (0.1~0.3초)
 pytest tests/engine/test_rc_beam.py
+pytest tests/engine/test_rc_column.py
 pytest tests/engine/test_steel_connection.py
 
-# 3. REST API 엔드포인트만 검증 (0.8초)
+# 4. REST API 엔드포인트만 검증 (0.8초)
 pytest tests/api/
 
-# 4. A4 계산서 및 엑셀 출력 엔진 검증 (0.5초)
+# 5. A4 계산서 및 엑셀 출력 엔진 검증 (0.5초)
 pytest tests/report/
 
-# 5. 마스터 머지 전 전체 전수 테스트 스위트 검증
+# 6. 4-Pane UI E2E 검증 (1.0초)
+pytest tests/ui/
+
+# 7. 마스터 머지 전 전체 전수 테스트 스위트 검증 (405 tests)
 pytest
 ```
