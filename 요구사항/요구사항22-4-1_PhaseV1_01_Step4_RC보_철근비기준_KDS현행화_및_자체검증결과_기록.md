@@ -23,6 +23,17 @@
     * `original_src/Midas Design+/Language/Korean/DLG_DPLUS_RCS.ini` (`IDD_RCS_BEAM_PMODE_DLG`, `IDC_GURGC_LABEL_MAIN_BAR2 = "-"`, `IDC_GURBU_LABEL_SKINBAR2 = "-"`, DropDown Cell 방식 철근 호칭경 콤보 및 개수 분리 입력 구조)
     * `decompiled_src/DPLUS_RCS.dll_symbols.txt` (`CURBEPModeDlg::LeaveDropDownCell`, `CURBEPModeDlg::InitGrid`, `CURBEPModeDlg::RedrawBarGrid`)
 
+### 1.1. 하위 문서 분할 실행 체계 (4대 독립 Phase)
+
+본 요구사항은 작업 스코프가 광범위하여 `docs/10 제2절 2항` 및 `docs/16` 규약에 따라 4개의 독립 마이크로 Phase 하위 문서로 분할하여 실행합니다:
+
+| 하위 Phase | 권장 모델 | 대상 명세서 | 주요 담당 영역 및 산출물 | 실행 명령문 (복사용) |
+|:---:|:---:|---|---|---|
+| **22-4-1-1** | 🧠 **High** | [Step 4-1: KDS 철근비 현행화 & 3-Station 휨·전단 엔진](요구사항22-4-1-1_PhaseV1_01_Step4_1_RC보_KDS철근비현행화_및_3Station휨전단엔진.md) | • $\phi M_n \ge 1.2 M_{cr}$, $\epsilon_{t,\min}$<br>• 3-Station 정/부모멘트 분리<br>• `BeamArrangeType` 스키마 | `/goal docs 16 확인하고 요구사항 22와 22-4-1-1을 구현해줘` |
+| **22-4-1-2** | ⚙️ **Medium** | [Step 4-2: redcr 잔재 청산 & 표준 네이밍 리팩토링](요구사항22-4-1-2_PhaseV1_01_Step4_2_redcr_잔재청산_및_표준네이밍_리팩토링.md) | • `rc_beam_report.js` 리네이밍<br>• 클래스/함수/CSS 표준화<br>• 7개 단위 테스트 100% 통과 | `/goal docs 16 확인하고 요구사항 22와 22-4-1-2를 구현해줘` |
+| **22-4-1-3** | ⚙️ **Medium** | [Step 4-3: 배근유형 옵션 & 주근 복합 분리입력 UI](요구사항22-4-1-3_PhaseV1_01_Step4_3_RC보_원본대조_배근유형_및_주근분리입력_UI개편.md) | • 배근 유형 1/2/3 라디오 옵션<br>• [개수 + '-' + 호칭경] 복합 컨트롤<br>• 1단 2개, 2단 0개 제약 및 동기화 | `/goal docs 16 확인하고 요구사항 22와 22-4-1-3을 구현해줘` |
+| **22-4-1-4** | 🧠 **High** | [Step 4-4: A4 계산서 3-Station 개별KaTeX & 통합검증](요구사항22-4-1-4_PhaseV1_01_Step4_4_RC보_A4계산서_3Station_개별KaTeX출력_및_E2E통합검증.md) | • 제 1장 KDS 철근비 KaTeX<br>• 제 3장 3-Station 개별 계산근거<br>• `pytest` 349+ 전체 회귀 PASS | `/goal docs 16 확인하고 요구사항 22와 22-4-1-4를 구현해줘` |
+
 ---
 
 ## 2. 현행 기준(KDS 14 20 20 : 2022) 대조 및 3-Station 정밀 계산근거 명세
