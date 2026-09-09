@@ -117,18 +117,19 @@ graph TD
 
 ### Step 1: `.agents/AGENTS.md` 전면 교체 적용
 - [x] 원본 백업본 생성: `.agents/@@OLD/AGENTS_backup_260909.md` 및 `docs/@@OLD/AGENTS_backup_260909.md` 완료.
-- [ ] 제3절의 최종 개정안으로 `.agents/AGENTS.md`를 덮어쓰기 적용.
-- [ ] 상단의 4만 토큰 강제 열람 규약(`🚨 필수 선행 열람 규약`) 및 `docs/10, 16, 07` 강제 조항 영구 제거.
+- [x] 제3절의 최종 개정안으로 `.agents/AGENTS.md`를 덮어쓰기 적용 완료.
+- [x] 상단의 4만 토큰 강제 열람 규약(`🚨 필수 선행 열람 규약`) 및 `docs/10, 16, 07` 강제 조항 영구 제거 완료.
 
 ### Step 2: `docs/16` 보관 처리
 - [x] `docs/16_goal_micro_execution_protocol.md` $\rightarrow$ `docs/@@OLD/16_goal_micro_execution_protocol.md` 보관 이동 완료.
 
 ### Step 3: `docs/10` 2계층 분리 위상 정립
-- [ ] `docs/10_agent_development_protocols.md`를 상시 필수 필독서에서 "필요할 때만 찾는 온디맨드 How-To 백과사전"으로 위상 정리.
-- [ ] `AGENTS.md` 제2절 라우터에 1순위로 링크 제공.
+- [x] `docs/10_agent_development_protocols.md`를 상시 필수 필독서에서 "필요할 때만 찾는 온디맨드 How-To 백과사전"으로 위상 정리 완료.
+- [x] `docs/10` 제2절 2항을 "1부재 1마스터 요구사항 원칙"으로 갱신 완료.
+- [x] `AGENTS.md` 제2절 라우터에 1순위로 링크 제공 완료.
 
 ### Step 4: `요구사항/PROJECT_PROGRESS.md` 실행 명령문 표준화
-- [ ] 차기 작업(Phase 23 RC 기둥 등)의 실행 명령문을 모두 다음 표준 형식으로 통일:
+- [x] 차기 작업(Phase 23 RC 기둥 등)의 실행 명령문을 모두 다음 표준 형식으로 통일 완료:
   ```text
   /goal agents.md를 읽고 요구사항 23을 구현해줘
   ```
@@ -137,6 +138,6 @@ graph TD
 
 ## 5. 수용 기준 (Acceptance Criteria)
 
-1. **[토큰 경량화]**: AI 에이전트가 새 세션에서 작업을 시작할 때 `docs/`의 수만 토큰을 사전 로딩하지 않고, 지정된 `요구사항X.md`만 즉시 열람하여 실행에 착수함.
-2. **[실행 완주성]**: `/goal agents.md를 읽고 요구사항 23을 구현해줘` 실행 시 중간 정지(Stop Protocol) 없이 엔진 $\rightarrow$ 벤치마크 TDD $\rightarrow$ 4-Pane UI 연동까지 단일 컨텍스트로 완주함.
-3. **[문서 동기화]**: `AGENTS.md`, `PROJECT_PROGRESS.md`, `docs/10` 간의 지침 불일치 0건.
+1. [x] **[토큰 경량화]**: AI 에이전트가 새 세션에서 작업을 시작할 때 `docs/`의 수만 토큰을 사전 로딩하지 않고, 지정된 `요구사항X.md`만 즉시 열람하여 실행에 착수함.
+2. [x] **[실행 완주성]**: `/goal agents.md를 읽고 요구사항 23을 구현해줘` 실행 시 중간 정지(Stop Protocol) 없이 엔진 $\rightarrow$ 벤치마크 TDD $\rightarrow$ 4-Pane UI 연동까지 단일 컨텍스트로 완주함.
+3. [x] **[문서 동기화]**: `AGENTS.md`, `PROJECT_PROGRESS.md`, `docs/10` 간의 지침 불일치 0건.
