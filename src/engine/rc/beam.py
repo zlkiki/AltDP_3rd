@@ -160,12 +160,15 @@ class ShearResult(BaseModel):
     Vn: float
     phi_Vn: float
     phi: float = 0.75
-    s_max: float
-    Av_min: float
-    Av_prov: float
-    dcr: float
-    status: str  # "OK" | "NG"
-    is_zero_shear: bool = False   # 계수전단력 0 이하 여부
+    s_max: float                # 규준 최대 허용 배근간격 (mm)
+    Av_min: float               # 최소 전단철근량 (mm2)
+    Av_prov: float              # 실제 배치된 전단철근량 (mm2)
+    dcr: float                  # Vu / phi_Vn (Vu <= 0 시 0.0)
+    dcr_Av_min: float = 0.0     # Av_min / Av_prov
+    dcr_spacing: float = 0.0    # s / s_max
+    is_min_shear_ok: bool = True# Av_prov >= Av_min 및 s <= s_max 만족 여부
+    status: str                 # "OK" | "NG"
+    is_zero_shear: bool = False # 계수전단력 0 이하 여부
 
 
 class TorsionResult(BaseModel):
@@ -178,11 +181,16 @@ class TorsionResult(BaseModel):
     Tn: float
     phi_Tn: float
     phi: float = 0.75
-    cross_section_check: str  # 콘크리트 압축파괴 방지 판정
-    Al_req: float
-    Al_prov: float
+    cross_section_check: str    # 콘크리트 압축파괴 방지 판정
+    Al_calc: float = 0.0        # 순수 비틀림 계산 소요 종방향 철근량 (mm2)
+    Al_min: float = 0.0         # 최소 종방향 비틀림 철근량 (mm2)
+    Al_req: float               # max(Al_calc, Al_min) 최종 소요량 (mm2)
+    Al_prov: float              # 실제 배치된 측면 철근량 (mm2)
+    Av_2At_min: float = 0.0     # 최소 횡방향 폐쇄스터럽 철근량 (mm2)
+    s_max_torsion: float = 0.0  # 비틀림 스터럽 최대 간격 min(ph/8, 300) (mm)
     dcr: float
-    status: str  # "OK" | "NG"
+    dcr_Al: float = 0.0         # Al_req / Al_prov
+    status: str                 # "OK" | "NG"
     is_zero_torsion: bool = False # 계수비틀림 0 또는 문턱 비틀림 이하 여부
 
 
@@ -625,8 +633,9 @@ def calculate_rc_beam_shear(
     Vu: float,
     lambda_factor: float = 1.0
 ) -> ShearResult:
-    """Rigorous shear capacity and stirrup spacing check (KDS 14 20 22)."""
+    """Rigorous shear capacity, minimum stirrup, and spacing check (KDS 14 20 22)."""
     phi_v = 0.75
+    is_zero_shear = (Vu <= 0.0)
     
     # Concrete shear strength Vc
     Vc_N = (1.0 / 6.0) * lambda_factor * math.sqrt(fck) * b * d
@@ -640,21 +649,31 @@ def calculate_rc_beam_shear(
     
     Vn = Vc + Vs
     phi_Vn = phi_v * Vn
-    dcr = Vu / phi_Vn if phi_Vn > 0 else (0.0 if Vu == 0.0 else 999.0)
     
-    # Maximum stirrup spacing s_max (KDS 14 20 22 4.4.3: based on required Vs)
-    Vs_req = max((Vu - phi_v * Vc) / phi_v, 0.0) if phi_v > 0 else 0.0
-    Vs_spacing_basis = Vs_req if Vs_req > 0 else Vs
-    if Vs_spacing_basis > (1.0 / 3.0) * math.sqrt(fck) * b * d / 1e3:
-        s_max = min(d / 4.0, 300.0)
+    if is_zero_shear:
+        dcr = 0.0
     else:
+        dcr = Vu / phi_Vn if phi_Vn > 0 else 999.0
+    
+    # Maximum stirrup spacing s_max (KDS 14 20 22 4.3.4)
+    if is_zero_shear:
         s_max = min(d / 2.0, 600.0)
+    else:
+        Vs_req = max((Vu - phi_v * Vc) / phi_v, 0.0) if phi_v > 0 else 0.0
+        Vs_spacing_basis = Vs_req if Vs_req > 0 else Vs
+        if Vs_spacing_basis > (1.0 / 3.0) * math.sqrt(fck) * b * d / 1e3:
+            s_max = min(d / 4.0, 300.0)
+        else:
+            s_max = min(d / 2.0, 600.0)
         
-    # Minimum shear reinforcement Av_min
+    # Minimum shear reinforcement Av_min (KDS 14 20 22 4.3.3 식 4.3-1)
     Av_min = max(0.0625 * math.sqrt(fck) * (b * s) / fyt, 0.35 * (b * s) / fyt) if s > 0 else 0.0
     
-    is_spacing_ok = (s <= s_max * 1.001)
-    status = "OK" if (dcr <= 1.0 and is_spacing_ok) else "NG"
+    dcr_Av_min = Av_min / Av if Av > 0 else (0.0 if Av_min == 0.0 else 999.0)
+    dcr_spacing = s / s_max if s_max > 0 else 999.0
+    
+    is_min_shear_ok = (Av >= Av_min - 1e-4) and (s <= s_max * 1.001)
+    status = "OK" if (dcr <= 1.0 and is_min_shear_ok) else "NG"
     
     return ShearResult(
         Vu=round(Vu, 2),
@@ -667,8 +686,11 @@ def calculate_rc_beam_shear(
         Av_min=round(Av_min, 1),
         Av_prov=round(Av, 1),
         dcr=round(dcr, 3),
+        dcr_Av_min=round(dcr_Av_min, 3),
+        dcr_spacing=round(dcr_spacing, 3),
+        is_min_shear_ok=is_min_shear_ok,
         status=status,
-        is_zero_shear=(Vu <= 0.0)
+        is_zero_shear=is_zero_shear
     )
 
 
@@ -709,12 +731,23 @@ def calculate_rc_beam_torsion(
     ph = 2.0 * (boh + hoh)
     Ao = 0.85 * Aoh
     
+    # Minimum closed stirrup and spacing limit (KDS 14 20 22 4.5.4)
+    Av_2At_min = max(0.0625 * math.sqrt(fck) * (b * s) / fyt, 0.35 * (b * s) / fyt) if s > 0 else 0.0
+    s_max_torsion = min(ph / 8.0, 300.0)
+    
     if not is_torsion_ignored and Tu_abs > 0:
         Tn_req_Nmm = (Tu_abs / phi_t) * 1e6
         # At/s for single leg: Tn = (2 * Ao * At * fyt / s) * cot(45)
         At_over_s_req = Tn_req_Nmm / (2.0 * Ao * fyt * 1.0)
-        Al_req = At_over_s_req * ph * (fyt / fy) * 1.0
-        Al_min = max((0.42 * math.sqrt(fck) * Acp / fy) - (At_over_s_req * ph * (fyt / fy)), 0.0)
+        Al_calc = At_over_s_req * ph * (fyt / fy) * 1.0
+        
+        # Minimum longitudinal torsional steel (KDS 14 20 22 4.5.4(2) 식 4.5-7)
+        # At/s >= 0.175 * bw / fyt
+        At_over_s_for_min = max(At_over_s_req, 0.175 * b / fyt)
+        Al_min = max((0.42 * math.sqrt(fck) * Acp / fy) - (At_over_s_for_min * ph * (fyt / fy)), 0.0)
+        
+        # Governing required longitudinal steel
+        Al_req = max(Al_calc, Al_min)
         
         # Provided torsion stirrup capacity
         At_prov = Av / 2.0
@@ -731,15 +764,22 @@ def calculate_rc_beam_torsion(
         combined_dcr = combined_stress / combined_limit if combined_limit > 0 else 999.0
         cross_section_check = "OK (Cross section adequate)" if combined_dcr <= 1.0 else "NG (Section enlargement required)"
         
+        dcr_Al = Al_req / side_bar_area if side_bar_area > 0 else (0.0 if Al_req == 0.0 else 999.0)
         total_dcr = max(torsion_dcr, combined_dcr)
-        status = "OK" if total_dcr <= 1.0 else "NG"
+        # Status checks both strength dcr, cross-section check, and longitudinal steel
+        status = "OK" if (total_dcr <= 1.0 and (dcr_Al <= 1.0 or Al_req == 0.0)) else "NG"
+        is_zero_torsion = False
     else:
         Tn = 0.0
         phi_Tn = 0.0
+        Al_calc = 0.0
+        Al_min = 0.0
         Al_req = 0.0
+        dcr_Al = 0.0
         total_dcr = 0.0
         cross_section_check = "OK (Torsion negligible)"
         status = "OK"
+        is_zero_torsion = True
         
     return TorsionResult(
         Tu=round(Tu, 2),
@@ -749,11 +789,16 @@ def calculate_rc_beam_torsion(
         phi_Tn=round(phi_Tn, 2),
         phi=phi_t,
         cross_section_check=cross_section_check,
+        Al_calc=round(Al_calc, 1),
+        Al_min=round(Al_min, 1),
         Al_req=round(Al_req, 1),
         Al_prov=round(side_bar_area, 1),
+        Av_2At_min=round(Av_2At_min, 1),
+        s_max_torsion=round(s_max_torsion, 1),
         dcr=round(total_dcr, 3),
+        dcr_Al=round(dcr_Al, 3),
         status=status,
-        is_zero_torsion=(Tu_abs <= 0.0 or is_torsion_ignored)
+        is_zero_torsion=is_zero_torsion
     )
 
 
@@ -1320,7 +1365,14 @@ def calculate_rc_beam_design(
             max_dcr = ccheck.dcr
             governing_mode = f"{station_k} Crack Spacing"
             
-    overall_status = "OK" if (max_dcr <= 1.0 and serv_res.status == "OK") else "NG"
+    all_stations_ok = all(
+        s.pos_flexure.status == "OK" and
+        s.neg_flexure.status == "OK" and
+        s.shear.status == "OK" and
+        s.torsion.status == "OK"
+        for s in station_results.values()
+    )
+    overall_status = "OK" if (max_dcr <= 1.0 and serv_res.status == "OK" and all_stations_ok) else "NG"
     
     return RCBeamResult(
         end_i=station_results["end_i"],
@@ -1570,8 +1622,10 @@ def design_rc_beam(inp: RCBeamInput) -> RCBeamLegacyResult:
         Tu_abs = abs(inp.Tu)
         Tn_req_Nmm = (Tu_abs / phi_t) * 1e6
         At_over_s_req = Tn_req_Nmm / (2.0 * Ao * fyt * 1.0)
-        Al_req = At_over_s_req * ph * (fyt / fy) * 1.0
-        Al_min = max((0.42 * math.sqrt(fck) * Acp / fy) - (At_over_s_req * ph * (fyt / fy)), 0.0)
+        At_over_s_for_min = max(At_over_s_req, 0.175 * b / fyt)
+        Al_calc = At_over_s_req * ph * (fyt / fy) * 1.0
+        Al_min = max((0.42 * math.sqrt(fck) * Acp / fy) - (At_over_s_for_min * ph * (fyt / fy)), 0.0)
+        Al_req = max(Al_calc, Al_min)
         
         At_prov = inp.Av / 2.0
         Tn_prov_Nmm = (2.0 * Ao * At_prov * fyt * 1.0) / inp.s if inp.s > 0 else 0.0

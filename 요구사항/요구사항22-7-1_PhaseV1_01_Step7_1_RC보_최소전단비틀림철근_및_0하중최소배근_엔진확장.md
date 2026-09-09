@@ -120,8 +120,8 @@
 
 ## 4. 완료 검증 기준 (Definition of Done)
 
-- [ ] `ShearResult`에 `dcr_Av_min`, `dcr_spacing`, `is_min_shear_ok` 필드가 정상 추가될 것.
-- [ ] $V_u \le 0$일 때 `is_zero_shear = True`가 설정되고, $A_{v,\min}$과 $s_{\max}$가 정상 산출될 것.
-- [ ] `TorsionResult`에 $A_{l,req} = \max(A_{l,\text{calc}}, A_{l,\min})$ 보정이 적용되어 과소평가 버그가 완치될 것.
-- [ ] $M_u \le 0$이어도 신 기준 휨 최소철근량($\phi M_n \ge 1.2 M_{cr}$) 및 연성 한계($\epsilon_t \ge \epsilon_{t,\min}$)가 정상 평가될 것.
-- [ ] `pytest tests/engine/test_rc_beam.py` 100% 통과 및 오차 $\le 0.10\%$ 입증.
+- [x] `ShearResult`에 `dcr_Av_min`, `dcr_spacing`, `is_min_shear_ok` 필드가 정상 추가될 것.
+- [x] $V_u \le 0$일 때 `is_zero_shear = True`가 설정되고, $A_{v,\min}$과 $s_{\max}$가 정상 산출될 것.
+- [x] `TorsionResult`에 $A_{l,req} = \max(A_{l,\text{calc}}, A_{l,\min})$ 보정이 적용되어 과소평가 버그가 완치될 것.
+- [x] $M_u \le 0$이어도 신 기준 휨 최소철근량($\phi M_n \ge 1.2 M_{cr}$) 및 연성 한계($\epsilon_t \ge \epsilon_{t,\min}$)가 정상 평가될 것.
+- [x] `pytest tests/engine/test_rc_beam.py` 100% 통과 및 오차 $\le 0.10\%$ 입증.

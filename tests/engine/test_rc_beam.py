@@ -810,3 +810,163 @@ def test_3station_moment_direction_separation():
     assert result.status == "OK"
 
 
+# ============================================================================
+# 8. 요구사항 22-7-1: 최소 전단·비틀림 철근량 및 0하중 최소배근 의무검토 테스트
+# ============================================================================
+
+@pytest.mark.engine
+def test_rc_beam_shear_min_rebar():
+    """KDS 14 20 22 제4.3.3절 Av_min 및 제4.3.4절 s_max 수식 정밀 검증 (오차 <= 0.10%).
+    
+    b = 400, d = 540, fck = 24, fyt = 400, D10 @ 150 2-legs (Av = 142.6 mm2)
+    Av_min = max(0.0625 * sqrt(24) * 400 * 150 / 400, 0.35 * 400 * 150 / 400) = max(45.93, 52.5) = 52.5 mm2
+    s_max = min(540 / 2, 600) = 270.0 mm (Vs <= 1/3 * sqrt(fck) * b * d)
+    """
+    b = 400.0
+    d = 540.0
+    fck = 24.0
+    fyt = 400.0
+    Av = 142.6  # 2-D10
+    s = 150.0
+    Vu = 120.0
+    
+    res = calculate_rc_beam_shear(b=b, d=d, fck=fck, fyt=fyt, Av=Av, s=s, Vu=Vu)
+    
+    # 3자 삼각대조 오차 검증 (오차 <= 0.10%)
+    assert abs(res.Av_min - 52.5) / 52.5 <= 0.0010, f"Av_min error: {res.Av_min} vs 52.5"
+    assert abs(res.s_max - 270.0) / 270.0 <= 0.0010, f"s_max error: {res.s_max} vs 270.0"
+    assert abs(res.dcr_Av_min - (52.5 / 142.6)) <= 0.005
+    assert abs(res.dcr_spacing - (150.0 / 270.0)) <= 0.005
+    assert res.is_min_shear_ok is True
+    assert res.status == "OK"
+    assert res.is_zero_shear is False
+    
+    # 간격 초과 시 (s = 300 mm > s_max = 270 mm) -> NG 판정
+    res_s_fail = calculate_rc_beam_shear(b=b, d=d, fck=fck, fyt=fyt, Av=Av, s=300.0, Vu=120.0)
+    assert res_s_fail.is_min_shear_ok is False
+    assert res_s_fail.status == "NG"
+    
+    # 단면적 미달 시 (Av = 40.0 mm2 < Av_min = 52.5 mm2) -> NG 판정
+    res_av_fail = calculate_rc_beam_shear(b=b, d=d, fck=fck, fyt=fyt, Av=40.0, s=150.0, Vu=50.0)
+    assert res_av_fail.is_min_shear_ok is False
+    assert res_av_fail.status == "NG"
+
+
+@pytest.mark.engine
+def test_rc_beam_shear_zero_load_mandatory_min():
+    """계수전단력 0 (Vu = 0.0 kN) 시 전단강도 0플래그 및 최소배근 상시 검토 검증."""
+    b = 400.0
+    d = 540.0
+    fck = 24.0
+    fyt = 400.0
+    Av = 142.6
+    s = 150.0
+    
+    # 1. Vu = 0.0 kN 정상 배근 케이스
+    res_zero = calculate_rc_beam_shear(b=b, d=d, fck=fck, fyt=fyt, Av=Av, s=s, Vu=0.0)
+    assert res_zero.is_zero_shear is True
+    assert res_zero.dcr == 0.0
+    assert abs(res_zero.Av_min - 52.5) / 52.5 <= 0.0010
+    assert abs(res_zero.s_max - 270.0) / 270.0 <= 0.0010
+    assert res_zero.is_min_shear_ok is True
+    assert res_zero.status == "OK"
+    
+    # 2. Vu = 0.0 kN 이지만 철근량 부족 (Av = 30 mm2 < 52.5 mm2) -> 0하중이어도 NG 판정 의무화
+    res_zero_ng = calculate_rc_beam_shear(b=b, d=d, fck=fck, fyt=fyt, Av=30.0, s=s, Vu=0.0)
+    assert res_zero_ng.is_zero_shear is True
+    assert res_zero_ng.dcr == 0.0
+    assert res_zero_ng.is_min_shear_ok is False
+    assert res_zero_ng.status == "NG"
+
+
+@pytest.mark.engine
+def test_rc_beam_torsion_Al_min_governing():
+    """KDS 14 20 22 제4.5.4절 최소 종방향 비틀림 철근량 Al_min 지배 및 보정 버그 완치 검증 (오차 <= 0.10%)."""
+    b = 400.0
+    h = 600.0
+    d = 540.0
+    fck = 24.0
+    fy = 400.0
+    fyt = 400.0
+    Av = 142.6
+    s = 150.0
+    side_bar_area = 1000.0  # 4-D19
+    side_cover = 40.0
+    
+    # Tu = 10.0 kN·m (Tth = 8.82 kN·m, phi*Tth = 6.61 kN·m 초과로 비틀림 계산 수행)
+    # Al_calc = 197.9 mm2, Al_min = 940.7 mm2 -> Al_req = max(Al_calc, Al_min) = 940.7 mm2 지배
+    res = calculate_rc_beam_torsion(
+        b=b, h=h, d=d, fck=fck, fy=fy, fyt=fyt,
+        Av=Av, s=s, side_bar_area=side_bar_area, side_cover=side_cover,
+        Tu=10.0, Vu=100.0, Vc_kN=176.36
+    )
+    
+    assert res.is_zero_torsion is False
+    assert abs(res.Al_min - 940.7) / 940.7 <= 0.0010, f"Al_min error: {res.Al_min} vs 940.7"
+    assert abs(res.Al_req - 940.7) / 940.7 <= 0.0010, f"Al_req error: {res.Al_req} vs 940.7"
+    assert res.Al_calc < res.Al_min
+    assert abs(res.s_max_torsion - 210.0) / 210.0 <= 0.0010, f"s_max_torsion error: {res.s_max_torsion} vs 210.0"
+    assert abs(res.Av_2At_min - 52.5) / 52.5 <= 0.0010, f"Av_2At_min error: {res.Av_2At_min} vs 52.5"
+    assert res.status == "OK"
+
+
+@pytest.mark.engine
+def test_rc_beam_zero_load_3station_mandatory_min_checks():
+    """하중이 모두 0 (Mu=0, Vu=0, Tu=0)일 때 3-Station 최소배근 의무검토 연동 검증."""
+    section = RCBeamSection(b=400.0, h=600.0, length=6000.0, fck=24.0, fy=400.0, fyt=400.0)
+    
+    # 1. 안전한 최소배근 상태 (D25 4대, D10 @ 150)
+    rebar_safe = RCBeamRebar(
+        arrange_type=BeamArrangeType.THREE_STATIONS,
+        end_i=SectionRebarGroup(
+            top_bars=[RebarRow(bar_dia="D25", count=4, layer=1)],
+            bot_bars=[RebarRow(bar_dia="D25", count=2, layer=1)],
+            stirrup_bar="D10",
+            stirrup_spacing=150.0
+        ),
+        center_m=SectionRebarGroup(
+            top_bars=[RebarRow(bar_dia="D25", count=2, layer=1)],
+            bot_bars=[RebarRow(bar_dia="D25", count=4, layer=1)],
+            stirrup_bar="D10",
+            stirrup_spacing=150.0
+        ),
+        end_j=SectionRebarGroup(
+            top_bars=[RebarRow(bar_dia="D25", count=4, layer=1)],
+            bot_bars=[RebarRow(bar_dia="D25", count=2, layer=1)],
+            stirrup_bar="D10",
+            stirrup_spacing=150.0
+        )
+    )
+    
+    loads_zero = RCBeamLoads(
+        end_i=RCBeamPositionLoads(Mu_pos=0.0, Mu_neg=0.0, Vu=0.0, Tu=0.0),
+        center_m=RCBeamPositionLoads(Mu_pos=0.0, Mu_neg=0.0, Vu=0.0, Tu=0.0),
+        end_j=RCBeamPositionLoads(Mu_pos=0.0, Mu_neg=0.0, Vu=0.0, Tu=0.0)
+    )
+    
+    result_safe = calculate_rc_beam_design(section=section, rebar=rebar_safe, loads=loads_zero)
+    
+    # 하중 0 플래그 검증
+    for st_name, st_res in [("end_i", result_safe.end_i), ("center_m", result_safe.center_m), ("end_j", result_safe.end_j)]:
+        assert st_res.is_zero_flexure is True
+        assert st_res.is_zero_shear is True
+        assert st_res.is_zero_torsion is True
+        # 강도검토는 0하중으로 생략되나, 최소배근 검토(phi_Mn >= 1.2Mcr, Av >= Av_min, s <= s_max)는 통과
+        assert st_res.shear.is_min_shear_ok is True
+        assert st_res.shear.status == "OK"
+        assert st_res.pos_flexure.is_min_flexure_ok is True
+        assert st_res.neg_flexure.is_min_flexure_ok is True
+    assert result_safe.status == "OK"
+    
+    # 2. Vu = 0.0 이지만 한 Station의 스터럽 간격이 s_max를 초과하는 경우 (s = 300 mm > 270 mm)
+    rebar_unsafe = rebar_safe.model_copy(deep=True)
+    rebar_unsafe.center_m.stirrup_spacing = 300.0  # s_max = 270 mm 초과
+    
+    result_unsafe = calculate_rc_beam_design(section=section, rebar=rebar_unsafe, loads=loads_zero)
+    assert result_unsafe.center_m.shear.is_min_shear_ok is False
+    assert result_unsafe.center_m.shear.status == "NG"
+    # 하중이 0이어도 최소배근 규준 미달로 부재 전체 status가 NG가 되어야 함
+    assert result_unsafe.status == "NG"
+
+
+
