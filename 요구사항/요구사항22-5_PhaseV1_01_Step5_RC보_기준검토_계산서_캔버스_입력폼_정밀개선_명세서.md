@@ -1,4 +1,4 @@
-# 요구사항 22-6: Phase V1-01 Step 6 RC 보 기준 검토 부, A4 구조계산서, 2D 캔버스, 입력 폼 정밀 개선 명세서
+# 요구사항 22-5: Phase V1-01 Step 5 RC 보 기준 검토 부, A4 구조계산서, 2D 캔버스, 입력 폼 정밀 개선 명세서
 
 ---
 
@@ -13,7 +13,7 @@
   - `src/web/static/js/visual/vector_rc_beam.js` (2D VDraw 표피철근 0개 시 비틀림철근 렌더링 버그 수정)
   - `src/web/static/js/components/form_rc_beam.js` (전 단면/층 철근 순간격 검토, 배근유형별 부재력 disabled, 탭/버튼 플로팅바, 컴팩트 버튼)
   - `src/web/static/css/style.css` (플로팅 바 sticky 처리, 컴팩트 버튼, 테이블 스타일)
-  - `tests/ui/test_phase22_6_rc_beam_refinements.py` (신규 전수 단위/통합 테스트 스위트)
+  - `tests/ui/test_phase22_5_rc_beam_refinements.py` (신규 전수 단위/통합 테스트 스위트)
   - `요구사항/PROJECT_PROGRESS.md` (프로젝트 마스터 진행 현황 동기화)
 * **권장 AI 모델**: 🧠 **High** (공학 역학 수식, KaTeX 정밀 포맷팅, 복합 프론트엔드/백엔드 동기화)
 
@@ -192,7 +192,7 @@
 | **Canvas** | `src/web/static/js/visual/vector_rc_beam.js` | • 표피철근 0개 시 비틀림 철근 미표기 버그 수정 (`?? 0` 적용) |
 | **UI Form** | `src/web/static/js/components/form_rc_beam.js` | • 3-Station 4-Layer 전 철근 순간격 실시간 전수 검토 엔진<br>• 배근유형 연동 부재력 테이블 `disabled` 및 대칭 자동 복제<br>• 액션 바 및 서브탭 바 플로팅(Sticky) 컨테이너 구조화 |
 | **Styles** | `src/web/static/css/style.css` | • 플로팅 바 sticky 위치 및 z-index 정의<br>• 컴팩트 버튼 스타일(`btn-apply-action`, `btn-check-action`, `btn-design-action`) 정의<br>• 계산서 수식 오버플로우 방지 래퍼 스타일 보강 |
-| **Tests** | `tests/ui/test_phase22_6_rc_beam_refinements.py` | • 신규 개선 사항 12개 항목에 대한 단위/E2E 검증 테스트 스위트 |
+| **Tests** | `tests/ui/test_phase22_5_rc_beam_refinements.py` | • 신규 개선 사항 12개 항목에 대한 단위/E2E 검증 테스트 스위트 |
 
 ---
 
@@ -200,7 +200,7 @@
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│ Phase 22-6 마이크로 실행 파이프라인                                                    │
+│ Phase 22-5 마이크로 실행 파이프라인                                                    │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
 │ [Step 1] 엔진 레이어 확장 (`beam.py`)                                                  │
 │   • Branson Ie 지점/배근유형별 가중평균 정식화                                         │
@@ -222,7 +222,7 @@
 │   • 균열방지 철근간격 제한(s <= s_max) 신규 계산서 블록 및 DCR 추가                    │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
 │ [Step 5] 통합 테스트 검증 및 E2E 실측 확인                                             │
-│   • `pytest tests/ui/test_phase22_6_rc_beam_refinements.py` 100% PASS                  │
+│   • `pytest tests/ui/test_phase22_5_rc_beam_refinements.py` 100% PASS                  │
 │   • 전체 회귀 테스트 360+ PASS 검증 및 브라우저 실측 렌더링 확인                       │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -246,4 +246,4 @@
 - [ ] **[DoD 11: 부재력 입력 disabled]** 배근 유형에 따라 비활성화 대상 행(대칭 시 End-J, 단일 시 End-I/J)이 정확히 `disabled` 처리되고 대칭값이 자동 복제될 것.
 - [ ] **[DoD 12: 플로팅 바 & 컴팩트 버튼]** 서브탭과 액션 버튼 바가 스크롤 시 상단에 Sticky 플로팅 고정되고, 버튼 높이 32px의 컴팩트 스타일이 적용될 것.
 - [ ] **[DoD 13: 회귀 테스트]** 신규 테스트 및 기존 회귀 테스트(360+개)가 에러 0건으로 100% 무결점 통과할 것.
-- [ ] **[DoD 14: 외부 기억 동기화]** `요구사항/PROJECT_PROGRESS.md`에 본 요구사항 22-6의 등록 및 단계별 실행 링크가 최신화될 것.
+- [ ] **[DoD 14: 외부 기억 동기화]** `요구사항/PROJECT_PROGRESS.md`에 본 요구사항 22-5의 등록 및 단계별 실행 링크가 최신화될 것.
