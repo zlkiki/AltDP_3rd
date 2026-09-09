@@ -18,3 +18,7 @@ DBASE_DIR = DATA_DIR / "dbase"
 WEB_DIR = SRC_DIR / "web"
 STATIC_DIR = WEB_DIR / "static"
 TEMPLATES_DIR = WEB_DIR / "templates"
+
+# Tests & Benchmarks Directories
+TESTS_DIR = PROJECT_ROOT / "tests"
+BENCHMARKS_DIR = TESTS_DIR / "benchmarks"

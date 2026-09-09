@@ -51,6 +51,27 @@ def test_api_rc_column_design_endpoint():
     assert "shear" in data
     assert "pm_curve_x" in data
     assert len(data["pm_curve_x"]) > 0
+    assert "tracer" in data
+    assert data["tracer"] is not None
+    assert len(data["tracer"]["chapters"]) >= 5
+    assert "geometry" in data
+    assert data["geometry"] is not None
+    assert len(data["geometry"]["rebars"]) == 12
+
+
+def test_api_rc_column_schema_endpoint():
+    """Test GET /api/rc/column/schema returns 4-subtab metadata."""
+    response = client.get("/api/rc/column/schema")
+    assert response.status_code == 200
+    body = response.json()
+    assert body["success"] is True
+    data = body["data"]
+    assert "tabs" in data
+    assert "section" in data["tabs"]
+    assert "rebar" in data["tabs"]
+    assert "load" in data["tabs"]
+    assert "option" in data["tabs"]
+    assert len(data["tabs"]["section"]["fields"]) > 0
 
 
 def test_api_rc_column_pm_curve_endpoint():

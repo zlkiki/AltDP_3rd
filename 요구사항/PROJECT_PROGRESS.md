@@ -8,16 +8,13 @@
 
 ## 1. 현재 시스템 스냅샷 (Snapshot)
 
-* **최종 갱신**: `2026-09-09T16:29:10+09:00`
-* **최근 커밋**: `21f8b59` (`docs: 요구사항 30 완결 및 @@OLD 아카이빙 완료`)
+* **최종 갱신**: `2026-09-09T16:45:00+09:00`
+* **최근 커밋**: `6dbe646` (`feat: 요구사항 23 Phase V1-02 RC 기둥 자동화 플랫폼 수직 관통 및 온라인 오픈 완결`)
 * **최근 작업**: 
-  - `요구사항 30 완결 및 아카이빙`: `AGENTS.md` 초경량 라우터 & 2계층 헌법 전면 개편 적용, `docs/16` 정식 보관(`docs/@@OLD/`) 처리, `docs/10` 온디맨드 백과사전 위상 정립, 원클릭 `/goal` 실행 체계 확립 완료 및 명세서 `요구사항/@@OLD/` 아카이빙 완료
-  - `요구사항 23 수립 완결`: 요구사항 29 기반 RC 기둥(`rc_column`) 자동화 플랫폼 수직 관통 단일 마스터 명세서 수립 (`요구사항23_*.md`)
-  - `기완료 아카이빙 및 정리`: 요구사항 22 시리즈(20개 문서), 요구사항 28, 요구사항 29, 요구사항 30을 `@@OLD/`로 아카이빙 완료. 작업 전 요구사항 23 분할 명세서 6개를 `보류/`로 이동 완료
-  - `SSOT 전수 최신화`: `docs/README`, `docs/01`, `docs/04`, `docs/08`, `docs/12`, `PROJECT_PROGRESS.md` 최신 아키텍처 및 405 PASS 동기화
-* **회귀 테스트**: **`pytest` 405 / 405 PASS (100% 통과, 0 Failures)**
-* **차기 즉시 작업**: **`Phase 23`** (RC기둥: 요구사항 23 자동화 플랫폼 수직 관통 — Tracer AST + 벤치마크 TDD + 4-Pane E2E, 권장 모델: 🧠 **High**)
-* **실행 명령문**: `/goal agents.md를 읽고 요구사항 23을 구현해줘`
+  - `요구사항 23 완결`: Tier 1 플래그십 RC 기둥 (`rc_column`) AltDP-Core 자동화 플랫폼 수직 관통 완결 (`tracer.py` KaTeX AST 직렬화기, `geometry.py` CAD 기하 규격, `tracer_report_renderer.js` 공통 뷰어, `column.py` Tracer 주입 및 KDS 14 20 20 축휨/전단/장주 수치해석, 한국콘크리트학회 2020 예제 5.1/5.2/5.3 벤치마크 오차 $\le 0.0004\%$ 검증, 4-서브탭 폼 & 2단 적층 뷰포트 & 순백색 A4 KaTeX 계산서 4-Pane 연동 및 `catalog.js` 온라인 오픈 완료)
+* **회귀 테스트**: **`pytest` 415 / 415 PASS (100% 통과, 0 Failures)**
+* **차기 즉시 작업**: **`Phase 24`** (RC전단벽: 요구사항 24 수직관통 — KDS 계산엔진 + 경계요소 + 4-서브탭 폼 + 2D 배근도 + A4 계산서 E2E 통합, 권장 모델: 🧠 **High**)
+* **실행 명령문**: `/goal agents.md를 읽고 요구사항 24를 구현해줘`
 
 ---
 
@@ -27,6 +24,7 @@
 * [x] **요구사항 20 (Phase 20-1 ~ 20-5)**: 더미코드 전면 제거, 61종 3단계 티어 메타 주입, 프론트엔드 WIP 안내카드/폼방어, 2D VDraw 캔버스 WIP 및 순백색 A4 계산서 단일화, 4열 통합 E2E 검증 및 콘솔에러 0건 검수창구 확립 완료
 * [x] **요구사항 21 (Phase 21-1 ~ 21-6)**: DOCS 07 4-Pane 워크스페이스 레이아웃 & 4대 독립 리사이저, 스마트 계층형 모듈 탐색기 및 즐겨찾기, 다중 부재 매니저 Pane1 & 입력폼 Pane2, 세로 적층형 다중 뷰포트 그래픽 정보부 Pane3, 순백색 A4 KDS 표준 구조계산서 Pane4, 모듈팩 디스패처 및 5대 플래그십 4열 E2E 통합 완료
 * [x] **요구사항 22 (Phase 22-1 ~ 22-7)**: RC 보 (rc_beam) 전 공정(Step 1 해석엔진 ~ Step 7 최소배근/전단0생략 정밀개선) 4-Pane 100ms 실시간 동기화 완결 및 아카이빙
+* [x] **요구사항 23 (Phase V1-02)**: RC 기둥 (rc_column) 자동화 플랫폼(AltDP-Core) 최초 수직 관통 완결 (Tracer KaTeX AST 직렬화, 2D CAD 기하 규격, 콘크리트학회 2020 예제 오차 $\le 0.0004\%$, 4-Pane UI 연동, 온라인 오픈)
 * [x] **요구사항 27 (Phase 27-1 ~ 27-4)**: 단면DB 자체자산화, `paths.py`, `FrameModel3D`, 소스 순수화 및 외부참조 0건 검증 완료
 * [x] **요구사항 28**: 프로젝트 문서 체계 및 개발 프로세스 정확도·효율성 혁신 방안 수립 완료
 * [x] **요구사항 29**: 차세대 개발 패러다임 대혁신 — 61종 부재 고속 양산을 위한 메타데이터 주도 자동화 플랫폼(AltDP-Core) 아키텍처 수립 완료
@@ -42,11 +40,11 @@
 
 | 상태 | 공정 | 권장 모델 | 대상 명세서 | 실행 명령문 (복사용) |
 |:---:|:---:|:---:|---|---|
-| [ ] | **통합 단일 마스터** | 🧠 **High** | [RC기둥 자동화 플랫폼 수직 관통 마스터](요구사항23_PhaseV1_02_RC기둥_rc_column_자동화플랫폼_수직관통_명세서.md) | `/goal agents.md를 읽고 요구사항 23을 구현해줘` |
-| [ ] | Step 1 Core | 🧠 **High** | • `src/core/tracer.py` (Tracer AST) & `geometry.py` (기하 규격)<br>• `tracer_report_renderer.js` 공통 계산서 컴포넌트 | (마스터 통합 실행) |
-| [ ] | Step 2 Engine | 🧠 **High** | • `column.py` Tracer 주입 & KDS 연산<br>• `schemas/rc_column.py` 메타데이터 DTO & API | (마스터 통합 실행) |
-| [ ] | Step 3 Benchmark | 🧠 **High** | • `rc_column_benchmark.json` (학회 예제 5.1/5.2/5.3)<br>• `test_rc_column_benchmark.py` (오차 $\le 0.10\%$ TDD) | (마스터 통합 실행) |
-| [ ] | Step 4 UI 4-Pane | ⚙️ **Medium** | • `rc_column_module.js` (4-서브탭 폼, 2단 뷰포트, A4 계산서)<br>• `catalog.js` 온라인 전환 (`is_wip: false`) | (마스터 통합 실행) |
+| [x] | **통합 단일 마스터** | 🧠 **High** | [RC기둥 자동화 플랫폼 수직 관통 마스터](요구사항23_PhaseV1_02_RC기둥_rc_column_자동화플랫폼_수직관통_명세서.md) | (완료) |
+| [x] | Step 1 Core | 🧠 **High** | • `src/core/tracer.py` (Tracer AST) & `geometry.py` (기하 규격)<br>• `tracer_report_renderer.js` 공통 계산서 컴포넌트 | (완료) |
+| [x] | Step 2 Engine | 🧠 **High** | • `column.py` Tracer 주입 & KDS 연산<br>• `schemas/rc_column.py` 메타데이터 DTO & API | (완료) |
+| [x] | Step 3 Benchmark | 🧠 **High** | • `rc_column_benchmark.json` (학회 예제 5.1/5.2/5.3)<br>• `test_rc_column_benchmark.py` (오차 $\le 0.10\%$ TDD) | (완료) |
+| [x] | Step 4 UI 4-Pane | ⚙️ **Medium** | • `rc_column_module.js` (4-서브탭 폼, 2단 뷰포트, A4 계산서)<br>• `catalog.js` 온라인 전환 (`is_wip: false`) | (완료) |
 
 ---
 

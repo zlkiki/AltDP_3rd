@@ -299,11 +299,24 @@ async def design_column_comprehensive(req: RCColumnDesignRequest):
                 "is_safe": res.is_safe,
                 "summary": res.summary,
                 "pm_curve_x": res.pm_curve_x,
-                "pm_curve_y": res.pm_curve_y
+                "pm_curve_y": res.pm_curve_y,
+                "tracer": res.tracer,
+                "geometry": res.geometry,
+                "bresler_dcr": res.bresler_dcr
             }
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+
+@router.get("/column/schema")
+async def get_column_schema():
+    """Returns 4-subtab metadata and dynamic form specification for RC column."""
+    from src.api.schemas.rc_column import get_rc_column_ui_schema
+    return {
+        "success": True,
+        "data": get_rc_column_ui_schema()
+    }
 
 
 @router.post("/column/pm-curve")

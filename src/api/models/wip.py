@@ -69,7 +69,7 @@ MODULE_CATALOG_61: Dict[str, Dict[str, Any]] = {
         "id": "rc_column",
         "domain": "RC",
         "tier": "Tier 1",
-        "standard": "KDS 14 20 10",
+        "standard": "KDS 14 20 20",
         "engine_status": "VERIFIED",
         "geomType": "rc_col",
         "aliases": ["rc/column/base", "rc_column", "column_base", "rc/column/rc_column"]

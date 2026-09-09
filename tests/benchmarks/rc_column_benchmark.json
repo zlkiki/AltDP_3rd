@@ -1,0 +1,102 @@
+{
+  "module": "rc_column",
+  "standard": "KDS 14 20 20 / KDS 14 20 22",
+  "description": "한국콘크리트학회 2020 콘크리트구조 예제집 RC 기둥 3대 벤치마크 (예제 5.1, 5.2/5.4, 5.3)",
+  "cases": [
+    {
+      "case_id": "EX_5_1_UNIAXIAL",
+      "name": "학회 예제 5.1: 단축 휨-압축 직사각형 단주 기둥 (b=500, h=500, fck=27, fy=400, 8-D22)",
+      "source_reference": "한국콘크리트학회(2020) 콘크리트구조기준 예제집 예제 5.1 (p.116-119)",
+      "input": {
+        "name": "EX-5.1",
+        "b": 500.0,
+        "h": 500.0,
+        "cover": 60.6,
+        "bar_diam": 22.2,
+        "total_bars": 8,
+        "tie_diam": 9.53,
+        "tie_spacing": 300.0,
+        "fck": 27.0,
+        "fy": 400.0,
+        "Pu": 1250.0,
+        "Mux": 375.0,
+        "Muy": 0.0,
+        "Vux": 0.0,
+        "Vuy": 100.0,
+        "Lu": 2000.0,
+        "k": 1.0,
+        "is_braced": true
+      },
+      "targets": {
+        "Ag": {"val": 250000.0, "tol_percent": 0.10, "unit": "mm²"},
+        "Ast": {"val": 3096.61, "tol_percent": 0.10, "unit": "mm²"},
+        "Po": {"val": 6905.07, "tol_percent": 0.10, "unit": "kN"},
+        "Pn_max": {"val": 5524.06, "tol_percent": 0.10, "unit": "kN"},
+        "phi_Pn_max": {"val": 3590.64, "tol_percent": 0.10, "unit": "kN"},
+        "tie_spacing_max": {"val": 355.20, "tol_percent": 0.10, "unit": "mm"}
+      }
+    },
+    {
+      "case_id": "EX_5_2_SLENDER_MAGNIFICATION",
+      "name": "학회 예제 5.2/5.4: 횡구속 장주 기둥 모멘트 확대 (b=600, h=600, Lu=6500, k=0.86, fck=40, fy=400)",
+      "source_reference": "한국콘크리트학회(2020) 콘크리트구조기준 예제집 예제 5.4 기둥 A3 (p.130-135)",
+      "input": {
+        "name": "EX-5.4",
+        "b": 600.0,
+        "h": 600.0,
+        "cover": 60.0,
+        "bar_diam": 25.0,
+        "total_bars": 12,
+        "tie_diam": 10.0,
+        "tie_spacing": 300.0,
+        "fck": 40.0,
+        "fy": 400.0,
+        "Lu": 6500.0,
+        "k": 0.86,
+        "is_braced": true,
+        "M1x": 59.8,
+        "M2x": 126.2,
+        "Pu": 3816.5,
+        "Mux": 126.2,
+        "Muy": 0.0,
+        "beta_dns": 0.98
+      },
+      "targets": {
+        "slenderness_x": {"val": 31.06, "tol_percent": 0.10, "unit": "-"},
+        "slenderness_limit_x": {"val": 28.31, "tol_percent": 0.10, "unit": "-"},
+        "Pc_x": {"val": 17956.9, "tol_percent": 0.10, "unit": "kN"},
+        "delta_ns_x": {"val": 1.102, "tol_percent": 0.10, "unit": "-"},
+        "Mc_x": {"val": 139.04, "tol_percent": 0.10, "unit": "kN·m"}
+      }
+    },
+    {
+      "case_id": "EX_5_3_BIAXIAL_BRESLER",
+      "name": "학회 예제 5.3: 이축 휨을 받는 정사각형 기둥 (b=600, h=600, Pu=5300, Mux=404, Muy=168, fck=35)",
+      "source_reference": "한국콘크리트학회(2020) 콘크리트구조기준 예제집 예제 5.3 (p.125-128)",
+      "input": {
+        "name": "EX-5.3",
+        "b": 600.0,
+        "h": 600.0,
+        "cover": 65.0,
+        "bar_diam": 25.0,
+        "total_bars": 12,
+        "tie_diam": 10.0,
+        "tie_spacing": 300.0,
+        "fck": 35.0,
+        "fy": 400.0,
+        "Pu": 5300.0,
+        "Mux": 404.0,
+        "Muy": 168.0,
+        "Lu": 3000.0,
+        "k": 1.0,
+        "is_braced": true
+      },
+      "targets": {
+        "Ag": {"val": 360000.0, "tol_percent": 0.10, "unit": "mm²"},
+        "Po": {"val": 12891.0, "tol_percent": 0.10, "unit": "kN"},
+        "phi_Pn_max": {"val": 6703.3, "tol_percent": 0.10, "unit": "kN"},
+        "bresler_dcr": {"val": 0.941, "tol_percent": 0.10, "unit": "-"}
+      }
+    }
+  ]
+}

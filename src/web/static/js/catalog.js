@@ -54,10 +54,16 @@
             id: "rc_column",
             domain: "RC",
             tier: "Tier 1",
-            standard: "KDS 14 20 10",
+            standard: "KDS 14 20 20",
             engine_status: "VERIFIED",
+            is_wip: false,
+            status: "Online",
             geomType: "rc_col",
-            aliases: ["rc/column/base", "rc_column", "column_base"]
+            aliases: ["rc/column/base", "rc_column", "column_base"],
+            icon: "icon-column",
+            component: "form_rc_column",
+            renderer: "vector_rc_sec",
+            report: "tracer_report_renderer"
         },
         {
             key: "rc/wall/rc_shear_wall",
