@@ -1183,6 +1183,16 @@ def calculate_rc_beam_design(
             if dcr_val > max_dcr:
                 max_dcr = dcr_val
                 governing_mode = mode_name
+
+        # Rebar detailing limits (Av_min, spacing, Al): elevate max_dcr if NG (> 1.0)
+        for mode_name, dcr_val in [
+            (f"{name} Shear Av Min", shear_res.dcr_Av_min),
+            (f"{name} Shear Spacing", shear_res.dcr_spacing),
+            (f"{name} Torsion Al", torsion_res.dcr_Al if not torsion_res.is_zero_torsion else 0.0)
+        ]:
+            if dcr_val > 1.0 and dcr_val > max_dcr:
+                max_dcr = dcr_val
+                governing_mode = mode_name
                 
         station_results[name] = RCBeamSectionResult(
             pos_flexure=pos_flex,
@@ -1728,7 +1738,10 @@ def design_rc_beam(inp: RCBeamInput) -> RCBeamLegacyResult:
     # -------------------------------------------------------------
     # 5. Overall Safety & Summary
     # -------------------------------------------------------------
-    max_dcr = max(flexure_dcr, shear_dcr, torsion_dcr, combined_dcr, deflection_dcr, crack_dcr)
+    dcr_spacing = inp.s / s_max if s_max > 0 else 999.0
+    dcr_Av_min = Av_min / inp.Av if inp.Av > 0 else 999.0
+    rebar_ng_dcr = max(dcr_spacing if dcr_spacing > 1.0 else 0.0, dcr_Av_min if dcr_Av_min > 1.0 else 0.0)
+    max_dcr = max(flexure_dcr, shear_dcr, torsion_dcr, combined_dcr, deflection_dcr, crack_dcr, rebar_ng_dcr)
     rebar_limits_ok = is_min_flexure_ok and is_ductility_ok and (inp.s <= s_max * 1.001)
     
     is_safe = (max_dcr <= 1.0) and rebar_limits_ok

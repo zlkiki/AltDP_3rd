@@ -1562,7 +1562,12 @@ class RCBeamFormComponent {
             }
 
             // 3. Update DCR Badge in Pane 3
-            const dcrVal = Math.max(calcResult.flexure_dcr || 0, calcResult.shear_dcr || 0, calcResult.torsion_dcr || 0);
+            const dcrVal = Math.max(
+                calcResult.max_dcr || 0,
+                calcResult.flexure_dcr || 0,
+                calcResult.shear_dcr || 0,
+                calcResult.torsion_dcr || 0
+            );
             const dcrValEl = document.getElementById('dcrValue');
             const dcrBarEl = document.getElementById('dcrBar');
             if (dcrValEl) {
