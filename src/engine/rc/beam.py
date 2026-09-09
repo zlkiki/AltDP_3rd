@@ -38,6 +38,13 @@ class SupportCondition(str, Enum):
     CANTILEVER = "CANTILEVER"    # 캔틸레버 (alpha = 0.25)
 
 
+class BeamArrangeType(str, Enum):
+    """RC Beam Reinforcement Detailing Scope Option."""
+    ONE_SECTION = "ONE_SECTION"          # 배근 유형-1: 전단면 (1개 단면)
+    SYMMETRIC_ENDS = "SYMMETRIC_ENDS"    # 배근 유형-2: 양단부와 중앙부 (2개 단면 대칭)
+    THREE_STATIONS = "THREE_STATIONS"    # 배근 유형-3: 각단부와 중앙부 (3개 단면 독립)
+
+
 class RCBeamSection(BaseModel):
     """RC Beam Section Geometry and Material Specifications."""
     model_config = ConfigDict(extra="ignore")
@@ -84,6 +91,7 @@ class RCBeamRebar(BaseModel):
     """Complete rebar detailing for all three critical beam stations."""
     model_config = ConfigDict(extra="ignore")
     
+    arrange_type: BeamArrangeType = BeamArrangeType.SYMMETRIC_ENDS
     end_i: SectionRebarGroup = Field(..., description="End-I 단부 배근")
     center_m: SectionRebarGroup = Field(..., description="Center-M 중앙부 배근")
     end_j: SectionRebarGroup = Field(..., description="End-J 단부 배근")
@@ -115,24 +123,30 @@ class RCBeamLoads(BaseModel):
 
 
 class FlexureResult(BaseModel):
-    """Flexural capacity and ductility evaluation results (KDS 14 20 20)."""
+    """Flexural capacity and ductility evaluation results (KDS 14 20 20: 2022)."""
     model_config = ConfigDict(extra="ignore")
     
     Mu: float
     phi_Mn: float
     d: float
+    dt: float
     c: float
     a: float
     epsilon_t: float
+    epsilon_t_min: float         # 강도별 최소 허용 순인장변형률 (0.004 또는 2.0 ey)
+    c_dt_ratio: float            # 중립축 깊이비 c / dt
+    c_dt_limit: float            # 한계 중립축 깊이비 (c/dt)lim
     phi: float
     is_compression_yielding: bool
     As_req: float
     As_prov: float
     rho: float
-    rho_min: float
-    rho_max: float
+    Mcr: float                   # 균열모멘트 Mcr (kN·m)
+    phi_Mn_min: float            # 최소 휨강도 1.2 Mcr (kN·m)
+    is_min_flexure_ok: bool      # phi_Mn >= 1.2 Mcr (또는 As >= 4/3 As_req) 만족 여부
+    is_ductility_ok: bool        # epsilon_t >= epsilon_t_min 만족 여부
     dcr: float
-    status: str  # "OK" | "NG"
+    status: str                  # "OK" | "NG"
 
 
 class ShearResult(BaseModel):
@@ -352,26 +366,47 @@ def calculate_rc_beam_flexure(
     b: float,
     h: float,
     d: float,
-    dt: float,
-    d_prime: float,
-    As: float,
-    As_prime: float,
-    fck: float,
-    fy: float,
-    Mu: float,
+    dt: Optional[float] = None,
+    d_prime: float = 50.0,
+    As: float = 0.0,
+    As_prime: float = 0.0,
+    fck: float = 24.0,
+    fy: float = 400.0,
+    Mu: float = 0.0,
     shape: BeamShape = BeamShape.RECTANGULAR,
     bf: Optional[float] = None,
     hf: Optional[float] = None,
     is_flange_in_compression: bool = False,
     Es: float = 200000.0,
     beta1_override: Optional[float] = None,
-    alpha1_override: Optional[float] = None
+    alpha1_override: Optional[float] = None,
+    lambda_factor: float = 1.0
 ) -> FlexureResult:
-    """Rigorous non-linear equilibrium solver for singly/doubly/T-beam flexural capacity (KDS 14 20 20)."""
+    """Rigorous non-linear equilibrium solver for singly/doubly/T-beam flexural capacity (KDS 14 20 20: 2022)."""
     alpha1_std, beta1_std, ecu = calculate_stress_block_factors(fck)
     alpha1 = alpha1_override if alpha1_override is not None else alpha1_std
     beta1 = beta1_override if beta1_override is not None else beta1_std
     ey = fy / Es
+    dt_val = dt if (dt is not None and dt > 0) else d
+    
+    # ------------------------------------------------------------------------
+    # KDS 14 20 20: 2022 Ductility Limit (4.1.2)
+    # ------------------------------------------------------------------------
+    if fy <= 400.0:
+        epsilon_t_min = 0.0040
+    else:
+        epsilon_t_min = 2.0 * ey
+        
+    c_dt_limit = ecu / (ecu + epsilon_t_min)
+    
+    # ------------------------------------------------------------------------
+    # KDS 14 20 20: 2022 Minimum Reinforcement & Cracking Moment (4.2.2)
+    # ------------------------------------------------------------------------
+    fr = 0.63 * lambda_factor * math.sqrt(fck)
+    Ig_Nmm4 = (b * (h ** 3)) / 12.0
+    yt = h / 2.0
+    Mcr = (fr * Ig_Nmm4 / yt) / 1e6  # kN·m
+    phi_Mn_min = 1.2 * Mcr           # kN·m
     
     # Effective compression width
     b_eff = bf if (shape == BeamShape.TEE and is_flange_in_compression and bf and bf > b) else b
@@ -382,9 +417,27 @@ def calculate_rc_beam_flexure(
     
     if As <= 0.0:
         return FlexureResult(
-            Mu=Mu, phi_Mn=0.0, d=d, c=0.0, a=0.0, epsilon_t=0.05, phi=0.85,
-            is_compression_yielding=False, As_req=0.0, As_prov=0.0,
-            rho=0.0, rho_min=0.0, rho_max=0.0, dcr=999.0 if Mu > 0 else 0.0, status="NG"
+            Mu=round(Mu, 2),
+            phi_Mn=0.0,
+            d=round(d, 1),
+            dt=round(dt_val, 1),
+            c=0.0,
+            a=0.0,
+            epsilon_t=0.05,
+            epsilon_t_min=round(epsilon_t_min, 5),
+            c_dt_ratio=0.0,
+            c_dt_limit=round(c_dt_limit, 4),
+            phi=0.85,
+            is_compression_yielding=False,
+            As_req=0.0,
+            As_prov=0.0,
+            rho=0.0,
+            Mcr=round(Mcr, 2),
+            phi_Mn_min=round(phi_Mn_min, 2),
+            is_min_flexure_ok=False,
+            is_ductility_ok=True,
+            dcr=999.0 if Mu > 0 else 0.0,
+            status="NG"
         )
         
     T_tension = As * fy
@@ -455,7 +508,7 @@ def calculate_rc_beam_flexure(
     # ------------------------------------------------------------------------
     # Net Tensile Strain epsilon_t and Strength Reduction Factor phi
     # ------------------------------------------------------------------------
-    epsilon_t = ecu * (dt - c) / c if c > 0 else 0.05
+    epsilon_t = ecu * (dt_val - c) / c if c > 0 else 0.05
     phi = get_phi_flexure(epsilon_t, ey)
     
     # ------------------------------------------------------------------------
@@ -481,32 +534,46 @@ def calculate_rc_beam_flexure(
     dcr = Mu / phi_Mn if phi_Mn > 0 else (0.0 if Mu == 0.0 else 999.0)
     
     # ------------------------------------------------------------------------
-    # Reinforcement Ratios and Limits (KDS 14 20 20 4.2)
+    # Ductility & Minimum Reinforcement Checks (KDS 14 20 20: 2022)
     # ------------------------------------------------------------------------
     rho = As / (b * d) if (b * d) > 0 else 0.0
-    rho_min = max(0.25 * math.sqrt(fck) / fy, 1.4 / fy)
-    rho_max = 0.85 * beta1 * (fck / fy) * (ecu / (ecu + 0.004))
+    c_dt_ratio = (c / dt_val) if dt_val > 0 else 0.0
+    is_ductility_ok = (epsilon_t >= epsilon_t_min - 1e-6)
     
     # Required steel area approximation
     jd = max(d - a / 2.0, 0.7 * d)
-    As_req = (Mu * 1e6) / (phi * fy * jd) if (phi * fy * jd) > 0 else 0.0
+    As_req = (Mu * 1e6) / (phi * fy * jd) if (phi * fy * jd > 0 and Mu > 0) else 0.0
     
-    status = "OK" if (dcr <= 1.001 and epsilon_t >= 0.004) else "NG"
+    # KDS 14 20 20: 2022 4.2.2 Minimum Reinforcement Check:
+    # phi_Mn >= 1.2 Mcr OR Exception (4.2.2(3)): As >= 4/3 As_req
+    is_min_flexure_ok = (
+        (phi_Mn >= phi_Mn_min - 1e-4) or
+        (As_req > 0 and As >= (4.0 / 3.0) * As_req - 1e-4) or
+        (Mu <= 0.0 and As > 0)
+    )
+    
+    status = "OK" if (dcr <= 1.001 and is_ductility_ok and is_min_flexure_ok) else "NG"
     
     return FlexureResult(
         Mu=round(Mu, 2),
         phi_Mn=round(phi_Mn, 2),
         d=round(d, 1),
+        dt=round(dt_val, 1),
         c=round(c, 1),
         a=round(a, 1),
         epsilon_t=round(epsilon_t, 5),
+        epsilon_t_min=round(epsilon_t_min, 5),
+        c_dt_ratio=round(c_dt_ratio, 4),
+        c_dt_limit=round(c_dt_limit, 4),
         phi=round(phi, 3),
         is_compression_yielding=is_compression_yielding,
         As_req=round(As_req, 1),
         As_prov=round(As, 1),
         rho=round(rho, 4),
-        rho_min=round(rho_min, 4),
-        rho_max=round(rho_max, 4),
+        Mcr=round(Mcr, 2),
+        phi_Mn_min=round(phi_Mn_min, 2),
+        is_min_flexure_ok=is_min_flexure_ok,
+        is_ductility_ok=is_ductility_ok,
         dcr=round(dcr, 3),
         status=status
     )
@@ -808,10 +875,10 @@ def calculate_rc_beam_design(
         stirrup_area = rgroup.stirrup_legs * get_rebar_area(rgroup.stirrup_bar)
         
         # 1. Positive Moment Flexure (Bottom steel in tension, top in compression)
-        As_bot, d_bot, dt_bot, _ = calculate_rebar_group_properties(
+        As_bot, d_bot, dt_bot, dp_bot = calculate_rebar_group_properties(
             rgroup.bot_bars, h, section.cover, stirrup_db, is_top=False
         )
-        As_top, _, _, dp_top = calculate_rebar_group_properties(
+        As_top, d_top, dt_top, dp_top = calculate_rebar_group_properties(
             rgroup.top_bars, h, section.cover_top, stirrup_db, is_top=True
         )
         
@@ -825,8 +892,8 @@ def calculate_rc_beam_design(
         # 2. Negative Moment Flexure (Top steel in tension, bottom in compression)
         # Note: In negative bending, flange of T-beam is in tension, so compression width is bw = b
         neg_flex = calculate_rc_beam_flexure(
-            b=b, h=h, d=h - dp_top, dt=h - section.cover_top - stirrup_db - (get_rebar_db(rgroup.top_bars[0].bar_dia) / 2.0 if rgroup.top_bars else 10.0),
-            d_prime=h - d_bot, As=As_top, As_prime=As_bot, fck=fck, fy=fy,
+            b=b, h=h, d=d_top, dt=dt_top, d_prime=dp_bot,
+            As=As_top, As_prime=As_bot, fck=fck, fy=fy,
             Mu=ploads.Mu_neg, shape=BeamShape.RECTANGULAR, bf=None, hf=None,
             is_flange_in_compression=False
         )
@@ -1083,8 +1150,18 @@ def design_rc_beam(inp: RCBeamInput) -> RCBeamLegacyResult:
     flexure_dcr = inp.Mu / phi_Mn if phi_Mn > 0 else (0.0 if inp.Mu == 0 else 999.0)
     
     rho = As / (b * d) if (b * d) > 0 else 0.0
-    rho_min = max(0.25 * math.sqrt(fck) / fy, 1.4 / fy)
-    rho_max = 0.85 * beta1 * (fck / fy) * (ecu / (ecu + 0.004))
+    # KDS 14 20 20: 2022 minimum flexure strength and ductility checks
+    fr_beam = inp.concrete.f_cr
+    Ig_beam = (b * (h ** 3)) / 12.0
+    Mcr_beam = (fr_beam * Ig_beam / (h / 2.0)) / 1e6
+    phi_Mn_min = 1.2 * Mcr_beam
+    jd_val = max(d - a / 2.0, 0.7 * d)
+    As_req_val = (inp.Mu * 1e6) / (phi_b * fy * jd_val) if (phi_b * fy * jd_val > 0 and inp.Mu > 0) else 0.0
+    is_min_flexure_ok = (phi_Mn >= phi_Mn_min - 1e-4) or (As_req_val > 0 and As >= (4.0 / 3.0) * As_req_val - 1e-4) or (inp.Mu <= 0.0 and As > 0)
+    epsilon_t_min = 0.0040 if fy <= 400.0 else 2.0 * ey
+    is_ductility_ok = (et >= epsilon_t_min - 1e-6)
+    rho_min = 0.0  # Obsolete KDS formula deprecated
+    rho_max = 0.0  # Obsolete KDS formula deprecated
     
     # -------------------------------------------------------------
     # 2. Shear Strength (Vn) - KDS 14 20 22
@@ -1237,7 +1314,7 @@ def design_rc_beam(inp: RCBeamInput) -> RCBeamLegacyResult:
     # 5. Overall Safety & Summary
     # -------------------------------------------------------------
     max_dcr = max(flexure_dcr, shear_dcr, torsion_dcr, combined_dcr, deflection_dcr, crack_dcr)
-    rebar_limits_ok = (rho >= rho_min) and (et >= 0.004) and (inp.s <= s_max * 1.001)
+    rebar_limits_ok = is_min_flexure_ok and is_ductility_ok and (inp.s <= s_max * 1.001)
     
     is_safe = (max_dcr <= 1.0) and rebar_limits_ok
     status = "OK" if is_safe else "NG"

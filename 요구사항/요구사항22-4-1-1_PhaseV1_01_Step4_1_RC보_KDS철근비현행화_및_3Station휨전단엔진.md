@@ -130,9 +130,9 @@ class FlexureResult(BaseModel):
 
 ## 5. 완료 검증 기준 (DoD)
 
-- [ ] `src/engine/rc/beam.py`에서 구버전 `rho_min`, `rho_max` 관련 계산이 완전히 제거될 것.
-- [ ] $\phi M_n \ge 1.2 M_{cr}$ (또는 $A_s \ge \frac{4}{3} A_{s,req}$) 판정이 정확히 수행될 것.
-- [ ] 철근 강도별($f_y \le 400$ 시 $0.004$, $f_y > 400$ 시 $2.0 \epsilon_y$) $\epsilon_{t,\min}$ 판정 및 한계 중립축 깊이비가 정확히 산정될 것.
-- [ ] End-I(부모멘트 상부인장), Center-M(정모멘트 하부인장), End-J(부모멘트)의 휨강도가 정확히 분리 계산될 것.
-- [ ] `tests/engine/test_rc_beam.py`의 신규 및 기존 단위 테스트가 100% 무결점 통과할 것.
-- [ ] 전체 회귀 테스트 `pytest` 349+ 통과를 유지할 것.
+- [x] `src/engine/rc/beam.py`에서 구버전 `rho_min`, `rho_max` 관련 계산이 완전히 제거될 것.
+- [x] $\phi M_n \ge 1.2 M_{cr}$ (또는 $A_s \ge \frac{4}{3} A_{s,req}$) 판정이 정확히 수행될 것.
+- [x] 철근 강도별($f_y \le 400$ 시 $0.004$, $f_y > 400$ 시 $2.0 \epsilon_y$) $\epsilon_{t,\min}$ 판정 및 한계 중립축 깊이비가 정확히 산정될 것.
+- [x] End-I(부모멘트 상부인장), Center-M(정모멘트 하부인장), End-J(부모멘트)의 휨강도가 정확히 분리 계산될 것.
+- [x] `tests/engine/test_rc_beam.py`의 신규 및 기존 단위 테스트가 100% 무결점 통과할 것.
+- [x] 전체 회귀 테스트 `pytest` 349+ 통과를 유지할 것.

@@ -11,6 +11,7 @@ from src.engine.rc.beam import (
     design_rc_beam,
     RCBeamLegacyResult,
     BeamShape,
+    BeamArrangeType,
     SupportCondition,
     RCBeamSection,
     RebarRow,
@@ -616,4 +617,196 @@ def test_rc_beam_kci2020_pdf_benchmark_deflection_ex3_1():
     # delta_immediate: 8.08 mm vs 8.08 mm (0.00% <= 0.10%)
     assert abs(res.delta_immediate - 8.08) / 8.08 <= 0.0010
     assert res.status == "OK"
+
+
+# ============================================================================
+# 8. KDS 14 20 20: 2022 철근비 현행화 및 3-Station 신규 검증 테스트
+# ============================================================================
+
+@pytest.mark.engine
+def test_flexure_kds_min_reinforcement_mcr():
+    """KDS 14 20 20: 2022 4.2.2 최소 휨철근량 검토 검증 (phi_Mn >= 1.2 Mcr 및 4/3 As_req 예외).
+    
+    b = 400 mm, h = 600 mm, fck = 27 MPa, fy = 400 MPa
+    fr = 0.63 * 1.0 * sqrt(27) = 3.2736 MPa
+    Ig = 400 * 600^3 / 12 = 7.20e9 mm4
+    yt = 300 mm
+    Mcr = 3.2736 * (7.20e9 / 300) / 1e6 = 78.57 kN·m
+    1.2 Mcr = 94.28 kN·m
+    """
+    b = 400.0
+    h = 600.0
+    fck = 27.0
+    fy = 400.0
+    d = 540.0
+    dt = 540.0
+    
+    # 1. Mcr 및 phi_Mn_min 산정 검증
+    res_base = calculate_rc_beam_flexure(
+        b=b, h=h, d=d, dt=dt, d_prime=60.0,
+        As=2000.0, As_prime=0.0, fck=fck, fy=fy, Mu=250.0
+    )
+    # Mcr: 78.57 kN·m vs 78.57 kN·m (오차 <= 0.10%)
+    assert abs(res_base.Mcr - 78.57) / 78.57 <= 0.0010
+    # phi_Mn_min: 94.28 kN·m vs 94.28 kN·m (오차 <= 0.10%)
+    assert abs(res_base.phi_Mn_min - 94.28) / 94.28 <= 0.0010
+    assert res_base.phi_Mn >= res_base.phi_Mn_min
+    assert res_base.is_min_flexure_ok is True
+    assert res_base.status == "OK"
+    
+    # 2. Case B: 최소철근량 미달 (As = 200 mm², Mu = 80 kN·m)
+    # phi_Mn < 1.2 Mcr 이고 As < (4/3) * As_req 이므로 NG
+    res_under = calculate_rc_beam_flexure(
+        b=b, h=h, d=d, dt=dt, d_prime=60.0,
+        As=200.0, As_prime=0.0, fck=fck, fy=fy, Mu=80.0
+    )
+    assert res_under.phi_Mn < res_under.phi_Mn_min
+    assert res_under.is_min_flexure_ok is False
+    assert res_under.status == "NG"
+    
+    # 3. Case C: 4.2.2(3) 예외 규정 (As >= 4/3 As_req)
+    # 소요 모멘트가 아주 작음: Mu = 10 kN·m -> As_req 약 55 mm²
+    # As = 200 mm² >= (4/3) * 55 = 73.3 mm²
+    # 비록 phi_Mn (약 40 kN·m) < 1.2 Mcr (94.28 kN·m)이지만 예외에 의해 OK 판정
+    res_exception = calculate_rc_beam_flexure(
+        b=b, h=h, d=d, dt=dt, d_prime=60.0,
+        As=200.0, As_prime=0.0, fck=fck, fy=fy, Mu=10.0
+    )
+    assert res_exception.phi_Mn < res_exception.phi_Mn_min
+    assert res_exception.As_prov >= (4.0 / 3.0) * res_exception.As_req
+    assert res_exception.is_min_flexure_ok is True
+    assert res_exception.status == "OK"
+
+
+@pytest.mark.engine
+def test_flexure_ductility_strain_limit_by_fy():
+    """KDS 14 20 20: 2022 4.1.2 순인장변형률 한계 및 한계 중립축 깊이비 (c/dt)lim 검증.
+    
+    1. fy = 400 MPa: eps_t_min = 0.0040, (c/dt)lim = 0.0033 / (0.0033 + 0.0040) = 0.452
+    2. fy = 500 MPa: eps_t_min = 2.0 * (500/200000) = 0.0050, (c/dt)lim = 0.0033 / 0.0083 = 0.398
+    3. fy = 600 MPa: eps_t_min = 2.0 * (600/200000) = 0.0060, (c/dt)lim = 0.0033 / 0.0093 = 0.355
+    """
+    b = 300.0
+    h = 500.0
+    d = 450.0
+    dt = 450.0
+    fck = 24.0
+    
+    # 1. SD400
+    res_400 = calculate_rc_beam_flexure(
+        b=b, h=h, d=d, dt=dt, d_prime=50.0,
+        As=1500.0, As_prime=0.0, fck=fck, fy=400.0, Mu=150.0
+    )
+    assert res_400.epsilon_t_min == 0.0040
+    assert abs(res_400.c_dt_limit - 0.452) <= 0.001
+    assert res_400.is_ductility_ok is True
+    
+    # 2. SD500
+    res_500 = calculate_rc_beam_flexure(
+        b=b, h=h, d=d, dt=dt, d_prime=50.0,
+        As=1500.0, As_prime=0.0, fck=fck, fy=500.0, Mu=180.0
+    )
+    assert res_500.epsilon_t_min == 0.0050
+    assert abs(res_500.c_dt_limit - 0.398) <= 0.001
+    assert res_500.is_ductility_ok is True
+    
+    # 3. SD600
+    res_600 = calculate_rc_beam_flexure(
+        b=b, h=h, d=d, dt=dt, d_prime=50.0,
+        As=900.0, As_prime=0.0, fck=fck, fy=600.0, Mu=200.0
+    )
+    assert res_600.epsilon_t_min == 0.0060
+    assert abs(res_600.c_dt_limit - 0.355) <= 0.001
+    assert res_600.is_ductility_ok is True
+    
+    # 4. 과다배근 연성 결함 검증 (As = 5000 mm² -> eps_t < eps_t_min)
+    res_over = calculate_rc_beam_flexure(
+        b=b, h=h, d=d, dt=dt, d_prime=50.0,
+        As=5000.0, As_prime=0.0, fck=fck, fy=400.0, Mu=250.0
+    )
+    assert res_over.epsilon_t < res_over.epsilon_t_min
+    assert res_over.c_dt_ratio > res_over.c_dt_limit
+    assert res_over.is_ductility_ok is False
+    assert res_over.status == "NG"
+
+
+@pytest.mark.engine
+def test_3station_moment_direction_separation():
+    """End-I(부모멘트 상부인장) vs Center-M(정모멘트 하부인장 T형 보) 거동 분리 검증.
+    
+    - End-I: 상부 인장 5-D25, 하부 압축 2-D22, b = 400 mm 직사각형 단면 거동
+    - Center-M: 하부 인장 5-D25, 상부 압축 2-D22, bf = 1000 mm T형 플랜지 압축 거동
+    -> Center-M의 압축블록 깊이 a와 중립축 깊이 c가 End-I보다 현저히 작음
+    -> 3-Station 정/부모멘트 휨강도가 정확히 분리 계산됨
+    """
+    section = RCBeamSection(
+        shape=BeamShape.TEE,
+        b=400.0,
+        h=600.0,
+        length=6000.0,
+        cover=40.0,
+        cover_top=40.0,
+        bf=1000.0,
+        hf=150.0,
+        fck=27.0,
+        fy=400.0,
+        fyt=400.0
+    )
+    
+    rebar = RCBeamRebar(
+        arrange_type=BeamArrangeType.SYMMETRIC_ENDS,
+        end_i=SectionRebarGroup(
+            top_bars=[RebarRow(bar_dia="D25", count=5, layer=1)],
+            bot_bars=[RebarRow(bar_dia="D22", count=2, layer=1)],
+            stirrup_bar="D10",
+            stirrup_spacing=200.0
+        ),
+        center_m=SectionRebarGroup(
+            top_bars=[RebarRow(bar_dia="D22", count=2, layer=1)],
+            bot_bars=[RebarRow(bar_dia="D25", count=5, layer=1)],
+            stirrup_bar="D10",
+            stirrup_spacing=250.0
+        ),
+        end_j=SectionRebarGroup(
+            top_bars=[RebarRow(bar_dia="D25", count=5, layer=1)],
+            bot_bars=[RebarRow(bar_dia="D22", count=2, layer=1)],
+            stirrup_bar="D10",
+            stirrup_spacing=200.0
+        )
+    )
+    
+    loads = RCBeamLoads(
+        end_i=RCBeamPositionLoads(Mu_neg=350.0, Vu=180.0),
+        center_m=RCBeamPositionLoads(Mu_pos=350.0, Vu=80.0),
+        end_j=RCBeamPositionLoads(Mu_neg=350.0, Vu=180.0)
+    )
+    
+    result = calculate_rc_beam_design(section=section, rebar=rebar, loads=loads)
+    
+    end_i_res = result.end_i
+    center_m_res = result.center_m
+    
+    # End-I: 부모멘트 상부인장 (복부 폭 b=400 거동)
+    neg_flex_i = end_i_res.neg_flexure
+    assert neg_flex_i.Mu == 350.0
+    assert neg_flex_i.phi_Mn > 350.0
+    assert neg_flex_i.is_min_flexure_ok is True
+    assert neg_flex_i.is_ductility_ok is True
+    
+    # Center-M: 정모멘트 하부인장 (플랜지폭 bf=1000 압축 거동)
+    pos_flex_m = center_m_res.pos_flexure
+    assert pos_flex_m.Mu == 350.0
+    assert pos_flex_m.phi_Mn > 350.0
+    assert pos_flex_m.is_min_flexure_ok is True
+    assert pos_flex_m.is_ductility_ok is True
+    
+    # T형 플랜지 압축에 의해 Center-M의 압축블록 깊이 a는 End-I보다 현저히 작아야 함
+    # (bf = 1000 mm vs b = 400 mm)
+    assert pos_flex_m.a < neg_flex_i.a
+    assert pos_flex_m.c < neg_flex_i.c
+    
+    # 두 위치의 휨강도 phi_Mn이 독립적으로 정밀하게 계산되었는지 확인
+    assert pos_flex_m.phi_Mn != neg_flex_i.phi_Mn
+    assert result.status == "OK"
+
 
