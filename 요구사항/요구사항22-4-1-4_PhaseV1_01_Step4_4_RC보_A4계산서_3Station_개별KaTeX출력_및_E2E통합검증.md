@@ -77,9 +77,9 @@ f_r = 0.63 \lambda \sqrt{f_{ck}}, \quad I_g = \frac{b h^3}{12}, \quad M_{cr} = \
 
 ## 4. 완료 검증 기준 (DoD)
 
-- [ ] A4 계산서 제 1장에 $\phi M_n \ge 1.2 M_{cr}$ 및 $\epsilon_t \ge \epsilon_{t,\min}$ 수식이 KaTeX로 정확히 렌더링될 것.
-- [ ] A4 계산서 제 3장에서 단부-I(부모멘트), 중앙부-M(정모멘트), 단부-J(부모멘트)의 계산근거가 위치별 역학 특성에 맞추어 명확히 분리 출력될 것.
-- [ ] 계산서 전체에서 구버전 철근비 $\rho_{\min}, \rho_{\max}$ 수식이 1건도 나타나지 않을 것.
-- [ ] `tests/ui/test_phase22_4_rc_beam_report.py` 테스트 슈트가 100% 무결점 통과할 것.
-- [ ] `pytest` 전체 349+ 회귀 테스트가 에러 0건으로 100% 통과할 것.
-- [ ] `요구사항/PROJECT_PROGRESS.md`에 본 작업 완료 상태와 다음 작업(Phase 22-5)이 정확히 동기화될 것.
+- [x] A4 계산서 제 1장에 $\phi M_n \ge 1.2 M_{cr}$ 및 $\epsilon_t \ge \epsilon_{t,\min}$ 수식이 KaTeX로 정확히 렌더링될 것.
+- [x] A4 계산서 제 3장에서 단부-I(부모멘트), 중앙부-M(정모멘트), 단부-J(부모멘트)의 계산근거가 위치별 역학 특성에 맞추어 명확히 분리 출력될 것.
+- [x] 계산서 전체에서 구버전 철근비 $\rho_{\min}, \rho_{\max}$ 수식이 1건도 나타나지 않을 것.
+- [x] `tests/ui/test_phase22_4_rc_beam_report.py` 테스트 슈트가 100% 무결점 통과할 것.
+- [x] `pytest` 전체 349+ 회귀 테스트가 에러 0건으로 100% 통과할 것.
+- [x] `요구사항/PROJECT_PROGRESS.md`에 본 작업 완료 상태와 다음 작업(Phase 22-5)이 정확히 동기화될 것.
