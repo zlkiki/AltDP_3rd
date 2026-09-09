@@ -102,8 +102,8 @@
       }
     };
 
-    const torsionSideCount = Number(r.torsion_side_count || data.torsion_side_count || 2);
-    const torsionSideBar = parseRebarSpec(r.torsion_side_bar || data.torsion_side_bar || 'D13');
+    const torsionSideCount = Number(r.torsion_side_count ?? data.torsion_side_count ?? 0);
+    const torsionSideBar = parseRebarSpec(r.torsion_side_bar ?? data.torsion_side_bar ?? 'D13');
 
     // Factored Loads
     const loads = data.loads || {};

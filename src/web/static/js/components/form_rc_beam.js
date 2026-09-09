@@ -27,27 +27,31 @@ class RCBeamFormComponent {
         this.container.innerHTML = '';
         this.container.className = 'rc-beam-form-container';
 
-        // 0. Render 3-Action Button Toolbar (Apply, Check, Auto-Design)
+        // 0. Render Sticky Floating Header Container (Requirement 22-5-2 & docs/07)
+        const stickyHeader = document.createElement('div');
+        stickyHeader.className = 'form-sticky-header beam-sticky-header';
+
+        // 0-1. Render 3-Action Button Toolbar (Apply, Check, Auto-Design) - 32px Compact
         const actionBar = document.createElement('div');
         actionBar.className = 'input-action-bar beam-action-bar';
         actionBar.innerHTML = `
-            <button type="button" class="btn-apply-action" id="beam-btn-apply" title="현재 입력 데이터를 메모리에 기록하고 캔버스를 갱신합니다">
-                💾 적용 (Apply)
+            <button type="button" class="btn-action-compact btn-apply-action" id="beam-btn-apply" title="현재 입력 데이터를 메모리에 기록하고 캔버스를 갱신합니다">
+                💾 적용
             </button>
-            <button type="button" class="btn-check-action" id="beam-btn-check" title="현재 입력 조건으로 KDS 기준 검토를 수행하고 계산서를 갱신합니다">
-                ⚡ 검토 (Check)
+            <button type="button" class="btn-action-compact btn-check-action" id="beam-btn-check" title="현재 입력 조건으로 KDS 기준 검토를 수행하고 계산서를 갱신합니다">
+                ⚡ 검토
             </button>
-            <button type="button" class="btn-design-action" id="beam-btn-design" title="현재 단면에 대해 최적 철근 배근을 자동 설계합니다">
-                ✨ 자동설계 (Design)
+            <button type="button" class="btn-action-compact btn-design-action" id="beam-btn-design" title="현재 단면에 대해 최적 철근 배근을 자동 설계합니다">
+                ✨ 자동설계
             </button>
         `;
-        this.container.appendChild(actionBar);
+        stickyHeader.appendChild(actionBar);
 
         actionBar.querySelector('#beam-btn-apply').onclick = () => this._handleApply();
         actionBar.querySelector('#beam-btn-check').onclick = () => this._handleCheck();
         actionBar.querySelector('#beam-btn-design').onclick = () => this._handleAutoDesign();
 
-        // 1. Render Subtab Navigation Bar
+        // 0-2. Render Subtab Navigation Bar
         const navBar = document.createElement('div');
         navBar.className = 'sub-tab-bar beam-subtab-bar';
         navBar.innerHTML = `
@@ -64,9 +68,11 @@ class RCBeamFormComponent {
                 ⚙️ 사용성 / 처짐
             </button>
         `;
-        this.container.appendChild(navBar);
+        stickyHeader.appendChild(navBar);
 
-        // 2. Render Subtab Content Panes
+        this.container.appendChild(stickyHeader);
+
+        // 1. Render Subtab Content Panes
         const contentWrap = document.createElement('div');
         contentWrap.className = 'sub-tab-contents beam-tab-contents';
 
@@ -77,7 +83,7 @@ class RCBeamFormComponent {
 
         this.container.appendChild(contentWrap);
 
-        // 3. Tab Switching Events
+        // 2. Tab Switching Events
         navBar.querySelectorAll('.sub-tab-btn').forEach(btn => {
             btn.onclick = () => {
                 const target = btn.dataset.tab;
@@ -87,7 +93,8 @@ class RCBeamFormComponent {
             };
         });
 
-        // Initial validation and spacing preview update
+        // 3. Initial validation, 12-point clear spacing preview and load table arrange state
+        this._updateLoadTableArrangeState(this.container);
         this._updateSpacingPreview();
     }
 
@@ -587,14 +594,23 @@ class RCBeamFormComponent {
                 </div>
             </div>
 
-            <div class="eng-form-section" id="beam-spacing-preview-box" style="background:var(--bg-card); border:1px solid var(--border); border-radius:6px; padding:10px;">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <span style="font-weight:700; font-size:12px; color:var(--accent);">📏 철근 순간격 실시간 자동 검토</span>
-                    <span id="beam-spacing-badge" class="badge-status-ok" style="background:var(--success, #10b981); color:#fff; font-size:11px; padding:2px 6px; border-radius:4px;">적합 (OK)</span>
+            <div class="eng-form-section" id="beam-spacing-preview-box" style="background:var(--bg-card); border:1px solid var(--border); border-radius:6px; padding:10px; position:relative;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
+                    <span style="font-weight:700; font-size:12px; color:var(--accent, #38bdf8);">📏 12포인트 철근 순간격 전수 검토 (KDS 14 20 50)</span>
+                    <div style="display:flex; align-items:center; gap:6px;">
+                        <span id="beam-spacing-badge" class="spacing-badge-governing status-ok" title="클릭하여 12개 포인트 전체 순간격 상세 확인">
+                            최소 순간격: 계산 중...
+                        </span>
+                        <button type="button" id="btn-toggle-spacing-popover" class="btn-more-dlg-wide" style="padding:2px 7px; font-size:10.5px; height:24px;" title="12포인트 순간격 상세 표출">
+                            🔍 상세표
+                        </button>
+                    </div>
                 </div>
                 <div id="beam-spacing-detail-text" style="font-size:11px; color:var(--text-muted); margin-top:4px;">
                     계산 중...
                 </div>
+                <!-- 12-Point Spacing Popover Floating Card -->
+                <div id="beam-spacing-popover" class="spacing-popover" style="display:none;"></div>
             </div>
         `;
 
@@ -793,6 +809,7 @@ class RCBeamFormComponent {
                         });
                     }
                     updateArrangeUI();
+                    this._updateLoadTableArrangeState(this.container);
                     this._syncLegacyRebarStrings();
                     this._updateSpacingPreview();
                     this._broadcastChange();
@@ -802,6 +819,19 @@ class RCBeamFormComponent {
 
         // Initialize Arrange UI visual state
         updateArrangeUI();
+
+        // Popover toggle for 12-point clear spacing
+        const popoverEl = pane.querySelector('#beam-spacing-popover');
+        const togglePopover = (e) => {
+            if (e) e.stopPropagation();
+            if (!popoverEl) return;
+            const isShown = popoverEl.style.display !== 'none';
+            popoverEl.style.display = isShown ? 'none' : 'block';
+        };
+        const btnTogglePopover = pane.querySelector('#btn-toggle-spacing-popover');
+        const badgeSpacing = pane.querySelector('#beam-spacing-badge');
+        if (btnTogglePopover) btnTogglePopover.onclick = togglePopover;
+        if (badgeSpacing) badgeSpacing.onclick = togglePopover;
 
         // Sub-dialog: Detailed Rebar Settings (IDD_RCS_BEAM_REBAR_DLG)
         const btnOpenRebarDlg = pane.querySelector('#btn-open-rebar-dlg');
@@ -887,6 +917,67 @@ class RCBeamFormComponent {
     }
 
     /**
+     * Requirement 22-5-2 Sec 2.3: Dynamic disabled & symmetric sync for loads table
+     * @param {HTMLElement} root
+     */
+    _updateLoadTableArrangeState(root = this.container) {
+        if (!root) return;
+        const arrType = this.data.rebar?.arrange_type || 'SYMMETRIC_ENDS';
+        const rowEndI = root.querySelector('#row-ld-endi');
+        const rowCent = root.querySelector('#row-ld-cent');
+        const rowEndJ = root.querySelector('#row-ld-endj');
+        const tagEndI = root.querySelector('#tag-ld-endi-sym');
+        const tagEndJ = root.querySelector('#tag-ld-endj-sym');
+
+        const setRowLoadState = (row, enabled, isDim = false) => {
+            if (!row) return;
+            const inputs = row.querySelectorAll('input');
+            inputs.forEach(inp => {
+                inp.disabled = !enabled;
+                inp.style.pointerEvents = enabled ? 'auto' : 'none';
+            });
+            row.classList.toggle('row-disabled-load', isDim);
+            row.style.opacity = isDim ? '0.55' : '1.0';
+        };
+
+        if (arrType === 'ONE_SECTION') {
+            setRowLoadState(rowCent, true, false);
+            setRowLoadState(rowEndI, false, true);
+            setRowLoadState(rowEndJ, false, true);
+            if (tagEndI) {
+                tagEndI.style.display = 'inline-block';
+                tagEndI.textContent = '[전단면 동일 - 중앙부 적용]';
+            }
+            if (tagEndJ) {
+                tagEndJ.style.display = 'inline-block';
+                tagEndJ.textContent = '[전단면 동일 - 중앙부 적용]';
+            }
+        } else if (arrType === 'SYMMETRIC_ENDS') {
+            setRowLoadState(rowEndI, true, false);
+            setRowLoadState(rowCent, true, false);
+            setRowLoadState(rowEndJ, false, true);
+            if (tagEndI) tagEndI.style.display = 'none';
+            if (tagEndJ) {
+                tagEndJ.style.display = 'inline-block';
+                tagEndJ.textContent = '[단부-I 대칭 동기화]';
+            }
+            // End-I 값을 End-J로 동기화 복제
+            this.data.loads.end_j = { ...this.data.loads.end_i };
+            ['mup', 'mun', 'vu', 'tu'].forEach(f => {
+                const iInp = root.querySelector(`#ld-endi-${f}`);
+                const jInp = root.querySelector(`#ld-endj-${f}`);
+                if (iInp && jInp) jInp.value = iInp.value;
+            });
+        } else { // THREE_STATIONS
+            setRowLoadState(rowEndI, true, false);
+            setRowLoadState(rowCent, true, false);
+            setRowLoadState(rowEndJ, true, false);
+            if (tagEndI) tagEndI.style.display = 'none';
+            if (tagEndJ) tagEndJ.style.display = 'none';
+        }
+    }
+
+    /**
      * Tab 3: Design Factored Loads (IDD_RCS_BEAM_SECT_DLG)
      */
     _buildLoadTab() {
@@ -918,8 +1009,11 @@ class RCBeamFormComponent {
                         </thead>
                         <tbody>
                             <!-- End-I -->
-                            <tr>
-                                <td style="font-weight:700;">단부-I (End-I)</td>
+                            <tr id="row-ld-endi">
+                                <td style="font-weight:700;">
+                                    <span>단부-I (End-I)</span>
+                                    <span id="tag-ld-endi-sym" class="badge-load-sym" style="display:none;"></span>
+                                </td>
                                 <td>
                                     <input type="number" id="ld-endi-mup" class="form-input table-cell-input" value="${ld.end_i.Mu_pos}" step="10" style="width:80px; text-align:center;">
                                 </td>
@@ -934,7 +1028,7 @@ class RCBeamFormComponent {
                                 </td>
                             </tr>
                             <!-- Center-M -->
-                            <tr>
+                            <tr id="row-ld-cent">
                                 <td style="font-weight:700;">중앙-M (Center)</td>
                                 <td>
                                     <input type="number" id="ld-cent-mup" class="form-input table-cell-input" value="${ld.center_m.Mu_pos}" step="10" style="width:80px; text-align:center;">
@@ -950,8 +1044,11 @@ class RCBeamFormComponent {
                                 </td>
                             </tr>
                             <!-- End-J -->
-                            <tr>
-                                <td style="font-weight:700;">단부-J (End-J)</td>
+                            <tr id="row-ld-endj">
+                                <td style="font-weight:700;">
+                                    <span>단부-J (End-J)</span>
+                                    <span id="tag-ld-endj-sym" class="badge-load-sym" style="display:none;"></span>
+                                </td>
                                 <td>
                                     <input type="number" id="ld-endj-mup" class="form-input table-cell-input" value="${ld.end_j.Mu_pos}" step="10" style="width:80px; text-align:center;">
                                 </td>
@@ -975,7 +1072,17 @@ class RCBeamFormComponent {
             const inp = pane.querySelector(id);
             if (inp) {
                 inp.oninput = () => {
-                    this.data.loads[loc][field] = parseFloat(inp.value) || 0;
+                    const val = parseFloat(inp.value) || 0;
+                    this.data.loads[loc][field] = val;
+
+                    // Requirement 22-5-2: SYMMETRIC_ENDS auto-replication from End-I to End-J
+                    const arrType = this.data.rebar?.arrange_type || 'SYMMETRIC_ENDS';
+                    if (loc === 'end_i' && arrType === 'SYMMETRIC_ENDS') {
+                        this.data.loads.end_j[field] = val;
+                        const jInp = pane.querySelector(id.replace('endi', 'endj'));
+                        if (jInp) jInp.value = val;
+                    }
+
                     // Sync legacy top-level values
                     if (loc === 'center_m' && field === 'Mu_pos') this.data.mu = this.data.loads.center_m.Mu_pos;
                     if (loc === 'end_i' && field === 'Vu') this.data.vu = this.data.loads.end_i.Vu;
@@ -1019,6 +1126,9 @@ class RCBeamFormComponent {
                 }
             };
         }
+
+        // Initialize disabled/symmetric state
+        this._updateLoadTableArrangeState(pane);
 
         return pane;
     }
@@ -1130,40 +1240,210 @@ class RCBeamFormComponent {
     }
 
     /**
-     * Real-time Clear Spacing Calculation and Preview
+     * Requirement 22-5-2 Sec 2.2: 12-Point Clear Spacing Full Calculation (KDS 14 20 50 Sec 4.1)
+     * 3-Station (End-I, Center-M, End-J) × 4-Layer (Top 1/2, Bot 1/2) = 12 Points
+     */
+    _calcAllClearSpacings() {
+        const bw = this.data.b || 400;
+        const coverBot = this.data.cover || 40;
+        const coverTop = this.data.cover_top || coverBot;
+        const da = this.data.rebar?.maxAggSize || 25;
+
+        const stations = [
+            { key: 'end_i', label: '단부-I', shortLabel: 'I' },
+            { key: 'center_m', label: '중앙-M', shortLabel: 'M' },
+            { key: 'end_j', label: '단부-J', shortLabel: 'J' }
+        ];
+
+        const layers = [
+            { key: 'top_layer1', label: '상부 1단', isTop: true, isLayer2: false },
+            { key: 'top_layer2', label: '상부 2단', isTop: true, isLayer2: true },
+            { key: 'bot_layer2', label: '하부 2단', isTop: false, isLayer2: true },
+            { key: 'bot_layer1', label: '하부 1단', isTop: false, isLayer2: false }
+        ];
+
+        const results = [];
+
+        stations.forEach(st => {
+            const stData = this.data.rebar?.[st.key] || {};
+            const stirrupDiaNum = parseFloat((stData.stirrup_dia || 'D10').replace(/[^0-9]/g, '')) || 10;
+
+            layers.forEach(ly => {
+                const spec = stData[ly.key] || '0';
+                const parsed = this._parseRebarStr(spec, ly.isLayer2);
+                const n = parsed.count;
+                const diaStr = parsed.dia || 'D25';
+                const db = parseFloat(diaStr.replace(/[^0-9]/g, '')) || 25;
+                const cc = ly.isTop ? coverTop : coverBot;
+
+                const item = {
+                    stationKey: st.key,
+                    stationLabel: st.label,
+                    stationShort: st.shortLabel,
+                    layerKey: ly.key,
+                    layerLabel: ly.label,
+                    isTop: ly.isTop,
+                    isLayer2: ly.isLayer2,
+                    spec: spec,
+                    count: n,
+                    db: db,
+                    diaStr: diaStr,
+                    s_clear: null,
+                    s_req: Math.max(25, db, Math.round(1.33 * da)),
+                    margin: null,
+                    status: 'none' // 'none', 'ok', 'ng'
+                };
+
+                if (n <= 0) {
+                    item.status = 'none';
+                } else if (n === 1) {
+                    item.s_clear = 999;
+                    item.margin = 999 - item.s_req;
+                    item.status = 'ok';
+                } else {
+                    const clearWidth = bw - 2 * (cc + stirrupDiaNum);
+                    const sc = (clearWidth - n * db) / (n - 1);
+                    item.s_clear = Math.round(sc * 10) / 10;
+                    item.margin = Math.round((sc - item.s_req) * 10) / 10;
+                    item.status = (item.s_clear >= item.s_req) ? 'ok' : 'ng';
+                }
+
+                results.push(item);
+            });
+        });
+
+        // Determine Governing Point
+        const activeItems = results.filter(it => it.status !== 'none');
+        let governing = null;
+
+        if (activeItems.length > 0) {
+            const ngItems = activeItems.filter(it => it.status === 'ng');
+            if (ngItems.length > 0) {
+                // Lowest margin among NG items
+                ngItems.sort((a, b) => a.margin - b.margin);
+                governing = ngItems[0];
+            } else {
+                // Lowest margin among OK items (tightest clearance)
+                activeItems.sort((a, b) => a.margin - b.margin);
+                governing = activeItems[0];
+            }
+        }
+
+        return {
+            items: results,
+            governing: governing,
+            hasNG: results.some(it => it.status === 'ng')
+        };
+    }
+
+    /**
+     * Real-time 12-Point Clear Spacing Preview and Detail Popover Update
      */
     _updateSpacingPreview() {
         const previewText = this.container?.querySelector('#beam-spacing-detail-text');
         const previewBadge = this.container?.querySelector('#beam-spacing-badge');
+        const popover = this.container?.querySelector('#beam-spacing-popover');
         if (!previewText || !previewBadge) return;
 
+        const { items, governing, hasNG } = this._calcAllClearSpacings();
+
+        if (!governing) {
+            previewBadge.className = 'spacing-badge-governing status-ok';
+            previewBadge.textContent = '배근 미지정';
+            previewText.textContent = '배근 데이터를 입력하십시오.';
+            return;
+        }
+
+        const isOk = !hasNG;
+        previewBadge.className = isOk ? 'spacing-badge-governing status-ok' : 'spacing-badge-governing status-ng';
+
+        const locTag = `[${governing.stationShort}-${governing.layerLabel}]`;
+        if (governing.count === 1) {
+            previewBadge.innerHTML = `✅ 순간격 여유 ${locTag} (OK)`;
+        } else if (isOk) {
+            previewBadge.innerHTML = `✅ 최소 순간격: <strong>${governing.s_clear.toFixed(1)}mm</strong> ${locTag} (OK)`;
+        } else {
+            previewBadge.innerHTML = `⚠️ 순간격 NG: <strong>${governing.s_clear.toFixed(1)}mm</strong> < 소요 ${governing.s_req}mm ${locTag}`;
+        }
+
         const bw = this.data.b || 400;
-        const cc = this.data.cover || 40;
-        const da = this.data.rebar.maxAggSize || 25;
-
-        // Parse Center-M bot rebar: e.g. "4-D25"
-        const botStr = this.data.rebar.center_m.bot_layer1 || '4-D25';
-        const parts = botStr.split('-');
-        const n = parts.length > 1 ? (parseInt(parts[0]) || 4) : 4;
-        const diaStr = parts.length > 1 ? parts[1] : 'D25';
-        const db = parseFloat(diaStr.replace(/[^0-9]/g, '')) || 25;
-        const dst = parseFloat(this.data.rebar.center_m.stirrup_dia.replace(/[^0-9]/g, '')) || 10;
-
-        // Clear width for bars
-        const clearWidth = bw - 2 * cc - 2 * dst;
-        const actualClear = n > 1 ? Math.round((clearWidth - n * db) / (n - 1)) : clearWidth - db;
-        const reqClear = Math.max(25, db, Math.round(1.33 * da));
-
-        const isOk = actualClear >= reqClear;
-        previewBadge.className = isOk ? 'badge-status-ok' : 'badge-status-ng';
-        previewBadge.style.background = isOk ? '#10b981' : '#ef4444';
-        previewBadge.innerText = isOk ? '적합 (OK)' : '간격 부족 (NG)';
-
+        const da = this.data.rebar?.maxAggSize || 25;
         previewText.innerHTML = `
-            중앙부 하부 1단 배근: <strong>${botStr}</strong> | 
-            실제 순간격: <strong>${actualClear} mm</strong> ≥ 규준 소요: <strong>${reqClear} mm</strong>
-            (bw=${bw} mm, 피복=${cc} mm, da=${da} mm)
+            최악 거버닝 위치: <strong>${governing.stationLabel} ${governing.layerLabel}</strong> (${governing.spec}) | 
+            실제 순간격: <strong>${governing.count > 1 ? governing.s_clear.toFixed(1) + ' mm' : '여유 충족'}</strong> (규준 소요: ${governing.s_req} mm) | 
+            폭 bw=${bw}mm, 골재 da=${da}mm
         `;
+
+        // Render 12-Point Popover Table
+        if (popover) {
+            const stations = [
+                { key: 'end_i', label: '단부-I' },
+                { key: 'center_m', label: '중앙-M' },
+                { key: 'end_j', label: '단부-J' }
+            ];
+            const layers = [
+                { key: 'top_layer1', label: '상부 1단' },
+                { key: 'top_layer2', label: '상부 2단' },
+                { key: 'bot_layer2', label: '하부 2단' },
+                { key: 'bot_layer1', label: '하부 1단' }
+            ];
+
+            let tableHtml = `
+                <div style="font-weight:700; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
+                    <span style="color:var(--accent, #38bdf8);">📐 12포인트 철근 순간격 전수 검토표 (KDS 14 20 50)</span>
+                    <button type="button" id="btn-close-spacing-popover" style="background:transparent; border:none; color:var(--text-muted); cursor:pointer; font-size:12px; padding:2px 4px;">✕</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>배근 층</th>
+                            <th>단부-I (End-I)</th>
+                            <th>중앙-M (Center)</th>
+                            <th>단부-J (End-J)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            layers.forEach(ly => {
+                tableHtml += `<tr><td style="font-weight:600; text-align:left;">${ly.label}</td>`;
+                stations.forEach(st => {
+                    const cell = items.find(it => it.stationKey === st.key && it.layerKey === ly.key);
+                    if (!cell || cell.status === 'none') {
+                        tableHtml += `<td style="color:var(--text-muted);">-</td>`;
+                    } else if (cell.count === 1) {
+                        tableHtml += `<td class="status-cell-ok">${cell.spec}<br><span style="font-size:9.5px;">여유 충족</span></td>`;
+                    } else {
+                        const cellClass = cell.status === 'ok' ? 'status-cell-ok' : 'status-cell-ng';
+                        const badge = cell.status === 'ok' ? 'OK' : 'NG';
+                        tableHtml += `
+                            <td class="${cellClass}">
+                                <div>${cell.spec}</div>
+                                <div style="font-size:9.5px;">s=${cell.s_clear} / req=${cell.s_req}mm (${badge})</div>
+                            </td>
+                        `;
+                    }
+                });
+                tableHtml += `</tr>`;
+            });
+
+            tableHtml += `
+                    </tbody>
+                </table>
+                <div style="margin-top:6px; font-size:9.5px; color:var(--text-dim, #64748b); text-align:right;">
+                    * 규준 요구 최소 순간격: s_req = max(25mm, db, 1.33 d_agg)
+                </div>
+            `;
+
+            popover.innerHTML = tableHtml;
+            const closeBtn = popover.querySelector('#btn-close-spacing-popover');
+            if (closeBtn) {
+                closeBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    popover.style.display = 'none';
+                };
+            }
+        }
     }
 
     /**
@@ -1542,8 +1822,9 @@ class RCBeamFormComponent {
         setVal('#rb-endj-st-dia', rb.end_j.stirrup_dia);
         setVal('#rb-endj-st-space', rb.end_j.stirrup_space);
 
-        // 4. Update Arrange Type Visuals
+        // 4. Update Arrange Type Visuals & Load Table State
         this._updateArrangeTypeUI(this.container);
+        this._updateLoadTableArrangeState(this.container);
     }
 
     _showNotification(msg, type = 'info') {
