@@ -202,8 +202,26 @@ class RCBeamRebar(BaseModel):
 
 ```html
 <!-- 배근 테이블 셀(Cell) 내부 렌더링 구조 -->
-<div class="rebar-cell-composite">
-    <input type="number" class="form-input rebar-count-input" min="0" max="30" step="1" value="4">
+<!-- 1단 (상부 1단, 하부 1단): 스터럽 코너 정착을 위해 최소 2개 이상 필수 (min="2") -->
+<div class="rebar-cell-composite" data-layer="layer1">
+    <input type="number" class="form-input rebar-count-input" min="2" max="30" step="1" value="4">
+    <span class="rebar-sep">-</span>
+    <select class="form-input rebar-dia-select">
+        <option value="D10">D10</option>
+        <option value="D13">D13</option>
+        <option value="D16">D16</option>
+        <option value="D19">D19</option>
+        <option value="D22" selected>D22</option>
+        <option value="D25">D25</option>
+        <option value="D29">D29</option>
+        <option value="D32">D32</option>
+        <option value="D35">D35</option>
+    </select>
+</div>
+
+<!-- 2단 (상부 2단, 하부 2단): 추가 보강단이므로 0개 이상 허용 (min="0") -->
+<div class="rebar-cell-composite" data-layer="layer2">
+    <input type="number" class="form-input rebar-count-input" min="0" max="30" step="1" value="0">
     <span class="rebar-sep">-</span>
     <select class="form-input rebar-dia-select">
         <option value="D10">D10</option>
@@ -222,23 +240,27 @@ class RCBeamRebar(BaseModel):
 | 구성 요소 | HTML 태그 / 클래스 | 치수 및 스타일 | 동작 및 유효성 제약 |
 |:---|:---|:---|:---|
 | **복합 컨테이너** | `<div class="rebar-cell-composite">` | `display: inline-flex; align-items: center; justify-content: center; gap: 2px;` | 셀 중앙 정렬 및 래핑 방지 (`white-space: nowrap;`) |
-| **개수 텍스트박스** | `<input type="number" class="rebar-count-input">` | `width: 38px; text-align: center; padding: 2px 2px;` | `min="0"`, `max="30"`, `step="1"`. 정수만 입력 허용 |
+| **1단 개수 텍스트박스** | `<input type="number" class="rebar-count-input">` | `width: 38px; text-align: center; padding: 2px 2px;` | **1단 정상 배근: `min="2"`**, `max="30"`, `step="1"`. 스터럽 양측 모서리 정착을 위해 **최소 2개 이상 필수** |
+| **2단 개수 텍스트박스** | `<input type="number" class="rebar-count-input">` | `width: 38px; text-align: center; padding: 2px 2px;` | **2단 정상 배근: `min="0"`**, `max="30"`, `step="1"`. 보강 단이므로 **0개(미배치) 이상 허용** |
 | **구분 기호** | `<span class="rebar-sep">-</span>` | `font-weight: 700; color: var(--text-muted); font-size: 13px;` | 읽기 전용 구분 기호 라벨 (수정 불가) |
 | **호칭경 콤보박스** | `<select class="rebar-dia-select">` | `width: 62px; padding: 2px 4px; font-weight: 600;` | KS D 3504 표준 9종 규격 (`D10` ~ `D35`) 선택 지원 |
 
 #### (3) 상태 처리 및 데이터 모델 양방향 동기화 규칙
-1. **철근 무배치(개수 `0`) 처리**:
-   - 개수 입력창에 `0`이 기입된 경우 해당 레이어에 철근이 배치되지 않은 것으로 판정합니다.
+1. **단별 배근 개수 유효성 제약 (1단 $\ge 2$, 2단 $\ge 0$)**:
+   - **1단 (상부 1단, 하부 1단)**: 휨부재의 폐쇄형 전단 스터럽 코너 걸림 및 기본 단면 유지를 위해 **최소 2개 이상의 주철근이 반드시 배치**되어야 합니다 (`count >= 2`). 2 미만 값 입력 시 2로 자동 보정하거나 유효성 경고를 출력합니다.
+   - **2단 (상부 2단, 하부 2단)**: 소요 휨강도에 따른 추가 다단 배근용이므로 **0개 이상(미배치 가능) 허용**됩니다 (`count >= 0`).
+2. **철근 무배치(개수 `0`, 2단 전용) 처리**:
+   - 2단 개수 입력창에 `0`이 기입된 경우 해당 2단 레이어는 철근이 배치되지 않은 것으로 판정합니다.
    - 개수가 `0`일 때 호칭경 콤보는 시각적으로 디밍(`opacity: 0.45`) 처리하거나 비활성화하여 직관적인 피드백을 제공합니다.
    - 내부 데이터 모델에는 `"0"` (또는 `"0-D22"`)으로 안전하게 직렬화되어, 계산 엔진의 철근 면적 $A_s = 0\text{ mm}^2$로 완벽 처리됩니다.
-2. **정상 배근(개수 $N \ge 1$) 조합 처리**:
-   - 개수 텍스트박스(`input` 이벤트) 또는 호칭경 콤보(`change` 이벤트)가 조작되면 즉시 `${count}-${dia}` 결합 문자열(예: `4-D22`)을 생성합니다.
+3. **정상 배근 조합 처리**:
+   - 1단($N \ge 2$) 및 2단($N \ge 1$)에서 개수 텍스트박스(`input` 이벤트) 또는 호칭경 콤보(`change` 이벤트)가 조작되면 즉시 `${count}-${dia}` 결합 문자열(예: `4-D22`)을 생성합니다.
    - 내부 상태 객체(`this.data.rebar[station][layer]`)에 즉시 반영되어 기존 엔진 파서 및 하위 호환성을 100% 보장합니다.
-3. **배근 유형(Arrange Type)과의 완벽 연동**:
+4. **배근 유형(Arrange Type)과의 완벽 연동**:
    - **배근 유형-1 (전단면)**: 기준 단면의 개수나 호칭경 변경 시, End-I / Center-M / End-J 3개 위치의 해당 단 개수와 콤보 선택값이 동시에 즉각 동기화.
    - **배근 유형-2 (양단부 대칭)**: End-I의 개수 또는 호칭경 변경 시, End-J의 해당 셀(개수 및 콤보)이 실시간 양방향 자동 동기화.
    - **배근 유형-3 (각단부 독립)**: 모든 위치(I/M/J) 12개 셀의 개수 및 호칭경 콤보가 독립적으로 활성화 및 개별 수정 가능.
-4. **드래그 리사이징 반응형 방어 (`docs/07` 준수)**:
+5. **드래그 리사이징 반응형 방어 (`docs/07` 준수)**:
    - 배근 테이블의 각 열 너비를 최소 110px 확보하고, 테이블 래퍼에 `overflow-x: auto;`를 적용하여 좌측 패널 폭이 좁아지더라도 개수 입력창과 콤보박스가 겹치거나 찌그러지지 않도록 원천 방어합니다.
 
 ---
@@ -303,9 +325,12 @@ class RCBeamRebar(BaseModel):
      * `배근 유형-3 (각단부와 중앙부)`: 3개 위치 독립 배근 테이블 활성화
    - **주근 복합 입력 컨트롤(Composite Control) 전면 개편**:
      * 배근 테이블 12개 주근 셀(End-I, Center-M, End-J의 상부 1단, 상부 2단, 하부 1단, 하부 2단)의 단일 텍스트박스(`<input type="text">`)를 완전 제거.
-     * **[개수 텍스트박스: `<input type="number" class="rebar-count-input" min="0" max="30">`] + [- 고정 라벨: `<span class="rebar-sep">-</span>`] + [호칭경 콤보박스: `<select class="rebar-dia-select">` (`D10`~`D35`)]** 복합 인라인 컴포넌트로 전면 교체.
+     * **[개수 텍스트박스] + [- 고정 라벨: `<span class="rebar-sep">-</span>`] + [호칭경 콤보박스: `<select class="rebar-dia-select">` (`D10`~`D35`)]** 복합 인라인 컴포넌트로 전면 교체.
+     * **단별 배근 개수 정상 조건 제약 구현**:
+       - **1단 (상부 1단, 하부 1단)**: 스터럽 양측 모서리 걸림 및 최소 단면 형상 유지를 위해 **최소 2개 이상 필수** (`min="2"`, `max="30"`, `step="1"`). 2 미만 입력 방어.
+       - **2단 (상부 2단, 하부 2단)**: 소요 휨강도 보강 단이므로 **0개(미배치) 이상 허용** (`min="0"`, `max="30"`, `step="1"`).
      * 개수 입력 변경(`input`) 및 호칭경 선택 변경(`change`) 시 즉시 결합 문자열(`${count}-${dia}`) 조합 및 데이터 모델(`this.data.rebar[station][layer]`) 양방향 동기화.
-     * 개수 `0` 입력 시 호칭경 콤보 디밍/비활성화 및 데이터 모델에 `"0"` 정규화 반영.
+     * 2단 개수 `0` 입력 시 호칭경 콤보 디밍/비활성화 및 데이터 모델에 `"0"` 정규화 반영.
      * 배근 유형 라디오 옵션(유형-1 일괄 동기화, 유형-2 양단부 대칭 동기화)과 연동하여 복합 컨트롤(개수+호칭경)이 실시간 자동 연동 복사되도록 이벤트 핸들링.
 
 3. **Step 3: `redcr` 파일 리네이밍 및 타 프로젝트 명칭 완전 청산**:
@@ -337,7 +362,7 @@ class RCBeamRebar(BaseModel):
 - [ ] 구버전 철근비 $\rho_{\min}, \rho_{\max}$ 산출 및 병기가 계산서와 엔진에서 완전히 배제될 것.
 - [ ] 원본앱 `IDD_RCS_BEAM_PMODE_DLG` 1:1 대조 배근 유형(유형-1 전단면, 유형-2 양단부/중앙부, 유형-3 각단부/중앙부) 라디오 옵션이 정상 동작할 것.
 - [ ] Tab 2 배근 탭의 주철근(상부 1/2단, 하부 1/2단 12개 셀) 입력 UI가 단일 텍스트박스에서 원본앱 1:1 대조 [개수 텍스트박스] + [-] 라벨 + [호칭경 콤보박스] 분리 구조로 전면 개편되고 정상 동작할 것.
-- [ ] 주근 개수 변경 및 직경 변경 시 `{count}-{dia}` 문자열이 실시간 조합되어 캔버스 그래픽 및 계산서와 100% 동기화될 것 (개수 0 입력 예외 처리 포함).
+- [ ] 주근 개수 유효성 제약(1단 2개 이상 필수 `min=2`, 2단 0개 이상 허용 `min=0`)이 완벽히 적용되고, 개수/직경 변경 시 `{count}-{dia}` 문자열이 실시간 조합되어 캔버스 그래픽 및 계산서와 100% 동기화될 것 (2단 0 입력 시 미배치 처리 포함).
 - [ ] A4 계산서 제 3장에서 단부 I(부모멘트), 중앙부 M(정모멘트), 단부 J(부모멘트)의 계산근거가 각각 개별적으로 명확히 분리 출력될 것.
 - [ ] 타 프로젝트 명칭인 `redcr`이 파일명(`rc_beam_report.js`, `report_common_renderer.js`), 클래스명, 전역 함수명, HTML 태그, 테스트 함수명에서 완전히 청산 및 대체될 것.
 - [ ] `tests/ui/test_phase22_4_rc_beam_report.py` 및 `tests/engine/test_rc_beam.py` 단위 테스트가 100% 통과할 것.
