@@ -255,7 +255,7 @@
             const endJFlex = solveFlexure('End-J (단부-J)', endJTop.totalArea, endJBot.totalArea, endJMuNeg, true, r.end_j?.neg_flexure || (arrangeType !== 'THREE_STATIONS' ? endIFlex : r));
 
             // =========================================================================
-            // 3. 3-Station 위치별 전단강도 산정 엔진
+            // 3. 3-Station 위치별 전단강도 및 최소 전단철근 산정 엔진 (KDS 14 20 22)
             // =========================================================================
             const solveShear = (stationTag, VuDemand, Av, sSpacing, dVal, shearRes = null) => {
                 const Vc = Number(shearRes?.Vc ?? (1.0 / 6.0 * 1.0 * Math.sqrt(fck) * b * dVal * 1e-3).toFixed(1));
@@ -263,8 +263,25 @@
                 const VsMax = Number(shearRes?.Vs_max ?? (2.0 / 3.0 * Math.sqrt(fck) * b * dVal * 1e-3).toFixed(1));
                 const phiShear = 0.75;
                 const phiVn = Number(shearRes?.phi_Vn ?? (phiShear * (Vc + Vs)).toFixed(1));
-                const dcr = Number((phiVn > 0 ? (VuDemand / phiVn) : 9.999).toFixed(3));
-                const isSafe = dcr <= 1.0;
+                const dcr = Number((phiVn > 0 ? (VuDemand / phiVn) : 0.0).toFixed(3));
+                const isSafe = (VuDemand <= 0) || (dcr <= 1.0);
+
+                // 최소 전단철근량 Av_min (KDS 14 20 22 식 4.3-1)
+                const AvMinCalc = Math.max(0.0625 * Math.sqrt(fck) * (b * sSpacing) / fyt, 0.35 * (b * sSpacing) / fyt);
+                const AvMin = Number(shearRes?.Av_min ?? AvMinCalc.toFixed(1));
+                const dcrAvMin = Number(shearRes?.dcr_Av_min ?? (Av > 0 ? (AvMin / Av) : 9.999).toFixed(3));
+
+                // 최대 전단철근 배근간격 s_max (KDS 14 20 22 4.3.4)
+                let sMaxEst = Math.min(dVal / 2.0, 600.0);
+                if (VuDemand > 0 && Vs > (1.0 / 3.0 * Math.sqrt(fck) * b * dVal * 1e-3)) {
+                    sMaxEst = Math.min(dVal / 4.0, 300.0);
+                }
+                const sMax = Number(shearRes?.s_max ?? sMaxEst.toFixed(1));
+                const dcrSpacing = Number(shearRes?.dcr_spacing ?? (sMax > 0 ? (sSpacing / sMax) : 9.999).toFixed(3));
+
+                const isMinShearOk = Boolean(shearRes?.is_min_shear_ok ?? ((Av >= AvMin - 1e-4) && (sSpacing <= sMax * 1.001)));
+                const isSpacingOk = sSpacing <= sMax * 1.001;
+
                 return {
                     stationTag,
                     VuDemand,
@@ -275,7 +292,17 @@
                     phiVn,
                     dcr,
                     isSafe,
-                    verdict: isSafe ? '  →  O.K' : '  →  N.G'
+                    AvMin,
+                    AvProv: Av,
+                    sSpacing,
+                    sMax,
+                    dcrAvMin,
+                    dcrSpacing,
+                    isMinShearOk,
+                    isSpacingOk,
+                    verdict: isSafe ? '  →  O.K' : '  →  N.G',
+                    minVerdict: isMinShearOk ? '  →  O.K' : '  →  N.G',
+                    spacingVerdict: isSpacingOk ? '  →  O.K' : '  →  N.G'
                 };
             };
 
@@ -286,7 +313,7 @@
             const governingShear = (endIShear.VuDemand >= endJShear.VuDemand) ? endIShear : endJShear;
 
             // =========================================================================
-            // 4. 비틀림 및 상호작용 검토 수치 (KDS 14 20 22 4.3)
+            // 4. 비틀림 및 최소 비틀림철근 산정 (KDS 14 20 22 제4.3 & 4.5절)
             // =========================================================================
             const Acp = b * h;
             const pcp = 2 * (b + h);
@@ -311,11 +338,21 @@
             const torsionAllowStress = Number((0.75 * ((governingShear.Vc * 1e3) / (b * endIFlex.d) + (2.0 / 3.0) * Math.sqrt(fck))).toFixed(2));
             const dcrTorsionStress = Number((torsionAllowStress > 0 ? (torsionCombinedStress / torsionAllowStress) : 0.5).toFixed(3));
             const isTorsionStressOk = torsionCombinedStress <= torsionAllowStress;
-            const AlReq = Number((r.Al_req ?? (At / endIS * ph * (fyt / fy))).toFixed(1));
+
+            // KDS 14 20 22 4.5.4 최소 비틀림 철근량 및 간격 산정
+            const Av2AtMin = Number((r.torsion?.Av_2At_min ?? Math.max(0.0625 * Math.sqrt(fck) * (b * endIS) / fyt, 0.35 * (b * endIS) / fyt)).toFixed(1));
+            const sMaxTorsion = Number((r.torsion?.s_max_torsion ?? Math.min(ph / 8.0, 300.0)).toFixed(1));
+            const isTorsionStirrupOk = (AvProvEnd >= Av2AtMin - 1e-4) && (endIS <= sMaxTorsion * 1.001);
+
+            const AlCalc = Number((r.torsion?.Al_calc ?? (At / endIS * ph * (fyt / fy))).toFixed(1));
+            const atOverSForMin = Math.max(At / endIS, 0.175 * b / fyt);
+            const AlMin = Number((r.torsion?.Al_min ?? Math.max((0.42 * Math.sqrt(fck) * Acp / fy) - (atOverSForMin * ph * (fyt / fy)), 0.0)).toFixed(1));
+            const AlReq = Number((r.torsion?.Al_req ?? Math.max(AlCalc, AlMin)).toFixed(1));
+
             const sideRebarCount = Number(m.rebar?.torsion_side_count || 4);
             const sideRebarDia = m.rebar?.torsion_side_bar || 'D13';
             const AlProv = Number((sideRebarCount * (REBAR_AREAS[sideRebarDia] || 126.7)).toFixed(1));
-            const dcrAl = Number((AlProv > 0 ? (AlReq / AlProv) : 0.5).toFixed(3));
+            const dcrAl = Number((r.torsion?.dcr_Al ?? (AlProv > 0 ? (AlReq / AlProv) : 9.999)).toFixed(3));
             const isAlOk = AlProv >= AlReq;
 
             // =========================================================================
@@ -463,7 +500,9 @@
                 endIFlex.dcrMin, centerMFlex.dcrMin, endJFlex.dcrMin,
                 endIFlex.dcrEps, centerMFlex.dcrEps, endJFlex.dcrEps,
                 endIShear.dcr, centerMShear.dcr, endJShear.dcr,
+                governingShear.dcrAvMin, governingShear.dcrSpacing,
                 (isZeroTorsion ? 0.0 : dcrTorsion),
+                (isTorsionRequired ? dcrAl : 0.0),
                 dcrDefl,
                 crackI.dcr, crackM.dcr, crackJ.dcr,
                 dcrCrack
@@ -1006,7 +1045,7 @@
                                         <th>설계전단력 ($V_u$)</th>
                                         <th>콘크리트 ($V_c$)</th>
                                         <th>전단철근 ($V_s$)</th>
-                                        <th>설계전단강도 ($\\phi V_n$)</th>
+                                        <th>설계전단강도 ($\phi V_n$)</th>
                                         <th>내력비 (DCR) / 판정</th>
                                     </tr>
                                 </thead>
@@ -1038,8 +1077,64 @@
                                 </tbody>
                             </table>
 
+                            <!-- 5.1-B 3-Station 최소 전단철근량 및 배근간격 검토 총괄 요약표 (KDS 14 20 22) -->
+                            <div style="font-weight:700;color:#1e3a8a;margin:10px 0 6px;font-size:12.5px;">
+                                5.1.B 3-Station 최소 전단철근량 ($A_{v,\min}$) 및 최대 배근간격 ($s_{\max}$) 총괄 요약표
+                            </div>
+                            <table class="chk-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;text-align:center;margin-bottom:12px;">
+                                <colgroup>
+                                    <col style="width:18%;">
+                                    <col style="width:20%;">
+                                    <col style="width:16%;">
+                                    <col style="width:15%;">
+                                    <col style="width:16%;">
+                                    <col style="width:15%;">
+                                </colgroup>
+                                <thead>
+                                    <tr style="background:#e2e8f0;">
+                                        <th style="padding:6px;">검토 위치 (Station)</th>
+                                        <th>배근 스터럽 ($A_{v,prov}, s$)</th>
+                                        <th>최소 철근량 ($A_{v,\min}$)</th>
+                                        <th>최소철근 DCR</th>
+                                        <th>최대 허용간격 ($s_{\max}$)</th>
+                                        <th>간격 DCR / 판정</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="font-weight:700;background:#f8fafc;">단부-I (End-I)</td>
+                                        <td>${stirrupDia} @ ${endIS} mm (${endIShear.AvProv.toFixed(1)} mm²)</td>
+                                        <td>${endIShear.AvMin.toFixed(1)} mm²</td>
+                                        <td style="font-weight:700;" class="${endIShear.isMinShearOk ? 'verdict-ok' : 'verdict-ng'}">${endIShear.dcrAvMin.toFixed(3)}</td>
+                                        <td>${endIShear.sMax.toFixed(1)} mm</td>
+                                        <td style="font-weight:800;" class="${endIShear.isSpacingOk ? 'verdict-ok' : 'verdict-ng'}">${endIShear.dcrSpacing.toFixed(3)} ${endIShear.spacingVerdict}</td>
+                                    </tr>
+                                    <tr style="background:#fffbeb;">
+                                        <td style="font-weight:700;background:#fef3c7;">중앙부-M (Center-M)</td>
+                                        <td>${centerRebarRaw.stirrup_dia || stirrupDia} @ ${centerS} mm (${centerMShear.AvProv.toFixed(1)} mm²)</td>
+                                        <td>${centerMShear.AvMin.toFixed(1)} mm²</td>
+                                        <td style="font-weight:700;" class="${centerMShear.isMinShearOk ? 'verdict-ok' : 'verdict-ng'}">${centerMShear.dcrAvMin.toFixed(3)}</td>
+                                        <td>${centerMShear.sMax.toFixed(1)} mm</td>
+                                        <td style="font-weight:800;" class="${centerMShear.isSpacingOk ? 'verdict-ok' : 'verdict-ng'}">${centerMShear.dcrSpacing.toFixed(3)} ${centerMShear.spacingVerdict}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:700;background:#f8fafc;">단부-J (End-J)</td>
+                                        <td>${stirrupDia} @ ${endJS} mm (${endJShear.AvProv.toFixed(1)} mm²)</td>
+                                        <td>${endJShear.AvMin.toFixed(1)} mm²</td>
+                                        <td style="font-weight:700;" class="${endJShear.isMinShearOk ? 'verdict-ok' : 'verdict-ng'}">${endJShear.dcrAvMin.toFixed(3)}</td>
+                                        <td>${endJShear.sMax.toFixed(1)} mm</td>
+                                        <td style="font-weight:800;" class="${endJShear.isSpacingOk ? 'verdict-ok' : 'verdict-ng'}">${endJShear.dcrSpacing.toFixed(3)} ${endJShear.spacingVerdict}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
                             ${mode === 'detail' ? `
-                            <!-- 5.2 최대 계수전단력 지배 단부 전단강도 KaTeX 전개 -->
+                            <!-- 5.2 최대 계수전단력 지배 단부 전단강도 KaTeX 전개 (0하중 동적 생략 지원) -->
+                            ${governingShear.VuDemand <= 0 ? `
+                            <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:10px 14px;border-radius:4px;margin-top:10px;font-size:11.5px;color:#475569;">
+                                <strong>5.2 전단강도 검토:</strong> 작용 계수전단력 없음 ($V_u = 0.0\\text{ kN}$) — 전단강도 상세 검토 생략
+                            </div>
+                            ` : `
                             <div class="katex-formula-step">
                                 <div class="step-title-row">
                                     <span class="step-title">5.2 최대 계수전단력 지배 단부 [${governingShear.stationTag}] 전단강도 산정 (KDS 14 20 22)</span>
@@ -1054,17 +1149,38 @@
                                     \\end{aligned}$$
                                 </div>
                             </div>
+                            `}
 
-                            <!-- 5.3 비틀림 임계 검토 및 상호작용 (0하중 동적 생략 지원) -->
+                            <!-- 5.3 최소 전단철근량 및 최대 배근간격 검토 (상시 필수 출력, Vu <= 0이어도 생략 불가) -->
+                            <div class="katex-formula-step" style="margin-top:12px;">
+                                <div class="step-title-row">
+                                    <span class="step-title">5.3 최소 전단철근량 ($A_{v,\\min}$) 및 최대 배근간격 ($s_{\\max}$) 검토 [지배 단부, 상시 필수 규정]</span>
+                                    <span class="step-kds-ref">KDS 14 20 22 (4.3.3 & 4.3.4)</span>
+                                </div>
+                                <div class="formula-row" style="font-size:11px;color:#475569;margin-bottom:6px;">
+                                    ※ KDS 14 20 22 제4.3.3(1)에 따라 보 전체 높이 $h > 250\\text{ mm}$인 일반 구조용 보는 작용 전단력 크기와 무관하게 취성파괴 방지를 위한 법정 최소 전단철근량 및 최대 배근간격을 반드시 만족해야 합니다.
+                                </div>
+                                <div class="formula-row">
+                                    $$\\begin{aligned}
+                                    A_{v,\\min} &= \\max\\left(0.0625 \\sqrt{f_{ck}} \\frac{b_w s}{f_{yt}}, \\, 0.35 \\frac{b_w s}{f_{yt}}\\right) \\\\
+                                    &= \\max\\left(0.0625 \\times \\sqrt{${fck.toFixed(1)}} \\times \\frac{${b} \\times ${governingShear.sSpacing}}{${fyt.toFixed(0)}}, \\, 0.35 \\times \\frac{${b} \\times ${governingShear.sSpacing}}{${fyt.toFixed(0)}}\\right) = \\mathbf{${governingShear.AvMin.toFixed(1)}\\text{ mm}^2} \\le A_{v,prov} (${governingShear.AvProv.toFixed(1)}\\text{ mm}^2) \\\\
+                                    \\text{DCR}_{Av,\\min} &= \\frac{A_{v,\\min}}{A_{v,prov}} = \\frac{${governingShear.AvMin.toFixed(1)}}{${governingShear.AvProv.toFixed(1)}} = \\mathbf{${governingShear.dcrAvMin.toFixed(3)}} \\le 1.000 \\quad \\rightarrow \\quad ${governingShear.isMinShearOk ? '\\text{O.K}' : '\\text{N.G}'} \\\\
+                                    s_{\\max} &= \\min\\left(\\frac{d}{2}, \\, 600\\text{ mm}\\right) = \\min\\left(${endIFlex.d.toFixed(1)} / 2, \\, 600\\right) = \\mathbf{${governingShear.sMax.toFixed(1)}\\text{ mm}} \\ge s (${governingShear.sSpacing}\\text{ mm}) \\\\
+                                    \\text{DCR}_{spacing} &= \\frac{s}{s_{\\max}} = \\frac{${governingShear.sSpacing}}{${governingShear.sMax.toFixed(1)}} = \\mathbf{${governingShear.dcrSpacing.toFixed(3)}} \\le 1.000 \\quad \\rightarrow \\quad ${governingShear.isSpacingOk ? '\\text{O.K}' : '\\text{N.G}'}
+                                    \\end{aligned}$$
+                                </div>
+                            </div>
+
+                            <!-- 5.4 비틀림 임계 검토 및 상호작용 (0하중 동적 생략 및 최소비틀림철근 KaTeX 지원) -->
                             ${isZeroTorsion ? `
                             <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:10px 14px;border-radius:4px;margin-top:10px;font-size:11.5px;color:#475569;">
-                                <strong>5.3 비틀림 모멘트 검토:</strong> 설계 비틀림 모멘트 없음 ($T_u = 0.0\\text{ kN}\\cdot\\text{m}$) — 비틀림 설계 생략
+                                <strong>5.4 비틀림 모멘트 검토:</strong> 설계 비틀림 모멘트 없음 ($T_u = 0.0\\text{ kN}\\cdot\\text{m}$) — 비틀림 상세 설계 생략 (부재 횡방향 최소 배근은 5.3절 전단 최소철근 배근으로 갈음)
                             </div>
                             ` : `
                             <div class="katex-formula-step" style="margin-top:12px;">
                                 <div class="step-title-row">
-                                    <span class="step-title">5.3 비틀림모멘트 한계 검토 및 전단-비틀림 상호작용 (Torsion Check)</span>
-                                    <span class="step-kds-ref">KDS 14 20 22 (4.3)</span>
+                                    <span class="step-title">5.4 비틀림모멘트 한계 검토 및 전단-비틀림 상호작용 (Torsion Check)</span>
+                                    <span class="step-kds-ref">KDS 14 20 22 (4.3 & 4.5)</span>
                                 </div>
                                 <div class="formula-row">
                                     $$\\begin{aligned}
@@ -1074,14 +1190,18 @@
                                 </div>
                                 ${!isTorsionRequired ? `
                                 <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:8px 12px;border-radius:4px;margin-top:8px;font-size:11px;color:#475569;">
-                                    $T_u (${tu.toFixed(1)}\\text{ kN}\\cdot\\text{m}) \\le \\phi T_{th} (${phiTth.toFixed(1)}\\text{ kN}\\cdot\\text{m})$이므로 비틀림모멘트의 영향을 무시할 수 있으며, 전단-비틀림 결합응력 및 추가 종방향 철근 상세 설계를 생략합니다.
+                                    $T_u (${tu.toFixed(1)}\\text{ kN}\\cdot\\text{m}) \\le \\phi T_{th} (${phiTth.toFixed(1)}\\text{ kN}\\cdot\\text{m})$이므로 비틀림모멘트의 영향을 무시할 수 있으며, 전단-비틀림 결합응력 및 추가 종방향 철근 상세 설계를 생략합니다. (부재 횡방향 최소 배근은 5.3절 전단 최소철근 배근으로 갈음)
                                 </div>
                                 ` : `
                                 <div class="formula-row" style="margin-top:6px;border-top:1px dashed #e2e8f0;padding-top:6px;">
                                     $$\\begin{aligned}
                                     \\tau_{comb} &= \\sqrt{\\left(\\frac{V_u}{b_w d}\\right)^2 + \\left(\\frac{T_u p_h}{1.7 A_{oh}^2}\\right)^2} = \\sqrt{\\left(\\frac{${governingShear.VuDemand.toFixed(1)} \\times 10^3}{${b} \\times ${endIFlex.d.toFixed(1)}}\\right)^2 + \\left(\\frac{${tu.toFixed(1)} \\times 10^6 \\times ${ph}}{1.7 \\times ${Aoh}^2}\\right)^2} = \\mathbf{${torsionCombinedStress}\\text{ MPa}} \\\\
                                     \\tau_{allow} &= \\phi \\left(\\frac{V_c}{b_w d} + \\frac{2}{3} \\sqrt{f_{ck}}\\right) = \\mathbf{${torsionAllowStress}\\text{ MPa}} \\quad (\\text{DCR} = ${dcrTorsionStress.toFixed(3)}) \\quad \\rightarrow \\quad ${isTorsionStressOk ? '\\text{O.K}' : '\\text{N.G}'} \\\\
-                                    A_l &= \\frac{A_t}{s} p_h \\left(\\frac{f_{yt}}{f_y}\\right) = \\frac{${At.toFixed(1)}}{${endIS}} \\times ${ph} \\times \\left(\\frac{${fyt.toFixed(0)}}{${fy.toFixed(0)}}\\right) = \\mathbf{${AlReq.toFixed(1)}\\text{ mm}^2} \\le A_{l,prov} (${AlProv.toFixed(1)}\\text{ mm}^2) \\quad (\\text{DCR} = ${dcrAl.toFixed(3)}) \\quad \\rightarrow \\quad ${isAlOk ? '\\text{O.K}' : '\\text{N.G}'}
+                                    (A_v + 2A_t)_{\\min} &= \\max\\left(0.0625 \\sqrt{f_{ck}} \\frac{b_w s}{f_{yt}}, \\, 0.35 \\frac{b_w s}{f_{yt}}\\right) = \\mathbf{${Av2AtMin.toFixed(1)}\\text{ mm}^2} \\le A_{v,prov} (${AvProvEnd.toFixed(1)}\\text{ mm}^2) \\\\
+                                    A_{l,\\min} &= \\frac{0.42 \\sqrt{f_{ck}} A_{cp}}{f_y} - \\left(\\frac{A_t}{s}\\right) p_h \\left(\\frac{f_{yt}}{f_y}\\right) = \\mathbf{${AlMin.toFixed(1)}\\text{ mm}^2} \\quad \\left(\\frac{A_t}{s} \\ge \\frac{0.175 b_w}{f_{yt}}\\right) \\\\
+                                    A_{l,req} &= \\max(A_{l,\\text{calc}}, \\, A_{l,\\min}) = \\max(${AlCalc.toFixed(1)}, \\, ${AlMin.toFixed(1)}) = \\mathbf{${AlReq.toFixed(1)}\\text{ mm}^2} \\le A_{l,prov} (${AlProv.toFixed(1)}\\text{ mm}^2) \\\\
+                                    \\text{DCR}_{Al} &= \\frac{A_{l,req}}{A_{l,prov}} = \\frac{${AlReq.toFixed(1)}}{${AlProv.toFixed(1)}} = \\mathbf{${dcrAl.toFixed(3)}} \\le 1.000 \\quad \\rightarrow \\quad ${isAlOk ? '\\text{O.K}' : '\\text{N.G}'} \\\\
+                                    s &\\le \\min\\left(\\frac{p_h}{8}, \\, 300\\text{ mm}\\right) = \\mathbf{${sMaxTorsion.toFixed(1)}\\text{ mm}} \\ge s (${endIS}\\text{ mm})
                                     \\end{aligned}$$
                                 </div>
                                 `}
@@ -1089,7 +1209,8 @@
                             `}
                             ` : `
                             <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:12px;border-radius:4px;">
-                                <div style="margin-bottom:6px;"><strong>전단 강도 검토:</strong> $V_u = ${governingShear.VuDemand.toFixed(1)}\\text{ kN} \\le \\phi V_n = ${governingShear.phiVn.toFixed(1)}\\text{ kN}$ (DCR = ${governingShear.dcr.toFixed(3)}) <span class="${governingShear.isSafe ? 'verdict-ok' : 'verdict-ng'}">${governingShear.verdict}</span></div>
+                                <div style="margin-bottom:6px;"><strong>전단 강도 검토:</strong> ${governingShear.VuDemand <= 0 ? '작용 계수전단력 없음 ($V_u = 0$)' : `$V_u = ${governingShear.VuDemand.toFixed(1)}\\text{ kN} \\le \\phi V_n = ${governingShear.phiVn.toFixed(1)}\\text{ kN}$ (DCR = ${governingShear.dcr.toFixed(3)})`} <span class="${governingShear.isSafe ? 'verdict-ok' : 'verdict-ng'}">${governingShear.verdict}</span></div>
+                                <div style="margin-bottom:6px;"><strong>최소 전단철근 및 간격:</strong> $A_{v,prov} (${governingShear.AvProv.toFixed(1)}\\text{ mm}^2) \\ge A_{v,\\min} (${governingShear.AvMin.toFixed(1)}\\text{ mm}^2)$, $s (${governingShear.sSpacing}\\text{ mm}) \\le s_{\\max} (${governingShear.sMax.toFixed(1)}\\text{ mm})$ <span class="${governingShear.isMinShearOk && governingShear.isSpacingOk ? 'verdict-ok' : 'verdict-ng'}">${governingShear.isMinShearOk && governingShear.isSpacingOk ? '  →  O.K' : '  →  N.G'}</span></div>
                                 <div><strong>비틀림 강도 검토:</strong> ${isZeroTorsion ? '설계 비틀림 없음 ($T_u = 0$)' : `$T_u = ${tu.toFixed(1)}\\text{ kN}\\cdot\\text{m} \\le \\phi T_n = ${phiTn.toFixed(1)}\\text{ kN}\\cdot\\text{m}$ (DCR = ${dcrTorsion.toFixed(3)})`} <span class="${dcrTorsion <= 1.0 ? 'verdict-ok' : 'verdict-ng'}">${torsionVerdict}</span></div>
                             </div>
                             `}
@@ -1271,6 +1392,22 @@
                                         <td style="text-align:center;font-weight:700;font-family:Consolas, monospace;">${governingShear.dcr.toFixed(3)}</td>
                                         <td style="text-align:center;font-weight:800;" class="${governingShear.isSafe ? 'verdict-ok' : 'verdict-ng'}">${governingShear.verdict}</td>
                                     </tr>
+                                    <tr style="background:#f8fafc;">
+                                        <td style="font-weight:600;padding:6px;">최소 전단철근량 ($A_{v,\\min}$)</td>
+                                        <td style="color:#64748b;font-family:Consolas, monospace;">KDS 14 20 22 (4.3.3)</td>
+                                        <td style="text-align:right;font-family:Consolas, monospace;">${governingShear.AvMin.toFixed(1)} mm²</td>
+                                        <td style="text-align:right;font-family:Consolas, monospace;">${governingShear.AvProv.toFixed(1)} mm²</td>
+                                        <td style="text-align:center;font-weight:700;font-family:Consolas, monospace;">${governingShear.dcrAvMin.toFixed(3)}</td>
+                                        <td style="text-align:center;font-weight:800;" class="${governingShear.isMinShearOk ? 'verdict-ok' : 'verdict-ng'}">${governingShear.minVerdict}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:600;padding:6px;">전단철근 최대간격 ($s_{\\max}$)</td>
+                                        <td style="color:#64748b;font-family:Consolas, monospace;">KDS 14 20 22 (4.3.4)</td>
+                                        <td style="text-align:right;font-family:Consolas, monospace;">${governingShear.sSpacing} mm</td>
+                                        <td style="text-align:right;font-family:Consolas, monospace;">${governingShear.sMax.toFixed(1)} mm</td>
+                                        <td style="text-align:center;font-weight:700;font-family:Consolas, monospace;">${governingShear.dcrSpacing.toFixed(3)}</td>
+                                        <td style="text-align:center;font-weight:800;" class="${governingShear.isSpacingOk ? 'verdict-ok' : 'verdict-ng'}">${governingShear.spacingVerdict}</td>
+                                    </tr>
                                     <tr>
                                         <td style="font-weight:600;padding:6px;">설계 비틀림 ($T_u$)</td>
                                         <td style="color:#64748b;font-family:Consolas, monospace;">KDS 14 20 22 (4.3)</td>
@@ -1279,6 +1416,16 @@
                                         <td style="text-align:center;font-weight:700;font-family:Consolas, monospace;">${isZeroTorsion ? '0.000' : dcrTorsion.toFixed(3)}</td>
                                         <td style="text-align:center;font-weight:800;" class="${dcrTorsion <= 1.0 ? 'verdict-ok' : 'verdict-ng'}">${isZeroTorsion ? '  →  O.K' : torsionVerdict}</td>
                                     </tr>
+                                    ${isTorsionRequired ? `
+                                    <tr style="background:#f8fafc;">
+                                        <td style="font-weight:600;padding:6px;">최소 비틀림 종방향철근 ($A_l$)</td>
+                                        <td style="color:#64748b;font-family:Consolas, monospace;">KDS 14 20 22 (4.5.4)</td>
+                                        <td style="text-align:right;font-family:Consolas, monospace;">${AlReq.toFixed(1)} mm²</td>
+                                        <td style="text-align:right;font-family:Consolas, monospace;">${AlProv.toFixed(1)} mm²</td>
+                                        <td style="text-align:center;font-weight:700;font-family:Consolas, monospace;">${dcrAl.toFixed(3)}</td>
+                                        <td style="text-align:center;font-weight:800;" class="${isAlOk ? 'verdict-ok' : 'verdict-ng'}">${isAlOk ? '  →  O.K' : '  →  N.G'}</td>
+                                    </tr>
+                                    ` : ''}
                                     <tr>
                                         <td style="font-weight:600;padding:6px;">총 처짐량 (Deflection)</td>
                                         <td style="color:#64748b;font-family:Consolas, monospace;">KDS 14 20 30 (4.2)</td>
