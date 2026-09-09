@@ -1,14 +1,16 @@
 /**
- * AltDP_3rd RC Beam Pure White A4 5-Chapter 8-Step KaTeX Structural Calculation Report
- * Conforms to Requirement 22-4, 22-4-1-2, 22-4-1-4 & DOCS 07 & DOCS 14 Specifications
+ * AltDP_3rd RC Beam Pure White A4 7-Chapter 8-Step KaTeX Structural Calculation Report
+ * Conforms to Requirement 22-4, 22-4-1-2, 22-4-1-4, 22-5-3 & DOCS 07 & DOCS 14 Specifications
  * - Standard Class: RCBeamReportGenerator
  * - Global Function: window.renderRCBeamReport(reportEngine, container, memberData, calcResult)
- * - Chapter 1: 설계 기본 정보 및 단면 제원 (Design Information & Section Geometry) - KDS 14 20 20: 2022 3-Step KaTeX
- * - Chapter 2: 설계 부재력 및 하중조합 (Design Factored Loads & Combinations) - 3-Station Forces
- * - Chapter 3: 휨모멘트 강도 검토 (Flexural Strength Check) - 3-Station Individual KaTeX Formulations
- * - Chapter 4: 전단 및 비틀림 강도 검토 (Shear & Torsion Strength Check) - 3-Station Summary & Governing Station KaTeX
- * - Chapter 5: 사용성 한계상태 검토 (Serviceability Check - Deflection & Crack Width)
- * - Chapter 6: 종합 안전성 판정 (Executive Summary & Final Verdict)
+ * - Chapter 1: 설계 기본 정보 및 단면 제원 (Design Information & Section Geometry) - 단면 치수, 재료 강도, 2D 횡단면 배근 상세도
+ * - Appendix 1: 사용자 입력 데이터 상세 (User Input Data Specification) - 선택 토글
+ * - Chapter 2: 설계 부재력 및 하중조합 (Design Factored Loads & Combinations) - 지배 LCB 및 3-Station 부재력
+ * - Chapter 3: 단면 연성 및 최소철근량 검토 (Ductility Limit & Minimum Reinforcement Check) [★신설] - KDS 14 20 20: 2022
+ * - Chapter 4: 휨모멘트 강도 검토 (Flexural Strength Check) - 3-Station 4단계 강도 검토 (0하중 동적 생략)
+ * - Chapter 5: 전단 및 비틀림 강도 검토 (Shear & Torsion Strength Check) - 3-Station 전단 & 비틀림 (0하중 동적 생략)
+ * - Chapter 6: 사용성 한계상태 검토 (Serviceability Check) - Branson Ie 가중평균, 처짐, 3-Station 균열 s_max, 직접 균열폭
+ * - Chapter 7: 종합 안전성 판정 (Executive Summary & Final Verdict) - 전 항목 DCR 전수 표기 및 최종 판정
  */
 
 (function(window) {
@@ -164,19 +166,7 @@
             // =========================================================================
             // 2. 3-Station 위치별 휨강도 산정 엔진 (End-I, Center-M, End-J)
             // =========================================================================
-
-            /**
-             * Station Flexural Solver
-             * @param {string} stationTag
-             * @param {number} AsTens
-             * @param {number} AsComp
-             * @param {number} MuDemand
-             * @param {boolean} isNegativeBending
-             * @param {Object} [stationRes]
-             */
             const solveFlexure = (stationTag, AsTens, AsComp, MuDemand, isNegativeBending, stationRes = null) => {
-                // 부모멘트는 상부인장, 플랜지 인장균열로 복부폭 bw 적용
-                // 정모멘트는 하부인장, 상부 플랜지 압축으로 유효폭 bf 적용 (T형보인 경우)
                 const isFlangeComp = (!isNegativeBending) && isTBeam && (bf > b);
                 const bComp = isFlangeComp ? bf : b;
 
@@ -189,7 +179,6 @@
                 let dt = Number(stationRes?.dt ?? dtEst);
                 let dPrime = Number(stationRes?.d_prime ?? dPrimeEst);
 
-                // 응력블록 깊이 a 및 중립축 c 산정
                 let a = Number(stationRes?.a ?? 0);
                 let c = Number(stationRes?.c ?? 0);
                 if (!a || !c) {
@@ -200,7 +189,6 @@
                     c = Number((a / beta1).toFixed(1));
                 }
 
-                // 최외단 인장철근 변형률 εt 및 강도감소계수 φ
                 let epsT = Number(stationRes?.epsilon_t ?? stationRes?.et ?? 0);
                 if (!epsT) {
                     epsT = Number((ecu * (dt - c) / c).toFixed(4));
@@ -216,7 +204,6 @@
                     }
                 }
 
-                // 공칭 및 설계 휨강도 Mn, φMn
                 let Mn = Number(stationRes?.Mn ?? 0);
                 let phiMn = Number(stationRes?.phi_Mn ?? 0);
                 if (!Mn || !phiMn) {
@@ -229,7 +216,9 @@
                 const dcr = Number((phiMn > 0 ? (MuDemand / phiMn) : 9.999).toFixed(3));
                 const isSafe = dcr <= 1.0;
                 const isMinOk = phiMn >= phiMnMin;
+                const dcrMin = Number((phiMn > 0 ? (phiMnMin / phiMn) : 9.999).toFixed(3));
                 const isDuctilityOk = (epsT >= epsTMin) && ((c / dt) <= cDtLimit);
+                const dcrEps = Number((epsT > 0 ? (epsTMin / epsT) : 9.999).toFixed(3));
 
                 return {
                     stationTag,
@@ -251,8 +240,12 @@
                     dcr,
                     isSafe,
                     isMinOk,
+                    dcrMin,
                     isDuctilityOk,
-                    verdict: isSafe ? '  →  O.K' : '  →  N.G'
+                    dcrEps,
+                    verdict: isSafe ? '  →  O.K' : '  →  N.G',
+                    minVerdict: isMinOk ? '  →  O.K' : '  →  N.G',
+                    ductilityVerdict: isDuctilityOk ? '  →  O.K' : '  →  N.G'
                 };
             };
 
@@ -290,7 +283,6 @@
             const centerMShear = solveShear('Center-M (중앙부-M)', centerVu, AvProvCenter, centerS, centerMFlex.d, r.center_m?.shear || r);
             const endJShear = solveShear('End-J (단부-J)', endJVu, AvProvEnd, endJS, endJFlex.d, r.end_j?.shear || (arrangeType !== 'THREE_STATIONS' ? endIShear : r));
 
-            // 지배 단부 전단 선정 (Governing Station for Shear KaTeX)
             const governingShear = (endIShear.VuDemand >= endJShear.VuDemand) ? endIShear : endJShear;
 
             // =========================================================================
@@ -301,6 +293,7 @@
             const Tth = Number((r.Tth ?? (0.0625 * 1.0 * Math.sqrt(fck) * (Math.pow(Acp, 2) / pcp) * 1e-6)).toFixed(1));
             const phiTth = Number((0.75 * Tth).toFixed(1));
             const tu = Math.max(endITu, centerTu, endJTu);
+            const isZeroTorsion = (tu <= 0.0);
             const isTorsionRequired = tu > phiTth;
             const phiTn = Number((r.phi_Tn ?? 35.0).toFixed(1));
             const dcrTorsion = Number((r.torsion_dcr ?? (phiTn > 0 ? (tu / phiTn) : 0.714)).toFixed(3));
@@ -312,51 +305,168 @@
             const Aoh = bo * ho;
             const ph = 2 * (bo + ho);
             const At = AvProvEnd / 2.0; // 1개 가닥 면적
-            const vuStress = (governingShear.VuDemand * 1e3) / (b * governingShear.dVal || (b * endIFlex.d));
+            const vuStress = (governingShear.VuDemand * 1e3) / (b * (governingShear.dVal || endIFlex.d));
             const tuStress = (tu * 1e6 * ph) / (1.7 * Math.pow(Aoh, 2));
             const torsionCombinedStress = Number(Math.sqrt(Math.pow(vuStress, 2) + Math.pow(tuStress, 2)).toFixed(2));
             const torsionAllowStress = Number((0.75 * ((governingShear.Vc * 1e3) / (b * endIFlex.d) + (2.0 / 3.0) * Math.sqrt(fck))).toFixed(2));
+            const dcrTorsionStress = Number((torsionAllowStress > 0 ? (torsionCombinedStress / torsionAllowStress) : 0.5).toFixed(3));
             const isTorsionStressOk = torsionCombinedStress <= torsionAllowStress;
             const AlReq = Number((r.Al_req ?? (At / endIS * ph * (fyt / fy))).toFixed(1));
             const sideRebarCount = Number(m.rebar?.torsion_side_count || 4);
             const sideRebarDia = m.rebar?.torsion_side_bar || 'D13';
             const AlProv = Number((sideRebarCount * (REBAR_AREAS[sideRebarDia] || 126.7)).toFixed(1));
+            const dcrAl = Number((AlProv > 0 ? (AlReq / AlProv) : 0.5).toFixed(3));
             const isAlOk = AlProv >= AlReq;
 
             // =========================================================================
-            // 5. 사용성 한계상태 검토 수치 (KDS 14 20 30)
+            // 5. 사용성 한계상태 검토 수치 (KDS 14 20 30) - Branson Ie 가중평균 & 3-Station 균열
             // =========================================================================
-            const Icr = Number((r.Icr ?? (0.35 * Ig)).toFixed(0));
-            const mcrOverMa = Math.min(1.0, Mcr / Math.max(centerMa, 1.0));
-            const mcr3 = Math.pow(mcrOverMa, 3);
-            const Ie = Number((r.Ie ?? (mcr3 * Ig + (1.0 - mcr3) * Icr)).toFixed(0));
+            const calcCrackedSection = (bSec, hSec, dSec, dpSec, AsTens, AsComp) => {
+                const nMod = 200000.0 / Ec;
+                const Akd = 0.5 * bSec;
+                const Bkd = nMod * AsTens + Math.max(0.0, (nMod - 1.0) * AsComp);
+                const Ckd = -(nMod * AsTens * dSec + Math.max(0.0, (nMod - 1.0) * AsComp * dpSec));
+                const disc = Math.max(0.0, Math.pow(Bkd, 2) - 4.0 * Akd * Ckd);
+                const kdVal = Number(((-Bkd + Math.sqrt(disc)) / (2.0 * Akd)).toFixed(1));
+                let IcrVal = (bSec * Math.pow(kdVal, 3)) / 3.0 + nMod * AsTens * Math.pow(dSec - kdVal, 2);
+                if (AsComp > 0 && kdVal > dpSec) {
+                    IcrVal += (nMod - 1.0) * AsComp * Math.pow(kdVal - dpSec, 2);
+                }
+                return { kd: kdVal, Icr: Math.round(IcrVal) };
+            };
 
-            const deltaImmediate = Number((r.delta_elastic ?? r.delta_immediate ?? 6.2).toFixed(1));
+            // 1) 중앙부-M 균열단면
+            const crM = calcCrackedSection(b, h, centerMFlex.d, centerMFlex.dPrime, centerBot.totalArea, centerTop.totalArea);
+            const IcrM = Number((r.serviceability?.I_cr ? r.serviceability.I_cr * 1e4 : crM.Icr).toFixed(0));
+            const mcrRatioM = Math.min(1.0, Mcr / Math.max(centerMa, 1.0));
+            const mcr3M = Math.pow(mcrRatioM, 3);
+            const IeM = Number((r.serviceability?.Ie_mid ? r.serviceability.Ie_mid * 1e4 : (mcr3M * Ig + (1.0 - mcr3M) * IcrM)).toFixed(0));
+
+            // 2) 단부-I 균열단면
+            const crI = calcCrackedSection(b, h, endIFlex.d, endIFlex.dPrime, endITop.totalArea, endIBot.totalArea);
+            const IcrI = crI.Icr;
+            const endIMa = Number(endILoads.Ma || Math.max(endIMuNeg * 0.65, 80.0));
+            const mcrRatioI = Math.min(1.0, Mcr / Math.max(endIMa, 1.0));
+            const mcr3I = Math.pow(mcrRatioI, 3);
+            const IeI = Number((r.serviceability?.Ie_end_i ? r.serviceability.Ie_end_i * 1e4 : (mcr3I * Ig + (1.0 - mcr3I) * IcrI)).toFixed(0));
+
+            // 3) 단부-J 균열단면
+            const crJ = (arrangeType === 'THREE_STATIONS')
+                ? calcCrackedSection(b, h, endJFlex.d, endJFlex.dPrime, endJTop.totalArea, endJBot.totalArea)
+                : crI;
+            const IcrJ = crJ.Icr;
+            const endJMa = Number(endJLoads.Ma || (arrangeType === 'THREE_STATIONS' ? Math.max(endJMuNeg * 0.65, 80.0) : endIMa));
+            const mcrRatioJ = Math.min(1.0, Mcr / Math.max(endJMa, 1.0));
+            const mcr3J = Math.pow(mcrRatioJ, 3);
+            const IeJ = Number((r.serviceability?.Ie_end_j ? r.serviceability.Ie_end_j * 1e4 : (mcr3J * Ig + (1.0 - mcr3J) * IcrJ)).toFixed(0));
+
+            // 지점조건 및 가중평균 Ie (KDS 14 20 30 제4.2.1절)
+            const supportCond = m.support || m.section?.support || 'CONTINUOUS_BOTH';
+            let IeAvg = IeM;
+            let supportCondText = '양단 연속보 (Both Ends Continuous)';
+            let IeFormulaText = '0.70 I_{e,m} + 0.15(I_{e,i} + I_{e,j})';
+            if (supportCond === 'SIMPLE') {
+                IeAvg = IeM;
+                supportCondText = '단순 지지보 (Simply Supported)';
+                IeFormulaText = 'I_{e,m}';
+            } else if (supportCond === 'CONTINUOUS_ONE') {
+                const IeCont = Math.max(IeI, IeJ);
+                IeAvg = Number((0.85 * IeM + 0.15 * IeCont).toFixed(0));
+                supportCondText = '1단 연속보 (One End Continuous)';
+                IeFormulaText = '0.85 I_{e,m} + 0.15 I_{e,cont}';
+            } else if (supportCond === 'CANTILEVER') {
+                IeAvg = IeI;
+                supportCondText = '캔틸레버보 (Cantilever)';
+                IeFormulaText = 'I_{e,i}';
+            } else {
+                IeAvg = Number((0.70 * IeM + 0.15 * (IeI + IeJ)).toFixed(0));
+            }
+            if (r.serviceability?.Ie_avg && r.serviceability.Ie_avg > 0) {
+                IeAvg = Number((r.serviceability.Ie_avg * 1e4).toFixed(0));
+            }
+
+            // 처짐량 계산
+            const deltaImmediate = Number((r.serviceability?.delta_immediate ?? r.delta_elastic ?? r.delta_immediate ?? 6.2).toFixed(1));
             const rhoPrime = centerTop.totalArea / (b * centerMFlex.d);
-            const lambdaDelta = Number((r.lambda_delta ?? (2.0 / (1.0 + 50.0 * rhoPrime))).toFixed(2));
+            const lambdaDelta = Number((r.serviceability?.lambda_delta ?? (2.0 / (1.0 + 50.0 * rhoPrime))).toFixed(2));
             const deltaSus = 3.8;
-            const deltaLong = Number((r.delta_long ?? (lambdaDelta * deltaSus)).toFixed(1));
-            const deltaTotal = Number((r.delta_total ?? (deltaImmediate + deltaLong)).toFixed(1));
-            const deltaAllow = Number((r.delta_allowable ?? (L / 240.0)).toFixed(1));
-            const dcrDefl = Number((r.deflection_dcr ?? (deltaTotal / deltaAllow)).toFixed(3));
+            const deltaLong = Number((r.serviceability?.delta_long_term ?? r.delta_long ?? (lambdaDelta * deltaSus)).toFixed(1));
+            const deltaTotal = Number((r.serviceability?.delta_total ?? r.delta_total ?? (deltaImmediate + deltaLong)).toFixed(1));
+            const deltaAllow = Number((r.serviceability?.delta_allow ?? r.delta_allowable ?? (L / 240.0)).toFixed(1));
+            const dcrDefl = Number((r.serviceability?.dcr_defl ?? r.deflection_dcr ?? (deltaTotal / deltaAllow)).toFixed(3));
             const deflVerdict = dcrDefl <= 1.0 ? '  →  O.K' : '  →  N.G';
 
-            const fs = Number((0.6 * fy).toFixed(0));
+            // KDS 14 20 30 제4.2.3절 3-Station 균열방지 철근간격 제한 (s <= s_max)
+            const calcStationCrackSpacing = (stationTag, rebarPos, bSec, dSec, kdSec, AsTens, MaDemand, ccVal, stirrupD, l1Count, l1Dia, isZero) => {
+                const jdSec = Number((dSec - kdSec / 3.0).toFixed(1));
+                let fs = 0.0;
+                if (isZero || MaDemand <= 0.0) {
+                    fs = Number((0.60 * fy).toFixed(1));
+                } else {
+                    fs = Number(Math.min((Math.abs(MaDemand) * 1e6) / (AsTens * jdSec), 0.60 * fy).toFixed(1));
+                    if (fs <= 0) fs = Number((0.60 * fy).toFixed(1));
+                }
+                const kcr = 210.0;
+                const sMaxCalculated = Number((375.0 * (kcr / fs) - 2.5 * ccVal).toFixed(1));
+                const sMaxUpper = Number((300.0 * (kcr / fs)).toFixed(1));
+                const sMax = Number(Math.min(sMaxCalculated, sMaxUpper).toFixed(1));
+
+                const dbNum = parseInt(l1Dia.replace('D', ''), 10) || 25;
+                const nBars = Math.max(l1Count, 2);
+                const sActual = Number(((bSec - 2 * ccVal - 2 * stirrupD - dbNum) / (nBars - 1)).toFixed(1));
+                const dcr = Number((sActual / sMax).toFixed(3));
+                const isOk = sActual <= sMax;
+                return {
+                    stationTag,
+                    rebarPos,
+                    cc: ccVal,
+                    kd: kdSec,
+                    jd: jdSec,
+                    fs,
+                    kcr,
+                    sMaxCalculated,
+                    sMaxUpper,
+                    sMax,
+                    sActual,
+                    dcr,
+                    isOk,
+                    verdict: isOk ? '  →  O.K' : '  →  N.G'
+                };
+            };
+
+            const crackI = calcStationCrackSpacing(
+                'End-I (단부-I)', '상부 인장철근 (Top Tension)',
+                b, endIFlex.d, crI.kd, endITop.totalArea, endIMa, coverTop, stirrupDiaNum, endITop.l1.count, endITop.l1.dia, (endIMuNeg <= 0)
+            );
+            const crackM = calcStationCrackSpacing(
+                'Center-M (중앙부-M)', '하부 인장철근 (Bottom Tension)',
+                b, centerMFlex.d, crM.kd, centerBot.totalArea, centerMa, cover, stirrupDiaNum, centerBot.l1.count, centerBot.l1.dia, (centerMuPos <= 0)
+            );
+            const crackJ = (arrangeType === 'THREE_STATIONS')
+                ? calcStationCrackSpacing('End-J (단부-J)', '상부 인장철근 (Top Tension)', b, endJFlex.d, crJ.kd, endJTop.totalArea, endJMa, coverTop, stirrupDiaNum, endJTop.l1.count, endJTop.l1.dia, (endJMuNeg <= 0))
+                : crackI;
+
+            // 직접 균열폭 검토
+            const fsDirect = Number((0.6 * fy).toFixed(0));
             const Es = 200000;
             const dc = cover;
-            const rebarSpace = Math.max(50, Math.round((b - 2 * cover - 2 * stirrupDiaNum - 25) / 3));
-            const crackWidth = Number((r.crack_width ?? 0.22).toFixed(2));
-            const crackAllow = Number((r.crack_allowable ?? 0.30).toFixed(2));
-            const dcrCrack = Number((r.crack_dcr ?? (crackWidth / crackAllow)).toFixed(3));
+            const crackWidth = Number((r.serviceability?.crack_width ?? r.crack_width ?? 0.22).toFixed(2));
+            const crackAllow = Number((r.serviceability?.crack_allow ?? r.crack_allowable ?? 0.30).toFixed(2));
+            const dcrCrack = Number((r.serviceability?.dcr_crack ?? r.crack_dcr ?? (crackWidth / crackAllow)).toFixed(3));
             const crackVerdict = dcrCrack <= 1.0 ? '  →  O.K' : '  →  N.G';
 
             // =========================================================================
-            // 6. 종합 안전성 판정
+            // 6. 종합 안전성 판정 (Executive Summary & Final Verdict)
             // =========================================================================
             const governingDcr = Number(Math.max(
                 endIFlex.dcr, centerMFlex.dcr, endJFlex.dcr,
+                endIFlex.dcrMin, centerMFlex.dcrMin, endJFlex.dcrMin,
+                endIFlex.dcrEps, centerMFlex.dcrEps, endJFlex.dcrEps,
                 endIShear.dcr, centerMShear.dcr, endJShear.dcr,
-                dcrTorsion, dcrDefl, dcrCrack
+                (isZeroTorsion ? 0.0 : dcrTorsion),
+                dcrDefl,
+                crackI.dcr, crackM.dcr, crackJ.dcr,
+                dcrCrack
             ).toFixed(3));
             const isOverallSafe = governingDcr <= 1.0;
             const overallVerdict = isOverallSafe ? '  →  O.K' : '  →  N.G';
@@ -367,7 +477,7 @@
                 : '';
 
             // =========================================================================
-            // 7. HTML 조립 시작 (A4 Sheet Template)
+            // 7. HTML 조립 시작 (A4 Sheet 7-Chapter Template)
             // =========================================================================
             const html = `
                 <div class="a4-zoom-viewport altdp-report-container redcr-report-container">
@@ -449,39 +559,6 @@
                                 </tr>
                             </table>
 
-                            <!-- KDS 14 20 20: 2022 최소 철근량 및 연성 한계 검토 (KaTeX 수식 전개) -->
-                            <div class="katex-formula-step" style="background:#fbfcfe;border:1px solid #e2e8f0;padding:8px 12px;margin:8px 0;border-radius:4px;">
-                                <div class="step-title-row" style="font-weight:600;color:#1e3a8a;margin-bottom:4px;">
-                                    <span class="step-title">1.1 최소 철근량 검토 (KDS 14 20 20 4.2.2)</span>
-                                    <span class="step-kds-ref">KDS 14 20 20 (4.2.2)</span>
-                                </div>
-                                <div class="formula-row">
-                                    $$\\phi M_n \\ge 1.2 M_{cr} \\quad \\left(\\text{단, } A_s \\ge \\frac{4}{3} A_{s,req} \\text{ 만족 시 적용 예외}\\right)$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$f_r = 0.63 \\lambda \\sqrt{f_{ck}} = 0.63 \\times 1.0 \\times \\sqrt{${fck.toFixed(1)}} = \\mathbf{${fr.toFixed(2)}\\text{ MPa}}, \\quad I_g = \\frac{b_w h^3}{12} = \\frac{${b} \\times ${h}^3}{12} = \\mathbf{${Ig.toLocaleString()}\\text{ mm}^4}, \\quad M_{cr} = \\frac{f_r I_g}{y_t} = \\mathbf{${Mcr.toFixed(1)}\\text{ kN}\\cdot\\text{m}}$$
-                                </div>
-                                <div class="formula-row formula-eval">
-                                    $$\\phi M_n = ${centerMFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m} \\ge 1.2 M_{cr} (${phiMnMin.toFixed(1)}\\text{ kN}\\cdot\\text{m}) \\quad \\longrightarrow \\quad [\\mathbf{${centerMFlex.isMinOk ? '최소철근량 만족 O.K' : '최소철근량 미달 N.G'}}]${centerMFlex.isMinOk ? '  →  O.K' : '  →  N.G'}$$
-                                </div>
-                            </div>
-
-                            <div class="katex-formula-step" style="background:#fbfcfe;border:1px solid #e2e8f0;padding:8px 12px;margin:8px 0;border-radius:4px;">
-                                <div class="step-title-row" style="font-weight:600;color:#1e3a8a;margin-bottom:4px;">
-                                    <span class="step-title">1.2 연성 한계 및 순인장변형률 검토 (KDS 14 20 20 4.1.2)</span>
-                                    <span class="step-kds-ref">KDS 14 20 20 (4.1.2)</span>
-                                </div>
-                                <div class="formula-row">
-                                    $$\\epsilon_t \\ge \\epsilon_{t,\\min} = \\begin{cases} 0.0040 & (f_y \\le 400\\text{ MPa}) \\\\ 2.0\\,\\epsilon_y & (f_y > 400\\text{ MPa}) \\end{cases}, \\quad \\frac{c}{d_t} \\le \\left(\\frac{c}{d_t}\\right)_{\\lim} = \\frac{\\epsilon_{cu}}{\\epsilon_{cu} + \\epsilon_{t,\\min}}$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$\\epsilon_t = \\epsilon_{cu} \\left(\\frac{d_t - c}{c}\\right) = ${ecu.toFixed(4)} \\times \\left(\\frac{${centerMFlex.dt.toFixed(1)} - ${centerMFlex.c.toFixed(1)}}{${centerMFlex.c.toFixed(1)}}\\right) = \\mathbf{${centerMFlex.epsT.toFixed(4)}} \\ge \\epsilon_{t,\\min} (${epsTMin.toFixed(4)}), \\quad \\frac{c}{d_t} = \\frac{${centerMFlex.c.toFixed(1)}}{${centerMFlex.dt.toFixed(1)}} = \\mathbf{${(centerMFlex.c / centerMFlex.dt).toFixed(3)}} \\le \\left(\\frac{c}{d_t}\\right)_{\\lim} (${cDtLimit.toFixed(3)})$$
-                                </div>
-                                <div class="formula-row formula-eval">
-                                    $$\\epsilon_t (${centerMFlex.epsT.toFixed(4)}) \\ge \\epsilon_{t,\\min} (${epsTMin.toFixed(4)}) \\quad \\text{및} \\quad \\frac{c}{d_t} (${(centerMFlex.c / centerMFlex.dt).toFixed(3)}) \\le \\left(\\frac{c}{d_t}\\right)_{\\lim} (${cDtLimit.toFixed(3)}) \\quad \\longrightarrow \\quad [\\mathbf{${centerMFlex.isDuctilityOk ? '연성파괴 유도 O.K' : '취성파괴 우려 N.G'}}]${centerMFlex.isDuctilityOk ? '  →  O.K' : '  →  N.G'}$$
-                                </div>
-                            </div>
-
                             <!-- 2D 단면 배근 상세 그래픽 임베딩 -->
                             <div class="report-svg-slot report-graphic-slot" style="${includeGraphics ? 'width:100%;text-align:center;margin-top:4px;' : 'display:none;'}">
                                 ${graphicContent}
@@ -491,10 +568,10 @@
                             </div>
                         </section>
 
-                        <!-- 사용자 입력 데이터 상세 표 (체크박스 토글 옵션) -->
-                        <section class="report-chapter user-input-section" data-chapter-key="input" style="${includeInput ? '' : 'display:none;'}">
-                            <h2 class="chapter-heading" data-title-detail="사용자 입력 데이터 상세 (User Input Data Specification)" data-title-summary="사용자 입력 데이터 상세 (User Input Data Specification)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
-                                <span class="chapter-num">부록 1</span>. <span class="chapter-title">사용자 입력 데이터 상세 (User Input Data Specification)</span>
+                        <!-- 부록 1: 사용자 입력 데이터 상세 표 (체크박스 토글 옵션) -->
+                        <section class="report-appendix user-input-section" data-chapter-key="input" style="${includeInput ? '' : 'display:none;'}">
+                            <h2 class="appendix-heading" style="font-size:14px;color:#1a3a5c;background:#f1f5f9;padding:6px 12px;border-left:4px solid #64748b;margin:16px 0 10px;font-weight:700;">
+                                <span class="appendix-num">부록 1</span>. <span class="appendix-title">사용자 입력 데이터 상세 (User Input Data Specification)</span>
                             </h2>
                             <table class="inp-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;">
                                 <colgroup>
@@ -586,15 +663,188 @@
                             </table>
                         </section>
 
-                        <!-- 제 3장: 휨모멘트 강도 검토 (Flexural Strength Check - 3-Station Individual Formulations) -->
-                        <section class="report-chapter" data-chapter-key="flexure">
-                            <h2 class="chapter-heading" data-title-detail="휨모멘트 강도 검토 (Flexural Strength Check - 3-Station Positive & Negative Bending)" data-title-summary="휨모멘트 강도 검토 요약 (Flexural Strength Check)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
-                                <span class="chapter-num">제 3장</span>. <span class="chapter-title">휨모멘트 강도 검토 (Flexural Strength Check - 3-Station Positive & Negative Bending)</span>
+                        <!-- 제 3장: 단면 연성 및 최소철근량 검토 (Ductility Limit & Minimum Reinforcement Check) [★신설] -->
+                        <section class="report-chapter" data-chapter-key="ductility">
+                            <h2 class="chapter-heading" data-title-detail="단면 연성 및 최소철근량 검토 (Ductility Limit & Minimum Reinforcement Check)" data-title-summary="단면 연성 및 최소철근량 검토 요약 (Ductility & Min Rebar Check)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
+                                <span class="chapter-num">제 3장</span>. <span class="chapter-title">단면 연성 및 최소철근량 검토 (Ductility Limit & Minimum Reinforcement Check)</span>
                             </h2>
 
-                            <!-- 3.1 3-Station 위치별 휨설계 강도 총괄 요약표 -->
+                            <!-- 3.1 3-Station 연성 및 최소철근량 총괄 요약표 -->
                             <div style="font-weight:700;color:#1e3a8a;margin:10px 0 6px;font-size:12.5px;">
-                                3.1 3-Station 위치별 휨설계 강도 총괄 요약표
+                                3.1 3-Station 연성 및 최소철근량 검토 총괄 요약표 (KDS 14 20 20)
+                            </div>
+                            <table class="chk-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;text-align:center;margin-bottom:12px;">
+                                <colgroup>
+                                    <col style="width:16%;">
+                                    <col style="width:20%;">
+                                    <col style="width:18%;">
+                                    <col style="width:14%;">
+                                    <col style="width:18%;">
+                                    <col style="width:14%;">
+                                </colgroup>
+                                <thead>
+                                    <tr style="background:#e2e8f0;">
+                                        <th style="padding:6px;">검토 위치 (Station)</th>
+                                        <th>지배 모멘트 / 인장철근</th>
+                                        <th>중립축 및 변형률 ($c, \\epsilon_t$)</th>
+                                        <th>순인장변형률 DCR</th>
+                                        <th>최소 휨강도 ($\\phi M_n \\ge 1.2 M_{cr}$)</th>
+                                        <th>최소철근량 DCR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="font-weight:700;background:#f8fafc;">단부-I (End-I)</td>
+                                        <td>부모멘트 ($M_u^-$)<br><span style="font-size:10px;color:#64748b;">상부: ${endITop.text}</span></td>
+                                        <td>$c = ${endIFlex.c.toFixed(1)}$ mm<br>$\\epsilon_t = ${endIFlex.epsT.toFixed(4)}$</td>
+                                        <td style="font-weight:700;" class="${endIFlex.isDuctilityOk ? 'verdict-ok' : 'verdict-ng'}">${endIFlex.dcrEps.toFixed(3)} ${endIFlex.ductilityVerdict}</td>
+                                        <td>${endIFlex.phiMn.toFixed(1)} kN·m $\\ge$ ${phiMnMin.toFixed(1)} kN·m</td>
+                                        <td style="font-weight:700;" class="${endIFlex.isMinOk ? 'verdict-ok' : 'verdict-ng'}">${endIFlex.dcrMin.toFixed(3)} ${endIFlex.minVerdict}</td>
+                                    </tr>
+                                    <tr style="background:#fffbeb;">
+                                        <td style="font-weight:700;background:#fef3c7;">중앙부-M (Center-M)</td>
+                                        <td>정모멘트 ($M_u^+$)<br><span style="font-size:10px;color:#64748b;">하부: ${centerBot.text}</span></td>
+                                        <td>$c = ${centerMFlex.c.toFixed(1)}$ mm<br>$\\epsilon_t = ${centerMFlex.epsT.toFixed(4)}$</td>
+                                        <td style="font-weight:700;" class="${centerMFlex.isDuctilityOk ? 'verdict-ok' : 'verdict-ng'}">${centerMFlex.dcrEps.toFixed(3)} ${centerMFlex.ductilityVerdict}</td>
+                                        <td>${centerMFlex.phiMn.toFixed(1)} kN·m $\\ge$ ${phiMnMin.toFixed(1)} kN·m</td>
+                                        <td style="font-weight:700;" class="${centerMFlex.isMinOk ? 'verdict-ok' : 'verdict-ng'}">${centerMFlex.dcrMin.toFixed(3)} ${centerMFlex.minVerdict}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight:700;background:#f8fafc;">단부-J (End-J)</td>
+                                        <td>부모멘트 ($M_u^-$)<br><span style="font-size:10px;color:#64748b;">상부: ${endJTop.text}</span></td>
+                                        <td>$c = ${endJFlex.c.toFixed(1)}$ mm<br>$\\epsilon_t = ${endJFlex.epsT.toFixed(4)}$</td>
+                                        <td style="font-weight:700;" class="${endJFlex.isDuctilityOk ? 'verdict-ok' : 'verdict-ng'}">${endJFlex.dcrEps.toFixed(3)} ${endJFlex.ductilityVerdict}</td>
+                                        <td>${endJFlex.phiMn.toFixed(1)} kN·m $\\ge$ ${phiMnMin.toFixed(1)} kN·m</td>
+                                        <td style="font-weight:700;" class="${endJFlex.isMinOk ? 'verdict-ok' : 'verdict-ng'}">${endJFlex.dcrMin.toFixed(3)} ${endJFlex.minVerdict}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            ${mode === 'detail' ? `
+                            <!-- 최소철근량 만족 검토 및 연성파괴 유도 기준 상세 KaTeX 전개 -->
+                            ${arrangeType === 'ONE_SECTION' ? `
+                            <!-- 3.2 중앙부 (Center-M) 전단면 동일 최소철근량 및 연성 검토 -->
+                            <div class="katex-formula-step" style="background:#fbfcfe;border:1px solid #e2e8f0;padding:8px 12px;margin:8px 0;border-radius:4px;">
+                                <div class="step-title-row" style="font-weight:600;color:#1e3a8a;margin-bottom:4px;">
+                                    <span class="step-title">3.2 중앙부 (Center-M) 최소철근량 만족 및 연성파괴 유도 순인장변형률 검토 [전단면 동일 배근, 하부 인장]</span>
+                                    <span class="step-kds-ref">KDS 14 20 20 (4.1 & 4.2.2)</span>
+                                </div>
+                                <div class="formula-row">
+                                    $$\\phi M_n \\ge 1.2 M_{cr} \\quad \\left(\\text{단, } A_s \\ge \\frac{4}{3} A_{s,req} \\text{ 만족 시 적용 예외}\\right)$$
+                                </div>
+                                <div class="formula-row formula-subst">
+                                    $$\\begin{aligned}
+                                    f_r &= 0.63 \\lambda \\sqrt{f_{ck}} = 0.63 \\times 1.0 \\times \\sqrt{${fck.toFixed(1)}} = \\mathbf{${fr.toFixed(2)}\\text{ MPa}} \\\\
+                                    I_g &= \\frac{b_w h^3}{12} = \\frac{${b} \\times ${h}^3}{12} = \\mathbf{${Ig.toLocaleString()}\\text{ mm}^4}, \\quad M_{cr} = \\frac{f_r I_g}{y_t} = \\mathbf{${Mcr.toFixed(1)}\\text{ kN}\\cdot\\text{m}}
+                                    \\end{aligned}$$
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$\\phi M_n = \\mathbf{${centerMFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\ge 1.2 M_{cr} (${phiMnMin.toFixed(1)}\\text{ kN}\\cdot\\text{m}) \\quad (\\text{DCR} = ${centerMFlex.dcrMin.toFixed(3)}) \\quad \\rightarrow \\quad ${centerMFlex.isMinOk ? '\\text{O.K}' : '\\text{N.G}'}$$
+                                </div>
+                                <div class="formula-row" style="margin-top:6px;border-top:1px dashed #e2e8f0;padding-top:6px;">
+                                    $$\\epsilon_t \\ge \\epsilon_{t,\\min} = \\begin{cases} 0.0040 & (f_y \\le 400\\text{ MPa}) \\\\ 2.0\\,\\epsilon_y & (f_y > 400\\text{ MPa}) \\end{cases}, \\quad \\epsilon_t = \\epsilon_{cu} \\left(\\frac{d_t - c}{c}\\right), \\quad \\frac{c}{d_t} \\le \\left(\\frac{c}{d_t}\\right)_{\\lim} = \\frac{\\epsilon_{cu}}{\\epsilon_{cu} + \\epsilon_{t,\\min}}$$
+                                </div>
+                                <div class="formula-row formula-subst">
+                                    $$\\begin{aligned}
+                                    \\epsilon_t &= \\epsilon_{cu} \\left(\\frac{d_t - c}{c}\\right) = ${ecu.toFixed(4)} \\times \\left(\\frac{${centerMFlex.dt.toFixed(1)} - ${centerMFlex.c.toFixed(1)}}{${centerMFlex.c.toFixed(1)}}\\right) = \\mathbf{${centerMFlex.epsT.toFixed(4)}} \\ge \\epsilon_{t,\\min} (${epsTMin.toFixed(4)}) \\\\
+                                    \\frac{c}{d_t} &= \\frac{${centerMFlex.c.toFixed(1)}}{${centerMFlex.dt.toFixed(1)}} = \\mathbf{${(centerMFlex.c / centerMFlex.dt).toFixed(3)}} \\le \\left(\\frac{c}{d_t}\\right)_{\\lim} (${cDtLimit.toFixed(3)})
+                                    \\end{aligned}$$
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$\\text{DCR}_{\\epsilon_t} = \\frac{\\epsilon_{t,\\min}}{\\epsilon_t} = \\mathbf{${centerMFlex.dcrEps.toFixed(3)}} \\le 1.000 \\quad \\rightarrow \\quad ${centerMFlex.isDuctilityOk ? '\\text{O.K}' : '\\text{N.G}'}$$
+                                </div>
+                            </div>
+                            ` : `
+                            <!-- 3.2 단부-I (End-I) 최소철근량 및 연성 검토 (부모멘트, 상부인장) -->
+                            <div class="katex-formula-step" style="background:#fbfcfe;border:1px solid #e2e8f0;padding:8px 12px;margin:8px 0;border-radius:4px;">
+                                <div class="step-title-row" style="font-weight:600;color:#1e3a8a;margin-bottom:4px;">
+                                    <span class="step-title">3.2 단부-I (End-I) 최소철근량 만족 및 연성파괴 유도 순인장변형률 검토 [부모멘트 작용, 상부 인장철근 $A_s = ${endITop.totalArea.toFixed(1)}$ mm²]</span>
+                                    <span class="step-kds-ref">KDS 14 20 20 (4.1 & 4.2.2)</span>
+                                </div>
+                                <div class="formula-row">
+                                    $$\\phi M_n \\ge 1.2 M_{cr} \\quad \\left(f_r = 0.63 \\lambda \\sqrt{f_{ck}} = \\mathbf{${fr.toFixed(2)}\\text{ MPa}}, \\quad I_g = \\frac{b_w h^3}{12} = \\mathbf{${Ig.toLocaleString()}\\text{ mm}^4}, \\quad M_{cr} = \\mathbf{${Mcr.toFixed(1)}\\text{ kN}\\cdot\\text{m}}\\right)$$
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$\\phi M_{n,I} = \\mathbf{${endIFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\ge 1.2 M_{cr} (${phiMnMin.toFixed(1)}\\text{ kN}\\cdot\\text{m}) \\quad (\\text{DCR} = ${endIFlex.dcrMin.toFixed(3)}) \\quad \\rightarrow \\quad ${endIFlex.isMinOk ? '\\text{O.K}' : '\\text{N.G}'}$$
+                                </div>
+                                <div class="formula-row" style="margin-top:6px;border-top:1px dashed #e2e8f0;padding-top:6px;">
+                                    $$\\epsilon_t \\ge \\epsilon_{t,\\min}, \\quad \\epsilon_t = \\epsilon_{cu} \\left(\\frac{d_t - c}{c}\\right), \\quad \\frac{c}{d_t} \\le \\left(\\frac{c}{d_t}\\right)_{\\lim} = \\frac{\\epsilon_{cu}}{\\epsilon_{cu} + \\epsilon_{t,\\min}}$$
+                                </div>
+                                <div class="formula-row formula-subst">
+                                    $$\\begin{aligned}
+                                    \\epsilon_t &= \\epsilon_{cu} \\left(\\frac{d_t - c}{c}\\right) = ${ecu.toFixed(4)} \\times \\left(\\frac{${endIFlex.dt.toFixed(1)} - ${endIFlex.c.toFixed(1)}}{${endIFlex.c.toFixed(1)}}\\right) = \\mathbf{${endIFlex.epsT.toFixed(4)}} \\ge \\epsilon_{t,\\min} (${epsTMin.toFixed(4)}) \\\\
+                                    \\frac{c}{d_t} &= \\frac{${endIFlex.c.toFixed(1)}}{${endIFlex.dt.toFixed(1)}} = \\mathbf{${(endIFlex.c / endIFlex.dt).toFixed(3)}} \\le \\left(\\frac{c}{d_t}\\right)_{\\lim} (${cDtLimit.toFixed(3)})
+                                    \\end{aligned}$$
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$\\text{DCR}_{\\epsilon_t,I} = \\frac{\\epsilon_{t,\\min}}{\\epsilon_t} = \\mathbf{${endIFlex.dcrEps.toFixed(3)}} \\le 1.000 \\quad \\rightarrow \\quad ${endIFlex.isDuctilityOk ? '\\text{O.K}' : '\\text{N.G}'}$$
+                                </div>
+                            </div>
+
+                            <!-- 3.3 중앙부-M (Center-M) 최소철근량 및 연성 검토 (정모멘트, 하부인장) -->
+                            <div class="katex-formula-step" style="background:#fbfcfe;border:1px solid #e2e8f0;padding:8px 12px;margin:8px 0;border-radius:4px;">
+                                <div class="step-title-row" style="font-weight:600;color:#1e3a8a;margin-bottom:4px;">
+                                    <span class="step-title">3.3 중앙부-M (Center-M) 최소철근량 만족 및 연성파괴 유도 순인장변형률 검토 [정모멘트 작용, 하부 인장철근 $A_s = ${centerBot.totalArea.toFixed(1)}$ mm²]</span>
+                                    <span class="step-kds-ref">KDS 14 20 20 (4.1 & 4.2.2)</span>
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$\\phi M_{n,M} = \\mathbf{${centerMFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\ge 1.2 M_{cr} (${phiMnMin.toFixed(1)}\\text{ kN}\\cdot\\text{m}) \\quad (\\text{DCR} = ${centerMFlex.dcrMin.toFixed(3)}) \\quad \\rightarrow \\quad ${centerMFlex.isMinOk ? '\\text{O.K}' : '\\text{N.G}'}$$
+                                </div>
+                                <div class="formula-row formula-subst" style="margin-top:6px;border-top:1px dashed #e2e8f0;padding-top:6px;">
+                                    $$\\begin{aligned}
+                                    \\epsilon_t &= \\epsilon_{cu} \\left(\\frac{d_t - c}{c}\\right) = ${ecu.toFixed(4)} \\times \\left(\\frac{${centerMFlex.dt.toFixed(1)} - ${centerMFlex.c.toFixed(1)}}{${centerMFlex.c.toFixed(1)}}\\right) = \\mathbf{${centerMFlex.epsT.toFixed(4)}} \\ge \\epsilon_{t,\\min} (${epsTMin.toFixed(4)}) \\\\
+                                    \\frac{c}{d_t} &= \\frac{${centerMFlex.c.toFixed(1)}}{${centerMFlex.dt.toFixed(1)}} = \\mathbf{${(centerMFlex.c / centerMFlex.dt).toFixed(3)}} \\le \\left(\\frac{c}{d_t}\\right)_{\\lim} (${cDtLimit.toFixed(3)})
+                                    \\end{aligned}$$
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$\\text{DCR}_{\\epsilon_t,M} = \\frac{\\epsilon_{t,\\min}}{\\epsilon_t} = \\mathbf{${centerMFlex.dcrEps.toFixed(3)}} \\le 1.000 \\quad \\rightarrow \\quad ${centerMFlex.isDuctilityOk ? '\\text{O.K}' : '\\text{N.G}'}$$
+                                </div>
+                            </div>
+
+                            <!-- 3.4 단부-J (End-J) 최소철근량 및 연성 검토 -->
+                            ${arrangeType === 'THREE_STATIONS' ? `
+                            <div class="katex-formula-step" style="background:#fbfcfe;border:1px solid #e2e8f0;padding:8px 12px;margin:8px 0;border-radius:4px;">
+                                <div class="step-title-row" style="font-weight:600;color:#1e3a8a;margin-bottom:4px;">
+                                    <span class="step-title">3.4 단부-J (End-J) 최소철근량 만족 및 연성파괴 유도 순인장변형률 검토 [독립 3단면, 상부 인장철근 $A_s = ${endJTop.totalArea.toFixed(1)}$ mm²]</span>
+                                    <span class="step-kds-ref">KDS 14 20 20 (4.1 & 4.2.2)</span>
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$\\phi M_{n,J} = \\mathbf{${endJFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\ge 1.2 M_{cr} (${phiMnMin.toFixed(1)}\\text{ kN}\\cdot\\text{m}) \\quad (\\text{DCR} = ${endJFlex.dcrMin.toFixed(3)}) \\quad \\rightarrow \\quad ${endJFlex.isMinOk ? '\\text{O.K}' : '\\text{N.G}'}$$
+                                </div>
+                                <div class="formula-row formula-subst" style="margin-top:6px;border-top:1px dashed #e2e8f0;padding-top:6px;">
+                                    $$\\begin{aligned}
+                                    \\epsilon_t &= \\epsilon_{cu} \\left(\\frac{d_t - c}{c}\\right) = ${ecu.toFixed(4)} \\times \\left(\\frac{${endJFlex.dt.toFixed(1)} - ${endJFlex.c.toFixed(1)}}{${endJFlex.c.toFixed(1)}}\\right) = \\mathbf{${endJFlex.epsT.toFixed(4)}} \\ge \\epsilon_{t,\\min} (${epsTMin.toFixed(4)}) \\\\
+                                    \\frac{c}{d_t} &= \\frac{${endJFlex.c.toFixed(1)}}{${endJFlex.dt.toFixed(1)}} = \\mathbf{${(endJFlex.c / endJFlex.dt).toFixed(3)}} \\le \\left(\\frac{c}{d_t}\\right)_{\\lim} (${cDtLimit.toFixed(3)})
+                                    \\end{aligned}$$
+                                </div>
+                                <div class="formula-row formula-eval">
+                                    $$\\text{DCR}_{\\epsilon_t,J} = \\frac{\\epsilon_{t,\\min}}{\\epsilon_t} = \\mathbf{${endJFlex.dcrEps.toFixed(3)}} \\le 1.000 \\quad \\rightarrow \\quad ${endJFlex.isDuctilityOk ? '\\text{O.K}' : '\\text{N.G}'}$$
+                                </div>
+                            </div>
+                            ` : `
+                            <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:10px 12px;border-radius:4px;margin-top:10px;font-size:11px;">
+                                <span style="font-weight:600;color:#1e3a8a;">3.4 단부-J (End-J) 최소철근량 만족 및 연성파괴 유도 검토:</span> 단부-I과 대칭 동일 배근 및 단면 ($\\\\phi M_n = ${endJFlex.phiMn.toFixed(1)}\\\\text{ kN}\\\\cdot\\\\text{m} \\\\ge 1.2 M_{cr}$, $\\\\epsilon_t = ${endJFlex.epsT.toFixed(4)}$) <span class="${endJFlex.isMinOk && endJFlex.isDuctilityOk ? 'verdict-ok' : 'verdict-ng'}">${endJFlex.isMinOk && endJFlex.isDuctilityOk ? '  →  O.K' : '  →  N.G'}</span>
+                            </div>
+                            `}
+                            `}
+                            ` : `
+                            <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:12px;border-radius:4px;">
+                                <div style="margin-bottom:6px;"><strong>단부-I 최소철근량 만족 및 연성:</strong> $\\phi M_n = ${endIFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m} \\ge 1.2 M_{cr}$, $\\epsilon_t = ${endIFlex.epsT.toFixed(4)}$ (DCR = ${endIFlex.dcrMin.toFixed(3)}) <span class="${endIFlex.isMinOk ? 'verdict-ok' : 'verdict-ng'}">${endIFlex.minVerdict}</span></div>
+                                <div style="margin-bottom:6px;"><strong>중앙부-M 최소철근량 만족 및 연성:</strong> $\\phi M_n = ${centerMFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m} \\ge 1.2 M_{cr}$, $\\epsilon_t = ${centerMFlex.epsT.toFixed(4)}$ (DCR = ${centerMFlex.dcrMin.toFixed(3)}) <span class="${centerMFlex.isMinOk ? 'verdict-ok' : 'verdict-ng'}">${centerMFlex.minVerdict}</span></div>
+                                <div><strong>단부-J 최소철근량 만족 및 연성:</strong> $\\phi M_n = ${endJFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m} \\ge 1.2 M_{cr}$, $\\epsilon_t = ${endJFlex.epsT.toFixed(4)}$ (DCR = ${endJFlex.dcrMin.toFixed(3)}) <span class="${endJFlex.isMinOk ? 'verdict-ok' : 'verdict-ng'}">${endJFlex.minVerdict}</span></div>
+                            </div>
+                            `}
+                        </section>
+
+                        <!-- 제 4장: 휨모멘트 강도 검토 (Flexural Strength Check - 3-Station Positive & Negative Bending) -->
+                        <section class="report-chapter" data-chapter-key="flexure">
+                            <h2 class="chapter-heading" data-title-detail="휨모멘트 강도 검토 (Flexural Strength Check - 3-Station Positive & Negative Bending)" data-title-summary="휨모멘트 강도 검토 요약 (Flexural Strength Check)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
+                                <span class="chapter-num">제 4장</span>. <span class="chapter-title">휨모멘트 강도 검토 (Flexural Strength Check - 3-Station Positive & Negative Bending)</span>
+                            </h2>
+
+                            <!-- 4.1 3-Station 위치별 휨설계 강도 총괄 요약표 -->
+                            <div style="font-weight:700;color:#1e3a8a;margin:10px 0 6px;font-size:12.5px;">
+                                4.1 3-Station 위치별 휨설계 강도 총괄 요약표
                             </div>
                             <table class="chk-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;text-align:center;margin-bottom:12px;">
                                 <colgroup>
@@ -644,82 +894,82 @@
                             </table>
 
                             ${mode === 'detail' ? `
-                            <!-- 3.2 단부-I (End-I) 부모멘트 (Mu-) 검토 [상부 인장 배근 / 복부폭 bw 직사각형 보] -->
-                            <div class="katex-formula-step" style="margin-top:12px;">
-                                <div class="step-title-row">
-                                    <span class="step-title">3.2 단부-I (End-I) 부모멘트 ($M_u^-$) 4단계 강도 검토 [상부 인장 배근, 복부폭 $b_w$ 직사각형 보]</span>
-                                    <span class="step-kds-ref">KDS 14 20 20 (4.1)</span>
-                                </div>
-                                <div class="formula-row">
-                                    $$\\text{인장철근: } A_s = ${endITop.totalArea.toFixed(1)}\\text{ mm}^2 \\quad (\\text{상부}), \\quad \\text{압축철근: } A_s' = ${endIBot.totalArea.toFixed(1)}\\text{ mm}^2 \\quad (\\text{하부}), \\quad \\beta_1 = ${beta1.toFixed(3)}$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$a = \\frac{A_s f_y - A_s' f_s'}{\\alpha_1 f_{ck} b_w} = \\frac{${endITop.totalArea.toFixed(1)} \\times ${fy.toFixed(0)} - ${endIBot.totalArea.toFixed(1)} \\times ${fy.toFixed(0)}}{0.85 \\times ${fck.toFixed(1)} \\times ${b}} = \\mathbf{${endIFlex.a.toFixed(1)}\\text{ mm}}, \\quad c = \\frac{a}{\\beta_1} = \\frac{${endIFlex.a.toFixed(1)}}{${beta1.toFixed(3)}} = \\mathbf{${endIFlex.c.toFixed(1)}\\text{ mm}}$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$\\epsilon_t = \\epsilon_{cu} \\left(\\frac{d_t - c}{c}\\right) = ${ecu.toFixed(4)} \\times \\left(\\frac{${endIFlex.dt.toFixed(1)} - ${endIFlex.c.toFixed(1)}}{${endIFlex.c.toFixed(1)}}\\right) = \\mathbf{${endIFlex.epsT.toFixed(4)}} \\ge 0.005 \\quad \\longrightarrow \\quad \\text{인장지배단면, } \\mathbf{\\phi = ${endIFlex.phi.toFixed(2)}}$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$M_n = \\left[A_s f_y \\left(d - \\frac{a}{2}\\right) + A_s' f_s' \\left(\\frac{a}{2} - d'\\right)\\right] \\times 10^{-6} = \\mathbf{${endIFlex.Mn.toFixed(1)}\\text{ kN}\\cdot\\text{m}}, \\quad \\phi M_n = ${endIFlex.phi.toFixed(2)} \\times ${endIFlex.Mn.toFixed(1)} = \\mathbf{${endIFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}}$$
-                                </div>
-                                <div class="formula-row formula-eval">
-                                    $$\\text{DCR}_{flex,I} = \\frac{M_u^-}{\\phi M_n} = \\frac{${endIFlex.MuDemand.toFixed(1)}}{${endIFlex.phiMn.toFixed(1)}} = \\mathbf{${endIFlex.dcr.toFixed(3)}} \\le 1.000 \\quad \\longrightarrow \\quad [\\mathbf{${endIFlex.isSafe ? 'O.K' : 'N.G'}}]${endIFlex.verdict}$$
-                                </div>
-                            </div>
-
-                            <!-- 3.3 중앙부 (Center-M) 정모멘트 (Mu+) 검토 [하부 인장 배근 / T형 유효폭 bf 압축] -->
-                            <div class="katex-formula-step" style="margin-top:12px;">
-                                <div class="step-title-row">
-                                    <span class="step-title">3.3 중앙부 (Center-M) 정모멘트 ($M_u^+$) 4단계 강도 검토 [하부 인장 배근, ${isTBeam ? `T형 유효폭 $b_e = ${bf}$ mm 압축` : `복부폭 $b = ${b}$ mm 직사각형 보`}]</span>
-                                    <span class="step-kds-ref">KDS 14 20 20 (4.1)</span>
-                                </div>
-                                <div class="formula-row">
-                                    $$\\text{인장철근: } A_s = ${centerBot.totalArea.toFixed(1)}\\text{ mm}^2 \\quad (\\text{하부}), \\quad \\text{압축철근: } A_s' = ${centerTop.totalArea.toFixed(1)}\\text{ mm}^2 \\quad (\\text{상부})$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    ${isTBeam ? `$$\\text{등가응력블록 깊이 } a = \\mathbf{${centerMFlex.a.toFixed(1)}\\text{ mm}} \\le h_f (${hf}\\text{ mm}) \\quad \\longrightarrow \\quad \\text{플랜지 내 압축 응력블록 형성, 유효폭 } b_e (${bf}\\text{ mm}) \\text{ 직사각형 보로 거동}$$` : ''}
-                                    $$a = \\frac{A_s f_y - A_s' f_s'}{\\alpha_1 f_{ck} b_e} = \\frac{${centerBot.totalArea.toFixed(1)} \\times ${fy.toFixed(0)} - ${centerTop.totalArea.toFixed(1)} \\times ${fy.toFixed(0)}}{0.85 \\times ${fck.toFixed(1)} \\times ${centerMFlex.bComp}} = \\mathbf{${centerMFlex.a.toFixed(1)}\\text{ mm}}, \\quad c = \\frac{a}{\\beta_1} = \\frac{${centerMFlex.a.toFixed(1)}}{${beta1.toFixed(3)}} = \\mathbf{${centerMFlex.c.toFixed(1)}\\text{ mm}}$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$\\epsilon_t = \\epsilon_{cu} \\left(\\frac{d_t - c}{c}\\right) = ${ecu.toFixed(4)} \\times \\left(\\frac{${centerMFlex.dt.toFixed(1)} - ${centerMFlex.c.toFixed(1)}}{${centerMFlex.c.toFixed(1)}}\\right) = \\mathbf{${centerMFlex.epsT.toFixed(4)}} \\ge 0.005 \\quad \\longrightarrow \\quad \\text{인장지배단면, } \\mathbf{\\phi = ${centerMFlex.phi.toFixed(2)}}$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$M_n = \\left[A_s f_y \\left(d - \\frac{a}{2}\\right) + A_s' f_s' \\left(\\frac{a}{2} - d'\\right)\\right] \\times 10^{-6} = \\mathbf{${centerMFlex.Mn.toFixed(1)}\\text{ kN}\\cdot\\text{m}}, \\quad \\phi M_n = ${centerMFlex.phi.toFixed(2)} \\times ${centerMFlex.Mn.toFixed(1)} = \\mathbf{${centerMFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}}$$
-                                </div>
-                                <div class="formula-row formula-eval">
-                                    $$\\text{DCR}_{flex,M} = \\frac{M_u^+}{\\phi M_n} = \\frac{${centerMFlex.MuDemand.toFixed(1)}}{${centerMFlex.phiMn.toFixed(1)}} = \\mathbf{${centerMFlex.dcr.toFixed(3)}} \\le 1.000 \\quad \\longrightarrow \\quad [\\mathbf{${centerMFlex.isSafe ? 'O.K' : 'N.G'}}]${centerMFlex.verdict}$$
-                                </div>
-                            </div>
-
-                            <!-- 3.4 단부-J (End-J) 부모멘트 (Mu-) 검토 -->
-                            ${arrangeType === 'THREE_STATIONS' ? `
-                            <div class="katex-formula-step" style="margin-top:12px;">
-                                <div class="step-title-row">
-                                    <span class="step-title">3.4 단부-J (End-J) 부모멘트 ($M_u^-$) 4단계 강도 검토 [독립 3단면 비대칭 배근, 상부 인장]</span>
-                                    <span class="step-kds-ref">KDS 14 20 20 (4.1)</span>
-                                </div>
-                                <div class="formula-row">
-                                    $$\\text{인장철근: } A_s = ${endJTop.totalArea.toFixed(1)}\\text{ mm}^2 \\quad (\\text{상부}), \\quad \\text{압축철근: } A_s' = ${endJBot.totalArea.toFixed(1)}\\text{ mm}^2 \\quad (\\text{하부})$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$a = \\frac{A_s f_y - A_s' f_s'}{\\alpha_1 f_{ck} b_w} = \\mathbf{${endJFlex.a.toFixed(1)}\\text{ mm}}, \\quad c = \\frac{a}{\\beta_1} = \\mathbf{${endJFlex.c.toFixed(1)}\\text{ mm}}, \\quad \\epsilon_t = \\mathbf{${endJFlex.epsT.toFixed(4)}} \\ge 0.005 \\quad (\\phi = ${endJFlex.phi.toFixed(2)})$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$M_n = \\mathbf{${endJFlex.Mn.toFixed(1)}\\text{ kN}\\cdot\\text{m}}, \\quad \\phi M_n = \\mathbf{${endJFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}}$$
-                                </div>
-                                <div class="formula-row formula-eval">
-                                    $$\\text{DCR}_{flex,J} = \\frac{M_u^-}{\\phi M_n} = \\frac{${endJFlex.MuDemand.toFixed(1)}}{${endJFlex.phiMn.toFixed(1)}} = \\mathbf{${endJFlex.dcr.toFixed(3)}} \\le 1.000 \\quad \\longrightarrow \\quad [\\mathbf{${endJFlex.isSafe ? 'O.K' : 'N.G'}}]${endJFlex.verdict}$$
-                                </div>
+                            <!-- 4.2 단부-I (End-I) 부모멘트 (Mu-) 검토 -->
+                            ${endIFlex.MuDemand <= 0 ? `
+                            <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:10px 14px;border-radius:4px;margin-top:10px;font-size:11.5px;color:#475569;">
+                                <strong>4.2 단부-I 휨모멘트 검토:</strong> 작용 부모멘트 없음 ($M_u^- = 0.0\\text{ kN}\\cdot\\text{m}$) — 강도 검토 생략
                             </div>
                             ` : `
-                            <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:12px;border-radius:4px;margin-top:10px;">
-                                <div class="step-title-row" style="font-weight:600;color:#1e3a8a;margin-bottom:4px;">
-                                    <span class="step-title">3.4 단부-J (End-J) 부모멘트 ($M_u^-$) 강도 검토</span>
+                            <div class="katex-formula-step" style="margin-top:12px;">
+                                <div class="step-title-row">
+                                    <span class="step-title">4.2 단부-I (End-I) 부모멘트 ($M_u^-$) 4단계 강도 검토 [상부 인장 배근, 복부폭 $b_w$ 직사각형 보]</span>
                                     <span class="step-kds-ref">KDS 14 20 20 (4.1)</span>
                                 </div>
-                                <div>
-                                    <strong>단부-J (End-J) 부모멘트 검토:</strong> 단부-I과 대칭 동일 단면 ($M_u^- = ${endJFlex.MuDemand.toFixed(1)}\\text{ kN}\\cdot\\text{m} \\le \\phi M_n = ${endJFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}$, DCR = ${endJFlex.dcr.toFixed(3)}) <span class="${endJFlex.isSafe ? 'verdict-ok' : 'verdict-ng'}">${endJFlex.verdict}</span>
+                                <div class="formula-row">
+                                    $$\\begin{aligned}
+                                    A_s &= ${endITop.totalArea.toFixed(1)}\\text{ mm}^2\\text{ (상부)}, \\quad A_s' = ${endIBot.totalArea.toFixed(1)}\\text{ mm}^2\\text{ (하부)}, \\quad \\beta_1 = ${beta1.toFixed(3)} \\\\
+                                    a &= \\frac{A_s f_y - A_s' f_s'}{\\alpha_1 f_{ck} b_w} = \\frac{${endITop.totalArea.toFixed(1)} \\times ${fy.toFixed(0)} - ${endIBot.totalArea.toFixed(1)} \\times ${fy.toFixed(0)}}{0.85 \\times ${fck.toFixed(1)} \\times ${b}} = \\mathbf{${endIFlex.a.toFixed(1)}\\text{ mm}} \\\\
+                                    c &= \\frac{a}{\\beta_1} = \\frac{${endIFlex.a.toFixed(1)}}{${beta1.toFixed(3)}} = \\mathbf{${endIFlex.c.toFixed(1)}\\text{ mm}} \\\\
+                                    \\epsilon_t &= \\epsilon_{cu} \\left(\\frac{d_t - c}{c}\\right) = ${ecu.toFixed(4)} \\times \\left(\\frac{${endIFlex.dt.toFixed(1)} - ${endIFlex.c.toFixed(1)}}{${endIFlex.c.toFixed(1)}}\\right) = \\mathbf{${endIFlex.epsT.toFixed(4)}} \\ge 0.005 \\quad (\\phi = ${endIFlex.phi.toFixed(2)}) \\\\
+                                    M_n &= \\left[A_s f_y \\left(d - \\frac{a}{2}\\right) + A_s' f_s' \\left(\\frac{a}{2} - d'\\right)\\right] \\times 10^{-6} = \\mathbf{${endIFlex.Mn.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\\\
+                                    \\phi M_n &= ${endIFlex.phi.toFixed(2)} \\times ${endIFlex.Mn.toFixed(1)} = \\mathbf{${endIFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\\\
+                                    \\text{DCR}_{flex,I} &= \\frac{M_u^-}{\\phi M_n} = \\frac{${endIFlex.MuDemand.toFixed(1)}}{${endIFlex.phiMn.toFixed(1)}} = \\mathbf{${endIFlex.dcr.toFixed(3)}} \\le 1.000 \\quad \\rightarrow \\quad ${endIFlex.isSafe ? '\\text{O.K}' : '\\text{N.G}'}
+                                    \\end{aligned}$$
                                 </div>
+                            </div>
+                            `}
+
+                            <!-- 4.3 중앙부 (Center-M) 정모멘트 (Mu+) 검토 -->
+                            ${centerMFlex.MuDemand <= 0 ? `
+                            <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:10px 14px;border-radius:4px;margin-top:10px;font-size:11.5px;color:#475569;">
+                                <strong>4.3 중앙부-M 휨모멘트 검토:</strong> 작용 정모멘트 없음 ($M_u^+ = 0.0\\text{ kN}\\cdot\\text{m}$) — 강도 검토 생략
+                            </div>
+                            ` : `
+                            <div class="katex-formula-step" style="margin-top:12px;">
+                                <div class="step-title-row">
+                                    <span class="step-title">4.3 중앙부 (Center-M) 정모멘트 ($M_u^+$) 4단계 강도 검토 [하부 인장 배근, ${isTBeam ? `T형 유효폭 $b_e = ${bf}$ mm 압축` : `복부폭 $b = ${b}$ mm 직사각형 보`}]</span>
+                                    <span class="step-kds-ref">KDS 14 20 20 (4.1)</span>
+                                </div>
+                                <div class="formula-row">
+                                    $$\\begin{aligned}
+                                    A_s &= ${centerBot.totalArea.toFixed(1)}\\text{ mm}^2\\text{ (하부)}, \\quad A_s' = ${centerTop.totalArea.toFixed(1)}\\text{ mm}^2\\text{ (상부)} \\\\
+                                    ${isTBeam ? `a &= \\mathbf{${centerMFlex.a.toFixed(1)}\\text{ mm}} \\le h_f (${hf}\\text{ mm}) \\quad \\longrightarrow \\quad \\text{유효폭 } b_e (${bf}\\text{ mm}) \\text{ 직사각형 보 거동} \\\\` : ''}
+                                    a &= \\frac{A_s f_y - A_s' f_s'}{\\alpha_1 f_{ck} b_e} = \\frac{${centerBot.totalArea.toFixed(1)} \\times ${fy.toFixed(0)} - ${centerTop.totalArea.toFixed(1)} \\times ${fy.toFixed(0)}}{0.85 \\times ${fck.toFixed(1)} \\times ${centerMFlex.bComp}} = \\mathbf{${centerMFlex.a.toFixed(1)}\\text{ mm}} \\\\
+                                    c &= \\frac{a}{\\beta_1} = \\frac{${centerMFlex.a.toFixed(1)}}{${beta1.toFixed(3)}} = \\mathbf{${centerMFlex.c.toFixed(1)}\\text{ mm}} \\\\
+                                    \\epsilon_t &= \\epsilon_{cu} \\left(\\frac{d_t - c}{c}\\right) = ${ecu.toFixed(4)} \\times \\left(\\frac{${centerMFlex.dt.toFixed(1)} - ${centerMFlex.c.toFixed(1)}}{${centerMFlex.c.toFixed(1)}}\\right) = \\mathbf{${centerMFlex.epsT.toFixed(4)}} \\ge 0.005 \\quad (\\phi = ${centerMFlex.phi.toFixed(2)}) \\\\
+                                    M_n &= \\left[A_s f_y \\left(d - \\frac{a}{2}\\right) + A_s' f_s' \\left(\\frac{a}{2} - d'\\right)\\right] \\times 10^{-6} = \\mathbf{${centerMFlex.Mn.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\\\
+                                    \\phi M_n &= ${centerMFlex.phi.toFixed(2)} \\times ${centerMFlex.Mn.toFixed(1)} = \\mathbf{${centerMFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\\\
+                                    \\text{DCR}_{flex,M} &= \\frac{M_u^+}{\\phi M_n} = \\frac{${centerMFlex.MuDemand.toFixed(1)}}{${centerMFlex.phiMn.toFixed(1)}} = \\mathbf{${centerMFlex.dcr.toFixed(3)}} \\le 1.000 \\quad \\rightarrow \\quad ${centerMFlex.isSafe ? '\\text{O.K}' : '\\text{N.G}'}
+                                    \\end{aligned}$$
+                                </div>
+                            </div>
+                            `}
+
+                            <!-- 4.4 단부-J (End-J) 부모멘트 (Mu-) 검토 -->
+                            ${arrangeType === 'THREE_STATIONS' ? (
+                                endJFlex.MuDemand <= 0 ? `
+                                <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:10px 14px;border-radius:4px;margin-top:10px;font-size:11.5px;color:#475569;">
+                                    <strong>4.4 단부-J 휨모멘트 검토:</strong> 작용 부모멘트 없음 ($M_u^- = 0.0\\text{ kN}\\cdot\\text{m}$) — 강도 검토 생략
+                                </div>
+                                ` : `
+                                <div class="katex-formula-step" style="margin-top:12px;">
+                                    <div class="step-title-row">
+                                        <span class="step-title">4.4 단부-J (End-J) 부모멘트 ($M_u^-$) 4단계 강도 검토 [독립 3단면 비대칭 배근, 상부 인장]</span>
+                                        <span class="step-kds-ref">KDS 14 20 20 (4.1)</span>
+                                    </div>
+                                    <div class="formula-row">
+                                        $$\\begin{aligned}
+                                        A_s &= ${endJTop.totalArea.toFixed(1)}\\text{ mm}^2, \\quad A_s' = ${endJBot.totalArea.toFixed(1)}\\text{ mm}^2 \\\\
+                                        a &= \\mathbf{${endJFlex.a.toFixed(1)}\\text{ mm}}, \\quad c = \\mathbf{${endJFlex.c.toFixed(1)}\\text{ mm}}, \\quad \\epsilon_t = \\mathbf{${endJFlex.epsT.toFixed(4)}} \\ge 0.005 \\quad (\\phi = ${endJFlex.phi.toFixed(2)}) \\\\
+                                        M_n &= \\mathbf{${endJFlex.Mn.toFixed(1)}\\text{ kN}\\cdot\\text{m}}, \\quad \\phi M_n = \\mathbf{${endJFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\\\
+                                        \\text{DCR}_{flex,J} &= \\frac{M_u^-}{\\phi M_n} = \\frac{${endJFlex.MuDemand.toFixed(1)}}{${endJFlex.phiMn.toFixed(1)}} = \\mathbf{${endJFlex.dcr.toFixed(3)}} \\le 1.000 \\quad \\rightarrow \\quad ${endJFlex.isSafe ? '\\text{O.K}' : '\\text{N.G}'}
+                                        \\end{aligned}$$
+                                    </div>
+                                </div>
+                                `
+                            ) : `
+                            <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:10px 14px;border-radius:4px;margin-top:10px;font-size:11.5px;">
+                                <strong>4.4 단부-J (End-J) 부모멘트 검토:</strong> 단부-I과 대칭 동일 단면 ($M_u^- = ${endJFlex.MuDemand.toFixed(1)}\\text{ kN}\\cdot\\text{m} \\le \\phi M_n = ${endJFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m}$, DCR = ${endJFlex.dcr.toFixed(3)}) <span class="${endJFlex.isSafe ? 'verdict-ok' : 'verdict-ng'}">${endJFlex.verdict}</span>
                             </div>
                             `}
                             ` : `
@@ -731,15 +981,15 @@
                             `}
                         </section>
 
-                        <!-- 제 4장: 전단 및 비틀림 강도 검토 (Shear & Torsion Strength Check) -->
+                        <!-- 제 5장: 전단 및 비틀림 강도 검토 (Shear & Torsion Strength Check) -->
                         <section class="report-chapter" data-chapter-key="shear">
                             <h2 class="chapter-heading" data-title-detail="전단 및 비틀림 강도 검토 (Shear & Torsion Strength Check)" data-title-summary="전단 및 비틀림 강도 검토 요약 (Shear & Torsion Check)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
-                                <span class="chapter-num">제 4장</span>. <span class="chapter-title">전단 및 비틀림 강도 검토 (Shear & Torsion Strength Check)</span>
+                                <span class="chapter-num">제 5장</span>. <span class="chapter-title">전단 및 비틀림 강도 검토 (Shear & Torsion Strength Check)</span>
                             </h2>
 
-                            <!-- 4.1 3-Station 전단력 및 전단강도 총괄 요약표 -->
+                            <!-- 5.1 3-Station 전단력 및 전단강도 총괄 요약표 -->
                             <div style="font-weight:700;color:#1e3a8a;margin:10px 0 6px;font-size:12.5px;">
-                                4.1 3-Station 전단력 및 전단강도 총괄 요약표
+                                5.1 3-Station 전단력 및 전단강도 총괄 요약표
                             </div>
                             <table class="chk-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;text-align:center;margin-bottom:12px;">
                                 <colgroup>
@@ -789,127 +1039,169 @@
                             </table>
 
                             ${mode === 'detail' ? `
-                            <!-- 4.2 최대 계수전단력 지배 단부 전단강도 3단계 KaTeX 전개 -->
+                            <!-- 5.2 최대 계수전단력 지배 단부 전단강도 KaTeX 전개 -->
                             <div class="katex-formula-step">
                                 <div class="step-title-row">
-                                    <span class="step-title">4.2 최대 계수전단력 지배 단부 [${governingShear.stationTag}] 전단강도 산정 (KDS 14 20 22)</span>
+                                    <span class="step-title">5.2 최대 계수전단력 지배 단부 [${governingShear.stationTag}] 전단강도 산정 (KDS 14 20 22)</span>
                                     <span class="step-kds-ref">KDS 14 20 22 (4.1)</span>
                                 </div>
                                 <div class="formula-row">
-                                    $$V_c = \\frac{1}{6} \\lambda \\sqrt{f_{ck}} b_w d = \\frac{1}{6} \\times 1.0 \\times \\sqrt{${fck.toFixed(1)}} \\times ${b} \\times ${endIFlex.d.toFixed(1)} \\times 10^{-3} = \\mathbf{${governingShear.Vc.toFixed(1)}\\text{ kN}}$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$V_s = \\frac{A_v f_{yt} d}{s} = \\frac{${AvProvEnd.toFixed(1)} \\times ${fyt.toFixed(0)} \\times ${endIFlex.d.toFixed(1)}}{${endIS}} \\times 10^{-3} = \\mathbf{${governingShear.Vs.toFixed(1)}\\text{ kN}} \\le V_{s,\\max} (${governingShear.VsMax.toFixed(1)}\\text{ kN}) \\quad [\\mathbf{O.K}]$$
-                                </div>
-                                <div class="formula-row formula-eval">
-                                    $$\\phi V_n = \\phi (V_c + V_s) = 0.75 \\times (${governingShear.Vc.toFixed(1)} + ${governingShear.Vs.toFixed(1)}) = \\mathbf{${governingShear.phiVn.toFixed(1)}\\text{ kN}} \\quad \\longrightarrow \\quad \\text{DCR}_{shear} = \\frac{${governingShear.VuDemand.toFixed(1)}}{${governingShear.phiVn.toFixed(1)}} = \\mathbf{${governingShear.dcr.toFixed(3)}} \\le 1.000 \\quad [\\mathbf{${governingShear.isSafe ? 'O.K' : 'N.G'}}]${governingShear.verdict}$$
+                                    $$\\begin{aligned}
+                                    V_c &= \\frac{1}{6} \\lambda \\sqrt{f_{ck}} b_w d = \\frac{1}{6} \\times 1.0 \\times \\sqrt{${fck.toFixed(1)}} \\times ${b} \\times ${endIFlex.d.toFixed(1)} \\times 10^{-3} = \\mathbf{${governingShear.Vc.toFixed(1)}\\text{ kN}} \\\\
+                                    V_s &= \\frac{A_v f_{yt} d}{s} = \\frac{${AvProvEnd.toFixed(1)} \\times ${fyt.toFixed(0)} \\times ${endIFlex.d.toFixed(1)}}{${endIS}} \\times 10^{-3} = \\mathbf{${governingShear.Vs.toFixed(1)}\\text{ kN}} \\le V_{s,\\max} (${governingShear.VsMax.toFixed(1)}\\text{ kN}) \\\\
+                                    \\phi V_n &= \\phi (V_c + V_s) = 0.75 \\times (${governingShear.Vc.toFixed(1)} + ${governingShear.Vs.toFixed(1)}) = \\mathbf{${governingShear.phiVn.toFixed(1)}\\text{ kN}} \\\\
+                                    \\text{DCR}_{shear} &= \\frac{${governingShear.VuDemand.toFixed(1)}}{${governingShear.phiVn.toFixed(1)}} = \\mathbf{${governingShear.dcr.toFixed(3)}} \\le 1.000 \\quad \\rightarrow \\quad ${governingShear.isSafe ? '\\text{O.K}' : '\\text{N.G}'}
+                                    \\end{aligned}$$
                                 </div>
                             </div>
 
-                            <!-- 4.3 비틀림 임계 검토 및 상호작용 -->
+                            <!-- 5.3 비틀림 임계 검토 및 상호작용 (0하중 동적 생략 지원) -->
+                            ${isZeroTorsion ? `
+                            <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:10px 14px;border-radius:4px;margin-top:10px;font-size:11.5px;color:#475569;">
+                                <strong>5.3 비틀림 모멘트 검토:</strong> 설계 비틀림 모멘트 없음 ($T_u = 0.0\\text{ kN}\\cdot\\text{m}$) — 비틀림 설계 생략
+                            </div>
+                            ` : `
                             <div class="katex-formula-step" style="margin-top:12px;">
                                 <div class="step-title-row">
-                                    <span class="step-title">4.3 비틀림모멘트 한계 검토 및 전단-비틀림 상호작용 (Torsion Check)</span>
+                                    <span class="step-title">5.3 비틀림모멘트 한계 검토 및 전단-비틀림 상호작용 (Torsion Check)</span>
                                     <span class="step-kds-ref">KDS 14 20 22 (4.3)</span>
                                 </div>
                                 <div class="formula-row">
-                                    $$T_{th} = 0.0625 \\lambda \\sqrt{f_{ck}} \\left(\\frac{A_{cp}^2}{p_{cp}}\\right), \\quad \\phi T_{th} = 0.75 \\times T_{th}$$
+                                    $$\\begin{aligned}
+                                    T_{th} &= 0.0625 \\lambda \\sqrt{f_{ck}} \\left(\\frac{A_{cp}^2}{p_{cp}}\\right) = 0.0625 \\times 1.0 \\times \\sqrt{${fck.toFixed(1)}} \\times \\left(\\frac{${Acp}^2}{${pcp}}\\right) \\times 10^{-6} = \\mathbf{${Tth.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\\\
+                                    \\phi T_{th} &= 0.75 \\times ${Tth.toFixed(1)} = \\mathbf{${phiTth.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\quad \\longrightarrow \\quad T_u = ${tu.toFixed(1)}\\text{ kN}\\cdot\\text{m} ${isTorsionRequired ? '>' : '\\le'} \\phi T_{th} \\quad (${isTorsionRequired ? '비틀림 설계 필요' : '비틀림 무시 가능'})
+                                    \\end{aligned}$$
                                 </div>
-                                <div class="formula-row formula-subst">
-                                    $$T_{th} = 0.0625 \\times 1.0 \\times \\sqrt{${fck.toFixed(1)}} \\times \\left(\\frac{${Acp}^2}{${pcp}}\\right) \\times 10^{-6} = \\mathbf{${Tth.toFixed(1)}\\text{ kN}\\cdot\\text{m}}$$
+                                ${!isTorsionRequired ? `
+                                <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:8px 12px;border-radius:4px;margin-top:8px;font-size:11px;color:#475569;">
+                                    $T_u (${tu.toFixed(1)}\\text{ kN}\\cdot\\text{m}) \\le \\phi T_{th} (${phiTth.toFixed(1)}\\text{ kN}\\cdot\\text{m})$이므로 비틀림모멘트의 영향을 무시할 수 있으며, 전단-비틀림 결합응력 및 추가 종방향 철근 상세 설계를 생략합니다.
                                 </div>
-                                <div class="formula-row formula-eval">
-                                    $$\\phi T_{th} = 0.75 \\times ${Tth.toFixed(1)} = \\mathbf{${phiTth.toFixed(1)}\\text{ kN}\\cdot\\text{m}} \\quad \\longrightarrow \\quad T_u = ${tu.toFixed(1)}\\text{ kN}\\cdot\\text{m} ${isTorsionRequired ? '>' : '\\le'} \\phi T_{th} \\quad (${isTorsionRequired ? '비틀림 설계 필요' : '비틀림 무시 가능'})$$
+                                ` : `
+                                <div class="formula-row" style="margin-top:6px;border-top:1px dashed #e2e8f0;padding-top:6px;">
+                                    $$\\begin{aligned}
+                                    \\tau_{comb} &= \\sqrt{\\left(\\frac{V_u}{b_w d}\\right)^2 + \\left(\\frac{T_u p_h}{1.7 A_{oh}^2}\\right)^2} = \\sqrt{\\left(\\frac{${governingShear.VuDemand.toFixed(1)} \\times 10^3}{${b} \\times ${endIFlex.d.toFixed(1)}}\\right)^2 + \\left(\\frac{${tu.toFixed(1)} \\times 10^6 \\times ${ph}}{1.7 \\times ${Aoh}^2}\\right)^2} = \\mathbf{${torsionCombinedStress}\\text{ MPa}} \\\\
+                                    \\tau_{allow} &= \\phi \\left(\\frac{V_c}{b_w d} + \\frac{2}{3} \\sqrt{f_{ck}}\\right) = \\mathbf{${torsionAllowStress}\\text{ MPa}} \\quad (\\text{DCR} = ${dcrTorsionStress.toFixed(3)}) \\quad \\rightarrow \\quad ${isTorsionStressOk ? '\\text{O.K}' : '\\text{N.G}'} \\\\
+                                    A_l &= \\frac{A_t}{s} p_h \\left(\\frac{f_{yt}}{f_y}\\right) = \\frac{${At.toFixed(1)}}{${endIS}} \\times ${ph} \\times \\left(\\frac{${fyt.toFixed(0)}}{${fy.toFixed(0)}}\\right) = \\mathbf{${AlReq.toFixed(1)}\\text{ mm}^2} \\le A_{l,prov} (${AlProv.toFixed(1)}\\text{ mm}^2) \\quad (\\text{DCR} = ${dcrAl.toFixed(3)}) \\quad \\rightarrow \\quad ${isAlOk ? '\\text{O.K}' : '\\text{N.G}'}
+                                    \\end{aligned}$$
                                 </div>
-                                <div class="formula-row formula-subst">
-                                    $$\\sqrt{\\left(\\frac{V_u}{b_w d}\\right)^2 + \\left(\\frac{T_u p_h}{1.7 A_{oh}^2}\\right)^2} = \\sqrt{\\left(\\frac{${governingShear.VuDemand.toFixed(1)} \\times 10^3}{${b} \\times ${endIFlex.d.toFixed(1)}}\\right)^2 + \\left(\\frac{${tu.toFixed(1)} \\times 10^6 \\times ${ph}}{1.7 \\times ${Aoh}^2}\\right)^2} = \\mathbf{${torsionCombinedStress}\\text{ MPa}}$$
-                                </div>
-                                <div class="formula-row formula-eval">
-                                    $$\\text{허용 한계: } \\phi \\left(\\frac{V_c}{b_w d} + \\frac{2}{3} \\sqrt{f_{ck}}\\right) = \\mathbf{${torsionAllowStress}\\text{ MPa}} \\quad \\longrightarrow \\quad [\\mathbf{단면 파괴 방지 O.K}]${isTorsionStressOk ? '  →  O.K' : '  →  N.G'}$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$A_l = \\frac{A_t}{s} p_h \\left(\\frac{f_{yt}}{f_y}\\right) = \\frac{${At.toFixed(1)}}{${endIS}} \\times ${ph} \\times \\left(\\frac{${fyt.toFixed(0)}}{${fy.toFixed(0)}}\\right) = \\mathbf{${AlReq.toFixed(1)}\\text{ mm}^2}$$
-                                </div>
-                                <div class="formula-row formula-eval">
-                                    $$A_l (${AlReq.toFixed(1)}\\text{ mm}^2) \\le A_{l,prov} (${AlProv.toFixed(1)}\\text{ mm}^2) \\quad \\longrightarrow \\quad [\\mathbf{종방향 비틀림철근 O.K}]${isAlOk ? '  →  O.K' : '  →  N.G'}$$
-                                </div>
+                                `}
                             </div>
+                            `}
                             ` : `
                             <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:12px;border-radius:4px;">
                                 <div style="margin-bottom:6px;"><strong>전단 강도 검토:</strong> $V_u = ${governingShear.VuDemand.toFixed(1)}\\text{ kN} \\le \\phi V_n = ${governingShear.phiVn.toFixed(1)}\\text{ kN}$ (DCR = ${governingShear.dcr.toFixed(3)}) <span class="${governingShear.isSafe ? 'verdict-ok' : 'verdict-ng'}">${governingShear.verdict}</span></div>
-                                <div><strong>비틀림 강도 검토:</strong> $T_u = ${tu.toFixed(1)}\\text{ kN}\\cdot\\text{m} \\le \\phi T_n = ${phiTn.toFixed(1)}\\text{ kN}\\cdot\\text{m}$ (DCR = ${dcrTorsion.toFixed(3)}) <span class="${dcrTorsion <= 1.0 ? 'verdict-ok' : 'verdict-ng'}">${torsionVerdict}</span></div>
+                                <div><strong>비틀림 강도 검토:</strong> ${isZeroTorsion ? '설계 비틀림 없음 ($T_u = 0$)' : `$T_u = ${tu.toFixed(1)}\\text{ kN}\\cdot\\text{m} \\le \\phi T_n = ${phiTn.toFixed(1)}\\text{ kN}\\cdot\\text{m}$ (DCR = ${dcrTorsion.toFixed(3)})`} <span class="${dcrTorsion <= 1.0 ? 'verdict-ok' : 'verdict-ng'}">${torsionVerdict}</span></div>
                             </div>
                             `}
                         </section>
 
-                        <!-- 제 5장: 사용성 한계상태 검토 (Serviceability Check - Deflection & Crack Width) -->
+                        <!-- 제 6장: 사용성 한계상태 검토 (Serviceability Check - Deflection & Crack Width) -->
                         <section class="report-chapter" data-chapter-key="serviceability">
                             <h2 class="chapter-heading" data-title-detail="사용성 한계상태 검토 (Serviceability Check - Deflection & Crack Width)" data-title-summary="사용성 한계상태 검토 요약 (Serviceability Check)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
-                                <span class="chapter-num">제 5장</span>. <span class="chapter-title">사용성 한계상태 검토 (Serviceability Check - Deflection & Crack Width)</span>
+                                <span class="chapter-num">제 6장</span>. <span class="chapter-title">사용성 한계상태 검토 (Serviceability Check - Deflection & Crack Width)</span>
                             </h2>
                             ${mode === 'detail' ? `
-                            <!-- 1. Branson 유효단면2차모멘트 Ie -->
+                            <!-- 6.1 Branson 유효단면2차모멘트 Ie 가중평균 산정 -->
                             <div class="katex-formula-step">
                                 <div class="step-title-row">
-                                    <span class="step-title">5.1 Branson 유효단면2차모멘트 ($I_e$) 산정</span>
+                                    <span class="step-title">6.1 Branson 유효단면2차모멘트 ($I_e$) 가중평균 산정 [${supportCondText}]</span>
                                     <span class="step-kds-ref">KDS 14 20 30 (4.2.1)</span>
                                 </div>
                                 <div class="formula-row">
-                                    $$M_{cr} = \\frac{f_r I_g}{y_t} = \\frac{${fr.toFixed(2)} \\times ${Ig.toLocaleString()}}{${yt}} \\times 10^{-6} = \\mathbf{${Mcr.toFixed(1)}\\text{ kN}\\cdot\\text{m}}$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$I_e = \\left(\\frac{M_{cr}}{M_a}\\right)^3 I_g + \\left[1 - \\left(\\frac{M_{cr}}{M_a}\\right)^3\\right] I_{cr}$$
-                                </div>
-                                <div class="formula-row formula-eval">
-                                    $$I_e = \\left(\\frac{${Mcr.toFixed(1)}}{${centerMa.toFixed(1)}}\\right)^3 \\times ${Ig.toExponential(2)} + \\left[1 - \\left(\\frac{${Mcr.toFixed(1)}}{${centerMa.toFixed(1)}}\\right)^3\\right] \\times ${Icr.toExponential(2)} = \\mathbf{${Ie.toExponential(2)}\\text{ mm}^4} \\le I_g$$
+                                    $$\\begin{aligned}
+                                    M_{cr} &= \\frac{f_r I_g}{y_t} = \\frac{${fr.toFixed(2)} \\times ${Ig.toLocaleString()}}{${yt}} \\times 10^{-6} = \\mathbf{${Mcr.toFixed(1)}\\text{ kN}\\cdot\\text{m}}, \\quad I_g = \\mathbf{${Ig.toExponential(2)}\\text{ mm}^4} \\\\
+                                    I_{e,m} &= \\left(\\frac{M_{cr}}{M_{a,m}}\\right)^3 I_g + \\left[1 - \\left(\\frac{M_{cr}}{M_{a,m}}\\right)^3\\right] I_{cr,m} = \\mathbf{${Number(IeM).toExponential(2)}\\text{ mm}^4} \\\\
+                                    I_{e,i} &= \\mathbf{${Number(IeI).toExponential(2)}\\text{ mm}^4}, \\quad I_{e,j} = \\mathbf{${Number(IeJ).toExponential(2)}\\text{ mm}^4} \\\\
+                                    I_{e,avg} &= ${IeFormulaText} = \\mathbf{${Number(IeAvg).toExponential(2)}\\text{ mm}^4} \\le I_g \\\\
+                                    \\lambda_\\Delta &= \\frac{\\xi}{1 + 50\\rho'} = \\frac{2.0}{1 + 50 \\times ${rhoPrime.toFixed(4)}} = \\mathbf{${lambdaDelta.toFixed(2)}}
+                                    \\end{aligned}$$
                                 </div>
                             </div>
 
-                            <!-- 2. 처짐 검토 -->
+                            <!-- 6.2 단기 및 장기 처짐량 검토 -->
                             <div class="katex-formula-step">
                                 <div class="step-title-row">
-                                    <span class="step-title">5.2 단기 및 장기 처짐량 (Deflection Check)</span>
+                                    <span class="step-title">6.2 단기 및 장기 처짐량 검토 (Deflection Check)</span>
                                     <span class="step-kds-ref">KDS 14 20 30 (4.2.2)</span>
                                 </div>
                                 <div class="formula-row">
-                                    $$\\lambda_\\Delta = \\frac{\\xi}{1 + 50\\rho'}, \\quad \\Delta_{long} = \\lambda_\\Delta \\times \\Delta_{sus}, \\quad \\Delta_{total} = \\Delta_i + \\Delta_{long}$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$\\lambda_\\Delta = \\frac{2.0}{1 + 50 \\times ${rhoPrime.toFixed(4)}} = \\mathbf{${lambdaDelta.toFixed(2)}}, \\quad \\Delta_{long} = ${lambdaDelta.toFixed(2)} \\times ${deltaSus.toFixed(1)} = \\mathbf{${deltaLong.toFixed(1)}\\text{ mm}}$$
-                                </div>
-                                <div class="formula-row formula-eval">
-                                    $$\\Delta_{total} = ${deltaImmediate.toFixed(1)} + ${deltaLong.toFixed(1)} = \\mathbf{${deltaTotal.toFixed(1)}\\text{ mm}} \\le \\Delta_{allow} = \\frac{L}{240} = \\frac{${L}}{240} = \\mathbf{${deltaAllow.toFixed(1)}\\text{ mm}} \\quad (\\text{DCR} = ${dcrDefl.toFixed(3)}) \\quad \\longrightarrow \\quad [\\mathbf{${dcrDefl <= 1.0 ? 'O.K' : 'N.G'}}]${deflVerdict}$$
+                                    $$\\begin{aligned}
+                                    \\Delta_{long} &= \\lambda_\\Delta \\times \\Delta_{sus} = ${lambdaDelta.toFixed(2)} \\times ${deltaSus.toFixed(1)} = \\mathbf{${deltaLong.toFixed(1)}\\text{ mm}} \\\\
+                                    \\Delta_{total} &= \\Delta_{immediate} + \\Delta_{long} = ${deltaImmediate.toFixed(1)} + ${deltaLong.toFixed(1)} = \\mathbf{${deltaTotal.toFixed(1)}\\text{ mm}} \\\\
+                                    \\Delta_{allow} &= \\frac{L}{240} = \\frac{${L}}{240} = \\mathbf{${deltaAllow.toFixed(1)}\\text{ mm}} \\\\
+                                    \\text{DCR}_{defl} &= \\frac{\\Delta_{total}}{\\Delta_{allow}} = \\frac{${deltaTotal.toFixed(1)}}{${deltaAllow.toFixed(1)}} = \\mathbf{${dcrDefl.toFixed(3)}} \\le 1.000 \\quad \\rightarrow \\quad ${dcrDefl <= 1.0 ? '\\text{O.K}' : '\\text{N.G}'}
+                                    \\end{aligned}$$
                                 </div>
                             </div>
 
-                            <!-- 3. 직접 균열폭 검토 -->
+                            <!-- 6.3 KDS 14 20 30 제4.2.3절 균열방지 철근간격 제한 (s <= s_max) 3-Station 개별 전개 -->
                             <div class="katex-formula-step">
                                 <div class="step-title-row">
-                                    <span class="step-title">5.3 직접 균열폭 (Direct Crack Width Check)</span>
+                                    <span class="step-title">6.3 균열방지 휨철근 간격 제한 검토 ($s \\le s_{\\max}$, KDS 14 20 30 식 4.2-4)</span>
+                                    <span class="step-kds-ref">KDS 14 20 30 (4.2.3)</span>
+                                </div>
+                                <div class="formula-row">
+                                    $$kd = \\frac{-B_{kd} + \\sqrt{B_{kd}^2 - 4 A_{kd} C_{kd}}}{2 A_{kd}}, \\quad jd = d - \\frac{kd}{3}, \\quad f_s = \\frac{M_a \\times 10^6}{A_s \\cdot jd} \\le 0.6 f_y$$
+                                    $$s_{\\max} = 375 \\left(\\frac{k_{cr}}{f_s}\\right) - 2.5 c_c \\le 300 \\left(\\frac{k_{cr}}{f_s}\\right) \\quad (k_{cr} = 210)$$
+                                </div>
+                                <div class="formula-row" style="margin-top:6px;border-top:1px dashed #e2e8f0;padding-top:6px;">
+                                    <strong>6.3.1 단부-I [상부 인장]:</strong>
+                                    $$\\begin{aligned}
+                                    f_{s,i} &= \\frac{${Math.abs(endIMa).toFixed(1)} \\times 10^6}{${endITop.totalArea.toFixed(1)} \\times ${crackI.jd.toFixed(1)}} = \\mathbf{${crackI.fs.toFixed(1)}\\text{ MPa}} \\le 0.6 f_y (${(0.6 * fy).toFixed(1)}\\text{ MPa}) \\\\
+                                    s_{\\max,i} &= 375 \\left(\\frac{${crackI.kcr}}{${crackI.fs.toFixed(1)}}\\right) - 2.5 \\times ${crackI.cc} = \\mathbf{${crackI.sMax.toFixed(1)}\\text{ mm}} \\\\
+                                    s_{actual,i} &= \\mathbf{${crackI.sActual.toFixed(1)}\\text{ mm}} \\le s_{\\max,i} \\quad (\\text{DCR} = ${crackI.dcr.toFixed(3)}) \\quad \\rightarrow \\quad ${crackI.isOk ? '\\text{O.K}' : '\\text{N.G}'}
+                                    \\end{aligned}$$
+                                </div>
+                                <div class="formula-row" style="margin-top:6px;border-top:1px dashed #e2e8f0;padding-top:6px;">
+                                    <strong>6.3.2 중앙부-M [하부 인장]:</strong>
+                                    $$\\begin{aligned}
+                                    f_{s,m} &= \\frac{${Math.abs(centerMa).toFixed(1)} \\times 10^6}{${centerBot.totalArea.toFixed(1)} \\times ${crackM.jd.toFixed(1)}} = \\mathbf{${crackM.fs.toFixed(1)}\\text{ MPa}} \\le 0.6 f_y (${(0.6 * fy).toFixed(1)}\\text{ MPa}) \\\\
+                                    s_{\\max,m} &= 375 \\left(\\frac{${crackM.kcr}}{${crackM.fs.toFixed(1)}}\\right) - 2.5 \\times ${crackM.cc} = \\mathbf{${crackM.sMax.toFixed(1)}\\text{ mm}} \\\\
+                                    s_{actual,m} &= \\mathbf{${crackM.sActual.toFixed(1)}\\text{ mm}} \\le s_{\\max,m} \\quad (\\text{DCR} = ${crackM.dcr.toFixed(3)}) \\quad \\rightarrow \\quad ${crackM.isOk ? '\\text{O.K}' : '\\text{N.G}'}
+                                    \\end{aligned}$$
+                                </div>
+                                ${arrangeType === 'THREE_STATIONS' ? `
+                                <div class="formula-row" style="margin-top:6px;border-top:1px dashed #e2e8f0;padding-top:6px;">
+                                    <strong>6.3.3 단부-J [상부 인장]:</strong>
+                                    $$\\begin{aligned}
+                                    f_{s,j} &= \\frac{${Math.abs(endJMa).toFixed(1)} \\times 10^6}{${endJTop.totalArea.toFixed(1)} \\times ${crackJ.jd.toFixed(1)}} = \\mathbf{${crackJ.fs.toFixed(1)}\\text{ MPa}} \\le 0.6 f_y (${(0.6 * fy).toFixed(1)}\\text{ MPa}) \\\\
+                                    s_{\\max,j} &= 375 \\left(\\frac{${crackJ.kcr}}{${crackJ.fs.toFixed(1)}}\\right) - 2.5 \\times ${crackJ.cc} = \\mathbf{${crackJ.sMax.toFixed(1)}\\text{ mm}} \\\\
+                                    s_{actual,j} &= \\mathbf{${crackJ.sActual.toFixed(1)}\\text{ mm}} \\le s_{\\max,j} \\quad (\\text{DCR} = ${crackJ.dcr.toFixed(3)}) \\quad \\rightarrow \\quad ${crackJ.isOk ? '\\text{O.K}' : '\\text{N.G}'}
+                                    \\end{aligned}$$
+                                </div>
+                                ` : `
+                                <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:8px 12px;border-radius:4px;margin-top:6px;font-size:11px;">
+                                    <strong>6.3.3 단부-J [상부 인장]:</strong> 단부-I 대칭 동일 간격 ($s_{actual,j} = ${crackJ.sActual.toFixed(1)}\\text{ mm} \\le s_{\\max,j} = ${crackJ.sMax.toFixed(1)}\\text{ mm}$, DCR = ${crackJ.dcr.toFixed(3)}) <span class="${crackJ.isOk ? 'verdict-ok' : 'verdict-ng'}">${crackJ.verdict}</span>
+                                </div>
+                                `}
+                            </div>
+
+                            <!-- 6.4 직접 균열폭 검토 -->
+                            <div class="katex-formula-step">
+                                <div class="step-title-row">
+                                    <span class="step-title">6.4 직접 균열폭 검토 (Direct Crack Width Check)</span>
                                     <span class="step-kds-ref">KDS 14 20 30 (4.1.2)</span>
                                 </div>
                                 <div class="formula-row">
-                                    $$w = 1.08 \\beta \\left(\\frac{f_s}{E_s}\\right) \\sqrt[3]{d_c s}$$
-                                </div>
-                                <div class="formula-row formula-subst">
-                                    $$w = 1.08 \\times 1.2 \\times \\left(\\frac{${fs}}{${Es.toLocaleString()}}\\right) \\times \\sqrt[3]{${dc} \\times ${rebarSpace}} = \\mathbf{${crackWidth.toFixed(2)}\\text{ mm}}$$
-                                </div>
-                                <div class="formula-row formula-eval">
-                                    $$w = ${crackWidth.toFixed(2)}\\text{ mm} \\le w_{lim} = \\mathbf{${crackAllow.toFixed(2)}\\text{ mm}} \\quad (\\text{DCR} = ${dcrCrack.toFixed(3)}) \\quad \\longrightarrow \\quad [\\mathbf{${dcrCrack <= 1.0 ? 'O.K' : 'N.G'}}]${crackVerdict}$$
+                                    $$\\begin{aligned}
+                                    w &= 1.08 \\beta \\left(\\frac{f_s}{E_s}\\right) \\sqrt[3]{d_c s} = 1.08 \\times 1.2 \\times \\left(\\frac{${fsDirect}}{${Es.toLocaleString()}}\\right) \\times \\sqrt[3]{${dc} \\times ${crackM.sActual}} = \\mathbf{${crackWidth.toFixed(2)}\\text{ mm}} \\\\
+                                    w &\\le w_{lim} = \\mathbf{${crackAllow.toFixed(2)}\\text{ mm}} \\quad (\\text{DCR} = ${dcrCrack.toFixed(3)}) \\quad \\rightarrow \\quad ${dcrCrack <= 1.0 ? '\\text{O.K}' : '\\text{N.G}'}
+                                    \\end{aligned}$$
                                 </div>
                             </div>
                             ` : `
                             <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:12px;border-radius:4px;">
                                 <div style="margin-bottom:6px;"><strong>처짐 검토:</strong> $\\Delta_{total} = ${deltaTotal.toFixed(1)}\\text{ mm} \\le \\Delta_{allow} = ${deltaAllow.toFixed(1)}\\text{ mm}$ (DCR = ${dcrDefl.toFixed(3)}) <span class="${dcrDefl <= 1.0 ? 'verdict-ok' : 'verdict-ng'}">${deflVerdict}</span></div>
-                                <div><strong>균열폭 검토:</strong> $w = ${crackWidth.toFixed(2)}\\text{ mm} \\le w_{lim} = ${crackAllow.toFixed(2)}\\text{ mm}$ (DCR = ${dcrCrack.toFixed(3)}) <span class="${dcrCrack <= 1.0 ? 'verdict-ok' : 'verdict-ng'}">${crackVerdict}</span></div>
+                                <div style="margin-bottom:6px;"><strong>균열 철근간격 검토:</strong> $s_{actual} \\le s_{\\max}$ (최대 DCR = ${Math.max(crackI.dcr, crackM.dcr, crackJ.dcr).toFixed(3)}) <span class="${crackI.isOk && crackM.isOk && crackJ.isOk ? 'verdict-ok' : 'verdict-ng'}">${crackI.isOk && crackM.isOk && crackJ.isOk ? '  →  O.K' : '  →  N.G'}</span></div>
+                                <div><strong>직접 균열폭 검토:</strong> $w = ${crackWidth.toFixed(2)}\\text{ mm} \\le w_{lim} = ${crackAllow.toFixed(2)}\\text{ mm}$ (DCR = ${dcrCrack.toFixed(3)}) <span class="${dcrCrack <= 1.0 ? 'verdict-ok' : 'verdict-ng'}">${crackVerdict}</span></div>
                             </div>
                             `}
                         </section>
 
-                        <!-- 제 6장: 종합 안전성 판정 (Executive Summary & Final Verdict) -->
+                        <!-- 제 7장: 종합 안전성 판정 (Executive Summary & Final Verdict) -->
                         <section class="report-chapter" data-chapter-key="verdict">
                             <h2 class="chapter-heading" data-title-detail="종합 안전성 판정 (Executive Summary & Final Verdict)" data-title-summary="종합 안전성 판정 (Executive Summary & Final Verdict)" style="font-size:14.5px;color:#1a3a5c;background:#eef3fc;padding:6px 12px;border-left:4px solid #1565c0;margin:16px 0 10px;font-weight:700;">
-                                <span class="chapter-num">제 6장</span>. <span class="chapter-title">종합 안전성 판정 (Executive Summary & Final Verdict)</span>
+                                <span class="chapter-num">제 7장</span>. <span class="chapter-title">종합 안전성 판정 (Executive Summary & Final Verdict)</span>
                             </h2>
                             <table class="chk-table" style="width:100%;table-layout:fixed;border-collapse:collapse;font-size:11px;margin-bottom:12px;">
                                 <colgroup>
@@ -924,8 +1216,8 @@
                                     <tr style="background:#e2e8f0;text-align:center;">
                                         <th style="padding:6px;">검토 항목</th>
                                         <th>적용 설계기준</th>
-                                        <th>소요 부재력 (Demand)</th>
-                                        <th>설계 내력 (Capacity)</th>
+                                        <th>소요 부재력 / 실제치</th>
+                                        <th>설계 내력 / 허용치</th>
                                         <th>내력비 (DCR)</th>
                                         <th>최종 판정</th>
                                     </tr>
@@ -956,6 +1248,22 @@
                                         <td style="text-align:center;font-weight:800;" class="${endJFlex.isSafe ? 'verdict-ok' : 'verdict-ng'}">${endJFlex.verdict}</td>
                                     </tr>
                                     <tr>
+                                        <td style="font-weight:600;padding:6px;">최소 철근량 (Min Rebar)</td>
+                                        <td style="color:#64748b;font-family:Consolas, monospace;">KDS 14 20 20 (4.2.2)</td>
+                                        <td style="text-align:right;font-family:Consolas, monospace;">1.2 Mcr (${phiMnMin.toFixed(1)} kN·m)</td>
+                                        <td style="text-align:right;font-family:Consolas, monospace;">\\phi Mn (${centerMFlex.phiMn.toFixed(1)} kN·m)</td>
+                                        <td style="text-align:center;font-weight:700;font-family:Consolas, monospace;">${centerMFlex.dcrMin.toFixed(3)}</td>
+                                        <td style="text-align:center;font-weight:800;" class="${centerMFlex.isMinOk ? 'verdict-ok' : 'verdict-ng'}">${centerMFlex.minVerdict}</td>
+                                    </tr>
+                                    <tr style="background:#f8fafc;">
+                                        <td style="font-weight:600;padding:6px;">단면 연성 (Ductility)</td>
+                                        <td style="color:#64748b;font-family:Consolas, monospace;">KDS 14 20 20 (4.1.2)</td>
+                                        <td style="text-align:right;font-family:Consolas, monospace;">\\epsilon_{t,\\min} (${epsTMin.toFixed(4)})</td>
+                                        <td style="text-align:right;font-family:Consolas, monospace;">\\epsilon_t (${centerMFlex.epsT.toFixed(4)})</td>
+                                        <td style="text-align:center;font-weight:700;font-family:Consolas, monospace;">${centerMFlex.dcrEps.toFixed(3)}</td>
+                                        <td style="text-align:center;font-weight:800;" class="${centerMFlex.isDuctilityOk ? 'verdict-ok' : 'verdict-ng'}">${centerMFlex.ductilityVerdict}</td>
+                                    </tr>
+                                    <tr>
                                         <td style="font-weight:600;padding:6px;">설계 전단력 ($V_u$)</td>
                                         <td style="color:#64748b;font-family:Consolas, monospace;">KDS 14 20 22 (4.1)</td>
                                         <td style="text-align:right;font-family:Consolas, monospace;">${governingShear.VuDemand.toFixed(1)} kN</td>
@@ -968,8 +1276,8 @@
                                         <td style="color:#64748b;font-family:Consolas, monospace;">KDS 14 20 22 (4.3)</td>
                                         <td style="text-align:right;font-family:Consolas, monospace;">${tu.toFixed(1)} kN·m</td>
                                         <td style="text-align:right;font-family:Consolas, monospace;">${phiTn.toFixed(1)} kN·m</td>
-                                        <td style="text-align:center;font-weight:700;font-family:Consolas, monospace;">${dcrTorsion.toFixed(3)}</td>
-                                        <td style="text-align:center;font-weight:800;" class="${dcrTorsion <= 1.0 ? 'verdict-ok' : 'verdict-ng'}">${torsionVerdict}</td>
+                                        <td style="text-align:center;font-weight:700;font-family:Consolas, monospace;">${isZeroTorsion ? '0.000' : dcrTorsion.toFixed(3)}</td>
+                                        <td style="text-align:center;font-weight:800;" class="${dcrTorsion <= 1.0 ? 'verdict-ok' : 'verdict-ng'}">${isZeroTorsion ? '  →  O.K' : torsionVerdict}</td>
                                     </tr>
                                     <tr>
                                         <td style="font-weight:600;padding:6px;">총 처짐량 (Deflection)</td>
@@ -979,8 +1287,16 @@
                                         <td style="text-align:center;font-weight:700;font-family:Consolas, monospace;">${dcrDefl.toFixed(3)}</td>
                                         <td style="text-align:center;font-weight:800;" class="${dcrDefl <= 1.0 ? 'verdict-ok' : 'verdict-ng'}">${deflVerdict}</td>
                                     </tr>
+                                    <tr style="background:#f8fafc;">
+                                        <td style="font-weight:600;padding:6px;">균열 철근간격 ($s \\le s_{\\max}$)</td>
+                                        <td style="color:#64748b;font-family:Consolas, monospace;">KDS 14 20 30 (4.2.3)</td>
+                                        <td style="text-align:right;font-family:Consolas, monospace;">${crackM.sActual.toFixed(1)} mm (중앙부)</td>
+                                        <td style="text-align:right;font-family:Consolas, monospace;">${crackM.sMax.toFixed(1)} mm</td>
+                                        <td style="text-align:center;font-weight:700;font-family:Consolas, monospace;">${crackM.dcr.toFixed(3)}</td>
+                                        <td style="text-align:center;font-weight:800;" class="${crackM.isOk ? 'verdict-ok' : 'verdict-ng'}">${crackM.verdict}</td>
+                                    </tr>
                                     <tr>
-                                        <td style="font-weight:600;padding:6px;">직접 균열폭 (Crack)</td>
+                                        <td style="font-weight:600;padding:6px;">직접 균열폭 (Crack Width)</td>
                                         <td style="color:#64748b;font-family:Consolas, monospace;">KDS 14 20 30 (4.1)</td>
                                         <td style="text-align:right;font-family:Consolas, monospace;">${crackWidth.toFixed(2)} mm</td>
                                         <td style="text-align:right;font-family:Consolas, monospace;">${crackAllow.toFixed(2)} mm</td>
