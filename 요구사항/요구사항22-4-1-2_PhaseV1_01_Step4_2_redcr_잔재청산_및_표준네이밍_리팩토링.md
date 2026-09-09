@@ -96,7 +96,7 @@ if (typeof window.renderRCBeamReport === 'function') {
 
 ## 5. 완료 검증 기준 (DoD)
 
-- [ ] `redcr_rc_beam.js` 및 `redcr_common_renderer.js` 파일이 `rc_beam_report.js`, `report_common_renderer.js`로 완전히 리네이밍될 것.
-- [ ] `index.html`, `report_engine.js`, `report.css` 내 레거시 명칭이 AltDP_3rd 표준 명칭으로 전면 교체될 것.
-- [ ] `tests/ui/test_phase22_4_rc_beam_report.py` 단위 테스트 7개가 100% 무결점 통과할 것.
-- [ ] 전체 회귀 테스트 `pytest` 349+ 통과를 유지할 것.
+- [x] `redcr_rc_beam.js` 및 `redcr_common_renderer.js` 파일이 `rc_beam_report.js`, `report_common_renderer.js`로 완전히 리네이밍될 것.
+- [x] `index.html`, `report_engine.js`, `report.css` 내 레거시 명칭이 AltDP_3rd 표준 명칭으로 전면 교체될 것.
+- [x] `tests/ui/test_phase22_4_rc_beam_report.py` 단위 테스트 7개가 100% 무결점 통과할 것.
+- [x] 전체 회귀 테스트 `pytest` 349+ 통과를 유지할 것 (현재 352/352 100% 통과).
