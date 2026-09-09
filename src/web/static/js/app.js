@@ -513,10 +513,16 @@ function renderSidebar(filterQuery = '') {
                 : '<span class="mod-tree-spacer"></span>';
             const countBadge = treeData && treeData.count > 0 ? `<span class="mod-mem-count">(${treeData.count})</span>` : '';
 
+            const isOnline = mod.status === 'Online' || mod.is_wip === false;
+            const statusBadge = isOnline 
+                ? '<span class="mod-status-badge online" style="font-size:9px;padding:1px 5px;border-radius:3px;background:rgba(16,185,129,0.15);color:#10b981;font-weight:700;margin-left:5px;letter-spacing:0.5px;">Online</span>'
+                : '';
+
             item.innerHTML = `
                 <div class="mod-item-left">
                     ${arrowHtml}
                     <span class="mod-name">${mod.name}</span>
+                    ${statusBadge}
                     ${countBadge}
                 </div>
                 <span class="pin-toggle ${isPinned ? 'active' : ''}" title="${isPinned ? '고정 해제' : '상단 고정'}">${isPinned ? '★' : '☆'}</span>
@@ -556,11 +562,17 @@ function isModuleWIP(moduleKey) {
     if (!moduleKey) return false;
     if (window.CatalogManager && typeof window.CatalogManager.getModule === 'function') {
         const m = window.CatalogManager.getModule(moduleKey);
-        if (m && m.engine_status === 'WIP') return true;
+        if (m) {
+            if (m.is_wip === false || m.status === 'Online') return false;
+            if (m.engine_status === 'WIP') return true;
+        }
     }
     if (window.allModules && Array.isArray(window.allModules)) {
         const m = window.allModules.find(item => item.key === moduleKey || item.id === moduleKey);
-        if (m && m.engine_status === 'WIP') return true;
+        if (m) {
+            if (m.is_wip === false || m.status === 'Online') return false;
+            if (m.engine_status === 'WIP') return true;
+        }
     }
     return false;
 }

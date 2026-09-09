@@ -47,12 +47,21 @@ def calculate(data: Dict[str, Any]) -> Dict[str, Any]:
     Mu_kNm = float(data.get("Mu", 250.0))
     Vu_kN = float(data.get("Vu", 120.0))
     
-    top_dia = int(data.get("top_dia", 22))
+    def _parse_dia(val, default):
+        if val is None:
+            return default
+        s = str(val).upper().replace("D", "").strip()
+        try:
+            return int(float(s))
+        except (ValueError, TypeError):
+            return default
+
+    top_dia = _parse_dia(data.get("top_dia"), 22)
     top_num = int(data.get("top_num", 4))
-    bot_dia = int(data.get("bot_dia", 22))
+    bot_dia = _parse_dia(data.get("bot_dia"), 22)
     bot_num = int(data.get("bot_num", 4))
     
-    stirrup_dia = int(data.get("stirrup_dia", 10))
+    stirrup_dia = _parse_dia(data.get("stirrup_dia"), 10)
     stirrup_spacing = float(data.get("stirrup_spacing", 200.0))
     stirrup_legs = int(data.get("stirrup_legs", 2))
     

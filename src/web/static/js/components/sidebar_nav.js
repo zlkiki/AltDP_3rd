@@ -501,11 +501,17 @@ class SidebarNav {
             : '<span class="mod-tree-spacer"></span>';
         const countBadge = treeData && treeData.count > 0 ? `<span class="mod-mem-count">(${treeData.count})</span>` : '';
 
+        const isOnline = mod.status === 'Online' || mod.is_wip === false;
+        const statusBadge = isOnline 
+            ? '<span class="mod-status-badge online" style="font-size:9px;padding:1px 5px;border-radius:3px;background:rgba(16,185,129,0.15);color:#10b981;font-weight:700;margin-left:5px;letter-spacing:0.5px;">Online</span>'
+            : '';
+
         item.innerHTML = `
             <div class="mod-item-left">
                 ${arrowHtml}
-                <span class="mod-icon">${mod.engine_status === 'VERIFIED' ? '🔹' : '⚙️'}</span>
+                <span class="mod-icon">${isOnline ? '🔹' : (mod.engine_status === 'VERIFIED' ? '🔹' : '⚙️')}</span>
                 <span class="mod-name" title="${mod.name} (${mod.standard || ''})">${mod.name}</span>
+                ${statusBadge}
                 ${countBadge}
             </div>
             <button class="fav-star-btn ${isPinned ? 'active' : ''}" title="${isPinned ? '즐겨찾기 해제' : '즐겨찾기 추가'}">

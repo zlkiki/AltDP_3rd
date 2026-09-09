@@ -155,6 +155,7 @@ class ModuleDispatcher {
         if (resolved) return false;
 
         const meta = this.getModuleMeta(moduleKey);
+        if (meta && (meta.is_wip === false || meta.status === 'Online')) return false;
         if (meta && meta.engine_status === 'WIP') return true;
         if (meta && meta.engine_status === 'VERIFIED') return false;
         return true;

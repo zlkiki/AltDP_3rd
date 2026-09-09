@@ -36,8 +36,14 @@
             tier: "Tier 1",
             standard: "KDS 14 20 10 / 22",
             engine_status: "VERIFIED",
+            is_wip: false,
+            status: "Online",
             geomType: "rc_rect",
-            aliases: ["rc/beam/base", "rc_beam", "beam_base"]
+            aliases: ["rc/beam/base", "rc_beam", "beam_base"],
+            icon: "icon-beam",
+            component: "form_rc_beam",
+            renderer: "vector_rc_beam",
+            report: "rc_beam_report"
         },
         {
             key: "rc/column/rc_column",
