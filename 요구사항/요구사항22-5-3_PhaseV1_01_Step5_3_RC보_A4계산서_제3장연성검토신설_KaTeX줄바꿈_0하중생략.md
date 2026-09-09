@@ -91,14 +91,19 @@
 
 ---
 
-### 2.7. 사용성 제 6장 수식 보강 (Branson $I_e$ 가중평균 & 균열 $s_{\max}$)
+### 2.7. 사용성 제 6장 수식 보강 (Branson $I_e$ 가중평균 & 3-Station 균열 $s_{\max}$)
 * **Branson $I_e$ 가중평균**:
   - 단순보/양단연속/1단연속/캔틸레버 지점조건 공식 및 대입 결과 KaTeX 출력.
   - 장기처짐 배수 $\lambda_\Delta = \frac{\xi}{1 + 50\rho'}$ 산출식 명시.
-* **KDS 14 20 30 제4.2.3절 균열방지 철근간격 제한 ($s \le s_{\max}$)**:
-  - 식 (4.2-4) KaTeX 수식 전개:
+* **KDS 14 20 30 제4.2.3절 균열방지 철근간격 제한 ($s \le s_{\max}$) 3-Station 개별 KaTeX 전개**:
+  - **직접 산출된 인장철근 실 응력 $f_s$ 대입**:
+    $$kd = \frac{-B_{kd} + \sqrt{B_{kd}^2 - 4 A_{kd} C_{kd}}}{2 A_{kd}}, \quad jd = d - \frac{kd}{3}, \quad f_s = \frac{M_s \times 10^6}{A_s \cdot jd}$$
+  - **식 (4.2-4) 3-Station 위치별 KaTeX 수식 전개**:
     $$s_{\max} = 375 \left(\frac{k_{cr}}{f_s}\right) - 2.5 c_c \le 300 \left(\frac{k_{cr}}{f_s}\right)$$
-  - 실제 배치 간격 $s$와 대조 및 $\text{DCR} = s / s_{\max}$ 표기.
+    - **단부-I (End-I)**: 부모멘트 작용 $\rightarrow$ 상부 인장철근($A_{s,\text{top}}$) 기준 $f_{s,I}$, $s_{\max,I}$ 산출 및 실제 간격 $s_{I,\text{top}}$ 대조 ($\text{DCR} = s_{I,\text{top}} / s_{\max,I}$)
+    - **중앙부-M (Center-M)**: 정모멘트 작용 $\rightarrow$ 하부 인장철근($A_{s,\text{bot}}$) 기준 $f_{s,M}$, $s_{\max,M}$ 산출 및 실제 간격 $s_{M,\text{bot}}$ 대조 ($\text{DCR} = s_{M,\text{bot}} / s_{\max,M}$)
+    - **단부-J (End-J)**: 부모멘트 작용 $\rightarrow$ 상부 인장철근($A_{s,\text{top}}$) 기준 $f_{s,J}$, $s_{\max,J}$ 산출 및 실제 간격 $s_{J,\text{top}}$ 대조 ($\text{DCR} = s_{J,\text{top}} / s_{\max,J}$)
+  - 배근 유형(단일/대칭/3단면)에 따라 해당되는 인장 단면별로 분리 전개 표출.
 
 ---
 
@@ -109,4 +114,5 @@
 - [ ] KaTeX 수식에 `aligned` 줄바꿈이 적용되어 우측 오버플로우가 0건일 것.
 - [ ] 장황한 한글 브래킷 태그가 전면 삭제되고 `  →  O.K` 판정 및 DCR이 전수 표기될 것.
 - [ ] $T_u = 0$, $M_u = 0$ 시 불필요한 장황 수식이 1줄 요약으로 동적 생략될 것.
-- [ ] 제 6장에 Branson $I_e$ 가중평균 및 균열 $s_{\max}$ 검토 블록이 KaTeX로 무결하게 출력될 것.
+- [ ] 제 6장에 Branson $I_e$ 가중평균 수식 블록이 KaTeX로 무결하게 출력될 것.
+- [ ] 제 6장 균열방지 철근간격 제한($s \le s_{\max}$) 검토 시, 직접 산출된 $f_s$를 적용하여 3-Station 각 단면별 인장철근(단부: 상부, 중앙부: 하부)의 $s_{\max}$ 및 DCR이 분리 출력될 것.

@@ -62,13 +62,15 @@
 
 ---
 
-### 2.4. 상단 Sticky 플로팅 바 & 32px 컴팩트 버튼 UI (`style.css` & `form_rc_beam.js`)
-1. **Sticky 플로팅 컨테이너**:
-   - `.beam-sticky-header` 래퍼에 `position: sticky; top: 0; z-index: 25; backdrop-filter: blur(8px); background: rgba(var(--bg-card-rgb), 0.95);` 적용.
-   - 폼 스크롤 시에도 3대 액션 버튼(`[💾 적용] [⚡ 검토] [✨ 자동설계]`)과 4대 서브탭(`단면/재료`, `철근배근`, `설계부재력`, `사용성/처짐`)이 상단에 시야를 가리지 않고 고정 유지.
-2. **32px 컴팩트 엔지니어링 버튼**:
-   - 높이 `32px`, 패딩 `5px 12px`, 폰트 `12px / font-weight: 600`.
-   - 모던하고 절제된 고품격 마이크로 인터랙션(호버/클릭 전환 효과) 적용.
+### 2.4. 상단 Sticky 플로팅 바 & 32px 컴팩트 버튼 UI (전 모듈 공통 표준 `docs/07`)
+1. **전 모듈 공통 Sticky 플로팅 컨테이너 (`style.css` & `form_rc_beam.js`)**:
+   - `docs/07 PART 1 제4.2절 및 PART 4 제20절`에 신규 표준으로 제정된 공통 규격 적용.
+   - `.form-sticky-header` (또는 `.beam-sticky-header`) 래퍼에 `position: sticky; top: 0; z-index: 25; backdrop-filter: blur(8px); background: rgba(var(--bg-card-rgb), 0.95);` 적용.
+   - RC 보뿐만 아니라 향후 54개 전 모듈의 입력 폼 스크롤 시에도 3대 액션 버튼(`[💾 적용] [⚡ 검토] [✨ 자동설계]`)과 상부 서브탭 바가 최상단에 상시 고정 유지.
+2. **32px 컴팩트 엔지니어링 버튼 표준**:
+   - 버튼 높이: `32px` (기존 약 42px에서 슬림화하여 상단 낭비 공간 제거).
+   - 패딩: `5px 12px`, 폰트: `12px / font-weight: 600`.
+   - 전 모듈 공통 클래스(`.btn-action-compact`, `.btn-apply-action`, `.btn-check-action`, `.btn-design-action`)로 통일하여 일관된 고품격 마이크로 인터랙션 보장.
 
 ---
 
@@ -77,5 +79,5 @@
 - [ ] `vector_rc_beam.js`에서 표피철근 0개 입력 시 캔버스에 비틀림 철근이 0개로 정확히 렌더링될 것.
 - [ ] 3-Station 4-Layer 총 12개 포인트 철근 순간격이 실시간으로 계산되고 최악 거버닝 뱃지와 상세 팝오버가 정상 작동할 것.
 - [ ] `rebar.arrange_type`에 따라 부재력 입력 테이블의 비활성화(disabled) 및 대칭 복제가 오동작 없이 실시간 반응할 것.
-- [ ] 서브탭 바 및 액션 버튼 바가 상단에 Sticky로 안정적으로 고정되고, 32px 컴팩트 버튼 디자인이 적용될 것.
+- [ ] 서브탭 바 및 액션 버튼 바가 상단에 Sticky로 안정적으로 고정되고, 32px 컴팩트 버튼 디자인이 `docs/07` 표준에 부합하게 적용될 것.
 - [ ] 브라우저 콘솔 에러 0건 및 기존 회귀 테스트 100% 통과를 유지할 것.

@@ -125,9 +125,13 @@
   - KDS 14 20 30 식 (4.2-4)에 따른 최대 간격 한계 산정 및 대조:
     $$s \le s_{\max} = 375 \left(\frac{k_{cr}}{f_s}\right) - 2.5 c_c \le 300 \left(\frac{k_{cr}}{f_s}\right)$$
     - 환경 조건: 건조 환경 ($k_{cr} = 280$), 기타 환경 ($k_{cr} = 210$) (입력 폼 선택 연동)
-    - 철근 응력: $f_s \approx \frac{2}{3} f_y$ (또는 탄성해석 응력)
-    - 실제 배근 순간격/중심간격 $s$ 대조 및 $\text{DCR} = s / s_{\max}$ 산정.
-  - 계산서 제 6장 사용성 검토에 독립 절로 KaTeX 전개 수식 추가.
+    - **철근 실 응력 $f_s$ 직접 산출**: 단순 약산($2/3 f_y$)을 배제하고, 사용하중 모멘트 $M_s$ 하에서의 탄성 균열단면 중립축 깊이 $kd$, $jd = d - kd/3$에 기반하여 **인장철근 실 응력 $f_s = \frac{M_s \times 10^6}{A_s \cdot jd}$를 직접 산출**하여 대입.
+    - **3-Station 각 단면별 인장철근 분리 검토**:
+      - 단부-I (End-I): 부모멘트 작용 $\rightarrow$ 상부 인장철근($A_{s,\text{top}}$), $d_{\text{top}}$, $c_{c,\text{top}}$ 기준 $f_{s,I}$ 및 $s_{\max,I}$ 산출, 실제 간격 $s_{I,\text{top}}$ 대조
+      - 중앙부-M (Center-M): 정모멘트 작용 $\rightarrow$ 하부 인장철근($A_{s,\text{bot}}$), $d_{\text{bot}}$, $c_{c,\text{bot}}$ 기준 $f_{s,M}$ 및 $s_{\max,M}$ 산출, 실제 간격 $s_{M,\text{bot}}$ 대조
+      - 단부-J (End-J): 부모멘트 작용 $\rightarrow$ 상부 인장철근($A_{s,\text{top}}$), $d_{\text{top}}$, $c_{c,\text{top}}$ 기준 $f_{s,J}$ 및 $s_{\max,J}$ 산출, 실제 간격 $s_{J,\text{top}}$ 대조
+    - 실제 배근 간격 $s$ 대조 및 $\text{DCR} = s / s_{\max}$ 산정.
+  - 계산서 제 6장 사용성 검토에 독립 절로 3-Station 개별 KaTeX 전개 수식 추가.
 
 ---
 
@@ -177,19 +181,21 @@
   - **배근 유형-3 (`THREE_STATIONS`)**:
     - End-I, Center-M, End-J 3개 행 모두 활성화하여 개별 입력 지원.
 
-#### (3) 탭(Tab) 및 액션 버튼(Button) 상단 플로팅 바(Sticky) 처리
+#### (3) 탭(Tab) 및 액션 버튼(Button) 상단 플로팅 바(Sticky) 처리 (전 모듈 공통 표준 `docs/07`)
 * **현황**: 폼 스크롤 시 상단 3개 액션 버튼(`적용`, `검토`, `설계`)과 4대 서브탭이 위로 스크롤되어 사라짐.
 * **개선**:
-  - `.beam-action-bar` 및 `.beam-subtab-bar`에 `position: sticky; top: 0; z-index: 25;` 스타일 적용.
-  - 스크롤 시에도 배경 불투명도 및 블러 효과(`backdrop-filter: blur(8px); background: rgba(..., 0.95)`)를 주어 내용과 겹침 없이 항상 조작 가능하도록 고정.
+  - `docs/07 PART 1 제4.2절 및 PART 4 제20절` 공통 표준 적용:
+  - `.form-sticky-header` 및 `.form-action-bar`, `.form-subtab-bar`에 `position: sticky; top: 0; z-index: 25;` 스타일 적용.
+  - RC 보뿐만 아니라 54개 전 모듈에서 스크롤 시에도 배경 불투명도 및 블러 효과(`backdrop-filter: blur(8px); background: rgba(..., 0.95)`)를 주어 상단에 항상 고정.
 
-#### (4) 액션 버튼 크기 컴팩트화 및 UI 다듬기
+#### (4) 액션 버튼 크기 컴팩트화 및 UI 다듬기 (전 모듈 공통 표준 `docs/07`)
 * **현황**: 액션 버튼의 패딩과 폰트가 과도하게 커서 상단 공간을 지나치게 많이 차지함.
 * **개선**:
-  - 버튼 높이: `32px` (기존 약 42px에서 슬림화)
-  - 패딩: `5px 12px` (기존 10px 18px)
-  - 폰트 크기: `12px` / `font-weight: 600`
-  - 세련된 마이크로 호버 효과 및 정밀 엔지니어링 도구다운 절제된 디자인 적용.
+  - 전 모듈 공통 슬림 버튼 규격 적용:
+    - 버튼 높이: `32px` (기존 약 42px에서 슬림화)
+    - 패딩: `5px 12px` (기존 10px 18px)
+    - 폰트 크기: `12px` / `font-weight: 600`
+    - 공통 클래스(`.btn-action-compact`, `.btn-apply-action`, `.btn-check-action`, `.btn-design-action`) 도입.
 
 ---
 
@@ -197,8 +203,9 @@
 
 | 구분 | 파일 경로 | 주요 수정 내용 |
 |:---|---|---|
-| **Engine** | `src/engine/rc/beam.py` | • Branson $I_e$ 배근유형/지점조건별 가중평균 산정 로직 확장<br>• KDS 14 20 30 균열방지 철근간격 제한($s_{\max}$) 검토 함수 신설<br>• 0하중 입력 시 플래그 처리 |
-| **Report** | `src/web/static/js/report/rc_beam_report.js` | • 제 3장 단면 연성/최소철근량 신설 및 하중조합 뒤로 이동<br>• 배근유형별 최소철근/순인장변형률 개별 수식 전개<br>• KaTeX 줄바꿈(`aligned`) 적용 및 오버플로우 전면 차단<br>• 부가설명 텍스트 삭제 및 간결 판정 표기<br>• 전 항목 DCR 표기 및 0하중 검토 생략 처리<br>• 균열방지 철근간격 제한($s_{\max}$) 계산서 블록 신설 |
+| **Documentation** | `docs/07_web_application_ui_ux_specification.md` | • 전 모듈 상단 Sticky 플로팅 바 및 32px 컴팩트 버튼 UI/UX 표준 규약 반영 |
+| **Engine** | `src/engine/rc/beam.py` | • Branson $I_e$ 배근유형/지점조건별 가중평균 산정 로직 확장<br>• KDS 14 20 30 탄성 균열해석 기반 인장철근 실 응력 $f_s$ 직접 산출 엔진 구현<br>• 3-Station(I, M, J) 각 단면별 인장철근 균열방지 간격 제한($s \le s_{\max}$) 개별 검토<br>• 0하중 입력 시 플래그 처리 |
+| **Report** | `src/web/static/js/report/rc_beam_report.js` | • 제 3장 단면 연성/최소철근량 신설 및 하중조합 뒤로 이동<br>• 배근유형별 최소철근/순인장변형률 개별 수식 전개<br>• KaTeX 줄바꿈(`aligned`) 적용 및 오버플로우 전면 차단<br>• 부가설명 텍스트 삭제 및 간결 판정 표기<br>• 전 항목 DCR 표기 및 0하중 검토 생략 처리<br>• 제 6장 직접 산출 $f_s$ 기반 3-Station 개별 균열방지 철근간격 제한($s_{\max}$) 계산서 블록 신설 |
 | **Canvas** | `src/web/static/js/visual/vector_rc_beam.js` | • 표피철근 0개 시 비틀림 철근 미표기 버그 수정 (`?? 0` 적용) |
 | **UI Form** | `src/web/static/js/components/form_rc_beam.js` | • 3-Station 4-Layer 전 철근 순간격 실시간 전수 검토 엔진<br>• 배근유형 연동 부재력 테이블 `disabled` 및 대칭 자동 복제<br>• 액션 바 및 서브탭 바 플로팅(Sticky) 컨테이너 구조화 |
 | **Styles** | `src/web/static/css/style.css` | • 플로팅 바 sticky 위치 및 z-index 정의<br>• 컴팩트 버튼 스타일(`btn-apply-action`, `btn-check-action`, `btn-design-action`) 정의<br>• 계산서 수식 오버플로우 방지 래퍼 스타일 보강 |
@@ -252,10 +259,10 @@
 - [ ] **[DoD 5: 부가설명 텍스트 삭제]** `[최소철근량만족O.K]`, `[연성파괴유도O.K]` 등 불필요한 한글 브래킷 문구가 전면 삭제되고 심플한 판정(`  →  O.K`)만 표기될 것.
 - [ ] **[DoD 6: DCR 전수 표기]** 최소철근비, 순인장변형률, 전단, 비틀림, 처짐, 균열 등 계산서 전 항목에 DCR 수치가 100% 누락 없이 명시될 것.
 - [ ] **[DoD 7: 0하중 항목 동적 생략]** $T_u = 0$일 때 비틀림 상세 검토가 생략되고, $M_u = 0$일 때 해당 휨 상세 검토가 생략될 것.
-- [ ] **[DoD 8: 균열방지 철근간격 제한]** KDS 14 20 30 제4.2.3절 $s \le s_{\max}$ 검토가 계산서 사용성 장에 신설되고 DCR이 산출될 것.
+- [ ] **[DoD 8: 균열방지 철근간격 제한]** KDS 14 20 30 제4.2.3절 $s \le s_{\max}$ 검토 시 탄성 균열해석에 의한 $f_s$를 직접 산출하고, 3-Station 각 단면별 인장철근(단부: 상부, 중앙부: 하부)의 $s_{\max}$ 및 DCR이 계산서에 분리 출력될 것.
 - [ ] **[DoD 9: 캔버스 표피철근 0개 버그 수정]** 입력 폼의 표피철근이 0개일 때 2D VDraw 단면도에 비틀림 철근이 0개로 정확히 렌더링될 것.
 - [ ] **[DoD 10: 전 철근 순간격 검토]** End-I, Center-M, End-J 및 상/하 1, 2단 총 12개 포인트의 철근 순간격이 실시간 전수 검토되어 폼에 요약 및 상태가 표시될 것.
 - [ ] **[DoD 11: 부재력 입력 disabled]** 배근 유형에 따라 비활성화 대상 행(대칭 시 End-J, 단일 시 End-I/J)이 정확히 `disabled` 처리되고 대칭값이 자동 복제될 것.
-- [ ] **[DoD 12: 플로팅 바 & 컴팩트 버튼]** 서브탭과 액션 버튼 바가 스크롤 시 상단에 Sticky 플로팅 고정되고, 버튼 높이 32px의 컴팩트 스타일이 적용될 것.
+- [ ] **[DoD 12: 플로팅 바 & 컴팩트 버튼]** `docs/07` 표준에 따라 서브탭과 액션 버튼 바가 스크롤 시 상단에 Sticky 플로팅 고정되고, 버튼 높이 32px의 전 모듈 공통 컴팩트 스타일이 적용될 것.
 - [ ] **[DoD 13: 회귀 테스트]** 신규 테스트 및 기존 회귀 테스트(360+개)가 에러 0건으로 100% 무결점 통과할 것.
 - [ ] **[DoD 14: 외부 기억 동기화]** `요구사항/PROJECT_PROGRESS.md`에 본 요구사항 22-5의 등록 및 단계별 실행 링크가 최신화될 것.
