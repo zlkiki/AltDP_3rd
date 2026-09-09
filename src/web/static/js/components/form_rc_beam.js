@@ -140,6 +140,7 @@ class RCBeamFormComponent {
                 },
                 torsion_side_bar: raw.rebar?.torsion_side_bar || 'D13',
                 torsion_side_count: Number(raw.rebar?.torsion_side_count || 4),
+                arrange_type: raw.rebar?.arrange_type || 'SYMMETRIC_ENDS', // 'ONE_SECTION', 'SYMMETRIC_ENDS', 'THREE_STATIONS'
                 // Rebar Dialog details
                 mainHook: raw.rebar?.mainHook || '90',
                 stirrupHook: raw.rebar?.stirrupHook || '135',
@@ -409,6 +410,22 @@ class RCBeamFormComponent {
     }
 
     /**
+     * Parse rebar string (e.g. "4-D25", "0") into { count, dia }
+     */
+    _parseRebarStr(str, isLayer2 = false) {
+        if (!str || str === '0') {
+            return { count: isLayer2 ? 0 : 2, dia: 'D25' };
+        }
+        const parts = String(str).trim().split('-');
+        let count = parseInt(parts[0]);
+        if (isNaN(count)) count = isLayer2 ? 0 : 2;
+        if (!isLayer2 && count < 2) count = 2;
+        if (isLayer2 && count < 0) count = 0;
+        const dia = parts.length > 1 ? parts[1].trim() : 'D25';
+        return { count, dia };
+    }
+
+    /**
      * Tab 2: Reinforcement Detailing (IDD_RCS_BEAM_REBAR_DLG)
      */
     _buildRebarTab() {
@@ -417,8 +434,50 @@ class RCBeamFormComponent {
         pane.id = 'beam-tab-rebar';
 
         const rb = this.data.rebar;
+        const DIA_OPTIONS = ['D10', 'D13', 'D16', 'D19', 'D22', 'D25', 'D29', 'D32', 'D35'];
+
+        // Helper to render composite rebar cell
+        const renderCompositeCell = (cellId, station, rowKey, isLayer2) => {
+            const rawVal = rb[station][rowKey];
+            const parsed = this._parseRebarStr(rawVal, isLayer2);
+            const isDimmed = isLayer2 && parsed.count === 0;
+            const minCount = isLayer2 ? 0 : 2;
+            const optHtml = DIA_OPTIONS.map(d => `<option value="${d}" ${parsed.dia === d ? 'selected' : ''}>${d}</option>`).join('');
+            return `
+                <div class="rebar-cell-composite" id="${cellId}" data-station="${station}" data-row="${rowKey}">
+                    <input type="number" id="${cellId}-cnt" class="form-input table-cell-input rebar-count-input" 
+                           min="${minCount}" max="30" step="1" value="${parsed.count}">
+                    <span class="rebar-sep">-</span>
+                    <select id="${cellId}-dia" class="form-input rebar-dia-select" ${isDimmed ? 'disabled' : ''} 
+                            style="${isDimmed ? 'opacity:0.45; pointer-events:none;' : ''}">
+                        ${optHtml}
+                    </select>
+                </div>
+            `;
+        };
+
+        const currentArrangeType = rb.arrange_type || 'SYMMETRIC_ENDS';
 
         pane.innerHTML = `
+            <!-- Arrange Type Radio Group (Requirement 22-4-1-3 Sec 2) -->
+            <div class="eng-form-section">
+                <div class="form-section-header">배근 유형 (Reinforcement Arrange Type)</div>
+                <div class="arrange-type-radio-group" style="display:flex; gap:16px; margin-bottom:12px; font-size:12px;">
+                    <label class="radio-label" style="display:flex; align-items:center; gap:4px; cursor:pointer;">
+                        <input type="radio" name="beam_arrange_type" value="ONE_SECTION" ${currentArrangeType === 'ONE_SECTION' ? 'checked' : ''} id="rc-radio-arr-1">
+                        <span>배근 유형-1 (전단면)</span>
+                    </label>
+                    <label class="radio-label" style="display:flex; align-items:center; gap:4px; cursor:pointer;">
+                        <input type="radio" name="beam_arrange_type" value="SYMMETRIC_ENDS" ${currentArrangeType === 'SYMMETRIC_ENDS' ? 'checked' : ''} id="rc-radio-arr-2">
+                        <span>배근 유형-2 (양단부와 중앙부)</span>
+                    </label>
+                    <label class="radio-label" style="display:flex; align-items:center; gap:4px; cursor:pointer;">
+                        <input type="radio" name="beam_arrange_type" value="THREE_STATIONS" ${currentArrangeType === 'THREE_STATIONS' ? 'checked' : ''} id="rc-radio-arr-3">
+                        <span>배근 유형-3 (각단부와 중앙부)</span>
+                    </label>
+                </div>
+            </div>
+
             <div class="eng-form-section">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
                     <div class="form-section-header" style="margin-bottom:0;">위치별 주철근 및 스터럽 배근</div>
@@ -441,22 +500,17 @@ class RCBeamFormComponent {
                         </thead>
                         <tbody>
                             <!-- End-I -->
-                            <tr>
-                                <td style="font-weight:700;">단부-I (End-I)</td>
-                                <td>
-                                    <input type="text" id="rb-endi-t1" class="form-input table-cell-input" value="${rb.end_i.top_layer1}" style="width:70px; text-align:center;">
+                            <tr id="row-endi">
+                                <td style="font-weight:700;">
+                                    <span>단부-I (End-I)</span>
+                                    <span id="tag-endi-sym" class="badge-sym-tag" style="display:none;">[중앙부 연동]</span>
                                 </td>
+                                <td>${renderCompositeCell('rb-endi-t1', 'end_i', 'top_layer1', false)}</td>
+                                <td>${renderCompositeCell('rb-endi-t2', 'end_i', 'top_layer2', true)}</td>
+                                <td>${renderCompositeCell('rb-endi-b1', 'end_i', 'bot_layer1', false)}</td>
+                                <td>${renderCompositeCell('rb-endi-b2', 'end_i', 'bot_layer2', true)}</td>
                                 <td>
-                                    <input type="text" id="rb-endi-t2" class="form-input table-cell-input" value="${rb.end_i.top_layer2}" style="width:70px; text-align:center;">
-                                </td>
-                                <td>
-                                    <input type="text" id="rb-endi-b1" class="form-input table-cell-input" value="${rb.end_i.bot_layer1}" style="width:70px; text-align:center;">
-                                </td>
-                                <td>
-                                    <input type="text" id="rb-endi-b2" class="form-input table-cell-input" value="${rb.end_i.bot_layer2}" style="width:70px; text-align:center;">
-                                </td>
-                                <td>
-                                    <div style="display:flex; align-items:center; justify-content:center; gap:2px;">
+                                    <div class="stirrup-control-wrap" id="wrap-endi-st" style="display:flex; align-items:center; justify-content:center; gap:2px;">
                                         <select id="rb-endi-st-dia" class="form-input" style="width:60px; padding:2px;">
                                             <option value="D10" ${rb.end_i.stirrup_dia === 'D10' ? 'selected' : ''}>D10</option>
                                             <option value="D13" ${rb.end_i.stirrup_dia === 'D13' ? 'selected' : ''}>D13</option>
@@ -467,22 +521,14 @@ class RCBeamFormComponent {
                                 </td>
                             </tr>
                             <!-- Center-M -->
-                            <tr>
+                            <tr id="row-cent">
                                 <td style="font-weight:700;">중앙-M (Center)</td>
+                                <td>${renderCompositeCell('rb-cent-t1', 'center_m', 'top_layer1', false)}</td>
+                                <td>${renderCompositeCell('rb-cent-t2', 'center_m', 'top_layer2', true)}</td>
+                                <td>${renderCompositeCell('rb-cent-b1', 'center_m', 'bot_layer1', false)}</td>
+                                <td>${renderCompositeCell('rb-cent-b2', 'center_m', 'bot_layer2', true)}</td>
                                 <td>
-                                    <input type="text" id="rb-cent-t1" class="form-input table-cell-input" value="${rb.center_m.top_layer1}" style="width:70px; text-align:center;">
-                                </td>
-                                <td>
-                                    <input type="text" id="rb-cent-t2" class="form-input table-cell-input" value="${rb.center_m.top_layer2}" style="width:70px; text-align:center;">
-                                </td>
-                                <td>
-                                    <input type="text" id="rb-cent-b1" class="form-input table-cell-input" value="${rb.center_m.bot_layer1}" style="width:70px; text-align:center;">
-                                </td>
-                                <td>
-                                    <input type="text" id="rb-cent-b2" class="form-input table-cell-input" value="${rb.center_m.bot_layer2}" style="width:70px; text-align:center;">
-                                </td>
-                                <td>
-                                    <div style="display:flex; align-items:center; justify-content:center; gap:2px;">
+                                    <div class="stirrup-control-wrap" id="wrap-cent-st" style="display:flex; align-items:center; justify-content:center; gap:2px;">
                                         <select id="rb-cent-st-dia" class="form-input" style="width:60px; padding:2px;">
                                             <option value="D10" ${rb.center_m.stirrup_dia === 'D10' ? 'selected' : ''}>D10</option>
                                             <option value="D13" ${rb.center_m.stirrup_dia === 'D13' ? 'selected' : ''}>D13</option>
@@ -493,22 +539,17 @@ class RCBeamFormComponent {
                                 </td>
                             </tr>
                             <!-- End-J -->
-                            <tr>
-                                <td style="font-weight:700;">단부-J (End-J)</td>
-                                <td>
-                                    <input type="text" id="rb-endj-t1" class="form-input table-cell-input" value="${rb.end_j.top_layer1}" style="width:70px; text-align:center;">
+                            <tr id="row-endj">
+                                <td style="font-weight:700;">
+                                    <span>단부-J (End-J)</span>
+                                    <span id="tag-endj-sym" class="badge-sym-tag" style="display:none;">[단부-I 대칭 연동]</span>
                                 </td>
+                                <td>${renderCompositeCell('rb-endj-t1', 'end_j', 'top_layer1', false)}</td>
+                                <td>${renderCompositeCell('rb-endj-t2', 'end_j', 'top_layer2', true)}</td>
+                                <td>${renderCompositeCell('rb-endj-b1', 'end_j', 'bot_layer1', false)}</td>
+                                <td>${renderCompositeCell('rb-endj-b2', 'end_j', 'bot_layer2', true)}</td>
                                 <td>
-                                    <input type="text" id="rb-endj-t2" class="form-input table-cell-input" value="${rb.end_j.top_layer2}" style="width:70px; text-align:center;">
-                                </td>
-                                <td>
-                                    <input type="text" id="rb-endj-b1" class="form-input table-cell-input" value="${rb.end_j.bot_layer1}" style="width:70px; text-align:center;">
-                                </td>
-                                <td>
-                                    <input type="text" id="rb-endj-b2" class="form-input table-cell-input" value="${rb.end_j.bot_layer2}" style="width:70px; text-align:center;">
-                                </td>
-                                <td>
-                                    <div style="display:flex; align-items:center; justify-content:center; gap:2px;">
+                                    <div class="stirrup-control-wrap" id="wrap-endj-st" style="display:flex; align-items:center; justify-content:center; gap:2px;">
                                         <select id="rb-endj-st-dia" class="form-input" style="width:60px; padding:2px;">
                                             <option value="D10" ${rb.end_j.stirrup_dia === 'D10' ? 'selected' : ''}>D10</option>
                                             <option value="D13" ${rb.end_j.stirrup_dia === 'D13' ? 'selected' : ''}>D13</option>
@@ -557,41 +598,119 @@ class RCBeamFormComponent {
             </div>
         `;
 
-        // Bind table cells to data
-        const bindCell = (id, loc, field) => {
-            const inp = pane.querySelector(id);
-            if (inp) {
-                inp.oninput = () => {
-                    this.data.rebar[loc][field] = inp.value.trim();
-                    this._syncLegacyRebarStrings();
-                    this._updateSpacingPreview();
-                    this._broadcastChange();
-                };
+        // Helper to update a cell's DOM elements
+        const updateCellDOM = (cellId, val, isLayer2) => {
+            const parsed = this._parseRebarStr(val, isLayer2);
+            const wrap = pane.querySelector('#' + cellId);
+            if (!wrap) return;
+            const cntInp = wrap.querySelector('.rebar-count-input');
+            const diaSel = wrap.querySelector('.rebar-dia-select');
+            if (cntInp) cntInp.value = parsed.count;
+            if (diaSel) {
+                diaSel.value = parsed.dia;
+                const isDim = isLayer2 && parsed.count === 0;
+                diaSel.disabled = isDim;
+                diaSel.style.opacity = isDim ? '0.45' : '1.0';
+                diaSel.style.pointerEvents = isDim ? 'none' : 'auto';
             }
         };
 
-        bindCell('#rb-endi-t1', 'end_i', 'top_layer1');
-        bindCell('#rb-endi-t2', 'end_i', 'top_layer2');
-        bindCell('#rb-endi-b1', 'end_i', 'bot_layer1');
-        bindCell('#rb-endi-b2', 'end_i', 'bot_layer2');
+        // Helper to update Arrange Type Visuals and interlocks
+        const updateArrangeUI = () => {
+            this._updateArrangeTypeUI(pane);
+        };
 
-        bindCell('#rb-cent-t1', 'center_m', 'top_layer1');
-        bindCell('#rb-cent-t2', 'center_m', 'top_layer2');
-        bindCell('#rb-cent-b1', 'center_m', 'bot_layer1');
-        bindCell('#rb-cent-b2', 'center_m', 'bot_layer2');
+        // Bind Composite Cell Events
+        const bindCompositeCell = (cellId, station, rowKey, isLayer2, suffix) => {
+            const wrap = pane.querySelector('#' + cellId);
+            if (!wrap) return;
+            const cntInp = wrap.querySelector('.rebar-count-input');
+            const diaSel = wrap.querySelector('.rebar-dia-select');
 
-        bindCell('#rb-endj-t1', 'end_j', 'top_layer1');
-        bindCell('#rb-endj-t2', 'end_j', 'top_layer2');
-        bindCell('#rb-endj-b1', 'end_j', 'bot_layer1');
-        bindCell('#rb-endj-b2', 'end_j', 'bot_layer2');
+            const handleValChange = () => {
+                let cnt = parseInt(cntInp.value);
+                if (isNaN(cnt)) cnt = isLayer2 ? 0 : 2;
+                if (!isLayer2 && cnt < 2) {
+                    cnt = 2;
+                    cntInp.value = 2;
+                } else if (isLayer2 && cnt < 0) {
+                    cnt = 0;
+                    cntInp.value = 0;
+                }
 
-        // Stirrups
+                if (isLayer2 && cnt === 0) {
+                    diaSel.disabled = true;
+                    diaSel.style.opacity = '0.45';
+                    diaSel.style.pointerEvents = 'none';
+                    this.data.rebar[station][rowKey] = '0';
+                } else {
+                    diaSel.disabled = false;
+                    diaSel.style.opacity = '1.0';
+                    diaSel.style.pointerEvents = 'auto';
+                    this.data.rebar[station][rowKey] = `${cnt}-${diaSel.value}`;
+                }
+
+                const currentVal = this.data.rebar[station][rowKey];
+
+                // Synchronize according to arrange_type
+                const arrType = this.data.rebar.arrange_type || 'SYMMETRIC_ENDS';
+                if (arrType === 'SYMMETRIC_ENDS' && station === 'end_i') {
+                    this.data.rebar.end_j[rowKey] = currentVal;
+                    updateCellDOM(`rb-endj-${suffix}`, currentVal, isLayer2);
+                } else if (arrType === 'ONE_SECTION' && station === 'center_m') {
+                    this.data.rebar.end_i[rowKey] = currentVal;
+                    this.data.rebar.end_j[rowKey] = currentVal;
+                    updateCellDOM(`rb-endi-${suffix}`, currentVal, isLayer2);
+                    updateCellDOM(`rb-endj-${suffix}`, currentVal, isLayer2);
+                }
+
+                this._syncLegacyRebarStrings();
+                this._updateSpacingPreview();
+                this._broadcastChange();
+            };
+
+            cntInp.oninput = handleValChange;
+            diaSel.onchange = handleValChange;
+        };
+
+        // End-I
+        bindCompositeCell('rb-endi-t1', 'end_i', 'top_layer1', false, 't1');
+        bindCompositeCell('rb-endi-t2', 'end_i', 'top_layer2', true, 't2');
+        bindCompositeCell('rb-endi-b1', 'end_i', 'bot_layer1', false, 'b1');
+        bindCompositeCell('rb-endi-b2', 'end_i', 'bot_layer2', true, 'b2');
+
+        // Center-M
+        bindCompositeCell('rb-cent-t1', 'center_m', 'top_layer1', false, 't1');
+        bindCompositeCell('rb-cent-t2', 'center_m', 'top_layer2', true, 't2');
+        bindCompositeCell('rb-cent-b1', 'center_m', 'bot_layer1', false, 'b1');
+        bindCompositeCell('rb-cent-b2', 'center_m', 'bot_layer2', true, 'b2');
+
+        // End-J
+        bindCompositeCell('rb-endj-t1', 'end_j', 'top_layer1', false, 't1');
+        bindCompositeCell('rb-endj-t2', 'end_j', 'top_layer2', true, 't2');
+        bindCompositeCell('rb-endj-b1', 'end_j', 'bot_layer1', false, 'b1');
+        bindCompositeCell('rb-endj-b2', 'end_j', 'bot_layer2', true, 'b2');
+
+        // Stirrup Bindings
         const bindSt = (idDia, idSpace, loc) => {
             const elDia = pane.querySelector(idDia);
             const elSpace = pane.querySelector(idSpace);
             if (elDia) {
                 elDia.onchange = () => {
                     this.data.rebar[loc].stirrup_dia = elDia.value;
+                    const arrType = this.data.rebar.arrange_type || 'SYMMETRIC_ENDS';
+                    if (arrType === 'SYMMETRIC_ENDS' && loc === 'end_i') {
+                        this.data.rebar.end_j.stirrup_dia = elDia.value;
+                        const elJ = pane.querySelector('#rb-endj-st-dia');
+                        if (elJ) elJ.value = elDia.value;
+                    } else if (arrType === 'ONE_SECTION' && loc === 'center_m') {
+                        this.data.rebar.end_i.stirrup_dia = elDia.value;
+                        this.data.rebar.end_j.stirrup_dia = elDia.value;
+                        const elI = pane.querySelector('#rb-endi-st-dia');
+                        const elJ = pane.querySelector('#rb-endj-st-dia');
+                        if (elI) elI.value = elDia.value;
+                        if (elJ) elJ.value = elDia.value;
+                    }
                     this._syncLegacyRebarStrings();
                     this._updateSpacingPreview();
                     this._broadcastChange();
@@ -599,7 +718,21 @@ class RCBeamFormComponent {
             }
             if (elSpace) {
                 elSpace.oninput = () => {
-                    this.data.rebar[loc].stirrup_space = parseFloat(elSpace.value) || 150;
+                    const sp = parseFloat(elSpace.value) || 150;
+                    this.data.rebar[loc].stirrup_space = sp;
+                    const arrType = this.data.rebar.arrange_type || 'SYMMETRIC_ENDS';
+                    if (arrType === 'SYMMETRIC_ENDS' && loc === 'end_i') {
+                        this.data.rebar.end_j.stirrup_space = sp;
+                        const elJ = pane.querySelector('#rb-endj-st-space');
+                        if (elJ) elJ.value = sp;
+                    } else if (arrType === 'ONE_SECTION' && loc === 'center_m') {
+                        this.data.rebar.end_i.stirrup_space = sp;
+                        this.data.rebar.end_j.stirrup_space = sp;
+                        const elI = pane.querySelector('#rb-endi-st-space');
+                        const elJ = pane.querySelector('#rb-endj-st-space');
+                        if (elI) elI.value = sp;
+                        if (elJ) elJ.value = sp;
+                    }
                     this._syncLegacyRebarStrings();
                     this._broadcastChange();
                 };
@@ -610,7 +743,7 @@ class RCBeamFormComponent {
         bindSt('#rb-cent-st-dia', '#rb-cent-st-space', 'center_m');
         bindSt('#rb-endj-st-dia', '#rb-endj-st-space', 'end_j');
 
-        // Torsion
+        // Torsion Bindings
         const tBar = pane.querySelector('#beam-input-torsion-bar');
         if (tBar) {
             tBar.onchange = () => {
@@ -625,6 +758,50 @@ class RCBeamFormComponent {
                 this._broadcastChange();
             };
         }
+
+        // Arrange Type Radios Event
+        const arrRadios = pane.querySelectorAll('input[name="beam_arrange_type"]');
+        arrRadios.forEach(radio => {
+            radio.onchange = () => {
+                if (radio.checked) {
+                    this.data.rebar.arrange_type = radio.value;
+                    // When switching to SYMMETRIC_ENDS: copy End-I to End-J
+                    if (radio.value === 'SYMMETRIC_ENDS') {
+                        this.data.rebar.end_j = { ...this.data.rebar.end_i };
+                        updateCellDOM('rb-endj-t1', this.data.rebar.end_j.top_layer1, false);
+                        updateCellDOM('rb-endj-t2', this.data.rebar.end_j.top_layer2, true);
+                        updateCellDOM('rb-endj-b1', this.data.rebar.end_j.bot_layer1, false);
+                        updateCellDOM('rb-endj-b2', this.data.rebar.end_j.bot_layer2, true);
+                        const elJDia = pane.querySelector('#rb-endj-st-dia');
+                        const elJSpace = pane.querySelector('#rb-endj-st-space');
+                        if (elJDia) elJDia.value = this.data.rebar.end_j.stirrup_dia;
+                        if (elJSpace) elJSpace.value = this.data.rebar.end_j.stirrup_space;
+                    } else if (radio.value === 'ONE_SECTION') {
+                        // When switching to ONE_SECTION: copy Center-M to End-I & End-J
+                        const cm = this.data.rebar.center_m;
+                        this.data.rebar.end_i = { ...cm };
+                        this.data.rebar.end_j = { ...cm };
+                        ['endi', 'endj'].forEach(loc => {
+                            updateCellDOM(`rb-${loc}-t1`, cm.top_layer1, false);
+                            updateCellDOM(`rb-${loc}-t2`, cm.top_layer2, true);
+                            updateCellDOM(`rb-${loc}-b1`, cm.bot_layer1, false);
+                            updateCellDOM(`rb-${loc}-b2`, cm.bot_layer2, true);
+                            const elDia = pane.querySelector(`#rb-${loc}-st-dia`);
+                            const elSpace = pane.querySelector(`#rb-${loc}-st-space`);
+                            if (elDia) elDia.value = cm.stirrup_dia;
+                            if (elSpace) elSpace.value = cm.stirrup_space;
+                        });
+                    }
+                    updateArrangeUI();
+                    this._syncLegacyRebarStrings();
+                    this._updateSpacingPreview();
+                    this._broadcastChange();
+                }
+            };
+        });
+
+        // Initialize Arrange UI visual state
+        updateArrangeUI();
 
         // Sub-dialog: Detailed Rebar Settings (IDD_RCS_BEAM_REBAR_DLG)
         const btnOpenRebarDlg = pane.querySelector('#btn-open-rebar-dlg');
@@ -644,6 +821,69 @@ class RCBeamFormComponent {
         }
 
         return pane;
+    }
+
+    /**
+     * Update Arrange Type UI visual state (Tags and dimming)
+     * @param {HTMLElement} root
+     */
+    _updateArrangeTypeUI(root) {
+        if (!root) return;
+        const arrType = this.data.rebar?.arrange_type || 'SYMMETRIC_ENDS';
+        const tagEndJ = root.querySelector('#tag-endj-sym');
+        const tagEndI = root.querySelector('#tag-endi-sym');
+        const rowEndI = root.querySelector('#row-endi');
+        const rowCent = root.querySelector('#row-cent');
+        const rowEndJ = root.querySelector('#row-endj');
+
+        const setRowState = (row, enabled, opacity = '1.0') => {
+            if (!row) return;
+            const inputs = row.querySelectorAll('input, select');
+            inputs.forEach(el => {
+                // If it's a 2nd layer dia select with 0 count, keep it disabled
+                if (el.classList.contains('rebar-dia-select')) {
+                    const wrap = el.closest('.rebar-cell-composite');
+                    const cntInp = wrap ? wrap.querySelector('.rebar-count-input') : null;
+                    if (cntInp && parseInt(cntInp.value) === 0 && wrap.id && (wrap.id.includes('-t2') || wrap.id.includes('-b2'))) {
+                        el.disabled = true;
+                        el.style.opacity = '0.45';
+                        el.style.pointerEvents = 'none';
+                        return;
+                    }
+                }
+                el.style.pointerEvents = enabled ? 'auto' : 'none';
+            });
+            row.style.opacity = opacity;
+        };
+
+        if (arrType === 'SYMMETRIC_ENDS') {
+            if (tagEndJ) {
+                tagEndJ.style.display = 'inline-block';
+                tagEndJ.textContent = '[단부-I 대칭 연동]';
+            }
+            if (tagEndI) tagEndI.style.display = 'none';
+            setRowState(rowEndI, true, '1.0');
+            setRowState(rowCent, true, '1.0');
+            setRowState(rowEndJ, false, '0.65');
+        } else if (arrType === 'ONE_SECTION') {
+            if (tagEndJ) {
+                tagEndJ.style.display = 'inline-block';
+                tagEndJ.textContent = '[전단면 연동]';
+            }
+            if (tagEndI) {
+                tagEndI.style.display = 'inline-block';
+                tagEndI.textContent = '[전단면 연동]';
+            }
+            setRowState(rowCent, true, '1.0');
+            setRowState(rowEndI, false, '0.65');
+            setRowState(rowEndJ, false, '0.65');
+        } else { // THREE_STATIONS
+            if (tagEndJ) tagEndJ.style.display = 'none';
+            if (tagEndI) tagEndI.style.display = 'none';
+            setRowState(rowEndI, true, '1.0');
+            setRowState(rowCent, true, '1.0');
+            setRowState(rowEndJ, true, '1.0');
+        }
     }
 
     /**
@@ -1250,30 +1490,60 @@ class RCBeamFormComponent {
 
     _updateFormInputsFromData() {
         const rb = this.data.rebar;
+        if (!this.container) return;
+
+        // 1. Update Arrange Type Radio
+        const arrRadios = this.container.querySelectorAll('input[name="beam_arrange_type"]');
+        arrRadios.forEach(r => {
+            r.checked = (r.value === (rb.arrange_type || 'SYMMETRIC_ENDS'));
+        });
+
+        // 2. Update Rebar Composite Cells
+        const updateCell = (cellId, val, isLayer2) => {
+            const parsed = this._parseRebarStr(val, isLayer2);
+            const wrap = this.container.querySelector('#' + cellId);
+            if (!wrap) return;
+            const cntInp = wrap.querySelector('.rebar-count-input');
+            const diaSel = wrap.querySelector('.rebar-dia-select');
+            if (cntInp) cntInp.value = parsed.count;
+            if (diaSel) {
+                diaSel.value = parsed.dia;
+                const isDim = isLayer2 && parsed.count === 0;
+                diaSel.disabled = isDim;
+                diaSel.style.opacity = isDim ? '0.45' : '1.0';
+                diaSel.style.pointerEvents = isDim ? 'none' : 'auto';
+            }
+        };
+
+        updateCell('rb-endi-t1', rb.end_i.top_layer1, false);
+        updateCell('rb-endi-t2', rb.end_i.top_layer2, true);
+        updateCell('rb-endi-b1', rb.end_i.bot_layer1, false);
+        updateCell('rb-endi-b2', rb.end_i.bot_layer2, true);
+
+        updateCell('rb-cent-t1', rb.center_m.top_layer1, false);
+        updateCell('rb-cent-t2', rb.center_m.top_layer2, true);
+        updateCell('rb-cent-b1', rb.center_m.bot_layer1, false);
+        updateCell('rb-cent-b2', rb.center_m.bot_layer2, true);
+
+        updateCell('rb-endj-t1', rb.end_j.top_layer1, false);
+        updateCell('rb-endj-t2', rb.end_j.top_layer2, true);
+        updateCell('rb-endj-b1', rb.end_j.bot_layer1, false);
+        updateCell('rb-endj-b2', rb.end_j.bot_layer2, true);
+
+        // 3. Update Stirrups
         const setVal = (id, val) => {
-            const el = this.container?.querySelector(id);
+            const el = this.container.querySelector(id);
             if (el) el.value = val;
         };
-        setVal('#rb-endi-t1', rb.end_i.top_layer1);
-        setVal('#rb-endi-t2', rb.end_i.top_layer2);
-        setVal('#rb-endi-b1', rb.end_i.bot_layer1);
-        setVal('#rb-endi-b2', rb.end_i.bot_layer2);
         setVal('#rb-endi-st-dia', rb.end_i.stirrup_dia);
         setVal('#rb-endi-st-space', rb.end_i.stirrup_space);
-
-        setVal('#rb-cent-t1', rb.center_m.top_layer1);
-        setVal('#rb-cent-t2', rb.center_m.top_layer2);
-        setVal('#rb-cent-b1', rb.center_m.bot_layer1);
-        setVal('#rb-cent-b2', rb.center_m.bot_layer2);
         setVal('#rb-cent-st-dia', rb.center_m.stirrup_dia);
         setVal('#rb-cent-st-space', rb.center_m.stirrup_space);
-
-        setVal('#rb-endj-t1', rb.end_j.top_layer1);
-        setVal('#rb-endj-t2', rb.end_j.top_layer2);
-        setVal('#rb-endj-b1', rb.end_j.bot_layer1);
-        setVal('#rb-endj-b2', rb.end_j.bot_layer2);
         setVal('#rb-endj-st-dia', rb.end_j.stirrup_dia);
         setVal('#rb-endj-st-space', rb.end_j.stirrup_space);
+
+        // 4. Update Arrange Type Visuals
+        this._updateArrangeTypeUI(this.container);
     }
 
     _showNotification(msg, type = 'info') {
