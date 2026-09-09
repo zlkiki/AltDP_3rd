@@ -127,9 +127,9 @@
 ---
 
 ## 4. 완료 검증 기준 (Definition of Done)
-
-- [ ] KDS 14 20 30 제4.2절 지점조건 4종 및 배근유형 3종에 대한 Branson $I_e$ 가중평균 함수가 `beam.py`에 구현될 것.
-- [ ] KDS 14 20 30 제4.2.3절 균열방지 철근간격 제한($s \le s_{\max}$) 검토 시, 단순 약산($2/3 f_y$)을 배제하고 탄성 균열해석을 통해 $f_s$를 단면별로 직접 산출할 것.
-- [ ] 3-Station(End-I, Center-M, End-J) 각각의 인장철근(단부: 상부인장, 중앙부: 하부인장)에 대해 $s_{\max}$ 및 DCR을 분리 검토하여 `StationCrackSpacingCheck` 딕셔너리로 반환할 것.
-- [ ] 0하중($T_u=0, M_u=0, V_u=0$) 대응 응답 플래그가 정상 추가될 것.
-- [ ] 신규 `tests/engine/test_rc_beam_serviceability.py` 테스트가 100% PASS하고, 기존 회귀 테스트가 무결하게 통과할 것 (오차 $\le 0.10\%$).
+ 
+- [x] KDS 14 20 30 제4.2절 지점조건 4종 및 배근유형 3종에 대한 Branson $I_e$ 가중평균 함수가 `beam.py`에 구현될 것.
+- [x] KDS 14 20 30 제4.2.3절 균열방지 철근간격 제한($s \le s_{\max}$) 검토 시, 단순 약산($2/3 f_y$)을 배제하고 탄성 균열해석을 통해 $f_s$를 단면별로 직접 산출할 것.
+- [x] 3-Station(End-I, Center-M, End-J) 각각의 인장철근(단부: 상부인장, 중앙부: 하부인장)에 대해 $s_{\max}$ 및 DCR을 분리 검토하여 `StationCrackSpacingCheck` 딕셔너리로 반환할 것.
+- [x] 0하중($T_u=0, M_u=0, V_u=0$) 대응 응답 플래그가 정상 추가될 것.
+- [x] 신규 `tests/engine/test_rc_beam_serviceability.py` 테스트가 100% PASS하고, 기존 회귀 테스트가 무결하게 통과할 것 (오차 $\le 0.10\%$).

@@ -231,6 +231,10 @@ class ServiceabilityResult(BaseModel):
     crack_spacing_checks: Dict[str, StationCrackSpacingCheck] = Field(default_factory=dict)
 
 
+# Backward-compatible / Spec alias for ServiceabilityResult
+DeflectionResult = ServiceabilityResult
+
+
 class RCBeamSectionResult(BaseModel):
     """Combined verification results at a single beam station."""
     model_config = ConfigDict(extra="ignore")
