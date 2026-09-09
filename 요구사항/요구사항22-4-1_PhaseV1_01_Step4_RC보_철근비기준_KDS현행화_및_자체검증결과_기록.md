@@ -1,13 +1,13 @@
-# 요구사항 22-4-1: Phase V1-01 Step 4 RC 보 철근비 KDS 현행화, 3-Station 개별 계산근거 출력, 원본앱 1:1 배근유형 옵션 구현 및 redcr 잔재 청산 명세서
+# 요구사항 22-4-1: Phase V1-01 Step 4 RC 보 철근비 KDS 현행화, 3-Station 개별 계산근거 출력, 원본앱 1:1 배근유형 옵션 및 주근 분리입력(개수+호칭경 콤보) 구현, redcr 잔재 청산 명세서
 
 ## 1. 개요 및 배경
 
-본 문서는 **RC 보 (`rc_beam`)**의 **Step 4 (A4 5대 장구분 8단계 KaTeX 공학 구조계산서)** 구현 완료 후 발견된 후속 보완 과제인 **(1) 구버전 철근비 기준 완전 배제 및 현행 KDS 14 20 20: 2022 단일 규격화**, **(2) 철근 강도별($f_y$) 최소 허용 순인장변형률 $\epsilon_{t,\min}$ 정밀 산정**, **(3) 단부 I, 중앙 M, 단부 J 3개 위치별 정/부모멘트 분리 및 개별 KaTeX 계산근거 출력**, **(4) 원본앱 1:1 대조 배근 유형(1개 단면/2개 단면/3개 단면 설계) 옵션 지원**, **(5) 타 프로젝트 고유명사(`redcr`) 전면 청산 및 표준 네이밍 대체**, 그리고 **(6) 자체 검증 결과 기록**을 위한 통합 정밀 명세서입니다.
+본 문서는 **RC 보 (`rc_beam`)**의 **Step 4 (A4 5대 장구분 8단계 KaTeX 공학 구조계산서)** 구현 완료 후 발견된 후속 보완 과제인 **(1) 구버전 철근비 기준 완전 배제 및 현행 KDS 14 20 20: 2022 단일 규격화**, **(2) 철근 강도별($f_y$) 최소 허용 순인장변형률 $\epsilon_{t,\min}$ 정밀 산정**, **(3) 단부 I, 중앙 M, 단부 J 3개 위치별 정/부모멘트 분리 및 개별 KaTeX 계산근거 출력**, **(4) 원본앱 1:1 대조 배근 유형(1개 단면/2개 단면/3개 단면 설계) 옵션 지원**, **(5) 원본앱 1:1 대조 주근 입력 인터페이스 개편 (기존 4-D22 단일 텍스트박스 $\rightarrow$ [개수 텍스트박스] + [-] 라벨 + [호칭경 콤보박스] 분리 조합)**, **(6) 타 프로젝트 고유명사(`redcr`) 전면 청산 및 표준 네이밍 대체**, 그리고 **(7) 자체 검증 결과 기록**을 위한 통합 정밀 명세서입니다.
 
 * **부재 및 모듈 식별자**: `rc_beam` (카탈로그 No. 1, Tier 1 플래그십)
 * **담당 소스 파일**:
   - `src/engine/rc/beam.py` (KDS 계산 엔진: 최소철근량 $\phi M_n \ge 1.2 M_{cr}$, 강도별 순인장변형률 $\epsilon_t \ge \epsilon_{t,\min}$, 3-Station 정/부모멘트 분리 해석, `BeamArrangeType` 지원)
-  - `src/web/static/js/components/form_rc_beam.js` (입력폼: Tab 2 배근 탭 상단에 원본앱 1:1 배근 유형-1/2/3 라디오 옵션 추가 및 동기화)
+  - `src/web/static/js/components/form_rc_beam.js` (입력폼: Tab 2 배근 탭 상단에 원본앱 1:1 배근 유형-1/2/3 라디오 옵션 추가, 배근 테이블 주근 입력을 단일 텍스트박스에서 [개수 텍스트박스 + '-' 라벨 + 호칭경 콤보박스] 분리 UI로 전면 개편 및 동기화)
   - `src/web/static/js/report/rc_beam_report.js` (신규 표준 파일명: 구 `redcr_rc_beam.js`에서 리네이밍 및 3-Station 개별 KaTeX 계산근거 출력 전면 개편)
   - `src/web/static/js/report/report_common_renderer.js` (신규 표준 파일명: 구 `redcr_common_renderer.js`에서 리네이밍)
   - `src/web/static/js/core/report_engine.js` (A4 계산서 통합 디스패처: `rc_beam_report.js` 및 표준 함수 연동)
@@ -20,7 +20,8 @@
     * 4.2.2 휨부재의 최소 철근량: $\phi M_n \ge 1.2 M_{cr}$ (단, $A_s \ge \frac{4}{3} A_{s,req}$ 만족 시 적용 예외)
     * 4.1.2 휨부재의 최대 철근량 및 연성 한계: 최외단 인장철근 순인장변형률 $\epsilon_t \ge \epsilon_{t,\min}$ (철근 강도별 분기) 및 중립축 깊이비 한계 $c/d_t \le (c/d_t)_{\lim}$
   - **원본앱 리소스 Ground Truth**:
-    * `original_src/Midas Design+/Language/Korean/DLG_DPLUS_RCS.ini` (`IDD_RCS_BEAM_PMODE_DLG`)
+    * `original_src/Midas Design+/Language/Korean/DLG_DPLUS_RCS.ini` (`IDD_RCS_BEAM_PMODE_DLG`, `IDC_GURGC_LABEL_MAIN_BAR2 = "-"`, `IDC_GURBU_LABEL_SKINBAR2 = "-"`, DropDown Cell 방식 철근 호칭경 콤보 및 개수 분리 입력 구조)
+    * `decompiled_src/DPLUS_RCS.dll_symbols.txt` (`CURBEPModeDlg::LeaveDropDownCell`, `CURBEPModeDlg::InitGrid`, `CURBEPModeDlg::RedrawBarGrid`)
 
 ---
 
@@ -185,6 +186,61 @@ class RCBeamRebar(BaseModel):
     # ...
 ```
 
+### 3.4. 원본앱 1:1 대조 주근 입력 인터페이스 개편 명세 (개수 텍스트박스 + '-' 라벨 + 호칭경 콤보박스)
+
+#### (1) 원본앱 실측 대조 및 개편 배경
+* **원본앱(`Design+.exe`) 실측 인터페이스**:
+  - 원본앱의 배근 입력 테이블(`IDD_RCS_BEAM_PMODE_DLG`, `CURBEPModeDlg::LeaveDropDownCell`, `InitGrid`, `IDC_GURGC_LABEL_MAIN_BAR2 = "-"`)에서는 단일 문자열(`4-D22`)을 수동 타이핑받지 않습니다.
+  - 배근 테이블의 각 셀마다 **철근 개수를 기입하는 에디트 텍스트박스**, 구분 기호 **`-` 고정 라벨**, 그리고 KS 이형철근 규격(`D10` ~ `D35`)을 마우스로 원클릭 선택하는 **드롭다운 콤보박스(DropDown Cell)**로 완전히 분리 배치되어 있습니다.
+* **기존 AltDP_3rd 웹 구현의 한계 및 문제점**:
+  - 기존 `form_rc_beam.js`는 `4-D25`, `3-D22`와 같은 텍스트를 단일 `<input type="text">`로 직접 타이핑하도록 되어 있었습니다.
+  - 이로 인해 소문자 입력(`4-d22`), 공백 오타(`4 D22`), 하이픈 누락(`422`), 비표준 호칭경 입력 등 잦은 휴먼 에러가 유발되고 사용자 편의성이 크게 저하되었습니다.
+* **개편 목표**:
+  - 원본앱과 1:1 동일한 사용자 경험(UX)을 구현하기 위해, 배근 탭 테이블의 모든 주근 입력 셀을 **[개수 텍스트박스] + [-] 라벨 + [호칭경 콤보박스]** 복합 인라인 컨트롤로 전면 개편합니다.
+
+#### (2) 주근 복합 입력 컨트롤(Composite Control) UI 규격
+
+```html
+<!-- 배근 테이블 셀(Cell) 내부 렌더링 구조 -->
+<div class="rebar-cell-composite">
+    <input type="number" class="form-input rebar-count-input" min="0" max="30" step="1" value="4">
+    <span class="rebar-sep">-</span>
+    <select class="form-input rebar-dia-select">
+        <option value="D10">D10</option>
+        <option value="D13">D13</option>
+        <option value="D16">D16</option>
+        <option value="D19">D19</option>
+        <option value="D22" selected>D22</option>
+        <option value="D25">D25</option>
+        <option value="D29">D29</option>
+        <option value="D32">D32</option>
+        <option value="D35">D35</option>
+    </select>
+</div>
+```
+
+| 구성 요소 | HTML 태그 / 클래스 | 치수 및 스타일 | 동작 및 유효성 제약 |
+|:---|:---|:---|:---|
+| **복합 컨테이너** | `<div class="rebar-cell-composite">` | `display: inline-flex; align-items: center; justify-content: center; gap: 2px;` | 셀 중앙 정렬 및 래핑 방지 (`white-space: nowrap;`) |
+| **개수 텍스트박스** | `<input type="number" class="rebar-count-input">` | `width: 38px; text-align: center; padding: 2px 2px;` | `min="0"`, `max="30"`, `step="1"`. 정수만 입력 허용 |
+| **구분 기호** | `<span class="rebar-sep">-</span>` | `font-weight: 700; color: var(--text-muted); font-size: 13px;` | 읽기 전용 구분 기호 라벨 (수정 불가) |
+| **호칭경 콤보박스** | `<select class="rebar-dia-select">` | `width: 62px; padding: 2px 4px; font-weight: 600;` | KS D 3504 표준 9종 규격 (`D10` ~ `D35`) 선택 지원 |
+
+#### (3) 상태 처리 및 데이터 모델 양방향 동기화 규칙
+1. **철근 무배치(개수 `0`) 처리**:
+   - 개수 입력창에 `0`이 기입된 경우 해당 레이어에 철근이 배치되지 않은 것으로 판정합니다.
+   - 개수가 `0`일 때 호칭경 콤보는 시각적으로 디밍(`opacity: 0.45`) 처리하거나 비활성화하여 직관적인 피드백을 제공합니다.
+   - 내부 데이터 모델에는 `"0"` (또는 `"0-D22"`)으로 안전하게 직렬화되어, 계산 엔진의 철근 면적 $A_s = 0\text{ mm}^2$로 완벽 처리됩니다.
+2. **정상 배근(개수 $N \ge 1$) 조합 처리**:
+   - 개수 텍스트박스(`input` 이벤트) 또는 호칭경 콤보(`change` 이벤트)가 조작되면 즉시 `${count}-${dia}` 결합 문자열(예: `4-D22`)을 생성합니다.
+   - 내부 상태 객체(`this.data.rebar[station][layer]`)에 즉시 반영되어 기존 엔진 파서 및 하위 호환성을 100% 보장합니다.
+3. **배근 유형(Arrange Type)과의 완벽 연동**:
+   - **배근 유형-1 (전단면)**: 기준 단면의 개수나 호칭경 변경 시, End-I / Center-M / End-J 3개 위치의 해당 단 개수와 콤보 선택값이 동시에 즉각 동기화.
+   - **배근 유형-2 (양단부 대칭)**: End-I의 개수 또는 호칭경 변경 시, End-J의 해당 셀(개수 및 콤보)이 실시간 양방향 자동 동기화.
+   - **배근 유형-3 (각단부 독립)**: 모든 위치(I/M/J) 12개 셀의 개수 및 호칭경 콤보가 독립적으로 활성화 및 개별 수정 가능.
+4. **드래그 리사이징 반응형 방어 (`docs/07` 준수)**:
+   - 배근 테이블의 각 열 너비를 최소 110px 확보하고, 테이블 래퍼에 `overflow-x: auto;`를 적용하여 좌측 패널 폭이 좁아지더라도 개수 입력창과 콤보박스가 겹치거나 찌그러지지 않도록 원천 방어합니다.
+
 ---
 
 ## 4. 타 프로젝트 고유명사(`redcr`) 전면 청산 및 표준 네이밍 대체 명세
@@ -240,12 +296,17 @@ class RCBeamRebar(BaseModel):
    - `FlexureResult` Pydantic 스키마에 `Mcr`, `phi_Mn_min`, `epsilon_t_min`, `c_dt_limit`, `is_min_flexure_ok`, `is_ductility_ok` 필드 반영.
    - 3-Station 정/부모멘트 및 전단/비틀림 해석 결과 데이터 구조 정비.
 
-2. **Step 2: 배근 유형 옵션 폼 반영 (`src/web/static/js/components/form_rc_beam.js`)**:
-   - Tab 2 배근 탭 상단에 원본앱 `IDC_GURBE_FRAME_ARRANGE` 1:1 라디오 버튼 그룹 배치:
+2. **Step 2: 배근 유형 옵션 및 주근 분리 입력(개수+호칭경 콤보) 폼 반영 (`src/web/static/js/components/form_rc_beam.js`)**:
+   - **배근 유형 라디오 옵션**: Tab 2 배근 탭 상단에 원본앱 `IDC_GURBE_FRAME_ARRANGE` 1:1 라디오 버튼 그룹 배치:
      * `배근 유형-1 (전단면)`: 단일 단면 일괄 적용
      * `배근 유형-2 (양단부와 중앙부)`: End-I / Center-M 중심, End-J 자동 동기화 (기본값)
      * `배근 유형-3 (각단부와 중앙부)`: 3개 위치 독립 배근 테이블 활성화
-   - 라디오 선택에 따라 배근 테이블 셀 활성화/비활성화 및 동기화 이벤트 핸들링.
+   - **주근 복합 입력 컨트롤(Composite Control) 전면 개편**:
+     * 배근 테이블 12개 주근 셀(End-I, Center-M, End-J의 상부 1단, 상부 2단, 하부 1단, 하부 2단)의 단일 텍스트박스(`<input type="text">`)를 완전 제거.
+     * **[개수 텍스트박스: `<input type="number" class="rebar-count-input" min="0" max="30">`] + [- 고정 라벨: `<span class="rebar-sep">-</span>`] + [호칭경 콤보박스: `<select class="rebar-dia-select">` (`D10`~`D35`)]** 복합 인라인 컴포넌트로 전면 교체.
+     * 개수 입력 변경(`input`) 및 호칭경 선택 변경(`change`) 시 즉시 결합 문자열(`${count}-${dia}`) 조합 및 데이터 모델(`this.data.rebar[station][layer]`) 양방향 동기화.
+     * 개수 `0` 입력 시 호칭경 콤보 디밍/비활성화 및 데이터 모델에 `"0"` 정규화 반영.
+     * 배근 유형 라디오 옵션(유형-1 일괄 동기화, 유형-2 양단부 대칭 동기화)과 연동하여 복합 컨트롤(개수+호칭경)이 실시간 자동 연동 복사되도록 이벤트 핸들링.
 
 3. **Step 3: `redcr` 파일 리네이밍 및 타 프로젝트 명칭 완전 청산**:
    - `src/web/static/js/report/redcr_rc_beam.js` $\rightarrow$ `src/web/static/js/report/rc_beam_report.js` 리네이밍.
@@ -275,6 +336,8 @@ class RCBeamRebar(BaseModel):
 - [ ] `src/engine/rc/beam.py`에서 철근 강도별($f_y \le 400$ 시 $0.004$, $f_y > 400$ 시 $2.0 \epsilon_y$) $\epsilon_{t,\min}$ 판정 및 한계 중립축 깊이비가 정확히 산정될 것.
 - [ ] 구버전 철근비 $\rho_{\min}, \rho_{\max}$ 산출 및 병기가 계산서와 엔진에서 완전히 배제될 것.
 - [ ] 원본앱 `IDD_RCS_BEAM_PMODE_DLG` 1:1 대조 배근 유형(유형-1 전단면, 유형-2 양단부/중앙부, 유형-3 각단부/중앙부) 라디오 옵션이 정상 동작할 것.
+- [ ] Tab 2 배근 탭의 주철근(상부 1/2단, 하부 1/2단 12개 셀) 입력 UI가 단일 텍스트박스에서 원본앱 1:1 대조 [개수 텍스트박스] + [-] 라벨 + [호칭경 콤보박스] 분리 구조로 전면 개편되고 정상 동작할 것.
+- [ ] 주근 개수 변경 및 직경 변경 시 `{count}-{dia}` 문자열이 실시간 조합되어 캔버스 그래픽 및 계산서와 100% 동기화될 것 (개수 0 입력 예외 처리 포함).
 - [ ] A4 계산서 제 3장에서 단부 I(부모멘트), 중앙부 M(정모멘트), 단부 J(부모멘트)의 계산근거가 각각 개별적으로 명확히 분리 출력될 것.
 - [ ] 타 프로젝트 명칭인 `redcr`이 파일명(`rc_beam_report.js`, `report_common_renderer.js`), 클래스명, 전역 함수명, HTML 태그, 테스트 함수명에서 완전히 청산 및 대체될 것.
 - [ ] `tests/ui/test_phase22_4_rc_beam_report.py` 및 `tests/engine/test_rc_beam.py` 단위 테스트가 100% 통과할 것.
