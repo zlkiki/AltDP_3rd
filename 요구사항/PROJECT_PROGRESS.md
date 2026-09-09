@@ -2,23 +2,20 @@
 
 > **[SSOT] 외부 기억 진행 추적 및 원클릭 /goal 실행 통합 인덱스**  
 > 세션 재시작 및 AI 모델 교체 시 현황을 즉시 복원하고 다음 작업을 바로 실행하기 위한 단일 진실 공급원(SSOT)입니다.  
-> 세부 개발 프로토콜 및 UI/UX 규약은 [`AGENTS.md`](../.agents/AGENTS.md), [`docs/16`](../docs/16_goal_micro_execution_protocol.md), [`docs/07`](../docs/07_web_application_ui_ux_specification.md)을 참조합니다.
+> 세부 개발 행동 강령 및 온디맨드 기술 사양은 [`AGENTS.md`](../.agents/AGENTS.md), [`docs/10`](../docs/10_agent_development_protocols.md), [`docs/07`](../docs/07_web_application_ui_ux_specification.md)을 참조합니다.
 
 ---
 
 ## 1. 현재 시스템 스냅샷 (Snapshot)
 
-* **최종 갱신**: `2026-09-09T16:15:00+09:00`
+* **최종 갱신**: `2026-09-09T16:21:00+09:00`
 * **최근 작업**: 
+  - `요구사항 30 완결`: `AGENTS.md` 초경량 라우터 & 2계층 헌법 전면 개편 적용, `docs/16` 정식 보관(`docs/@@OLD/`) 처리, `docs/10` 온디맨드 백과사전 위상 정립, 원클릭 `/goal` 실행 체계 확립
   - `요구사항 23 수립 완결`: 요구사항 29 기반 RC 기둥(`rc_column`) 자동화 플랫폼 수직 관통 단일 마스터 명세서 수립 (`요구사항23_*.md`)
   - `기완료 아카이빙 및 정리`: 요구사항 22 시리즈(20개 문서), 요구사항 28, 요구사항 29를 `@@OLD/`로 아카이빙 완료. 작업 전 요구사항 23 분할 명세서 6개를 `보류/`로 이동 완료
 * **회귀 테스트**: **`pytest` 405 / 405 PASS (100% 통과, 0 Failures)**
 * **차기 즉시 작업**: **`Phase 23`** (RC기둥: 요구사항 23 자동화 플랫폼 수직 관통 — Tracer AST + 벤치마크 TDD + 4-Pane E2E, 권장 모델: 🧠 **High**)
-* **실행 명령문**: `/goal 요구사항 23을 확인하고 RC 기둥 자동화 플랫폼 수직 관통을 구현해줘`
-
-> **💡 권장 모델 가이드 ([docs/16](../docs/16_goal_micro_execution_protocol.md) 연동)**
-> * 🧠 **High** (Gemini Pro, Claude Sonnet, GPT-4.5 등): 공학 수식, KDS 계산 엔진, KaTeX 수식 전개식, 엄밀한 TDD (오차 $\le 0.10\%$)
-> * ⚙️ **Medium** (Gemini Flash, Claude Haiku 등): HTML/JS 입력폼, DOM UI 조작, Canvas 드로잉, E2E 이벤트 연결 및 검증
+* **실행 명령문**: `/goal agents.md를 읽고 요구사항 23을 구현해줘`
 
 ---
 
@@ -31,6 +28,7 @@
 * [x] **요구사항 27 (Phase 27-1 ~ 27-4)**: 단면DB 자체자산화, `paths.py`, `FrameModel3D`, 소스 순수화 및 외부참조 0건 검증 완료
 * [x] **요구사항 28**: 프로젝트 문서 체계 및 개발 프로세스 정확도·효율성 혁신 방안 수립 완료
 * [x] **요구사항 29**: 차세대 개발 패러다임 대혁신 — 61종 부재 고속 양산을 위한 메타데이터 주도 자동화 플랫폼(AltDP-Core) 아키텍처 수립 완료
+* [x] **요구사항 30**: AGENTS.md 초경량 라우터 개편, docs/10 2계층 분리 모델 확립 및 원클릭 /goal 실행 체계 확립 완료
 
 ---
 
@@ -42,7 +40,7 @@
 
 | 상태 | 공정 | 권장 모델 | 대상 명세서 | 실행 명령문 (복사용) |
 |:---:|:---:|:---:|---|---|
-| [ ] | **통합 단일 마스터** | 🧠 **High** | [RC기둥 자동화 플랫폼 수직 관통 마스터](요구사항23_PhaseV1_02_RC기둥_rc_column_자동화플랫폼_수직관통_명세서.md) | `/goal 요구사항 23을 확인하고 RC 기둥 자동화 플랫폼 수직 관통을 구현해줘` |
+| [ ] | **통합 단일 마스터** | 🧠 **High** | [RC기둥 자동화 플랫폼 수직 관통 마스터](요구사항23_PhaseV1_02_RC기둥_rc_column_자동화플랫폼_수직관통_명세서.md) | `/goal agents.md를 읽고 요구사항 23을 구현해줘` |
 | [ ] | Step 1 Core | 🧠 **High** | • `src/core/tracer.py` (Tracer AST) & `geometry.py` (기하 규격)<br>• `tracer_report_renderer.js` 공통 계산서 컴포넌트 | (마스터 통합 실행) |
 | [ ] | Step 2 Engine | 🧠 **High** | • `column.py` Tracer 주입 & KDS 연산<br>• `schemas/rc_column.py` 메타데이터 DTO & API | (마스터 통합 실행) |
 | [ ] | Step 3 Benchmark | 🧠 **High** | • `rc_column_benchmark.json` (학회 예제 5.1/5.2/5.3)<br>• `test_rc_column_benchmark.py` (오차 $\le 0.10\%$ TDD) | (마스터 통합 실행) |
