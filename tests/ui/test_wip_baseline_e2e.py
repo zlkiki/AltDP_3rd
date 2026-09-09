@@ -130,7 +130,7 @@ def test_flagship_vs_wip_handling():
 
 def test_wip_a4_report_no_legacy_card():
     """Verify legacy 4-pillar card renderer is decommissioned and A4 sheet standard is enforced."""
-    rep_res = client.get("/static/js/report/redcr_common_renderer.js")
+    rep_res = client.get("/static/js/report/report_common_renderer.js")
     assert rep_res.status_code == 200
     assert "four-pillar-container" not in rep_res.text
 

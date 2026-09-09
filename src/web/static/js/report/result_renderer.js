@@ -313,9 +313,10 @@ window.ResultRenderer = {
                 rawHtml = window.RedcrFootingReport.generateFootingReportHTML(res);
             } else if (customType === 'slab' && window.RedcrSlabReport && typeof window.RedcrSlabReport.generateSlabReportHTML === 'function') {
                 rawHtml = window.RedcrSlabReport.generateSlabReportHTML(res);
-            } else if (window.RedcrCommonRenderer && typeof window.RedcrCommonRenderer.renderA4Sheet === 'function') {
+            } else if ((window.ReportCommonRenderer || window.RedcrCommonRenderer) && typeof (window.ReportCommonRenderer || window.RedcrCommonRenderer).renderA4Sheet === 'function') {
                 const commonWrap = document.createElement('div');
-                window.RedcrCommonRenderer.renderA4Sheet(commonWrap, res, mod, this.currentInputs);
+                const commonRenderer = window.ReportCommonRenderer || window.RedcrCommonRenderer;
+                commonRenderer.renderA4Sheet(commonWrap, res, mod, this.currentInputs);
                 rawHtml = commonWrap.innerHTML;
             } else {
                 this.renderA4WIPSheet(viewport, modMeta, this.currentInputs, this.currentResult);

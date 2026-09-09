@@ -52,11 +52,11 @@ def test_kds_report_renderers_serving():
     assert "renderA4WIPSheet" in res_result.text
 
     # 2. Common KDS A4 Calculation Sheet Generator (Legacy 4-pillar eliminated)
-    res_redcr = client.get("/static/js/report/redcr_common_renderer.js")
-    assert res_redcr.status_code == 200
-    assert "RedcrCommonRenderer" in res_redcr.text
-    assert "four-pillar-container" not in res_redcr.text
-    assert "pure-white-sheet" in res_redcr.text
+    res_report = client.get("/static/js/report/report_common_renderer.js")
+    assert res_report.status_code == 200
+    assert "ReportCommonRenderer" in res_report.text
+    assert "four-pillar-container" not in res_report.text
+    assert "pure-white-sheet" in res_report.text
 
     # 3. Dedicated Member Report Generators
     res_beam_rep = client.get("/static/js/report/redcr/BeamReportGenerator.js")

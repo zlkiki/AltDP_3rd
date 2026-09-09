@@ -1,6 +1,8 @@
 /**
  * AltDP_3rd RC Beam Pure White A4 5-Chapter 8-Step KaTeX Structural Calculation Report
- * Conforms to Requirement 22-4 & DOCS 07 & DOCS 14 Specifications
+ * Conforms to Requirement 22-4, 22-4-1-2 & DOCS 07 & DOCS 14 Specifications
+ * - Standard Class: RCBeamReportGenerator
+ * - Global Function: window.renderRCBeamReport(reportEngine, container, memberData, calcResult)
  * - Chapter 1: 설계 기본 정보 및 단면 제원 (Design Information & Section Geometry)
  * - Chapter 2: 설계 부재력 및 하중조합 (Design Factored Loads & Combinations)
  * - Chapter 3: 휨모멘트 강도 검토 (Flexural Strength Check - 8-Step Step 1~4)
@@ -12,11 +14,11 @@
 (function(window) {
     'use strict';
 
-    class RedcrRcBeamReport {
+    class RCBeamReportGenerator {
         /**
          * Render RC Beam A4 Calculation Sheet
          * @param {Object} reportEngine - Parent ReportEngine instance
-         * @param {HTMLElement} container - DOM Container to render
+         * @param {HTMLElement} [container] - DOM Container to render
          * @param {Object} memberData - Beam input properties
          * @param {Object} calcResult - Beam calculation result
          * @returns {string} Generated HTML string
@@ -24,10 +26,11 @@
         render(reportEngine, container, memberData = {}, calcResult = {}) {
             const m = memberData || {};
             const r = calcResult || {};
-            const cfg = reportEngine.headerConfig || {};
-            const mode = reportEngine.mode || 'detail';
-            const includeInput = reportEngine.includeInput;
-            const includeGraphics = reportEngine.includeGraphics;
+            const engine = reportEngine || (window.reportEngine || {});
+            const cfg = engine.headerConfig || {};
+            const mode = engine.mode || 'detail';
+            const includeInput = engine.includeInput !== false;
+            const includeGraphics = engine.includeGraphics !== false;
 
             // 1. 단면 및 재료 제원 기본값
             const b = Number(m.b || 400);
@@ -159,15 +162,20 @@
             const isOverallSafe = governingDcr <= 1.0;
             const overallVerdict = isOverallSafe ? '  →  O.K' : '  →  N.G';
 
+            // 그래픽 렌더링 헬퍼
+            const graphicContent = (engine._generateSectionGraphic && typeof engine._generateSectionGraphic === 'function')
+                ? engine._generateSectionGraphic(m, r, 'rc_beam')
+                : '';
+
             // HTML 조립 시작
             const html = `
-                <div class="a4-zoom-viewport">
-                    <div class="a4-sheet-container pure-white-sheet" id="main-result-viewport" style="background:#ffffff !important;color:#111827 !important;">
+                <div class="a4-zoom-viewport altdp-report-container redcr-report-container">
+                    <div class="a4-sheet-container pure-white-sheet altdp-report redcr-report" id="main-result-viewport" style="background:#ffffff !important;color:#111827 !important;">
                         <!-- 0. Header & Approval Banner (IDD_REPORT_HEADER_DLG) -->
                         <div class="report-print-banner">
                             <div class="header-project-info">
-                                <div class="company-title">${cfg.companyName} [${cfg.companyShort}]</div>
-                                <h1 class="sheet-main-title">${cfg.projectName}</h1>
+                                <div class="company-title">${cfg.companyName || 'AltDP_3rd KDS Automated Engineering'} [${cfg.companyShort || 'K-STRUCT'}]</div>
+                                <h1 class="sheet-main-title">${cfg.projectName || 'AltDP_3rd KDS Standard Report'}</h1>
                                 <div class="member-tag-line">부재 명칭: <b>${cfg.memberTag || m.name || '1F-B1'}</b> (RC 콘크리트 보 구조계산서)</div>
                             </div>
                             <table class="header-approval-table">
@@ -180,9 +188,9 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>${cfg.engineer}</td>
-                                        <td>${cfg.checker}</td>
-                                        <td>${cfg.approver}</td>
+                                        <td>${cfg.engineer || '작성자'}</td>
+                                        <td>${cfg.checker || '검토자'}</td>
+                                        <td>${cfg.approver || '승인자'}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -258,7 +266,7 @@
 
                             <!-- 2D 단면 배근 상세 그래픽 임베딩 -->
                             <div class="report-svg-slot report-graphic-slot" style="${includeGraphics ? 'width:100%;text-align:center;margin-top:4px;' : 'display:none;'}">
-                                ${reportEngine._generateSectionGraphic(m, r, 'rc_beam')}
+                                ${graphicContent}
                                 <div style="font-size:10.5px;color:#64748b;margin-top:5px;font-weight:500;">
                                     [RC 보 3-Station 횡단면 배근 상세도: End-I (${b}×${h}) / Center-M (${b}×${h}) / End-J (${b}×${h}) mm]
                                 </div>
@@ -680,6 +688,36 @@
     }
 
     // Register to global
-    window.RedcrRcBeamReport = new RedcrRcBeamReport();
+    window.RCBeamReportGenerator = RCBeamReportGenerator;
+    const defaultGenerator = new RCBeamReportGenerator();
+
+    /**
+     * Standard Global RC Beam Report Renderer
+     * @param {Object} reportEngine - ReportEngine instance or memberData
+     * @param {HTMLElement} [container] - DOM Container or calcResult
+     * @param {Object} [memberData] - Beam input properties
+     * @param {Object} [calcResult] - Beam calculation result
+     * @returns {string} HTML string
+     */
+    window.renderRCBeamReport = function(reportEngine, container, memberData, calcResult) {
+        let engine = reportEngine;
+        let c = container;
+        let m = memberData;
+        let r = calcResult;
+        if (!reportEngine || typeof reportEngine.updateChapterNumbering !== 'function') {
+            m = reportEngine;
+            r = container;
+            engine = window.reportEngine || { mode: 'detail', includeInput: true, includeGraphics: true, headerConfig: {} };
+            c = null;
+        }
+        return defaultGenerator.render(engine, c, m, r);
+    };
+
+    // Legacy backwards compatibility
+    window.RedcrRcBeamReport = {
+        render: function(reportEngine, container, memberData, calcResult) {
+            return window.renderRCBeamReport(reportEngine, container, memberData, calcResult);
+        }
+    };
 
 })(typeof window !== 'undefined' ? window : this);

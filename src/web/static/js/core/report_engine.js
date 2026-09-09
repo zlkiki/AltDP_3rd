@@ -464,10 +464,10 @@
 
             this._ensureToolbar();
 
-            // 1. Specialized Flagship RC Beam KaTeX A4 Report (Requirement 22-4)
+            // 1. Specialized Flagship RC Beam KaTeX A4 Report (Requirement 22-4 & 22-4-1-2)
             const isRcBeam = modKey === 'rc_beam' || modKey === 'rc/beam' || String(modKey).startsWith('rc/beam') || String(modKey).includes('rc_beam');
-            if (isRcBeam && window.RedcrRcBeamReport && typeof window.RedcrRcBeamReport.render === 'function') {
-                const beamHtml = window.RedcrRcBeamReport.render(this, container, this.currentMemberData, this.currentCalcResult);
+            if (isRcBeam && typeof window.renderRCBeamReport === 'function') {
+                const beamHtml = window.renderRCBeamReport(this, container, this.currentMemberData, this.currentCalcResult);
                 container.innerHTML = beamHtml;
                 this.updateChapterNumbering(container);
                 this._renderKaTeXFormulas(container);

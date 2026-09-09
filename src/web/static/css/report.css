@@ -496,9 +496,10 @@
 /* ========================================================= */
 /* Standardized Report Global Typography & Design Tokens     */
 /* Shared across Special Modules (Beam/Col/Steel/Footing/etc)*/
-/* and General Modules (RedcrCommonRenderer)                 */
+/* and General Modules (ReportCommonRenderer)                */
 /* ========================================================= */
-.pure-white-sheet, .a4-sheet-page, .a4-print-container {
+.pure-white-sheet, .a4-sheet-page, .a4-print-container,
+.altdp-report, .altdp-report-container, .redcr-report, .redcr-report-container {
     font-family: 'Segoe UI', Arial, -apple-system, sans-serif !important;
     color: #222222 !important;
     font-size: 13px !important;

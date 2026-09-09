@@ -1,11 +1,12 @@
-// web/js/report/redcr_common_renderer.js
+// web/js/report/report_common_renderer.js
 /**
- * AltDP_3rd Master Universal KDS Calculation Report Generator (redcr_common_renderer.js)
+ * AltDP_3rd Master Universal KDS Calculation Report Generator (report_common_renderer.js)
  * Conforms to docs/07 (Pure White #ffffff A4 Fixed Sheet) and docs/14 (5-Chapter KDS Structure)
+ * Standard Global Object: window.ReportCommonRenderer
  * Fully retires legacy 4-pillar cards and arbitrary check table mocks.
  */
 
-window.RedcrCommonRenderer = {
+window.ReportCommonRenderer = {
     /**
      * Master render entry point.
      * Guaranteed pure white (#ffffff) A4 fixed sheet layout without legacy cards.
@@ -56,7 +57,7 @@ window.RedcrCommonRenderer = {
         const dateStr = new Date().toISOString().slice(0, 10);
 
         let html = `
-        <div class="a4-sheet-page pure-white-sheet" style="background:#ffffff;padding:36px 44px;color:#0f172a;box-sizing:border-box;font-family:'Pretendard', 'Segoe UI', sans-serif;">
+        <div class="a4-sheet-page pure-white-sheet altdp-report" style="background:#ffffff;padding:36px 44px;color:#0f172a;box-sizing:border-box;font-family:'Pretendard', 'Segoe UI', sans-serif;">
             <!-- Header Banner -->
             <div style="border-bottom:2px solid #0f172a;padding-bottom:12px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:flex-end;">
                 <div>
@@ -253,19 +254,20 @@ window.RedcrCommonRenderer = {
             });
         }
 
-        // Fallback row if specific checks are not broken down
-        if (checkRows.length === 0) {
-            const dcr = Number(res.governing_dcr || res.max_dcr || res.dcr || 0);
-            if (dcr > 0) {
-                checkRows.push({
-                    item: '단면 안전성 종합 검토 (Governing DCR)',
-                    std: 'KDS 국가건설기준',
-                    demand: `${dcr.toFixed(3)}`,
-                    capacity: '1.000',
-                    dcr: dcr.toFixed(3),
-                    pass: dcr <= 1.0
-                });
-            }
+        // 4. Bearing / Soil
+        if (res.soil || res.bearing || res.qa) {
+            const soil = res.soil || res;
+            const demand = Number(soil.q_max ?? soil.qmax ?? 0);
+            const capacity = Number(soil.q_a ?? soil.qa ?? 0);
+            const dcr = capacity > 0 ? (demand / capacity) : Number(soil.dcr || 0);
+            checkRows.push({
+                item: '지반 지지력 검토 (Soil Bearing)',
+                std: 'KDS 14 20 70',
+                demand: `${demand.toFixed(2)} kPa`,
+                capacity: `${capacity.toFixed(2)} kPa`,
+                dcr: dcr.toFixed(3),
+                pass: dcr <= 1.0
+            });
         }
 
         if (checkRows.length === 0) {
@@ -304,3 +306,6 @@ window.RedcrCommonRenderer = {
         `;
     }
 };
+
+// Backwards compatibility
+window.RedcrCommonRenderer = window.ReportCommonRenderer;

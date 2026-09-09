@@ -1,4 +1,4 @@
-"""Test Phase 22-4: RC Beam Pure White A4 5-Chapter 8-Step KaTeX Calculation Report."""
+"""Test Phase 22-4: RC Beam Pure White A4 5-Chapter 8-Step KaTeX Calculation Report (Standardized)."""
 
 import os
 import pytest
@@ -8,13 +8,13 @@ from src.api.server import app
 client = TestClient(app)
 
 
-def test_redcr_rc_beam_js_serving():
-    """Verify redcr_rc_beam.js is served properly via static files."""
-    response = client.get("/static/js/report/redcr_rc_beam.js")
+def test_rc_beam_report_js_serving():
+    """Verify rc_beam_report.js is served properly via static files and has standardized names."""
+    response = client.get("/static/js/report/rc_beam_report.js")
     assert response.status_code == 200
     content = response.text
-    assert "RedcrRcBeamReport" in content
-    assert "window.RedcrRcBeamReport" in content
+    assert "RCBeamReportGenerator" in content
+    assert "window.renderRCBeamReport" in content
     # Verify 5 chapters
     assert "제 1장" in content or "설계 기본 정보 및 단면 제원" in content
     assert "제 2장" in content or "설계 부재력 및 하중조합" in content
@@ -33,23 +33,23 @@ def test_redcr_rc_beam_js_serving():
     assert "I_e" in content
 
 
-def test_index_html_contains_redcr_rc_beam():
-    """Verify index.html contains script tag for redcr_rc_beam.js."""
+def test_index_html_contains_rc_beam_report():
+    """Verify index.html contains script tag for rc_beam_report.js."""
     response = client.get("/")
     assert response.status_code == 200
-    assert "redcr_rc_beam.js" in response.text
+    assert "rc_beam_report.js" in response.text
 
 
-def test_report_engine_delegates_to_redcr_rc_beam():
-    """Verify report_engine.js dispatches to RedcrRcBeamReport for rc_beam."""
+def test_report_engine_delegates_to_rc_beam_report():
+    """Verify report_engine.js dispatches to window.renderRCBeamReport for rc_beam."""
     response = client.get("/static/js/core/report_engine.js")
     assert response.status_code == 200
-    assert "RedcrRcBeamReport" in response.text
+    assert "renderRCBeamReport" in response.text
 
 
-def test_redcr_rc_beam_formula_substitution_steps():
+def test_rc_beam_report_formula_substitution_steps():
     """Verify KaTeX formulas contain numerical substitution steps (기준식 -> 대입식 -> 결과값)."""
-    response = client.get("/static/js/report/redcr_rc_beam.js")
+    response = client.get("/static/js/report/rc_beam_report.js")
     assert response.status_code == 200
     content = response.text
     # 3-step formula derivation structure checks
@@ -89,8 +89,8 @@ def test_report_table_layout_and_column_widths():
     assert "width: 60% !important;" not in css
     assert "table-layout: fixed !important;" in css
 
-    # Check redcr_rc_beam.js colgroup tags
-    resp_beam = client.get("/static/js/report/redcr_rc_beam.js")
+    # Check rc_beam_report.js colgroup tags
+    resp_beam = client.get("/static/js/report/rc_beam_report.js")
     assert resp_beam.status_code == 200
     assert "<colgroup>" in resp_beam.text
     assert "table-layout:fixed" in resp_beam.text
@@ -107,4 +107,3 @@ def test_report_zoom_fit_width_on_init():
     assert resp_engine.status_code == 200
     assert "hasInitialFitted" in resp_engine.text
     assert "window.ZoomController.fitToWidth()" in resp_engine.text
-

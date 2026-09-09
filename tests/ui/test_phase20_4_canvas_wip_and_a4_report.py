@@ -36,9 +36,9 @@ def test_result_renderer_a4_wip_sheet():
     assert "[미구현 (WIP)]" in text
 
 
-def test_redcr_common_renderer_legacy_cleanup():
+def test_report_common_renderer_legacy_cleanup():
     """Verify legacy 4-pillar cards are eliminated and pure white A4 is guaranteed."""
-    res = client.get("/static/js/report/redcr_common_renderer.js")
+    res = client.get("/static/js/report/report_common_renderer.js")
     assert res.status_code == 200
     text = res.text
 
