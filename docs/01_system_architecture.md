@@ -6,47 +6,70 @@
 
 ```mermaid
 graph TD
-    subgraph Layer5 ["5. Web UI & Visualization Layer"]
-        UI["AltDP Glassmorphic UI"]
-        Canvas2D["2D 배근도 & 상세도 (HTML5 Canvas)"]
-        ChartPM["P-M 상관도 대화형 차트 (Chart.js)"]
-        Three3D["3D 철근망/형강 뷰어 (Three.js)"]
+    subgraph Layer5 ["5. Web UI & Visualization Layer (Zero-Build Frontend)"]
+        UI["AltDP 4-Pane Workspace (Vanilla JS ES6+)"]
+        Canvas2D["2D 배근도 & 단면도 (HTML5 Canvas / VDraw)"]
+        ChartPM["P-M 상관곡면 & 응력선도 (Canvas 2D)"]
+        ReportA4["순백색 A4 구조계산서 (KaTeX Math AST)"]
     end
 
-    subgraph Layer4 ["4. REST API & Gateway Layer"]
-        FastAPI["FastAPI High-Speed Async Server"]
+    subgraph Layer4 ["4. REST API & Gateway Layer (FastAPI)"]
+        FastAPI["FastAPI High-Speed Async Server (Uvicorn)"]
         Routes["API Router (RC / Steel / SRC / DB / Report)"]
+        Pydantic["Pydantic v2 Strict DTO & Validation"]
     end
 
-    subgraph Layer3 ["3. Structural Design Code Layer"]
-        RC_Design["RC 설계 엔진 (KDS 14 20 00 / ACI 318)"]
-        Steel_Design["철골 설계 엔진 (KDS 14 31 00 / AISC 360)"]
-        Conn_Design["접합부 설계 엔진 (볼트 / 용접 / 앵커)"]
+    subgraph Layer3 ["3. Structural Design Code Layer (Engine)"]
+        RC_Design["RC 설계 엔진 (KDS 14 20 00 / 콘크리트학회)"]
+        Steel_Design["철골 설계 엔진 (KDS 14 31 00 / 강구조학회)"]
+        Tracer["AltDP Tracer AST (수식 실시간 추적기)"]
     end
 
     subgraph Layer2 ["2. Numerical & Mechanics Solver Layer"]
-        PMSolver["P-M 상관도 수치해석기 (Fiber Model)"]
-        SecProp["단면 기하학적 성질 (A, I, J, Cw, Z, S)"]
-        FEM1D["1D 프레임/연속보 단면력 해석기"]
+        PMSolver["P-M 상관도 수치해석기 (200+ Fiber Model)"]
+        SecProp["단면 기하학적 성질 (Shapely, A, I, J, Z)"]
+        FEM1D["1D 프레임/연속보 및 2D 평판 FEM 솔버"]
     end
 
     subgraph Layer1 ["1. Data & Cross-Section Database Layer"]
-        SDBParser[".sdb 형강 DB 파서 (KS, AISC, JIS 등 33종)"]
-        MatDB["재료 DB (콘크리트, 철근, 구조용 강재)"]
-        ReportGen["A4 표준 구조계산서 엔진"]
+        SDBParser[".sdb 형강 DB 파서 (KS, AISC 등 33종)"]
+        MatDB["재료 물성 DB (콘크리트, 철근, 강재)"]
+        CADExport["AutoCAD DXF 도면 생성기 (ezdxf)"]
     end
 
     UI <--> FastAPI
     FastAPI --> Routes
-    Routes --> RC_Design & Steel_Design & Conn_Design
+    Routes --> Pydantic
+    Pydantic --> RC_Design & Steel_Design
     RC_Design & Steel_Design --> PMSolver & SecProp & FEM1D
+    RC_Design & Steel_Design --> Tracer
+    Tracer --> ReportA4
     PMSolver & SecProp --> SDBParser & MatDB
-    RC_Design & Steel_Design --> ReportGen
+    Canvas2D --> CADExport
 ```
 
 ---
 
-## 2. 5대 계층별 역할 정의
+## 2. 시스템 기술 스택 (Technology Stack)
+
+본 시스템은 **고성능 Python 수치해석/비동기 백엔드**와 **무빌드(Zero-Build) 순수 웹 표준 프론트엔드**를 결합하여 데스크톱 CAD급의 반응성과 구조공학 신뢰성을 동시에 확보했습니다.
+
+| 분류 (Domain) | 기술 및 라이브러리 | 버전 기준 | 역할 및 핵심 엔지니어링 특징 |
+|---|---|:---:|---|
+| **백엔드 코어<br>(Backend Core)** | **Python** | `3.11+` | 순수 파이썬 기반 객체지향/함수형 하이브리드 엔진, 런타임 DLL 무의존 |
+| **웹 프레임워크<br>(Web Framework)** | **FastAPI**<br>**Uvicorn** | `>=0.110.0`<br>`>=0.28.0` | 초고속 비동기 ASGI 서버, 100ms 반응형 동기화, Swagger/OpenAPI 자동 생성 |
+| **데이터 검증<br>(Data Validation)** | **Pydantic v2** | `>=2.6.0` | Rust 기반 엄격한 스키마 유효성 검증, DTO 직렬화 및 타입 안전성 보장 |
+| **수치해석/역학<br>(Science Computing)** | **NumPy**<br>**SciPy** | `>=1.26.0`<br>`>=1.12.0` | 200+ 파이버 단면 적분, 비선형 재료 응력-변형률 수치해석, 고속 행렬 연산 |
+| **기하/CAD 도면<br>(Geometry & CAD)** | **Shapely**<br>**ezdxf** | `>=2.0.0`<br>`>=1.3.0` | 2D 평면 기하 불리언 연산/단면성질 산정 및 AutoCAD DXF 벡터 도면 직접 생성 |
+| **프론트엔드 UI<br>(Web Frontend)** | **Vanilla JS (ES6+)**<br>**HTML5 / CSS3** | Modern Web | Node/npm 번들러 빌드 없이 브라우저 즉시 구동(Zero-Build), 4-Pane 반응형 데스크톱 워크스페이스 |
+| **그래픽 뷰포트<br>(2D Graphics)** | **HTML5 Canvas**<br>*(AltDP VDraw)* | Native API | 부재 단면도, 배근 상세도, P-M 곡면, 응력분포선도 인터랙티브 렌더링 |
+| **수식/계산서<br>(Math & Reporting)** | **KaTeX**<br>**AltDP Tracer AST** | `v0.16+`<br>*(자체 자산)* | 실시간 연산 과정의 LaTeX 수식화 및 순백색 A4 인쇄 품질 구조계산서 렌더링 |
+| **문서/출력 엔진<br>(Export Engine)** | **Jinja2**<br>**openpyxl**<br>**ReportLab** / **WeasyPrint** | `>=3.1.3`<br>`>=3.1.2`<br>`>=4.0 / >=60` | HTML/PDF 계산서 템플릿 및 KDS 물량산출 Excel 파일 자동 생성 |
+| **테스트 및 품질<br>(QA & Testing)** | **Pytest**<br>**HTTPX** | `>=8.0.0`<br>`>=0.27.0` | KDS 3자 삼각 대조 공인 예제집 기반 오차 $\le 0.10\%$ TDD 회귀 검증 스위트 |
+
+---
+
+## 3. 5대 계층별 역할 정의
 
 ### Layer 1: 데이터 및 형강 DB 계층 (Data & Section DB Layer)
 * **형강 DB 파서 (`src/engine/db/sdb_parser.py`)**:
@@ -96,7 +119,7 @@ graph TD
 
 ---
 
-## 3. AltDP_3rd 프로젝트 디렉토리 트리 및 파일 인벤토리
+## 4. AltDP_3rd 프로젝트 디렉토리 트리 및 파일 인벤토리
 
 ```text
 AltDP_3rd/

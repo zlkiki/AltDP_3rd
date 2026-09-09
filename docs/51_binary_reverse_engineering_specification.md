@@ -1,4 +1,4 @@
-# 바이너리 리버스 엔지니어링 명세서 (02_binary_reverse_engineering_specification.md)
+# 바이너리 리버스 엔지니어링 명세서 (51_binary_reverse_engineering_specification.md)
 
 ## 1. 바이너리 분석 개요
 

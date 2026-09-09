@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Midas Design+ 1:1 Prototype] RC 기둥 설계 검토 (IDD_RCS_COLUMN_PMODE_DLG)</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- KaTeX CSS & JS for Pure White A4 Engineering Calculation Sheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+</head>
+<body>
+    <!-- 상단 헤더 -->
+    <header class="app-header">
+        <div class="logo-area">
+            <span class="badge-gt">Ground Truth 100%</span>
+            <h1>Midas Design+ RC 기둥 설계 검토 대화상자 (IDD_RCS_COLUMN_PMODE_DLG)</h1>
+        </div>
+        <div class="header-actions">
+            <span id="overallStatusBadge" class="status-badge ok">판정: OK (DCR 0.608)</span>
+            <button id="btnAutoDesign" class="btn btn-magic">✨ 자동설계 (Auto Design)</button>
+            <button id="btnCheck" class="btn btn-primary">⚡ 검토 (Check)</button>
+            <button id="btnOpenReport" class="btn btn-secondary">📋 상세 리포트</button>
+        </div>
+    </header>
+
+    <!-- 메인 3컬럼 워크스페이스 -->
+    <main class="main-workspace">
+        <!-- 1열: 기하 / 재질 / 하중 / 장주 파라미터 -->
+        <section class="panel panel-left">
+            <!-- [재질] -->
+            <fieldset class="group-box">
+                <legend>재질 (Material)</legend>
+                <div class="form-row">
+                    <label>콘크리트 (fck)</label>
+                    <div class="input-unit">
+                        <select id="selFck">
+                            <option value="18">18 MPa</option>
+                            <option value="21">21 MPa</option>
+                            <option value="24" selected>24 MPa</option>
+                            <option value="27">27 MPa</option>
+                            <option value="30">30 MPa</option>
+                            <option value="35">35 MPa</option>
+                            <option value="40">40 MPa</option>
+                            <option value="50">50 MPa</option>
+                            <option value="60">60 MPa</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>주철근 (fy)</label>
+                    <div class="input-unit">
+                        <select id="selFy">
+                            <option value="300">SD300 (300 MPa)</option>
+                            <option value="400" selected>SD400 (400 MPa)</option>
+                            <option value="500">SD500 (500 MPa)</option>
+                            <option value="600">SD600 (600 MPa)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>띠철근 (fys)</label>
+                    <div class="input-unit">
+                        <select id="selFys">
+                            <option value="300">SD300 (300 MPa)</option>
+                            <option value="400" selected>SD400 (400 MPa)</option>
+                            <option value="500">SD500 (500 MPa)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row-check">
+                    <label><input type="checkbox" id="chkLcon"> 경량 콘크리트</label>
+                    <div class="input-unit">
+                        <span class="sub-label">계수(λ):</span>
+                        <input type="number" id="numLambda" value="1.00" step="0.05" min="0.75" max="1.00" disabled>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- [형상] -->
+            <fieldset class="group-box">
+                <legend>형상 (Shape)</legend>
+                <div class="radio-group">
+                    <label><input type="radio" name="radShape" value="RECT" checked> 사각형</label>
+                    <label><input type="radio" name="radShape" value="CIRCLE"> 원형</label>
+                </div>
+            </fieldset>
+
+            <!-- [단면] -->
+            <fieldset class="group-box">
+                <legend>단면 (Section)</legend>
+                <div id="rectFields">
+                    <div class="form-row">
+                        <label>너비 (b / Cx)</label>
+                        <div class="input-unit"><input type="number" id="numWidth" value="600" step="50"><span class="unit">mm</span></div>
+                    </div>
+                    <div class="form-row">
+                        <label>높이 (h / Cy)</label>
+                        <div class="input-unit"><input type="number" id="numHeight" value="600" step="50"><span class="unit">mm</span></div>
+                    </div>
+                    <div class="form-row">
+                        <label>모서리 반경 (r)</label>
+                        <div class="input-unit"><input type="number" id="numCorner" value="0" step="10"><span class="unit">mm</span></div>
+                    </div>
+                </div>
+                <div id="circleFields" style="display: none;">
+                    <div class="form-row">
+                        <label>원형 직경 (D)</label>
+                        <div class="input-unit"><input type="number" id="numDiameter" value="600" step="50"><span class="unit">mm</span></div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>순피복 두께 (cc)</label>
+                    <div class="input-unit"><input type="number" id="numCover" value="40" step="5"><span class="unit">mm</span></div>
+                </div>
+                <div class="form-row">
+                    <label>길이 ( x ) [Lux]</label>
+                    <div class="input-unit"><input type="number" id="numLux" value="3600" step="100"><span class="unit">mm</span></div>
+                </div>
+                <div class="form-row">
+                    <label>길이 ( y ) [Luy]</label>
+                    <div class="input-unit"><input type="number" id="numLuy" value="3600" step="100"><span class="unit">mm</span></div>
+                </div>
+                <div class="form-row dual">
+                    <div>
+                        <label>Kx</label>
+                        <input type="number" id="numKx" value="1.00" step="0.05">
+                    </div>
+                    <div>
+                        <label>Ky</label>
+                        <input type="number" id="numKy" value="1.00" step="0.05">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- [축 방향력 / 휨 모멘트] -->
+            <fieldset class="group-box">
+                <legend>축 방향력 / 휨 모멘트 (Forces)</legend>
+                <div class="form-row">
+                    <label>축 방향력 (Pu)</label>
+                    <div class="input-unit"><input type="number" id="numPu" value="2000" step="50"><span class="unit">kN</span></div>
+                </div>
+                <div class="form-row-check">
+                    <label><input type="checkbox" id="chkApply2Shear" checked> 전단 검토에 적용</label>
+                    <button id="btnOpenLcomb" class="btn btn-sm btn-outline">하중 조합 ...</button>
+                </div>
+                <div class="form-row">
+                    <label>휨 모멘트 ( x )</label>
+                    <div class="input-unit"><input type="number" id="numMux" value="250" step="10"><span class="unit">kN·m</span></div>
+                </div>
+                <div class="form-row">
+                    <label>휨 모멘트 ( y )</label>
+                    <div class="input-unit"><input type="number" id="numMuy" value="150" step="10"><span class="unit">kN·m</span></div>
+                </div>
+            </fieldset>
+
+            <!-- [전단력] -->
+            <fieldset class="group-box">
+                <legend>전단력 (Shear Forces)</legend>
+                <div class="form-row dual">
+                    <div>
+                        <label>전단력 ( x ) [Vux]</label>
+                        <div class="input-unit"><input type="number" id="numVux" value="80" step="10"><span class="unit">kN</span></div>
+                    </div>
+                    <div>
+                        <label>전단력 ( y ) [Vuy]</label>
+                        <div class="input-unit"><input type="number" id="numVuy" value="120" step="10"><span class="unit">kN</span></div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- [설계 변수 / 2차 효과] -->
+            <fieldset class="group-box">
+                <legend>설계 변수 (Design Parameters)</legend>
+                <div class="form-row dual">
+                    <div>
+                        <label>Cmx</label>
+                        <input type="number" id="numCmx" value="1.00" step="0.05">
+                    </div>
+                    <div>
+                        <label>Cmy</label>
+                        <input type="number" id="numCmy" value="1.00" step="0.05">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>βd (지속하중비)</label>
+                    <div class="input-unit"><input type="number" id="numBetaD" value="0.20" step="0.05"></div>
+                </div>
+                <div class="form-row-check">
+                    <label><input type="checkbox" id="chk2ndOrder"> 2차 효과 고려 (P-Δ)</label>
+                </div>
+            </fieldset>
+        </section>
+
+        <!-- 2열: 배근 / 타이바 / 이음 / 내진 / 옵션 -->
+        <section class="panel panel-center">
+            <!-- [배근] -->
+            <fieldset class="group-box">
+                <div class="legend-with-btn">
+                    <legend>배근 (Reinforcement)</legend>
+                    <button id="btnOpenRebarDetail" class="btn btn-xs btn-outline">⚙️ 배근 상세...</button>
+                </div>
+                
+                <!-- 배근 입력 모드 라디오 -->
+                <div class="rebar-mode-tabs" style="display:flex;gap:12px;margin-bottom:8px;font-size:12px;border-bottom:1px solid #e2e8f0;padding-bottom:6px;">
+                    <label><input type="radio" name="radRebarMode" value="EQUAL" checked> 균등 배근 (Nx, Ny)</label>
+                    <label><input type="radio" name="radRebarMode" value="PER_FACE"> 변별 배근 (Per-Face)</label>
+                </div>
+
+                <!-- 1. 균등 배근 필드 -->
+                <div id="rectBarFields">
+                    <div class="form-row dual">
+                        <div>
+                            <label>X변 주근수 (Nx)</label>
+                            <input type="number" id="numNx" value="4" min="2" max="20">
+                        </div>
+                        <div>
+                            <label>Y변 주근수 (Ny)</label>
+                            <input type="number" id="numNy" value="4" min="2" max="20">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. 변별 배근 필드 (PER_FACE) -->
+                <div id="perFaceBarFields" style="display: none; background:#f8fafc; padding:8px; border-radius:4px; border:1px solid #e2e8f0; margin-bottom:8px;">
+                    <div class="form-row">
+                        <label>코너 주철근 (4EA)</label>
+                        <select id="selPerFaceCornerDiam">
+                            <option value="16">D16</option>
+                            <option value="19">D19</option>
+                            <option value="22">D22</option>
+                            <option value="25" selected>D25</option>
+                            <option value="29">D29</option>
+                            <option value="32">D32</option>
+                            <option value="35">D35</option>
+                        </select>
+                    </div>
+                    <div class="form-row dual">
+                        <div>
+                            <label>상하변(X) 중간주근</label>
+                            <div class="input-unit"><input type="number" id="numSideXBars" value="2" min="0" max="10"><span class="unit">대/면</span></div>
+                        </div>
+                        <div>
+                            <label>상하변 직경</label>
+                            <select id="selSideXBarDiam">
+                                <option value="16">D16</option>
+                                <option value="19">D19</option>
+                                <option value="22" selected>D22</option>
+                                <option value="25">D25</option>
+                                <option value="29">D29</option>
+                                <option value="32">D32</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row dual">
+                        <div>
+                            <label>좌우변(Y) 중간주근</label>
+                            <div class="input-unit"><input type="number" id="numSideYBars" value="2" min="0" max="10"><span class="unit">대/면</span></div>
+                        </div>
+                        <div>
+                            <label>좌우변 직경</label>
+                            <select id="selSideYBarDiam">
+                                <option value="16">D16</option>
+                                <option value="19">D19</option>
+                                <option value="22" selected>D22</option>
+                                <option value="25">D25</option>
+                                <option value="29">D29</option>
+                                <option value="32">D32</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 원형 주근 필드 -->
+                <div id="circleBarFields" style="display: none;">
+                    <div class="form-row">
+                        <label>원형 주근수 (Ncir)</label>
+                        <div class="input-unit"><input type="number" id="numNcir" value="8" min="6" max="36"><span class="unit">대</span></div>
+                    </div>
+                </div>
+
+                <!-- 주철근 단일 호칭경 (균등배근 시) -->
+                <div id="singleBarDiamField" class="form-row">
+                    <label>주철근 호칭경</label>
+                    <div class="input-unit">
+                        <select id="selBarDiam">
+                            <option value="16">D16</option>
+                            <option value="19">D19</option>
+                            <option value="22">D22</option>
+                            <option value="25" selected>D25</option>
+                            <option value="29">D29</option>
+                            <option value="32">D32</option>
+                            <option value="35">D35</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 이종배근 체크박스 (균등배근 모드에서 코너/변 직경 차등) -->
+                <div id="diffBarCheckField" class="form-row-check">
+                    <label><input type="checkbox" id="chkUseDiffBar"> 코너/변 이종배근 적용</label>
+                </div>
+                <div id="diffBarOptions" class="form-row dual" style="display: none;">
+                    <div>
+                        <label>코너 주근</label>
+                        <select id="selCornerBarDiam">
+                            <option value="16">D16</option>
+                            <option value="19">D19</option>
+                            <option value="22">D22</option>
+                            <option value="25" selected>D25</option>
+                            <option value="29">D29</option>
+                            <option value="32">D32</option>
+                            <option value="35">D35</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>변 주근</label>
+                        <select id="selSideBarDiam">
+                            <option value="16">D16</option>
+                            <option value="19">D19</option>
+                            <option value="22" selected>D22</option>
+                            <option value="25">D25</option>
+                            <option value="29">D29</option>
+                            <option value="32">D32</option>
+                            <option value="35">D35</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="bar-summary-box">
+                    <span>총 주철근: <strong id="lblTotalBars">12</strong> 대</span>
+                    <span>철근비(ρ): <strong id="lblRhoG">1.64</strong> %</span>
+                    <span>순간격: <strong id="lblClearSpacing">125.0</strong> mm (<span id="lblClearSpacingStatus" style="color:#16a34a;">OK</span>)</span>
+                </div>
+            </fieldset>
+
+            <!-- [타이바 / 횡철근] -->
+            <fieldset class="group-box">
+                <legend>타이바 (Tie Bar / Stirrups)</legend>
+                <div class="form-row dual">
+                    <div>
+                        <label>횡철근 종류</label>
+                        <select id="selTieType">
+                            <option value="TIED" selected>띠철근 (Tie)</option>
+                            <option value="SPIRAL">나선철근 (Spiral)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>띠철근 호칭경</label>
+                        <select id="selTieDiam">
+                            <option value="10" selected>D10</option>
+                            <option value="13">D13</option>
+                            <option value="16">D16</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>배근 간격 (s)</label>
+                    <div class="input-unit"><input type="number" id="numTieSpacing" value="300" step="25"><span class="unit">mm</span></div>
+                </div>
+                <div class="form-row-check">
+                    <label><input type="checkbox" id="chkUseEndTie"> 단부 띠철근 별도 적용</label>
+                    <div class="input-unit">
+                        <span class="sub-label">단부(so):</span>
+                        <input type="number" id="numEndTieSpacing" value="150" step="25" disabled>
+                        <span class="unit">mm</span>
+                    </div>
+                </div>
+                <div class="form-row dual">
+                    <div>
+                        <label>타이 다리수 (X)</label>
+                        <input type="number" id="numLegsX" value="2" min="2" max="6">
+                    </div>
+                    <div>
+                        <label>타이 다리수 (Y)</label>
+                        <input type="number" id="numLegsY" value="2" min="2" max="6">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label>타이 레이아웃</label>
+                    <select id="selTiePattern">
+                        <option value="TYPE_1" selected>TYPE_1 (2-Leg 외곽 루프)</option>
+                        <option value="TYPE_2">TYPE_2 (4-Leg 십자 크로스타이)</option>
+                        <option value="TYPE_3">TYPE_3 (마름모 내부 타이)</option>
+                        <option value="TYPE_4">TYPE_4 (팔각/내부 사각 루프)</option>
+                    </select>
+                </div>
+                <div class="form-row-check">
+                    <label><input type="checkbox" id="chkTiebar" checked> 전단 검토에 반영</label>
+                </div>
+            </fieldset>
+
+            <!-- [주근의 이음 방식] -->
+            <fieldset class="group-box">
+                <legend>주근의 이음 방식 (Splice)</legend>
+                <div class="radio-stack">
+                    <label><input type="radio" name="radSplice" value="SPLICE000" checked> 이음하지 않음 (0%)</label>
+                    <label><input type="radio" name="radSplice" value="SPLICE050"> 반수 이음 (50% 엇갈림, A/B급)</label>
+                    <label><input type="radio" name="radSplice" value="SPLICE100"> 전수 이음 (100% 동일단면, B급)</label>
+                </div>
+                <div id="spliceInfoBox" class="info-dim-box">
+                    <span>인장 겹침이음(ls): <strong id="lblLsTens">-</strong> mm</span>
+                    <span>압축 이음(lsc): <strong id="lblLscComp">-</strong> mm</span>
+                </div>
+            </fieldset>
+
+            <!-- [내진 설계 & 필로티] -->
+            <fieldset class="group-box">
+                <legend>내진 설계 (Seismic Provisions)</legend>
+                <div class="form-row-check">
+                    <label><input type="checkbox" id="chkSeismic"> 내진 기준 적용</label>
+                </div>
+                <div id="seismicSubOptions" class="sub-section" style="opacity: 0.5; pointer-events: none;">
+                    <div class="radio-group">
+                        <label><input type="radio" name="radFrame" value="SMF"> 특수 (SMF)</label>
+                        <label><input type="radio" name="radFrame" value="IMF"> 중간 (IMF)</label>
+                        <label><input type="radio" name="radFrame" value="OMF" checked> 보통 (OMF)</label>
+                    </div>
+                    <div class="form-row-check" style="margin-top: 8px;">
+                        <label><input type="checkbox" id="chkPiloti"> 필로티 기둥 상세 적용, KDS 41 17 00</label>
+                    </div>
+                    <div class="info-dim-box">
+                        <span>소성힌지 구간(lo): <strong id="lblLo">600</strong> mm</span>
+                        <span>단부 최대간격(so): <strong id="lblSoLimit">150</strong> mm</span>
+                        <span>심부구속면적(Ash): <strong id="lblAshReq">0</strong> mm²</span>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- [설계 옵션] -->
+            <fieldset class="group-box">
+                <legend>설계 옵션 (Design Options)</legend>
+                <div class="form-row-check">
+                    <label><input type="checkbox" id="chkUserRho"> 최소/최대 철근비 사용자 지정</label>
+                </div>
+                <div id="userRhoOptions" class="form-row dual" style="display: none;">
+                    <div>
+                        <label>최소 철근비</label>
+                        <input type="number" id="numMinRho" value="0.010" step="0.005">
+                    </div>
+                    <div>
+                        <label>최대 철근비</label>
+                        <input type="number" id="numMaxRho" value="0.040" step="0.005">
+                    </div>
+                </div>
+            </fieldset>
+        </section>
+
+        <!-- 3열: 2D 그래픽 뷰포트 & P-M 차트 & 요약 -->
+        <section class="panel panel-right">
+            <!-- 1단: 2D 실측 단면 배근도 -->
+            <div class="viewport-box">
+                <div class="viewport-header">
+                    <span>단면 미리보기 (2D Section Preview)</span>
+                    <button id="btnFitSection" class="btn btn-xs">Fit</button>
+                </div>
+                <canvas id="canvasSection" width="400" height="280"></canvas>
+            </div>
+
+            <!-- 2단: P-M 상관곡선 차트 -->
+            <div class="viewport-box">
+                <div class="viewport-header">
+                    <span>P-M 상관 곡선 (P-M Interaction Diagram)</span>
+                    <div class="tab-axis">
+                        <button id="tabAxisX" class="btn btn-xs active">X축 P-M</button>
+                        <button id="tabAxisY" class="btn btn-xs">Y축 P-M</button>
+                        <button id="tabAxis3D" class="btn btn-xs btn-magic">3D 곡면 뷰</button>
+                    </div>
+                </div>
+                <div id="pm3dHint" style="display:none; font-size:10.5px; color:#64748b; padding:2px 8px; text-align:right;">
+                    💡 마우스 드래그: 3D 곡면 회전 | 휠: 확대/축소
+                </div>
+                <canvas id="canvasPM" width="400" height="280"></canvas>
+            </div>
+
+            <!-- 3단: 설계 용량 및 DCR 요약 카드 -->
+            <div class="result-summary-card">
+                <div class="res-row"><span>순수 압축내력 (P0):</span><strong id="lblP0">9580.0</strong> kN</div>
+                <div class="res-row"><span>최대 축하중 (φPn,max):</span><strong id="lblPhiPnMax">4981.6</strong> kN</div>
+                <div class="res-row"><span>장주 모멘트 (Mc,x / Mc,y):</span><strong id="lblMc">250.0 / 150.0</strong> kN·m</div>
+                <div class="res-row"><span>전단 강도 (φVnx / φVny):</span><strong id="lblPhiVn">360.3 / 360.3</strong> kN</div>
+                <div class="res-row critical"><span>최대 DCR (Critical):</span><strong id="lblMaxDcr">0.608</strong> (<span id="lblCritName">LC1</span>)</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- [모달 1] 하중 조합 다이얼로그 (IDD_RCS_COLM_GEN_FORCE_DLG_EC) -->
+    <div id="modalLcomb" class="modal-backdrop">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>하중 조합 정보 (Load Combinations)</h3>
+                <button id="btnCloseLcomb" class="btn-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="lcomb-toolbar">
+                    <button id="btnAddLcomb" class="btn btn-xs btn-primary">추가 (A)</button>
+                    <button id="btnDelLcomb" class="btn btn-xs btn-danger">삭제 (D)</button>
+                    <button id="btnResetLcomb" class="btn btn-xs btn-outline">기본 조합 생성</button>
+                    <button id="btnPasteExcel" class="btn btn-xs btn-magic">📋 엑셀 붙여넣기 (TSV)</button>
+                </div>
+                <div class="table-container">
+                    <table id="tblLcomb" class="grid-table">
+                        <thead>
+                            <tr>
+                                <th>선택</th>
+                                <th>No</th>
+                                <th>하중조합명</th>
+                                <th>Pu (kN)</th>
+                                <th>Mux (kN·m)</th>
+                                <th>Muy (kN·m)</th>
+                                <th>Vux (kN)</th>
+                                <th>Vuy (kN)</th>
+                                <th>DCR</th>
+                                <th>판정</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyLcomb">
+                            <!-- JS에서 동적 렌더링 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnApplyLcomb" class="btn btn-primary">적용 및 닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- [모달 2] 배근 상세 설정 다이얼로그 (IDD_RCS_COLUMN_RBAR_DLG) -->
+    <div id="modalRebarDetail" class="modal-backdrop">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>배근 상세 및 피복 설정 (IDD_RCS_COLUMN_RBAR_DLG)</h3>
+                <button id="btnCloseRebarDetail" class="btn-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <fieldset class="group-box">
+                    <legend>피복 및 골재 조건 (Cover & Aggregate)</legend>
+                    <div class="form-row">
+                        <label>순피복 두께 (cc)</label>
+                        <div class="input-unit"><input type="number" id="numModalCover" value="40" step="5"><span class="unit">mm</span></div>
+                    </div>
+                    <div class="form-row">
+                        <label>굵은 골재 최대치수 (d_agg)</label>
+                        <div class="input-unit"><input type="number" id="numModalDagg" value="25" step="5"><span class="unit">mm</span></div>
+                    </div>
+                    <div class="info-dim-box">
+                        <span>최소 순간격 한계식: <strong>s_min = max(1.5 db, 25mm, 1.33 d_agg)</strong></span>
+                    </div>
+                </fieldset>
+
+                <fieldset class="group-box" style="margin-top:12px;">
+                    <legend>띠철근 상세 (Tie Bar Detailing)</legend>
+                    <div class="form-row">
+                        <label>갈고리 가공 상세</label>
+                        <select id="selModalHookType">
+                            <option value="HOOK_135" selected>135도 내진 갈고리 (6 db ≥ 75mm 연장)</option>
+                            <option value="HOOK_90">90도 표준 갈고리 (비내진 구역)</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label>단부(소성힌지) 배근 길이 (lo)</label>
+                        <div class="input-unit"><input type="number" id="numModalLo" value="600" step="50"><span class="unit">mm</span></div>
+                    </div>
+                    <div class="form-row-check">
+                        <label><input type="checkbox" id="chkModalAutoLo" checked> KDS 소성힌지 한계 자동 연동</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button id="btnApplyRebarDetail" class="btn btn-primary">설정 적용</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- [모달 3] 순백색 A4 KaTeX 구조계산서 다이얼로그 (Structural Calculation Sheet) -->
+    <div id="modalReport" class="modal-backdrop">
+        <div class="modal-dialog modal-xl modal-sheet">
+            <div class="modal-header">
+                <div class="report-header-title">
+                    <span class="badge-gt">KDS 14 20 00 / 41 17 00</span>
+                    <h3>RC 기둥 KDS 구조계산서 (Structural Calculation Sheet)</h3>
+                </div>
+                <div class="report-toolbar">
+                    <button id="btnPrintReport" class="btn btn-sm btn-primary">🖨️ PDF / 인쇄</button>
+                    <button id="btnCopyReportHtml" class="btn btn-sm btn-secondary">📋 클립보드 복사</button>
+                    <button id="btnZoomToggle" class="btn btn-sm btn-outline">🔍 화면 맞춤</button>
+                    <button id="btnCloseReport" class="btn-close">&times;</button>
+                </div>
+            </div>
+            <div class="modal-body report-modal-body">
+                <div id="reportContainer" class="report-a4-viewport">
+                    <div id="reportSheet" class="a4-sheet">
+                        <!-- JS에서 순백색 A4 KaTeX 10대 챕터 계산서 동적 렌더링 -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span class="report-footer-info">Conforms 100% to KDS 14 20 20 (축휨), KDS 14 20 22 (전단), KDS 14 20 50 (이음), KDS 14 20 80 (내진)</span>
+                <button id="btnCloseReport2" class="btn btn-primary">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS 스크립트 바인딩 -->
+    <script src="/static/app.js"></script>
+</body>
+</html>

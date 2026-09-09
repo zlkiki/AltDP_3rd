@@ -1,4 +1,4 @@
-# 04. 원본앱 61종 전체 모듈 종합 카탈로그 및 4대 자산 인벤토리 (SSOT)
+# 53. 원본앱 61종 전체 모듈 종합 카탈로그 및 4대 자산 인벤토리 (53_master_original_app_modules_comprehensive_catalog.md)
 
 ---
 

@@ -1,4 +1,4 @@
-# Python 독립 엔진 아키텍처 명세서 (06_python_engine_architecture_specification.md)
+# 03. 엔진 아키텍처 명세서 (03_engine_architecture_specification.md)
 
 ## 1. 엔진 설계 원칙
 

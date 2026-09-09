@@ -26,12 +26,13 @@
 
 문서 전체를 미리 읽지 말고, **구현 중 특정 지식이나 규격이 필요할 때만 해당 문서의 관련 섹션을 열람(`view_file`)**하십시오:
 
-* 📖 **KDS 연동·예제집 검증 상세 절차 & 모듈 레이어 가이드**: [`docs/10`](../docs/10_agent_development_protocols.md)
-* 📋 **61종 원본앱 부재 매핑 (C 함수/심볼/다이얼로그 SSOT)**: [`docs/04`](../docs/04_master_original_app_modules_comprehensive_catalog.md)
-* 💻 **4-Pane 워크스페이스 레이아웃 & 프론트엔드 UI 표준**: [`docs/07`](../docs/07_web_application_ui_ux_specification.md)
-* 📚 **단면 형강 DB (.sdb) & 재료 규격**: [`docs/03`](../docs/03_section_db_specification.md)
-* 📑 **순백색 A4 KaTeX 구조계산서 표준 양식**: [`docs/14`](../docs/14_structural_calculation_report_specification.md)
-* 🔬 **2D FEM 평판·지반 솔버 및 수치 이론**: [`docs/15`](../docs/15_fem_analysis_and_external_solver_specification.md)
+* 📖 **KDS 연동·예제집 검증 상세 절차 & 모듈 레이어 가이드**: [`docs/05`](../docs/05_agent_development_protocols.md)
+* 📋 **61종 원본앱 부재 매핑 (C 함수/심볼/다이얼로그 SSOT)**: [`docs/53`](../docs/53_master_original_app_modules_comprehensive_catalog.md)
+* 💻 **4-Pane 워크스페이스 레이아웃 & 프론트엔드 UI 표준**: [`docs/12`](../docs/12_web_application_ui_ux_specification.md)
+* 📚 **단면 형강 DB (.sdb) & 재료 규격**: [`docs/11`](../docs/11_section_db_specification.md)
+* 📑 **순백색 A4 KaTeX 구조계산서 표준 양식**: [`docs/13`](../docs/13_structural_calculation_report_specification.md)
+* 🔬 **2D FEM 평판·지반 솔버 및 수치 이론**: [`docs/14`](../docs/14_fem_analysis_and_external_solver_specification.md)
+* 🖥️ **원본앱 UI/UX 역공학 종합 분석 (Ground Truth)**: [`docs/54`](../docs/54_original_app_ui_specification.md)
 * 📌 **프로젝트 전체 진행 현황 및 외부 기억**: [`요구사항/PROJECT_PROGRESS.md`](../요구사항/PROJECT_PROGRESS.md)
 
 ---

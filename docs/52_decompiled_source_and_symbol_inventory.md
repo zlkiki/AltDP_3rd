@@ -1,4 +1,4 @@
-# 추출 바이너리 및 심볼 자산 분석 명세서 (09_decompiled_source_and_symbol_inventory.md)
+# 추출 바이너리 및 심볼 자산 분석 명세서 (52_decompiled_source_and_symbol_inventory.md)
 
 ## 1. 역공학 자산 개요 (Overview)
 

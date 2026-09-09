@@ -2,17 +2,17 @@
 
 > **[SSOT] 외부 기억 진행 추적 및 원클릭 /goal 실행 통합 인덱스**  
 > 세션 재시작 및 AI 모델 교체 시 현황을 즉시 복원하고 다음 작업을 바로 실행하기 위한 단일 진실 공급원(SSOT)입니다.  
-> 세부 개발 행동 강령 및 온디맨드 기술 사양은 [`AGENTS.md`](../.agents/AGENTS.md), [`docs/10`](../docs/10_agent_development_protocols.md), [`docs/07`](../docs/07_web_application_ui_ux_specification.md)을 참조합니다.
+> 세부 개발 행동 강령 및 온디맨드 기술 사양은 [`AGENTS.md`](../.agents/AGENTS.md), [`docs/05`](../docs/05_agent_development_protocols.md), [`docs/12`](../docs/12_web_application_ui_ux_specification.md)을 참조합니다.
 
 ---
 
 ## 1. 현재 시스템 스냅샷 (Snapshot)
 
-* **최종 갱신**: `2026-09-09T16:45:00+09:00`
-* **최근 커밋**: `7c7a12a` (`feat: 요구사항 23 Phase V1-02 RC 기둥 자동화 플랫폼 수직 관통 및 온라인 오픈 완결`)
+* **최종 갱신**: `2026-09-09T20:58:00+09:00`
+* **최근 커밋**: `df36b68` (`feat: RC 기둥 배근 입력 고도화(변별배근/상세모달) 및 순백색 A4 KaTeX 구조계산서 전면 구축`)
 * **최근 작업**: 
-  - `요구사항 23 완결`: Tier 1 플래그십 RC 기둥 (`rc_column`) AltDP-Core 자동화 플랫폼 수직 관통 완결 (`tracer.py` KaTeX AST 직렬화기, `geometry.py` CAD 기하 규격, `tracer_report_renderer.js` 공통 뷰어, `column.py` Tracer 주입 및 KDS 14 20 20 축휨/전단/장주 수치해석, 한국콘크리트학회 2020 예제 5.1/5.2/5.3 벤치마크 오차 $\le 0.0004\%$ 검증, 4-서브탭 폼 & 2단 적층 뷰포트 & 순백색 A4 KaTeX 계산서 4-Pane 연동 및 `catalog.js` 온라인 오픈 완료)
-* **회귀 테스트**: **`pytest` 415 / 415 PASS (100% 통과, 0 Failures)**
+  - `RC 기둥 완결 및 고도화`: Midas Design+ 1:1 RC 기둥 (`rc_column`) 독립 샌드박스 완제품 구축 (`src/prototypes/rc_column/`), 균등/변별 배근(Per-Face: 코너 + 변별) 및 배근 상세 모달(`IDD_RCS_COLUMN_RBAR_DLG`), KDS 기준 10대 장 순백색 A4 KaTeX 구조계산서(P-M SVG 포락선, PDF 인쇄, 클립보드 복사) 전면 구축 및 브라우저 실측 검증, 문서 체계 개편
+* **회귀 테스트**: **`pytest` 428 / 428 PASS (100% 통과, 0 Failures)**
 * **차기 즉시 작업**: **`Phase 24`** (RC전단벽: 요구사항 24 수직관통 — KDS 계산엔진 + 경계요소 + 4-서브탭 폼 + 2D 배근도 + A4 계산서 E2E 통합, 권장 모델: 🧠 **High**)
 * **실행 명령문**: `/goal agents.md를 읽고 요구사항 24를 구현해줘`
 

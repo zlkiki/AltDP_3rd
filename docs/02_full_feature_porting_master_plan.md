@@ -1,4 +1,4 @@
-# 12. 원본앱 61종 전수 모듈 수직 포팅 마스터플랜 (Vertical Porting Master Plan)
+# 02. 원본앱 61종 전수 모듈 수직 포팅 마스터플랜 (02_full_feature_porting_master_plan.md)
 
 ## 1. 마스터플랜 개요 및 패러다임 전환 (Executive Summary)
 
