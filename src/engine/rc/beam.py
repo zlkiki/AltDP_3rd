@@ -147,6 +147,7 @@ class FlexureResult(BaseModel):
     is_ductility_ok: bool        # epsilon_t >= epsilon_t_min 만족 여부
     dcr: float
     status: str                  # "OK" | "NG"
+    is_zero_flexure: bool = False # 계수휨모멘트 0 이하 여부
 
 
 class ShearResult(BaseModel):
@@ -164,6 +165,7 @@ class ShearResult(BaseModel):
     Av_prov: float
     dcr: float
     status: str  # "OK" | "NG"
+    is_zero_shear: bool = False   # 계수전단력 0 이하 여부
 
 
 class TorsionResult(BaseModel):
@@ -181,6 +183,22 @@ class TorsionResult(BaseModel):
     Al_prov: float
     dcr: float
     status: str  # "OK" | "NG"
+    is_zero_torsion: bool = False # 계수비틀림 0 또는 문턱 비틀림 이하 여부
+
+
+class StationCrackSpacingCheck(BaseModel):
+    """KDS 14 20 30 제4.2.3절 균열방지 휨철근 간격 제한 (s <= s_max) 단면별 검토 결과."""
+    model_config = ConfigDict(extra="ignore")
+    
+    station: str             # "end_i", "center_m", "end_j"
+    rebar_pos: str           # "TOP" (단부 부모멘트) 또는 "BOTTOM" (중앙부 정모멘트)
+    s_actual: float          # 실제 중심 간격 (mm)
+    s_max: float             # 규준 최대 허용간격 (mm)
+    cc: float                # 순피복두께 (mm)
+    k_cr: float              # 환경계수 (280 또는 210)
+    fs: float                # 직접 산출된 철근 사용응력 (MPa)
+    dcr: float               # s_actual / s_max
+    is_ok: bool              # 만족 여부
 
 
 class ServiceabilityResult(BaseModel):
@@ -202,6 +220,16 @@ class ServiceabilityResult(BaseModel):
     dcr_crack: float
     status: str  # "OK" | "NG"
 
+    # KDS 14 20 30 제4.2.1절 지점조건 가중평균 Ie 및 단면별 Ie (cm4)
+    Ie_avg: float = 0.0           # 가중평균 유효단면2차모멘트 (cm4)
+    Ie_mid: float = 0.0           # 중앙부 Ie (cm4)
+    Ie_end_i: float = 0.0         # End-I 단부 Ie (cm4)
+    Ie_end_j: float = 0.0         # End-J 단부 Ie (cm4)
+    support_condition: str = "SIMPLE" # 지점 조건
+    
+    # KDS 14 20 30 제4.2.3절 3-Station 각 단면별 인장철근 균열방지 간격 검토 결과
+    crack_spacing_checks: Dict[str, StationCrackSpacingCheck] = Field(default_factory=dict)
+
 
 class RCBeamSectionResult(BaseModel):
     """Combined verification results at a single beam station."""
@@ -211,6 +239,9 @@ class RCBeamSectionResult(BaseModel):
     neg_flexure: FlexureResult
     shear: ShearResult
     torsion: TorsionResult
+    is_zero_flexure: bool = False
+    is_zero_shear: bool = False
+    is_zero_torsion: bool = False
 
 
 class RCBeamResult(BaseModel):
@@ -575,7 +606,8 @@ def calculate_rc_beam_flexure(
         is_min_flexure_ok=is_min_flexure_ok,
         is_ductility_ok=is_ductility_ok,
         dcr=round(dcr, 3),
-        status=status
+        status=status,
+        is_zero_flexure=(Mu <= 0.0)
     )
 
 
@@ -631,7 +663,8 @@ def calculate_rc_beam_shear(
         Av_min=round(Av_min, 1),
         Av_prov=round(Av, 1),
         dcr=round(dcr, 3),
-        status=status
+        status=status,
+        is_zero_shear=(Vu <= 0.0)
     )
 
 
@@ -715,7 +748,166 @@ def calculate_rc_beam_torsion(
         Al_req=round(Al_req, 1),
         Al_prov=round(side_bar_area, 1),
         dcr=round(total_dcr, 3),
-        status=status
+        status=status,
+        is_zero_torsion=(Tu_abs <= 0.0 or is_torsion_ignored)
+    )
+
+
+def calculate_cracked_section_properties(
+    b: float,
+    h: float,
+    d: float,
+    d_prime: float,
+    As: float,
+    As_prime: float,
+    fck: float,
+    Es: float = 200000.0
+) -> Tuple[float, float, float, float, float]:
+    """Calculate gross and cracked section transformed properties (Ig, Icr, Mcr, kd, n).
+    
+    Returns:
+        (Ig_mm4, Icr_mm4, Mcr_kNm, kd, n_ratio)
+    """
+    fcu = fck + 4.0 if fck <= 40.0 else fck + 6.0
+    Ec = 8500.0 * (fcu ** (1.0 / 3.0))
+    n_ratio = Es / Ec
+    
+    Ig_mm4 = (b * (h ** 3)) / 12.0
+    yt = h / 2.0
+    fr = 0.63 * 1.0 * math.sqrt(fck)
+    Mcr_Nmm = (fr * Ig_mm4) / yt
+    Mcr_kNm = Mcr_Nmm / 1e6
+    
+    # Cracked transformed section: neutral axis kd
+    A_kd = 0.5 * b
+    B_kd = n_ratio * As + max((n_ratio - 1.0) * As_prime, 0.0)
+    C_kd = - (n_ratio * As * d + max((n_ratio - 1.0) * As_prime * d_prime, 0.0))
+    disc_kd = max(B_kd ** 2 - 4.0 * A_kd * C_kd, 0.0)
+    kd = (-B_kd + math.sqrt(disc_kd)) / (2.0 * A_kd) if A_kd > 0 else 0.3 * d
+    
+    Icr_mm4 = (b * (kd ** 3)) / 3.0 + n_ratio * As * ((d - kd) ** 2)
+    if As_prime > 0 and kd > d_prime:
+        Icr_mm4 += (n_ratio - 1.0) * As_prime * ((kd - d_prime) ** 2)
+        
+    return (Ig_mm4, Icr_mm4, Mcr_kNm, kd, n_ratio)
+
+
+def calculate_effective_moment_of_inertia(
+    Ig_mm4: float,
+    Icr_mm4: float,
+    Mcr_kNm: float,
+    Ma_kNm: float
+) -> float:
+    """Calculate Branson effective moment of inertia Ie (mm4) for a cross-section."""
+    Ma_abs = abs(Ma_kNm)
+    if Ma_abs <= Mcr_kNm or Mcr_kNm <= 0.0:
+        return Ig_mm4
+    m_ratio = (Mcr_kNm / Ma_abs) ** 3
+    Ie = m_ratio * Ig_mm4 + (1.0 - m_ratio) * Icr_mm4
+    return min(Ie, Ig_mm4)
+
+
+def check_crack_bar_spacing(
+    station_name: str,
+    rebar_pos: str,
+    b: float,
+    d: float,
+    kd: float,
+    As: float,
+    fy: float,
+    Ma_kNm: float,
+    clear_cover: float,
+    stirrup_db: float,
+    bars: List[RebarRow],
+    k_cr: float = 280.0,
+    is_zero_load: bool = False
+) -> StationCrackSpacingCheck:
+    """Check maximum flexural rebar spacing for crack control (KDS 14 20 30 4.2.3).
+    
+    s <= s_max = 375 * (k_cr / f_s) - 2.5 * c_c <= 300 * (k_cr / f_s)
+    """
+    # 1. Shortest distance from concrete surface to nearest tension bar surface (cc)
+    cc = clear_cover + stirrup_db
+    
+    # 2. Service stress in steel fs (elastic cracked section)
+    jd = max(d - (kd / 3.0), 0.5 * d)
+    Ma_abs = abs(Ma_kNm)
+    
+    if is_zero_load:
+        # Zero load applied: no flexural tension stress, nominal spacing check with dcr=0
+        fs_clamped = (2.0 / 3.0) * fy
+        s_max_1 = 375.0 * (k_cr / fs_clamped) - 2.5 * cc
+        s_max_2 = 300.0 * (k_cr / fs_clamped)
+        s_max = max(min(s_max_1, s_max_2), 50.0)
+        
+        layer1_bars = [r for r in bars if r.layer == 1]
+        if not layer1_bars and bars:
+            layer1_bars = [bars[0]]
+        n_layer1 = sum(r.count for r in layer1_bars)
+        first_bar_dia = layer1_bars[0].bar_dia if layer1_bars else "D22"
+        main_db = get_rebar_db(first_bar_dia)
+        if n_layer1 >= 2:
+            centerline_width = max(b - 2.0 * (cc + main_db / 2.0), 0.0)
+            s_actual = centerline_width / (n_layer1 - 1)
+        else:
+            s_actual = max(b - 2.0 * cc, 0.0)
+            
+        return StationCrackSpacingCheck(
+            station=station_name,
+            rebar_pos=rebar_pos,
+            s_actual=round(s_actual, 1),
+            s_max=round(s_max, 1),
+            cc=round(cc, 1),
+            k_cr=round(k_cr, 1),
+            fs=0.0,
+            dcr=0.0,
+            is_ok=True
+        )
+        
+    if Ma_abs > 0 and As > 0 and jd > 0:
+        fs = (Ma_abs * 1e6) / (As * jd)
+        if fs <= 0.0:
+            fs = (2.0 / 3.0) * fy
+    else:
+        # Fallback to (2/3) * fy when service moment is not provided
+        fs = (2.0 / 3.0) * fy
+        
+    fs_clamped = max(min(fs, fy), 10.0)
+    
+    # 3. Maximum allowable spacing s_max
+    s_max_1 = 375.0 * (k_cr / fs_clamped) - 2.5 * cc
+    s_max_2 = 300.0 * (k_cr / fs_clamped)
+    s_max = min(s_max_1, s_max_2)
+    s_max = max(s_max, 50.0)  # Physical lower bound
+    
+    # 4. Actual spacing s_actual
+    layer1_bars = [r for r in bars if r.layer == 1]
+    if not layer1_bars and bars:
+        layer1_bars = [bars[0]]
+        
+    n_layer1 = sum(r.count for r in layer1_bars)
+    first_bar_dia = layer1_bars[0].bar_dia if layer1_bars else "D22"
+    main_db = get_rebar_db(first_bar_dia)
+    
+    if n_layer1 >= 2:
+        centerline_width = max(b - 2.0 * (cc + main_db / 2.0), 0.0)
+        s_actual = centerline_width / (n_layer1 - 1)
+    else:
+        s_actual = max(b - 2.0 * cc, 0.0)
+        
+    dcr = s_actual / s_max if s_max > 0 else 999.0
+    is_ok = (dcr <= 1.0)
+    
+    return StationCrackSpacingCheck(
+        station=station_name,
+        rebar_pos=rebar_pos,
+        s_actual=round(s_actual, 1),
+        s_max=round(s_max, 1),
+        cc=round(cc, 1),
+        k_cr=round(k_cr, 1),
+        fs=round(fs_clamped, 1),
+        dcr=round(dcr, 3),
+        is_ok=is_ok
     )
 
 
@@ -737,7 +929,12 @@ def calculate_rc_beam_serviceability(
     num_tension_bars: int,
     defl_ratio: float = 240.0,
     time_duration_months: int = 60,
-    w_lim: float = 0.30
+    w_lim: float = 0.30,
+    Ie_override: Optional[float] = None,
+    Ie_mid: Optional[float] = None,
+    Ie_end_i: Optional[float] = None,
+    Ie_end_j: Optional[float] = None,
+    crack_spacing_checks: Optional[Dict[str, StationCrackSpacingCheck]] = None
 ) -> ServiceabilityResult:
     """Rigorous Branson Ie deflection and direct crack width evaluation (KDS 14 20 30)."""
     # Concrete Elastic Modulus Ec = 8500 * (fcu)^(1/3)
@@ -773,6 +970,9 @@ def calculate_rc_beam_serviceability(
         Ie_mm4 = m_ratio * Ig_mm4 + (1.0 - m_ratio) * Icr_mm4
         Ie_mm4 = min(Ie_mm4, Ig_mm4)
         
+    # Determine which Ie to use for deflection (Ie_override if provided from weighted average)
+    Ie_calc = Ie_override if (Ie_override is not None and Ie_override > 0) else Ie_mm4
+    
     # Support deflection coefficient alpha
     if support == SupportCondition.SIMPLE:
         alpha_defl = 5.0 / 48.0
@@ -786,7 +986,7 @@ def calculate_rc_beam_serviceability(
         alpha_defl = 5.0 / 48.0
         
     # Immediate elastic deflection delta_i
-    delta_immediate = (alpha_defl * (Ma_abs * 1e6) * (length ** 2)) / (Ec * Ie_mm4) if (Ec * Ie_mm4) > 0 else 0.0
+    delta_immediate = (alpha_defl * (Ma_abs * 1e6) * (length ** 2)) / (Ec * Ie_calc) if (Ec * Ie_calc) > 0 else 0.0
     
     # Long-term multiplier lambda_delta (xi = 2.0 for 5+ years)
     xi_factor = 2.0 if time_duration_months >= 60 else (1.4 if time_duration_months >= 12 else (1.2 if time_duration_months >= 6 else 1.0))
@@ -818,13 +1018,18 @@ def calculate_rc_beam_serviceability(
     crack_width = 1.08 * beta_crack * eps_s_service * ((dc * A_eff) ** (1.0 / 3.0)) if (dc * A_eff) > 0 else 0.0
     dcr_crack = crack_width / w_lim if w_lim > 0 else 0.0
     
-    status = "OK" if (dcr_defl <= 1.0 and dcr_crack <= 1.0) else "NG"
+    # Overall serviceability status check
+    is_spacing_ok = True
+    if crack_spacing_checks:
+        is_spacing_ok = all(chk.is_ok for chk in crack_spacing_checks.values())
+        
+    status = "OK" if (dcr_defl <= 1.0 and dcr_crack <= 1.0 and is_spacing_ok) else "NG"
     
     return ServiceabilityResult(
         Mcr=round(Mcr, 2),
         I_g=round(Ig_mm4 / 1e4, 1),    # cm4
         I_cr=round(Icr_mm4 / 1e4, 1),  # cm4
-        I_e=round(Ie_mm4 / 1e4, 1),    # cm4
+        I_e=round(Ie_calc / 1e4, 1),   # cm4
         delta_immediate=round(delta_immediate, 2),
         lambda_delta=round(lambda_delta, 3),
         delta_long_term=round(delta_long_term, 2),
@@ -834,7 +1039,13 @@ def calculate_rc_beam_serviceability(
         crack_allow=round(w_lim, 2),
         dcr_defl=round(dcr_defl, 3),
         dcr_crack=round(dcr_crack, 3),
-        status=status
+        status=status,
+        Ie_avg=round(Ie_calc / 1e4, 1),
+        Ie_mid=round((Ie_mid if Ie_mid is not None else Ie_mm4) / 1e4, 1),
+        Ie_end_i=round((Ie_end_i if Ie_end_i is not None else Ie_mm4) / 1e4, 1),
+        Ie_end_j=round((Ie_end_j if Ie_end_j is not None else Ie_mm4) / 1e4, 1),
+        support_condition=support.value if hasattr(support, "value") else str(support),
+        crack_spacing_checks=crack_spacing_checks or {}
     )
 
 
@@ -928,28 +1139,169 @@ def calculate_rc_beam_design(
             pos_flexure=pos_flex,
             neg_flexure=neg_flex,
             shear=shear_res,
-            torsion=torsion_res
+            torsion=torsion_res,
+            is_zero_flexure=(pos_flex.is_zero_flexure and neg_flex.is_zero_flexure),
+            is_zero_shear=shear_res.is_zero_shear,
+            is_zero_torsion=torsion_res.is_zero_torsion
         )
         
-    # 5. Serviceability (Evaluated at Center-M)
+    # 5. Serviceability (Branson Ie Weighted Average and 3-Station Crack Spacing Check)
+    # 5.1 Calculate cross-sectional properties and Ie for each station
+    # End-I (Negative bending dominant: top tension, bottom compression)
+    i_rgroup = rebar.end_i
+    i_loads = loads.end_i
+    i_stirrup_db = get_rebar_db(i_rgroup.stirrup_bar)
+    i_As_bot, i_d_bot, _, i_dp_bot = calculate_rebar_group_properties(
+        i_rgroup.bot_bars, h, section.cover, i_stirrup_db, is_top=False
+    )
+    i_As_top, i_d_top, _, i_dp_top = calculate_rebar_group_properties(
+        i_rgroup.top_bars, h, section.cover_top, i_stirrup_db, is_top=True
+    )
+    
+    # Center-M (Positive bending dominant: bottom tension, top compression)
     mid_rgroup = rebar.center_m
     mid_loads = loads.center_m
     mid_stirrup_db = get_rebar_db(mid_rgroup.stirrup_bar)
-    mid_As_bot, mid_d_bot, _, _ = calculate_rebar_group_properties(
+    mid_As_bot, mid_d_bot, _, mid_dp_bot = calculate_rebar_group_properties(
         mid_rgroup.bot_bars, h, section.cover, mid_stirrup_db, is_top=False
     )
-    mid_As_top, _, _, mid_dp_top = calculate_rebar_group_properties(
+    mid_As_top, mid_d_top, _, mid_dp_top = calculate_rebar_group_properties(
         mid_rgroup.top_bars, h, section.cover_top, mid_stirrup_db, is_top=True
     )
-    num_bot_bars = sum(row.count for row in mid_rgroup.bot_bars)
     
+    # End-J (Negative bending dominant: top tension, bottom compression)
+    j_rgroup = rebar.end_j
+    j_loads = loads.end_j
+    j_stirrup_db = get_rebar_db(j_rgroup.stirrup_bar)
+    j_As_bot, j_d_bot, _, j_dp_bot = calculate_rebar_group_properties(
+        j_rgroup.bot_bars, h, section.cover, j_stirrup_db, is_top=False
+    )
+    j_As_top, j_d_top, _, j_dp_top = calculate_rebar_group_properties(
+        j_rgroup.top_bars, h, section.cover_top, j_stirrup_db, is_top=True
+    )
+    
+    # Center-M:
+    Ma_m = mid_loads.Ma_pos if mid_loads.Ma_pos > 0 else (mid_loads.Ma_neg if mid_loads.Ma_neg > 0 else 0.0)
+    Ig_m, Icr_m, Mcr_m, kd_m, _ = calculate_cracked_section_properties(
+        b, h, mid_d_bot, mid_dp_top, mid_As_bot, mid_As_top, fck
+    )
+    Ie_m = calculate_effective_moment_of_inertia(Ig_m, Icr_m, Mcr_m, Ma_m)
+    
+    # End-I:
+    Ma_i = i_loads.Ma_neg if i_loads.Ma_neg > 0 else (i_loads.Ma_pos if i_loads.Ma_pos > 0 else 0.0)
+    Ig_i, Icr_i, Mcr_i, kd_i, _ = calculate_cracked_section_properties(
+        b, h, i_d_top, i_dp_bot, i_As_top, i_As_bot, fck
+    )
+    Ie_i = calculate_effective_moment_of_inertia(Ig_i, Icr_i, Mcr_i, Ma_i)
+    
+    # End-J:
+    Ma_j = j_loads.Ma_neg if j_loads.Ma_neg > 0 else (j_loads.Ma_pos if j_loads.Ma_pos > 0 else 0.0)
+    Ig_j, Icr_j, Mcr_j, kd_j, _ = calculate_cracked_section_properties(
+        b, h, j_d_top, j_dp_bot, j_As_top, j_As_bot, fck
+    )
+    Ie_j = calculate_effective_moment_of_inertia(Ig_j, Icr_j, Mcr_j, Ma_j)
+    
+    # Reinforcement Detailing Arrange Type Linkage
+    if rebar.arrange_type == BeamArrangeType.ONE_SECTION:
+        Ie_i = Ie_m
+        Ie_j = Ie_m
+    elif rebar.arrange_type == BeamArrangeType.SYMMETRIC_ENDS:
+        Ie_j = Ie_i
+        
+    # Boundary Support Condition weighted average (KDS 14 20 30 4.2.1(4))
+    if section.support == SupportCondition.SIMPLE:
+        Ie_avg = Ie_m
+    elif section.support == SupportCondition.CONTINUOUS_BOTH:
+        Ie_avg = 0.50 * Ie_m + 0.25 * (Ie_i + Ie_j)
+    elif section.support == SupportCondition.CONTINUOUS_ONE:
+        Ie_cont = max(Ie_i, Ie_j) if (Ie_i > 0 or Ie_j > 0) else Ie_m
+        Ie_avg = 0.85 * Ie_m + 0.15 * Ie_cont
+    elif section.support == SupportCondition.CANTILEVER:
+        Ie_avg = max(Ie_i, Ie_j) if (Ie_i > 0 or Ie_j > 0) else Ie_m
+    else:
+        Ie_avg = Ie_m
+        
+    # 5.2 3-Station Crack Spacing Checks (KDS 14 20 30 4.2.3)
+    crack_spacing_checks: Dict[str, StationCrackSpacingCheck] = {}
+    
+    i_is_zero = (i_loads.Mu_neg <= 0.0 and i_loads.Ma_neg <= 0.0 and i_loads.Mu_pos <= 0.0 and i_loads.Ma_pos <= 0.0)
+    m_is_zero = (mid_loads.Mu_pos <= 0.0 and mid_loads.Ma_pos <= 0.0 and mid_loads.Mu_neg <= 0.0 and mid_loads.Ma_neg <= 0.0)
+    j_is_zero = (j_loads.Mu_neg <= 0.0 and j_loads.Ma_neg <= 0.0 and j_loads.Mu_pos <= 0.0 and j_loads.Ma_pos <= 0.0)
+    
+    check_i = check_crack_bar_spacing(
+        station_name="end_i",
+        rebar_pos="TOP",
+        b=b,
+        d=i_d_top,
+        kd=kd_i,
+        As=i_As_top,
+        fy=fy,
+        Ma_kNm=Ma_i,
+        clear_cover=section.cover_top,
+        stirrup_db=i_stirrup_db,
+        bars=i_rgroup.top_bars,
+        k_cr=280.0,
+        is_zero_load=i_is_zero
+    )
+    
+    check_m = check_crack_bar_spacing(
+        station_name="center_m",
+        rebar_pos="BOTTOM",
+        b=b,
+        d=mid_d_bot,
+        kd=kd_m,
+        As=mid_As_bot,
+        fy=fy,
+        Ma_kNm=Ma_m,
+        clear_cover=section.cover,
+        stirrup_db=mid_stirrup_db,
+        bars=mid_rgroup.bot_bars,
+        k_cr=280.0,
+        is_zero_load=m_is_zero
+    )
+    
+    check_j = check_crack_bar_spacing(
+        station_name="end_j",
+        rebar_pos="TOP",
+        b=b,
+        d=j_d_top,
+        kd=kd_j,
+        As=j_As_top,
+        fy=fy,
+        Ma_kNm=Ma_j,
+        clear_cover=section.cover_top,
+        stirrup_db=j_stirrup_db,
+        bars=j_rgroup.top_bars,
+        k_cr=280.0,
+        is_zero_load=j_is_zero
+    )
+    
+    if rebar.arrange_type == BeamArrangeType.ONE_SECTION:
+        crack_spacing_checks["center_m"] = check_m
+    elif rebar.arrange_type == BeamArrangeType.SYMMETRIC_ENDS:
+        crack_spacing_checks["end_i"] = check_i
+        crack_spacing_checks["center_m"] = check_m
+        check_j_sym = check_i.model_copy()
+        check_j_sym.station = "end_j"
+        crack_spacing_checks["end_j"] = check_j_sym
+    else:  # THREE_STATIONS
+        crack_spacing_checks["end_i"] = check_i
+        crack_spacing_checks["center_m"] = check_m
+        crack_spacing_checks["end_j"] = check_j
+        
+    # Execute full serviceability evaluation with weighted Ie
+    num_bot_bars = sum(row.count for row in mid_rgroup.bot_bars)
     serv_res = calculate_rc_beam_serviceability(
         b=b, h=h, d=mid_d_bot, d_prime=mid_dp_top,
         As=mid_As_bot, As_prime=mid_As_top, fck=fck, fy=fy,
-        Ma=mid_loads.Ma_pos if mid_loads.Ma_pos > 0 else (mid_loads.Ma_neg if mid_loads.Ma_neg > 0 else 0.0),
-        Msus=mid_loads.Msus, length=section.length, support=section.support,
+        Ma=Ma_m, Msus=mid_loads.Msus, length=section.length, support=section.support,
         clear_cover=section.cover, stirrup_db=mid_stirrup_db,
-        num_tension_bars=num_bot_bars, defl_ratio=loads.deflection_limit_ratio
+        num_tension_bars=num_bot_bars, defl_ratio=loads.deflection_limit_ratio,
+        Ie_override=Ie_avg,
+        Ie_mid=Ie_m,
+        Ie_end_i=Ie_i,
+        Ie_end_j=Ie_j,
+        crack_spacing_checks=crack_spacing_checks
     )
     
     if serv_res.dcr_defl > max_dcr:
@@ -959,7 +1311,12 @@ def calculate_rc_beam_design(
         max_dcr = serv_res.dcr_crack
         governing_mode = "Crack Width"
         
-    overall_status = "OK" if max_dcr <= 1.0 else "NG"
+    for station_k, ccheck in serv_res.crack_spacing_checks.items():
+        if ccheck.dcr > max_dcr:
+            max_dcr = ccheck.dcr
+            governing_mode = f"{station_k} Crack Spacing"
+            
+    overall_status = "OK" if (max_dcr <= 1.0 and serv_res.status == "OK") else "NG"
     
     return RCBeamResult(
         end_i=station_results["end_i"],
