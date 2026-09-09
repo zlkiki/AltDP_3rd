@@ -862,7 +862,7 @@
                             </div>
                             ` : `
                             <div class="summary-box" style="background:#f8fafc;border:1px solid #e2e8f0;padding:10px 12px;border-radius:4px;margin-top:10px;font-size:11px;">
-                                <span style="font-weight:600;color:#1e3a8a;">3.4 단부-J (End-J) 최소철근량 만족 및 연성파괴 유도 검토:</span> 단부-I과 대칭 동일 배근 및 단면 ($\\\\phi M_n = ${endJFlex.phiMn.toFixed(1)}\\\\text{ kN}\\\\cdot\\\\text{m} \\\\ge 1.2 M_{cr}$, $\\\\epsilon_t = ${endJFlex.epsT.toFixed(4)}$) <span class="${endJFlex.isMinOk && endJFlex.isDuctilityOk ? 'verdict-ok' : 'verdict-ng'}">${endJFlex.isMinOk && endJFlex.isDuctilityOk ? '  →  O.K' : '  →  N.G'}</span>
+                                <span style="font-weight:600;color:#1e3a8a;">3.4 단부-J (End-J) 최소철근량 만족 및 연성파괴 유도 검토:</span> 단부-I과 대칭 동일 배근 및 단면 ($\\phi M_n = ${endJFlex.phiMn.toFixed(1)}\\text{ kN}\\cdot\\text{m} \\ge 1.2 M_{cr}$, $\\epsilon_t = ${endJFlex.epsT.toFixed(4)}$) <span class="${endJFlex.isMinOk && endJFlex.isDuctilityOk ? 'verdict-ok' : 'verdict-ng'}">${endJFlex.isMinOk && endJFlex.isDuctilityOk ? '  →  O.K' : '  →  N.G'}</span>
                             </div>
                             `}
                             `}

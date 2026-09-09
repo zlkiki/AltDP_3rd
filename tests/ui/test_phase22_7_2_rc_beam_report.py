@@ -34,6 +34,11 @@ def test_chapter3_kds2022_min_flexure_always_rendered():
     # Ensure no legacy equation regression (0.25*sqrt(fck)/fy)
     assert '0.25 \\sqrt{f_{ck}} / f_y' not in content
 
+    # Verify Section 3.4 End-J symmetry formula syntax (no quadruple backslash escaping bug)
+    assert r'($\\\\phi M_n =' not in content
+    assert '3.4 단부-J (End-J) 최소철근량 만족 및 연성파괴 유도 검토:' in content
+    assert r'($\\phi M_n =' in content
+
 
 def test_chapter5_zero_shear_dynamic_omission():
     """Verify Chapter 5.2 dynamically simplifies to 1-line summary when Vu <= 0."""
